@@ -1,0 +1,807 @@
+/* library.css — The Neoplatonic Library's own design system: the Reading Room.
+ *
+ * The library is a citable corpus of restored editions with a scholarly
+ * apparatus, not a blog post and not a terminal. The page is a LEAF OF AN
+ * EDITION: masthead, catalogue, text, apparatus, colophon. This file is the
+ * whole look — tokens, chrome, the catalogue and apparatus components, and the
+ * reading layer (.prose). It does NOT depend on the blog's blog.css.
+ *
+ * The token NAMES are the contract the compiled reader (tools/app.js) and
+ * READER_CSS bind to (--bg, --bg2, --fg, --dim, --line, --accent, --accent2,
+ * --serif, --sans, --mono). Their VALUES are the library's: parchment and
+ * iron-gall ink, rubricated in deep vermilion. Light only — the reading room is
+ * paper.
+ *
+ * Consuming pages (build/shell.mjs page()) inline this file, comment-stripped,
+ * as the first <style> in the head. The reader's own stylesheet (READER_CSS,
+ * build/library.mjs) is layered after it and re-skins the .rd* classes against
+ * these same tokens.
+ */
+
+:root {
+  --bg: #faf7f0;
+  --bg2: #f1ece0;
+  --fg: #1c1a17;
+  --dim: #6b6459;
+  /* the label ink: quieter than the text, darker than --dim. The small-caps
+   * labels (bib-record keys, section eyebrows, field labels, footer headings)
+   * are set in it, so a label is legible without competing with the text it
+   * labels. MEASURED on the deployed pages: the labels sat in --dim at
+   * 11.5-12px and read as faint. The tracked UPPERCASE label is the smallest
+   * text on the site and its strokes are thin, so the ink sits well clear of the
+   * 4.5:1 floor rather than on it: #45403a measures 9.59:1 on --bg (#faf7f0) and
+   * 8.70:1 on --bg2 (#f1ece0) — the value was #504a41 (8.19:1 / 7.43:1) and is
+   * raised. It stays far lighter than --fg (16.2:1), so a label still does not
+   * read as a value. */
+  --label: #45403a;
+  --line: #ddd5c4;
+  --rule: #c3b89f;
+  --accent: #8a2b23;
+  --accent2: #26456e;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, Georgia, serif;
+  --sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "SFMono-Regular", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+  --measure: 34rem;
+  --wide: 72rem;
+  /* THE READING WIDTH: as wide as this page is allowed to get. The reader (the
+     app, build/library.mjs READER_CSS) sets it, and the apparatus — which is the
+     same page's other half, and whose unit is the page image — is set to the SAME
+     width, so the leaf and the readings it was taken from line up on one grid.
+     The prose stays at --measure inside it. */
+  --reader: 1240px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 20px;
+  --space-5: 32px;
+  --space-6: 56px;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap { max-width: var(--wide); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- skip link (first thing in the tab order) ---------- */
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--fg); color: var(--bg); font-family: var(--sans);
+  font-size: 13px; padding: 8px 14px;
+}
+.skip:focus { left: 8px; top: 8px; }
+
+/* ---------- masthead: wordmark, rubric rule, statement ---------- */
+.masthead { padding: var(--space-6) 0 var(--space-5); }
+.masthead .wrap { max-width: var(--wide); }
+.wordmark {
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.wordmark a { color: var(--fg); text-decoration: none; }
+.wordmark a:hover { color: var(--accent); }
+/* On the home page the wordmark IS the current location (the nav has no entry
+   for `/`), so it carries the nav's own current-state treatment — the rubric.
+   MEASURED: the marker class was written on the home page alone and no rule
+   reached it, so the current location was invisible on `/`. */
+.wordmark a.home { color: var(--accent); }
+.rule { border: 0; border-top: 1px solid var(--line); }
+.rule--rubric { border-top: 2px solid var(--accent); width: 4.5rem; margin: var(--space-4) 0 var(--space-4); }
+.statement {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--dim);
+  max-width: var(--measure);
+}
+/* Interior pages: the masthead is COMPACT, so the page's own title leads.
+ * MEASURED: on a deep page the site masthead was set at the same 2.1rem as the
+ * page's own <h1>, over 56px of top padding, and dominated the top of the
+ * viewport before the page said what it was. The hook is semantic and already in
+ * the markup: the wordmark is an <h1> only where the reading room's own heading
+ * IS the library's name (the home page), and a <p> on every other page, where
+ * the page's own <h1> does that job — so the header needs no class of its own
+ * and :has() (already used for the apparatus filters) carries the flag up to it.
+ * The wordmark stays the link home and keeps its current-page state (that
+ * treatment is written on the home page's own `.wordmark a.home`). */
+.masthead:has(p.wordmark) { padding: var(--space-4) 0 var(--space-3); }
+.masthead p.wordmark { font-size: 1.15rem; }
+.masthead:has(p.wordmark) .rule--rubric { margin: var(--space-3) 0 var(--space-2); }
+.masthead:has(p.wordmark) .statement { font-size: 0.875rem; max-width: var(--wide); }
+
+/* ---------- the nav: a quiet scholarly row ----------
+ *
+ * The nav is the site's primary hierarchy, so its labels are larger, wider-set
+ * and in --label, and the CURRENT page is lit (DESIGN-SYSTEM.md §4/§5): a
+ * vermilion label with a vermilion rule under it — the rubric recurring as a
+ * position marker, not as a stray mark. The colophon's headings below are a
+ * footer, not a nav, and are set a size smaller and in --dim so the two do not
+ * read as one row of equal labels. */
+body > nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+body > nav .wrap {
+  display: flex; align-items: center; gap: var(--space-3);
+  flex-wrap: wrap; row-gap: var(--space-1);
+  padding-top: 10px; padding-bottom: 10px; min-height: 46px;
+}
+body > nav .links { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-4); }
+body > nav a {
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--label);
+  text-decoration: none; padding-bottom: 3px; border-bottom: 2px solid transparent;
+}
+body > nav a:hover { color: var(--fg); }
+body > nav a.home { color: var(--accent); border-bottom-color: var(--accent); }
+body > nav a.home:hover { color: var(--accent); border-bottom-color: var(--accent); }
+body > nav .here-label {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--dim);
+}
+
+/* ---------- the page head: eyebrow, heading, standfirst ---------- */
+.page-head { padding: var(--space-5) 0 var(--space-4); }
+.eyebrow {
+  display: block;
+  font-family: var(--sans); font-size: 12.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent);
+}
+h1 {
+  font-family: var(--serif); font-size: 2.1rem; line-height: 1.18;
+  font-weight: 600; letter-spacing: -0.01em;
+  margin: var(--space-2) 0 var(--space-3);
+}
+.standfirst { font-size: 1.0625rem; color: var(--dim); max-width: var(--measure); }
+
+/* ---------- the breadcrumb: where this page sits in the library ---------- */
+.crumbs { font-family: var(--sans); font-size: 12.5px; letter-spacing: 0.02em; }
+.crumbs .wrap { padding-top: var(--space-4); }
+.crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.crumbs li + li::before { content: "/"; color: var(--rule); margin-right: 6px; }
+.crumbs a { color: var(--accent2); }
+.crumbs a:hover { color: var(--accent); }
+.crumbs [aria-current] { color: var(--dim); }
+
+/* ---------- sections ----------
+ *
+ * A section is a HEADING and, under it, a CAPTION — never two headings. The
+ * caption (.hint) is the reference serif at text scale in --dim; the small-caps
+ * label vocabulary is kept for the things a reader SCANS by (the page eyebrow,
+ * the bib record's field names, the filter groups, the footer's headings), and
+ * it is set in --label at 12-12.5px so it is legible. MEASURED on the deployed
+ * pages: a section's caption was set in the same uppercase sans as the labels,
+ * so "The edition" + "the bibliographic record" read as two headings, and the
+ * apparatus's three-sentence summary was rendered in uppercase. */
+section { padding: var(--space-5) 0; border-top: 1px solid var(--line); }
+.page-head + section, .masthead + section { border-top: 0; }
+h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; letter-spacing: -0.005em; margin-bottom: var(--space-2); }
+h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; margin: var(--space-4) 0 var(--space-2); }
+.hint {
+  font-family: var(--serif); font-size: 0.9375rem; line-height: 1.55;
+  color: var(--dim); max-width: var(--measure); margin-bottom: var(--space-4);
+}
+p { margin-bottom: 14px; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+/* The rubric recurs on the FOCUS state: a keyboard reader gets the accent's own
+   mark, at every link, field and control on the page. */
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+.dim { color: var(--dim); }
+code, kbd, samp { font-family: var(--mono); font-size: 0.9em; }
+p code, li code, td code {
+  background: var(--bg2); border: 1px solid var(--line); border-radius: 3px;
+  padding: 0 5px; color: var(--fg);
+}
+
+/* ---------- the reading layer: the library's own prose ---------- */
+.prose {
+  font-family: var(--serif); font-size: 1.0625rem; line-height: 1.7;
+  color: var(--fg); max-width: var(--measure);
+}
+.prose > :last-child { margin-bottom: 0; }
+.prose h2 { margin: var(--space-5) 0 var(--space-3); }
+.prose h3 { margin: var(--space-4) 0 var(--space-2); }
+.prose ul { list-style: disc; padding-left: 1.4em; margin: 0 0 1.15em; }
+.prose ol { list-style: decimal; padding-left: 1.4em; margin: 0 0 1.15em; }
+.prose li { margin-bottom: 0.45em; }
+.prose blockquote {
+  border-left: 2px solid var(--rule); padding: 2px 0 2px 18px;
+  margin: var(--space-4) 0; color: var(--dim); font-style: italic;
+}
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.2em 0; }
+.prose a { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; text-decoration-color: rgba(38, 69, 110, 0.35); }
+.prose a:hover { text-decoration-color: currentColor; }
+.prose pre {
+  background: var(--bg2); border: 1px solid var(--line); border-radius: 3px;
+  padding: 14px 16px; overflow-x: auto; margin: 1.2em 0;
+  font-family: var(--mono); font-size: 0.82rem; line-height: 1.55;
+}
+.prose pre code { background: none; border: 0; padding: 0; }
+.prose table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.88em; font-family: var(--sans); }
+.prose th, .prose td { border-bottom: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top; }
+.prose th {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--label); font-weight: 600;
+}
+.prose sup a { font-family: var(--mono); font-size: 0.75em; }
+.prose .footnotes { font-size: 0.9em; color: var(--dim); margin-top: 2.2em; max-width: var(--measure); }
+
+/* a reference work's list is not prose: it is the reading layer's own list */
+.prose ul, .prose ol { max-width: var(--measure); }
+
+/* ---------- the catalogue ----------
+ *
+ * ONE list, ordered by author (surname) then title, with a factual control
+ * above it (Author · Title · Year) and a factual filter (the repair state).
+ * There are no collection headings and no interpretive line: a corpus is
+ * described as a corpus. The controls are quiet — the corpus is the object on
+ * the page, not the way of sorting it. */
+.catalogue { margin-top: var(--space-4); }
+.catalogue-controls {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--space-2) var(--space-5); margin-bottom: var(--space-3);
+}
+.cc-group { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+.cc-label {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--label);
+}
+.cc-sort {
+  font-family: var(--sans); font-size: 12.5px; font-weight: 500; color: var(--dim);
+  background: none; border: 0; border-bottom: 2px solid transparent;
+  padding: 1px 1px; cursor: pointer;
+}
+.cc-sort:hover { color: var(--fg); }
+.cc-sort.cc-on { color: var(--accent); border-bottom-color: var(--accent); }
+.cc-state {
+  display: inline-flex; align-items: baseline; gap: 5px;
+  font-family: var(--sans); font-size: 12.5px; color: var(--fg); cursor: pointer;
+}
+.cc-state .cc-n { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+.catalogue-controls input[type="checkbox"] { accent-color: var(--accent); }
+.catalogue-controls .cc-state:has(input:not(:checked)) { color: var(--dim); }
+.catalogue-controls .cc-state:has(input:not(:checked)) .tag { opacity: 0.5; }
+.cat-legend {
+  font-family: var(--serif); font-size: 0.9375rem; line-height: 1.55;
+  color: var(--dim); max-width: var(--measure); margin-bottom: var(--space-4);
+}
+ul.entries { list-style: none; padding: 0; margin: 0; }
+.cat-entry { padding: var(--space-4) 0; border-top: 1px solid var(--line); }
+.cat-entry:first-child { border-top: 0; }
+.cat-entry[hidden] { display: none; }
+.cat-entry .title { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
+/* A title is the way into the edition, so it LOOKS like one: it carries the
+   reference layer's own underline (as .prose links do) and goes vermilion under
+   the pointer. */
+.cat-entry .title a {
+  color: var(--fg); text-decoration: underline; text-underline-offset: 2px;
+  text-decoration-thickness: 1px; text-decoration-color: rgba(38, 69, 110, 0.35);
+}
+.cat-entry .title a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.cat-meta { font-size: 0.9375rem; color: var(--dim); margin: var(--space-1) 0 0; }
+.cat-meta .mono { font-family: var(--mono); font-size: 0.82rem; }
+
+/* the state pill: repaired / in repair / damaged.
+ *
+ * MEASURED on the review: the pill was 11px in --label on a hairline border and
+ * read as a faint grey word, with nothing saying what it meant. It is now ink at
+ * 11.5px/600 with a state dot, and it is EXPLAINED where it is met — each pill
+ * carries the plain-language meaning in its `title`, and the catalogue's legend
+ * and its filter both spell the states out. The rubric marks the open states:
+ * the dot is vermilion where an edition is unfinished or unrepaired, ink where
+ * it is finished. */
+.tag {
+  display: inline-block; font-family: var(--sans); font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg);
+  background: var(--bg2); border: 1px solid var(--rule); border-radius: 999px;
+  padding: 1px 9px; white-space: nowrap; vertical-align: 0.08em;
+}
+.tag::before {
+  content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--fg); margin-right: 5px; vertical-align: 1px;
+}
+.tag-in-repair::before, .tag-damaged::before { background: var(--accent); }
+.state-pill { font-family: var(--sans); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+
+/* ---------- the bibliographic record ---------- */
+.bib-record { margin: var(--space-4) 0; }
+.bib-record dl { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-4); margin: 0; }
+.bib-record dt {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--label); padding-top: 3px;
+}
+.bib-record dd { margin: 0; max-width: var(--measure); }
+.bib-record dd code { font-size: 0.85em; }
+@media (max-width: 34em) {
+  .bib-record dl { grid-template-columns: 1fr; gap: 2px; }
+  .bib-record dd { margin-bottom: var(--space-3); }
+}
+
+/* ---------- the citation block (serif prose, mono identifier | the ONE URL) --
+ *
+ * The citation's PROSE is the reference serif — it is a sentence a scholar
+ * reads. The URL it ends in is the ONE address, hyperlinked and set in --mono:
+ * MEASURED, the block printed the URL twice (in the citation AND on an address
+ * line beneath it) and the prose wrapped it mid-domain
+ * (`https://neoplatonic-` / `library.org/…`). The scheme and host are now ONE
+ * `.cite-host` run with `white-space: nowrap` and `hyphens: none`, and the
+ * builder's `<wbr>` after each path separator is the only break opportunity — so
+ * a browser cannot reach the literal hyphen inside `neoplatonic-library.org`
+ * and a wrap can land only at a path boundary. The duplicate line is gone. */
+.citation-block { margin: var(--space-4) 0; }
+.citation-block .cite {
+  display: block; font-family: var(--serif); font-size: 1rem; line-height: 1.6;
+  color: var(--fg); background: var(--bg2); border: 1px solid var(--line);
+  border-left: 2px solid var(--accent); border-radius: 3px;
+  padding: var(--space-3) var(--space-4); max-width: 46rem;
+  hyphens: none;
+}
+.citation-block .cite .cite-id { font-family: var(--mono); font-size: 0.85em; }
+.citation-block .cite .cite-host { white-space: nowrap; }
+
+/* ---------- the apparatus: the repair log, BY LEAF ----------
+ *
+ * The unit of provenance is the PAGE IMAGE, so the apparatus is browsed the way
+ * a page is turned: a leaf index on the left (a small thumbnail per stored leaf,
+ * its number, and how many readings were decided from it), and the selected
+ * leaf's readings in the panel beside it. Nothing here is loud: hairlines, the
+ * mono face for the data, and the rubric only where it means POSITION — the
+ * selected leaf and the linked reading. */
+.apparatus { margin-top: var(--space-4); }
+/* THE APPARATUS AT THE READER'S WIDTH — AND ITS CONTENT AT THAT WIDTH. The reader
+   above it is --reader wide (1240px), and the apparatus is that same page's other
+   half: the leaf index and the leaf it opens are laid out on the SAME width, so a
+   leaf of the scan can be shown as large as the page allows. The content inside
+   is NOT capped short of that column. MEASURED: the summary and the notes were
+   capped at --measure (34rem = 544px) and the readings at 46rem = 736px, under a
+   reader whose own pane is 892px — so the apparatus rendered as a NARROWER column
+   than the text above it, with the margins empty on a wide screen (the author's
+   report). A reading and the rationale for it now run the width of the column
+   they are given. The only thing still sized to its own job is the leaf index,
+   which is a finder, not a paragraph (see .app-browser). */
+#the-apparatus .wrap { max-width: var(--reader); }
+/* THE APPARATUS SUMMARY IS THIS SECTION'S OWN `.hint`, and it takes the column like
+   everything else. There used to be a `.apparatus-summary` rule here; MEASURED, no
+   markup ever carried that class (0 elements in the built tree — the summary is the
+   section's `<div class="hint">`), so it styled nothing while reading as if it styled
+   this summary. It is gone, and the override is scoped to the apparatus: `.hint`
+   stays at --measure for every other section (see the probe's pair of checks). */
+#the-apparatus .hint { max-width: none; }
+/* The statement a reader gets when the viewer does not run (scripts off, or the
+ * data did not arrive): quiet prose, and never empty. It is the ONE piece inside
+ * the viewer that carries `.prose` itself, because it is the only piece that IS
+ * prose — the viewer is emitted WITHOUT a `.prose` wrapper (see build/shell.mjs
+ * `section()`), and this keeps the measure for the text while the grid, the leaf
+ * index and the panel take the apparatus's whole column. MEASURED: the fallback
+ * rendered at the same 544px either way (before, via the `.prose` parent that
+ * capped the entire viewer; now, from its own class), so freeing the viewer moved
+ * nothing in the fallback. */
+.app-fallback p { font-size: 0.9375rem; color: var(--dim); }
+.app-fallback a { overflow-wrap: anywhere; }
+.app-status { font-size: 0.875rem; color: var(--accent); }
+.app-status:empty { display: none; }
+.app-controls {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-3) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  margin-bottom: var(--space-4);
+}
+.app-filters { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); }
+.app-filters .af-g {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--label);
+}
+.app-filters label {
+  display: inline-flex; align-items: baseline; gap: 5px;
+  font-family: var(--sans); font-size: 12.5px; color: var(--fg); cursor: pointer;
+}
+.app-filters .af-n { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+/* The rubric recurs on the FILTER'S ACTIVE STATE: a ticked type is vermilion,
+   the way a rubricated mark is, so "what is shown" is visible at a glance. */
+.app-filters input[type="checkbox"] { accent-color: var(--accent); }
+.app-filters label:has(input:checked) { color: var(--fg); }
+.app-filters label:has(input:checked) .af-n { color: var(--accent); }
+.app-filters label:has(input:not(:checked)) { color: var(--dim); }
+.app-search { flex: 0 1 22rem; }
+.app-search label {
+  display: block; font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--label); margin-bottom: 4px;
+}
+.app-search input {
+  width: 100%; font-family: var(--mono); font-size: 0.8125rem; color: var(--fg);
+  background: var(--bg2); border: 1px solid var(--line); border-radius: 2px; padding: 5px 7px;
+}
+/* THE PANEL GETS THE ROOM. The index is a FINDER — thumbnails, a leaf number and a
+   count per leaf — so it is sized to that job (16rem = 256px, four or five thumbnail
+   rows across) and the panel takes the rest of the reader's width: 1240px of wrap,
+   less its 24px padding each side, less the 16rem index and the 20px gap = 916px.
+   MEASURED: the index was 20rem (320px) while the panel's own content was capped at
+   736px, so a third of the apparatus's width was empty margin. */
+.app-browser {
+  display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  gap: var(--space-4); align-items: start;
+}
+.app-leaves {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: var(--space-2); align-content: start;
+  max-height: 36rem; overflow: auto; padding-right: var(--space-2);
+  border-right: 1px solid var(--line);
+}
+.app-leaf {
+  display: flex; flex-direction: column; gap: 2px; position: relative;
+  margin: 0; padding: 3px; font: inherit; text-align: center; cursor: pointer;
+  background: none; border: 1px solid var(--line); border-radius: 2px;
+}
+.app-leaf:hover { border-color: var(--rule); }
+.app-leaf.selected { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.app-leaf.selected .app-leaf-cap { color: var(--accent); }
+/* A leaf the current filter leaves nothing in is dimmed, not hidden: the leaf is
+   part of the edition whether or not a filter reaches its readings. */
+.app-leaf-empty { opacity: 0.45; }
+/* A LEAF NO READING WAS DECIDED FROM: the common case on a short edition, and
+   never a trap. The count says "no readings" and the card is set apart with a
+   broken rule, so it can be told at a glance from a leaf whose readings the
+   filter has merely hidden. */
+.app-leaf-quiet { border-style: dashed; color: var(--dim); }
+.app-leaf-quiet .app-leaf-img { opacity: 0.5; }
+/* A LEAF A READING WAS DECIDED FROM ("evidence"): a small rubric dot in the
+   corner, and its hairline darkened. It is NOT lifted out of the run — the
+   index is the whole scan, in leaf order, and the mark says which leaves the
+   apparatus rests on. A leaf of the scan is worth having whether or not a repair
+   used it, which is why the mark is a mark and not a filter. */
+.app-leaf-evidence { border-color: var(--rule); }
+.app-leaf-badge {
+  position: absolute; top: 3px; right: 3px; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--accent);
+}
+/* THE TWO READING AXES: the whole log, and the readings that carry no page
+   image. They span the strip above the leaves — a reader who has no leaf in mind
+   starts here, and the readings with no image are not hidden behind an empty
+   one. */
+.app-leaf-all, .app-leaf-none {
+  grid-column: 1 / -1;
+  flex-direction: row; align-items: baseline; justify-content: flex-start;
+  gap: var(--space-2); padding: 7px 9px; text-align: left;
+}
+.app-leaf-all .app-leaf-cap, .app-leaf-none .app-leaf-cap {
+  font-family: var(--sans); font-size: 0.8125rem; letter-spacing: 0.04em; color: var(--fg);
+}
+.app-scope-note { flex: 1 1 auto; font-family: var(--sans); font-size: 11px; color: var(--dim); }
+.app-leaf-all .app-leaf-n, .app-leaf-none .app-leaf-n { font-family: var(--mono); font-size: 11px; color: var(--dim); white-space: nowrap; }
+.app-leaf-img { display: block; width: 100%; max-width: 120px; height: auto; background: var(--bg2); border: 0; }
+.app-leaf-noimg {
+  width: 100%; min-height: 60px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 10px; line-height: 1.25; color: var(--dim);
+}
+.app-leaf-cap { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+.app-leaf-n { font-family: var(--sans); font-size: 10px; color: var(--dim); }
+.app-panel { min-width: 0; }
+.app-figure { margin: 0 0 var(--space-3); }
+.app-leaf-link { display: inline-block; line-height: 0; }
+/* THE LEAF AT A READABLE SIZE: one page image, FILLING the panel's own column, so
+   a reading's evidence is legible rather than a thumbnail a reader must open in
+   another tab. MEASURED: `width: auto` beside a `max-height: 82vh` cap is what made
+   it a STRIP — a stored leaf is ~1400×2500px, so the 82vh ceiling was reached first
+   (≈430px wide on a 900px-tall viewport, ≈560px on a 1120px one) and the image never
+   reached the ~916px column beside the index. The COLUMN is the bound now: the panel
+   is inside `#the-apparatus .wrap` (--reader, 1240px), so a leaf is at most ~916px
+   wide, and its height follows the scan's own aspect ratio (≈1155–1609px for the
+   stored leaves) — bounded by the reader's width rather than by the viewport, which
+   is what "as large as the page allows" means here. No crop is made — the stored
+   leaf IS the region. */
+.app-panel-img {
+  width: 100%; max-width: 100%; height: auto; max-height: none;
+  border: 1px solid var(--line); background: var(--bg2);
+}
+.app-caption { display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--accent2); margin-top: 6px; }
+.app-note { font-size: 0.8125rem; color: var(--dim); margin: 4px 0 var(--space-3); }
+.app-panel-head { font-size: 1.1rem; margin: var(--space-3) 0 var(--space-2); }
+.app-count {
+  display: block; font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--dim); margin-top: 2px;
+}
+/* THE PAGER: a list longer than one screenful is paged 25 at a time, and the
+   count is stated — the range, the total and the page — so the whole log stays
+   navigable without becoming a wall. Quiet chrome: hairlines and the mono face,
+   no rubric (the accent marks position, and this is not one). */
+.app-pager {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3);
+  padding: var(--space-2) 0; margin-bottom: var(--space-2);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.app-pager button, .app-leafnav button {
+  font-family: var(--sans); font-size: 12px; color: var(--fg);
+  background: var(--bg2); border: 1px solid var(--line); border-radius: 2px;
+  padding: 3px 9px; cursor: pointer;
+}
+.app-pager button:hover:not(:disabled), .app-leafnav button:hover:not(:disabled) { border-color: var(--rule); }
+.app-pager button:disabled, .app-leafnav button:disabled { color: var(--dim); cursor: default; opacity: 0.6; }
+.app-range { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); }
+/* PAGING THROUGH THE SCAN: the leaf before and the leaf after, under the leaf
+   itself. Its own quiet chrome — the same hairlines as the reader's log pager,
+   and no rubric: the accent marks position, and this only moves. */
+.app-leafnav {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--space-2); margin: var(--space-2) 0 var(--space-3);
+  padding: var(--space-2) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.app-leafnav-at { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); }
+ol.apparatus-list { list-style: none; padding: 0; margin: 0; counter-reset: rp; }
+/* A READING AT THE COLUMN'S OWN WIDTH. MEASURED (the author's report): a reading
+   and its rationale were capped at 46rem = 736px inside a 916px panel, so the
+   readings read as a narrower column than the reader above them. No cap here: the
+   panel is the bound, and it is the reader's own width. */
+.apparatus-entry { padding: var(--space-3) 0; border-top: 1px solid var(--line); }
+.apparatus-entry:first-child { border-top: 0; }
+/* THE LINKED READING (#repair-<id>): set apart with the rubric, the way a
+   rubricated mark sets a place in a printed apparatus apart. */
+.apparatus-entry.target {
+  background: var(--bg2); border-left: 2px solid var(--accent);
+  padding-left: var(--space-3); margin-left: calc(-1 * var(--space-3) - 2px);
+}
+.apparatus-entry .rp-id { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); }
+.apparatus-entry .rp-type {
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--dim); margin-left: var(--space-2);
+}
+.apparatus-entry .rp-loc { font-family: var(--mono); font-size: 0.78rem; color: var(--dim); margin-left: var(--space-2); }
+.apparatus-entry .rp-change { font-family: var(--serif); font-size: 1rem; margin: var(--space-1) 0; line-height: 1.5; }
+.apparatus-entry .rp-change .before { color: var(--dim); text-decoration: line-through; text-decoration-color: rgba(107, 100, 89, 0.5); }
+.apparatus-entry .rp-change .after { color: var(--fg); }
+.apparatus-entry .rp-rationale { color: var(--dim); font-size: 0.9375rem; margin-bottom: 2px; }
+.apparatus-entry .rp-witness { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); }
+.apparatus-entry .rp-apply { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); }
+/* THE NO-IMAGE GROUP: the readings that rest on a witness other than a page
+   image, listed compactly — an id to jump to, the type, and the change. */
+/* The compact no-image list is a reading list too: it takes the panel's width, like
+   the entries (it was capped at 52rem = 832px, still short of the 916px panel). */
+ul.app-compact { list-style: none; padding: 0; margin: 0; }
+.app-compact-row { display: block; padding: 3px 0; border-top: 1px solid var(--line); }
+.app-compact-row:first-child { border-top: 0; }
+.app-compact-row .rp-id { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); text-decoration: none; }
+.app-compact-row .rp-type {
+  font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--dim); margin-left: var(--space-2);
+}
+.app-compact-row .rp-apply { font-family: var(--mono); font-size: 0.72rem; color: var(--dim); margin-left: var(--space-2); }
+.app-compact-change { font-family: var(--serif); font-size: 0.9375rem; color: var(--fg); margin-left: var(--space-2); }
+.app-compact-witness { display: block; font-family: var(--mono); font-size: 0.72rem; color: var(--dim); }
+/* The address of the data file, restated under the viewer once the no-script
+   statement that carried it has been taken away. */
+.app-data { font-size: 0.8125rem; color: var(--dim); margin-top: var(--space-4); }
+.app-data a { overflow-wrap: anywhere; }
+
+/* ---------- search field and result (a result is a citation) ----------
+ *
+ * The button is SECONDARY (MEASURED on the review: the filled vermilion button
+ * was the loudest object on the home page, shouting over the editions it was
+ * meant to sit under). It is an outline control that takes the rubric on hover
+ * and on focus; the accent is spent on position (the nav, the group rubrics,
+ * the filter's active state), not on a submit button. */
+.search-field { margin: var(--space-4) 0; max-width: 46rem; }
+.search-field label {
+  display: block; font-family: var(--sans); font-size: 12px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--label);
+  margin-bottom: var(--space-2);
+}
+.search-field .row { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.search-field input[type="search"] {
+  flex: 1 1 18rem; min-width: 0;
+  font-family: var(--serif); font-size: 1rem; color: var(--fg);
+  background: var(--bg); border: 1px solid var(--rule); border-radius: 2px;
+  padding: 9px 12px;
+}
+.search-field input[type="search"]:focus { outline: none; border-color: var(--accent); }
+.search-field button {
+  font-family: var(--sans); font-size: 12.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--label); background: transparent;
+  border: 1px solid var(--rule); border-radius: 2px; padding: 9px 16px; cursor: pointer;
+}
+.search-field button:hover { color: var(--accent); border-color: var(--accent); }
+
+/* the search page's own widgets (the client's markup) */
+.sform { margin: var(--space-4) 0; }
+.sq-wrap { position: relative; max-width: 46rem; }
+.srow {
+  display: flex; align-items: center; gap: var(--space-2);
+  padding: 9px 12px; border: 1px solid var(--rule); background: var(--bg); border-radius: 2px;
+}
+.srow:focus-within { border-color: var(--accent); }
+.srow .s-lab { font-family: var(--serif); color: var(--accent); }
+.srow input[type="search"] {
+  flex: 1; min-width: 0; border: 0; background: none; color: var(--fg);
+  font: inherit; font-family: var(--serif);
+}
+.srow input[type="search"]:focus { outline: none; }
+.scomp {
+  position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 30;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 2px;
+  max-height: 15rem; overflow: auto;
+}
+.scomp-list { list-style: none; margin: 0; padding: 4px 0; }
+.scomp-list .sc { padding: 4px 12px; font-family: var(--mono); font-size: 0.82rem; color: var(--dim); cursor: pointer; }
+.scomp-list .sc-on { background: var(--bg2); color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.scomp-cap { padding: 5px 12px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 11px; color: var(--dim); }
+.sstatus { min-height: 1.2em; margin: var(--space-4) 0 var(--space-1); font-family: var(--mono); font-size: 0.78rem; color: var(--dim); }
+.sres { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
+.sres .sr { padding: var(--space-4) 0; border-top: 1px solid var(--line); }
+.sres .sr-on { box-shadow: inset 3px 0 0 var(--accent); padding-left: var(--space-3); }
+.sres .sr-on .sr-t { color: var(--accent); }
+.sres .sr-t { font-family: var(--serif); font-size: 1rem; color: var(--fg); }
+.sres .sr-t:hover { color: var(--accent); }
+.sres .sr-m { margin: 2px 0 7px; font-family: var(--mono); font-size: 0.75rem; color: var(--dim); }
+.sres .sr-sc { float: right; }
+.sres .sr-s { font-family: var(--serif); font-size: 0.9375rem; line-height: 1.55; color: var(--dim); }
+.sres .sr-s mark, .sres .sr-t mark { background: rgba(138, 43, 35, 0.16); color: var(--accent); padding: 0 1px; }
+.sres .sr-w { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 9px 0 0; padding: 0; }
+.sres .sr-w li {
+  padding: 1px 8px; border: 1px solid var(--line); border-radius: 999px;
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--dim);
+}
+.sres .sr-none, .sres .sr-hint { padding: var(--space-4) 0; color: var(--dim); }
+.sres .sr-shelf .sr-t { color: var(--accent); }
+.sres .sr-shelf .sr-s { font-style: italic; }
+.sres .sr-go, .sstatus .sr-go {
+  font: inherit; font-family: var(--sans); font-size: 12px; color: var(--accent2);
+  background: none; border: 1px solid var(--line); border-radius: 2px; padding: 2px 8px; cursor: pointer;
+}
+.sres .sr-go:hover, .sstatus .sr-go:hover { color: var(--accent); border-color: var(--accent); }
+.s-noscript { font-family: var(--serif); color: var(--dim); }
+@media (max-width: 35em) { .sres .sr-sc { float: none; margin-left: 8px; } }
+
+/* THE APPARATUS ON A NARROW SCREEN: one column — the leaf index goes above the
+   panel and is capped shorter, so a reader scrolls the index rather than the whole
+   page — and the panel then takes the viewport's whole width. (No .app-panel-img
+   override is needed here any more: the leaf is bounded by its COLUMN, which is
+   this same rule's subject, so it shrinks with the column instead of being held
+   to a viewport-height ceiling.) */
+@media (max-width: 56em) {
+  .app-browser { grid-template-columns: minmax(0, 1fr); }
+  .app-leaves {
+    max-height: 18rem; padding-right: 0; padding-bottom: var(--space-2);
+    border-right: 0; border-bottom: 1px solid var(--line);
+  }
+}
+
+/* ---------- the graph figure ---------- */
+.graph-wrap { overflow-x: auto; margin: var(--space-4) 0; }
+.graph-fig { width: 100%; min-width: 40rem; height: auto; display: block; }
+.graph-fig .g-edge line { stroke: var(--rule); stroke-width: 1.4; }
+.graph-fig .g-edge .e-label { font-family: var(--sans); font-size: 11px; fill: var(--dim); }
+.graph-fig .g-node rect { fill: var(--bg2); stroke: var(--line); stroke-width: 1; rx: 3; }
+.graph-fig .g-node .n-label { font-family: var(--serif); font-size: 14px; fill: var(--fg); }
+.graph-fig .g-node .n-sub { font-family: var(--sans); font-size: 10.5px; fill: var(--dim); }
+.graph-fig .g-node:hover rect { stroke: var(--accent); }
+.graph-fig .g-node.on rect { stroke: var(--accent); stroke-width: 2; }
+.graph-fig .g-edge { opacity: 1; }
+.graph-fig .g-edge.on line { stroke: var(--accent); stroke-width: 2; }
+.graph-fig .g-node.off, .graph-fig .g-edge.off { opacity: 0.12; }
+.graph-fig marker path { fill: var(--rule); }
+.graph-filters {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4);
+  margin: var(--space-3) 0;
+}
+.graph-filters .gf-g {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--label);
+}
+.graph-filters label { display: inline-flex; gap: 5px; align-items: baseline; font-family: var(--sans); font-size: 12.5px; }
+table.edges { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-family: var(--sans); }
+table.edges th, table.edges td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+table.edges th { font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--label); font-weight: 600; }
+table.edges .nt {
+  font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--dim); border: 1px solid var(--line);
+  border-radius: 999px; padding: 0 6px;
+}
+
+/* ---------- tables of record (the /editions policy, /errata) ---------- */
+table.types { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.9rem; font-family: var(--sans); }
+table.types th, table.types td { border-bottom: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top; }
+table.types th { font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--label); font-weight: 600; }
+table.types td:first-child { font-family: var(--mono); font-size: 0.82rem; white-space: nowrap; }
+
+ol.errata { list-style: none; padding: 0; margin: var(--space-4) 0; }
+ol.errata li { padding: var(--space-3) 0; border-top: 1px solid var(--line); max-width: 46rem; }
+ol.errata code { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); }
+
+/* ---------- the colophon ----------
+ *
+ * A FOOTER, not a second nav: its headings are a size below the nav's (11.5px vs
+ * 13px) and carry no rule, so the two hierarchies do not read as one row of
+ * equal labels (MEASURED on the review: nav and footer labels shared their
+ * weight). They are set in --label, not --dim, so the label is LEGIBLE while
+ * still quieter than the page's headings (finding 4). */
+.colophon { border-top: 1px solid var(--rule); margin-top: var(--space-6); padding: var(--space-5) 0 var(--space-6); }
+.colophon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--space-4) var(--space-5); }
+.colophon h2 {
+  font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--label); font-weight: 600; margin-bottom: var(--space-2);
+}
+.colophon p, .colophon li { font-size: 0.875rem; color: var(--dim); margin-bottom: 6px; }
+.colophon ul { list-style: none; padding: 0; }
+.colophon a {
+  color: var(--accent2); text-decoration: underline; text-underline-offset: 2px;
+  text-decoration-thickness: 1px; text-decoration-color: rgba(38, 69, 110, 0.35);
+}
+/* A footer link takes the SAME affordance as every other link on the site — the
+   reference layer's underline, going vermilion under the pointer and the focus
+   ring. MEASURED on the review: the footer links were --dim with no more than a
+   faint underline, so they read as plain text. */
+.colophon a:hover, .colophon a:focus-visible { color: var(--accent); text-decoration-color: currentColor; }
+.colophon .wordmark-line { font-family: var(--serif); font-style: italic; color: var(--dim); }
+.colophon-foot {
+  margin-top: var(--space-5); padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.04em; color: var(--dim);
+}
+
+/* ---------- the home's collection scope ---------- */
+.collection-scope { padding-top: var(--space-4); }
+.collection-scope .wrap { max-width: var(--measure); }
+.scope-count { font-size: 1.0625rem; }
+.scope-more { font-family: var(--sans); font-size: 13px; color: var(--dim); margin-bottom: 0; }
+.scope-more .all-texts { font-weight: 600; }
+.scope-more .all-texts:hover { color: var(--accent); }
+
+/* ---------- a page's own contents list (the edition's, in the flow) ----------
+ *
+ * The restored TEXT and the APPARATUS are below the fold; this is how a reader
+ * is told they are there. It is a jump list, not a nav. */
+.page-contents { font-family: var(--sans); font-size: 12.5px; }
+.page-contents .wrap {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-3);
+  padding-top: var(--space-4);
+}
+.page-contents .pc-label {
+  font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--label);
+}
+.page-contents ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.page-contents a { color: var(--accent2); }
+.page-contents a:hover { color: var(--accent); }
+
+/* ---------- a page's contents list (the reader's own, in the flow) ---------- */
+.toc { margin: 0 0 var(--space-4); font-family: var(--sans); font-size: 13px; max-width: var(--measure); }
+.toc > summary { cursor: pointer; color: var(--accent2); }
+.toc > summary:hover { color: var(--accent); }
+.toc .toc-n { color: var(--dim); font-family: var(--mono); font-size: 12px; }
+.toc ol { list-style: none; margin: var(--space-3) 0 0; padding-left: 0; }
+.toc li { margin-bottom: 5px; }
+.toc a { color: var(--dim); }
+.toc a:hover { color: var(--accent); }
+
+/* ---------- home entry points ---------- */
+.home-doors { font-family: var(--sans); font-size: 12.5px; color: var(--dim); margin-top: var(--space-3); }
+.home-doors .sep { color: var(--rule); padding: 0 6px; }
+
+/* ---------- print: paper is the reading room too ---------- */
+@media print {
+  @page { margin: 16mm 18mm; }
+  body > nav, .colophon, .skip, .search-field, .app-controls, .app-leaves, .app-pager, .graph-filters,
+  .crumbs, .page-contents, .collection-scope, .catalogue-controls { display: none !important; }
+  html, body { background: #fff; color: #000; }
+  .wrap { max-width: none; padding: 0; }
+  .masthead { padding: 0 0 10pt; }
+  .page-head { padding: 0 0 8pt; }
+  section { border-top: 0; padding: 10pt 0; }
+  .prose, .citation-block .cite { max-width: none; color: #000; }
+  .prose a { color: #000; text-decoration: none; }
+  .prose a[href^="http"]::after, .prose a[href^="/"]::after { content: " (" attr(href) ")"; font-size: 0.82em; color: #444; word-break: break-all; }
+  .apparatus-entry { break-inside: avoid; }
+}

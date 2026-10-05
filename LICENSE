@@ -1,0 +1,29 @@
+# License — the texts
+
+The transcriptions served by The Neoplatonic Library are transcriptions of
+printed works that are in the **public domain**. Everything printed in the
+source editions was published before 1929 and its copyright has expired; no
+copyright is claimed over the transcribed words, over the scans they were read
+from, or over the plain transcriptions served here.
+
+This covers:
+
+- `data/editions/*/versions/*/source.txt` — the served transcriptions, byte
+  copies of scans of the public-domain prints;
+- the text served at `/texts/<slug>/`, `/texts/<slug>/v/<semver>/` and the
+  `/v/<semver>/plain` exports.
+
+You may copy, quote, redistribute and reuse the transcribed texts for any
+purpose, including commercial use, without asking and without attribution. A
+citation is still the scholarly thing to do, and each edition page prints one.
+
+## What is NOT public domain here
+
+- **The editorial layer** — the repairs, the page models, the apparatus, the
+  notes, the graph, the site's own prose — is original work and is licensed
+  separately under CC-BY-4.0; see `LICENSE-editorial`.
+- **The build tooling** (`build/`, `tools/`, `elm/`) is licensed under the MIT
+  license, the same split the blog uses.
+- The **scans** the transcriptions were read from belong to the institutions
+  that hold the physical copies (Archive.org items named per edition in
+  `scan_source`); their terms are theirs and are linked on each edition page.

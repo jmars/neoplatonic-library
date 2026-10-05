@@ -1,0 +1,147 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "resolution of the whole-text read's unsure entries by reading the 1917 SCAN (archive.org onthecaveoftheny00porpuoft), page by page, against the transcription and the 1823 parallel",
+  "mergesNothing": "Proposals only; merged separately under the fire contract.",
+  "proposals": [
+    {
+      "find": "diuine",
+      "replace": "divine",
+      "class": "reading",
+      "unsure_index": 19,
+      "note": "the 1917 print reads \"more divine\" (scan, printed page 54): the transcription's archaic-looking \"diuine\" is a scanner slip (u for v), not the print's spelling.",
+      "evidence": "scan page 54 (archive.org page/n59): 'things situated towards the south are more divine. The providence of the Gods, therefore'"
+    },
+    {
+      "find": "oTthijInjnitrescent nature oi tne waters",
+      "replace": "of the unputrescent nature of the waters",
+      "class": "reading",
+      "unsure_index": 6,
+      "note": "the print reads \"on account of the unputrescent nature of the waters\" (scan, printed page 23); the transcription's run is damage.",
+      "evidence": "scan page 23 (archive.org page/n28): 'it is a symbol well adapted to aquatic Nymphs, on account of the unputrescent nature of the waters over which they preside'",
+      "blocked": "the find contains the existing rule 'i tne w' -> 'i the w'; it is left so that rule keeps firing. The words 'tne'-> 'the' are repaired; the garbled 'oTthijInjnitrescent' and 'oi' are not."
+    },
+    {
+      "find": "Qypnf every virtue",
+      "replace": "in an accurate knowledge of every virtue",
+      "class": "reading",
+      "unsure_index": 13,
+      "note": "the print reads \"...intellectual prudence, and in an accurate knowledge of every virtue\" (scan, printed page 41); the token carries a lost span, not a word.",
+      "evidence": "scan page 41 (archive.org page/n46): 'how much Homer excelled in intellectual prudence, and in an accurate knowledge of every virtue, it must not be denied'"
+    },
+    {
+      "find": "'symbol oT aH invisible powers",
+      "replace": "it as a 'symbol oT aH invisible powers",
+      "class": "reading",
+      "unsure_index": 2,
+      "note": "the print reads \"but they also assumed it as a symbol of all invisible powers\" (scan, printed page 12): the words \"it as a\" were lost at the line break.",
+      "evidence": "scan page 12 (archive.org page/n17): 'but they also assumed it as a symbol of all invisible powers ; because as caverns are obscure and dark'"
+    },
+    {
+      "find": "north are most northerly",
+      "replace": "towards the north are most northerly",
+      "class": "reading",
+      "unsure_index": 12,
+      "note": "the print reads \"and, towards the north are most northerly\" (scan, printed page 29): the words \"towards the\" were lost after \"and,\".",
+      "evidence": "scan page 29 (archive.org page/n34): 'and, towards the south are most southerly, and, towards the north are most northerly ; because this cave was sacred'"
+    }
+  ],
+  "resolved_no_rule": [
+    {
+      "unsure_index": 7,
+      "finding": "the print reads 'the ancient peculiarly called bees' — the transcription is correct; the 1823 parallel's 'ancients' is the other printing's own reading.",
+      "evidence": "scan page 23"
+    },
+    {
+      "unsure_index": 8,
+      "finding": "the print reads 'unappropriately' — the transcription is correct.",
+      "evidence": "scan page 23"
+    },
+    {
+      "unsure_index": 9,
+      "finding": "the print reads 'from all defilement' (no 'the') — the transcription is correct; the parallel's 'the' is the other printing.",
+      "evidence": "scan page 21"
+    },
+    {
+      "unsure_index": 14,
+      "finding": "the print has no comma after 'hypothesis' — the transcription is correct; the parallel's comma is the other printing.",
+      "evidence": "scan page 41"
+    },
+    {
+      "unsure_index": 5,
+      "finding": "the line is the opening of the footnote referred to by 'Gods. 1' ('The theological meaning of this Orphic fiction...'); it is the note's body, not the treatise's.",
+      "evidence": "scan page 44"
+    },
+    {
+      "unsure_index": 11,
+      "finding": "the '(' before 'We must therefore admit' belongs to the preceding note reference '(note 11).' — not an unpaired parenthesis.",
+      "evidence": "scan page 25"
+    },
+    {
+      "unsure_index": 4,
+      "finding": "the print reads 'are tinged from blood' — the transcription's 'C.' is furniture; already repaired by the merged rule.",
+      "evidence": "scan page 19"
+    }
+  ],
+  "resolved_later": [
+    {
+      "unsure_index": 0,
+      "disposition": "FIXED: the print reads \"absurd for HOMER to expect\" (scan p.6; parallel). The name was lost at a blank line; a join rule supplies it."
+    },
+    {
+      "unsure_index": 1,
+      "disposition": "NO RULE: the print reads \"with respect to form ; the ancients\" — the transcription is correct."
+    },
+    {
+      "unsure_index": 3,
+      "disposition": "NO RULE: the print has a full stop and dash after \"streams\" and a space before \"From hence\" — the transcription is correct."
+    },
+    {
+      "unsure_index": 10,
+      "disposition": "NO RULE: the \"I\" after \"generation.\" is a footnote numeral, part of the page furniture, not a word."
+    },
+    {
+      "unsure_index": 15,
+      "disposition": "FIXED EARLIER: no Greek is printed here — the run is the misread English \"a signature of separating, a cup of vivific, ...\"."
+    },
+    {
+      "unsure_index": 16,
+      "disposition": "FIXED EARLIER: \"and a key of guardian power\" (the bracket and Greek the transcription showed are debris)."
+    },
+    {
+      "unsure_index": 17,
+      "disposition": "FIXED: the print sets the passage in italics with NO mark at the line head (scan p.50) — the \"!\" was debris; the rule removes it."
+    },
+    {
+      "unsure_index": 18,
+      "disposition": "FIXED: same passage, next line — the print has no mark there (scan p.50); the \"1\" was debris."
+    },
+    {
+      "unsure_index": 20,
+      "disposition": "NO RULE: the \"^\" is the library shelf label's own mark, in the library region; it is the copy's, not the book's."
+    },
+    {
+      "unsure_index": 21,
+      "disposition": "FIXED: the print has a comma after \"heavens\" (scan p.34; parallel) — the run is one join rule now."
+    },
+    {
+      "unsure_index": 22,
+      "disposition": "FIXED: \"labour\" belonged to the merged paragraph (a join rule), not to a block of its own."
+    },
+    {
+      "unsure_index": 23,
+      "disposition": "FIXED: the print reads \"this cave (as we have said) is sacred\" (scan p.37) — \"said\" was lost."
+    },
+    {
+      "unsure_index": 24,
+      "disposition": "FIXED EARLIER: \"as the reward of severe toil\" — a lost \"as\"."
+    },
+    {
+      "unsure_index": "flash-1",
+      "disposition": "FIXED: the destroyed run at the section-6/7 page break is FURNITURE, not text. The 1917 page it stands on (printed page 20, leaf 26) carries NOTHING between 'the vestment of the celestial Gods.' and '7. Why, therefore' — read from the page image. It is now named in the text's own rules as measured furniture and suppressed in the reading view like a running head (the transcription view still shows its characters). The two 'leave' rules that kept it visible are removed."
+    },
+    {
+      "unsure_index": "flash-2",
+      "disposition": "FIXED: the print reads Βορά — transliterated 'Bora' — NOT 'Boga'. The 1917 page 33 reads 'For the word Boreas is derived from Βορά, which signifies nutriment', read from the page image; the earlier 'Boga' came from the 1823 parallel, whose own OCR of the etymon is damaged. The rule is corrected to 'Bora,'."
+    }
+  ]
+}

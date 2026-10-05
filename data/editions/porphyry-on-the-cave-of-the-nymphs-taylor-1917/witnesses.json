@@ -1,0 +1,14 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "note": "WITNESSES — the other prints and editions a reading was decided from. Held verbatim beside the transcription so a rule's evidence is in the library, not only on the internal shelf.",
+  "witnesses": [
+    {
+      "name": "porphyry-select-works-taylor-1823",
+      "shelf": "Porphyry-Taylor-Select-Works-1823.txt",
+      "sha256": "8aa0167ea2e6a4a943440e7092e74caecf7b9e170bf159ffcb15b1a0b728747f",
+      "bytes": 607119,
+      "why": "Taylor's Select Works of Porphyry (1823) carries the same translation of the same treatise — the parallel that decides a reading where its own text is clean.",
+      "imported": "2026-10-02"
+    }
+  ]
+}

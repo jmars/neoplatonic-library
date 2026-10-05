@@ -1,0 +1,12 @@
+{
+  "slug": "proclus-elements-of-theology-taylor-1816",
+  "note": "WHERE THIS EDITION'S PAGE IMAGES ARE. The item is the archive.org scan the transcription was taken from (import.json records the whole file's sha256). The offset is MEASURED, not guessed: archive page 806 is the leaf whose running head reads 'ELEMENTS OF THEOLOGY. 301' and n946 reads '441' over 'PROP. CCXI.' — so archive n = printed page + 505, verified at both ends of the work. The volume is a single Google scan of 1066 leaves; the Elements occupies its printed pages 301-441.",
+  "item": "thomastaylor",
+  "archiveOffset": 505,
+  "firstPage": 301,
+  "lastPage": 441,
+  "verified": [
+    { "archive": 806, "page": 301, "evidence": "running head 'ELEMENTS OF THEOLOGY. 301'" },
+    { "archive": 946, "page": 441, "evidence": "running head '441' over 'PROP. CCXI.'" }
+  ]
+}

@@ -1,0 +1,2390 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "a parallel-edition derivation: it reads the same translation in another volume and proposes the reading it finds",
+  "parallel": {
+    "file": "Porphyry-Taylor-Select-Works-1823.txt",
+    "sha256": "8aa0167ea2e6a4a943440e7092e74caecf7b9e170bf159ffcb15b1a0b728747f",
+    "why": "Taylor's Select Works of Porphyry (1823) carries the same translation of the same treatise",
+    "shelf": "work-text"
+  },
+  "generated": "2026-10-02T21:12:11Z",
+  "mergesNothing": "Nothing here has been merged. To accept a reading, give the damaged word a `reading` rule with this replace in the text’s own rules file and build: every rule must fire at least once or the build fails. A `notFound` is not a reading: the word stays visible under the base policy.",
+  "policy": {
+    "rule": "substitute-if-known-else-leave",
+    "damage": "^_~*/£>\\|#™±»«}{&"
+  },
+  "stats": {
+    "damagedLeftVisible": 118,
+    "derived": 64,
+    "sameAsFind": 0,
+    "notFound": 54,
+    "parallelTokens": 101614,
+    "window": 7,
+    "minShare": 0.45,
+    "minScore": 4,
+    "checkedAgainstRecorded": true
+  },
+  "reconcile": {
+    "agree": 43,
+    "proposedNew": 7,
+    "notFound": 54,
+    "disagree": [
+      {
+        "find": ".^and",
+        "recorded": "obscure, (and",
+        "via": "inside the rule \"obscure .^and\"",
+        "derived": "[and",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8727",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "rites}",
+        "recorded": "rites)",
+        "via": "the rule for the whole token",
+        "derived": "rites]",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8731",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "a^den",
+        "recorded": "a den",
+        "via": "the rule for the whole token",
+        "derived": "daa.",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8788",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "cavern*",
+        "recorded": "caverns",
+        "via": "the rule for the whole token",
+        "derived": "dark,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8823",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "air.^",
+        "recorded": "air.",
+        "via": "the rule for the whole token",
+        "derived": "‘air:",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8943",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "qreneratioi^and",
+        "recorded": "generation, and",
+        "via": "the rule for the whole token",
+        "derived": "‘and",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8971",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "h_qney_combs_?__",
+        "recorded": "honeycombs?",
+        "via": "the rule for the whole token",
+        "derived": "honey-combs?",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9025",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "{into",
+        "recorded": "(into",
+        "via": "the rule for the whole token",
+        "derived": "[into",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9041",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "the_amphorae",
+        "recorded": "the amphorae",
+        "via": "the rule for the whole token",
+        "derived": "amphoree",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9191",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "adds^that",
+        "recorded": "adds, that",
+        "via": "the rule for the whole token",
+        "derived": "of",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9253",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "#ip",
+        "recorded": "the",
+        "via": "the rule for the whole token",
+        "derived": "gates",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9455",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "anc^",
+        "recorded": "and",
+        "via": "the rule for the whole token",
+        "derived": "trenches,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9846",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "that_jg_the",
+        "recorded": "that is the",
+        "via": "the rule for the whole token",
+        "derived": "revert",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9858",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "cavern^",
+        "recorded": "cavern.",
+        "via": "the rule for the whole token",
+        "derived": "“‘",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8530",
+        "verdict": "DISAGREE"
+      }
+    ],
+    "rows": [
+      {
+        "find": "hf>",
+        "recorded": "be",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "in_d^scfi5mga",
+        "recorded": "in describing a",
+        "via": "the rule for the whole token",
+        "derived": "a",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8565",
+        "verdict": "agree"
+      },
+      {
+        "find": "^jnerely",
+        "recorded": "merely",
+        "via": "the rule for the whole token",
+        "derived": "merely",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8565",
+        "verdict": "agree"
+      },
+      {
+        "find": "_the",
+        "recorded": "the",
+        "via": "the rule for the whole token",
+        "derived": "the",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8622",
+        "verdict": "agree"
+      },
+      {
+        "find": "Thp_anrt'p'rii'c:,",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": "ancients,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8667",
+        "verdict": "new"
+      },
+      {
+        "find": "v^ry",
+        "recorded": "very",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "an/l",
+        "recorded": "and",
+        "via": "the rule for the whole token",
+        "derived": "and",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8693",
+        "verdict": "agree"
+      },
+      {
+        "find": "jQhe^ajricients,",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": "ancients,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8694",
+        "verdict": "new"
+      },
+      {
+        "find": "however7it",
+        "recorded": "however, it",
+        "via": "the rule for the whole token",
+        "derived": "it",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8697",
+        "verdict": "agree"
+      },
+      {
+        "find": "obscurity_o£",
+        "recorded": "obscurity of",
+        "via": "the rule for the whole token",
+        "derived": "obscurity",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8703",
+        "verdict": "agree"
+      },
+      {
+        "find": "the_cavern».",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": ".^and",
+        "recorded": "obscure, (and",
+        "via": "inside the rule \"obscure .^and\"",
+        "derived": "[and",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8727",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "Persians,^",
+        "recorded": "Persians,",
+        "via": "the rule for the whole token",
+        "derived": "Persians,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8728",
+        "verdict": "agree"
+      },
+      {
+        "find": "regions^",
+        "recorded": "regions,",
+        "via": "the rule for the whole token",
+        "derived": "regions,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8729",
+        "verdict": "agree"
+      },
+      {
+        "find": "rites}",
+        "recorded": "rites)",
+        "via": "the rule for the whole token",
+        "derived": "rites]",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8731",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "fabric^tSdJfcUUMitb£a'y",
+        "recorded": "fabricated by Mithra.",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "t*16",
+        "recorded": "the",
+        "via": "the rule for the whole token",
+        "derived": "the",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8738",
+        "verdict": "agree"
+      },
+      {
+        "find": "oL^he",
+        "recorded": "of the",
+        "via": "the rule for the whole token",
+        "derived": "the",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8740",
+        "verdict": "agree"
+      },
+      {
+        "find": "«ffma±es.^",
+        "recorded": "climates.",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "y^Nfpt",
+        "recorded": "Not",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "/Thus,",
+        "recorded": "Thus,",
+        "via": "the rule for the whole token",
+        "derived": "Thus,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8774",
+        "verdict": "agree"
+      },
+      {
+        "find": "n^rom",
+        "recorded": "From",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "a^den",
+        "recorded": "a den",
+        "via": "the rule for the whole token",
+        "derived": "daa.",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8788",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "leUcfers'^f",
+        "recorded": "leaders of",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "cavern*",
+        "recorded": "caverns",
+        "via": "the rule for the whole token",
+        "derived": "dark,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8823",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "j>fjyhich",
+        "recorded": "of which",
+        "via": "the rule for the whole token",
+        "derived": "which",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8825",
+        "verdict": "agree"
+      },
+      {
+        "find": "cave^",
+        "recorded": "cave",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "be~assumed",
+        "recorded": "be assumed",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "Eox_we_p_eculiarly",
+        "recorded": "For we peculiarly",
+        "via": "the rule for the whole token",
+        "derived": "peculiarly",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8849",
+        "verdict": "agree"
+      },
+      {
+        "find": "the_jMowers",
+        "recorded": "the powers",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "pver^wajters,",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "Nyjnph^",
+        "recorded": "Nymphs;",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "this^erm_also,",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "plants./",
+        "recorded": "plants.",
+        "via": "the rule for the whole token",
+        "derived": "plants.",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8877",
+        "verdict": "agree"
+      },
+      {
+        "find": "souls_wjio_have",
+        "recorded": "souls who have",
+        "via": "the rule for the whole token",
+        "derived": "have",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8940",
+        "verdict": "agree"
+      },
+      {
+        "find": "air.^",
+        "recorded": "air.",
+        "via": "the rule for the whole token",
+        "derived": "‘air:",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8943",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "aguatic~nymipEsi",
+        "recorded": "aquatic nymphs",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "qreneratioi^and",
+        "recorded": "generation, and",
+        "via": "the rule for the whole token",
+        "derived": "‘and",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8971",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "p\\irple",
+        "recorded": "purple",
+        "via": "the rule for the whole token",
+        "derived": "purple",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8983",
+        "verdict": "agree"
+      },
+      {
+        "find": "were/the",
+        "recorded": "were, the",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "-1i\"^lHi.n*-iL",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "^X",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "h_qney_combs_?__",
+        "recorded": "honeycombs?",
+        "via": "the rule for the whole token",
+        "derived": "honey-combs?",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9025",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "^utrefactiojn1_and",
+        "recorded": "putrefaction, and",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "^stUJ.",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "J~a",
+        "recorded": "taste",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "jjy_bejg§l_who",
+        "recorded": "by bees, who",
+        "via": "the rule for the whole token",
+        "derived": "who",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9035",
+        "verdict": "agree"
+      },
+      {
+        "find": "{into",
+        "recorded": "(into",
+        "via": "the rule for the whole token",
+        "derived": "[into",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9041",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "jt_i§_a_symbol",
+        "recorded": "it is a symbol",
+        "via": "the rule for the whole token",
+        "derived": "symbol",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9183",
+        "verdict": "agree"
+      },
+      {
+        "find": "the_amphorae",
+        "recorded": "the amphorae",
+        "via": "the rule for the whole token",
+        "derived": "amphoree",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9191",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "symbols_",
+        "recorded": "symbols",
+        "via": "the rule for the whole token",
+        "derived": "symbols",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9192",
+        "verdict": "agree"
+      },
+      {
+        "find": "Cayes^",
+        "recorded": "Caves,",
+        "via": "the rule for the whole token",
+        "derived": "Caves,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9245",
+        "verdict": "agree"
+      },
+      {
+        "find": "Gods7",
+        "recorded": "Gods,",
+        "via": "the rule for the whole token",
+        "derived": "Gods,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9246",
+        "verdict": "agree"
+      },
+      {
+        "find": "adds^that",
+        "recorded": "adds, that",
+        "via": "the rule for the whole token",
+        "derived": "of",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9253",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "onej)fJ5F",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": "‘the",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9253",
+        "verdict": "new"
+      },
+      {
+        "find": "other^which",
+        "recorded": "other, which",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "to~~FRp",
+        "recorded": "to the south",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "4g_",
+        "recorded": "is",
+        "via": "the rule for the whole token",
+        "derived": "is",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9261",
+        "verdict": "agree"
+      },
+      {
+        "find": "thl^narration~PwhetheT'T:Be",
+        "recorded": "this narration; whether the",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "reality_",
+        "recorded": "reality",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "others7~or",
+        "recorded": "others, or",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "y/z.,",
+        "recorded": "viz.",
+        "via": "the rule for the whole token",
+        "derived": "viz.",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9277",
+        "verdict": "agree"
+      },
+      {
+        "find": "n.^Tb,eologists",
+        "recorded": "11. Theologists",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "Are_jCancer",
+        "recorded": "are Cancer",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "j__but",
+        "recorded": "; but",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "#ip",
+        "recorded": "the",
+        "via": "the rule for the whole token",
+        "derived": "gates",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9455",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "gatps-o£",
+        "recorded": "gates of",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "was_",
+        "recorded": "was",
+        "via": "the rule for the whole token",
+        "derived": "was",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9481",
+        "verdict": "agree"
+      },
+      {
+        "find": "Bo/>a,",
+        "recorded": "Boga,",
+        "via": "the rule for the whole token",
+        "derived": "Boga,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9706",
+        "verdict": "agree"
+      },
+      {
+        "find": "conse^",
+        "recorded": "consequence",
+        "via": "inside the rule \"conse^ quence\"",
+        "derived": "consequence",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9721",
+        "verdict": "agree"
+      },
+      {
+        "find": "eyej^whefe—",
+        "recorded": "every where",
+        "via": "the rule for the whole token",
+        "derived": "every",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9723",
+        "verdict": "agree"
+      },
+      {
+        "find": "fias~\"a",
+        "recorded": "has a",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "twofuld^entrance",
+        "recorded": "twofold entrance",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "a^symbol",
+        "recorded": "a symbol",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "earth~;f",
+        "recorded": "earth;",
+        "via": "the rule for the whole token",
+        "derived": "earth;",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9739",
+        "verdict": "agree"
+      },
+      {
+        "find": "fo~~tlTe~lieavens.",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "_put",
+        "recorded": "but",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "the~other",
+        "recorded": "the other",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "TvfnnrK_",
+        "recorded": "descend through the Moon. With Homer,",
+        "via": "inside the rule \"the TvfnnrK_ With Hnmpr\"",
+        "derived": "Moon.",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9751",
+        "verdict": "agree"
+      },
+      {
+        "find": "Blesrjn£3",
+        "recorded": "Blessings",
+        "via": "the rule for the whole token",
+        "derived": "Blessings",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9756",
+        "verdict": "agree"
+      },
+      {
+        "find": "anc^",
+        "recorded": "and",
+        "via": "the rule for the whole token",
+        "derived": "trenches,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9846",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "fflfp0",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": "caverns,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9846",
+        "verdict": "new"
+      },
+      {
+        "find": "that_jg_the",
+        "recorded": "that is the",
+        "via": "the rule for the whole token",
+        "derived": "revert",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9858",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "th^jpjpjpj^hejcavfir\",",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": "Homer",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9878",
+        "verdict": "new"
+      },
+      {
+        "find": "cavern^",
+        "recorded": "cavern.",
+        "via": "the rule for the whole token",
+        "derived": "“‘",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:8530",
+        "verdict": "DISAGREE"
+      },
+      {
+        "find": "fren£e._.an",
+        "recorded": "hence an",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "svnhr>i",
+        "recorded": "symbol",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "Eicsent_pavern,",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "/For_tJl«*",
+        "recorded": "For the",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "t^Prplant'",
+        "recorded": "the plant",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "t^\"f^li^rva.J",
+        "recorded": "of Minerva;",
+        "via": "the rule for the whole token",
+        "derived": "Minerva;",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9895",
+        "verdict": "agree"
+      },
+      {
+        "find": "uniY.ej£e_",
+        "recorded": "universe",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "effecj^of",
+        "recorded": "effect of",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "the_work",
+        "recorded": "the work",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "near^",
+        "recorded": "near",
+        "via": "the rule for the whole token",
+        "derived": "near",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9903",
+        "verdict": "agree"
+      },
+      {
+        "find": "Jhe_dignity",
+        "recorded": "the dignity",
+        "via": "the rule for the whole token",
+        "derived": "dignity",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9905",
+        "verdict": "agree"
+      },
+      {
+        "find": "excellence~ot",
+        "recorded": "excellence of",
+        "via": "the rule for the whole token",
+        "derived": "of",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9905",
+        "verdict": "agree"
+      },
+      {
+        "find": "is^ever-flpjLinsh|ng.",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": "ever-flourishing,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9907",
+        "verdict": "new"
+      },
+      {
+        "find": "degree_",
+        "recorded": "degree",
+        "via": "the rule for the whole token",
+        "derived": "degree",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9908",
+        "verdict": "agree"
+      },
+      {
+        "find": "this~caye_(aswe^jiave__",
+        "recorded": "this cave, as we have",
+        "via": "the rule for the whole token",
+        "derived": "have",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9909",
+        "verdict": "agree"
+      },
+      {
+        "find": "therefore^",
+        "recorded": "therefore,",
+        "via": "the rule for the whole token",
+        "derived": "therefore,",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9916",
+        "verdict": "agree"
+      },
+      {
+        "find": "naturally_jever-flourIsKing,",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "it_Js__sj.cjceAjtoJMinerva",
+        "recorded": "it is consecrated to Minerva",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "sj;ipj>lies",
+        "recorded": "supplies",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "ajid_ajifonls_aj*^^",
+        "recorded": "and affords a friendly branch to the suppliant",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "^s",
+        "recorded": "by which",
+        "via": "inside the rule \"by ^s which\"",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "/on",
+        "recorded": "on",
+        "via": "the rule for the whole token",
+        "derived": "on",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9928",
+        "verdict": "agree"
+      },
+      {
+        "find": "fjpjjnsjtpfjL^",
+        "recorded": "deposited.",
+        "via": "the rule for the whole token",
+        "derived": "deposited.",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9936",
+        "verdict": "agree"
+      },
+      {
+        "find": "\\he",
+        "recorded": "the",
+        "via": "the rule for the whole token",
+        "derived": "the",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9939",
+        "verdict": "agree"
+      },
+      {
+        "find": "us^a_man.",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "rp£Tilar",
+        "recorded": "regular",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "nn(li>",
+        "recorded": "finds",
+        "via": "the rule for the whole token",
+        "derived": "finds",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:431",
+        "verdict": "agree"
+      },
+      {
+        "find": "/nature.",
+        "recorded": "nature.",
+        "via": "the rule for the whole token",
+        "derived": "nature.",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:9955",
+        "verdict": "agree"
+      },
+      {
+        "find": "thought_that_",
+        "recorded": "thought, that",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "thiskind^",
+        "recorded": "this kind",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "the^,rnnjfrtures",
+        "recorded": "the conjectures",
+        "via": "the rule for the whole token",
+        "derived": null,
+        "where": null,
+        "verdict": "not-found"
+      },
+      {
+        "find": "images^",
+        "recorded": "images",
+        "via": "the rule for the whole token",
+        "derived": "images",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:10019",
+        "verdict": "agree"
+      },
+      {
+        "find": "j)f_a.Jakl£.",
+        "recorded": "(no rule names this word)",
+        "via": "the rule for the whole token",
+        "derived": "fable.",
+        "where": "Porphyry-Taylor-Select-Works-1823.txt:10020",
+        "verdict": "new"
+      }
+    ]
+  },
+  "proposals": [
+    {
+      "class": "reading",
+      "find": "in_d^scfi5mga",
+      "replace": "a",
+      "note": "the parallel edition reads \"a\" here",
+      "evidence": "172 ON THE CAVE OF THE NYMPHS. describing a cave fabricated merely by poetical license, and thus",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8565,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "^jnerely",
+      "replace": "merely",
+      "note": "the parallel edition reads \"merely\" here",
+      "evidence": "CAVE OF THE NYMPHS. describing a cave fabricated merely by poetical license, and thus artificially opening a",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8565,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 0.78
+      }
+    },
+    {
+      "class": "reading",
+      "find": "_the",
+      "replace": "the",
+      "note": "the parallel edition reads \"the\" here",
+      "evidence": "can neither be a fiction casually devised for the purpose .of procuring delight, nor an exposition of",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8622,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 0.88
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Thp_anrt'p'rii'c:,",
+      "replace": "ancients,",
+      "note": "the parallel edition reads \"ancients,\" here",
+      "evidence": "be amply unfolded into light. # 2. The ancients, indeed, very properly consecrated a ew aa 4’",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8667,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "an/l",
+      "replace": "and",
+      "note": "the parallel edition reads \"and\" here",
+      "evidence": "and a rock, on account of its sluggish and repercussive nature. with respect to form: the. ancients,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8693,
+        "matched": "8/8"
+      },
+      "confidence": {
+        "matched": 8,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "jQhe^ajricients,",
+      "replace": "ancients,",
+      "note": "the parallel edition reads \"ancients,\" here",
+      "evidence": "and repercussive nature. with respect to form: the. ancients, at the-same time, asserting that matter is infinite",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8694,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.45
+      }
+    },
+    {
+      "class": "reading",
+      "find": "however7it",
+      "replace": "it",
+      "note": "the parallel edition reads \"it\" here",
+      "evidence": "infinite through its privation of — Since, however, it is continually flowing, and is of itself destitute",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8697,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "obscurity_o£",
+      "replace": "obscurity",
+      "note": "the parallel edition reads \"obscurity\" here",
+      "evidence": "waters, darkness, or, as the poet says, : obscurity of the cavern, were considered by the ancients",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8703,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": ".^and",
+      "replace": "[and",
+      "note": "the parallel edition reads \"[and\" here",
+      "evidence": "but its interior and profound parts are obscure, [and its very bottom is darkness itself]. Thus also",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8727,
+        "matched": "9/9"
+      },
+      "confidence": {
+        "matched": 9,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Persians,^",
+      "replace": "Persians,",
+      "note": "the parallel edition reads \"Persians,\" here",
+      "evidence": "very bottom is darkness itself]. Thus also the Persians, mystically signifying the descent of the soul into",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8728,
+        "matched": "9/9"
+      },
+      "confidence": {
+        "matched": 9,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "regions^",
+      "replace": "regions,",
+      "note": "the parallel edition reads \"regions,\" here",
+      "evidence": "the descent of the soul into the sublunary regions, and its regression from it, initiate the mystic",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8729,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "rites}",
+      "replace": "rites]",
+      "note": "the parallel edition reads \"rites]\" here",
+      "evidence": "him who is admitted to the arcane sacred rites] in a place which they denominate a cavern,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8731,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "t*16",
+      "replace": "the",
+      "note": "the parallel edition reads \"the\" here",
+      "evidence": "which - was” “fabricated © “by. ‘Mithra. But the things contained in the cavern being arranged according",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8738,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.71
+      }
+    },
+    {
+      "class": "reading",
+      "find": "oL^he",
+      "replace": "the",
+      "note": "the parallel edition reads \"the\" here",
+      "evidence": "arranged according to commensurate intervals, were symbols of the mundane elements and climates. 3. After this Zoroaster",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8740,
+        "matched": "6/6"
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 0.6
+      }
+    },
+    {
+      "class": "reading",
+      "find": "/Thus,",
+      "replace": "Thus,",
+      "note": "the parallel edition reads \"Thus,\" here",
+      "evidence": "ocean itself, and concealed in it his children. Thus, too, Ceres educated Proserpine, with her Nymphs, in",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8774,
+        "matched": "8/8"
+      },
+      "confidence": {
+        "matched": 8,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "a^den",
+      "replace": "daa.",
+      "note": "the parallel edition reads \"daa.\" here",
+      "evidence": "showed that the world is a cavertt-and ἀ daa. For the powers which are the leaders of",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8788,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.8
+      }
+    },
+    {
+      "class": "reading",
+      "find": "cavern*",
+      "replace": "dark,",
+      "note": "the parallel edition reads \"dark,\" here",
+      "evidence": "symbol of the sensible world, because caverns are dark, stony, and humid; and they asserted, that the",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8823,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "j>fjyhich",
+      "replace": "which",
+      "note": "the parallel edition reads \"which\" here",
+      "evidence": "thing of this kind, through the matter of which it consists, and through its reper- — cussive",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8825,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.63
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Eox_we_p_eculiarly",
+      "replace": "peculiarly",
+      "note": "the parallel edition reads \"peculiarly\" here",
+      "evidence": "thus denominated from streams of water. For we peculiarly call the Naiades, and the> powers that preside",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8849,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.56
+      }
+    },
+    {
+      "class": "reading",
+      "find": "plants./",
+      "replace": "plants.",
+      "note": "the parallel edition reads \"plants.\" here",
+      "evidence": "water is the nutriment of the souls of plants. Some likewise are of epinian, that the bodies",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8877,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.83
+      }
+    },
+    {
+      "class": "reading",
+      "find": "souls_wjio_have",
+      "replace": "have",
+      "note": "the parallel edition reads \"have\" here",
+      "evidence": "then, is sacred and pleasant to soule who have now proceeded into nature, and to. nate demons,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8940,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "air.^",
+      "replace": "‘air:",
+      "note": "the parallel edition reads \"‘air:\" here",
+      "evidence": "ar obseure nature, [aepudas,} and essentially consist of ‘air: Hence ἃ cavern, which is both pleasant and",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8943,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 0.78
+      }
+    },
+    {
+      "class": "reading",
+      "find": "qreneratioi^and",
+      "replace": "‘and",
+      "note": "the parallel edition reads \"‘and\" here",
+      "evidence": "rocks. And to souls that descend into generation, ‘and are occupied in corporeal energies, what symbol can",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8971,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "p\\irple",
+      "replace": "purple",
+      "note": "the parallel edition reads \"purple\" here",
+      "evidence": "and not of any other matter. But the purple webs will evidently be the flesh which is",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8983,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.67
+      }
+    },
+    {
+      "class": "reading",
+      "find": "h_qney_combs_?__",
+      "replace": "honey-combs?",
+      "note": "the parallel edition reads \"honey-combs?\" here",
+      "evidence": "not to be filled with water, but with honey-combs? For in these’ Homer says the bees deposit",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9025,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 0.88
+      }
+    },
+    {
+      "class": "reading",
+      "find": "jjy_bejg§l_who",
+      "replace": "who",
+      "note": "the parallel edition reads \"who\" here",
+      "evidence": "to the taste, and is collected by bees, who are ox-begotten, from flowers. When, therefore, those who",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9035,
+        "matched": "6/6"
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 0.86
+      }
+    },
+    {
+      "class": "reading",
+      "find": "{into",
+      "replace": "[into",
+      "note": "the parallel edition reads \"[into\" here",
+      "evidence": "from every thing noxious and detestable. Other initiators [into the same mysteries] employ fire, which is of",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9041,
+        "matched": "9/9"
+      },
+      "confidence": {
+        "matched": 9,
+        "share": 0.82
+      }
+    },
+    {
+      "class": "reading",
+      "find": "jt_i§_a_symbol",
+      "replace": "symbol",
+      "note": "the parallel edition reads \"symbol\" here",
+      "evidence": "draws. souls downward to generation; it is a symbol well adapted to aquatic Nymphs, on account of",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9183,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "the_amphorae",
+      "replace": "amphoree",
+      "note": "the parallel edition reads \"amphoree\" here",
+      "evidence": "to Mithra, instead of a fountain; but the amphoree are symbols of the vessels with which we",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9191,
+        "matched": "6/6"
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "symbols_",
+      "replace": "symbols",
+      "note": "the parallel edition reads \"symbols\" here",
+      "evidence": "instead of a fountain; but the amphoree are symbols of the vessels with which we draw water",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9192,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Cayes^",
+      "replace": "Caves,",
+      "note": "the parallel edition reads \"Caves,\" here",
+      "evidence": "humid and fluctuating nature of] gene- ration. 9. Caves, therefore, in the most remote periods of ‘antiquity,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9245,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Gods7",
+      "replace": "Gods,",
+      "note": "the parallel edition reads \"Gods,\" here",
+      "evidence": "remote periods of ‘antiquity, were consecrated to the Gods, before temples were erected to them. Hence, the",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9246,
+        "matched": "9/9"
+      },
+      "confidence": {
+        "matched": 9,
+        "share": 0.9
+      }
+    },
+    {
+      "class": "reading",
+      "find": "adds^that",
+      "replace": "of",
+      "note": "the parallel edition reads \"of\" here",
+      "evidence": "it had two gates, but adds, that one of ‘the gates was turned towards the north, but",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9253,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "onej)fJ5F",
+      "replace": "‘the",
+      "note": "the parallel edition reads \"‘the\" here",
+      "evidence": "had two gates, but adds, that one of ‘the gates was turned towards the north, but the",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9253,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.67
+      }
+    },
+    {
+      "class": "reading",
+      "find": "4g_",
+      "replace": "is",
+      "note": "the parallel edition reads \"is\" here",
+      "evidence": "immortals.” 10. It remains, therefore, to investigate what is indi- ™ Hence, when Pythagoras exhorted his disciples",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9261,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "y/z.,",
+      "replace": "viz.",
+      "note": "the parallel edition reads \"viz.\" here",
+      "evidence": "assert, there are two extremities in the heavens, viz. the winter tropic, than which nothing is more",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9277,
+        "matched": "8/8"
+      },
+      "confidence": {
+        "matched": 8,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "#ip",
+      "replace": "gates",
+      "note": "the parallel edition reads \"gates\" here",
+      "evidence": "generation to the world. On this account, the gates of the Homeric cavern are not dedi- cated",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9455,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "was_",
+      "replace": "was",
+      "note": "the parallel edition reads \"was\" here",
+      "evidence": "THE CAVE OF THE NYMPHS. because this cave was sacred to souls and aquatic Nymphs. But these",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9481,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.56
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Bo/>a,",
+      "replace": "Boga,",
+      "note": "the parallel edition reads \"Boga,\" here",
+      "evidence": "pastures. For the word Boreas is derived from Boga, which signifies nutriment. Hence, also, the wind which",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9706,
+        "matched": "10/10"
+      },
+      "confidence": {
+        "matched": 10,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "conse^",
+      "replace": "consequence",
+      "note": "the parallel edition reads \"consequence\" here",
+      "evidence": "Gods, but the western to demons. For, in consequence of nature originating from diversity, the ancients every",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9721,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "eyej^whefe—",
+      "replace": "every",
+      "note": "the parallel edition reads \"every\" here",
+      "evidence": "consequence of nature originating from diversity, the ancients every where made that which has a twofold entrance",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9723,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 0.88
+      }
+    },
+    {
+      "class": "reading",
+      "find": "earth~;f",
+      "replace": "earth;",
+      "note": "the parallel edition reads \"earth;\" here",
+      "evidence": "likewise, is above, but the other beneath the earth; and the one is eastern, but the other",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9739,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "TvfnnrK_",
+      "replace": "Moon.",
+      "note": "the parallel edition reads \"Moon.\" here",
+      "evidence": "ascend through the Sun, and descend through the Moon. _ With Homer, likewise, there are two tubs,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9751,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Blesrjn£3",
+      "replace": "Blessings",
+      "note": "the parallel edition reads \"Blessings\" here",
+      "evidence": "which the lot of every one he fills, Blessings to these, to those distributes ills ἃ, 5.",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9756,
+        "matched": "6/6"
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "anc^",
+      "replace": "trenches,",
+      "note": "the parallel edition reads \"trenches,\" here",
+      "evidence": "two gates: Pherecydes Syrus also mentions recesses and trenches, caverns, doors, and gates; and through these obscurely",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9846,
+        "matched": "6/6"
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 0.6
+      }
+    },
+    {
+      "class": "reading",
+      "find": "fflfp0",
+      "replace": "caverns,",
+      "note": "the parallel edition reads \"caverns,\" here",
+      "evidence": "gates: Pherecydes Syrus also mentions recesses and trenches, caverns, doors, and gates; and through these obscurely indicates",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9846,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.56
+      }
+    },
+    {
+      "class": "reading",
+      "find": "that_jg_the",
+      "replace": "revert",
+      "note": "the parallel edition reads \"revert\" here",
+      "evidence": "One particular, however, remains to be explained, not revert to itself like a circle. So far, therefore,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9858,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "th^jpjpjpj^hejcavfir\",",
+      "replace": "Homer",
+      "note": "the parallel edition reads \"Homer\" here",
+      "evidence": "planted at the top’ of the cavern; since Homer appears to indicate something very admirable by giving",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9878,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.63
+      }
+    },
+    {
+      "class": "reading",
+      "find": "cavern^",
+      "replace": "“‘",
+      "note": "the parallel edition reads \"“‘\" here",
+      "evidence": "which he describes in the following verses ? “‘ High at the head a branching olive grows,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8530,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.67
+      }
+    },
+    {
+      "class": "reading",
+      "find": "t^\"f^li^rva.J",
+      "replace": "Minerva;",
+      "note": "the parallel edition reads \"Minerva;\" here",
+      "evidence": "world. For the olive is the ‘plant of Minerva; and Minerva is wisdom. But this Goddess being",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9895,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.67
+      }
+    },
+    {
+      "class": "reading",
+      "find": "near^",
+      "replace": "near",
+      "note": "the parallel edition reads \"near\" here",
+      "evidence": "a differ- ence of essence], but yet is near to it, through being established on the summit",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9903,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.8
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Jhe_dignity",
+      "replace": "dignity",
+      "note": "the parallel edition reads \"dignity\" here",
+      "evidence": "summit of the whole port; [i.e. from the dignity and excellence of its nature governing the whole",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9905,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "excellence~ot",
+      "replace": "of",
+      "note": "the parallel edition reads \"of\" here",
+      "evidence": "whole port; [i.e. from the dignity and excellence of its nature governing the whole with consummate wisdom].",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9905,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.63
+      }
+    },
+    {
+      "class": "reading",
+      "find": "is^ever-flpjLinsh|ng.",
+      "replace": "ever-flourishing,",
+      "note": "the parallel edition reads \"ever-flourishing,\" here",
+      "evidence": "with consummate wisdom]. Since, however, an olive is ever-flourishing, it possesses a certain peculiarity in the highest",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9907,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 0.88
+      }
+    },
+    {
+      "class": "reading",
+      "find": "degree_",
+      "replace": "degree",
+      "note": "the parallel edition reads \"degree\" here",
+      "evidence": "it possesses a certain peculiarity in the highest degree adapted to the revolutions of souls in the",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9908,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.67
+      }
+    },
+    {
+      "class": "reading",
+      "find": "this~caye_(aswe^jiave__",
+      "replace": "have",
+      "note": "the parallel edition reads \"have\" here",
+      "evidence": "for to such souls this cave [as we have 5814] is sacred. For in summer, the white",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9909,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    },
+    {
+      "class": "reading",
+      "find": "therefore^",
+      "replace": "therefore,",
+      "note": "the parallel edition reads \"therefore,\" here",
+      "evidence": "fair light of security and peace. The olive, therefore, being naturally ever-flou- rishing, bears fruit which is",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9916,
+        "matched": "5/5"
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.56
+      }
+    },
+    {
+      "class": "reading",
+      "find": "/on",
+      "replace": "on",
+      "note": "the parallel edition reads \"on\" here",
+      "evidence": "by which the rewards of victory are conferred on the conquerors in’ the athletic race of life,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9928,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "fjpjjnsjtpfjL^",
+      "replace": "deposited.",
+      "note": "the parallel edition reads \"deposited.\" here",
+      "evidence": "therefore, says Homer, all external possessions must be deposited. Here, naked, and assum- ing a suppliant habit,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9936,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 0.7
+      }
+    },
+    {
+      "class": "reading",
+      "find": "\\he",
+      "replace": "the",
+      "note": "the parallel edition reads \"the\" here",
+      "evidence": "is requisite to sit at the foot of the olive, and consult with Minerva by what means",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9939,
+        "matched": "7/7"
+      },
+      "confidence": {
+        "matched": 7,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "nn(li>",
+      "replace": "finds",
+      "note": "the parallel edition reads \"finds\" here",
+      "evidence": "region where tempest and seas are unknown, and finds a nation “Who ne’er new salt, or heard",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 431,
+        "matched": "6/6"
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 0.75
+      }
+    },
+    {
+      "class": "reading",
+      "find": "/nature.",
+      "replace": "nature.",
+      "note": "the parallel edition reads \"nature.\" here",
+      "evidence": "and ἃ tempest, are images of a material nature. And on this account, I think, the poet",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9955,
+        "matched": "6/6"
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "images^",
+      "replace": "images",
+      "note": "the parallel edition reads \"images\" here",
+      "evidence": "ON THE CAVE OF THE NYMPHS. indicated the images of things of a more divine nature in",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 10019,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "class": "reading",
+      "find": "j)f_a.Jakl£.",
+      "replace": "fable.",
+      "note": "the parallel edition reads \"fable.\" here",
+      "evidence": "more divine nature in the fiction of a fable. For it would not have been. possible to",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 10020,
+        "matched": "4/4"
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.5
+      }
+    }
+  ],
+  "notFound": [
+    {
+      "find": "hf>",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "v^ry",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "the_cavern».",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "fabric^tSdJfcUUMitb£a'y",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "«ffma±es.^",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "y^Nfpt",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "n^rom",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "leUcfers'^f",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "cave^",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "be~assumed",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "the_jMowers",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "pver^wajters,",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "Nyjnph^",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "this^erm_also,",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "aguatic~nymipEsi",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "were/the",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "-1i\"^lHi.n*-iL",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "^X",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "^utrefactiojn1_and",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "^stUJ.",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "J~a",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "other^which",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "to~~FRp",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "thl^narration~PwhetheT'T:Be",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "reality_",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "others7~or",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "n.^Tb,eologists",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "Are_jCancer",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "j__but",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "gatps-o£",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "fias~\"a",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "twofuld^entrance",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "a^symbol",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "fo~~tlTe~lieavens.",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "_put",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "the~other",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "fren£e._.an",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "svnhr>i",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "Eicsent_pavern,",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "/For_tJl«*",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "t^Prplant'",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "uniY.ej£e_",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "effecj^of",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "the_work",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "naturally_jever-flourIsKing,",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "it_Js__sj.cjceAjtoJMinerva",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "sj;ipj>lies",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "ajid_ajifonls_aj*^^",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "^s",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "us^a_man.",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "rp£Tilar",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "thought_that_",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "thiskind^",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    },
+    {
+      "find": "the^,rnnjfrtures",
+      "why": "no passage of the parallel matched this word’s context above the threshold",
+      "sites": 1
+    }
+  ]
+}

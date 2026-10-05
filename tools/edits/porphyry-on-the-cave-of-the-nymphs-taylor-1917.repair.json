@@ -1,0 +1,989 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "an LLM repair pass that is given the transcription's paragraph, the parallel edition's passage and the policy: it proposes `reading` rules and a human merges them",
+  "model": "glm-5.3-flash",
+  "effort": "max",
+  "endpoint": "http://10.0.0.1:8324/v1/chat/completions",
+  "generated": "2026-10-02T17:22:42Z",
+  "mergesNothing": "Nothing here has been merged. To accept a proposal, add it to the rules file with class \"reading\" and this find/replace, in the reading group and BEFORE any recorded rule whose find contains it, then build: every rule must fire at least once or the build fails. A `conflicts` entry needs a human decision about the recorded reading, not a silent replacement.",
+  "policy": {
+    "rule": "substitute-if-known-else-leave",
+    "damage": "^_~*/£>\\|#™±»«}{&"
+  },
+  "parallel": {
+    "file": "Porphyry-Taylor-Select-Works-1823.txt",
+    "shelf": "work-text",
+    "sha256": "8aa0167ea2e6a4a943440e7092e74caecf7b9e170bf159ffcb15b1a0b728747f",
+    "why": "Taylor's Select Works of Porphyry (1823) carries the same translation of the same treatise"
+  },
+  "residue": {
+    "leftVisible": [
+      "an/l",
+      "were/the",
+      "-1i\"^lHi.n*-iL",
+      "^X",
+      "Bo/>a",
+      "that_jgthe",
+      "ajid_ajifonls_aj*^^"
+    ],
+    "unrepairedWords": [
+      "Thp_anrt'p'rii'c",
+      "an/l",
+      "^and",
+      "/Thus",
+      "were/the",
+      "y/z",
+      "conse^",
+      "that_jg_the",
+      "^s",
+      "/nature"
+    ],
+    "items": [
+      {
+        "token": "an/l",
+        "viewForm": null,
+        "from": [
+          "leftVisible",
+          "unrepairedWords"
+        ],
+        "recorded": []
+      },
+      {
+        "token": "were/the",
+        "viewForm": null,
+        "from": [
+          "leftVisible",
+          "unrepairedWords"
+        ],
+        "recorded": []
+      },
+      {
+        "token": "-1i\"^lHi.n*-iL",
+        "viewForm": null,
+        "from": [
+          "leftVisible"
+        ],
+        "recorded": [
+          "-1i\"^lHi.n*-iL"
+        ]
+      },
+      {
+        "token": "^X",
+        "viewForm": null,
+        "from": [
+          "leftVisible"
+        ],
+        "recorded": [
+          "^X"
+        ]
+      },
+      {
+        "token": "Bo/>a,",
+        "viewForm": "Bo/>a",
+        "from": [
+          "leftVisible"
+        ],
+        "recorded": [
+          "Bo/>a"
+        ]
+      },
+      {
+        "token": "ajid_ajifonls_aj*^^",
+        "viewForm": null,
+        "from": [
+          "leftVisible"
+        ],
+        "recorded": [
+          "ajid_ajifonls_aj*^^"
+        ]
+      },
+      {
+        "token": "Thp_anrt'p'rii'c:,",
+        "viewForm": "Thp_anrt'p'rii'c",
+        "from": [
+          "unrepairedWords"
+        ],
+        "recorded": [
+          "Thp_anrt'p'rii'c:"
+        ]
+      },
+      {
+        "token": ".^and",
+        "viewForm": "^and",
+        "from": [
+          "unrepairedWords"
+        ],
+        "recorded": [
+          "obscure .^and"
+        ]
+      },
+      {
+        "token": "/Thus,",
+        "viewForm": "/Thus",
+        "from": [
+          "unrepairedWords"
+        ],
+        "recorded": [
+          "/Thus,"
+        ]
+      },
+      {
+        "token": "y/z.,",
+        "viewForm": "y/z",
+        "from": [
+          "unrepairedWords"
+        ],
+        "recorded": [
+          "y/z.,"
+        ]
+      },
+      {
+        "token": "conse^",
+        "viewForm": null,
+        "from": [
+          "unrepairedWords"
+        ],
+        "recorded": [
+          "conse^ quence"
+        ]
+      },
+      {
+        "token": "that_jg_the",
+        "viewForm": null,
+        "from": [
+          "unrepairedWords",
+          "leftVisible (shown as that_jgthe in the reading view)"
+        ],
+        "recorded": [
+          "_the"
+        ]
+      },
+      {
+        "token": "^s",
+        "viewForm": null,
+        "from": [
+          "unrepairedWords"
+        ],
+        "recorded": [
+          "in_d^scfi5mga",
+          "^stUJ",
+          "a^symbol",
+          "by ^s which"
+        ]
+      },
+      {
+        "token": "/nature.",
+        "viewForm": "/nature",
+        "from": [
+          "unrepairedWords"
+        ],
+        "recorded": [
+          "/nature."
+        ]
+      }
+    ]
+  },
+  "context": {
+    "window": 7,
+    "neighbourParagraphs": 1,
+    "parallelLines": 3,
+    "requests": 14,
+    "charsPerRequest": [
+      8091,
+      5732,
+      5401,
+      5363,
+      7638,
+      6657,
+      5654,
+      8866,
+      7516,
+      8095,
+      6227,
+      5878,
+      6554,
+      6307
+    ],
+    "totalChars": 93979,
+    "minChars": 5363,
+    "maxChars": 8866,
+    "meanChars": 6713
+  },
+  "sent": [
+    {
+      "token": "an/l",
+      "from": [
+        "leftVisible",
+        "unrepairedWords"
+      ],
+      "promptChars": 8091,
+      "located": {
+        "line": 8693,
+        "run": "and",
+        "score": 8,
+        "share": 1
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 8679,
+          "hi": 8695,
+          "score": 61
+        },
+        {
+          "lo": 3983,
+          "hi": 3988,
+          "score": 12
+        },
+        {
+          "lo": 8824,
+          "hi": 8827,
+          "score": 11
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 4900,
+      "reasoningTokens": 1230
+    },
+    {
+      "token": "were/the",
+      "from": [
+        "leftVisible",
+        "unrepairedWords"
+      ],
+      "promptChars": 5732,
+      "located": {
+        "line": 9021,
+        "run": "were, the",
+        "score": 6,
+        "share": 1
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 9021,
+          "hi": 9022,
+          "score": 7
+        },
+        {
+          "lo": 3786,
+          "hi": 3786,
+          "score": 3
+        },
+        {
+          "lo": 6695,
+          "hi": 6695,
+          "score": 3
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 4961,
+      "reasoningTokens": 1190
+    },
+    {
+      "token": "-1i\"^lHi.n*-iL",
+      "from": [
+        "leftVisible"
+      ],
+      "promptChars": 5401,
+      "located": null,
+      "notLocated": "no passage of the parallel matched this run's context above the threshold (score >= 4, share >= 0.45)",
+      "candidates": [
+        {
+          "lo": 9021,
+          "hi": 9022,
+          "score": 7
+        },
+        {
+          "lo": 3786,
+          "hi": 3786,
+          "score": 3
+        },
+        {
+          "lo": 6695,
+          "hi": 6695,
+          "score": 3
+        }
+      ],
+      "locatorsAgree": null,
+      "finish": "stop",
+      "thinkingChars": 18367,
+      "reasoningTokens": 4949
+    },
+    {
+      "token": "^X",
+      "from": [
+        "leftVisible"
+      ],
+      "promptChars": 5363,
+      "located": null,
+      "notLocated": "no passage of the parallel matched this run's context above the threshold (score >= 4, share >= 0.45)",
+      "candidates": [
+        {
+          "lo": 9021,
+          "hi": 9022,
+          "score": 7
+        },
+        {
+          "lo": 3786,
+          "hi": 3786,
+          "score": 3
+        },
+        {
+          "lo": 6695,
+          "hi": 6695,
+          "score": 3
+        }
+      ],
+      "locatorsAgree": null,
+      "finish": "stop",
+      "thinkingChars": 9087,
+      "reasoningTokens": 2115
+    },
+    {
+      "token": "Bo/>a,",
+      "from": [
+        "leftVisible"
+      ],
+      "promptChars": 7638,
+      "located": {
+        "line": 9706,
+        "run": "Boga,",
+        "score": 10,
+        "share": 1
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 9669,
+          "hi": 9679,
+          "score": 52
+        },
+        {
+          "lo": 1366,
+          "hi": 1372,
+          "score": 14
+        },
+        {
+          "lo": 9529,
+          "hi": 9532,
+          "score": 14
+        }
+      ],
+      "locatorsAgree": false,
+      "finish": "stop",
+      "thinkingChars": 12103,
+      "reasoningTokens": 3134
+    },
+    {
+      "token": "ajid_ajifonls_aj*^^",
+      "from": [
+        "leftVisible"
+      ],
+      "promptChars": 6657,
+      "located": {
+        "line": 9925,
+        "run": "and affords a friendly branch to the suppliant",
+        "score": 6,
+        "share": 0.75
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 9924,
+          "hi": 9930,
+          "score": 23
+        },
+        {
+          "lo": 9901,
+          "hi": 9902,
+          "score": 4
+        },
+        {
+          "lo": 1635,
+          "hi": 1635,
+          "score": 3
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 26397,
+      "reasoningTokens": 6813
+    },
+    {
+      "token": "Thp_anrt'p'rii'c:,",
+      "from": [
+        "unrepairedWords"
+      ],
+      "promptChars": 5654,
+      "located": {
+        "line": 8667,
+        "run": "ancients,",
+        "score": 6,
+        "share": 0.6
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 8676,
+          "hi": 8676,
+          "score": 3
+        }
+      ],
+      "locatorsAgree": false,
+      "finish": "stop",
+      "thinkingChars": 14144,
+      "reasoningTokens": 3848
+    },
+    {
+      "token": ".^and",
+      "from": [
+        "unrepairedWords"
+      ],
+      "promptChars": 8866,
+      "located": {
+        "line": 8727,
+        "run": "[and",
+        "score": 9,
+        "share": 1
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 8719,
+          "hi": 8736,
+          "score": 74
+        },
+        {
+          "lo": 11383,
+          "hi": 11392,
+          "score": 18
+        },
+        {
+          "lo": 11237,
+          "hi": 11243,
+          "score": 12
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 44138,
+      "reasoningTokens": 10931
+    },
+    {
+      "token": "/Thus,",
+      "from": [
+        "unrepairedWords"
+      ],
+      "promptChars": 7516,
+      "located": {
+        "line": 8774,
+        "run": "Thus,",
+        "score": 8,
+        "share": 1
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 8774,
+          "hi": 8786,
+          "score": 52
+        },
+        {
+          "lo": 8759,
+          "hi": 8761,
+          "score": 9
+        },
+        {
+          "lo": 9192,
+          "hi": 9195,
+          "score": 9
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 10500,
+      "reasoningTokens": 2443
+    },
+    {
+      "token": "y/z.,",
+      "from": [
+        "unrepairedWords"
+      ],
+      "promptChars": 8095,
+      "located": {
+        "line": 9277,
+        "run": "viz.",
+        "score": 8,
+        "share": 1
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 9272,
+          "hi": 9289,
+          "score": 55
+        },
+        {
+          "lo": 9442,
+          "hi": 9446,
+          "score": 10
+        },
+        {
+          "lo": 9662,
+          "hi": 9667,
+          "score": 10
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 7361,
+      "reasoningTokens": 1799
+    },
+    {
+      "token": "conse^",
+      "from": [
+        "unrepairedWords"
+      ],
+      "promptChars": 6227,
+      "located": {
+        "line": 9721,
+        "run": "consequence",
+        "score": 5,
+        "share": 0.71
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 9720,
+          "hi": 9721,
+          "score": 7
+        },
+        {
+          "lo": 11413,
+          "hi": 11416,
+          "score": 7
+        },
+        {
+          "lo": 8680,
+          "hi": 8681,
+          "score": 5
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 45593,
+      "reasoningTokens": 11153
+    },
+    {
+      "token": "that_jg_the",
+      "from": [
+        "unrepairedWords",
+        "leftVisible (shown as that_jgthe in the reading view)"
+      ],
+      "promptChars": 5878,
+      "located": {
+        "line": 9855,
+        "run": "",
+        "score": 4,
+        "share": 0.57
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 9855,
+          "hi": 9855,
+          "score": 4
+        },
+        {
+          "lo": 9877,
+          "hi": 9877,
+          "score": 4
+        },
+        {
+          "lo": 10873,
+          "hi": 10873,
+          "score": 3
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 30196,
+      "reasoningTokens": 7850
+    },
+    {
+      "token": "^s",
+      "from": [
+        "unrepairedWords"
+      ],
+      "promptChars": 6554,
+      "located": {
+        "line": 9927,
+        "run": "",
+        "score": 7,
+        "share": 1
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 9925,
+          "hi": 9930,
+          "score": 21
+        },
+        {
+          "lo": 9901,
+          "hi": 9902,
+          "score": 4
+        },
+        {
+          "lo": 1635,
+          "hi": 1635,
+          "score": 3
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 51579,
+      "reasoningTokens": 12733
+    },
+    {
+      "token": "/nature.",
+      "from": [
+        "unrepairedWords"
+      ],
+      "promptChars": 6307,
+      "located": {
+        "line": 9955,
+        "run": "nature.",
+        "score": 6,
+        "share": 1
+      },
+      "notLocated": null,
+      "candidates": [
+        {
+          "lo": 9954,
+          "hi": 9958,
+          "score": 18
+        },
+        {
+          "lo": 9745,
+          "hi": 9746,
+          "score": 4
+        },
+        {
+          "lo": 9961,
+          "hi": 9962,
+          "score": 4
+        }
+      ],
+      "locatorsAgree": true,
+      "finish": "stop",
+      "thinkingChars": 9931,
+      "reasoningTokens": 2226
+    }
+  ],
+  "proposals": [
+    {
+      "class": "reading",
+      "find": "an/l",
+      "replace": "and",
+      "note": "The slash in the transcription's \"an/l\" marks a lost final letter; the print reads \"and\" in the phrase \"sluggish and repercussive nature.\" This one word accounts for the whole run between its anchors, as the confident alignment matched the run to the single parallel word \"and\" with 8 surrounding anchors agreeing. No recorded rule or leave previously named this token, so nothing is superseded.",
+      "evidence": "The transcription's damaged run \"an/l\" aligns confidently onto the parallel edition (Porphyry-Taylor-Select-Works-1823.txt) at line 8693, which reads: \"rock, on account of its sluggish and repercussive nature.\" The run sits exactly where the parallel has \"and\" between \"sluggish\" and \"repercussive\"; the \"/\" stands for the lost \"d\". Decided by the parallel witness, since the run could not be located in the transcription's own body text.",
+      "decided_by": "parallel",
+      "conflicts": [],
+      "token": "an/l",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8693,
+        "runLines": [
+          8693,
+          8693
+        ]
+      },
+      "evidenceWhere": {
+        "lines": [
+          8679,
+          8695
+        ],
+        "shared": 57
+      },
+      "confidence": {
+        "matched": 8,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "were/the",
+      "replace": "were, the",
+      "note": "The damage character / stands between 'were' and 'the' where the print has a comma, as in the parallel's 'as it were, the vestment'. No recorded rule named this token, so nothing is superseded; the full run between anchors is covered by this one repair.",
+      "evidence": "The transcription's damaged run is \"were/the\"; the parallel edition (Taylor, Select Works of Porphyry, 1823, line 9021) reads \"a veil, in consequence of being, as it were, the vestment\", mapping this run onto \"were, the\" with 6 anchors matched. Decided by the parallel.",
+      "decided_by": "parallel",
+      "conflicts": [],
+      "token": "were/the",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9021,
+        "runLines": [
+          9021,
+          9021
+        ]
+      },
+      "evidenceWhere": {
+        "lines": [
+          9021,
+          9022
+        ],
+        "shared": 57
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Bo/>a,",
+      "replace": "Boga,",
+      "note": "Supersedes the recorded LEAVE for 'Bo/>a' (not determinable): the evidence now decides the run. The damage characters / and > garble the single letter g of the print's word. Reading the two locators together resolves the warning: the second locator's top lines (9669-9679, on the galaxy, milk, and generation in the north) are the same continuous discussion that runs on into the aligned line 9706 ('these regions are humid... For the word Boreas is derived from Boga...'), and they contain no alternative word of this shape, so the alignment is confirmed rather than contradicted.",
+      "evidence": "The transcription's run 'Bo/>a,' could not be located in its own body text. The parallel Porphyry-Taylor-Select-Works-1823.txt at line 9706 reads: 'For the word Boreas is derived from Boga, which signifies nutriment' — the damaged token 'Bo/>a,' maps onto 'Boga,' (Bo + g + a + comma), the / and > standing where the letter g stands in the print. The second locator's best lines (9669-9679) sit in the same continuous passage and offer no competing form. Decided by the PARALLEL.",
+      "decided_by": "parallel",
+      "conflicts": [
+        "Bo/>a"
+      ],
+      "token": "Bo/>a,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9706,
+        "runLines": [
+          9706,
+          9706
+        ]
+      },
+      "evidenceWhere": null,
+      "confidence": {
+        "matched": 10,
+        "share": 1
+      }
+    },
+    {
+      "class": "reading",
+      "find": "ajid_ajifonls_aj*^^",
+      "replace": "and affords a friendly branch to the suppliant",
+      "note": "Supersedes the recorded LEAVE ('not determinable') for this run: the parallel evidence now decides it. The 1823 Taylor parallel reads 'with crowns; and affords a friendly branch to the suppliant petitioner.' at lines 9924-9925. The transcription's chunks match shape-for-shape: ajid=and, ajifonls=affords, and aj*^^ collapses the rest of the slot, 'a friendly branch to the suppliant'. The replacement restores EVERY word the print has between the anchors, so no half-repaired sentence is produced; 'petitioner.' stands after the run as the transcription's own surviving word and is deliberately not duplicated.",
+      "evidence": "Transcription run \"ajid_ajifonls_aj*^^\" aligns with the parallel's own words \"and affords a friendly branch to the suppliant\" (Taylor 1823, lines 9924-9925: \"friendly branch to the suppliant petitioner. Thus, too,\"). The second, non-contiguous locator confirms the same paragraph (lines 9924-9930, sharing 23 words: crowns, athletic, petitioner, Thus, world, governed, intellectual, wisdom, eternal, rewards, victory, etc.), so the alignment did not land on a wrong passage. Decided by the parallel.",
+      "decided_by": "parallel",
+      "conflicts": [
+        "ajid_ajifonls_aj*^^ (recorded as a LEAVE)"
+      ],
+      "token": "ajid_ajifonls_aj*^^",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9925,
+        "runLines": [
+          9924,
+          9925
+        ]
+      },
+      "evidenceWhere": {
+        "lines": [
+          9924,
+          9930
+        ],
+        "shared": 55
+      },
+      "confidence": {
+        "matched": 6,
+        "share": 0.75
+      }
+    },
+    {
+      "class": "reading",
+      "find": "Thp_anrt'p'rii'c:,",
+      "replace": "The ancients,",
+      "note": "Extends the already-recorded class reading for 'Thp_anrt'p'rii'c:' (= \"The ancients\") by the trailing comma the transcription carries: the print reads \"The ancients, indeed, very properly consecrated a\" (parallel line 8667), so the printed text here is \"The ancients,\" with the comma. The second locator (line 8676, '...eave to the world, whether assumed collectively, accord-') is later runover/footnote text of the same section and does not cover this run; the token alignment's candidate line 8667 agrees with the recorded reading and is followed. The proposal does not contradict the recorded reading — it completes it to the full run.",
+      "evidence": "Transcription run 'Thp_anrt'p'rii'c:,' corresponds to the opening words of parallel line 8667: \"The ancients, indeed, very properly consecrated a\" (Porphyry-Taylor-Select-Works-1823), which confirms both the words and the print's comma after 'ancients'; the already-recorded class reading on this run independently records \"The ancients\". Decided by the parallel edition corroborating the existing recorded reading.",
+      "decided_by": "both",
+      "conflicts": [
+        "Thp_anrt'p'rii'c:"
+      ],
+      "token": "Thp_anrt'p'rii'c:,",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 8667,
+        "runLines": [
+          8667,
+          8667
+        ]
+      },
+      "evidenceWhere": null,
+      "confidence": {
+        "matched": 6,
+        "share": 0.6
+      }
+    },
+    {
+      "class": "reading",
+      "find": "conse^",
+      "replace": "consequence",
+      "note": "The print's word is certain: both locators in the 1823 parallel give \"consequence\" — whole at line 9721 (\"For, in consequence of nature originating from diversity\") and hyphenated as \"conse-/quence\" at 11413-14. This agrees with the already-recorded reading \"conse^ quence\" -> \"consequence\" and does not contradict it; but since that recorded pair-rule left this run unrepaired, the caret in the standing run \"conse^\" carries the remainder of the word, so the whole printed word \"consequence\" is recorded for it here. The run could not be located in the transcription's own body text, so the parallel decides.",
+      "evidence": "The unrepaired run is \"conse^\". The 1823 parallel (Porphyry-Taylor-Select-Works-1823.txt) decides the reading: line 9721 reads \"Gods, but the western to demons. For, in consequence\" and continues at 9723 with \"of nature originating from diversity, the ancients every\"; the same word recurs hyphenated across a line break at 11413-11414 as \"in conse- / quence of not perceiving this total one\". Both locators therefore attest that the print has \"consequence\" where the transcription carries \"conse^\". Witness that decided it: the parallel edition.",
+      "decided_by": "parallel",
+      "conflicts": [
+        "conse^ quence"
+      ],
+      "token": "conse^",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9721,
+        "runLines": [
+          9721,
+          9721
+        ]
+      },
+      "evidenceWhere": {
+        "lines": [
+          9720,
+          9721
+        ],
+        "shared": 52
+      },
+      "confidence": {
+        "matched": 5,
+        "share": 0.71
+      }
+    },
+    {
+      "class": "reading",
+      "find": "that_jg_the",
+      "replace": "that is the",
+      "note": "Repairs the whole damaged run, which the reading view currently shows as 'that_jgthe'. The remaining damage 'that_jg' is the print's 'that is' (the mangled 'jg' is the remnant of 'is'), and the trailing '_the' is already covered by the recorded class reading '_the' -> 'the'; this rule is consistent with that recorded reading (its portion still maps to 'the') and completes the run so it reads 'that is the', matching the parallel word for word.",
+      "evidence": "Transcription's own characters \"that_jg_the\" correspond to the parallel's wording at line 9877: \"and that is the symbol of the olive planted at the top’ of\", whose shared paragraph words (that, symbol, olive, planted) identify the passage; the PARALLEL witness decided it, giving 'that' + 'is' (damaged to 'jg') + 'the'.",
+      "decided_by": "parallel",
+      "conflicts": [
+        "_the"
+      ],
+      "token": "that_jg_the",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9855,
+        "runLines": [
+          9855,
+          9855
+        ]
+      },
+      "evidenceWhere": {
+        "lines": [
+          9877,
+          9877
+        ],
+        "shared": 58
+      },
+      "confidence": {
+        "matched": 4,
+        "share": 0.57
+      }
+    }
+  ],
+  "unsure": [
+    {
+      "class": "review",
+      "token": "-1i\"^lHi.n*-iL",
+      "passage": "-1i\"^lHi.n*-iL",
+      "question": "Which printed word or words does the damaged string -1i\"^lHi.n*-iL stand for in this passage? The transcription gives no anchors (the words immediately before and after the run), and the run's own characters decode to nothing in the candidate paragraph ('a veil, in consequence of being, as it were, the vestment of the celestial Gods.'), so neither the transcription nor the parallel decides the reading.",
+      "note": "The second locator finds only a loosely-shared paragraph, not the passage itself; with no anchors supplied, no contiguous parallel match, and an uninformative mangled string, the reading is still not determinable. This re-raises the run with a specific question; it does not contradict the recorded LEAVE, which stands until a reader can check the page (the string may also be a page/printing artefact rather than a word).",
+      "evidence": "Transcription characters: -1i\"^lHi.n*-iL — the whole run is OCR noise (-, 1, i, \", ^, l, H, i, ., n, *, -, i, L). Best parallel context, lines 9021-9022: \"a veil, in consequence of being, as it were, the vestment\" / \"of the celestial Gods.\" shares only paragraph-level words (being, celestial, consequence, gods, veil, vestment, were) and contains nothing matching the run; the parallel passage is therefore NOT located, so I decline to guess.",
+      "where": null,
+      "why": "no passage of the parallel matched this run's context above the threshold (score >= 4, share >= 0.45)"
+    },
+    {
+      "class": "review",
+      "token": "^X",
+      "passage": "^X",
+      "question": "What does the print have at the position the transcription marks ^X? The paragraph is identified as \"a veil, in consequence of being, as it were, the vestment of the celestial Gods,\" but the transcription's anchor words before and after the run were not located, so the run's exact place in that passage — and therefore the word(s) lost at ^X — cannot be fixed.",
+      "note": "The contiguous parallel was NOT located; the shared-word locator only matches the run's paragraph (lines 9021-9022). It identifies the surrounding sentence but shows nothing about where ^X stands within it or between which anchors, so proposing any single word (e.g. 'veil' or 'vestment') would be a guess, and a partial repair is worse than leaving the run. The existing recorded LEAVE (not determinable) therefore still stands and is not superseded; a human must consult the print page at the run's flanking words.",
+      "evidence": "transcription run: \"^X\" (could not be located in the body text); nearest parallel context is a shared-word match, not contiguous: \"a veil, in consequence of being, as it were, the vestment of the celestial Gods.\" The paragraph is identified by the parallel but the run's position inside it is not, so neither the transcription nor the parallel decides the reading.",
+      "where": null,
+      "why": "no passage of the parallel matched this run's context above the threshold (score >= 4, share >= 0.45)"
+    },
+    {
+      "class": "review",
+      "token": "^s",
+      "passage": "^s",
+      "question": "This '^s' cannot be located in the transcription's body text, and the parallel alignment maps it to no printed word at line 9927. Is it the superscript footnote marker '5' printed after 'ever-flourishing' in the 1823 edition (OCR '^' for superscript, 's' for '5'), a fragment of footnote 5's own text, or an artefact with no printed original — should the record read '5', nothing at all, or remain visible damage pending page inspection?",
+      "note": "No recorded reading covers this bare run: the nearest one, 'by ^s which' -> 'by which', decides a different span and does not say what the print has at this '^s'. The transcription side supplies no context because the run cannot be located in its body text, and the parallel, though confidently aligned to line 9927, maps the run onto '' (no word), so any reading rule would have to guess between the footnote marker '5' and an empty repair. A superscript/page artefact of this kind is an honest 'not determinable', not a reading to guess at.",
+      "evidence": "Transcription run: ^s (not locatable in the transcription's body text). Parallel line 9927: is conducted by a wisdom eternal and ever-flourishing 5 — the alignment lands on this line but maps the run onto no word, which fits a superscript footnote number mangled to ^s rather than lost letters.",
+      "where": {
+        "file": "Porphyry-Taylor-Select-Works-1823.txt",
+        "line": 9927
+      },
+      "why": null
+    }
+  ],
+  "rejected": [
+    {
+      "token": ".^and",
+      "reason": "a recorded rule already matches this find exactly",
+      "proposal": {
+        "find": "obscure .^and",
+        "replace": "obscure, [and",
+        "class": "reading",
+        "note": "Corrects the recorded reading \"obscure .^and\" -> \"obscure, and\", which silently dropped the damage character ^ even though the policy says a damage character is a lost letter or mark. The parallel shows what was lost: the print reads \"parts are obscure, [and its very bottom is darkness itself].\", so the transcription's '.' is the OCR's rendering of the comma after 'obscure', and '^' is the lost left bracket '[' opening Taylor's bracketed clause. The words after the run ('its very bottom is darkness itself') are already intact in the transcription, so the print's entire text between the anchors is exactly 'obscure, [and', and this repair accounts for every word in the slot.",
+        "evidence": "The run could not be located in the transcription body ('.^and'); the parallel witness decided it. Porphyry-Taylor-Select-Works-1823.txt, line 8727: 'parts are obscure, [and its very bottom is darkness itself].', following line 8726 'but its interior and profound'. The alignment maps the damaged run onto the parallel's '[and' (line 8727, a confident match over 9 anchors), and the transcription carries 'its very bottom is darkness itself' intact after the run, so the transcription's find 'obscure .^and' corresponds to the print's 'obscure, [and'.",
+        "decided_by": "parallel"
+      }
+    },
+    {
+      "token": "/Thus,",
+      "reason": "a recorded rule already matches this find exactly",
+      "proposal": {
+        "find": "/Thus,",
+        "replace": "Thus,",
+        "class": "reading",
+        "note": "Restates and underwrites the already recorded reading for this run rather than contradicting it: the print has 'Thus,' here and the initial '/' is residual damage with no lost letters. The confident alignment onto the 1823 parallel's own 'Thus,' confirms the recorded reading; no words are added or paraphrased.",
+        "evidence": "The transcription's run '/Thus,' aligns (8 anchor matches, share 1, 'a confident match') with parallel line 8774: 'itself, and concealed in it his children. Thus, too, Ceres educated Proserpine'. The parallel witness Porphyry-Taylor-Select-Works-1823 decided the reading, and it agrees exactly with the recorded reading '/Thus,' -> 'Thus,'.",
+        "decided_by": "parallel"
+      }
+    },
+    {
+      "token": "y/z.,",
+      "reason": "a recorded rule already matches this find exactly",
+      "proposal": {
+        "find": "y/z.,",
+        "replace": "viz.",
+        "class": "reading",
+        "note": "The OCR mangle 'y/z.,' is the printed 'viz.' — 'y' for 'v', '/' for the lost 'i' — with the trailing comma being transcription noise, since the parallel prints 'viz. the winter tropic' with no comma. This proposes the same reading already recorded ('y/z.,' -> 'viz.'), confirming rather than contradicting it; it supersedes any outstanding leave and should clear the run from unrepairedWords.",
+        "evidence": "The transcription's damaged run 'y/z.,' corresponds exactly to the parallel edition's line 9277: 'two extremities in the heavens, viz. the winter tropic, than' — the parallel (Porphyry-Taylor-Select-Works-1823.txt) is the deciding witness, matched confidently on 8 anchors; the transcription itself could not locate the run in the body text.",
+        "decided_by": "parallel"
+      }
+    },
+    {
+      "token": "/nature.",
+      "reason": "a recorded rule already matches this find exactly",
+      "proposal": {
+        "find": "/nature.",
+        "replace": "nature.",
+        "class": "reading",
+        "note": "Re-records the already recorded class reading for this run: the damage character '/' stands at the start of the word, and the print reads 'nature.'. This proposal restates the existing reading exactly, so it does not contradict it; it is offered to clear the run from the residue (unrepairedWords). The 1823 parallel confirms the word at this exact spot in the sentence.",
+        "evidence": "Transcription run '/nature.' aligns with the parallel edition (Porphyry-Taylor-Select-Works-1823.txt) line 9955: 'ἃ tempest, are images of a material nature. And on this'. The parallel's own words 'material nature. And on this' (well over 12 consecutive characters, verbatim) show the print's word here is 'nature.', exactly as the recorded reading has it. The alignment mapped the run onto the parallel's 'nature.' at line 9955 as a confident match. The parallel witness decided it; the transcription's own context for the run could not be located in the body text.",
+        "decided_by": "parallel"
+      }
+    }
+  ],
+  "failed": [],
+  "cost": {
+    "items": 14,
+    "sent": 14,
+    "proposals": 7,
+    "unsure": 3,
+    "rejected": 4,
+    "failed": 0,
+    "usage": {
+      "prompt_tokens": 23564,
+      "completion_tokens": 76230,
+      "total_tokens": 99794
+    }
+  }
+}

@@ -1,0 +1,25 @@
+# Build output — generated from data/ by build/build.mjs, never committed.
+site/dist/
+
+# Elm build artifacts (the committed bundle is tools/app.js)
+elm-stuff/
+elm/Reader.js
+elm/ExtractCss.js
+
+# Scan page images ARE committed: the edition's WHOLE SCAN, and a repair cites
+# the leaf it was read from. 141 leaves for proclus, 72 for porphyry (≈59M,
+# MEASURED 2026-10-05; fetched with tools/fetch-scans.mjs).
+# The blog excluded them because it could re-fetch them with tools/scan.mjs; a
+# citable edition cannot — the leaf a rule cites must resolve forever, so it is
+# part of the record.
+
+# Python bytecode from tooling
+__pycache__/
+*.pyc
+
+# INTERNAL working docs — handoff material, not part of the published library.
+# Kept on disk for the workflow; never tracked or published.
+docs/EXTRACTION-PLAN.md
+docs/MIGRATION-NOTES.md
+docs/REPAIR-REVIEW.md
+docs/DOI.md

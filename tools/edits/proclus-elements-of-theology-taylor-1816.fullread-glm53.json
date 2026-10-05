@@ -1,0 +1,410 @@
+{
+  "slug": "proclus-elements-of-theology-taylor-1816",
+  "tool": "a whole-text read by glm-5.3 at effort max, in sections, with both witnesses (reading view + transcription) and the parallel edition located per section: it PROPOSES findings in three classes and a human merges them",
+  "model": "glm-5.3",
+  "effort": "max",
+  "endpoint": "http://10.0.0.1:8324/v1/chat/completions",
+  "generated": "2026-10-04T06:10:06Z",
+  "mergesNothing": "Nothing here has been merged. These are PROPOSALS with evidence; the last machine-merge attempt would have asserted readings the print does not have (\"but\" -> \"put\", \"the\" -> \"he\", \"caverns\" -> \"cavern\"). To accept one, add it to the rules file by hand (class \"reading\", the transcription-find verbatim) and build.",
+  "policy": {
+    "rule": "substitute-if-known-else-leave",
+    "damage": "^_~*/£>\\|#™±»«}{&"
+  },
+  "parallel": null,
+  "coverage": {
+    "regions": [
+      {
+        "region": "the whole volume (part 1 of 6)",
+        "blocks": 157,
+        "chars": 47365,
+        "damageInView": {
+          "&": 2,
+          "*": 21,
+          "«": 5,
+          ">": 2
+        }
+      },
+      {
+        "region": "the whole volume (part 2 of 6)",
+        "blocks": 157,
+        "chars": 43219,
+        "damageInView": {
+          "*": 10,
+          "»": 1,
+          "_": 1
+        }
+      },
+      {
+        "region": "the whole volume (part 3 of 6)",
+        "blocks": 157,
+        "chars": 42290,
+        "damageInView": {
+          "*": 21,
+          "»": 3,
+          "{": 2,
+          "£": 1,
+          "«": 1
+        }
+      },
+      {
+        "region": "the whole volume (part 4 of 6)",
+        "blocks": 157,
+        "chars": 53205,
+        "damageInView": {
+          "*": 25,
+          "«": 2,
+          ">": 1,
+          "£": 2,
+          "&": 3,
+          "\\": 1
+        }
+      },
+      {
+        "region": "the whole volume (part 5 of 6)",
+        "blocks": 157,
+        "chars": 42094,
+        "damageInView": {
+          "*": 20,
+          ">": 1,
+          "}": 1,
+          "«": 3,
+          "#": 1,
+          "{": 1
+        }
+      },
+      {
+        "region": "the whole volume (part 6 of 6)",
+        "blocks": 155,
+        "chars": 40452,
+        "damageInView": {
+          "*": 22,
+          ">": 2,
+          "^": 3,
+          "«": 11,
+          "»": 1,
+          "{": 1,
+          "}": 1,
+          "&": 1
+        }
+      }
+    ],
+    "requests": 6,
+    "regionsSent": [
+      "the whole volume (part 1 of 6)",
+      "the whole volume (part 2 of 6)",
+      "the whole volume (part 3 of 6)",
+      "the whole volume (part 4 of 6)",
+      "the whole volume (part 5 of 6)",
+      "the whole volume (part 6 of 6)"
+    ],
+    "everyRegionSent": true
+  },
+  "context": {
+    "maxParallelChars": 9000,
+    "charsPerRequest": [
+      108610,
+      100370,
+      98520,
+      120438,
+      98276,
+      94948
+    ],
+    "minChars": 94948,
+    "maxChars": 120438,
+    "meanChars": 103527
+  },
+  "sent": [
+    {
+      "region": "the whole volume (part 1 of 6)",
+      "promptChars": 108610,
+      "parallel": {
+        "status": "no parallel volume known for this text"
+      },
+      "finish": null,
+      "reasoningTokens": null,
+      "thinkingChars": 201821,
+      "rawBodyChars": 47365
+    },
+    {
+      "region": "the whole volume (part 2 of 6)",
+      "promptChars": 100370,
+      "parallel": {
+        "status": "no parallel volume known for this text"
+      },
+      "finish": "length",
+      "reasoningTokens": 61384,
+      "thinkingChars": 205941,
+      "rawBodyChars": 43219
+    },
+    {
+      "region": "the whole volume (part 3 of 6)",
+      "promptChars": 98520,
+      "parallel": {
+        "status": "no parallel volume known for this text"
+      },
+      "finish": "length",
+      "reasoningTokens": 61371,
+      "thinkingChars": 211754,
+      "rawBodyChars": 42290
+    },
+    {
+      "region": "the whole volume (part 4 of 6)",
+      "promptChars": 120438,
+      "parallel": {
+        "status": "no parallel volume known for this text"
+      },
+      "finish": "length",
+      "reasoningTokens": 61379,
+      "thinkingChars": 218979,
+      "rawBodyChars": 53205
+    },
+    {
+      "region": "the whole volume (part 5 of 6)",
+      "promptChars": 98276,
+      "parallel": {
+        "status": "no parallel volume known for this text"
+      },
+      "finish": "length",
+      "reasoningTokens": 61350,
+      "thinkingChars": 198123,
+      "rawBodyChars": 42094,
+      "retried": 3
+    },
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "promptChars": 94948,
+      "parallel": {
+        "status": "no parallel volume known for this text"
+      },
+      "finish": "stop",
+      "reasoningTokens": 61382,
+      "thinkingChars": 212287,
+      "rawBodyChars": 40452
+    }
+  ],
+  "findings": [
+    {
+      "kind": "2",
+      "find": "it omitted in the original",
+      "replace": "is omitted in the original",
+      "note": "Class 2: 'it' is a substituted letter for 'is' with no damage character; every parallel footnote in this section prints 'is omitted in the original' (or 'are omitted'), so the reading view shows an ungrammatical word the census cannot see.",
+      "evidence": "Transcription (s176-6): '1 afuydu it omitted in the original.'; same-print parallels: s184-4 '* fcio; is omitted in the original.' and s185-4 '1 taut is omitted in the original.' Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "It it necessary here to read",
+      "replace": "It is necessary here to read",
+      "note": "Class 2 half-repair: a rule restored the footnote's Greek (προσεχῶς τοῦ νοῦ, ὁ δὲ μερικὸς ἀριθμὸς ἐγγυτέρω τοῦ ἑνός) but left 'it' for 'is' standing in the reading view — no damage character remains, so the census is blind to it.",
+      "evidence": "Transcription (s180-4): \"' 1 It it necessary here to read and supply from the version of Patricius, mqfartfo* too no;, t it\"; the build's own footnote style decides the frame: s185-5 'it is necessary to read', s198-4 'it is requisite to read', s209-5 'it is necessary to read'. Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "But i imparticipable intellect",
+      "replace": "But imparticipable intellect",
+      "note": "Class 1 artefact: a stray 'i' stands in the reading view between 'But' and 'imparticipable' where the print has no separate word; no rule removed it and it carries no damage-set character, so the census cannot see it.",
+      "evidence": "Transcription (s180-2): 'But i imparticipable intellect indeed, is simply a whole' — identical in the reading view; the print's parallel sentence in the same proposition decides the wording: s180-2 'But each partial intellect possesses the whole as in a part' (no article before the epithet). Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "fronai the primary monad",
+      "replace": "from the primary monad",
+      "note": "Class 2: 'fronai' is a plausible-looking non-word for 'from' with no damage character in it, visible in both the reading view and the transcription, invisible to the character census.",
+      "evidence": "Transcription (s181-3): 'But such as are far distant fronai the primary monad, cannot be suspended' — identical in the reading view; the same sentence's own structure decides it ('suspended from the natures'). Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "to votgov*",
+      "replace": "νοερόν.",
+      "note": "Class 2 half-repair: the rule restored the footnote's Greek and consumed the trailing asterisk, but the asterisk was the print's sentence-ending full stop, so the reading view shows the footnote ending 'τὸ νοερόν' without its period.",
+      "evidence": "Transcription (s185-5): '* For T«y mg* it is necessary to read to votgov*' with reading view '* For τῶν νοερῶν it is necessary to read τὸ νοερόν'; every parallel footnote in this build ends with a full stop after the Greek (s191-4 '…μετέχουσα.', s209-4 '…τὸ γὰρ ὄχημα.'). Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "From the ration of Patridns,it",
+      "replace": "From the version of Patricius, it",
+      "note": "Class 2/3 half-repair: the rule fixed 'die'→'the' and restored the Greek (καὶ χωριστὴ τοῦ σώματος) but left 'ration' for 'version', 'Patridns' for 'Patricius', and the missing space fusing ',it' — three defects invisible to the census.",
+      "evidence": "Transcription (s188-3): 'From the ration of Patridns,it is here necessary to supply die words iuux\"9>rni «v <r»iucns,'; the build's parallel footnote frames decide the wording: s181-5 'From the version of Patricias, it is here necessary to supply the words' and s211-7 \"' From the version of Patricius, it is here necessary to supply the words\". Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "one; *]",
+      "replace": "one;*]",
+      "note": "Class 2: the recorded rule consumed the asterisk standing before the closing bracket, but it is the print's footnote marker for the note 'It is necessary here to read and supply from the version of Patricius, προσεχῶς τοῦ νοῦ…' which corrects exactly this bracketed passage, so the reader's text is left wrong (marker gone).",
+      "evidence": "Transcription (s179-3): 'nearer to the one; *] and if that which is nearer' — the only marker-like object attached to this bracketed passage, and the footnote (s180-4) 'It it necessary here to read and supply from the version of Patricius, προσεχῶς τοῦ νοῦ, ὁ δὲ μερικὸς ἀριθμὸς ἐγγυτέρω τοῦ ἑνός.' plainly refers to it; elsewhere genuine in-text asterisks are kept (s185-3 'intellectual* to that which is divine'). Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "externally.] *",
+      "replace": "externally.]*",
+      "note": "Class 2: the rule consumed the asterisk after the bracket, but it is the print's footnote marker for the note 'Here too, the words ὅτι ζωῆς ἔξωθεν, are wanting in the original', which attaches precisely to the bracket '[with life externally.]' on this page, so the reading view is left without its marker.",
+      "evidence": "Transcription (s190-3): 'because it is filled ([with life externally.] * But if with life' — the only marker candidate on page 190, whose footnote (s190-4) '1 Here too, the words oti «£»fcv, are wanting in the original' (reading view 'ὅτι ζωῆς ἔξωθεν') matches this very bracket; genuine markers are kept elsewhere (s185-3 'intellectual*'). Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "PROPOSmON",
+      "replace": "PROPOSITION",
+      "note": "Class 3 broken word: 'PROPOSmON' is 'PROPOSITION' with its middle battered to 'm' — no damage-set character stands in it, so the census cannot see it; note the reading view already carries the repaired 'PROPOSITION', but the transcription is the place a rule must target, and the defect is reported so the corruption is on record.",
+      "evidence": "Transcription (s182-1): \"' PROPOSmON CLXXXII.\" with reading view 'PROPOSITION CLXXXII.'; the section's own headers decide the spelling: s178-1 'PROPOSITION CLXXVIII.', s179-1 'PROPOSITION CLXXIX.', s180-1 'PROPOSITION CLXXX.' Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 2
+    },
+    {
+      "kind": "3",
+      "find": "omitted hrthe original",
+      "replace": "omitted in the original",
+      "note": "Class 3: 'hrthe' is the two words 'in the' fused and battered into a plausible-looking non-word with no damage character — invisible to the census and standing in the reading view's own text.",
+      "evidence": "Transcription (s198-6): '* mx >• omitted hrthe original.' — identical in the reading view; the build's own footnote formula decides the wording: s184-4 '* fcio; is omitted in the original.', s185-4 '1 taut is omitted in the original.' Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "withtran-",
+      "replace": "with tran-",
+      "note": "Class 3: 'withtran-' fuses 'with' and 'tran-' (the hyphenated 'transitively' broken across the page), and the reading view shows the same fused token — the missing space is invisible to the census.",
+      "evidence": "Transcription (s211-3): 'But if it perceives intellectually withtran-' with reading view 'But if it perceives intellectually with tran-' (s211-2 ends '…perceives intellectually with tran-'); the line-break hyphenation is confirmed by the continuation block s211-6 'sition, from that which always'. Decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the whole volume (part 6 of 6)",
+      "sites": 1
+    }
+  ],
+  "findingsByClass": {
+    "1": 0,
+    "2": 8,
+    "3": 3
+  },
+  "unsure": [
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "passage": "1 afuydu it omitted in the original.",
+      "question": "What is the Greek word printed at the start of this footnote (OCR 'afuydu'), and what exactly is its footnote marker?",
+      "note": "The footnote's Greek lemma is too mangled to reconstruct from the transcription, and no parallel edition is available; only the frame words ('is omitted in the original') could be determined.",
+      "evidence": "Transcription (s176-6): '1 afuydu it omitted in the original.'"
+    },
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "passage": "■ Instead of •> 8. ^ 8.« «W<r« x*t« t,v au,,x«vo., x. x it is necessary to read •< 8. ^ ew.vouj, ha rVww eX*<rcr«, x«r« n,y h»a^ mi,xx«4,v. e< ow e x . A",
+      "question": "What Greek did the print carry in this footnote (both the reading replaced and the reading prescribed), and where exactly does its marker stand in the text?",
+      "note": "The Greek on both sides of 'it is necessary to read' is irrecoverable noise; the two asterisks kept at s177-3 ('power.*', 'partial. *') and the objects consumed at s177-6 ('f' of 'fin', '*3') may or may not be the print's marker ends.",
+      "evidence": "Transcription (s177-4): '■ Instead of •> 8. ^ 8.« «W<r« x*t« t,v au,,x«vo., x. x it is necessary to read •< 8. ^ ew.vouj, ha rVww eX*<rcr«, x«r« n,y h»a^ mi,xx«4,v. e< ow e x . A"
+    },
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "passage": "the words ex rm Seurigav gitize",
+      "question": "What Greek did this footnote print after 'the words'?",
+      "note": "The supplied Greek is OCR noise ('ex rm Seurigav gitize') and cannot be reconstructed from the transcription alone.",
+      "evidence": "Transcription (s178-4): '* It is here requisite to supply from the version of Patricius, the words ex rm Seurigav gitize'"
+    },
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "passage": "supply the words Sn to «w pq",
+      "question": "What Greek did the print carry here before 'μετέχοντα'?",
+      "note": "The Greek left standing in the reading view ('Sn to «w pq', with a damage « inside '«w') is unrecoverable noise; only the following 'μετέχοντα' was restored by rule.",
+      "evidence": "Transcription (s181-5/s181-6): '* From the version of Patricias, it is here necessary to supply the words Sn to «w pq /urt^orra. «' with reading view '…supply the words Sn to «w pq μετέχοντα. «'"
+    },
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "passage": "μετέχοντα. «",
+      "question": "What does the print have at the dangling '«' after the footnote's final period?",
+      "note": "The rule that restored 'μετέχοντα' left the guillemet standing; it may be the print's own mark, a footnote separator, or pure scanner noise, and the reading cannot be determined from the transcription.",
+      "evidence": "Transcription (s181-6): '/urt^orra. «' with reading view 'μετέχοντα. «'"
+    },
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "passage": "1 The words JJcwj xm ywtvn are wanting in the original. And immediately after, for w yw tnrrn, it is requisite to read ev yap ypwrrw.",
+      "question": "What Greek did the print carry in this footnote (the words wanting, and the corrected reading 'ev yap …')?",
+      "note": "The whole footnote is OCR-mangled Greek with no damage-set characters inside any one word, invisible to the census but not reconstructible from the transcription.",
+      "evidence": "Transcription (s198-4): '1 The words JJcwj xm ywtvn are wanting in the original. And immediately after, for w yw tnrrn, it is requisite to read ev yap ypwrrw.'"
+    },
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "passage": "* mx >• omitted hrthe original.",
+      "question": "What Greek word did the print carry at 'mx >•' before 'is omitted in the original'?",
+      "note": "The lemma is OCR noise with a damage '>' attached; the frame was reported as fused ('hrthe' → 'in the') but the Greek itself cannot be determined.",
+      "evidence": "Transcription (s198-6): '* mx >• omitted hrthe original.'"
+    },
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "passage": "Every [divine 1 ] participated intellect, is participated by divine souls.",
+      "question": "Is the '1' standing inside the bracket the print's own footnote marker (and what is its footnote's text), or is it a scanner artefact?",
+      "note": "The reading view prints the '1' as a lone word inside the bracket; the pattern of kept markers elsewhere (s181-3 'Either 1 therefore') suggests a print marker, but no footnote text for page 182 survives in the transcription, so no reading can be given.",
+      "evidence": "Transcription (s182-2): 'Every [divine 1 ] participated intellect, is participated by divine souls.'"
+    }
+  ],
+  "rejected": [
+    {
+      "region": "the whole volume (part 6 of 6)",
+      "reason": "the replacement is the find",
+      "proposal": {
+        "class": "2",
+        "find": "magnitude,*",
+        "replace": "magnitude,*",
+        "note": "Class 2: the recorded rule consumed the asterisk and left 'magnitude,' — but the asterisk is the print's own footnote marker for the footnote on this page ('1 afuydu it omitted in the original'), so the reader loses the footnote link; the transcription's characters are already the print's and the recorded reading should have kept them.",
+        "evidence": "Transcription (s176-5): 'which is truly without magnitude,* and are united to each other' — the only marker-like object on page 176, and the page carries exactly one footnote (block 2, s176-6: '1 afuydu it omitted in the original.'); elsewhere in this build genuine in-text footnote asterisks are kept in the reading view (e.g. s177-3 'power.*', s185-3 'intellectual* to that which is divine'). Decided by transcription.",
+        "decided_by": "transcription"
+      }
+    }
+  ],
+  "failed": [
+    {
+      "region": "the whole volume (part 1 of 6)",
+      "error": "no answer: finish null (the budget was spent before the answer began)",
+      "reasoningTokens": null
+    },
+    {
+      "region": "the whole volume (part 2 of 6)",
+      "error": "the reply was not the JSON asked for (δὲ ἐνίοις εἶναι\" = \"but to be sometimes\" hmm — the anchor at \"sometimes,\" — the note \"1 [Greek] is o)"
+    },
+    {
+      "region": "the whole volume (part 3 of 6)",
+      "error": "the reply was not the JSON asked for (Hmm.\n\nOK — decision for B12: report it as class 2 (missing print marker, no damage char in RV): find)"
+    },
+    {
+      "region": "the whole volume (part 4 of 6)",
+      "error": "the reply was not the JSON asked for (Hmm — class 1 covers \"a damage character or an artefact standing in the reading view's own text\" — ¥)"
+    },
+    {
+      "region": "the whole volume (part 5 of 6)",
+      "error": "the reply was not the JSON asked for (proposition ends with \"[according to one.\" hmm — hmm, actually wait, hmm — looking at Taylor's actua)"
+    }
+  ],
+  "cost": {
+    "regions": 6,
+    "sent": 6,
+    "findings": 11,
+    "unsure": 8,
+    "rejected": 1,
+    "failed": 5,
+    "usage": {
+      "prompt_tokens": 117266,
+      "completion_tokens": 326953,
+      "total_tokens": 444219
+    }
+  }
+}

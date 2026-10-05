@@ -1,0 +1,39 @@
+{
+  "slug": "proclus-elements-of-theology-taylor-1816",
+  "tool": "the Greek sites, resolved from the printed PAGE images (tools/library/scan.mjs), one page at a time",
+  "mergesNothing": "Proposals only.",
+  "proposals": [
+    {
+      "find": "xa* on «XAo in this place",
+      "replace": "καὶ οὐκ ἄλλο in this place",
+      "note": "the print reads \"Instead of καὶ οὐκ ἄλλο in this place, it appears to me to be necessary to read καὶ οὐκ ἄλλοις\" (page image, printed page 321 = archive n826). Each flattened token lines up with a Greek word: xa* = καὶ, on = οὐκ, «XAo = ἄλλο.",
+      "class": "reading",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    },
+    {
+      "find": "«Aoy is omitted",
+      "replace": "ὅλον is omitted",
+      "note": "the print reads \"ὅλον is omitted in the original\" (page image, printed page 351 = archive n856); the « and the y are the OCR of the smooth breathing and of λλ.",
+      "class": "reading",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    },
+    {
+      "find": "(ro t»)",
+      "replace": "(τὸ τὶ)",
+      "note": "the print reads \"(τὸ τὶ)\" — \"i. e. Any thing which is not universal (τὸ τὶ)\" (page image, printed page 352 = archive n857).",
+      "class": "reading",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    },
+    {
+      "find": "too ovtoj seems to be wanting",
+      "replace": "τοῦ ὄντος seems to be wanting",
+      "note": "the print reads \"τοῦ ὄντος seems to be wanting here in the original\" (page image, printed page 352 = archive n857).",
+      "class": "reading",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    }
+  ]
+}

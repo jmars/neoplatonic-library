@@ -1,0 +1,66 @@
+{
+  "nodes": [
+    {
+      "id": "edition:proclus-elements-of-theology-taylor-1816",
+      "type": "edition",
+      "label": "Thomas Taylor 1816",
+      "slug": "proclus-elements-of-theology-taylor-1816"
+    },
+    {
+      "id": "edition:porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+      "type": "edition",
+      "label": "Thomas Taylor 1917",
+      "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917"
+    },
+    {
+      "id": "text:proclus-elements-of-theology",
+      "type": "text",
+      "label": "Elements of Theology",
+      "slug": null
+    },
+    {
+      "id": "text:on-the-cave-of-the-nymphs",
+      "type": "text",
+      "label": "On the Cave of the Nymphs",
+      "slug": null
+    },
+    {
+      "id": "author:proclus",
+      "type": "author",
+      "label": "Proclus",
+      "slug": null
+    },
+    {
+      "id": "author:porphyry",
+      "type": "author",
+      "label": "Porphyry",
+      "slug": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0001",
+      "from": "author:proclus",
+      "to": "text:proclus-elements-of-theology",
+      "type": "wrote"
+    },
+    {
+      "id": "e0002",
+      "from": "edition:proclus-elements-of-theology-taylor-1816",
+      "to": "text:proclus-elements-of-theology",
+      "type": "translates"
+    },
+    {
+      "id": "e0003",
+      "from": "author:porphyry",
+      "to": "text:on-the-cave-of-the-nymphs",
+      "type": "wrote"
+    },
+    {
+      "id": "e0004",
+      "from": "edition:porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+      "to": "text:on-the-cave-of-the-nymphs",
+      "type": "translates"
+    }
+  ]
+}

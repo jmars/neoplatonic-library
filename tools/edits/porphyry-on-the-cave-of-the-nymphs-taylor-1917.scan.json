@@ -1,0 +1,110 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "scan-resolved residual (archive.org page images)",
+  "mergesNothing": "Proposals only.",
+  "proposals": [
+    {
+      "find": "sepgrgtinflt * Qip yf niuiflo, a sceptre of ruling, and a key (\\fQ'f\"rHin\" p™*\"**-^",
+      "replace": "separating, a cup of vivific, a sceptre of ruling, and a key of guardian power",
+      "class": "reading",
+      "note": "the print reads \"a signature of separating, a cup of vivific, a sceptre of ruling, and a key of guardian power\" — there is NO Greek here; the transcription's run is a misread of that English.",
+      "evidence": "scan page (archive.org page/n50)",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    },
+    {
+      "find": "fby a difference of essence)",
+      "replace": "(by a difference of essence)",
+      "class": "reading",
+      "note": "the print reads \"separated indeed from it (by a difference of essence)\" — the transcription's 'f' is the misread opening parenthesis.",
+      "evidence": "scan page (archive.org page/n42)",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    },
+    {
+      "find": "life, the reward of severe",
+      "replace": "life, as the reward of severe",
+      "class": "reading",
+      "note": "the print reads \"in the athletic race of life, as the reward of severe toil\" — the word \"as\" was lost.",
+      "evidence": "scan page (archive.org page/n43)",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    },
+    {
+      "find": "sacred to soulis",
+      "replace": "sacred to souls",
+      "class": "reading",
+      "note": "the print reads \"this cave was sacred to souls and aquatic nymphs\" — 'soulis' is 'souls' misread.",
+      "evidence": "scan page (archive.org page/n33)",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    },
+    {
+      "find": "t^\"f^li^rva.J \\",
+      "replace": "of Minerva, and",
+      "class": "reading",
+      "decided_by": "scan",
+      "note": "the print reads \"the plant of Minerva, and Minerva is wisdom\" (scan, printed page 37); the trailing \\\\ is the shredded 'and'.",
+      "sites_in_served": 1
+    },
+    {
+      "find": ".Minerva is wisdom?.",
+      "replace": "Minerva is wisdom.",
+      "class": "reading",
+      "decided_by": "scan",
+      "note": "the print reads \"Minerva is wisdom.\" (scan, printed page 37): the leading stop is debris and the \"?.\" is not the print's.",
+      "sites_in_served": 1
+    },
+    {
+      "find": "considerexLby",
+      "replace": "considered by",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the print reads \"were considered by the ancients\" (the 1823 parallel 'obscurity of the cavern, were considered by the ancients'; the 1917 scan, printed page 10, agrees): the garbled token carries no damage character and was wrongly rejected by an earlier guard.",
+      "sites_in_served": 1
+    },
+    {
+      "find": "( afflicted in body, casting aside everything",
+      "replace": "afflicted in body, casting aside everything",
+      "class": "reading",
+      "decided_by": "scan",
+      "note": "the 1917 print has NO bracket here (scan, printed page 38: the page carries only two parenthetical phrases, '(by being its reward)' and '(in ineffable comprehensions)'). The transcription's '(' is scan debris; the print reads 'a suppliant habit, afflicted in body, casting aside everything superfluous'."
+    },
+    {
+      "find": ") superfluous, and being averse to the energies",
+      "replace": "superfluous, and being averse to the energies",
+      "class": "reading",
+      "decided_by": "scan",
+      "note": "the 1917 print has no bracket here (scan, printed page 38 — see the rule above): the transcription's ')' is scan debris."
+    },
+    {
+      "find": "( of sense, it is requisite to sit at the foot of",
+      "replace": "of sense, it is requisite to sit at the foot of",
+      "class": "reading",
+      "decided_by": "scan",
+      "note": "the 1917 print has no bracket here (scan, printed page 38 — see above): the transcription's '(' is scan debris."
+    },
+    {
+      "find": " . mg.de that which",
+      "replace": " made that which",
+      "class": "reading",
+      "decided_by": "both",
+      "note": "the print reads \"the ancients every where made that which has a twofold entrance\" (1917 scan, printed page 34; the 1823 parallel reads \"the ancients every / where made that which has a twofold entrance\"). The \" . mg.de\" is a garbled \"made\" with a dot-leader artefact before it.",
+      "sites_in_served": 1
+    },
+    {
+      "find": "! a defect of memory",
+      "replace": "a defect of memory",
+      "class": "reading",
+      "decided_by": "scan",
+      "note": "the 1917 print sets this passage in italics and carries NO mark at the head of the line (scan, printed page 50: asked about hanging quotation marks, the page has none). The transcription's '!' is scanner debris standing in the reading view."
+    },
+    {
+      "find": "1 those discover most",
+      "replace": "those discover most",
+      "class": "reading",
+      "decided_by": "scan",
+      "note": "the same passage, the next line: no mark is printed at the head of it (scan, printed page 50). The transcription's '1' is debris."
+    }
+  ]
+}

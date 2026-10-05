@@ -1,0 +1,15 @@
+{
+  "name": "The Neoplatonic Library",
+  "host": "neoplatonic-library.org",
+  "tagline": "",
+  "licence": {
+    "texts": "public-domain",
+    "editorial": "CC-BY-4.0",
+    "statement": "The transcriptions are public-domain works. The editorial work — repairs, page models, apparatus, notes — is released under CC BY 4.0."
+  },
+  "citation_policy": "Cite the edition, the version, and the URL. Each edition page carries a formatted citation. Version 1.0.0 of each edition is the migration of the blog library’s served text; the version date is the blog’s own import date, recorded in the version note.",
+  "blog": {
+    "url": "https://blog.jaye.ch",
+    "relation": "The texts stand on their own; the essays are one reader’s reading."
+  }
+}

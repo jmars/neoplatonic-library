@@ -1,0 +1,159 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "dictionary sweep (tools/library/vocab.mjs) + the witnesses",
+  "mergesNothing": "Proposals only.",
+  "proposals": [
+    {
+      "find": "wnnlrf",
+      "replace": "would",
+      "class": "reading",
+      "note": "the print reads 'it would be absurd for' (the 1823 parallel: 'it would be absurd for to expect'); a substituted-letter garble with no damage character.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "ahgrn-j",
+      "replace": "absurd",
+      "class": "reading",
+      "note": "the print reads 'absurd' (1823 parallel, same sentence); a substituted-letter garble with a stray hyphen.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "fpr",
+      "replace": "for",
+      "class": "reading",
+      "note": "the print reads 'for' (1823 parallel, same sentence).",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "expectTthat",
+      "replace": "expect that",
+      "class": "reading",
+      "note": "the print reads 'expect that': the capital T stands where the print has the word-break.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "behei",
+      "replace": "belief",
+      "class": "reading",
+      "note": "the print reads 'he should gain the belief of mankind' (1823 parallel); 'behei' is 'belief' misread.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "atthe",
+      "replace": "at the",
+      "class": "reading",
+      "note": "the print reads 'the ancients, at the same time' (1823 parallel: 'the ancients, at the same time').",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "cavernhas",
+      "replace": "cavern has",
+      "class": "reading",
+      "note": "the print reads 'a cave has a twofold similitude' (1823 parallel); 'cavernhas' lost its space.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "musTnot",
+      "replace": "must not",
+      "class": "reading",
+      "note": "the print reads 'the present cave must not be assumed' (1823 parallel); the T stands for the lost space.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "pTesideT",
+      "replace": "preside",
+      "class": "reading",
+      "note": "the print reads 'the powers that preside over waters' (1823 parallel); the T's are substituted letters.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "symbolsj)f the",
+      "replace": "symbols of the",
+      "class": "reading",
+      "note": "the print reads 'be symbols of the aquatic nymphs' (1823 parallel); the run is a misread.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "onej)fJ5F",
+      "replace": "one of the",
+      "class": "reading",
+      "note": "the print reads 'one of the gates was turned towards the north' (1823 parallel); the run is a misread.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "qne of which",
+      "replace": "one of which",
+      "class": "reading",
+      "note": "the print reads 'one of which affords a passage to souls ascending' (1823 parallel); 'qne' is 'one'.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "fflfp0",
+      "replace": "gates",
+      "class": "reading",
+      "note": "the print reads 'doors and gates' (1823 parallel: 'recesses and trenches, caverns, doors, and gates'); 'fflfp0' is 'gates'.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "observ ing",
+      "replace": "observing",
+      "class": "reading",
+      "note": "the print reads 'in consequence of observing the Homeric precept' (1823 parallel).",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "situa tion",
+      "replace": "situation",
+      "class": "reading",
+      "note": "the print reads 'the situation of the place'; the transcription split the word at a line end.",
+      "decided_by": "parallel",
+      "sites_in_served": 2
+    },
+    {
+      "find": "consecra tion",
+      "replace": "consecration",
+      "class": "reading",
+      "note": "the print reads 'its symbolical consecration should be amply unfolded into light'; the transcription split the word.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "morejthan",
+      "replace": "more than",
+      "class": "reading",
+      "note": "the print reads 'nothing more than the conjectures of ingenious men'; the run is a misread.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "oxbegotten",
+      "replace": "ox-begotten",
+      "class": "reading",
+      "note": "the print reads 'bees are ox-begotten' (1823 parallel: 'who are ox-begotten, from flowers'); the transcription lost the hyphen.",
+      "decided_by": "parallel",
+      "sites_in_served": 1
+    },
+    {
+      "find": "oTthijInjnitrescent",
+      "replace": "of the unputrescent",
+      "class": "reading",
+      "note": "the 1917 scan (printed page 23) reads 'on account of the unputrescent nature of the waters'; the run is a misread.",
+      "decided_by": "scan",
+      "sites_in_served": 1
+    }
+  ]
+}

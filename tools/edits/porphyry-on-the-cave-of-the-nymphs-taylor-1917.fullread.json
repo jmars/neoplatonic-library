@@ -1,0 +1,3867 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "a whole-text read by a stronger model (glm-5.3 at effort max), in sections, with both witnesses (reading view + transcription) and the parallel edition located per section: it PROPOSES findings in three classes and a human merges them",
+  "model": "glm-5.3",
+  "effort": "max",
+  "endpoint": "http://10.0.0.1:8324/v1/chat/completions",
+  "generated": "2026-10-02T22:39:36Z",
+  "mergesNothing": "Nothing here has been merged. These are PROPOSALS with evidence; the last machine-merge attempt would have asserted readings the print does not have (\"but\" -> \"put\", \"the\" -> \"he\", \"caverns\" -> \"cavern\"). To accept one, add it to the rules file by hand (class \"reading\", the transcription-find verbatim) and build.",
+  "policy": {
+    "rule": "substitute-if-known-else-leave",
+    "damage": "^_~*/£>\\|#™±»«}{&"
+  },
+  "parallel": {
+    "file": "Porphyry-Taylor-Select-Works-1823.txt",
+    "sha256": "8aa0167ea2e6a4a943440e7092e74caecf7b9e170bf159ffcb15b1a0b728747f",
+    "why": "Taylor's Select Works of Porphyry (1823) carries the same translation of the same treatise"
+  },
+  "coverage": {
+    "regions": [
+      {
+        "region": "section 1",
+        "blocks": 13,
+        "chars": 5573,
+        "damageInView": {}
+      },
+      {
+        "region": "section 2",
+        "blocks": 7,
+        "chars": 2751,
+        "damageInView": {
+          "\\": 1
+        }
+      },
+      {
+        "region": "section 3",
+        "blocks": 10,
+        "chars": 2448,
+        "damageInView": {}
+      },
+      {
+        "region": "section 4",
+        "blocks": 7,
+        "chars": 3197,
+        "damageInView": {}
+      },
+      {
+        "region": "section 5",
+        "blocks": 2,
+        "chars": 1308,
+        "damageInView": {}
+      },
+      {
+        "region": "section 6",
+        "blocks": 8,
+        "chars": 2707,
+        "damageInView": {
+          "\\": 1,
+          "^": 3,
+          ">": 2,
+          "/": 1,
+          "*": 2,
+          "«": 1
+        }
+      },
+      {
+        "region": "section 7",
+        "blocks": 11,
+        "chars": 4014,
+        "damageInView": {
+          "«": 1,
+          "*": 2
+        }
+      },
+      {
+        "region": "section 8",
+        "blocks": 5,
+        "chars": 1906,
+        "damageInView": {}
+      },
+      {
+        "region": "section 9",
+        "blocks": 2,
+        "chars": 799,
+        "damageInView": {}
+      },
+      {
+        "region": "section 10",
+        "blocks": 2,
+        "chars": 1329,
+        "damageInView": {}
+      },
+      {
+        "region": "section 11",
+        "blocks": 9,
+        "chars": 3002,
+        "damageInView": {
+          "\\": 1
+        }
+      },
+      {
+        "region": "section 12",
+        "blocks": 7,
+        "chars": 2637,
+        "damageInView": {}
+      },
+      {
+        "region": "section 13",
+        "blocks": 21,
+        "chars": 4074,
+        "damageInView": {}
+      },
+      {
+        "region": "section 14",
+        "blocks": 3,
+        "chars": 843,
+        "damageInView": {}
+      },
+      {
+        "region": "section 15",
+        "blocks": 19,
+        "chars": 2530,
+        "damageInView": {
+          "\\": 1,
+          "/": 1
+        }
+      },
+      {
+        "region": "section 16",
+        "blocks": 11,
+        "chars": 815,
+        "damageInView": {
+          ">": 1
+        }
+      },
+      {
+        "region": "section 17",
+        "blocks": 4,
+        "chars": 1628,
+        "damageInView": {}
+      },
+      {
+        "region": "section 18",
+        "blocks": 4,
+        "chars": 707,
+        "damageInView": {}
+      },
+      {
+        "region": "the notes (part 1)",
+        "blocks": 36,
+        "chars": 12034,
+        "damageInView": {
+          "*": 4,
+          "\\": 1,
+          "™": 1,
+          "^": 1,
+          ">": 1
+        }
+      },
+      {
+        "region": "the notes (part 2)",
+        "blocks": 22,
+        "chars": 7410,
+        "damageInView": {
+          "^": 1
+        }
+      },
+      {
+        "region": "the advertisements (part 1)",
+        "blocks": 56,
+        "chars": 1911,
+        "damageInView": {
+          "&": 2,
+          "^": 1
+        }
+      }
+    ],
+    "requests": 21,
+    "regionsSent": [
+      "section 1",
+      "section 2",
+      "section 3",
+      "section 4",
+      "section 5",
+      "section 6",
+      "section 7",
+      "section 8",
+      "section 9",
+      "section 10",
+      "section 11",
+      "section 12",
+      "section 14",
+      "section 16",
+      "section 17",
+      "section 18",
+      "the notes (part 1)",
+      "the notes (part 2)",
+      "the advertisements (part 1)",
+      "section 13",
+      "section 15"
+    ],
+    "everyRegionSent": true,
+    "appended": true
+  },
+  "context": {
+    "maxParallelChars": 9000,
+    "charsPerRequest": [
+      20198,
+      13290,
+      13118,
+      14411,
+      9942,
+      13345,
+      16294,
+      11630,
+      8953,
+      10470,
+      13697,
+      13397,
+      9360,
+      9440,
+      11378,
+      7992,
+      31825,
+      21684,
+      12090,
+      16508,
+      14212
+    ],
+    "minChars": 7992,
+    "maxChars": 31825,
+    "meanChars": 13964
+  },
+  "sent": [
+    {
+      "region": "section 1",
+      "promptChars": 20198,
+      "parallel": {
+        "lines": [
+          8600,
+          8658
+        ],
+        "matchedWords": 133,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 30491,
+      "thinkingChars": 111879,
+      "rawBodyChars": 5573
+    },
+    {
+      "region": "section 2",
+      "promptChars": 13290,
+      "parallel": {
+        "lines": [
+          8707,
+          8748
+        ],
+        "matchedWords": 77,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 41635,
+      "thinkingChars": 159411,
+      "rawBodyChars": 2751
+    },
+    {
+      "region": "section 3",
+      "promptChars": 13118,
+      "parallel": {
+        "lines": [
+          8756,
+          8802
+        ],
+        "matchedWords": 81,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 42303,
+      "thinkingChars": 156743,
+      "rawBodyChars": 2448
+    },
+    {
+      "region": "section 4",
+      "promptChars": 14411,
+      "parallel": {
+        "lines": [
+          8853,
+          8898
+        ],
+        "matchedWords": 71,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 25678,
+      "thinkingChars": 99637,
+      "rawBodyChars": 3197
+    },
+    {
+      "region": "section 5",
+      "promptChars": 9942,
+      "parallel": {
+        "lines": [
+          8909,
+          8949
+        ],
+        "matchedWords": 61,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 16333,
+      "thinkingChars": 66044,
+      "rawBodyChars": 1308
+    },
+    {
+      "region": "section 6",
+      "promptChars": 13345,
+      "parallel": {
+        "lines": [
+          8966,
+          9006
+        ],
+        "matchedWords": 66,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 35805,
+      "thinkingChars": 139551,
+      "rawBodyChars": 2707
+    },
+    {
+      "region": "section 7",
+      "promptChars": 16294,
+      "parallel": {
+        "lines": [
+          9012,
+          9058
+        ],
+        "matchedWords": 86,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 46086,
+      "thinkingChars": 170496,
+      "rawBodyChars": 4014
+    },
+    {
+      "region": "section 8",
+      "promptChars": 11630,
+      "parallel": {
+        "lines": [
+          9214,
+          9254
+        ],
+        "matchedWords": 76,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 9207,
+      "thinkingChars": 36844,
+      "rawBodyChars": 1906
+    },
+    {
+      "region": "section 9",
+      "promptChars": 8953,
+      "parallel": {
+        "lines": [
+          9233,
+          9271
+        ],
+        "matchedWords": 59,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 32588,
+      "thinkingChars": 114907,
+      "rawBodyChars": 799
+    },
+    {
+      "region": "section 10",
+      "promptChars": 10470,
+      "parallel": {
+        "lines": [
+          9260,
+          9306
+        ],
+        "matchedWords": 72,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 10023,
+      "thinkingChars": 36907,
+      "rawBodyChars": 1329
+    },
+    {
+      "region": "section 11",
+      "promptChars": 13697,
+      "parallel": {
+        "lines": [
+          9418,
+          9459
+        ],
+        "matchedWords": 73,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 35039,
+      "thinkingChars": 134866,
+      "rawBodyChars": 3002
+    },
+    {
+      "region": "section 12",
+      "promptChars": 13397,
+      "parallel": {
+        "lines": [
+          9480,
+          9524
+        ],
+        "matchedWords": 75,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 12813,
+      "thinkingChars": 49877,
+      "rawBodyChars": 2637
+    },
+    {
+      "region": "section 14",
+      "promptChars": 9360,
+      "parallel": {
+        "lines": [
+          9825,
+          9865
+        ],
+        "matchedWords": 69,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 9708,
+      "thinkingChars": 37828,
+      "rawBodyChars": 843
+    },
+    {
+      "region": "section 16",
+      "promptChars": 9440,
+      "parallel": {
+        "lines": [
+          9923,
+          9957
+        ],
+        "matchedWords": 51,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 10547,
+      "thinkingChars": 39275,
+      "rawBodyChars": 815
+    },
+    {
+      "region": "section 17",
+      "promptChars": 11378,
+      "parallel": {
+        "lines": [
+          9960,
+          10007
+        ],
+        "matchedWords": 98,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 19019,
+      "thinkingChars": 72437,
+      "rawBodyChars": 1628
+    },
+    {
+      "region": "section 18",
+      "promptChars": 7992,
+      "parallel": {
+        "lines": [
+          10007,
+          10037
+        ],
+        "matchedWords": 32,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 12938,
+      "thinkingChars": 50788,
+      "rawBodyChars": 707
+    },
+    {
+      "region": "the notes (part 1)",
+      "promptChars": 31825,
+      "parallel": {
+        "status": "NOT SUPPLIED for this region: the parallel edition (a different printing) carries the treatise, not this volume's notes or advertisements; read this region from the transcription's own context alone"
+      },
+      "finish": "stop",
+      "reasoningTokens": 40554,
+      "thinkingChars": 145202,
+      "rawBodyChars": 12034
+    },
+    {
+      "region": "the notes (part 2)",
+      "promptChars": 21684,
+      "parallel": {
+        "status": "NOT SUPPLIED for this region: the parallel edition (a different printing) carries the treatise, not this volume's notes or advertisements; read this region from the transcription's own context alone"
+      },
+      "finish": "stop",
+      "reasoningTokens": 24296,
+      "thinkingChars": 84362,
+      "rawBodyChars": 7410
+    },
+    {
+      "region": "the advertisements (part 1)",
+      "promptChars": 12090,
+      "parallel": {
+        "status": "NOT SUPPLIED for this region: the parallel edition (a different printing) carries the treatise, not this volume's notes or advertisements; read this region from the transcription's own context alone"
+      },
+      "finish": "stop",
+      "reasoningTokens": 13439,
+      "thinkingChars": 43078,
+      "rawBodyChars": 1911
+    },
+    {
+      "region": "section 13",
+      "promptChars": 16508,
+      "parallel": {
+        "lines": [
+          9649,
+          9691
+        ],
+        "matchedWords": 77,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 32455,
+      "thinkingChars": 121714,
+      "rawBodyChars": 4074
+    },
+    {
+      "region": "section 15",
+      "promptChars": 14212,
+      "parallel": {
+        "lines": [
+          9876,
+          9929
+        ],
+        "matchedWords": 92,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 52685,
+      "thinkingChars": 194771,
+      "rawBodyChars": 2530
+    }
+  ],
+  "findings": [
+    {
+      "kind": "3",
+      "find": "evi dent",
+      "replace": "evident",
+      "note": "'evident' is broken in two by a flattened line break the print does not carry as a space; class 3.",
+      "evidence": "Transcription: 'is evi dent from this, that those who have given us'. The parallel excerpt does not reach this passage; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "dark ness",
+      "replace": "darkness",
+      "note": "'darkness' split in two; class 3, confirmed whole in the parallel printing.",
+      "evidence": "Transcription: 'a cave involved in dark ness, and on stony beams'. Parallel: 'garments in 8 cave mvolved in darkness, and on stony' — 'in darkness, and on stony' clean there; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Jlence",
+      "replace": "Hence",
+      "note": "H misread as J — a wrong word carrying no damage character; class 2.",
+      "evidence": "Transcription: 'the Gods. Jlence, since this narration'. Parallel: 'worship the Gods. Hence, since this narration is full of such' — 'Hence' clean there; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "siirh nhgriirit;ifif::J",
+      "replace": "such obscurities,",
+      "note": "Run-together fragment in which 'such obscurities,' collapsed into noise with semicolon/colon artefacts and no damage-set character; class 2.",
+      "evidence": "Transcription: 'full of siirh nhgriirit;ifif::J it can neither'. Parallel: 'narration is full of such * cbecurities, it can neither' — 'is full of such' is clean and 'cbecurities,' corroborates 'obscurities,'; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "foiL _the",
+      "replace": "for the",
+      "note": "A damage marker stands alone between words — the print's own space between 'for' and 'the' — beside the garbled 'foiL', a marker-between-words the counter never counts; class 1.",
+      "evidence": "Transcription: 'casually devised foiL _the purpose of procuring'. Parallel: 'casually devised for the purpose .of procuring delight' — 'devised for the purpose' clean there; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "ex position",
+      "replace": "exposition",
+      "note": "'exposition' split in two; class 3.",
+      "evidence": "Transcription: 'nor an ex position of a topical history'. Parallel: 'nor an exposition of a topical history' — clean; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "ooetT",
+      "replace": "poet,",
+      "note": "'poet' garbled to 'ooet' with a stray T artefact (the print's comma) standing in the reading view's text; class 1 artefact.",
+      "evidence": "Transcription: 'indicated in it by the ooetT who likewise'. Parallel: 'indicated in it by the poet, who likewise mystically' — clean there; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "mvsticallyplaces",
+      "replace": "mystically places",
+      "note": "Two words fused into one, with y additionally misread as v; class 3 fusion.",
+      "evidence": "Transcription: 'who likewise mvsticallyplaces an olive'. Parallel: 'who likewise mystically places an olive near the cave' — clean; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "thecaye",
+      "replace": "the cave",
+      "note": "'the cave' fused into one word with c misread as y; class 3 fusion.",
+      "evidence": "Transcription: 'an olive near thecaye. All which'. Parallel: 'places an olive near the cave. All which particulars' — 'an olive near the cave' clean; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "un fold",
+      "replace": "unfold",
+      "note": "'unfold' split in two; class 3.",
+      "evidence": "Transcription: 'laborious to investigate and un fold ;'. Parallel: 'thought very laborious to investigate and unfold; and we' — clean; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "situa tion",
+      "replace": "situation",
+      "note": "'situation' split in two; class 3.",
+      "evidence": "Transcription: 'negligently about the situa tion of the place'. Parallel: 'negligently about the situation of the place' — clean; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 2
+    },
+    {
+      "kind": "3",
+      "find": "some thing",
+      "replace": "something",
+      "note": "'something' split in two; class 3.",
+      "evidence": "Transcription: 'he has added some thing to it of his own invention'. Parallel: 'whether he hes added something to it of his own invention' — 'added something to it' clean; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "in tention",
+      "replace": "intention",
+      "note": "'intention' split in two; class 3.",
+      "evidence": "Transcription: 'whether the in tention of the poet is investigated'. Parallel: 'whether the intention of the poet is mvestigated' — 'the intention of the poet' clean; decided by both.",
+      "decided_by": "both",
+      "region": "section 1",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "con secrated",
+      "replace": "consecrated",
+      "note": "Class 3: 'consecrated' is broken in two by a lost line-break; neither half carries a damage character, so a character census cannot see it.",
+      "evidence": "Transcription reads 'very properly con secrated ajgyejbpjthe world'; the parallel excerpt begins later (at 'the matter with which it is connected') and does not carry this passage; the transcription witness decides — the two pieces spell one word.",
+      "decided_by": "transcription",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "signi fication",
+      "replace": "signification",
+      "note": "Class 3: 'signification' broken in two, census-blind.",
+      "evidence": "Transcription reads 'according to a secret signi fication, is denominated'; the parallel does not carry this passage; transcription witness decides.",
+      "decided_by": "transcription",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "form..",
+      "replace": "form.",
+      "note": "Class 1: a doubled full stop is an artefact still standing in the reading view's text where the print carries one period.",
+      "evidence": "Transcription reads 'its privation of form.. Since, however7it'; the parallel does not carry this passage (its footnote attaches elsewhere); transcription witness decides.",
+      "decided_by": "transcription",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "connected. , iThrough",
+      "replace": "connected. Through",
+      "note": "Class 1: stray ' , i' debris stands between the full stop and 'Through' in the reading view's own text.",
+      "evidence": "Transcription reads 'matter with which it is connected. , iThrough matter, therefore,'; parallel reads 'the matter with which it is connected. Through matter,'; both witnesses, the parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "therefore, The world",
+      "replace": "therefore, the world",
+      "note": "Class 2: wrong capital mid-sentence, a substituted letter no census can count.",
+      "evidence": "Transcription reads 'therefore, The world is obscure and dark'; parallel reads 'the world is obscure and dark; but through'; the parallel, clean there, decides.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "distribu tion",
+      "replace": "distribution",
+      "note": "Class 3: 'distribution' broken in two, census-blind.",
+      "evidence": "Transcription reads 'orderly distribu tion of form'; parallel reads 'the connecting power, and orderly distribution of form,'; both witnesses, parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "obscure .^and",
+      "replace": "obscure, [and",
+      "note": "Class 2 half-repair: the recorded rule consumed '^' and left ', and', dropping the print's opening bracket, so the reading view shows a wrong phrase with no damage character in it.",
+      "evidence": "Transcription reads 'parts are obscure .^and its very bottom'; parallel reads 'profound parts are obscure, [and its very bottom'; both witnesses, parallel clean, decide the bracket.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "bottom i darkness",
+      "replace": "bottom is darkness",
+      "note": "Class 2: a missing s leaves the real English word 'i' — exactly the dangerous census-blind shape.",
+      "evidence": "Transcription reads 'its very bottom i darkness itself)'; parallel reads 'its very bottom is darkness itself]'; both witnesses, parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "darkness itself).",
+      "replace": "darkness itself].",
+      "note": "Class 2: the print's closing bracket was read as a parenthesis and stands uncorrected in the reading view.",
+      "evidence": "Transcription reads 'very bottom i darkness itself). (Thus'; parallel reads 'is darkness itself]. Thus also'; both witnesses, parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "(Thus also",
+      "replace": "Thus also",
+      "note": "Class 1: an unmatched parenthesis, scanner debris, stands before 'Thus' in the reading view's text.",
+      "evidence": "Transcription reads '(Thus also the Persians,^ mystically'; parallel reads 'Thus also the Persians, mystically signifying the descent'; both witnesses, parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "regions^ and",
+      "replace": "regions, and",
+      "note": "Class 2 half-repair: the recorded rule consumed '^' and the print's comma with it, leaving 'regions and' in the reading view.",
+      "evidence": "Transcription reads 'into the sublunary regions^ and its regression from it'; parallel reads 'sublunary regions, and its regression from it'; both witnesses, parallel clean, decide the comma.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "(or him",
+      "replace": "[or him",
+      "note": "Class 2: the print's opening bracket read as a parenthesis, a substituted character with no damage mark, still in the reading view.",
+      "evidence": "Transcription reads 'initiate the mystic (or him who is admitted'; parallel reads 'initiate the mystic [or him who is admitted to the'; both witnesses, parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "rites} in a place",
+      "replace": "rites] in a place",
+      "note": "Class 2 half-repair: the recorded reading consumed the damage mark '}' together with the print's closing bracket, leaving the parenthetical unclosed in the reading view.",
+      "evidence": "Transcription reads 'arcane sacred rites} in a place \\ which'; parallel reads 'arcane sacred rites] in a place which they denominate'; both witnesses, parallel clean, decide the bracket.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "place \\ which",
+      "replace": "place which",
+      "note": "Class 1: '\\' stands alone between words — the print's own space the scanner read as a symbol; give the space back.",
+      "evidence": "Transcription reads 'in a place \\ which they denominate a cavern'; parallel reads 'in a place which they denominate a cavern'; both witnesses, parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "ZoTbaster",
+      "replace": "Zoroaster",
+      "note": "Class 2: 'Zoroaster' garbled by substituted letters with no damage character, still shown in the reading view.",
+      "evidence": "Transcription reads 'For, as Eubulus says, ZoTbaster was the first'; parallel reads 'For, as Eubulus says, Zoroaster was the first'; both witnesses, parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "tmmHarjfi gfatnpnts",
+      "replace": "mundane elements",
+      "note": "Class 2: two garbled non-words carrying no damage-set character and therefore invisible to the census, left unrepaired in the reading view.",
+      "evidence": "Transcription reads 'were symbols oL^he tmmHarjfi gfatnpnts and «ffma±es.^'; parallel reads 'were symbols of the mundane elements and climates.'; both witnesses, parallel clean, decide.",
+      "decided_by": "both",
+      "region": "section 2",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "rites per taining to",
+      "replace": "rites pertaining to",
+      "note": "Class 3: 'pertaining' is broken in two by a spurious space in both the reading view and the transcription.",
+      "evidence": "Transcription verbatim: 'to perform the rites per taining to the mysteries'; the parallel excerpt begins later ('preside. Not only, however…') and does not carry this sentence, so the transcription's own characters decide: 'per taining' is the split of 'pertaining'. Witness: transcription.",
+      "decided_by": "transcription",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "pre side.",
+      "replace": "preside.",
+      "note": "Class 3: 'preside' is broken in two ('pre side') and left so in the reading view.",
+      "evidence": "Transcription verbatim: 'as we shall shortly observe, pre side.'; parallel verbatim: 'preside. Not only, however, did the ancients' — the parallel's clean 'preside.' decides, and the split is visible in the transcription itself. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "make a cavern",
+      "replace": "take a cavern",
+      "note": "Class 2, the dangerous class: 'make' is a plausible English word carrying no damage character, but the parallel prints 'take'.",
+      "evidence": "Transcription verbatim: 'did the ancients make a cavern, as we have said'; parallel verbatim: 'did the ancients take a' / 'cavern, as we have said' — the parallel is clean here and prints 'take'. Witness: parallel (cross-printing caveat: verify against the 1917 page).",
+      "decided_by": "parallel",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "but they also assu",
+      "replace": "but they also assumed",
+      "note": "Class 3: the word 'assumed' is truncated at the block seam — its tail is absent from both the reading view and the transcription.",
+      "evidence": "Transcription verbatim: 'but they also assu' (word cut at end of block 2); parallel verbatim: 'but they also assutwed' — the parallel's own noise (tw for m) still yields 'assumed'. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "'symbol",
+      "replace": "symbol",
+      "note": "Class 1: a stray apostrophe (not a damage-set character, so the census never saw it) clings to the first word of the block; possibly the tail of the text lost at the preceding seam.",
+      "evidence": "Transcription verbatim: \"'symbol oT aH invisible powers ; because as\"; parallel verbatim: 'a symbol of all invisible powers; because, as' — no mark before 'symbol' in the print. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "oT aH",
+      "replace": "of all",
+      "note": "Class 2: two wrong words with no damage character in them — 'of' misread 'oT' and 'all' misread 'aH'.",
+      "evidence": "Transcription verbatim: \"'symbol oT aH invisible powers\"; parallel verbatim: 'a symbol of all invisible powers' (clean). Witness: parallel.",
+      "decided_by": "parallel",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "itself. and",
+      "replace": "itself, and",
+      "note": "Class 2: a full stop before a lowercase 'and' — the print's comma misread as a period.",
+      "evidence": "Transcription verbatim: 'a cavern in the ocean itself. and'; parallel verbatim: 'fabricated a cavern in the ocean' / 'itself, and concealed in it his children.' Witness: parallel.",
+      "decided_by": "parallel",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "children. /Thus",
+      "replace": "children. Thus",
+      "note": "Class 1: the damage marker '/' stands alone between words — it is the lost space after 'children.', which the reading view still shows.",
+      "evidence": "Transcription verbatim: 'concealed in it his children. /Thus, too.'; parallel verbatim: 'concealed in it his children. Thus, too, Ceres' — the '/' stands exactly where the print's space is. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "too. Ceres",
+      "replace": "too, Ceres",
+      "note": "Class 2: the comma after 'too' is misread as a period, splitting one clause into a fragment.",
+      "evidence": "Transcription verbatim: 'Thus, too. Ceres educated Proserpine'; parallel verbatim: 'Thus, too, Ceres educated Proserpine, with her Nymphs'. Witness: parallel.",
+      "decided_by": "parallel",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "to' Nymphs",
+      "replace": "to Nymphs",
+      "note": "Class 1: a stray apostrophe artefact after 'to' (not in the damage set, invisible to the census); the parallel suggests it is the print's comma drifted from after 'Nymphs'.",
+      "evidence": "Transcription verbatim: \"the ancients dedicated caverns to' Nymphs and especially\"; parallel verbatim: 'eaverns to Nymphs, and especially to the Naiades' — no mark after 'to' in the print. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "dwell, near fountains",
+      "replace": "dwelt near fountains",
+      "note": "Class 2: 'dwell' is a plausible real word substituted for the parallel's 'dwelt' (missing t), with a stray comma after it — invisible to any character census.",
+      "evidence": "Transcription verbatim: 'who dwell, near fountains, and who are called'; parallel verbatim: 'dwelt near fountains, and who are called Naiades' — the parallel is clean here. Witness: parallel (cross-printing caveat: verify against the 1917 page).",
+      "decided_by": "parallel",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "Naiades? from",
+      "replace": "Naiades from",
+      "note": "Class 1: a stray question mark stands mid-declarative sentence where the print carries no mark — an artefact in the reading view's own text.",
+      "evidence": "Transcription verbatim: 'who are called Naiades? from the streams'; parallel verbatim: 'and who are called Naiades froma the' / 'atreams over which they preside' — 'called Naiades' is clean in the parallel and carries no mark (its 'froma'/'atreams' are its own damage). Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "is y manifest",
+      "replace": "is manifest",
+      "note": "Class 1: a stray 'y' stands alone between 'is' and 'manifest' — an artefact the character census cannot count.",
+      "evidence": "Transcription verbatim: 'over which they preside, is y manifest from the hymn'; parallel verbatim: 'is manifest from the' / 'hymn to Apollo' — no intervening word in the print. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "me. the",
+      "replace": "me, the",
+      "note": "Class 2: a full stop before lowercase 'the' — the print's comma after 'me' misread as a period.",
+      "evidence": "Transcription verbatim: 'as it appears to me. the Pythagoreans.'; parallel verbatim: 'as it appears to me, the Pythagoréans; and ater'. Witness: parallel.",
+      "decided_by": "parallel",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "Pythagoreans. ancLafter",
+      "replace": "Pythagoreans; and after",
+      "note": "Class 3: 'and after' is fused into the run-together fragment 'ancLafter' (with d misread cL), and the full stop before it should be the parallel's semicolon — no damage character anywhere, so the census is blind.",
+      "evidence": "Transcription verbatim: 'the Pythagoreans. ancLafter tfiem Plato'; parallel verbatim: 'the Pythagoréans; and ater' — 'éans; and' is clean in the parallel, fixing both the mark and the fused 'and'. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "tfiem",
+      "replace": "them",
+      "note": "Class 2: 'them' misread as the non-word 'tfiem', carrying no damage character.",
+      "evidence": "Transcription verbatim: 'ancLafter tfiem Plato, showed'; parallel verbatim: \"'@i¢m Plato; showed that the world\" — the parallel's own word is damaged, but its clean 'Plato; showed that the world' anchors the place and the transcription's shape gives 'them'. Witness: transcription.",
+      "decided_by": "transcription",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "caveni",
+      "replace": "cavern",
+      "note": "Class 2: 'cavern' misread as the plausible-looking non-word 'caveni' (r as i), no damage character present.",
+      "evidence": "Transcription verbatim: 'showed that the world is a caveni'; parallel verbatim: 'showed that the world is a cavertt' (its word also damaged), but the same translation prints 'a cavern' cleanly at 'fabricated a cavern in the ocean' (parallel) and in block 4 of this very transcription — 'caveni' is 'cavern'. Witness: transcription.",
+      "decided_by": "transcription",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "den For the powers",
+      "replace": "den. For the powers",
+      "note": "Class 2: a sentence-opening 'For' with no preceding stop — the print's period after 'den' is missing at the block seam.",
+      "evidence": "Transcription verbatim: \"and a^den For the powers which are the leUcfers'^f souls\"; parallel verbatim: 'For the powers which are the leaders of souls' preceded by 'ἀ daa.' — a full point stands before 'For' in the print. Witness: parallel.",
+      "decided_by": "parallel",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "dwell ing",
+      "replace": "dwelling",
+      "note": "Class 3: 'dwelling' is broken in two and left broken in the reading view.",
+      "evidence": "Transcription verbatim: 'Behold men as if dwell ing in a subterraneous cavern'; parallel verbatim: 'as if dwelling in a subterraneous cavern'. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "denlike",
+      "replace": "den-like",
+      "note": "Class 2: the plausible-looking non-word 'denlike' — the print's hyphen in 'den-like' is missing.",
+      "evidence": "Transcription verbatim: 'and in a denlike habitation'; parallel verbatim: 'and in a den-like habitation' (clean). Witness: both (cross-printing caveat: verify against the 1917 page).",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "simili tude",
+      "replace": "similitude",
+      "note": "Class 3: 'similitude' is broken in two and left broken in the reading view.",
+      "evidence": "Transcription verbatim: 'wonderful simili tude, he replies'; parallel verbatim: 'wonderful similitude,'. Witness: both.",
+      "decided_by": "both",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "re ceptacle",
+      "replace": "receptacle",
+      "note": "Class 3: 'receptacle' is broken in two and left broken in the reading view.",
+      "evidence": "Transcription verbatim: 'assimilating this re ceptacle, which is visible'; the parallel excerpt breaks off before this point ('friend Glauco, must') and does not carry the passage, so the transcription's own split decides. Witness: transcription.",
+      "decided_by": "transcription",
+      "region": "section 3",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "essenceT",
+      "replace": "essence.",
+      "note": "Capital T substituted for the sentence's full stop — a wrong character with no damage marker, and the reading view still shows 'essenceT' (class 2).",
+      "evidence": "Transcription reads 'of the sensible essenceT For\" in consequence'; the following capital 'For' confirms the sentence closes at 'essence.'; the parallel does not carry this passage.",
+      "decided_by": "transcription",
+      "region": "section 4",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "For\" in",
+      "replace": "For in",
+      "note": "A stray quotation mark stands in the reading view between 'For' and 'in consequence' where the print has the space; this printing sets no comma after 'For' ('For they', 'For we', 'For the ancients') (class 1).",
+      "evidence": "Transcription reads 'For\" in consequence of containing'; the parallel does not carry this passage.",
+      "decided_by": "transcription",
+      "region": "section 4",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "the ' Spirit",
+      "replace": "the Spirit",
+      "note": "A lone apostrophe stands between 'the' and 'Spirit' in the reading view — the print's own space read as a symbol (class 1).",
+      "evidence": "Transcription reads 'that the ' Spirit of God moved on the waters'; parallel: 'asserts, that the Spirit of God moved on the waters.' — the parallel confirms the mark is not in the print.",
+      "decided_by": "both",
+      "region": "section 4",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "de scending",
+      "replace": "descending",
+      "note": "'descending' broken in two at a line break and still shown split in the reading view (class 3).",
+      "evidence": "Transcription reads 'for souls de scending into generation fly to moisture'; parallel: 'for soule descending into generation fly to moisture'.",
+      "decided_by": "both",
+      "region": "section 4",
+      "sites": 2
+    },
+    {
+      "kind": "3",
+      "find": "thepoetjralls",
+      "replace": "the poet calls",
+      "note": "'the poet calls' fused into one token with 'c' turned to 'jr', still standing whole in the reading view (class 3).",
+      "evidence": "Transcription reads 'Hence, thepoetjralls those that are in generation humid'; parallel: 'Hence the poet calls those that are HI generation humid'.",
+      "decided_by": "both",
+      "region": "section 4",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "whichare",
+      "replace": "which are",
+      "note": "'which are' fused into one word with no damage character, invisible to the census (class 3).",
+      "evidence": "Transcription reads 'souls whichare profoundly steeped in moisture'; parallel: 'souls which are profoundly steeped in moisture.'",
+      "decided_by": "both",
+      "region": "section 4",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "soulsi f",
+      "replace": "souls",
+      "note": "Debris 'i f' clinging to 'souls' still stands in the reading view, where the print reads simply 'souls' (class 1).",
+      "evidence": "Transcription reads 'such soulsi f delight in blood and humid seed'; parallel: 'such souls delight in blood and humid seed'.",
+      "decided_by": "both",
+      "region": "section 4",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "water) .",
+      "replace": "water",
+      "note": "A closing parenthesis and full stop stand as debris after 'water' in the reading view, where the print runs straight on to 'is the nutriment' (class 1).",
+      "evidence": "Transcription reads 'but water) . is the nutriment of the souls of plants'; parallel: 'but water is the nutriment of the souls of plants.'",
+      "decided_by": "both",
+      "region": "section 4",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "fountains and river ;",
+      "replace": "fountains and rivers ;",
+      "note": "The plural 's' is missing from 'rivers' — a wrong word with no damage character, invisible to the census (class 2).",
+      "evidence": "Transcription reads 'the moon from the vapours of fountains and river ;'; parallel: 'the vapours of fountains and rivers'.",
+      "decided_by": "both",
+      "region": "section 4",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "an ex cess of moisture",
+      "replace": "an excess of moisture",
+      "note": "The printed word 'excess' is broken in two by a spurious space ('ex cess') with no damage character in it, so no rule fired and the census is blind to it — class 3.",
+      "evidence": "Transcription verbatim: \"an ex cess of moisture\"; parallel verbatim: \"through an excess of moisture\" (clean single word). The parallel decided the print's word; the transcription shows the break.",
+      "decided_by": "both",
+      "region": "section 5",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "through the desire of generation, the soul",
+      "replace": "through the desire of coition, the soul",
+      "note": "A wrong English word carrying no damage character: the print reads 'coition', not 'generation' — the dangerous class invisible to any character census.",
+      "evidence": "Transcription verbatim: \"through the desire of generation, the soul thus attracting\"; parallel verbatim: \"through the desire of coition,\" / \"the soul thus attracting\" (parallel clean at this spot). The parallel decided the reading.",
+      "decided_by": "parallel",
+      "region": "section 5",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "to call those that are married nymphs",
+      "replace": "to call these that are married nymphs",
+      "note": "A single substituted English word with no damage character ('those' for the print's 'these'), invisible to the character count; the parallel, though a different printing, is clean here and decides.",
+      "evidence": "Transcription verbatim: \"it is usual to call those that are married nymphs\"; parallel verbatim: \"these that are married Nymphs, as being conjomed to\" (its 'conjomed' is the parallel's own damage, but 'these that are married' is clean). The parallel decided the word; the capitalisation of 'nymphs' is left as this edition's own resetting.",
+      "decided_by": "parallel",
+      "region": "section 5",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "essentially \\4 darkand",
+      "replace": "essentially dark and",
+      "note": "A backslash (damage set) with a stray 4 stands in the reading view between 'essentially' and the word after it — very likely the print's own space read as a symbol (or a misread mark); the print reads 'essentially dark and obscure'; class 1.",
+      "evidence": "Transcription verbatim: 'essentially \\4 darkand obscure ; from which'. The parallel excerpt begins at 'friendly to the vine', after this passage, so it cannot be quoted here.",
+      "decided_by": "transcription",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "have sus pected that",
+      "replace": "have suspected that",
+      "note": "'suspected' split in two ('sus pected'), a line-end break whose hyphen the scanner dropped; class 3.",
+      "evidence": "Transcription verbatim: 'some have sus pected that souls'. Parallel excerpt begins after this passage ('friendly to the vine'), so the transcription decides.",
+      "decided_by": "transcription",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "bowls, jhen, and the amphorae",
+      "replace": "bowls, then, and the amphorae",
+      "note": "'then' misread 'jhen' (t for j) — a plausible-looking wrong word carrying no damage character, invisible to the character census; class 2.",
+      "evidence": "Transcription verbatim: 'the stony bowls, jhen, and the amphorae'. Parallel excerpt begins at 'friendly to the vine', after this sentence; English sense decides.",
+      "decided_by": "transcription",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "those instru ments pertaining",
+      "replace": "those instruments pertaining",
+      "note": "'instruments' split as 'instru ments' (dropped line-end hyphen); class 3.",
+      "evidence": "Transcription verbatim: 'those instru ments pertaining to weaving'; parallel verbatim: 'than those instruments pertaining to weaving' — the parallel, though itself damaged elsewhere, is clean here and decides with the transcription.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "these instru ments of weaving",
+      "replace": "these instruments of weaving",
+      "note": "Second occurrence of 'instruments' split as 'instru ments'; class 3.",
+      "evidence": "Transcription verbatim: 'these instru ments of weaving consist of stone'; parallel verbatim: 'instruments of weaving consist of stone, and not of'.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "and not of ^ any other matter",
+      "replace": "and not of any other matter",
+      "note": "Caret standing alone between 'of' and 'any' where the print has only the word-space; class 1.",
+      "evidence": "Transcription verbatim: 'and not of ^ any other matter.'; parallel verbatim: 'any other matter. But the purple webs will evidently be' — nothing between 'of' and 'any' in the print.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "the p\\irple webs",
+      "replace": "the purple webs",
+      "note": "Backslash damage character inside the word still shown by the reading view (one of the two the census counted); print 'purple'; class 1.",
+      "evidence": "Transcription verbatim: 'the p\\irple webs will y evidently'; parallel verbatim: 'But the purple webs will evidently be'.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "webs will y evidently be",
+      "replace": "webs will evidently be",
+      "note": "Stray 'y' artefact standing between 'will' and 'evidently' — not a damage-set character, so census-blind; class 1.",
+      "evidence": "Transcription verbatim: 'webs will y evidently be the flesh'; parallel verbatim: 'the purple webs will evidently be' — no 'y' in the print.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "woven from ^> the blood",
+      "replace": "woven from the blood",
+      "note": "'^>' standing alone before 'the blood' where the print has nothing but the space; class 1.",
+      "evidence": "Transcription verbatim: 'which is woven from ^> the blood.'; parallel verbatim: 'the flesh which is woven from the blood'.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "tinged from nalood. and wool",
+      "replace": "tinged from blood; and wool",
+      "note": "'blood;' misread 'nalood.' (b for n, semicolon read as period) — a plausible-looking non-word with no damage character, census-blind; class 2.",
+      "evidence": "Transcription verbatim: 'tinged from nalood. and wool is dyed'; parallel verbatim: 'tinged from blood; and wool is dyed'.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "dyed from / animal juice",
+      "replace": "dyed from animal juice",
+      "note": "Slash (damage set) standing alone between 'from' and 'animal' — the print's space read as a symbol; class 1.",
+      "evidence": "Transcription verbatim: 'wool is dyed from / animal juice.'; parallel verbatim: 'dyed from animal juice. The generation of flesh'.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "inspective guar dian of",
+      "replace": "inspective guardian of",
+      "note": "'guardian' split as 'guar dian' (dropped line-end hyphen); class 3.",
+      "evidence": "Transcription verbatim: 'the inspective guar dian of everything'; parallel verbatim: 'the inspective guardian of every thing'.",
+      "decided_by": "both",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "as it were/the vestment",
+      "replace": "as it were, the vestment",
+      "note": "Damage-set '/' standing inside the fused token 'were/the', which the reading view still shows — the print reads 'as it were, the vestment'; class 1 (also a fusion).",
+      "evidence": "Transcription verbatim: 'as it were/the vestment of the celestial Gods'. The parallel carries the sentence only up to 'and the heavens are called by the ancients' and breaks off before this phrase, so the transcription and English decide.",
+      "decided_by": "transcription",
+      "region": "section 6",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "jwjth",
+      "replace": "with",
+      "note": "Class 2: a mis-scanned 'with' (j for i) carrying no damage character, still standing in the reading view as a non-word the census cannot see.",
+      "evidence": "Transcription: \"not to be filled jwjth water, but with\"; parallel: \"said not to be filled with water, but with honey-combs?\" — the parallel decided.",
+      "decided_by": "both",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "h_qney_combs_?__",
+      "replace": "honeycombs?",
+      "note": "Class 2 half-repair: the rule consumed the damage but recorded 'honeycombs.' — a full stop for the print's question mark, which survives inside the transcription's own '_?__' (if the 1917 keeps the 1823 hyphen, restore that too, since the '_' between 'qney' and 'combs' may be the eaten hyphen).",
+      "evidence": "Transcription: \"h_qney_combs_?__ For in these\"; parallel: \"but with honey-combs? For in these' Homer says\" — the surviving '?' and the parallel's question mark decided.",
+      "decided_by": "both",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "^stUJ.",
+      "replace": "still,",
+      "note": "Class 2 half-repair: the damage was consumed and 'still' supplied, but with a full stop where the print has a comma before the following lowercase 'it'.",
+      "evidence": "Transcription: \"Farther ^stUJ. it is also sweet\"; parallel: \"Farther still, it is also sweet to the taste\" — the parallel's comma, with the lowercase 'it', decided.",
+      "decided_by": "both",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "«*•<*, anH js",
+      "replace": ", and is",
+      "note": "Class 1 run-together fragment: the comma after 'taste' and the words 'and is' collapsed into scanner noise that still stands in the reading view, carrying the only two damage characters ('«' and '*') the build counted.",
+      "evidence": "Transcription: \"the J~a «*•<*, anH js collected\"; parallel: \"sweet to the taste, and is collected by bees\" — the parallel decided.",
+      "decided_by": "both",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "con sists",
+      "replace": "consists",
+      "note": "Class 3: 'consists' broken in two with no damage character anywhere, still shown split in the reading view.",
+      "evidence": "Transcription: \"because it con sists of many powers\"; parallel: \"because it consists of many powers\" — the parallel decided.",
+      "decided_by": "both",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "cath artic",
+      "replace": "cathartic",
+      "note": "Class 3: 'cathartic' broken in two with no damage character, invisible to the census.",
+      "evidence": "Transcription: \"since it is both cath artic and preservative\"; parallel: \"since it is both cathartic and preservative\" — the parallel decided.",
+      "decided_by": "both",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "{into the same mysteries)",
+      "replace": "(into the same mysteries)",
+      "note": "Class 2 half-repair: the '{' was the print's opening parenthesis; the rule ate it and left the word wrong, so an unbalanced ')' now stands in the reading view.",
+      "evidence": "Transcription: \"Other initiators {into the same mysteries) employ fire\"; parallel: \"Other initiators [into the same mysteries] employ fire\" — the parallel shows an opening mark is required, and the transcription's own ')' and '(by the initiator)' show this printing uses parentheses.",
+      "decided_by": "both",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "like wise",
+      "replace": "likewise",
+      "note": "Class 3: 'likewise' broken in two with no damage character.",
+      "evidence": "Transcription: \"And they like wise purify the tongue\"; parallel: \"And they likewise purify the tongue\" — the parallel decided.",
+      "decided_by": "both",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "putre faction",
+      "replace": "putrefaction",
+      "note": "Class 3: 'putrefaction' broken in two and still shown split in the reading view, with no damage character to alert the census.",
+      "evidence": "Transcription: \"for the purpose of preventing putre faction, is honey\"; the parallel excerpt ends at \"Hence some per-\" and does not carry this page, but the transcription itself has the word whole at \"preserved from putrefaction\" and \"an antidote to putrefaction\".",
+      "decided_by": "transcription",
+      "region": "section 7",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "pre sides",
+      "replace": "presides",
+      "note": "Class 3: the word 'presides' is broken in two by the print's line-end break, which the scanner read as a space.",
+      "evidence": "Transcription: 'who pre sides over generation' (find 'pre sides' verbatim); the parallel excerpt begins only at 'as a symbol of death', so it does not reach this passage — the split form itself (a non-word 'pre' doing verbal duty) is the deciding evidence, witness: transcription.",
+      "decided_by": "transcription",
+      "region": "section 8",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "terres trial",
+      "replace": "terrestrial",
+      "note": "Class 3: 'terrestrial' is broken across the line break, the hyphen read as a space, leaving the spurious 'terres trial'.",
+      "evidence": "Transcription: 'libations of honey to the terres trial Gods' ; parallel: 'offer libations of honey to the terrestrial Gods' — the parallel's clean 'the terrestrial Gods' (12+ chars) decides, witness: both.",
+      "decided_by": "both",
+      "region": "section 8",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "how ever",
+      "replace": "however",
+      "note": "Class 3: 'however' is split in two by the line-end break the scanner read as a space.",
+      "evidence": "Transcription: 'All souls, how ever, proceeding into generation' ; parallel: 'All souls, however, proceeding into generation, are not simply called bees' — the parallel's 'however' decides, witness: both.",
+      "decided_by": "both",
+      "region": "section 8",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "fluctuat ing",
+      "replace": "fluctuating",
+      "note": "Class 3: 'fluctuating' is split in two by the line-end break, leaving 'fluctuat ing'.",
+      "evidence": "Transcription: 'to (the humid and fluctuat ing nature of) generation' ; parallel: 'to [the humid and fluctuating nature of] gene- ration' — the parallel's 'the humid and fluctuating nature of]' (12+ chars) decides, witness: both.",
+      "decided_by": "both",
+      "region": "section 8",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "rpmntq",
+      "replace": "remote",
+      "note": "OCR garbage standing for 'remote' with no damage-set character, so the character census never counts it — a wrong word still standing in the reading view (class 2).",
+      "evidence": "Transcription reads 'in the most rpmntq periods'; the parallel reads 'in the most remote periods of' (parallel lines 9233ff: 'in the most remote periods of'). The transcription's token is undecipherable on its own; the parallel decides the print's word 'remote'.",
+      "decided_by": "parallel",
+      "region": "section 9",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "thejiL.",
+      "replace": "them.",
+      "note": "'them.' garbled to 'thejiL.' carrying no damage character — census-blind and still shown unrepaired in the reading view (class 2).",
+      "evidence": "Transcription reads 'temples were erected to thejiL. Hence'; the parallel reads 'were erected to them. Hence, the Curetes'. The reading 'them.' is decided by the parallel.",
+      "decided_by": "parallel",
+      "region": "section 9",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "to~~FRp",
+      "replace": "to the",
+      "note": "Damage characters '~~' plus noise destroying 'the' in 'to the', left unrepaired in the reading view — these two standing characters are the only damage the build's own count sees (class 1).",
+      "evidence": "Transcription reads 'divine, to~~FRp smiTfi. fiealso'; the parallel reads 'was more divine, to the south. He also says'. With the following token 'smiTfi.' carrying 'south.', the parallel fixes 'to~~FRp' as 'to the'; the intact 'to' is the transcription's own witness.",
+      "decided_by": "both",
+      "region": "section 9",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "smiTfi.",
+      "replace": "south.",
+      "note": "'south.' garbled to 'smiTfi.' with no damage character anywhere in it — a census-blind wrong word standing in the reading view (class 2).",
+      "evidence": "Transcription reads 'to~~FRp smiTfi. fiealso says'; the parallel reads 'was more divine, to the south. He also says'. The parallel decides 'south.'.",
+      "decided_by": "parallel",
+      "region": "section 9",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "fiealso",
+      "replace": "He also",
+      "note": "Two print words, 'He also', fused into one token (with the H additionally misread) — a census-blind fusion the character count cannot see (class 3).",
+      "evidence": "Transcription reads 'smiTfi. fiealso says that the northern gate'; the parallel reads 'to the south. He also says, that the northern gate was'. The parallel decides 'He also'.",
+      "decided_by": "parallel",
+      "region": "section 9",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "cavernwhich",
+      "replace": "cavern which",
+      "note": "Class 3: 'cavern' and 'which' fused into one word; the reading view itself still prints 'a cavernwhich'.",
+      "evidence": "Transcription: \"a cavernwhich was in reality_\"; parallel: \"cavern which was in reality consecrated\" — the parallel's clean two words decide the split.",
+      "decided_by": "both",
+      "region": "section 10",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "cojisecrated",
+      "replace": "consecrated",
+      "note": "Class 2: wrong word carrying no damage character ('n' read as 'ji'); the reading view still shows it wrong after the adjacent '_' on 'reality_' was repaired.",
+      "evidence": "Transcription: \"in reality_ cojisecrated by others7~or\"; parallel: \"in reality consecrated -by othera\" — the parallel's clean 'consecrated' decides the reading.",
+      "decided_by": "both",
+      "region": "section 10",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "imagelmd",
+      "replace": "image and",
+      "note": "Class 3: 'image' and 'and' fused with letter noise ('lmd' for 'and'), still shown fused in the reading view.",
+      "evidence": "Transcription: \"is an imagelmd symbol of the world\"; parallel: \"an image and symbol of the world\" — the parallel decides.",
+      "decided_by": "both",
+      "region": "section 10",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "situ ated",
+      "replace": "situated",
+      "note": "Class 3: 'situated' broken in two by a false space; the reading view still carries the break.",
+      "evidence": "Transcription: \"are situ ated in the following order\"; parallel: \"are situated in the following order:\" — the parallel decides.",
+      "decided_by": "both",
+      "region": "section 10",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "Capri corn",
+      "replace": "Capricorn",
+      "note": "Class 3: 'Capricorn' split in two ('Capri corn'); this 1917 printing spells the name 'Capricorn' as in block 1, where the 1823 parallel has 'Capricornus'.",
+      "evidence": "Transcription: \"and Capri corn, of Saturn\"; parallel: \"Capricornus, of Saturn\" — the parallel shows one word, and the spelling 'Capricorn' is fixed by the transcription's own clean instances (\"the winter tropic in Capricorn\").",
+      "decided_by": "both",
+      "region": "section 10",
+      "sites": 2
+    },
+    {
+      "kind": "3",
+      "find": "Capri corn",
+      "replace": "Capricorn",
+      "note": "Broken word: 'Capricorn' split in two, the line-end split flattened into a space (class 3).",
+      "evidence": "Transcription: 'adapted to descent ; but Capri corn is southern, and adapted to ascent'; the parallel excerpt opens only later ('of souls ascending to the Gods'), so it does not carry the passage — the transcription's own split decides.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 2
+    },
+    {
+      "kind": "2",
+      "find": "and adapted to ascent",
+      "replace": "and adapted to ascent.",
+      "note": "No stop of any kind ends the sentence before 'The northern parts' — the full point after 'ascent' is lost, a missing character invisible to a damage-marker census (class 2).",
+      "evidence": "Transcription: 'but Capri corn is southern, and adapted to ascent' (end of the block) followed by 'The northern parts, likewise'; the parallel begins later and does not carry it — transcription decides.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "per tain",
+      "replace": "pertain",
+      "note": "Broken word: 'pertain' split in two (class 3).",
+      "evidence": "Transcription: 'The northern parts, likewise, per tain to souls descending into generation'; the parallel excerpt begins after this ('of souls ascending to the Gods') and does not carry it — transcription decides.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 2
+    },
+    {
+      "kind": "3",
+      "find": "appella tion",
+      "replace": "appellation",
+      "note": "Broken word: 'appellation' split in two (class 3).",
+      "evidence": "Transcription: 'but of immortals ; this appella tion being also common'; parallel: 'immortals; this appellation being' — the parallel carries the word whole and confirms the join; both witnesses.",
+      "decided_by": "both",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "in com mon",
+      "replace": "in common",
+      "note": "Broken word: 'common' split in two (class 3).",
+      "evidence": "Transcription: 'all things are distributed among them in com mon ;'; parallel: 'distributed among them in’ common; the legislator' — the parallel has the word whole; both witnesses.",
+      "decided_by": "both",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Dedicated",
+      "replace": "dedicated",
+      "note": "A capital D substituted mid-sentence in 'are not Dedicated' — a wrong word carrying no damage character (class 2).",
+      "evidence": "Transcription: 'the Homeric cavern are not Dedicated to the east and west'; parallel: 'cavern are not dedi- cated to the east' (lowercase across its line break) — the parallel decides the letter; both witnesses.",
+      "decided_by": "both",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "nymphsT",
+      "replace": "nymphs.",
+      "note": "A capital T fused to 'nymphs' where the print's sentence full-stop stands (the next paragraph opens 'But these places') — a wrong word with no damage character (class 2).",
+      "evidence": "Transcription: 'sacred to soulis and aquatic nymphsT' immediately followed by 'But these places are adapted to souls'; the parallel does not reach it — transcription decides.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "or Mithra. as well as",
+      "replace": "For Mithra, as well as",
+      "note": "'For' has lost its initial letter to become 'or', and Mithra's comma has been read as a period — wrong words carrying no damage character (class 2).",
+      "evidence": "Transcription: 'or Mithra. as well as the Bull, is fhe, npminrgus and lord of generation'; the parallel excerpt ends before this sentence — the transcription decides.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "is fhe, npminrgus and",
+      "replace": "is the Demiurgus and",
+      "note": "'the' mislettered as 'fhe' (the comma is scanner debris) and 'Demiurgus' — Taylor's standing rendering of δημιουργός — mislettered as 'npminrgus': substitution damage with no damage character (class 2).",
+      "evidence": "Transcription: 'is fhe, npminrgus and lord of generation'; the parallel does not reach this sentence — the letter-shapes and Taylor's fixed vocabulary decide.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "and lord of generation",
+      "replace": "and lord of generation.",
+      "note": "No stop of any kind ends the sentence before the new paragraph 'But he is placed' — a lost full point, invisible to a damage census (class 2).",
+      "evidence": "Transcription: 'npminrgus and lord of generation' (no stop) followed by '\\ But he is placed'; the parallel does not reach it — transcription decides.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "\\ But he is placed",
+      "replace": "But he is placed",
+      "note": "A lone backslash stands before the paragraph-initial 'But' — scanner debris for the paragraph opening (lost space/indent, possibly page-top furniture), still visible in the reading view (class 1); no separate reading is invented for the mark.",
+      "evidence": "Transcription: '\\ But he is placed near the equinoctial circle'; the parallel does not reach this passage — transcription decides.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "cold ness",
+      "replace": "coldness",
+      "note": "Broken word: 'coldness' split in two (class 3).",
+      "evidence": "Transcription: 'through the cold ness of the north wind'; the parallel does not reach this passage — transcription decides.",
+      "decided_by": "transcription",
+      "region": "section 11",
+      "sites": 2
+    },
+    {
+      "kind": "3",
+      "find": "cold ness",
+      "replace": "coldness",
+      "note": "Broken word — 'coldness' set as two words by a lost hyphen/space, still showing in the reading view; class 3.",
+      "evidence": "Transcription: 'from its superior cold ness, congeals'; parallel (1823), clean at this spot: 'from its superior / coldness, congeals' — the parallel's undamaged 'coldness, congeals' decides.",
+      "decided_by": "both",
+      "region": "section 12",
+      "sites": 2
+    },
+    {
+      "kind": "2",
+      "find": "retains",
+      "replace": "detains",
+      "note": "Wrong word carrying no damage character — d read as r; the parallel printing cleanly reads 'detains'; class 2.",
+      "evidence": "Transcription: 'and retains it in the frigidity of terrene generation'; parallel: 'and / detains it in the frigidity of terrene generation' — decided by the parallel, whose 'detains it in the frigidity' is undamaged.",
+      "decided_by": "parallel",
+      "region": "section 12",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "con formably",
+      "replace": "conformably",
+      "note": "Word broken in two by a lost line-end hyphen, class 3; reading view still prints it as two words.",
+      "evidence": "transcription has 'con formably to things themselves'; parallel has 'each other conformably to things themselves'; decided by both",
+      "decided_by": "both",
+      "region": "section 14",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "themselves ;",
+      "replace": "themselves;",
+      "note": "OCR inserted a space before the semicolon; the artefact stands in the reading view, class 1 (the print carries no space there).",
+      "evidence": "transcription has 'themselves ; of which'; parallel has 'things themselves; of which one pertains'; decided by both",
+      "decided_by": "both",
+      "region": "section 14",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "depraved natures. Hence",
+      "replace": "depraved natures. Hence,",
+      "note": "Missing comma after 'Hence' at the block join, with no damage character marking the loss, class 2.",
+      "evidence": "transcription has 'depraved natures. Hence' ending the block; parallel has 'depraved natures. Hence, Plato took'; decided by parallel",
+      "decided_by": "parallel",
+      "region": "section 14",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "in stead of two gates",
+      "replace": "instead of two gates",
+      "note": "Word broken in two where the same word stands whole earlier in the sentence, class 3.",
+      "evidence": "transcription has 'already observed, in stead of two gates'; parallel has 'we have already observed, instead of two gates'; decided by both",
+      "decided_by": "both",
+      "region": "section 14",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "recesses doors",
+      "replace": "recesses and trenches, caverns, doors",
+      "note": "Whole printed words 'and trenches, caverns,' dropped between 'recesses' and 'doors' with no damage character anywhere in the surviving text, class 2 — invisible to the census.",
+      "evidence": "transcription has 'mentions recesses doors anc^'; parallel has 'mentions recesses and trenches, caverns, doors, and gates'; decided by parallel",
+      "decided_by": "parallel",
+      "region": "section 14",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "arrexpTaHatiori",
+      "replace": "an explanation",
+      "note": "Two words collapsed into a non-word artefact standing openly in the reading view with no damage character to flag it, class 1.",
+      "evidence": "transcription has 'thus much for arrexpTaHatiori of the Homeric cave'; parallel has 'thus much for an explanation of the Homeric cave'; decided by parallel",
+      "decided_by": "parallel",
+      "region": "section 14",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "testi monies",
+      "replace": "testimonies",
+      "note": "Word broken in two by a lost line-end hyphen, class 3.",
+      "evidence": "transcription has 'further testi monies from ancient'; parallel has 'farther testimonies from ancient philo-'; decided by both",
+      "decided_by": "both",
+      "region": "section 14",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "hp-",
+      "replace": "be",
+      "note": "The print's word 'be' was misread as 'hp-' with no damage-set character in it, so the census is blind to it; the recorded reading fixed the adjacent noise word to 'deposited' but left this word wrong (class 2).",
+      "evidence": "Transcription verbatim: 'must hp- fjpjjnsjtpfjL^' (find 'hp-'); parallel: 'possessions must be deposited.' — 'must be deposited' decides. Parallel decided.",
+      "decided_by": "parallel",
+      "region": "section 16",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "that > hostile",
+      "replace": "that hostile",
+      "note": "A lone '>' stands between the words where the print carries only a space — the classic lost-space marker, still visible in the reading view (class 1).",
+      "evidence": "Transcription verbatim: 'destroy that > hostile rout' (find 'that > hostile'); parallel: 'tually destroy that hostile rout of passions' — 'destroy that hostile' decides the plain space. Both decided.",
+      "decided_by": "both",
+      "region": "section 16",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "In deed",
+      "replace": "Indeed",
+      "note": "The single word 'Indeed' is broken in two by a spurious space, with no damage character anywhere (class 3).",
+      "evidence": "Transcription verbatim: 'In deed, as it appears to me' (find 'In deed'); parallel: 'Indeed, as it appears to me, it was not without reason' — 'Indeed, as it ap' decides. Parallel decided.",
+      "decided_by": "parallel",
+      "region": "section 16",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "man. who",
+      "replace": "man, who",
+      "note": "The print's comma after 'man' was read as a full stop — a substitution invisible to any damage-character census (class 2); the recorded reading repaired 'us^a_man' but left the period wrong.",
+      "evidence": "Transcription verbatim: 'to us^a_man. who passes in a' (find 'man. who'); parallel: 'to us a man, who passes in a regular' — 'a man, who passes' decides. Parallel decided.",
+      "decided_by": "parallel",
+      "region": "section 16",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "rpannpr",
+      "replace": "manner",
+      "note": "A plausible-looking non-word standing for 'manner' with no damage character in it — the dangerous census-invisible class (class 2).",
+      "evidence": "Transcription verbatim: 'rp£Tilar rpannpr QYfT thff' (find 'rpannpr'); parallel: 'in a regular manner over the dark and stormy' — 'regular manner over' decides. Both decided.",
+      "decided_by": "both",
+      "region": "section 16",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "QYfT",
+      "replace": "over",
+      "note": "The word 'over' corrupted to the non-word 'QYfT' with no damage-set character, invisible to the census (class 2).",
+      "evidence": "Transcription verbatim: 'rpannpr QYfT thff' (find 'QYfT'); parallel: 'regular manner over the dark and stormy sea' — 'manner over the' decides. Both decided.",
+      "decided_by": "both",
+      "region": "section 16",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "thff",
+      "replace": "the dark and stormy sea",
+      "note": "'thff' is a corruption of 'the' carrying no damage marker, and the print's following words 'dark and stormy sea' were dropped entirely between it and the next block's 'of generation' — silent word-loss wholly invisible to the character count (class 2).",
+      "evidence": "Transcription verbatim: 'QYfT thff' (find 'thff'), immediately followed by the next line 'of generation'; parallel: 'over the dark and stormy sea of generation, and thus' — 'the dark and stormy' decides. Both decided.",
+      "decided_by": "both",
+      "region": "section 16",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "nn(li>",
+      "replace": "finds",
+      "note": "A run-together fragment: the word 'finds' collapsed into the noise 'nn(li>', still shown unrepaired in the reading view and carrying the '>' damage character (class 1).",
+      "evidence": "Transcription verbatim: 'and nn(li> a nation' (find 'nn(li>'); parallel: 'seas are unknown, and finds a nation' — 'and finds a nation' decides. Both decided.",
+      "decided_by": "both",
+      "region": "section 16",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "the 7 sea",
+      "replace": "the sea",
+      "note": "Class 1 visible artefact: a stray digit 7 stands alone between 'the' and 'sea' in the reading view's own text — scanner debris standing where the print carries only the space between the two words, so the print reads 'the sea' (if the 1917 print should carry a footnote numeral at this spot a human must retain it).",
+      "evidence": "Transcription verbatim: 'the deep, the 7 sea, and a tempest are images' — the digit is the only non-letter there; the parallel excerpt does NOT carry this sentence (it begins at '& Phorcys is one among the ennead' and resumes at 'tioned in the beginning of the Odyssey'), so the transcription alone decides; witness: transcription.",
+      "decided_by": "transcription",
+      "region": "section 17",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "to be liber ated from this sensible",
+      "replace": "to be liberated from this sensible",
+      "note": "Class 3 broken word: 'liberated' is split in two as 'liber ated' (the print's join or hyphen lost at the break) and the split is still shown to the reader of the published text.",
+      "evidence": "Transcription verbatim: 'possible for anyone to be liber ated from this sensible life'; parallel verbatim: 'possible for any one to be liberated from this sensible life' — the transcription shows the break, the parallel (clean at this spot) gives the whole word; witness: both.",
+      "decided_by": "both",
+      "region": "section 17",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "then be liber ated from labours",
+      "replace": "then be liberated from labours",
+      "note": "Class 3 broken word: a second occurrence of 'liberated' split in two as 'liber ated', still visible in the reading view.",
+      "evidence": "Transcription verbatim: 'Nor will he even then be liber ated from labours'; parallel verbatim: 'Nor will he even then be liberated from labours' — the parallel (clean here) confirms the joined word; witness: both.",
+      "decided_by": "both",
+      "region": "section 17",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "intelligible con cern",
+      "replace": "intelligible concerns",
+      "note": "Class 3 broken word: the word is split as 'con cern' and the final s is also lost, so the reading view shows two fragments where the print has one word; the parallel supplies 'concerns'.",
+      "evidence": "Transcription verbatim: 'through deep attention to intelligible con cern) as to mistake an oar'; parallel verbatim: 'deep attention to intelligible concerns]' — the parallel is clean at this spot and supplies both the join and the final s; witness: both.",
+      "decided_by": "both",
+      "region": "section 17",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "tne",
+      "replace": "the",
+      "note": "Substituted letter (n for h) making a plausible-looking non-word with no damage character — class 2.",
+      "evidence": "Transcription (verbatim): 'obscurely indicated tne images'; parallel (verbatim): 'indicated the images of things of a more' — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 18",
+      "sites": 5
+    },
+    {
+      "kind": "2",
+      "find": "morel",
+      "replace": "more",
+      "note": "'morel' is a real-looking wrong word standing where the print has 'more', with no damage character — class 2, the census-blind class.",
+      "evidence": "Transcription (verbatim): 'of things of a morel divine nature'; parallel (verbatim): 'things of a more divine nature in' — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 18",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "mean ing",
+      "replace": "meaning",
+      "note": "'meaning' broken in two by a spurious space, carried unchanged into the reading view — class 3.",
+      "evidence": "Transcription (verbatim): 'an appropriate mean ing) from certain established truths'; parallel (verbatim): 'to an appropriate / meaning | from certain established truths' — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 18",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Scholia on the Phcedrus of Plato, \" are",
+      "replace": "Scholia on the Phædrus of Plato, \" are",
+      "note": "Class 2 — the print's æ-ligature 'Phædrus' read as 'ce', leaving the plausible-looking non-word 'Phcedrus'.",
+      "evidence": "Transcription has 'Scholia on the Phcedrus of Plato, \" are' verbatim; the same hand reads the æ ligature as 'ce' in 'Timceus', 'Phcedo' and 'nautce'; no parallel supplied, decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "con versant",
+      "replace": "conversant",
+      "note": "Class 3 — 'conversant' broken across a print line, the hyphen lost as a space.",
+      "evidence": "Transcription has 'con versant' verbatim; the print's single word is 'conversant'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "sen sible",
+      "replace": "sensible",
+      "note": "Class 3 — 'sensible' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'sen sible' verbatim; the print's single word is 'sensible'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "De Nuptiis Philologies",
+      "replace": "De Nuptiis Philologiæ",
+      "note": "Class 2 — Martianus Capella's title 'De Nuptiis Philologiæ', the ligature mangled to make a wrong Latin form 'Philologies'.",
+      "evidence": "Transcription has 'De Nuptiis Philologies' verbatim; the book demonstrably sets æ ligatures (cf. 'Phcedrus', 'Timceus', 'nautce'), so the ligature is the likely misread; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Cui nautce septem germani",
+      "replace": "Cui nautæ septem germani",
+      "note": "Class 2 — Latin 'nautæ' with the æ ligature read as 'ce'.",
+      "evidence": "Transcription has 'Cui nautce septem germani' verbatim; 'nautce' is not a Latin form; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "Orphic fiction \"is beautifully unfolded",
+      "replace": "Orphic fiction is beautifully unfolded",
+      "note": "Class 1 — a spurious opening quotation-mark standing before 'is'; the quotation properly opens at 'Orpheus says' after 'as follows : '.",
+      "evidence": "Transcription has 'Orphic fiction \"is beautifully unfolded' verbatim while the true opening quote stands later at 'as follows : \" Orpheus says'; note 8's identical construction 'nectar and ambrosia is beautifully unfolded by Hermias' carries no mark; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "gener ated",
+      "replace": "generated",
+      "note": "Class 3 — 'generated' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'gener ated' verbatim; the print's single word is 'generated'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "remind ing",
+      "replace": "reminding",
+      "note": "Class 3 — 'reminding' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'remind ing' verbatim; the print's single word is 'reminding'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "inter pretative",
+      "replace": "interpretative",
+      "note": "Class 3 — 'interpretative' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'inter pretative' verbatim; the print's single word is 'interpretative'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "trans lation",
+      "replace": "translation",
+      "note": "Class 3 — 'translation' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'trans lation' verbatim; the print's single word is 'translation'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Proclus on the Timceus",
+      "replace": "Proclus on the Timæus",
+      "note": "Class 2 — 'Timæus' with the æ ligature read as 'ce'.",
+      "evidence": "Transcription has 'Proclus on the Timceus' verbatim; same ligature hand as 'Phcedrus'/'Phcedo'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "imperfec.tumque",
+      "replace": "imperfectumque",
+      "note": "Class 1 — a stray full stop standing inside the Latin word 'imperfectumque' of Claudian's line.",
+      "evidence": "Transcription has 'imperfec.tumque' verbatim; no such Latin form exists — the verse runs 'imperfectumque laborem'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "[l only add, that, by ancient theologists",
+      "replace": "[I only add, that, by ancient theologists",
+      "note": "Class 2 — lower-case l substituted for the pronoun I at the head of the bracketed addition.",
+      "evidence": "Transcription has '[l only add, that, by ancient theologists' verbatim; the sentence requires 'I only add'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Scholia on the Phcedrus of Plato, pub",
+      "replace": "Scholia on the Phædrus of Plato, pub",
+      "note": "Class 2 — 'Phædrus' with the æ ligature read as 'ce' (second occurrence).",
+      "evidence": "Transcription has 'Scholia on the Phcedrus of Plato, pub' verbatim; same ligature hand as 'Timceus'/'Phcedo'/'nautce'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "pub lished",
+      "replace": "published",
+      "note": "Class 3 — 'published' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'pub lished' verbatim; the print's single word is 'published'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "de nominated",
+      "replace": "denominated",
+      "note": "Class 3 — 'denominated' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'de nominated' verbatim; the print's single word is 'denominated'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "according to a priuation of the funeral",
+      "replace": "according to a privation of the funeral",
+      "note": "Class 2 — 'privation' with the v dropped, leaving the plausible non-word 'priuation'.",
+      "evidence": "Transcription has 'according to a priuation of the funeral' verbatim, while the same sentence earlier spells it 'according to a privation of the mortal'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "immu table",
+      "replace": "immutable",
+      "note": "Class 3 — 'immutable' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'immu table' verbatim; the print's single word is 'immutable'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "philo sophical",
+      "replace": "philosophical",
+      "note": "Class 3 — 'philosophical' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'philo sophical' verbatim; the print's single word is 'philosophical'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "know ledge",
+      "replace": "knowledge",
+      "note": "Class 3 — 'knowledge' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'know ledge' verbatim; the print's single word is 'knowledge'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "remark able",
+      "replace": "remarkable",
+      "note": "Class 3 — 'remarkable' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'remark able' verbatim; the print's single word is 'remarkable'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "trans cendent",
+      "replace": "transcendent",
+      "note": "Class 3 — 'transcendent' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'trans cendent' verbatim; the print's single word is 'transcendent'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "con tinued",
+      "replace": "continued",
+      "note": "Class 3 — 'continued' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'con tinued' verbatim; the print's single word is 'continued'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "de rived",
+      "replace": "derived",
+      "note": "Class 3 — 'derived' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'de rived' verbatim; the print's single word is 'derived'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "Pythag oras",
+      "replace": "Pythagoras",
+      "note": "Class 3 — 'Pythagoras' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'Pythag oras' verbatim; the print's single word is 'Pythagoras'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "rudi ments",
+      "replace": "rudiments",
+      "note": "Class 3 — 'rudiments' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'rudi ments' verbatim; the print's single word is 'rudiments'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "gen erated",
+      "replace": "generated",
+      "note": "Class 3 — 'generated' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'gen erated' verbatim; the print's single word is 'generated'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "in the Timceus, calls",
+      "replace": "in the Timæus, calls",
+      "note": "Class 2 — 'Timæus' with the æ ligature read as 'ce'.",
+      "evidence": "Transcription has 'in the Timceus, calls' verbatim; same ligature hand as 'Phcedrus'/'Phcedo'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "her self",
+      "replace": "herself",
+      "note": "Class 3 — 'herself' broken at a print line-end within a block that shows several line breaks (same lost-hyphen damage as 'signify ing' and 'impetu ous' here).",
+      "evidence": "Transcription has 'her self' verbatim in 'production of her self, she begins'; the print's single word is 'herself'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "signify ing",
+      "replace": "signifying",
+      "note": "Class 3 — 'signifying' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'signify ing' verbatim; the print's single word is 'signifying'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "impetu ous",
+      "replace": "impetuous",
+      "note": "Class 3 — 'impetuous' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'impetu ous' verbatim; the print's single word is 'impetuous'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "remarks in the Phcedo, that the soul",
+      "replace": "remarks in the Phædo, that the soul",
+      "note": "Class 2 — 'Phædo' with the æ ligature read as 'ce'.",
+      "evidence": "Transcription has 'remarks in the Phcedo, that the soul' verbatim; same ligature hand as 'Phcedrus'/'Timceus'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "heavens throught the influx",
+      "replace": "heavens through the influx",
+      "note": "Class 2 — 'through' with its final h turned to t, leaving the plausible non-word 'throught'.",
+      "evidence": "Transcription has 'heavens throught the influx' verbatim; 'throught' is no word and the sense requires 'through the influx of matter'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "per ceives",
+      "replace": "perceives",
+      "note": "Class 3 — 'perceives' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'per ceives' verbatim; the print's single word is 'perceives'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "per petuity",
+      "replace": "perpetuity",
+      "note": "Class 3 — 'perpetuity' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'per petuity' verbatim; the print's single word is 'perpetuity'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "refine ment",
+      "replace": "refinement",
+      "note": "Class 3 — 'refinement' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'refine ment' verbatim; the print's single word is 'refinement'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "described >by Proclus",
+      "replace": "described by Proclus",
+      "note": "Class 1 — the damage character '>' standing between 'described' and 'by', the print's own space read as a symbol; the reading is the space.",
+      "evidence": "Transcription has 'described >by Proclus' verbatim; nothing belongs between the two words but the space; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Commentary on the Timceus",
+      "replace": "Commentary on the Timæus",
+      "note": "Class 2 — 'Timæus' with the æ ligature read as 'ce'.",
+      "evidence": "Transcription has 'Commentary on the Timceus' verbatim; same ligature hand as 'Phcedrus'/'Phcedo'/'nautce'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "repre sented",
+      "replace": "represented",
+      "note": "Class 3 — 'represented' broken across a print line, hyphen lost.",
+      "evidence": "Transcription has 'repre sented' verbatim; the print's single word is 'represented'; decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Phcedrus",
+      "replace": "Phædrus",
+      "note": "Class 2: a plausible-looking non-word carrying no damage character; the print's æ ligature was scanned as 'ce' and never recorded.",
+      "evidence": "Transcription reads 'This fable is mentioned by Plato in the Phcedrus, and is beautifully unfolded' — Phcedrus verbatim; no parallel is supplied for this region (it carries the treatise, not this volume's notes), so the ligature misread is decided by the transcription alone.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 3
+    },
+    {
+      "kind": "2",
+      "find": "propitipus",
+      "replace": "propitious",
+      "note": "Class 2: a non-word with no damage mark in it, invisible to a character census; the print reads 'propitious'.",
+      "evidence": "Transcription reads 'the God was so very propitipus, that he sent the north wind' — propitipus verbatim; parallel not supplied for this region; decided by transcription, the English word being 'propitious'.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "pos sessed",
+      "replace": "possessed",
+      "note": "Class 3: the word is broken at the print's line break and the hyphen was lost in flattening.",
+      "evidence": "Transcription reads 'being pos sessed by her proper God Boreas' — pos sessed verbatim; parallel not supplied for this region; the split with no hyphen is the scanner's flattening of 'possessed'.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "explana tion",
+      "replace": "explanation",
+      "note": "Class 3: line-break split with the hyphen lost; the print reads 'explanation' as one word.",
+      "evidence": "Transcription reads 'And this is the more ethical explana tion of the fable.' — explana tion verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "narra tion",
+      "replace": "narration",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'which transfers the narra tion to wholes' — narra tion verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "illumi nating",
+      "replace": "illuminating",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'the Gods, supernally illumi nating secondary natures' — illumi nating verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "signi fied",
+      "replace": "signified",
+      "note": "Class 3: line-break split with the hyphen lost (the same block already carries 'signified' unsplit, confirming the print's word).",
+      "evidence": "Transcription reads 'the Gods is signi fied by the south wind' — signi fied verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Phcedo",
+      "replace": "Phædo",
+      "note": "Class 2: no damage character, but a non-word; the æ ligature scanned as 'ce'.",
+      "evidence": "Transcription reads 'according to Socrates in the Phcedo, is nothing else than a meditation of death' — Phcedo verbatim; parallel not supplied; decided by transcription, same ligature error as 'Phcedrus'.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 2
+    },
+    {
+      "kind": "3",
+      "find": "physi cal",
+      "replace": "physical",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'not receiving a physi cal death, and abandons' — physi cal verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "(v. n)",
+      "replace": "(v. 11)",
+      "note": "Class 2: no damage mark, but 'n' is not a letter here — it is the scanner's joining of '11', the verse number of the print's citation.",
+      "evidence": "Transcription reads 'the 24th book of the Odyssey (v. n) to have passed' — (v. n) verbatim; parallel not supplied; the passage of the gates of the sun and the people of dreams is Odyssey xxiv. 11-12 and '11' fused to 'n' is the standard OCR shape; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "pro bable",
+      "replace": "probable",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'by a derivation from the pro bable and persuasive' — pro bable verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "intem perate",
+      "replace": "intemperate",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'He further said that the intem perate and uncovered nature' — intem perate verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "insati able",
+      "replace": "insatiable",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'was like a pierced tub, through its insati able greediness' — insati able verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "Com mentary",
+      "replace": "Commentary",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'in his MS. Com mentary on the Gorgias' — Com mentary verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "Euri pides",
+      "replace": "Euripides",
+      "note": "Class 3: line-break split with the hyphen lost (note 23 above carries 'Euripides' unsplit).",
+      "evidence": "Transcription reads '\" Euri pides (in Phryxo) says, that to live is to die' — Euri pides verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "she^",
+      "replace": "she",
+      "note": "Class 1: a '^' damage mark still standing at the end of the word in the reading view, most likely debris of the lost line-end hyphen or scanner noise; the printed word is simply 'she'.",
+      "evidence": "Transcription reads 'as she imparts life to the body, so she^ par takes (through this)' — she^ verbatim; the marker is live in both columns (no reading recorded) and parallel is not supplied for this region; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "par takes",
+      "replace": "partakes",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'so she^ par takes (through this) of a certain privation of life' — par takes verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "per forated",
+      "replace": "perforated",
+      "note": "Class 3: line-break split with the hyphen lost (the same block has 'perforated' unsplit later).",
+      "evidence": "Transcription reads 'those that possess nothing perfect, have per forated tubs' — per forated verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "cavi ties",
+      "replace": "cavities",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'Right lines, therefore, are in the middle of the cavi ties.' — cavi ties verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Timceus",
+      "replace": "Timæus",
+      "note": "Class 2: a non-word with no damage character; the print's æ ligature scanned as 'ce'.",
+      "evidence": "Transcription reads 'according to Plato in the Timceus, fabricate generation' — Timceus verbatim; parallel not supplied; decided by transcription, same ligature error as 'Phcedrus' and 'Phcedo'.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 4
+    },
+    {
+      "kind": "3",
+      "find": "separa tions",
+      "replace": "separations",
+      "note": "Class 3: line-break split with the hyphen lost.",
+      "evidence": "Transcription reads 'divisions and separa tions of forms made by Saturn' — separa tions verbatim; parallel not supplied; decided by transcription.",
+      "decided_by": "transcription",
+      "region": "the notes (part 2)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Price is. 6d. net. Post free is. yd.",
+      "replace": "Price 1s. 6d. net. Post free 1s. 7d.",
+      "note": "Class 2: the shilling numeral 1 was read as the letter i in both 'is.', and the 7 of '7d.' as y ('yd.') — plausible-looking wrong words with no damage character.",
+      "evidence": "The transcription reads 'Price is. 6d. net. Post free is. yd.'; the same book's second price-line in this very transcription reads 'Post free is. 7d.', showing '7d.' where this line carries 'yd.', and price-plus-postage arithmetic (1s. 6d. + 1d. postage = 1s. 7d.) requires '1s.'. Decided by the transcription; the parallel is not supplied for this region.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Price is. 6d. net. Post free is. 7d.",
+      "replace": "Price 1s. 6d. net. Post free 1s. 7d.",
+      "note": "Class 2: numeral 1 read as letter i twice ('is.' for '1s.'); no damage character anywhere in the words.",
+      "evidence": "The transcription reads 'Price is. 6d. net. Post free is. 7d.'; the identical fault stands in the companion line 'Post free is. yd.' and the shilling prices only make sense as '1s.'. Decided by the transcription; parallel not supplied.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "SUDDEN DEATH &THE WAR",
+      "replace": "SUDDEN DEATH & THE WAR",
+      "note": "Class 3: two words fused — the space after the print's ampersand was lost, giving '&THE'.",
+      "evidence": "The transcription reads 'SUDDEN DEATH &THE WAR'; the same title formula stands correctly spaced elsewhere in this transcription as 'CREATIVE THOUGHT & THE PROBLEM OF EVIL'. Decided by the transcription; parallel not supplied.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Theobald Cloth, 8vo. Price is. net. Post free is. 2d.",
+      "replace": "Theobald Cloth, 8vo. Price 1s. net. Post free 1s. 2d.",
+      "note": "Class 2: numeral 1 read as letter i twice ('is.' for '1s.'); invisible to a damage-character census.",
+      "evidence": "The transcription reads 'Theobald Cloth, 8vo. Price is. net. Post free is. 2d.'; price plus a penny postage (1s. net, post free 1s. 2d.) decides '1s.', the same fault appearing in every shilling line of these advertisements. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Cloth, 8vo. Price is. net. Post free is. 2d.",
+      "replace": "Cloth, 8vo. Price 1s. net. Post free 1s. 2d.",
+      "note": "Class 2: numeral 1 read as letter i twice ('is.' for '1s.'); this identical damaged line is the Narada Sutra price (the same fault also stands in the Theobald ad, reported separately).",
+      "evidence": "The transcription reads 'Cloth, 8vo. Price is. net. Post free is. 2d.'; the shilling-plus-penny-postage pattern (1s. net / 1s. 2d.) seen throughout these ads decides '1s.'. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 2
+    },
+    {
+      "kind": "2",
+      "find": "Charing Cross Read",
+      "replace": "Charing Cross Road",
+      "note": "Class 2: a wrong real English word — 'oa' of 'Road' read as 'ea' ('Read'); no damage character.",
+      "evidence": "The transcription reads 'Charing Cross Read'; the publisher's address appears again in this transcription as '21 Cecil Court, Charing Cross Road, London, W.C.2'. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Wrappers, Svo. Price 3d. Post free 4d.",
+      "replace": "Wrappers, 8vo. Price 3d. Post free 4d.",
+      "note": "Class 2: the numeral 8 of '8vo.' read as capital S ('Svo.'), a plausible-looking non-word with no damage character.",
+      "evidence": "The transcription reads 'Wrappers, Svo. Price 3d. Post free 4d.'; the same publisher's formula stands correctly in this transcription as 'Wrappers, 8vo. Price 3d. net. Post free 4d.'. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Wrappers, Svo. Price 6d. Post free 7d.",
+      "replace": "Wrappers, 8vo. Price 6d. Post free 7d.",
+      "note": "Class 2: 'Svo.' for '8vo.' — numeral 8 read as S; no damage character.",
+      "evidence": "The transcription reads 'Wrappers, Svo. Price 6d. Post free 7d.'; correct 'Wrappers, 8vo.' stands in this transcription in the other advertisement lines. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Cloth, Svo. is. net. Post free is. 2d. Wrappers. 6d. net. Post free jd.",
+      "replace": "Cloth, 8vo. 1s. net. Post free 1s. 2d. Wrappers. 6d. net. Post free 7d.",
+      "note": "Class 2: three substitutions without any damage character — 8 read as S ('Svo.'), 1 read as i twice ('is.'), and 7 read as j ('jd.' for '7d.').",
+      "evidence": "The transcription reads 'Cloth, Svo. is. net. Post free is. 2d. Wrappers. 6d. net. Post free jd.'; its twin line in this transcription reads 'Cloth, Svo. is. net. Post free is. 2d. Wrappers. 6d. net. Post free 7d.', showing '7d.' where this line has 'jd.', and correct 'Cloth, 8vo.' stands in the Theobald and Narada lines. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Cloth, Svo. is. net. Post free is. 2d. Wrappers. 6d. net. Post free 7d.",
+      "replace": "Cloth, 8vo. 1s. net. Post free 1s. 2d. Wrappers. 6d. net. Post free 7d.",
+      "note": "Class 2: 8 read as S ('Svo.') and 1 read as i twice ('is.'); no damage character.",
+      "evidence": "The transcription reads 'Cloth, Svo. is. net. Post free is. 2d. Wrappers. 6d. net. Post free 7d.'; correct 'Cloth, 8vo.' stands in the Theobald and Narada lines of this transcription, and shilling prices run '1s.' throughout. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Wrappers, Svo. 6d. net. Post free 7d.",
+      "replace": "Wrappers, 8vo. 6d. net. Post free 7d.",
+      "note": "Class 2: 'Svo.' for '8vo.' — numeral 8 read as S; no damage character.",
+      "evidence": "The transcription reads 'Wrappers, Svo. 6d. net. Post free 7d.'; correct 'Wrappers, 8vo.' stands in this transcription (e.g. 'Wrappers, 8vo. Price 6d. net. Post free 7d.'). Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Wrappers, Svo. Price 6d. net. Post free 7d.",
+      "replace": "Wrappers, 8vo. Price 6d. net. Post free 7d.",
+      "note": "Class 2: 'Svo.' for '8vo.' — numeral 8 read as S; no damage character.",
+      "evidence": "The transcription reads 'Wrappers, Svo. Price 6d. net. Post free 7d.'; the same formula stands correctly in this transcription as 'Wrappers, 8vo. Price 6d. net. Post free 7d.'. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "JOHN M, W ATKINS,",
+      "replace": "JOHN M. WATKINS,",
+      "note": "Class 3: the surname is broken in two by a false space ('W ATKINS' for 'WATKINS'), with the period after the initial also misread as a comma ('M,').",
+      "evidence": "The transcription reads 'JOHN M, W ATKINS,'; the same imprint line stands correctly in this transcription as 'JOHN M. WATKINS,'. Decided by the transcription.",
+      "decided_by": "transcription",
+      "region": "the advertisements (part 1)",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "CEneus",
+      "replace": "Œneus",
+      "note": "Class 2: the print's ligature Œ was read as 'CE', leaving the name 'CEneus' — a plausible-looking wrong form carrying no damage character.",
+      "evidence": "Transcription (verbatim): 'his representing CEneus, when supplicating, shaking the gate'. The parallel excerpt begins later ('Whether dense clouds they close') and does not carry this line; the transcription's own characters decide — 'CE' is the standard OCR split of the print's Œ ligature, the name being Œneus.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "gates omit a",
+      "replace": "gates emit a",
+      "note": "Class 2: 'omit' is a wrong English word with no damage character in it; the print reads 'emit'.",
+      "evidence": "Transcription (verbatim): 'these gates omit a bellowing sound'. Parallel (verbatim): 'And on this account, these gates emit a bellowing' — the parallel decides the reading.",
+      "decided_by": "parallel",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Bo/>a",
+      "replace": "Bora",
+      "note": "Class 2 (a half-repair): the recorded rule consumed the '/>' but recorded 'Boga' (what the reading view now shows), leaving the word wrong; the print reads 'Bora' (Greek βορά, 'nutriment').",
+      "evidence": "Transcription (verbatim): 'For the word Boreas is derived from Bo/>a, which signifies nutriment'. The parallel excerpt stops before this sentence ('...large, as is'), so the transcription decides: the etymon named here is βορά, and 'Boga' is not a word.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "souls that fail into",
+      "replace": "souls that fall into",
+      "note": "Class 2: 'fail' is a wrong word for 'fall', invisible to any character census.",
+      "evidence": "Transcription (verbatim): 'to souls that fail into the realms of generation'. Parallel (verbatim): 'when they fall into generation' — and the transcription itself has 'when they fall into generation' earlier in the same block; both witnesses decide.",
+      "decided_by": "both",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "twofuld^entrance",
+      "replace": "twofold entrance",
+      "note": "Class 1: the damage character '^' still shows, standing where the print's space was, and the vowel is wrong besides ('twofuld' for 'twofold'), so the whole two-word print reading must be recorded.",
+      "evidence": "Transcription (verbatim): 'a twofuld^entrance to be a^symbol of the nature of things' — the ^ marks the lost space between 'twofold' and 'entrance'.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "a^symbol",
+      "replace": "a symbol",
+      "note": "Class 1: '^' stands alone between 'a' and 'symbol' — the print's own space read as a symbol; give the space back.",
+      "evidence": "Transcription (verbatim): 'to be a^symbol of the nature of things' — the marker sits between the two words where the print carries a space.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "the one is eastern, but the",
+      "replace": "the one is eastern, but the other",
+      "note": "Class 2: the word 'other' has dropped out between 'but the' and the next block's 'western.' — a missing word with no damage character.",
+      "evidence": "Transcription (verbatim): 'and the one is eastern, but the' — the very next block begins 'western. Thus, too, some parts of the world'; the sentence's own first clause, 'One centre likewise is above, but the other beneath the earth', shows the print's construction 'but the other western'.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "a passagetosouls",
+      "replace": "a passage to souls",
+      "note": "Class 3: three words fused into one ('passage to souls') with no damage character in the fused mass.",
+      "evidence": "Transcription (verbatim): 'affords a passagetosouls ascending' — the spaces of 'a passage to souls' are gone and no marker records them.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "de scending",
+      "replace": "descending",
+      "note": "Class 3: 'descending' broken in two by a space the print does not carry (there is no hyphen in the transcription).",
+      "evidence": "Transcription (verbatim): 'souls de scending to the eartju.' — the single print word 'descending' is split across a spurious space.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 2
+    },
+    {
+      "kind": "2",
+      "find": "the eartju",
+      "replace": "the earth",
+      "note": "Class 2: 'earth' with the final 'h' misread as 'ju' — a wrong word carrying no damage character.",
+      "evidence": "Transcription (verbatim): 'to the eartju. And according to theologists' — the print word is 'earth'.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": ".oLsouls",
+      "replace": "of souls",
+      "note": "Class 2 (a half-repair): the recorded rule consumed the debris '.oL' — which was the word 'of' — and left only 'souls' in the reading view; the print reads 'of souls'.",
+      "evidence": "Transcription (verbatim): '.oLsouls, which ascend through the Sun, and' — the preceding block ends 'the Sun and Moon are the gates', so the print line reads 'the gates / of souls'.",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "contents everywhere",
+      "replace": "contents every where",
+      "note": "Class 3: 'every where' fused into 'everywhere'; the same section's print carries the word as two.",
+      "evidence": "Transcription (verbatim): 'who scatters its contents everywhere, Hope alone remaining behind'; the same transcription, block 11, carries the print's spelling as two words ('the ancients every where').",
+      "decided_by": "transcription",
+      "region": "section 13",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "cavfir\",",
+      "replace": "cavern; since Homer",
+      "note": "Class 2 — the repair restored 'cavern' but left the print's semicolon misread as a straight quote plus comma, and the words 'since Homer' that must govern the lowercase 'appears' of block s15-2 are absent from both transcription and reading view.",
+      "evidence": "Transcription: planted at th^jpjpjpj^hejcavfir\", followed by block s15-2 'appears to indicate'; parallel: the cavern; since Homer appears to indicate — the parallel decides the punctuation and the lost words.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "givingjt",
+      "replace": "giving it",
+      "note": "Class 3 — 'giving it' fused into one word, the space and initial i collapsing to a j, with no damage character for the census to see.",
+      "evidence": "Transcription: admirable by givingjt such a position; parallel: by giving it such a position — the parallel separates the words.",
+      "decided_by": "both",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "situa tion",
+      "replace": "situation",
+      "note": "Class 3 — 'situation' split in two, the print's line-end hyphen lost as a space; the reading view still shows the break.",
+      "evidence": "Transcription: in such a situa tion is not fortuitous; parallel: in such a situation, is not fortuitous — the parallel decides.",
+      "decided_by": "both",
+      "region": "section 15",
+      "sites": 2
+    },
+    {
+      "kind": "1",
+      "find": "inte.llfrtnal",
+      "replace": "intellectual",
+      "note": "Class 1 — an OCR artefact standing in the reading view's own text whose characters (letters and full stops) fall outside the damage set, so the census is blind to it.",
+      "evidence": "Transcription: divine wisdom and an inte.llfrtnal nature; parallel: and an intellectual nature — the parallel decides the word.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "t-hi.c",
+      "replace": "this",
+      "note": "Class 1 — a garbled fragment standing in the reading view for the print's 'this', carrying no damage-set character.",
+      "evidence": "Transcription: the svnhr>i of t-hi.c yngrtnmj; parallel: the symbol of this wisdom, flourishes — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "yngrtnmj",
+      "replace": "wisdom",
+      "note": "Class 1 — a garbled word standing in the reading view for 'wisdom' (the print's following comma was lost with the noise).",
+      "evidence": "Transcription: of t-hi.c yngrtnmj flpiirishes; parallel: symbol of this wisdom, flourishes near the — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "flpiirishes",
+      "replace": "flourishes",
+      "note": "Class 1 — a garbled word of plain letters standing in the reading view for 'flourishes', invisible to any character census.",
+      "evidence": "Transcription: yngrtnmj flpiirishes nearthe; parallel: this wisdom, flourishes near the present cavern — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "nearthe",
+      "replace": "near the",
+      "note": "Class 3 — 'near the' fused into one word with no damage character anywhere in it.",
+      "evidence": "Transcription: flpiirishes nearthe Eicsent_pavern; parallel: flourishes near the present cavern, — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "jwhich",
+      "replace": "which",
+      "note": "Class 2 — a substituted letter (j for w) leaves a plausible-looking non-word with no damage character, still standing in the reading view.",
+      "evidence": "Transcription: Eicsent_pavern, jwhich is an image; parallel: present cavern, which is an image of the world — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "nlivp",
+      "replace": "olive",
+      "note": "Class 1 — a garbled word standing in the reading view for 'olive'; the damage around it was repaired but this word, holding no damage-set character, was left.",
+      "evidence": "Transcription: world. /For_tJl«* nlivp is; parallel: world. For the olive is the plant of Minerva — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "t^\"f^li^rva.J \\",
+      "replace": "of Minerva; and",
+      "note": "Class 1 — the repair restored 'of Minerva;' but left the backslash marker standing after it in the reading view and dropped the print's following word 'and'.",
+      "evidence": "Transcription: is t^Prplant' t^\"f^li^rva.J \\ ; parallel: plant of Minerva; and Minerva is wisdom — the parallel supplies the lost 'and', the transcription shows the marker.",
+      "decided_by": "both",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": ".Minerva",
+      "replace": "Minerva",
+      "note": "Class 1 — a stray full stop at the head of the block stands in the reading view where the lost word 'and' belongs; page-boundary debris, not the print's.",
+      "evidence": "Transcription: .Minerva is wisdom?. But this Goddess; parallel: and Minerva is wisdom. But this Goddess — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "wisdom?.",
+      "replace": "wisdom.",
+      "note": "Class 2 — a question mark substituted for the print's full stop, carrying no damage character and so invisible to the census.",
+      "evidence": "Transcription: .Minerva is wisdom?. But this Goddess; parallel: Minerva is wisdom. But this Goddess being — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Jeing",
+      "replace": "being",
+      "note": "Class 2 — a capital J substituted for b leaves a plausible-looking non-word with no damage character (the dash before it may be this print's own).",
+      "evidence": "Transcription: this Goddess — Jeing produced from the head; parallel: But this Goddess being produced from the head — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "fortune, but that it",
+      "replace": "fortune, but that it is the offspring of an intellectual",
+      "note": "Class 2 — the words 'is the offspring of an intellectual' are lost between blocks s15-8 and s15-9 with no damage character anywhere, so the reading view jumps straight from 'but that it' to 'nature and divine wisdom'.",
+      "evidence": "Transcription: fortune, but that it followed by block s15-9 nature and divine wisdom,; parallel: but that it is the offspring of an intellectual nature and divine wisdom — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "nature and divine wisdom,",
+      "replace": "nature and divine wisdom, which is separated, indeed, from",
+      "note": "Class 2 — the words 'which is separated, indeed, from' are lost between blocks s15-9 and s15-10 with no damage character to mark the gap.",
+      "evidence": "Transcription: nature and divine wisdom, followed by block s15-10 it fby a difference of essence),; parallel: divine wisdom, which is separated, indeed, from it [by a differ- — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "fby",
+      "replace": "(by",
+      "note": "Class 2 — a stray letter f stands where the print opens its parenthetical insertion (this printing parenthesises its insertions, as '(i.e.' and the surviving ')' after 'essence' show).",
+      "evidence": "Transcription: it fby a difference of essence), but yet; parallel: from it [by a differ-ence of essence], but yet is near — the parallel supplies the words, the transcription the bracket style.",
+      "decided_by": "both",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "' jHj",
+      "replace": "an",
+      "note": "Class 1 — a run-together fragment standing in the reading view for the print's 'an', none of its characters in the damage set.",
+      "evidence": "Transcription: Since, however, ' jHj olive is^ever; parallel: Since, however, an olive is ever-flourishing — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "is^ever-flpjLinsh|ng.",
+      "replace": "is ever-flourishing,",
+      "note": "Class 2 — the repair restored the word but left the print's comma misread as a full stop, so the reading view reads 'flourishing. it possesses'.",
+      "evidence": "Transcription: olive is^ever-flpjLinsh|ng. it possesses; parallel: an olive is ever-flourishing, it possesses — the parallel decides the punctuation.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "peculiarity . in ... the",
+      "replace": "peculiarity in the",
+      "note": "Class 1 — a stray full stop and a dot-leader artefact stand in the reading view where the print carries plain spaces.",
+      "evidence": "Transcription: a certain peculiarity . in ... the highest degree_; parallel: a certain peculiarity in the highest degree — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "\"noTTo sucn souls",
+      "replace": "world; for to such souls",
+      "note": "Class 1 — several words collapsed into noise ('world; for to', with 'such' misread 'sucn') still standing in the reading view; the 1917's punctuation there is not separable from the noise.",
+      "evidence": "Transcription: souls in the \"noTTo sucn souls this~caye_; parallel: souls in the world; for to such souls this cave — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "which is the auxiliary of",
+      "replace": "which is the auxiliary of labour (by being its",
+      "note": "Class 2 — the words 'labour (by being its' are lost between blocks s15-14 and s15-15 at the page break, so the reading view reads 'auxiliary of reward)', while the sentence's 'labour' survives only as the isolated block s15-13; no damage character in the surviving text.",
+      "evidence": "Transcription: which is the auxiliary of, then reward); it_Js__sj.cjceAjtoJMinerva; parallel: auxiliary of labour [by being its reward]; it is also sacred — the parallel supplies the words, the transcription's ')' the bracket style.",
+      "decided_by": "both",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "thejvictors",
+      "replace": "the victors",
+      "note": "Class 3 — 'the victors' fused into one word with a stray j standing for the space; no damage character.",
+      "evidence": "Transcription: thejvictors in athletic labours Ivith crowns-; parallel: supplies the victors in athletic labours with crowns — the parallel decides.",
+      "decided_by": "both",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Ivith",
+      "replace": "with",
+      "note": "Class 2 — a capital I substituted for w leaves a plausible-looking non-word with no damage character.",
+      "evidence": "Transcription: in athletic labours Ivith crowns-; parallel: athletic labours with crowns; and affords — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "crowns-",
+      "replace": "crowns;",
+      "note": "Class 2 — a line-break hyphen stands in the reading view where the print closes the clause with a semicolon; no damage character.",
+      "evidence": "Transcription: in athletic labours Ivith crowns-; parallel: athletic labours with crowns; and affords a friendly branch — the parallel decides.",
+      "decided_by": "parallel",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "petitioner. _ Thus",
+      "replace": "petitioner. Thus",
+      "note": "Class 1 — an underscore marker stands alone between words in the reading view; it is the print's own space after the full stop, read as a symbol — give the space.",
+      "evidence": "Transcription: petitioner. _ Thus, too, the world; parallel: suppliant petitioner. Thus, too, the world is governed — both witnesses; the marker is the lost space.",
+      "decided_by": "both",
+      "region": "section 15",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "by / a wisdom",
+      "replace": "by a wisdom",
+      "note": "Class 1 — a slash marker stands alone between words in the reading view; it is the print's own space, read as a symbol — give the space.",
+      "evidence": "Transcription: and is conducted by / a wisdom eternal; parallel: and is conducted by a wisdom eternal and ever-flourishing — both witnesses; the marker is the lost space.",
+      "decided_by": "both",
+      "region": "section 15",
+      "sites": 1
+    }
+  ],
+  "findingsByClass": {
+    "1": 48,
+    "2": 96,
+    "3": 103
+  },
+  "unsure": [
+    {
+      "region": "section 1",
+      "passage": "manifest, that it wnnlrf hf> ahgrn-j fpr to expectTthat in_d^scfi5mg a cave fabricated",
+      "question": "Does the print carry words between 'for' and 'to expect' here — e.g. 'for any one to expect' — or does it literally read 'absurd for to expect'?",
+      "note": "'absurd for to expect' is unidiomatic even for this translation, so the heavy garble may have swallowed a short phrase or dropped a printed line, but neither witness shows it.",
+      "evidence": "Transcription: 'wnnlrf hf> ahgrn-j fpr to expectTthat in_d^scfi5mg'; the parallel excerpt does not reach this passage, so nothing fixes the wording between 'for' and 'to'."
+    },
+    {
+      "region": "section 2",
+      "passage": "with respect to form jQhe^ajricients, atthe same time",
+      "question": "Does the print carry punctuation (a semicolon or comma) between 'form' and 'the ancients'? The garbled token 'jQhe^ajricients,' was read as 'the ancients,', and any print punctuation in the prefix 'jQ' was consumed by that recorded reading.",
+      "note": "Neither witness shows the mark: the transcription garbles it and the parallel excerpt begins later, at 'the matter with which it is connected', so the reading is not determinable from what is given.",
+      "evidence": "Transcription reads 'nature with respect to form jQhe^ajricients, atthe same time, asserting'; the parallel does not carry this passage."
+    },
+    {
+      "region": "section 3",
+      "passage": "…but they also assu  |  'symbol oT aH invisible powers ; because as…",
+      "question": "What words does the 1917 print carry between 'assu(med)' and 'symbol' — e.g. 'assumed it as a symbol' or 'assumed a symbol'? The span is missing from both the reading view and the transcription at the block seam.",
+      "note": "Text loss at the block 2→3 seam; the parallel masks the same span with its own damage, so the missing words cannot be determined from the witnesses given.",
+      "evidence": "Transcription ends 'but they also assu' and resumes \"'symbol oT aH invisible powers ; because as\"; parallel verbatim: 'but they also assutwed' / '~~ 88 a symbol of all invisible powers; because, as'."
+    },
+    {
+      "region": "section 3",
+      "passage": "…perpetual effusions of sweet streams \"  |  n^rom hence, as it appears to me…",
+      "question": "Does the 1917 print carry punctuation and a space between the closing quotation after 'streams' and 'From hence' — the parallel prints a full point and dash ('.—') there?",
+      "note": "Possible punctuation loss at the block 5→6 seam: both columns show the closing quote immediately followed by the next block with nothing between.",
+      "evidence": "Transcription verbatim: 'effusions of sweet streams \"' followed by 'n^rom hence, as it appears to me.'; parallel verbatim: 'effusions of sweet streams*.—Prom' / 'hence, as it appears to me, the Pythagoréans'."
+    },
+    {
+      "region": "section 6",
+      "passage": "garments are C. tinged from nalood.",
+      "question": "Does the 1917 print carry anything between 'are' and 'tinged' — a signature letter, footnote symbol, or other page furniture — or is the standing 'C.' pure scanner noise to be deleted?",
+      "note": "A furniture-shaped artefact still standing in the reading view; no text reading should be invented, since the parallel shows plain 'are tinged' with nothing between.",
+      "evidence": "Transcription verbatim: 'are C. tinged from nalood.'; parallel verbatim: 'woollen garments are tinged from blood;' — nothing between 'are' and 'tinged' in the parallel."
+    },
+    {
+      "region": "section 6",
+      "passage": "- -1i\"^lHi.n*-iL -t-i-ir * ->-• «, , ^X",
+      "question": "Is this line the opening of the footnote referred to by 'Gods. 1' (the parallel's note opens 'The theological meaning of this Orphic fiction...'), or running head / page furniture — and what does the print actually read here?",
+      "note": "A run-together fragment of noise standing in the reading view (reported per the run-together-fragment rule); it is unrecoverable from the witnesses given, so no reading can be recorded.",
+      "evidence": "Transcription verbatim: '- -1i\"^lHi.n*-iL -t-i-ir * ->-• «, , ^X'; parallel verbatim: 'The theological meaning οἵ this Orphic fiction is beautifully un-' — offered only as the probable identity of the note, not as a reading of these characters."
+    },
+    {
+      "region": "section 7",
+      "passage": "on account oTthijInjnitrescent nature oi tne waters",
+      "question": "What does the 1917 print give between 'on account' and 'nature' — almost certainly 'of the' plus an adjective ending in '-nitrescent'/'-nutrescent' (likely 'on account of the nutrescent nature of the waters')?",
+      "note": "Several words fused into one garbled token with no damage character, invisible to the census; 'oi tne' = 'of the' is certain, the adjective is not.",
+      "evidence": "Transcription: \"on account oTthijInjnitrescent nature oi tne waters over which they preside\"; the parallel excerpt stops at \"Hence some per-\" and does not carry this page."
+    },
+    {
+      "region": "section 7",
+      "passage": "which the ancient peculiarly called bees",
+      "question": "Does the print read 'the ancients' (a dropped 's') or genuinely 'the ancient'?",
+      "note": "A possible missing letter with no damage marker and no parallel coverage; grammar and Taylor's usage favour 'ancients', but only the print can decide.",
+      "evidence": "Transcription: \"which the ancient peculiarly called bees, as the efficient causes of sweetness\"; the parallel excerpt ends before this page."
+    },
+    {
+      "region": "section 7",
+      "passage": "Hence Sophocles does not speak unappropriately when he says of souls",
+      "question": "Is 'unappropriately' the print's own word, or a mis-scan of 'inappropriately'?",
+      "note": "A plausible-looking non-word of exactly the dangerous class, but Taylor coins un- forms, so the print must decide.",
+      "evidence": "Transcription: \"Hence Sophocles does not speak unappropriately when he says of souls\"; the parallel excerpt ends before this page."
+    },
+    {
+      "region": "section 7",
+      "passage": "purify the tongue from all defilement of evil with honey",
+      "question": "Does the 1917 print read 'from all defilement' or 'from all the defilement' as the 1823 parallel does?",
+      "note": "The parallel's extra 'the' may be printing variance or an OCR-dropped word; the transcription here is otherwise clean, so the print must decide.",
+      "evidence": "Transcription: \"purify the tongue from all defilement of evil with honey\"; parallel: \"purify the tongue from all the defilement of evil with honey\"."
+    },
+    {
+      "region": "section 8",
+      "passage": "nature of) generation. I",
+      "question": "What does the 1917 print carry after the closing 'generation.' of section 8 — a footnote marker or numeral that the scanner read as 'I', page furniture, or nothing — and should the 'I' be deleted?",
+      "note": "Class-1 artefact visible in the reading view: a stray 'I' stands alone after the sentence end, matched by no word; it is almost certainly a footnote marker or page furniture, whose print form I cannot determine, so no reading is invented.",
+      "evidence": "Transcription: '...to (the humid and fluctuat ing nature of) generation. I' ; parallel: 'to [the humid and fluctuating nature of] gene- ration.' followed directly by '9. Caves, therefore, in the most remote periods' — the parallel shows no word after 'generation.', but as a different printing it cannot decide what mark (if any) the 1917 print carries here."
+    },
+    {
+      "region": "section 8",
+      "passage": "(We must therefore admit",
+      "question": "Is the unpaired opening parenthesis before 'We must therefore admit' a footnote marker or other furniture the scanner read as '(', or does the 1917 print begin the paragraph plainly with 'We'?",
+      "note": "Class-1 candidate: an unmatched '(' stands before the paragraph's first word (the other parentheses in the sentence are paired), and its print origin is not determinable from the witnesses given.",
+      "evidence": "Transcription: '(We must therefore admit, that honeycombs' ; parallel: 'knots™. We must therefore admit, that honey-combs' — the parallel carries no bracket before 'We', but it is a different printing and cannot decide the 1917's own mark."
+    },
+    {
+      "region": "section 11",
+      "passage": "most southerly, and, north are most northerly ; because this cave was_ sacred",
+      "question": "What words does the 1917 print carry between 'and,' (the close of the s11-4 block) and 'north' (the opening of s11-5) — 'towards the', 'those which are towards the', or the like?",
+      "note": "Words have plainly been dropped at the block/page boundary: as it stands the sentence reads '...to those celestial signs which towards the south are most southerly, and, north are most northerly', a loss with no damage character anywhere in it (a class-2 shape), and the exact print wording cannot be fixed from the witnesses given.",
+      "evidence": "Transcription block s11-4 ends '...which towards the south are most southerly, and,' and block s11-5 opens 'north are most northerly ; because this cave was_ sacred to soulis and aquatic nymphsT'; the parallel excerpt breaks off at 'Aries and Libra, but to the north and south, and' and never reaches this phrase, so it cannot confirm the missing words."
+    },
+    {
+      "region": "section 18",
+      "passage": "Qypnf every virtue, it",
+      "question": "What word or words does the print actually carry where the transcription reads 'Qypnf' before 'every virtue' — plausibly 'in' ('and in every virtue'), but the letter-shapes do not confirm it?",
+      "note": "OCR garbage word with no damage character, standing in both the transcription and the reading view, so the census is blind to it; the parallel excerpt does not reach this passage.",
+      "evidence": "Transcription (verbatim): 'and Qypnf every virtue, it must not be denied'; the parallel excerpt begins only at 'principles [or forms} in natures' and resumes at 'indicated the images', so neither witness given decides the word."
+    },
+    {
+      "region": "section 18",
+      "passage": "of this hypothesis unless the figment",
+      "question": "Does the 1917 print carry a comma after 'hypothesis' (the 1823 parallel prints 'this hypothesis, unless'), or did the scanner drop it silently?",
+      "note": "A silently dropped comma leaves no damage character; the parallel is a different printing and cannot by itself decide this printing's punctuation.",
+      "evidence": "Transcription (verbatim): 'the whole of this hypothesis unless the figment'; parallel (verbatim): 'the whole of this hypothesis, unless' — the parallel suggests but cannot alone decide."
+    },
+    {
+      "region": "the notes (part 1)",
+      "passage": "was considered as a signature of sepgrgtinflt * Qip yf niuiflo, a sceptre of ruling",
+      "question": "What exactly does the print carry between 'a signature of' and ', a sceptre of ruling' — presumably 'separation' followed by Greek words in Greek type — read character by character off the printed page?",
+      "note": "A run-together fragment where several printed words (with Greek type) collapsed into garble carrying the damage character '*'; the reading is not determinable from the transcription and no parallel is supplied.",
+      "evidence": "Transcription has 'sepgrgtinflt * Qip yf niuiflo' verbatim between clean English on either side, with the damage-set '*' standing inside it."
+    },
+    {
+      "region": "the notes (part 1)",
+      "passage": "and a key (\\fQ'f\"rHin\" p™*\"**-^",
+      "question": "What does the print carry after 'and a key' at the close of the note — the Greek words (and any closing bracket of Taylor's bracketed addition) at the end of the line?",
+      "note": "A collapsed fragment of Greek type carrying the damage characters \\ ™ * ^ at the note's end; not determinable from the transcription, no parallel supplied.",
+      "evidence": "Transcription ends the note with '(\\fQ'f\"rHin\" p™*\"**-^' verbatim, garble where readable print must stand."
+    },
+    {
+      "region": "the notes (part 1)",
+      "passage": "! a defect of memory is the origin of opinion. But",
+      "question": "Is the line-initial '!' the print's repeated (hanging) quotation-mark at the head of this line of the displayed quotation, or scanner debris — and if a mark, which mark?",
+      "note": "A marker standing before a word at a line head, very like the hanging quotation furniture of this indented quotation (the passage opens '\" As soon' and re-marks new paragraphs such as '\" The soul, therefore'); furniture-like, so no reading is invented.",
+      "evidence": "Transcription has '! a defect of memory is the origin of opinion. But' verbatim at a line head inside the quoted passage."
+    },
+    {
+      "region": "the notes (part 1)",
+      "passage": "1 those discover most who have drunk least of",
+      "question": "Is the line-initial '1' the print's repeated quotation-mark at the head of this line of the displayed quotation, or scanner debris?",
+      "note": "Same shape as the '!' on the line above — a line-head mark of the hanging-quotation furniture; not determinable from the transcription.",
+      "evidence": "Transcription has '1 those discover most who have drunk least of' verbatim at a line head inside the quoted passage."
+    },
+    {
+      "region": "the notes (part 2)",
+      "passage": "and besides this, things situated towards the south are more diuine. The providence of the Gods, therefore, causes the prolific power of the earth, or of the Attic land, to ascend, and become visible.",
+      "question": "Does the print genuinely carry the archaic u-for-v spelling 'diuine' here, or is this a scanner slip for 'divine'?",
+      "note": "'diuine' is a real period spelling which policy forbids repairing if the print carries it, but the same block prints 'divinity' with a v ('because this divinity blows from lofty places'), so the u is suspicious; a human must check the page before any rule is written.",
+      "evidence": "Transcription reads 'things situated towards the south are more diuine' against 'because this divinity blows from lofty places' in the same block; no parallel is supplied for this region, so neither witness can decide it."
+    },
+    {
+      "region": "the advertisements (part 1)",
+      "passage": "^397 On the cave of the",
+      "question": "What character(s) does the library shelf-label actually carry where the transcription shows '^' before '397' — a digit, e.g. '3977'?",
+      "note": "Class 1 visible: the damage character '^' stands inside the call-number furniture 'PA Porphyrius / ^397 / E5 / 08' and the reading view still shows it; it is label furniture whose lost character no supplied witness can recover, so no reading is recorded.",
+      "evidence": "The transcription reads '^397 On the cave of the' between 'PA Porphyrius' and 'E5 nymphs in the thirteenth'; '^' belongs to the measured damage set, and the parallel edition is not supplied for this region. Decided by: neither witness — human must check the label."
+    },
+    {
+      "region": "section 13",
+      "passage": "ascending fo~~tlTe~lieavens. _put the~other to souls de scending to the eartju.",
+      "question": "After 'heavens' does the print carry a full stop (as the reading view now shows) or a comma ('the heavens, but the other')?",
+      "note": "The stop survives from a heavily damaged run whose words were repaired but whose punctuation cannot be verified from either witness.",
+      "evidence": "Transcription (verbatim): 'ascending fo~~tlTe~lieavens. _put the~other' — the stop stands amid unrepaired damage, and the parallel excerpt ends well before this passage ('...large, as is')."
+    },
+    {
+      "region": "section 15",
+      "passage": "labour",
+      "question": "Is the isolated word 'labour' constituting the whole of block s15-13 the sentence's own word displaced by the page break (hence a duplicate once 'labour (by being its' is restored after 'auxiliary of'), or page furniture such as a catchword to be struck?",
+      "note": "The word belongs between 'auxiliary of' and '(by being its reward)' per the parallel, but the block order (s15-13 standing before s15-14) cannot be reconciled with the sentence without seeing the page.",
+      "evidence": "Transcription: block s15-13 reads only labour, between s15-12 '...bears fruit' and s15-14 'which is the auxiliary of'; parallel: the auxiliary of labour [by / being its reward] — the 1823 breaks its page inside this very insertion, so neither witness decides this page's layout."
+    },
+    {
+      "region": "section 15",
+      "passage": "(aswe^jiave__ is sacred",
+      "question": "What does this print carry between 'have' and 'is sacred' — a word such as 'shown' or 'already observed', or a footnote marker with a closing parenthesis?",
+      "note": "The recorded reading consumed the damage markers and left 'as we have is sacred', which cannot be the whole of the print.",
+      "evidence": "Transcription: this~caye_(aswe^jiave__ is sacred; parallel: this cave [as we have 5814] is sacred — the parallel's own text is damaged here (a garbled footnote number), so neither witness decides."
+    },
+    {
+      "region": "section 15",
+      "passage": "race of life, the reward of severe toil",
+      "question": "Does this print carry 'as' before 'the reward' ('life, as the reward of severe toil'), as the parallel does?",
+      "note": "A clean whole word could have been dropped at a line or page end, or this printing may genuinely read 'the reward'; no damage character marks the spot.",
+      "evidence": "Transcription: in the athletic race of life, the reward of severe toil and patient perse-; parallel: the athletic race of life, as the reward of severe toil — the parallel is clean here, but as a different printing it cannot alone decide this one's wording."
+    }
+  ],
+  "rejected": [
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "wnnlrf",
+        "replace": "would",
+        "note": "Letter-substitution garble for 'would' carrying no damage-set character, left wrong beside the half-repaired 'hf>'; class 2.",
+        "evidence": "Transcription: 'manifest, that it wnnlrf hf> ahgrn-j fpr'. No parallel coverage; the letter-for-letter decode decides 'would'.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "ahgrn-j",
+        "replace": "absurd",
+        "note": "Garble for 'absurd' (b→h, s→g, u→r, r→n, d→j) with a stray hyphen, no damage character anywhere in it; class 2.",
+        "evidence": "Transcription: 'it wnnlrf hf> ahgrn-j fpr'. No parallel coverage; decided by decoding the transcription's own characters.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "fpr",
+        "replace": "for",
+        "note": "Garble for 'for' (o→p), a plausible-looking non-word the census cannot see; class 2.",
+        "evidence": "Transcription: 'ahgrn-j fpr to expectTthat'. No parallel coverage; decided by the transcription.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "1",
+        "find": "expectTthat",
+        "replace": "expect that",
+        "note": "A stray capital T artefact stands in the reading view's text where the print has the word-break between 'expect' and 'that'; class 1 artefact.",
+        "evidence": "Transcription: 'to expectTthat in_d^scfi5mg a cave fabricated'. No parallel coverage; decided by the transcription.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "1",
+        "find": "in_d^scfi5mg",
+        "replace": "in describing",
+        "note": "Two damage characters (_) and (^) plus letter garble still standing in the reading view, the underscore being the lost space and 'd^scfi5mg' the word 'describing'; class 1.",
+        "evidence": "Transcription: 'expectTthat in_d^scfi5mg a cave fabricated'. No parallel coverage; these are the only two damage characters the build's counter sees; decided by the transcription.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "gam",
+        "replace": "gain",
+        "note": "'gain' with the i dropped — a real-looking wrong word invisible to any character census; class 2.",
+        "evidence": "Transcription: 'he should gam the behei of man-'. No parallel coverage; 'should gain the ... of mankind' decides it.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "behei",
+        "replace": "belief",
+        "note": "Garbled 'belief' (l→h, final f lost) with no damage character in it; class 2.",
+        "evidence": "Transcription: 'he should gam the behei of man-'. No parallel coverage; 'gain the belief of mankind' is the only fitting print wording.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "Andit",
+        "replace": "And it",
+        "note": "'And it' fused into one word at the page join; class 3 fusion.",
+        "evidence": "Transcription: 'kind. Andit is equally absurd to suppose'. No parallel coverage; decided by the transcription.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "compel ling",
+        "replace": "compelling",
+        "note": "'compelling' split in two by a flattened line break with no hyphen the print carries; class 3.",
+        "evidence": "Transcription: 'thus compel ling others to explore'. No parallel coverage; decided by the transcription.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 1",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "consecra tion",
+        "replace": "consecration",
+        "note": "'consecration' split in two; class 3.",
+        "evidence": "Transcription: 'its symbolical consecra tion should be amply unfolded into light'. The parallel excerpt stops short of this passage; decided by the transcription.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 2",
+      "reason": "the evidence quotes only 7 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "pro duced",
+        "replace": "produced",
+        "note": "Class 3: 'produced' broken in two, census-blind.",
+        "evidence": "Transcription reads '(i.e., being pro duced by no external'; the parallel does not carry this passage; transcription witness decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 2",
+      "reason": "the evidence quotes only 10 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "con cave",
+        "replace": "concave",
+        "note": "Class 3: 'concave' broken in two, census-blind.",
+        "evidence": "Transcription reads 'the interior parts of which are con cave, but the exterior parts'; the parallel does not carry this passage; transcription witness decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 2",
+      "reason": "the evidence quotes only 6 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "atthe",
+        "replace": "at the",
+        "note": "Class 3: 'at the' fused into one word with no damage character, standing so in the reading view.",
+        "evidence": "Transcription reads 'jQhe^ajricients, atthe same time, asserting'; the parallel does not carry this passage; transcription witness decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 2",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "however7it",
+        "replace": "however it",
+        "note": "Class 3: 'however it' fused, the stray 7 standing where the print's space was; 7 is not in the damage set, so the census is blind to it.",
+        "evidence": "Transcription reads 'Since, however7it is continually flowing'; the parallel does not carry this passage; transcription witness decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 2",
+      "reason": "the evidence quotes only 7 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "1",
+        "find": "the_cavern». were",
+        "replace": "the cavern, were",
+        "note": "Class 1: a recorded rule consumed the '_' and '»' but half-repaired the word, leaving ',.' (comma plus stray full stop) standing in the reading view.",
+        "evidence": "Transcription reads 'obscurity_o£ the_cavern». were considerexLby the ancients'; the parallel does not reach this passage; transcription witness decides — 'cavern' closes the list subject and takes a single comma before 'were'.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 2",
+      "reason": "the evidence quotes only 8 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "considerexLby",
+        "replace": "considered by",
+        "note": "Class 2: 'considered by' garbled into one non-word by substituted letters (x for d, L for the lost space), no damage character, still shown in the reading view.",
+        "evidence": "Transcription reads 'were considerexLby the ancients as apt symbols'; the parallel does not carry this passage; transcription witness decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 7 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "mun dane",
+        "replace": "mundane",
+        "note": "Line-break split of 'mundane' into two words, still carried as two words in the reading view (class 3).",
+        "evidence": "Transcription reads 'and of mun dane powers, is through this'; the parallel excerpt does not carry this passage, so the transcription alone decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 8 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "in telligible",
+        "replace": "intelligible",
+        "note": "'intelligible' broken in two at a line break and still shown split in the reading view (class 3).",
+        "evidence": "Transcription reads 'a symbol of the in telligible essence'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 7 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "symbol oL",
+        "replace": "symbol of",
+        "note": "'oL' is a non-word — 'of' with the f turned to a capital L — carrying no damage character, so the census is blind to it (class 2).",
+        "evidence": "Transcription reads 'a symbol oL the sensible world'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 8 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "BuTThev",
+        "replace": "But they",
+        "note": "'But they' fused into one token with stray capitals and v for y, no damage character anywhere in it (class 3).",
+        "evidence": "Transcription reads 'BuTThev thought it to be a symbol of the intelligible world'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 7 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "1",
+        "find": "[ stable",
+        "replace": "unsure",
+        "note": "A lone bracket opens the page at a mid-sentence page turn (the previous block ends 'possesses a firm and'), almost certainly page furniture such as a bracketed page number or running head; it still stands in the reading view and per policy no reading is invented (class 1).",
+        "evidence": "Transcription opens s4-3 with '[ stable essence. Thus, also,' immediately after s4-2 ends 'possesses a firm and'.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 8 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "pro duction",
+        "replace": "production",
+        "note": "'production' broken in two at a line break and still shown split in the reading view (class 3).",
+        "evidence": "Transcription reads 'surveying the spontaneous pro duction of caves'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 6 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "cavernhas",
+        "replace": "cavern has",
+        "note": "'cavern has' fused into one word across the block boundary, with no damage character (class 3).",
+        "evidence": "Transcription reads 'But since a cavernhas a twofold similitude'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 8 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "musTnot",
+        "replace": "must not",
+        "note": "'must not' fused into one token with a stray capital T, invisible to the damage census (class 3).",
+        "evidence": "Transcription reads 'the present cave^ musTnot be~assumed as an image'.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 8 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "1",
+        "find": "be~assumed",
+        "replace": "be assumed",
+        "note": "Damage marker '~' still standing in the reading view between 'be' and 'assumed' — almost certainly the print's lost space (class 1).",
+        "evidence": "Transcription reads 'musTnot be~assumed as an image of the intelligible'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 6 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "flow ing",
+        "replace": "flowing",
+        "note": "'flowing' broken in two at a line break ('perpetually-flow ing') and still shown split in the reading view (class 3).",
+        "evidence": "Transcription reads 'containing perpetually-flow ing streams of water'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 10 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "will not bp a symbol",
+        "replace": "will not be a symbol",
+        "note": "'be' misread as the non-word 'bp' with no damage character in it, so the census cannot see it (class 2).",
+        "evidence": "Transcription reads 'it will not bp a symbol of an intelligible hypostasis'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 6 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "pTesideT",
+        "replace": "preside",
+        "note": "'preside' with two letters turned into capital T — a plausible-looking non-word left wrong even in the reading view while its damaged neighbours were recorded (class 2).",
+        "evidence": "Transcription reads 'the_jMowers that pTesideT pver^wajters, Nyjnph^'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 4",
+      "reason": "the evidence quotes only 11 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "ap plied",
+        "replace": "applied",
+        "note": "'applied' broken in two at a line break and still shown split in the reading view (class 3).",
+        "evidence": "Transcription reads 'is commonly ap plied to all souls descending'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 6",
+      "reason": "the evidence quotes only 10 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "darkand",
+        "replace": "dark and",
+        "note": "'dark and' fused into 'darkand' in both the reading view and the transcription — census-blind fusion; class 3.",
+        "evidence": "Transcription verbatim: 'essentially \\4 darkand obscure'. Parallel does not carry this passage; decided from the transcription's own characters.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 6",
+      "reason": "the evidence quotes only 10 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "will be appro priately consecrated",
+        "replace": "will be appropriately consecrated",
+        "note": "'appropriately' split as 'appro priately'; class 3.",
+        "evidence": "Transcription verbatim: 'will be appro priately consecrated to souls'. Parallel does not carry this passage; the transcription decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 6",
+      "reason": "the evidence quotes only 10 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "there are per petually flowing",
+        "replace": "there are perpetually flowing",
+        "note": "'perpetually' split as 'per petually'; class 3.",
+        "evidence": "Transcription verbatim: 'in which there are per petually flowing streams'. Parallel does not carry this passage; the transcription decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 6",
+      "reason": "the evidence quotes only 7 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "1",
+        "find": "be symbolsj)f the",
+        "replace": "be symbols of the",
+        "note": "'symbols of' misread 'symbolsj)f' — the ')' artefact stands in the reading view but is not in the counted damage set, so the census never saw it; class 1.",
+        "evidence": "Transcription verbatim: 'amphorae be symbolsj)f the aguatic'. Parallel does not carry this sentence; the transcription decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 6",
+      "reason": "the evidence quotes only 8 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "aguatic~nymipEsi For",
+        "replace": "aquatic nymphs. For",
+        "note": "Half-repaired word: the recorded rule consumed the '~' and restored 'aquatic nymphs' but swallowed the print's full stop, leaving the reading view reading 'nymphs For these' with the sentence unclosed (stop almost certainly a period); class 2.",
+        "evidence": "Transcription verbatim: 'aguatic~nymipEsi For these are'. Parallel excerpt begins after this sentence; the transcription and English syntax decide.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 7",
+      "reason": "the evidence quotes only 7 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "nature oi tne waters",
+        "replace": "nature of the waters",
+        "note": "Class 2: two one-letter mis-scans ('of'→'oi', 'the'→'tne') with no damage characters — plausible-looking non-words the census cannot see.",
+        "evidence": "Transcription: \"nature oi tne waters over which they preside\" — 'oi' and 'tne' are not words and only 'of the' fits the sentence; the parallel excerpt does not reach this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 7",
+      "reason": "the evidence quotes only 10 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "ro-operation",
+        "replace": "co-operation",
+        "note": "Class 2: 'c' mis-scanned as 'r', leaving a plausible-looking wrong word with no damage character.",
+        "evidence": "Transcription: \"their ro-operation with generation. For water co-operates\" — the clean 'co-operates' in the same sentence decided; the parallel does not reach this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 9",
+      "reason": "the find does not occur in the transcription's own characters (it may come from the reading view or the parallel — either way no rule can be written against it)",
+      "proposal": {
+        "class": "1",
+        "find": "onej)tJ5F",
+        "replace": "one of the",
+        "note": "Run-together fragment: the three words 'one of the' collapsed into scanner noise that still stands garbled in the reading view, invisible to the census because the token holds no damage-set character (class 1, the fourth shape).",
+        "evidence": "Transcription reads 'that onej)tJ5F gates was turned'; the parallel reads 'that one of ‘the gates was turned towards the north' (its stray apostrophe before 'the' being the parallel's own damage). The parallel decides 'one of the'.",
+        "decided_by": "parallel"
+      }
+    },
+    {
+      "region": "section 11",
+      "reason": "the evidence quotes only 11 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "1",
+        "find": "was_ sacred",
+        "replace": "was sacred",
+        "note": "Underscore standing where the print's own space between 'was' and 'sacred' belongs — the lost space, still visible in the reading view (class 1).",
+        "evidence": "Transcription: 'because this cave was_ sacred to soulis and aquatic nymphsT'; the parallel excerpt does not reach this sentence — transcription decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 11",
+      "reason": "the evidence quotes only 10 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "soulis",
+        "replace": "souls",
+        "note": "'souls' mislettered as 'soulis' — a plausible-looking wrong word with no damage character in it (class 2).",
+        "evidence": "Transcription: 'this cave was_ sacred to soulis and aquatic nymphsT'; the parallel does not reach this sentence — the sense ('sacred to souls and aquatic nymphs') and the transcription decide.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 11",
+      "reason": "the evidence quotes only 10 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "hemi sphere",
+        "replace": "hemisphere",
+        "note": "Broken word: 'hemisphere' split in two (class 3).",
+        "evidence": "Transcription: 'but the northern hemi sphere towards the north'; the parallel does not reach this passage — transcription decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 12",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "Zetis",
+        "replace": "Zetes",
+        "note": "Substituted letter inside a proper name making a plausible-looking non-name — the Boread twin of Calais is Zetes (Ζήτης); class 2.",
+        "evidence": "Transcription: 'from whom he begot Zetis and Calais'; the parallel excerpt ends before this sentence, so it cannot be quoted here — the reading rests on the transcription itself against the fixed classical pair 'Zetes and Calais'.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 12",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "observ ing",
+        "replace": "observing",
+        "note": "Broken word — 'observing' split by a space the print does not carry, still showing in the reading view; class 3.",
+        "evidence": "Transcription: 'in consequence of observ ing the Homeric precept'; the parallel does not reach this passage — English morphology decides the single printed word 'observing'.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 12",
+      "reason": "the evidence quotes only 9 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "for bade",
+        "replace": "forbade",
+        "note": "Broken word — 'forbade' split by a space the print does not carry, still showing in the reading view; class 3.",
+        "evidence": "Transcription: 'the Egyptians, for bade speaking while passing through doors'; the parallel does not reach this passage — 'forbade' is the only possible printed word.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 14",
+      "reason": "the evidence does not quote the transcription's own characters (the find is not in it)",
+      "proposal": {
+        "class": "1",
+        "find": "anc^ fflfp0 '",
+        "replace": "and gates; and through these obscurely",
+        "note": "Run-together fragment collapsing 'gates; and through these obscurely' into garbage that the reading view still shows (only 'anc^'→'and' was repaired), class 1.",
+        "evidence": "transcription has 'anc^ fflfp0' before 'indicates the generations'; parallel has 'and gates; and through these obscurely indicates the generations'; decided by both",
+        "decided_by": "both"
+      }
+    },
+    {
+      "region": "section 18",
+      "reason": "the evidence quotes only 6 character(s) of the parallel's own words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "morejthan",
+        "replace": "more than",
+        "note": "Two words fused with the lost space misread as 'j', and the reading view still carries 'morejthan' — class 3, invisible to the damage-character census.",
+        "evidence": "Transcription (verbatim): 'nothing morejthan the conjectures of ingenious men'; the parallel excerpt does not carry this passage, so the transcription's own English decides — print reads 'more than'.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 13",
+      "reason": "the evidence names the parallel as the decider but quotes only 8 character(s) of its words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "is called Boppas",
+        "replace": "is called Boreas",
+        "note": "Class 2: 'Boppas' is OCR of 'Boreas' ('re' read as 'pp') with no damage character anywhere in it.",
+        "evidence": "Transcription (verbatim): 'is called Boppas, as being of a nutritive nature', in the same sentence that opens 'For the word Boreas is derived from Bo/>a'. The parallel does not reach this sentence; the transcription decides.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 13",
+      "reason": "the evidence names the parallel as the decider but quotes only 7 character(s) of its words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "1",
+        "find": ". mg.de",
+        "replace": "made",
+        "note": "Class 1: an OCR artefact standing in the reading view's own text — a mangled fragment of 'made' with no damage-set character, so the census never counted it.",
+        "evidence": "Transcription (verbatim): 'the ancients eyej^whefe— . mg.de that which fias~\"a twofuld^entrance' — the reading view still carries '. mg.de'; the parallel does not carry this passage.",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 13",
+      "reason": "the evidence names the parallel as the decider but quotes only 8 character(s) of its words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "2",
+        "find": "qne of which",
+        "replace": "one of which",
+        "note": "Class 2: 'qne' is 'one' with 'q' substituted for 'o' — a plausible-looking non-word with no damage character.",
+        "evidence": "Transcription (verbatim): 'qne of which affords a passagetosouls'. The parallel does not reach this passage; the transcription decides ('q' is the misread of the print's 'o').",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "section 15",
+      "reason": "the evidence names the parallel as the decider but quotes only 8 character(s) of its words — it names the parallel without quoting it",
+      "proposal": {
+        "class": "3",
+        "find": "compre hensions",
+        "replace": "comprehensions",
+        "note": "Class 3 — 'comprehensions' split in two, the print's line-end break read as a space; the reading view still shows the break.",
+        "evidence": "Transcription: (in ineffable compre hensions) invigorates miserable; the parallel excerpt ends before this passage, so the transcription itself — one English word severed by a space — decides.",
+        "decided_by": "transcription"
+      }
+    }
+  ],
+  "failed": [],
+  "cost": {
+    "regions": 21,
+    "sent": 21,
+    "findings": 247,
+    "unsure": 25,
+    "rejected": 49,
+    "failed": 0,
+    "usage": {
+      "prompt_tokens": 80979,
+      "completion_tokens": 706219,
+      "total_tokens": 787198
+    }
+  },
+  "review": {
+    "blockers": [
+      {
+        "finding": "h_qney_combs_?__ -> honeycombs?",
+        "why": "CONFLICTS with the recorded rule (find h_qney_combs_?__ => honeycombs.): the proposal reads the surviving \"?\" as the print's question mark, the recorded rule chose a full stop. Only a human with the scan can decide; a blind merge would flip punctuation the edition currently asserts."
+      },
+      {
+        "finding": "Bo/>a -> Bora",
+        "why": "CONFLICTS with the recorded rule (Bo/>a => Boga, superseding an earlier LEAVE on parallel evidence \"Boreas is derived from Boga\"): the model read the same two damage characters as \"ra\" where the earlier pass, with the same parallel, read \"ga\". The parallel passage is the deciding witness for both — re-read it before touching the rule."
+      },
+      {
+        "finding": "to~~FRp -> to the",
+        "why": "CONFLICTS with the recorded rule (to~~FRp => \"to the south\"): the model repaired only the first word of a run the parallel decided as a longer phrase; merging it would re-break a repaired site. Also .oLsouls (rules: souls; proposal: \"of souls\") and obscure .^and (rules: \"obscure, (and\"; proposal: \"obscure, [and\")."
+      },
+      {
+        "finding": "multi-site finds (14 rows)",
+        "why": "These finds occur 2-5 times in the transcription (e.g. tne->the at 5 sites, Timceus->Timaeus at 4). A rule written on the bare find repairs ALL sites at once; each site must be checked against the print before merging, or the find must be widened to one site."
+      }
+    ],
+    "knownBadCoverage": {
+      "note": "The brief listed six MEASURED half-repairs that MUST appear. MEASURED result: five of six appear in the findings (jwjth->with in section 7; \"\\4 darkand\"->\"dark and\" and \"have sus pected\"->\"have suspected\" in section 6; \"connected. , iThrough\"->\"connected. Through\" in section 2; \"\\ But he is placed\"->\"But he is placed\" in section 11). The sixth, m?y (print: may), DOES NOT APPEAR — and MEASURED again after the run: the string \"m?y\" occurs NOWHERE in the current source.txt, rules, parallel, or reading view (the word \"may\" stands clean where the brief said the damage was). Either a rule between the brief's measurement and this run already repaired it, or the brief's example was stale. This is a miss only if the damage still exists; it does not.",
+      "jwjth": "caught (section 7, class 2, decided_by parallel)",
+      "\\4 darkand": "caught (section 6, class 3)",
+      "iThrough": "caught (section 2, class 3)",
+      "sus pected": "caught (section 6, class 3)",
+      "\\ But he is placed": "caught (section 11, class 1)",
+      "m?y": "NOT CAUGHT and NOT PRESENT in the current text (measured post-run; see note)"
+    },
+    "conflictsWithRecordedRules": [
+      "h_qney_combs_?__ (rules: honeycombs. / proposal: honeycombs?)",
+      "Bo/>a (rules: Boga / proposal: Bora)",
+      "to~~FRp (rules: to the south / proposal: to the)",
+      ".oLsouls (rules: souls / proposal: of souls)",
+      "obscure .^and (rules: obscure, (and / proposal: obscure, [and)"
+    ],
+    "highestValueClean": [
+      "retains -> detains (section 12; parallel:9505 \"detains it in the frigidity of terrene generation\" — MEASURED, this report verified the parallel line)",
+      "desire of generation -> desire of coition (section 5; parallel:8931 — MEASURED)",
+      "ZoTbaster -> Zoroaster (section 2)",
+      "tmmHarjfi gfatnpnts -> mundane elements (section 1)",
+      "souls that fail into -> souls that fall into (section 13; parallel:9716 — MEASURED)",
+      "gates omit a -> gates emit a (section 13; parallel:9653 — MEASURED)"
+    ],
+    "endpoint": {
+      "rootCauseOfTheDeadFirstRun": "The proxy at 10.0.0.1:8324 kills any read idle >300s. A NON-streaming completion of a whole-section prompt at effort max returns its first byte only when generation ends, so every region >=13k chars died at exactly 300s (\"proxy error: The read operation timed out\"). MEASURED: the same request STREAMED completes in 496s. The fix in this tool is streaming (SSE reassembly); this is why the first pass burned 53 minutes on 502-shaped retries and 1/21 regions.",
+      "latency": "at effort max, 9-19 minutes per big region (max 52685 reasoning tokens); the whole 21-region run is ~2h model time"
+    },
+    "whatWasNotRead": [
+      "The 45+4 rejected proposals carry no qualifying evidence quote and are recorded verbatim with their reasons under .rejected — a human may still see a true reading among them, but they did not meet the contract.",
+      "The 25 unsure entries name the exact passage and the specific question a human must answer with the scan; they are stated gaps, not guesses (project policy substitute-if-known-else-leave).",
+      "No finding was merged; the rules file is untouched by this tool (its 12 new lines are the upstream commit f53d4e9, not this run)."
+    ]
+  }
+}

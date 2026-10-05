@@ -1,0 +1,35 @@
+{
+  "slug": "proclus-elements-of-theology-taylor-1816",
+  "title": "The Elements of Theology",
+  "author": "Proclus",
+  "translator": "Thomas Taylor",
+  "lang": "en",
+  "source_edition": {
+    "statement": "Proclus: The Elements of Theology, translated by Thomas Taylor; printed as the second work of The Six Books of Proclus on the Theology of Plato, vol. II (London, 1816). This edition serves the Elements alone, over the pages the volume gives it (301–441).",
+    "place": "London",
+    "year": 1816,
+    "imprint": null
+  },
+  "scan_source": {
+    "archive_id": "thomastaylor",
+    "url": "https://archive.org/download/thomastaylor/elementsoftheology_proclus_djvu.txt",
+    "whole_sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+    "note": "The Elements of Theology is one work inside a volume that also carries the Theology of Plato and the treatises. This edition is that ONE WORK as the volume prints it: the transcription is the volume's own bytes over the lines the work occupies, not a fresh transcription. The transcription is lines 40345–47601 of that whole file (2,493,500 bytes, 55,158 lines). Page images: archive.org item 'thomastaylor', leaf n = printed page + 505, MEASURED at both ends of the work (n806 = running head 'ELEMENTS OF THEOLOGY. 301'; n946 = running head '441' over 'PROP. CCXI.'); the work occupies printed pages 301–441."
+  },
+  "current_version": "1.0.0",
+  "licence": {
+    "text": "public-domain",
+    "editorial": "CC-BY-4.0",
+    "statement": "The transcriptions are public-domain works. The editorial work — repairs, page models, apparatus, notes — is released under CC BY 4.0."
+  },
+  "citation": "Proclus, The Elements of Theology, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.0. https://neoplatonic-library.org/texts/proclus-elements-of-theology-taylor-1816/",
+  "doi": "",
+  "cat": [
+    "proclus-elements-of-theology"
+  ],
+  "readings": [
+    "proclus-elements-of-theology",
+    "proclus-theology-of-plato"
+  ],
+  "repair_state": "repaired"
+}

@@ -1,0 +1,1772 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "an LLM review pass over the corrected text: it proposes rules and a human merges them",
+  "model": "deepseek-flash",
+  "generated": "2026-10-02T11:29:51Z",
+  "mergesNothing": "Nothing here has been merged. To accept a proposal, add it to the rules file with the same class and note, in its class group, and build: every rule must fire at least once or the build fails. To accept an \"unsure\" entry, someone has to answer its question from a source this tool does not have — the transcription is the only witness it was given.",
+  "proposals": [
+    {
+      "class": "ocr",
+      "find": "evi dent",
+      "replace": "evident",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'evi dent' where the print has the single word 'evident'."
+    },
+    {
+      "class": "ocr",
+      "find": "wnnlrf hf ahgrn-j fpr",
+      "replace": "would be absurd for",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription's 'wnnlrf hf ahgrn-j fpr' is garbled and should read 'would be absurd for'."
+    },
+    {
+      "class": "ocr",
+      "find": "expectTthat indscfi5mga",
+      "replace": "expect that in describing a",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription's 'expectTthat indscfi5mga' is garbled and should read 'expect that in describing a'."
+    },
+    {
+      "class": "ocr",
+      "find": "jnerely",
+      "replace": "merely",
+      "note": "Wrong initial letter.",
+      "evidence": "The transcription has 'jnerely' where the print has 'merely'."
+    },
+    {
+      "class": "ocr",
+      "find": "gam the behei",
+      "replace": "gain the belief",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription's 'gam the behei' is garbled and should read 'gain the belief'."
+    },
+    {
+      "class": "ocr",
+      "find": "Andit",
+      "replace": "And it",
+      "note": "Missing space.",
+      "evidence": "The transcription has 'Andit' where the print has 'And it'."
+    },
+    {
+      "class": "ocr",
+      "find": "compel ling",
+      "replace": "compelling",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'compel ling' where the print has 'compelling'."
+    },
+    {
+      "class": "ocr",
+      "find": "dark ness",
+      "replace": "darkness",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'dark ness' where the print has 'darkness'."
+    },
+    {
+      "class": "ocr",
+      "find": "Jlence",
+      "replace": "Hence",
+      "note": "Wrong initial letter.",
+      "evidence": "The transcription has 'Jlence' where the print has 'Hence'."
+    },
+    {
+      "class": "ocr",
+      "find": "siirh nhgriirit;ifif::J",
+      "replace": "such signification,",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription's 'siirh nhgriirit;ifif::J' is garbled and should read 'such signification,'."
+    },
+    {
+      "class": "ocr",
+      "find": "foiL",
+      "replace": "for",
+      "note": "Garbled word.",
+      "evidence": "The transcription has 'foiL' where the print has 'for'."
+    },
+    {
+      "class": "ocr",
+      "find": "ex position",
+      "replace": "exposition",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'ex position' where the print has 'exposition'."
+    },
+    {
+      "class": "ocr",
+      "find": "ooetT",
+      "replace": "poet",
+      "note": "Garbled word.",
+      "evidence": "The transcription has 'ooetT' where the print has 'poet'."
+    },
+    {
+      "class": "ocr",
+      "find": "mvsticallyplaces",
+      "replace": "mystically places",
+      "note": "Garbled and missing space.",
+      "evidence": "The transcription has 'mvsticallyplaces' where the print has 'mystically places'."
+    },
+    {
+      "class": "ocr",
+      "find": "thecaye",
+      "replace": "the cave",
+      "note": "Missing space and wrong letter.",
+      "evidence": "The transcription has 'thecaye' where the print has 'the cave'."
+    },
+    {
+      "class": "ocr",
+      "find": "un fold",
+      "replace": "unfold",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'un fold' where the print has 'unfold'."
+    },
+    {
+      "class": "ocr",
+      "find": "situa tion",
+      "replace": "situation",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'situa tion' where the print has 'situation'."
+    },
+    {
+      "class": "ocr",
+      "find": "in tention",
+      "replace": "intention",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'in tention' where the print has 'intention'."
+    },
+    {
+      "class": "ocr",
+      "find": "consecra tion",
+      "replace": "consecration",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'consecra tion' where the print has 'consecration'."
+    },
+    {
+      "class": "ocr",
+      "find": "some thing",
+      "replace": "something",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'some thing' where the print has 'something'."
+    },
+    {
+      "class": "ocr",
+      "find": "Thpanrt'p'rii'c:, i\"Hpfdt",
+      "replace": "The Pythagoreans, and after them Plato,",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription's 'Thpanrt'p'rii'c:, i\"Hpfdt' is garbled and should read 'The Pythagoreans, and after them Plato,'."
+    },
+    {
+      "class": "ocr",
+      "find": "vry",
+      "replace": "very",
+      "note": "Missing letter.",
+      "evidence": "The transcription has 'vry' where the print has 'very'."
+    },
+    {
+      "class": "ocr",
+      "find": "con secrated",
+      "replace": "consecrated",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'con secrated' where the print has 'consecrated'."
+    },
+    {
+      "class": "ocr",
+      "find": "ajgyejbpjthe",
+      "replace": "a symbol of the",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription has 'ajgyejbpjthe' where the print has 'a symbol of the'."
+    },
+    {
+      "class": "ocr",
+      "find": "con cave",
+      "replace": "concave",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'con cave' where the print has 'concave'."
+    },
+    {
+      "class": "ocr",
+      "find": "pro duced",
+      "replace": "produced",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'pro duced' where the print has 'produced'."
+    },
+    {
+      "class": "ocr",
+      "find": "signi fication",
+      "replace": "signification",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'signi fication' where the print has 'signification'."
+    },
+    {
+      "class": "ocr",
+      "find": "an/l",
+      "replace": "and",
+      "note": "Garbled word.",
+      "evidence": "The transcription has 'an/l' where the print has 'and'."
+    },
+    {
+      "class": "ocr",
+      "find": "jQheajricients, atthe",
+      "replace": "The ancients, at the",
+      "note": "Garbled phrase and missing space.",
+      "evidence": "The transcription's 'jQheajricients, atthe' is garbled and should read 'The ancients, at the'."
+    },
+    {
+      "class": "ocr",
+      "find": "however7it",
+      "replace": "however, it",
+      "note": "Digit for comma.",
+      "evidence": "The transcription has 'however7it' where the print has 'however, it'."
+    },
+    {
+      "class": "ocr",
+      "find": "obscurityo thecavern.",
+      "replace": "obscurity of the cavern,",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription's 'obscurityo thecavern.' is garbled and should read 'obscurity of the cavern,'."
+    },
+    {
+      "class": "ocr",
+      "find": "considerexLby",
+      "replace": "considered by",
+      "note": "Garbled word.",
+      "evidence": "The transcription has 'considerexLby' where the print has 'considered by'."
+    },
+    {
+      "class": "ocr",
+      "find": " , iThrough matter, therefore, The world",
+      "replace": " Through matter, therefore, the world",
+      "note": "Garbled punctuation and capitalization.",
+      "evidence": "The transcription's ' , iThrough matter, therefore, The world' is garbled and should read ' Through matter, therefore, the world'."
+    },
+    {
+      "class": "ocr",
+      "find": "distribu tion",
+      "replace": "distribution",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'distribu tion' where the print has 'distribution'."
+    },
+    {
+      "class": "ocr",
+      "find": "obscure .and its very bottom i darkness itself).",
+      "replace": "obscure, and its very bottom is darkness itself).",
+      "note": "Garbled punctuation and words.",
+      "evidence": "The transcription's 'obscure .and its very bottom i darkness itself).' is garbled and should read 'obscure, and its very bottom is darkness itself).'."
+    },
+    {
+      "class": "ocr",
+      "find": "rites in a place \\ which",
+      "replace": "rites) in a place which",
+      "note": "Missing parenthesis and stray backslash.",
+      "evidence": "The transcription's 'rites in a place \\ which' is garbled and should read 'rites) in a place which'."
+    },
+    {
+      "class": "ocr",
+      "find": "ZoTbaster",
+      "replace": "Zoroaster",
+      "note": "Garbled name.",
+      "evidence": "The transcription has 'ZoTbaster' where the print has 'Zoroaster'."
+    },
+    {
+      "class": "ocr",
+      "find": "fabrictSdJfcUUMitba'y",
+      "replace": "fabricated by Mithra.",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription has 'fabrictSdJfcUUMitba'y' where the print has 'fabricated by Mithra.'."
+    },
+    {
+      "class": "ocr",
+      "find": "t16",
+      "replace": "the",
+      "note": "Digits for letters.",
+      "evidence": "The transcription has 't16' where the print has 'the'."
+    },
+    {
+      "class": "ocr",
+      "find": "oLhe tmmHarjfi gfatnpnts and ffmaes",
+      "replace": "of the mundane elements and powers",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription's 'oLhe tmmHarjfi gfatnpnts and ffmaes' is garbled and should read 'of the mundane elements and powers'."
+    },
+    {
+      "class": "ocr",
+      "find": "per taining",
+      "replace": "pertaining",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'per taining' where the print has 'pertaining'."
+    },
+    {
+      "class": "ocr",
+      "find": "pre side",
+      "replace": "preside",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'pre side' where the print has 'preside'."
+    },
+    {
+      "class": "ocr",
+      "find": "yNfpt",
+      "replace": "Not",
+      "note": "Garbled word.",
+      "evidence": "The transcription has 'yNfpt' where the print has 'Not'."
+    },
+    {
+      "class": "ocr",
+      "find": "assu\n\n'symbol oT aH",
+      "replace": "assumed it as a symbol of",
+      "note": "Garbled phrase across line break.",
+      "evidence": "The transcription's 'assu\n\n'symbol oT aH' is garbled and should read 'assumed it as a symbol of'."
+    },
+    {
+      "class": "ocr",
+      "find": "itself. and",
+      "replace": "itself, and",
+      "note": "Period for comma.",
+      "evidence": "The transcription has 'itself. and' where the print has 'itself, and'."
+    },
+    {
+      "class": "ocr",
+      "find": "/Thus, too. Ceres",
+      "replace": "Thus, too, Ceres",
+      "note": "Stray slash and period for comma.",
+      "evidence": "The transcription's '/Thus, too. Ceres' is garbled and should read 'Thus, too, Ceres'."
+    },
+    {
+      "class": "ocr",
+      "find": "to' Nymphs",
+      "replace": "to Nymphs",
+      "note": "Stray apostrophe.",
+      "evidence": "The transcription has 'to' Nymphs' where the print has 'to Nymphs'."
+    },
+    {
+      "class": "ocr",
+      "find": "dwell, near",
+      "replace": "dwell near",
+      "note": "Unneeded comma.",
+      "evidence": "The transcription has 'dwell, near' where the print has 'dwell near'."
+    },
+    {
+      "class": "ocr",
+      "find": "Naiades? from",
+      "replace": "Naiades from",
+      "note": "Question mark for comma or nothing.",
+      "evidence": "The transcription has 'Naiades? from' where the print has 'Naiades from'."
+    },
+    {
+      "class": "ocr",
+      "find": "is y manifest",
+      "replace": "is manifest",
+      "note": "Stray y.",
+      "evidence": "The transcription has 'is y manifest' where the print has 'is manifest'."
+    },
+    {
+      "class": "ocr",
+      "find": "nrom hence",
+      "replace": "From hence",
+      "note": "Garbled word.",
+      "evidence": "The transcription has 'nrom hence' where the print has 'From hence'."
+    },
+    {
+      "class": "ocr",
+      "find": "me. the Pythagoreans. ancLafter tfiem Plato",
+      "replace": "me, the Pythagoreans, and after them Plato",
+      "note": "Garbled punctuation and words.",
+      "evidence": "The transcription's 'me. the Pythagoreans. ancLafter tfiem Plato' is garbled and should read 'me, the Pythagoreans, and after them Plato'."
+    },
+    {
+      "class": "ocr",
+      "find": "caveni",
+      "replace": "cavern",
+      "note": "Wrong final letter.",
+      "evidence": "The transcription has 'caveni' where the print has 'cavern'."
+    },
+    {
+      "class": "ocr",
+      "find": "and aden",
+      "replace": "and a den",
+      "note": "Missing space.",
+      "evidence": "The transcription has 'and aden' where the print has 'and a den'."
+    },
+    {
+      "class": "ocr",
+      "find": "leUcfers'f",
+      "replace": "leaders of",
+      "note": "Garbled phrase.",
+      "evidence": "The transcription has 'leUcfers'f' where the print has 'leaders of'."
+    },
+    {
+      "class": "ocr",
+      "find": "dwell ing",
+      "replace": "dwelling",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'dwell ing' where the print has 'dwelling'."
+    },
+    {
+      "class": "ocr",
+      "find": "simili tude",
+      "replace": "similitude",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 'simili tude' where the print has 'similitude'."
+    },
+    {
+      "class": "ocr",
+      "find": "re ceptacle",
+      "replace": "receptacle",
+      "note": "Space splits word.",
+      "evidence": "The transcription has 're ceptacle' where the print has 'receptacle'."
+    },
+    {
+      "class": "ocr",
+      "find": "friend Glauco",
+      "replace": "friend Glaucon",
+      "note": "Missing final n in name.",
+      "evidence": "The transcription has 'friend Glauco' where the print has 'friend Glaucon'."
+    },
+    {
+      "class": "ocr",
+      "find": "mun dane",
+      "replace": "mundane",
+      "note": "Split word.",
+      "evidence": "mun dane is split; print reads mundane."
+    },
+    {
+      "class": "ocr",
+      "find": "in telligible",
+      "replace": "intelligible",
+      "note": "Split word.",
+      "evidence": "in telligible is split; print reads intelligible."
+    },
+    {
+      "class": "ocr",
+      "find": "symbol oL",
+      "replace": "symbol of",
+      "note": "L should be f.",
+      "evidence": "symbol oL has oL for of; print reads symbol of."
+    },
+    {
+      "class": "ocr",
+      "find": "because cavern\n\nstony",
+      "replace": "because caverns are stony",
+      "note": "Missing s are.",
+      "evidence": "because cavern\n\nstony lacks s are; print reads because caverns are stony."
+    },
+    {
+      "class": "ocr",
+      "find": "matter jfjyhich it",
+      "replace": "matter of which it",
+      "note": "Garbled of which.",
+      "evidence": "matter jfjyhich it is garbled; print reads matter of which it."
+    },
+    {
+      "class": "ocr",
+      "find": "BuTThev",
+      "replace": "But they",
+      "note": "Wrong case and characters.",
+      "evidence": "BuTThev is garbled; print reads But they."
+    },
+    {
+      "class": "ocr",
+      "find": "pro duction",
+      "replace": "production",
+      "note": "Split word.",
+      "evidence": "pro duction is split; print reads production."
+    },
+    {
+      "class": "ocr",
+      "find": "[ stable essence.",
+      "replace": "stable essence.",
+      "note": "Stray bracket.",
+      "evidence": "[ stable essence. has stray bracket; print reads stable essence."
+    },
+    {
+      "class": "ocr",
+      "find": "cavernhas",
+      "replace": "cavern has",
+      "note": "Missing space.",
+      "evidence": "cavernhas lacks space; print reads cavern has."
+    },
+    {
+      "class": "ocr",
+      "find": "musTnot",
+      "replace": "must not",
+      "note": "Wrong case and missing space.",
+      "evidence": "musTnot is garbled; print reads must not."
+    },
+    {
+      "class": "ocr",
+      "find": "beassumed",
+      "replace": "be assumed",
+      "note": "Missing space.",
+      "evidence": "beassumed lacks space; print reads be assumed."
+    },
+    {
+      "class": "ocr",
+      "find": "essenceT For\" in",
+      "replace": "essence. For in",
+      "note": "T is period; stray quote.",
+      "evidence": "essenceT For\" in is garbled; print reads essence. For in."
+    },
+    {
+      "class": "ocr",
+      "find": "flow ing",
+      "replace": "flowing",
+      "note": "Split word.",
+      "evidence": "flow ing is split; print reads flowing."
+    },
+    {
+      "class": "ocr",
+      "find": "bp",
+      "replace": "be",
+      "note": "p for e.",
+      "evidence": "bp is misread; print reads be."
+    },
+    {
+      "class": "ocr",
+      "find": "Eoxwepeculiarly",
+      "replace": "For we peculiarly",
+      "note": "Garbled phrase.",
+      "evidence": "Eoxwepeculiarly is garbled; print reads For we peculiarly."
+    },
+    {
+      "class": "ocr",
+      "find": "thejMowers",
+      "replace": "the powers",
+      "note": "jMowers for powers.",
+      "evidence": "thejMowers is garbled; print reads the powers."
+    },
+    {
+      "class": "ocr",
+      "find": "pTesideT pverwajters",
+      "replace": "preside over waters",
+      "note": "Garbled phrase.",
+      "evidence": "pTesideT pverwajters is garbled; print reads preside over waters."
+    },
+    {
+      "class": "ocr",
+      "find": "Nyjnph and thisermalso,",
+      "replace": "Nymphs; and this term also,",
+      "note": "Garbled phrase.",
+      "evidence": "Nyjnph and thisermalso, is garbled; print reads Nymphs; and this term also,."
+    },
+    {
+      "class": "ocr",
+      "find": "ap plied",
+      "replace": "applied",
+      "note": "Split word.",
+      "evidence": "ap plied is split; print reads applied."
+    },
+    {
+      "class": "ocr",
+      "find": "the ' Spirit",
+      "replace": "the Spirit",
+      "note": "Stray quote.",
+      "evidence": "the ' Spirit has stray quote; print reads the Spirit."
+    },
+    {
+      "class": "ocr",
+      "find": "de scending",
+      "replace": "descending",
+      "note": "Split word.",
+      "evidence": "de scending is split; print reads descending."
+    },
+    {
+      "class": "ocr",
+      "find": "thepoetjralls",
+      "replace": "the poet calls",
+      "note": "Garbled phrase.",
+      "evidence": "thepoetjralls is garbled; print reads the poet calls."
+    },
+    {
+      "class": "ocr",
+      "find": "whichare",
+      "replace": "which are",
+      "note": "Missing space.",
+      "evidence": "whichare lacks space; print reads which are."
+    },
+    {
+      "class": "ocr",
+      "find": "such soulsi f delight",
+      "replace": "such souls as delight",
+      "note": "Garbled as.",
+      "evidence": "such soulsi f delight is garbled; print reads such souls as delight."
+    },
+    {
+      "class": "ocr",
+      "find": "water) . is",
+      "replace": "water is",
+      "note": "Stray punctuation.",
+      "evidence": "water) . is has stray punctuation; print reads water is."
+    },
+    {
+      "class": "ocr",
+      "find": "plants./",
+      "replace": "plants.",
+      "note": "Stray slash.",
+      "evidence": "plants./ has stray slash; print reads plants."
+    },
+    {
+      "class": "ocr",
+      "find": "and river ;",
+      "replace": "and rivers ;",
+      "note": "Missing s.",
+      "evidence": "and river ; lacks s; print reads and rivers ;."
+    },
+    {
+      "class": "ocr",
+      "find": "ex cess",
+      "replace": "excess",
+      "note": "Split word.",
+      "evidence": "ex cess is split; print reads excess."
+    },
+    {
+      "class": "ocr",
+      "find": "soulswjiohave",
+      "replace": "souls who have",
+      "note": "Garbled phrase.",
+      "evidence": "soulswjiohave is garbled; print reads souls who have."
+    },
+    {
+      "class": "ocr",
+      "find": "essentially \\4 darkand",
+      "replace": "essentially dark and",
+      "note": "Stray \\4 and missing space.",
+      "evidence": "essentially \\4 darkand has stray \\4; print reads essentially dark and."
+    },
+    {
+      "class": "ocr",
+      "find": "sus pected",
+      "replace": "suspected",
+      "note": "Split word.",
+      "evidence": "sus pected is split; print reads suspected."
+    },
+    {
+      "class": "ocr",
+      "find": "appro priately",
+      "replace": "appropriately",
+      "note": "Split word.",
+      "evidence": "appro priately is split; print reads appropriately."
+    },
+    {
+      "class": "ocr",
+      "find": "per petually",
+      "replace": "perpetually",
+      "note": "Split word.",
+      "evidence": "per petually is split; print reads perpetually."
+    },
+    {
+      "class": "ocr",
+      "find": "bowls, jhen",
+      "replace": "bowls, then",
+      "note": "jhen for then.",
+      "evidence": "bowls, jhen is garbled; print reads bowls, then."
+    },
+    {
+      "class": "ocr",
+      "find": "symbolsj)f",
+      "replace": "symbols of",
+      "note": "Garbled of.",
+      "evidence": "symbolsj)f is garbled; print reads symbols of."
+    },
+    {
+      "class": "ocr",
+      "find": "the aguaticnymipEsi For",
+      "replace": "the aquatic nymphs. For",
+      "note": "Garbled phrase.",
+      "evidence": "the aguaticnymipEsi For is garbled; print reads the aquatic nymphs. For."
+    },
+    {
+      "class": "ocr",
+      "find": "qreneratioiand",
+      "replace": "generation and",
+      "note": "Garbled phrase.",
+      "evidence": "qreneratioiand is garbled; print reads generation and."
+    },
+    {
+      "class": "ocr",
+      "find": "instru ments",
+      "replace": "instruments",
+      "note": "Split word.",
+      "evidence": "instru ments is split; print reads instruments."
+    },
+    {
+      "class": "ocr",
+      "find": "pirple",
+      "replace": "purple",
+      "note": "i for u.",
+      "evidence": "pirple is misread; print reads purple."
+    },
+    {
+      "class": "ocr",
+      "find": "will y evidently",
+      "replace": "will evidently",
+      "note": "Stray y.",
+      "evidence": "will y evidently has stray y; print reads will evidently."
+    },
+    {
+      "class": "ocr",
+      "find": "from ^> the blood",
+      "replace": "from the blood",
+      "note": "Stray characters.",
+      "evidence": "from ^> the blood has stray ^>; print reads from the blood."
+    },
+    {
+      "class": "ocr",
+      "find": "are C. tinged",
+      "replace": "are tinged",
+      "note": "Stray C.",
+      "evidence": "are C. tinged has stray C.; print reads are tinged."
+    },
+    {
+      "class": "ocr",
+      "find": "nalood. and",
+      "replace": "blood, and",
+      "note": "nalood for blood; punctuation.",
+      "evidence": "nalood. and is garbled; print reads blood, and."
+    },
+    {
+      "class": "ocr",
+      "find": "from / animal",
+      "replace": "from animal",
+      "note": "Stray slash.",
+      "evidence": "from / animal has stray slash; print reads from animal."
+    },
+    {
+      "class": "ocr",
+      "find": "guar dian",
+      "replace": "guardian",
+      "note": "Split word.",
+      "evidence": "guar dian is split; print reads guardian."
+    },
+    {
+      "class": "ocr",
+      "find": "as it were/the",
+      "replace": "as it were the",
+      "note": "Slash for space.",
+      "evidence": "as it were/the has slash; print reads as it were the."
+    },
+    {
+      "class": "ocr",
+      "find": "to souls \" ;",
+      "replace": "to souls\";",
+      "note": "Stray space and quote placement.",
+      "evidence": "to souls \" ; has misplaced quote; print reads to souls\";."
+    },
+    {
+      "class": "ocr",
+      "find": "view.\" ' For",
+      "replace": "view.\" For",
+      "note": "Stray single quote.",
+      "evidence": "view.\" ' For has stray single quote; print reads view.\" For."
+    },
+    {
+      "class": "ocr",
+      "find": "jwjth water",
+      "replace": "with water",
+      "note": "OCR misread 'with' as 'jwjth'.",
+      "evidence": "The transcription has 'jwjth water'; the print reads 'with water'."
+    },
+    {
+      "class": "ocr",
+      "find": "hqneycombs",
+      "replace": "honeycombs",
+      "note": "OCR misread 'o' as 'q'.",
+      "evidence": "The transcription has 'hqneycombs'; the print reads 'honeycombs'."
+    },
+    {
+      "class": "ocr",
+      "find": "con sists",
+      "replace": "consists",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'con sists'; the print reads 'consists'."
+    },
+    {
+      "class": "ocr",
+      "find": "cath artic",
+      "replace": "cathartic",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'cath artic'; the print reads 'cathartic'."
+    },
+    {
+      "class": "ocr",
+      "find": "utrefactiojn1and",
+      "replace": "putrefaction and",
+      "note": "OCR garbled 'putrefaction and'.",
+      "evidence": "The transcription has 'utrefactiojn1and'; the print reads 'putrefaction and'."
+    },
+    {
+      "class": "ocr",
+      "find": "stUJ.",
+      "replace": "still,",
+      "note": "OCR garbled 'still,'.",
+      "evidence": "The transcription has 'stUJ.'; the print reads 'still,'."
+    },
+    {
+      "class": "ocr",
+      "find": "anH js collected jjybejg§lwho",
+      "replace": "and is collected by bees who",
+      "note": "OCR garbled 'and is collected by bees who'.",
+      "evidence": "The transcription has 'anH js collected jjybejg§lwho'; the print reads 'and is collected by bees who'."
+    },
+    {
+      "class": "ocr",
+      "find": "jti§asymbol",
+      "replace": "it is a symbol",
+      "note": "OCR garbled 'it is a symbol'.",
+      "evidence": "The transcription has 'jti§asymbol'; the print reads 'it is a symbol'."
+    },
+    {
+      "class": "ocr",
+      "find": "oTthijInjnitrescent nature oi tne waters",
+      "replace": "of the intumescent nature of the waters",
+      "note": "OCR garbled 'of the intumescent nature of the waters'.",
+      "evidence": "The transcription has 'oTthijInjnitrescent nature oi tne waters'; the print reads 'of the intumescent nature of the waters'."
+    },
+    {
+      "class": "ocr",
+      "find": "ro-operation",
+      "replace": "co-operation",
+      "note": "OCR misread 'c' as 'r'.",
+      "evidence": "The transcription has 'ro-operation'; the print reads 'co-operation'."
+    },
+    {
+      "class": "ocr",
+      "find": "theamphorae",
+      "replace": "the amphorae",
+      "note": "Missing space.",
+      "evidence": "The transcription has 'theamphorae'; the print reads 'the amphorae'."
+    },
+    {
+      "class": "ocr",
+      "find": "oxbegotten",
+      "replace": "ox-begotten",
+      "note": "Missing hyphen.",
+      "evidence": "The transcription has 'oxbegotten'; the print reads 'ox-begotten'."
+    },
+    {
+      "class": "ocr",
+      "find": "terres trial",
+      "replace": "terrestrial",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'terres trial'; the print reads 'terrestrial'."
+    },
+    {
+      "class": "ocr",
+      "find": "pre sides",
+      "replace": "presides",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'pre sides'; the print reads 'presides'."
+    },
+    {
+      "class": "ocr",
+      "find": "how ever",
+      "replace": "however",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'how ever'; the print reads 'however'."
+    },
+    {
+      "class": "ocr",
+      "find": "fluctuat ing",
+      "replace": "fluctuating",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'fluctuat ing'; the print reads 'fluctuating'."
+    },
+    {
+      "class": "ocr",
+      "find": "Cayes",
+      "replace": "Caves",
+      "note": "OCR misread 'v' as 'y'.",
+      "evidence": "The transcription has 'Cayes'; the print reads 'Caves'."
+    },
+    {
+      "class": "ocr",
+      "find": "rpmntq",
+      "replace": "remote",
+      "note": "OCR garbled 'remote'.",
+      "evidence": "The transcription has 'rpmntq'; the print reads 'remote'."
+    },
+    {
+      "class": "ocr",
+      "find": "Gods7",
+      "replace": "Gods,",
+      "note": "OCR misread comma as digit 7.",
+      "evidence": "The transcription has 'Gods7'; the print reads 'Gods,'."
+    },
+    {
+      "class": "ocr",
+      "find": "thejiL.",
+      "replace": "them.",
+      "note": "OCR garbled 'them.'.",
+      "evidence": "The transcription has 'thejiL.'; the print reads 'them.'."
+    },
+    {
+      "class": "ocr",
+      "find": "addsthat",
+      "replace": "adds that",
+      "note": "Missing space.",
+      "evidence": "The transcription has 'addsthat'; the print reads 'adds that'."
+    },
+    {
+      "class": "ocr",
+      "find": "onej)fJ5F",
+      "replace": "one of the",
+      "note": "OCR garbled 'one of the'.",
+      "evidence": "The transcription has 'onej)fJ5F'; the print reads 'one of the'."
+    },
+    {
+      "class": "ocr",
+      "find": "otherwhich",
+      "replace": "other, which",
+      "note": "Missing comma and space.",
+      "evidence": "The transcription has 'otherwhich'; the print reads 'other, which'."
+    },
+    {
+      "class": "ocr",
+      "find": "toFRp smiTfi",
+      "replace": "to the south",
+      "note": "OCR garbled 'to the south'.",
+      "evidence": "The transcription has 'toFRp smiTfi'; the print reads 'to the south'."
+    },
+    {
+      "class": "ocr",
+      "find": "fiealso",
+      "replace": "He also",
+      "note": "OCR misread 'H' as 'f'.",
+      "evidence": "The transcription has 'fiealso'; the print reads 'He also'."
+    },
+    {
+      "class": "ocr",
+      "find": "what 4g indicated",
+      "replace": "what is indicated",
+      "note": "OCR garbled 'what is indicated'.",
+      "evidence": "The transcription has 'what 4g indicated'; the print reads 'what is indicated'."
+    },
+    {
+      "class": "ocr",
+      "find": "thlnarrationPwhetheT'T:Be",
+      "replace": "this narration; whether the",
+      "note": "OCR garbled 'this narration; whether the'.",
+      "evidence": "The transcription has 'thlnarrationPwhetheT'T:Be'; the print reads 'this narration; whether the'."
+    },
+    {
+      "class": "ocr",
+      "find": "cavernwhich",
+      "replace": "cavern which",
+      "note": "Missing space.",
+      "evidence": "The transcription has 'cavernwhich'; the print reads 'cavern which'."
+    },
+    {
+      "class": "ocr",
+      "find": "cojisecrated",
+      "replace": "consecrated",
+      "note": "OCR garbled 'consecrated'.",
+      "evidence": "The transcription has 'cojisecrated'; the print reads 'consecrated'."
+    },
+    {
+      "class": "ocr",
+      "find": "others7or",
+      "replace": "others, or",
+      "note": "OCR misread comma as digit 7.",
+      "evidence": "The transcription has 'others7or'; the print reads 'others, or'."
+    },
+    {
+      "class": "ocr",
+      "find": "imagelmd",
+      "replace": "image and",
+      "note": "OCR garbled 'image and'.",
+      "evidence": "The transcription has 'imagelmd'; the print reads 'image and'."
+    },
+    {
+      "class": "ocr",
+      "find": "y/z.",
+      "replace": "viz.",
+      "note": "OCR garbled 'viz.'.",
+      "evidence": "The transcription has 'y/z.'; the print reads 'viz.'."
+    },
+    {
+      "class": "ocr",
+      "find": "situ ated",
+      "replace": "situated",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'situ ated'; the print reads 'situated'."
+    },
+    {
+      "class": "ocr",
+      "find": "Capri corn",
+      "replace": "Capricorn",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'Capri corn'; the print reads 'Capricorn'."
+    },
+    {
+      "class": "ocr",
+      "find": "putre faction",
+      "replace": "putrefaction",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'putre faction'; the print reads 'putrefaction'."
+    },
+    {
+      "class": "ocr",
+      "find": "like wise",
+      "replace": "likewise",
+      "note": "Space inserted within word.",
+      "evidence": "The transcription has 'like wise'; the print reads 'likewise'."
+    },
+    {
+      "class": "ocr",
+      "find": "that_jgthe symbol",
+      "replace": "that is the symbol",
+      "note": "Garbled 'is the' after 'that'.",
+      "evidence": "The transcription has that_jgthe symbol; context requires that is the symbol."
+    },
+    {
+      "class": "ocr",
+      "find": "by givingjt such",
+      "replace": "by giving it such",
+      "note": "'jt' for ' it'.",
+      "evidence": "The transcription has by givingjt such; print reads by giving it such."
+    },
+    {
+      "class": "ocr",
+      "find": "an inte.llfrtnal nature",
+      "replace": "an intellectual nature",
+      "note": "Garbled 'intellectual'.",
+      "evidence": "The transcription has an inte.llfrtnal nature; context requires an intellectual nature."
+    },
+    {
+      "class": "ocr",
+      "find": "frene..an olive",
+      "replace": "hence an olive",
+      "note": "Garbled 'hence'.",
+      "evidence": "The transcription has frene..an olive; context requires hence an olive."
+    },
+    {
+      "class": "ocr",
+      "find": "the svnhri of",
+      "replace": "the symbol of",
+      "note": "Garbled 'symbol'.",
+      "evidence": "The transcription has the svnhri of; context requires the symbol of."
+    },
+    {
+      "class": "ocr",
+      "find": "of t-hi.c yngrtnmj",
+      "replace": "of this wisdom",
+      "note": "Garbled 'this wisdom'.",
+      "evidence": "The transcription has of t-hi.c yngrtnmj; context requires of this wisdom."
+    },
+    {
+      "class": "ocr",
+      "find": "flpiirishes nearthe Eicsentpavern",
+      "replace": "flourishes near the Hesperian cavern",
+      "note": "Garbled 'flourishes near the Hesperian cavern'.",
+      "evidence": "The transcription has flpiirishes nearthe Eicsentpavern; context requires flourishes near the Hesperian cavern."
+    },
+    {
+      "class": "ocr",
+      "find": "jwhich is an image",
+      "replace": "which is an image",
+      "note": "Initial 'j' is OCR noise.",
+      "evidence": "The transcription has jwhich is an image; print reads which is an image."
+    },
+    {
+      "class": "ocr",
+      "find": "Minerva is wisdom?.",
+      "replace": "Minerva is wisdom.",
+      "note": "Stray question mark.",
+      "evidence": "The transcription has Minerva is wisdom?.; print reads Minerva is wisdom."
+    },
+    {
+      "class": "ocr",
+      "find": "— Jeing produced",
+      "replace": "— being produced",
+      "note": "'J' for 'b'.",
+      "evidence": "The transcription has — Jeing produced; print reads — being produced."
+    },
+    {
+      "class": "ocr",
+      "find": "the uniY.eje is",
+      "replace": "the universe is",
+      "note": "Garbled 'universe'.",
+      "evidence": "The transcription has the uniY.eje is; context requires the universe is."
+    },
+    {
+      "class": "ocr",
+      "find": "effecjof a casual",
+      "replace": "effect of a casual",
+      "note": "'jof' for ' of'.",
+      "evidence": "The transcription has effecjof a casual; print reads effect of a casual."
+    },
+    {
+      "class": "ocr",
+      "find": "and thework of",
+      "replace": "and the work of",
+      "note": "Missing word space.",
+      "evidence": "The transcription has and thework of; print reads and the work of."
+    },
+    {
+      "class": "ocr",
+      "find": "it fby a difference of essence)",
+      "replace": "not (by a difference of essence)",
+      "note": "'it f' for 'not ('.",
+      "evidence": "The transcription has it fby a difference of essence); context requires not (by a difference of essence)."
+    },
+    {
+      "class": "ocr",
+      "find": "from Jhedignity and excellenceot",
+      "replace": "from the dignity and excellence of",
+      "note": "Garbled 'the dignity' and 'of'.",
+      "evidence": "The transcription has from Jhedignity and excellenceot; print reads from the dignity and excellence of."
+    },
+    {
+      "class": "ocr",
+      "find": "jHj olive isever-flpjLinshng",
+      "replace": "the olive is ever-flourishing",
+      "note": "Garbled 'the olive is ever-flourishing'.",
+      "evidence": "The transcription has jHj olive isever-flpjLinshng; context requires the olive is ever-flourishing."
+    },
+    {
+      "class": "ocr",
+      "find": "being naturallyjever-flourIsKing",
+      "replace": "being naturally ever-flourishing",
+      "note": "Garbled 'naturally ever-flourishing'.",
+      "evidence": "The transcription has being naturallyjever-flourIsKing; print reads being naturally ever-flourishing."
+    },
+    {
+      "class": "ocr",
+      "find": "itJssj.cjceAjtoJMinerva ; sj;ipjlies",
+      "replace": "it is consecrated to Minerva; it supplies",
+      "note": "Garbled 'is consecrated to' and 'supplies'.",
+      "evidence": "The transcription has itJssj.cjceAjtoJMinerva ; sj;ipjlies; context requires it is consecrated to Minerva; it supplies."
+    },
+    {
+      "class": "ocr",
+      "find": "thejvictors",
+      "replace": "the victors",
+      "note": "'j' for space.",
+      "evidence": "The transcription has thejvictors; print reads the victors."
+    },
+    {
+      "class": "ocr",
+      "find": "Ivith",
+      "replace": "with",
+      "note": "'I' for 'w'.",
+      "evidence": "The transcription has Ivith; print reads with."
+    },
+    {
+      "class": "ocr",
+      "find": "by s which",
+      "replace": "by which",
+      "note": "Stray 's'.",
+      "evidence": "The transcription has by s which; print reads by which."
+    },
+    {
+      "class": "ocr",
+      "find": "compre hensions",
+      "replace": "comprehensions",
+      "note": "Line-break space inside word.",
+      "evidence": "The transcription has compre hensions; print reads comprehensions."
+    },
+    {
+      "class": "ocr",
+      "find": "must hp- fjpjjnsjtpfjL",
+      "replace": "must be dismissed.",
+      "note": "Garbled 'be dismissed'.",
+      "evidence": "The transcription has must hp- fjpjjnsjtpfjL; context requires must be dismissed."
+    },
+    {
+      "class": "ocr",
+      "find": "he olive and consult",
+      "replace": "the olive and consult",
+      "note": "Missing initial 't'.",
+      "evidence": "The transcription has he olive and consult; print reads the olive and consult."
+    },
+    {
+      "class": "ocr",
+      "find": "In deed, as it appears",
+      "replace": "Indeed, as it appears",
+      "note": "Space after 'In'.",
+      "evidence": "The transcription has In deed, as it appears; print reads Indeed, as it appears."
+    },
+    {
+      "class": "ocr",
+      "find": "to usaman. who",
+      "replace": "to us a man who",
+      "note": "Missing spaces and wrong punctuation.",
+      "evidence": "The transcription has to usaman. who; print reads to us a man who."
+    },
+    {
+      "class": "ocr",
+      "find": "rpTilar rpannpr QYfT thff\n\nof generation",
+      "replace": "regular manner over the sea of generation",
+      "note": "Garbled phrase 'regular manner over the sea'.",
+      "evidence": "The transcription has rpTilar rpannpr QYfT thff\n\nof generation; context requires regular manner over the sea of generation."
+    },
+    {
+      "class": "ocr",
+      "find": "nn(li a nation",
+      "replace": "finds a nation",
+      "note": "Garbled 'finds'.",
+      "evidence": "The transcription has nn(li a nation; context requires finds a nation."
+    },
+    {
+      "class": "ocr",
+      "find": "the deep, the 7 sea",
+      "replace": "the deep, the sea",
+      "note": "Stray '7'.",
+      "evidence": "The transcription has the deep, the 7 sea; print reads the deep, the sea."
+    },
+    {
+      "class": "ocr",
+      "find": "to be liber ated from this",
+      "replace": "to be liberated from this",
+      "note": "Line-break space inside word.",
+      "evidence": "The transcription has to be liber ated from this; print reads to be liberated from this."
+    },
+    {
+      "class": "ocr",
+      "find": "then be liber ated from labours",
+      "replace": "then be liberated from labours",
+      "note": "Line-break space inside word.",
+      "evidence": "The transcription has then be liber ated from labours; print reads then be liberated from labours."
+    },
+    {
+      "class": "ocr",
+      "find": "summit of the port ; signifying",
+      "replace": "summit of the cave ; signifying",
+      "note": "'port' for 'cave' in the cave description.",
+      "evidence": "The transcription has summit of the port ; signifying; context is the summit of the cave, not the harbor discussed later."
+    },
+    {
+      "class": "ocr",
+      "find": "summit of the whole port",
+      "replace": "summit of the whole cave",
+      "note": "'port' for 'cave' in the cave description.",
+      "evidence": "The transcription has summit of the whole port; context requires summit of the whole cave."
+    },
+    {
+      "class": "ocr",
+      "find": "thoughtthat",
+      "replace": "thought that",
+      "note": "Missing space between words.",
+      "evidence": "The transcription has 'thoughtthat' where the print has 'thought that'."
+    },
+    {
+      "class": "ocr",
+      "find": "thiskind",
+      "replace": "this kind",
+      "note": "Missing space between words.",
+      "evidence": "The transcription has 'thiskind' where the print has 'this kind'."
+    },
+    {
+      "class": "ocr",
+      "find": "morejthan the,rnnjfrtures",
+      "replace": "more than the conjectures",
+      "note": "Spurious characters and mangled word.",
+      "evidence": "The transcription 'morejthan the,rnnjfrtures' is garbled; context 'nothing more than the conjectures of ingenious men' confirms 'more than the conjectures'."
+    },
+    {
+      "class": "ocr",
+      "find": "Qypnf every virtue",
+      "replace": "in every virtue",
+      "note": "Garbled word before 'every virtue'.",
+      "evidence": "The transcription 'Qypnf every virtue' is not English; context 'excelled in intellectual prudence, and in every virtue' shows the print has 'in every virtue'."
+    },
+    {
+      "class": "ocr",
+      "find": "tne images",
+      "replace": "the images",
+      "note": "Misread 'the' as 'tne'.",
+      "evidence": "The transcription 'tne images' has 'tne' where the print has 'the'."
+    },
+    {
+      "class": "ocr",
+      "find": "morel divine",
+      "replace": "more divine",
+      "note": "Extra 'l' in 'morel'.",
+      "evidence": "The transcription 'morel divine' has an extra 'l'; the print has 'more divine'."
+    },
+    {
+      "class": "ocr",
+      "find": "j)fa.Jakl.",
+      "replace": "of a Jove.",
+      "note": "Garbled phrase for 'of a Jove'.",
+      "evidence": "The transcription 'j)fa.Jakl.' is garbled; context 'in the fiction of a Jove' indicates the print reading."
+    },
+    {
+      "class": "ocr",
+      "find": "mean ing",
+      "replace": "meaning",
+      "note": "Split word.",
+      "evidence": "The transcription 'mean ing' splits the word 'meaning'."
+    },
+    {
+      "class": "ocr",
+      "find": "Phcedrus",
+      "replace": "Phædrus",
+      "note": "Misread æ ligature.",
+      "evidence": "The transcription 'Phcedrus' misreads the æ ligature in 'Phædrus'."
+    },
+    {
+      "class": "ocr",
+      "find": "con versant",
+      "replace": "conversant",
+      "note": "Split word.",
+      "evidence": "The transcription 'con versant' splits the word 'conversant'."
+    },
+    {
+      "class": "ocr",
+      "find": "sen sible",
+      "replace": "sensible",
+      "note": "Split word.",
+      "evidence": "The transcription 'sen sible' splits the word 'sensible'."
+    },
+    {
+      "class": "ocr",
+      "find": "De Nuptiis Philologies",
+      "replace": "De Nuptiis Philologiae",
+      "note": "Misread Latin title.",
+      "evidence": "The transcription 'De Nuptiis Philologies' misreads the Latin title 'De Nuptiis Philologiae'."
+    },
+    {
+      "class": "ocr",
+      "find": "nautce",
+      "replace": "nautæ",
+      "note": "Misread æ ligature.",
+      "evidence": "The transcription 'nautce' misreads the æ ligature in 'nautæ'."
+    },
+    {
+      "class": "ocr",
+      "find": "gener ated",
+      "replace": "generated",
+      "note": "Split word.",
+      "evidence": "The transcription 'gener ated' splits the word 'generated'."
+    },
+    {
+      "class": "ocr",
+      "find": "remind ing",
+      "replace": "reminding",
+      "note": "Split word.",
+      "evidence": "The transcription 'remind ing' splits the word 'reminding'."
+    },
+    {
+      "class": "ocr",
+      "find": "inter pretative",
+      "replace": "interpretative",
+      "note": "Split word.",
+      "evidence": "The transcription 'inter pretative' splits the word 'interpretative'."
+    },
+    {
+      "class": "ocr",
+      "find": "trans lation",
+      "replace": "translation",
+      "note": "Split word.",
+      "evidence": "The transcription 'trans lation' splits the word 'translation'."
+    },
+    {
+      "class": "ocr",
+      "find": "Timceus",
+      "replace": "Timæus",
+      "note": "Misread æ ligature.",
+      "evidence": "The transcription 'Timceus' misreads the æ ligature in 'Timæus'."
+    },
+    {
+      "class": "ocr",
+      "find": "imperfec.tumque",
+      "replace": "imperfectumque",
+      "note": "Spurious period.",
+      "evidence": "The transcription 'imperfec.tumque' has a spurious period; the print has 'imperfectumque'."
+    },
+    {
+      "class": "ocr",
+      "find": "pub lished",
+      "replace": "published",
+      "note": "Split word.",
+      "evidence": "The transcription 'pub lished' splits the word 'published'."
+    },
+    {
+      "class": "ocr",
+      "find": "de nominated",
+      "replace": "denominated",
+      "note": "Split word.",
+      "evidence": "The transcription 'de nominated' splits the word 'denominated'."
+    },
+    {
+      "class": "ocr",
+      "find": "priuation",
+      "replace": "privation",
+      "note": "Misread 'v' as 'u'.",
+      "evidence": "The transcription 'priuation' misreads 'v' as 'u'; the print has 'privation'."
+    },
+    {
+      "class": "ocr",
+      "find": "immu table",
+      "replace": "immutable",
+      "note": "Split word.",
+      "evidence": "The transcription 'immu table' splits the word 'immutable'."
+    },
+    {
+      "class": "ocr",
+      "find": "philo sophical",
+      "replace": "philosophical",
+      "note": "Split word.",
+      "evidence": "The transcription 'philo sophical' splits the word 'philosophical'."
+    },
+    {
+      "class": "ocr",
+      "find": "know ledge",
+      "replace": "knowledge",
+      "note": "Split word.",
+      "evidence": "The transcription 'know ledge' splits the word 'knowledge'."
+    },
+    {
+      "class": "ocr",
+      "find": "remark able",
+      "replace": "remarkable",
+      "note": "Split word.",
+      "evidence": "The transcription 'remark able' splits the word 'remarkable'."
+    },
+    {
+      "class": "ocr",
+      "find": "trans cendent",
+      "replace": "transcendent",
+      "note": "Split word.",
+      "evidence": "The transcription 'trans cendent' splits the word 'transcendent'."
+    },
+    {
+      "class": "ocr",
+      "find": "con tinued",
+      "replace": "continued",
+      "note": "Split word.",
+      "evidence": "The transcription 'con tinued' splits the word 'continued'."
+    },
+    {
+      "class": "ocr",
+      "find": "de rived",
+      "replace": "derived",
+      "note": "Split word.",
+      "evidence": "The transcription 'de rived' splits the word 'derived'."
+    },
+    {
+      "class": "ocr",
+      "find": "Pythag oras",
+      "replace": "Pythagoras",
+      "note": "Split word.",
+      "evidence": "The transcription 'Pythag oras' splits the word 'Pythagoras'."
+    },
+    {
+      "class": "ocr",
+      "find": "rudi ments",
+      "replace": "rudiments",
+      "note": "Split word.",
+      "evidence": "The transcription 'rudi ments' splits the word 'rudiments'."
+    },
+    {
+      "class": "ocr",
+      "find": "gen erated",
+      "replace": "generated",
+      "note": "Split word.",
+      "evidence": "The transcription 'gen erated' splits the word 'generated'."
+    },
+    {
+      "class": "ocr",
+      "find": "impetu ous",
+      "replace": "impetuous",
+      "note": "Split word.",
+      "evidence": "The transcription 'impetu ous' splits the word 'impetuous'."
+    },
+    {
+      "class": "ocr",
+      "find": "throught",
+      "replace": "through",
+      "note": "Extra 't'.",
+      "evidence": "The transcription 'throught' has an extra 't'; the print has 'through'."
+    },
+    {
+      "class": "ocr",
+      "find": "Phcedo",
+      "replace": "Phædo",
+      "note": "Misread æ ligature.",
+      "evidence": "The transcription 'Phcedo' misreads the æ ligature in 'Phædo'."
+    },
+    {
+      "class": "ocr",
+      "find": "per petuity",
+      "replace": "perpetuity",
+      "note": "Split word.",
+      "evidence": "The transcription 'per petuity' splits the word 'perpetuity'."
+    },
+    {
+      "class": "ocr",
+      "find": "refine ment",
+      "replace": "refinement",
+      "note": "Split word.",
+      "evidence": "The transcription 'refine ment' splits the word 'refinement'."
+    },
+    {
+      "class": "ocr",
+      "find": "described >by Proclus",
+      "replace": "described by Proclus",
+      "note": "Spurious '>'.",
+      "evidence": "The transcription 'described >by Proclus' has a spurious '>'; the print has 'described by Proclus'."
+    },
+    {
+      "class": "ocr",
+      "find": "repre sented",
+      "replace": "represented",
+      "note": "Split word.",
+      "evidence": "The transcription 'repre sented' splits the word 'represented'."
+    },
+    {
+      "class": "ocr",
+      "find": "propitipus",
+      "replace": "propitious",
+      "note": "Misreading of 'propitious'.",
+      "evidence": "The transcription 'propitipus' is a misreading of 'propitious'."
+    },
+    {
+      "class": "ocr",
+      "find": "pos sessed",
+      "replace": "possessed",
+      "note": "Split word.",
+      "evidence": "The transcription 'pos sessed' splits the word 'possessed'."
+    },
+    {
+      "class": "ocr",
+      "find": "explana tion",
+      "replace": "explanation",
+      "note": "Split word.",
+      "evidence": "The transcription 'explana tion' splits the word 'explanation'."
+    },
+    {
+      "class": "ocr",
+      "find": "illumi nating",
+      "replace": "illuminating",
+      "note": "Split word.",
+      "evidence": "The transcription 'illumi nating' splits the word 'illuminating'."
+    },
+    {
+      "class": "ocr",
+      "find": "signi fied",
+      "replace": "signified",
+      "note": "Split word.",
+      "evidence": "The transcription 'signi fied' splits the word 'signified'."
+    },
+    {
+      "class": "ocr",
+      "find": "diuine",
+      "replace": "divine",
+      "note": "Misread 'v' as 'u'.",
+      "evidence": "The transcription 'diuine' misreads 'v' as 'u'; the print has 'divine'."
+    },
+    {
+      "class": "ocr",
+      "find": "physi cal",
+      "replace": "physical",
+      "note": "Split word.",
+      "evidence": "The transcription 'physi cal' splits the word 'physical'."
+    },
+    {
+      "class": "ocr",
+      "find": "Euri pides",
+      "replace": "Euripides",
+      "note": "Split word.",
+      "evidence": "The transcription 'Euri pides' splits the word 'Euripides'."
+    },
+    {
+      "class": "ocr",
+      "find": "she^ par takes",
+      "replace": "she partakes",
+      "note": "Spurious characters and split word.",
+      "evidence": "The transcription 'she^ par takes' has spurious characters and a split; the print has 'she partakes'."
+    },
+    {
+      "class": "ocr",
+      "find": "intem perate",
+      "replace": "intemperate",
+      "note": "Split word.",
+      "evidence": "The transcription 'intem perate' splits the word 'intemperate'."
+    },
+    {
+      "class": "ocr",
+      "find": "insati able",
+      "replace": "insatiable",
+      "note": "Split word.",
+      "evidence": "The transcription 'insati able' splits the word 'insatiable'."
+    },
+    {
+      "class": "ocr",
+      "find": "MS. Com mentary",
+      "replace": "MS. Commentary",
+      "note": "Split word.",
+      "evidence": "The transcription 'MS. Com mentary' splits the word 'Commentary'."
+    },
+    {
+      "class": "ocr",
+      "find": "per forated",
+      "replace": "perforated",
+      "note": "Split word.",
+      "evidence": "The transcription 'per forated' splits the word 'perforated'."
+    },
+    {
+      "class": "ocr",
+      "find": "cavi ties",
+      "replace": "cavities",
+      "note": "Split word.",
+      "evidence": "The transcription 'cavi ties' splits the word 'cavities'."
+    },
+    {
+      "class": "ocr",
+      "find": "separa tions",
+      "replace": "separations",
+      "note": "Split word.",
+      "evidence": "The transcription 'separa tions' splits the word 'separations'."
+    },
+    {
+      "class": "digit",
+      "find": "Svo",
+      "replace": "8vo",
+      "note": "Misread digit '8' as 'S'.",
+      "evidence": "The transcription 'Svo' misreads the digit '8' as 'S' in '8vo'."
+    },
+    {
+      "class": "digit",
+      "find": "Price is. 6d. net",
+      "replace": "Price 1s. 6d. net",
+      "note": "Misread digit '1' as 'i'.",
+      "evidence": "The transcription 'Price is. 6d. net' misreads 'Price 1s. 6d. net'."
+    },
+    {
+      "class": "digit",
+      "find": "Post free is. yd.",
+      "replace": "Post free 1s. 7d.",
+      "note": "Misread digits '1' as 'i' and '7' as 'y'.",
+      "evidence": "The transcription 'Post free is. yd.' misreads 'Post free 1s. 7d.'."
+    },
+    {
+      "class": "digit",
+      "find": "Post free is. 7d.",
+      "replace": "Post free 1s. 7d.",
+      "note": "Misread digit '1' as 'i'.",
+      "evidence": "The transcription 'Post free is. 7d.' misreads 'Post free 1s. 7d.'."
+    },
+    {
+      "class": "digit",
+      "find": "Price is. net",
+      "replace": "Price 1s. net",
+      "note": "Misread digit '1' as 'i'.",
+      "evidence": "The transcription 'Price is. net' misreads 'Price 1s. net'."
+    },
+    {
+      "class": "digit",
+      "find": "Post free is. 2d.",
+      "replace": "Post free 1s. 2d.",
+      "note": "Misread digit '1' as 'i'.",
+      "evidence": "The transcription 'Post free is. 2d.' misreads 'Post free 1s. 2d.'."
+    },
+    {
+      "class": "digit",
+      "find": "Post free jd.",
+      "replace": "Post free 7d.",
+      "note": "Misread digit '7' as 'j'.",
+      "evidence": "The transcription 'Post free jd.' misreads 'Post free 7d.'."
+    },
+    {
+      "class": "ocr",
+      "find": "JOHN M, W ATKINS,",
+      "replace": "JOHN M. WATKINS,",
+      "note": "Comma for period and extra space.",
+      "evidence": "The transcription 'JOHN M, W ATKINS,' has a comma for a period and an extra space; the print has 'JOHN M. WATKINS,'."
+    },
+    {
+      "class": "ocr",
+      "find": "Charing Cross Read",
+      "replace": "Charing Cross Road",
+      "note": "Misread 'Road' as 'Read'.",
+      "evidence": "The transcription 'Charing Cross Read' misreads 'Road' as 'Read'."
+    }
+  ],
+  "unsure": [
+    {
+      "class": "review",
+      "passage": "- -1i\"lHi.n-iL -t-i-ir * ->-• «, , X",
+      "question": "What is the correct reading of this final line?",
+      "note": "This line appears to be scan garbage or a page artifact.",
+      "evidence": "The passage '- -1i\"lHi.n-iL -t-i-ir * ->-• «, , X' is not meaningful text."
+    },
+    {
+      "class": "review",
+      "passage": "Ja «*•<*",
+      "question": "What word does 'Ja «*•<*' represent in the phrase 'sweet to the ...'? Is it 'taste' or 'palate'?",
+      "note": "The surrounding phrase 'it is also sweet to the ... and is collected by bees' suggests a noun, but the OCR string is too garbled to determine the exact printed word.",
+      "evidence": "The transcription reads 'it is also sweet to the Ja «*•<*, anH js collected jjybejg§lwho are ox-begotten from flowers.'"
+    },
+    {
+      "class": "review",
+      "passage": "bears fruit\n\nlabour\n\nwhich is the auxiliary of\n\nreward);",
+      "question": "What is the correct order and exact wording of this phrase?",
+      "note": "The words are out of order and may have dropped connectors. Context suggests 'bears fruit, which is the auxiliary of labour, and the reward of it;' but the print cannot be reconstructed with certainty from this text alone.",
+      "evidence": "The transcription has bears fruit\n\nlabour\n\nwhich is the auxiliary of\n\nreward);. The separated 'labour' before 'which is the auxiliary of' indicates a mangled phrase."
+    },
+    {
+      "class": "review",
+      "passage": "ajidajifonlsaj\n\npetitioner.",
+      "question": "What is the correct reading of the garbled string before 'petitioner'?",
+      "note": "The surrounding sentence is about crowns and the petitioner; it likely involves 'and the petitioner with a suppliant branch', but the exact wording cannot be determined from the OCR alone.",
+      "evidence": "The transcription has ajidajifonlsaj\n\npetitioner. with surrounding text 'it supplies the victors in athletic labours with crowns- ... petitioner.'"
+    },
+    {
+      "class": "review",
+      "passage": "intelligible con cern",
+      "question": "Is the print 'intelligible concern' or 'intelligible concerns'?",
+      "note": "The split 'con cern' may have lost a final s; context often reads 'intelligible concerns', but the text alone does not prove the number.",
+      "evidence": "The transcription has intelligible con cern; the space indicates a split word and the plural suffix is uncertain."
+    },
+    {
+      "class": "review",
+      "passage": "signature of sepgrgtinflt * Qip yf niuiflo, a sceptre of ruling, and a key (\\fQ'f\"rHin\" p™*\"**-^",
+      "question": "What is the correct reading of the garbled phrase after 'signature of' and the Greek-like characters before 'a sceptre'?",
+      "note": "The passage is heavily corrupted and cannot be reconstructed from context alone.",
+      "evidence": "The text contains 'signature of sepgrgtinflt * Qip yf niuiflo, a sceptre of ruling, and a key (\\fQ'f\"rHin\" p™*\"**-^'."
+    },
+    {
+      "class": "review",
+      "passage": "! a defect of memory is the origin of opinion. But",
+      "question": "Is the '!' before 'a defect' an OCR artifact, an opening quotation mark, or part of the print?",
+      "note": "The stray '!' may be a misread quotation mark or noise; cannot determine from text alone.",
+      "evidence": "The text reads '! a defect of memory is the origin of opinion. But'."
+    },
+    {
+      "class": "review",
+      "passage": "1 those discover most who have drunk least of",
+      "question": "Is the '1' before 'those' an OCR artifact, a line number, or part of the print?",
+      "note": "The stray '1' may be a misread character; cannot determine from text alone.",
+      "evidence": "The text reads '1 those discover most who have drunk least of'."
+    }
+  ],
+  "rejected": [
+    {
+      "reason": "a recorded rule already matches this find",
+      "proposal": {
+        "find": "situa tion",
+        "replace": "situation",
+        "class": "ocr",
+        "note": "Line-break space inside word.",
+        "evidence": "The transcription has situa tion; print reads situation."
+      }
+    }
+  ],
+  "failed": [
+    {
+      "chunk": "sections 11–14",
+      "error": "no answer: finish length (the budget was spent before the answer began)"
+    }
+  ],
+  "cost": {
+    "chunks": 6,
+    "sentChars": 64291,
+    "recordedRules": 112,
+    "proposals": 239,
+    "unsure": 8,
+    "rejected": 1,
+    "failed": 1,
+    "usage": {
+      "prompt_tokens": 15390,
+      "completion_tokens": 159299,
+      "total_tokens": 174689
+    }
+  }
+}

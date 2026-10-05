@@ -1,0 +1,45 @@
+# Words the vocabulary sweep reports that are NOT garbles. The sweep asks four
+# questions (unknown / interior-capital / split / capitalised-unknown); these are
+# the answers that are the edition's own words, not damage.
+#
+# A line is an entry: its FIRST token, optionally followed by why. A line with
+# LEADING WHITESPACE, or starting with '#', is not an entry.
+
+# -- the print's OWN words, which the sweep cannot know -----------------------
+Greeh       the 1917 title page's own spoiled reading ("From the Greeh of Porphyry") — the blog's reading of it cites this, so it is the print, not the scanner
+Boppas      the print's own word, IN ITALICS (1917 scan, printed page 33: "the wind ... is called Boppas"), a Greek etymon
+Phædrus     the print's spelling, with the ligature restored by the rules
+Coelum      Latin, in the quotations
+Celtae      Latin, in the quotations
+Philologiæ  Latin, in the quotations
+Proserpinae Latin, in the quotations
+
+# -- names: authors, translators, printers and titles the volume names ---------
+Artemidorus
+Bourchier
+Lamplugh
+Thurlow
+Porphyrius
+NEILL       the printer (NEILL AND CO.), in the colophon
+NARADA      "NARADA SUTRA", a title in the publisher's list
+SWEDENBORG  a title in the publisher's list
+Watkins     the publisher, John M. Watkins
+WATKINS     the same, set in the list's capitals
+
+# -- the transcription's OWN furniture, printed in the 'library' regions -------
+lHi         the same destroyed run at the page break (see -iL)
+-iL         the destroyed page number and running head at a page break — a recorded LEAVE (a decision to show it, not a word)
+
+# -- the print's own words: elisions, British spellings, archaic or rare -------
+t'immortals    the 1917 print's elision in the verse (1823 parallel: "t' immortals")
+corporalised   British spelling of "corporalized"
+mythologising  British spelling of "mythologizing"
+unputrescent   the print's word ("the unputrescent nature of the waters"; 1917 scan, printed page 23)
+ominating      the print's word ("ominating from this that they shall exchange"; 1917 scan, printed page 38)
+
+# -- the Latin quotations (Proclus and the rest), printed as Latin -------------
+cunctaque
+plenissimam
+circumactum
+nautæ
+praesidebant

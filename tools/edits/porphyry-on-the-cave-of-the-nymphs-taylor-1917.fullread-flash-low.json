@@ -1,0 +1,193 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "a whole-text read by deepseek-flash at effort low, in sections, with both witnesses (reading view + transcription) and the parallel edition located per section: it PROPOSES findings in three classes and a human merges them",
+  "model": "deepseek-flash",
+  "effort": "low",
+  "endpoint": "http://10.0.0.1:8321/v1/chat/completions",
+  "generated": "2026-10-03T10:08:40Z",
+  "mergesNothing": "Nothing here has been merged. These are PROPOSALS with evidence; the last machine-merge attempt would have asserted readings the print does not have (\"but\" -> \"put\", \"the\" -> \"he\", \"caverns\" -> \"cavern\"). To accept one, add it to the rules file by hand (class \"reading\", the transcription-find verbatim) and build.",
+  "policy": {
+    "rule": "substitute-if-known-else-leave",
+    "damage": "^_~*/£>\\|#™±»«}{&"
+  },
+  "parallel": {
+    "file": "Porphyry-Taylor-Select-Works-1823.txt",
+    "sha256": "8aa0167ea2e6a4a943440e7092e74caecf7b9e170bf159ffcb15b1a0b728747f",
+    "why": "Taylor's Select Works of Porphyry (1823) carries the same translation of the same treatise"
+  },
+  "coverage": {
+    "regions": [
+      {
+        "region": "the whole volume",
+        "blocks": 197,
+        "chars": 61550,
+        "damageInView": {
+          "^": 2,
+          "*": 2,
+          ">": 1,
+          "«": 1
+        }
+      }
+    ],
+    "requests": 1,
+    "regionsSent": [
+      "the whole volume"
+    ],
+    "everyRegionSent": true
+  },
+  "context": {
+    "maxParallelChars": 9000,
+    "charsPerRequest": [
+      764196
+    ],
+    "minChars": 764196,
+    "maxChars": 764196,
+    "meanChars": 764196
+  },
+  "sent": [
+    {
+      "region": "the whole volume",
+      "promptChars": 764196,
+      "parallel": {
+        "lines": [
+          1,
+          13347
+        ],
+        "matchedWords": null,
+        "capped": false
+      },
+      "finish": "stop",
+      "reasoningTokens": 49596,
+      "thinkingChars": 198758,
+      "rawBodyChars": 61550
+    }
+  ],
+  "findings": [
+    {
+      "kind": "2",
+      "find": "what means by asserting",
+      "replace": "what he means by asserting",
+      "note": "Missing word 'he' makes the clause ungrammatical; class 2 wrong phrase with no damage character.",
+      "evidence": "Transcription: 'what means by asserting'; parallel: 'what he means by asserting that this cave' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "[ stable",
+      "replace": "stable",
+      "note": "Extraneous opening bracket before 'stable'; class 1 visible artefact.",
+      "evidence": "Transcription: '[ stable'; parallel: 'stable essence. Thus, also' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "' Spirit",
+      "replace": "Spirit",
+      "note": "Extraneous apostrophe before 'Spirit'; class 1 visible artefact.",
+      "evidence": "Transcription: \"' Spirit\"; parallel: 'that the Spirit of God moved' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "river;",
+      "replace": "rivers;",
+      "note": "Singular 'river' should be plural 'rivers'; class 2 missing letter.",
+      "evidence": "Transcription: 'river;'; parallel: 'fountains and rivers; and the stars' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "are C. tinged",
+      "replace": "are tinged",
+      "note": "Extraneous 'C.' before 'tinged'; class 1 visible artefact.",
+      "evidence": "Transcription: 'are C. tinged'; parallel: 'garments are tinged from blood' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "generation. I",
+      "replace": "generation.",
+      "note": "Extraneous 'I' after 'generation'; class 1 visible artefact.",
+      "evidence": "Transcription: 'generation. I'; parallel: 'nature of] generation.' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "omit",
+      "replace": "emit",
+      "note": "Wrong word 'omit' for 'emit'; class 2 substituted letter with no damage character.",
+      "evidence": "Transcription: 'omit'; parallel: 'these gates emit a bellowing sound' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "fail",
+      "replace": "fall",
+      "note": "Wrong word 'fail' for 'fall'; class 2 substituted letter with no damage character.",
+      "evidence": "Transcription: 'fail'; parallel: 'souls that fall into the realms' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "fflfp0 '",
+      "replace": "gates;",
+      "note": "Corrupt run-together fragment plus stray quote; class 1 visible artefact/run-together.",
+      "evidence": "Transcription: 'fflfp0 ''; parallel: 'doors, and gates; and through these' (parallel decides).",
+      "decided_by": "parallel",
+      "region": "the whole volume",
+      "sites": 1
+    }
+  ],
+  "findingsByClass": {
+    "1": 5,
+    "2": 4,
+    "3": 0
+  },
+  "unsure": [
+    {
+      "region": "the whole volume",
+      "passage": "- -1i\"^lHi.n*-iL -t-i-ir * ->-• «,, ^X",
+      "question": "What does the print have in place of this noise (page furniture, running head, or blank)?",
+      "note": "The reading view still shows this noise; not determinable from given witnesses.",
+      "evidence": "Transcription: '- -1i\"^lHi.n*-iL -t-i-ir * ->-• «,, ^X'; parallel lacks a corresponding passage."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "For the word Boreas is derived from Bo/>a, which signifies nutriment.",
+      "question": "Is the correct reading 'Bora' (Greek βορά) for 'Bo/>a' / 'Boga'?",
+      "note": "Reading view shows 'Boga' from damaged transcription 'Bo/>a'; parallel also has damaged 'Bo/>a', so the exact print form is not cleanly decided.",
+      "evidence": "Transcription: 'Bo/>a'; parallel: 'Bo/>a' (neither witness clean)."
+    }
+  ],
+  "rejected": [],
+  "failed": [],
+  "cost": {
+    "regions": 1,
+    "sent": 1,
+    "findings": 9,
+    "unsure": 2,
+    "rejected": 0,
+    "failed": 0,
+    "usage": {
+      "prompt_tokens": 193950,
+      "completion_tokens": 50456,
+      "total_tokens": 244406
+    }
+  }
+}

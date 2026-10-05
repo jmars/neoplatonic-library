@@ -1,0 +1,3094 @@
+{
+  "slug": "proclus-elements-of-theology-taylor-1816",
+  "tool": "a whole-text read by deepseek-flash at effort low, in sections, with both witnesses (reading view + transcription) and the parallel edition located per section: it PROPOSES findings in three classes and a human merges them",
+  "model": "deepseek-flash",
+  "effort": "low",
+  "endpoint": "http://10.0.0.1:8321/v1/chat/completions",
+  "generated": "2026-10-03T20:46:42Z",
+  "mergesNothing": "Nothing here has been merged. These are PROPOSALS with evidence; the last machine-merge attempt would have asserted readings the print does not have (\"but\" -> \"put\", \"the\" -> \"he\", \"caverns\" -> \"cavern\"). To accept one, add it to the rules file by hand (class \"reading\", the transcription-find verbatim) and build.",
+  "policy": {
+    "rule": "substitute-if-known-else-leave",
+    "damage": "^_~*/£>\\|#™±»«}{&"
+  },
+  "parallel": null,
+  "coverage": {
+    "regions": [
+      {
+        "region": "the whole volume",
+        "blocks": 940,
+        "chars": 268954,
+        "damageInView": {
+          "&": 12,
+          "*": 209,
+          "«": 50,
+          ">": 15,
+          "\\": 7,
+          "/": 30,
+          "^": 29,
+          "}": 8,
+          "»": 24,
+          "_": 1,
+          "{": 6,
+          "£": 13,
+          "#": 4,
+          "|": 2
+        }
+      }
+    ],
+    "requests": 1,
+    "regionsSent": [
+      "the whole volume"
+    ],
+    "everyRegionSent": true
+  },
+  "context": {
+    "maxParallelChars": 9000,
+    "charsPerRequest": [
+      596153
+    ],
+    "minChars": 596153,
+    "maxChars": 596153,
+    "meanChars": 596153
+  },
+  "sent": [
+    {
+      "region": "the whole volume",
+      "promptChars": 596153,
+      "parallel": {
+        "status": "no parallel volume known for this text"
+      },
+      "finish": "stop",
+      "reasoningTokens": 28792,
+      "thinkingChars": 94339,
+      "rawBodyChars": 268954
+    }
+  ],
+  "findings": [
+    {
+      "kind": "2",
+      "find": "one y which",
+      "replace": "one, which",
+      "note": "OCR substituted y for comma in 'one, which'.",
+      "evidence": "Transcription: 'besides the one y which is not the one'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "notone",
+      "replace": "not one",
+      "note": "Two words fused into 'notone'.",
+      "evidence": "Transcription: 'being one and notone'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "parti* cipates",
+      "replace": "participates",
+      "note": "Damage character * splits the word 'participates'.",
+      "evidence": "Transcription: 'that which parti* cipates of the one'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "s ubsisting",
+      "replace": "subsisting",
+      "note": "Word broken by a space: 's ubsisting'.",
+      "evidence": "Transcription: 'multitude, s ubsisting indeed'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "uotone",
+      "replace": "not one",
+      "note": "OCR substituted u for n in 'not one'.",
+      "evidence": "Transcription: 'but as uotone, according to participation'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "nor jet",
+      "replace": "nor yet",
+      "note": "OCR substituted j for y in 'yet'.",
+      "evidence": "Transcription: 'nor jet will it be nothing'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "if R consists",
+      "replace": "if it consists",
+      "note": "OCR substituted R for it.",
+      "evidence": "Transcription: 'For if R consists of things united'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "jt will also perfect",
+      "replace": "it will also perfect",
+      "note": "OCR substituted j for i in 'it'.",
+      "evidence": "Transcription: 'jt will also perfect itself'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "goocQ-",
+      "replace": "good.",
+      "note": "OCR corrupted 'good.' into 'goocQ-'.",
+      "evidence": "Transcription: 'since it is the goocQ- For that which'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "isrthe",
+      "replace": "is the",
+      "note": "Two words fused into 'isrthe'.",
+      "evidence": "Transcription: 'For this isrthe Common object'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "the goody and",
+      "replace": "the good, and",
+      "note": "OCR substituted y for comma in 'good,'.",
+      "evidence": "Transcription: 'diminish by the addition the goody and'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "goody but",
+      "replace": "good, but",
+      "note": "OCR substituted y for comma in 'good,'.",
+      "evidence": "Transcription: 'not being the goody but something less'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "which ist primarily",
+      "replace": "which is primarily",
+      "note": "OCR added t to 'is'.",
+      "evidence": "Transcription: 'that which ist primarily good'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "to tHat which",
+      "replace": "to that which",
+      "note": "OCR capitalized H in 'that'.",
+      "evidence": "Transcription: 'inferior to tHat which is simply good'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "is .simply",
+      "replace": "is simply",
+      "note": "Stray period before 'simply'.",
+      "evidence": "Transcription: 'Nor is that which is .simply good'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROF. XI.",
+      "replace": "PROP. XI.",
+      "note": "OCR substituted F for P in 'PROP.'.",
+      "evidence": "Transcription: 'PROF. XI.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "thin gs",
+      "replace": "things",
+      "note": "Word broken by space: 'thin gs'.",
+      "evidence": "Transcription: 'all finite thin gs are'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "pre>subsistence",
+      "replace": "pre-subsistence",
+      "note": "Damage character > replaces hyphen in 'pre-subsistence'.",
+      "evidence": "Transcription: 'the pre>subsistence of essence'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "In Prop. ff.",
+      "replace": "In Prop. 11.",
+      "note": "OCR corrupted '11' into 'ff'.",
+      "evidence": "Transcription: '1 In Prop. ff.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "after it* how",
+      "replace": "after it, how",
+      "note": "Damage character * replaces comma after 'it'.",
+      "evidence": "Transcription: 'do not aspire after it* how is it possible'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "from the goody are",
+      "replace": "from the good, are",
+      "note": "OCR substituted y for comma in 'good,'.",
+      "evidence": "Transcription: 'fall off from the goody are at the same time'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "' Every being",
+      "replace": "Every being",
+      "note": "Stray apostrophe before 'Every'.",
+      "evidence": "Transcription: \"' Every being is either immoveable\"",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "moved in. consequence",
+      "replace": "moved in consequence",
+      "note": "Stray period after 'in'.",
+      "evidence": "Transcription: 'is moved in. consequence of being moved'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "that which ia moved",
+      "replace": "that which is moved",
+      "note": "OCR substituted a for s in 'is'.",
+      "evidence": "Transcription: 'better than that which ia moved'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "fience there will",
+      "replace": "Hence there will",
+      "note": "OCR corrupted 'Hence' into 'fience'.",
+      "evidence": "Transcription: 'fience there will be something'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "For if’ all",
+      "replace": "For if all",
+      "note": "Stray apostrophe after 'if'.",
+      "evidence": "Transcription: 'For if’ all things should stop'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "so aa that",
+      "replace": "so as that",
+      "note": "OCR substituted a for s in 'as'.",
+      "evidence": "Transcription: 'so aa that the whole'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "to be so* yet",
+      "replace": "to be so, yet",
+      "note": "Damage character * replaces comma after 'so'.",
+      "evidence": "Transcription: 'appear indeed to be so* yet are not'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "moved/ And",
+      "replace": "moved. And",
+      "note": "Damage character / replaces period after 'moved'.",
+      "evidence": "Transcription: 'at the same time is moved/ And this'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "but the oth^r",
+      "replace": "but the other",
+      "note": "Damage character ^ in 'other'.",
+      "evidence": "Transcription: 'but the oth^r effect'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "whole mores",
+      "replace": "whole moves",
+      "note": "OCR substituted r for v in 'moves'.",
+      "evidence": "Transcription: 'For if the whole mores'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "part winch is",
+      "replace": "part which is",
+      "note": "OCR substituted n for h in 'which'.",
+      "evidence": "Transcription: 'the part winch is moved'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "at the satoe time",
+      "replace": "at the same time",
+      "note": "OCR corrupted 'same' into 'satoe'.",
+      "evidence": "Transcription: 'will at the satoe time be motive'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "the fqrmer supplying",
+      "replace": "the former supplying",
+      "note": "OCR substituted q for o in 'former'.",
+      "evidence": "Transcription: 'the fqrmer supplying the latter'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "things of wbioh",
+      "replace": "things of which",
+      "note": "OCR corrupted 'which' into 'wbioh'.",
+      "evidence": "Transcription: 'one of those things of wbioh'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Thus lor instance",
+      "replace": "Thus for instance",
+      "note": "OCR substituted l for f in 'for'.",
+      "evidence": "Transcription: 'Thus lor instance we see'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "all msfevUne light",
+      "replace": "all mundane light",
+      "note": "OCR corrupted 'mundane' into 'msfevUne'.",
+      "evidence": "Transcription: 'principle of all msfevUne light'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "species of light)",
+      "replace": "species of light,",
+      "note": "Closing parenthesis replaces comma.",
+      "evidence": "Transcription: 'many species of light) one kind'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "from the moon*",
+      "replace": "from the moon,",
+      "note": "Damage character * replaces comma after 'moon'.",
+      "evidence": "Transcription: 'another from the moon* and.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "and. another",
+      "replace": "and another",
+      "note": "Stray period after 'and'.",
+      "evidence": "Transcription: 'and. another from the eyes'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "that eacb will",
+      "replace": "that each will",
+      "note": "OCR substituted b for h in 'each'.",
+      "evidence": "Transcription: 'not so that eacb will be'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "COROLLARY..",
+      "replace": "COROLLARY.",
+      "note": "Double period after 'COROLLARY'.",
+      "evidence": "Transcription: 'COROLLARY..'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "relation' of",
+      "replace": "relation of",
+      "note": "Stray apostrophe after 'relation'.",
+      "evidence": "Transcription: 'having the relation' of a monad'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "participated/ is",
+      "replace": "participated is",
+      "note": "Damage character / replaces comma after 'participated'.",
+      "evidence": "Transcription: 'thing by which it is participated/ is secondary'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "present to ay things",
+      "replace": "present to all things",
+      "note": "OCR corrupted 'all' into 'ay'.",
+      "evidence": "Transcription: 'similarly present to ay things'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "«. COROLLARY",
+      "replace": "COROLLARY",
+      "note": "Damage characters «. before COROLLARY.",
+      "evidence": "Transcription: '«. COROLLARY.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "besides^ this",
+      "replace": "besides this",
+      "note": "Damage character ^ in 'besides^'.",
+      "evidence": "Transcription: 'and besides^ this, would imitate'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "T>ROPOSITION XXVI.",
+      "replace": "PROPOSITION XXVI.",
+      "note": "Damage character > in 'PROPOSITION'.",
+      "evidence": "Transcription: 'T>ROPOSITION XXVI.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "in a „ similar",
+      "replace": "in a similar",
+      "note": "Artefact „ after 'a'.",
+      "evidence": "Transcription: 'possess in a „ similar manner'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "not b.e able",
+      "replace": "not be able",
+      "note": "Stray period in 'b.e'.",
+      "evidence": "Transcription: 'it would not b.e able'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "posterior to'it*",
+      "replace": "posterior to it",
+      "note": "Stray apostrophe and asterisk in 'to'it*'.",
+      "evidence": "Transcription: 'that which is posterior to'it* proceeds'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "which is. produced",
+      "replace": "which is produced",
+      "note": "Stray period after 'is'.",
+      "evidence": "Transcription: 'For that which is. produced'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "since this is. neither",
+      "replace": "since this is neither",
+      "note": "Stray period after 'is'.",
+      "evidence": "Transcription: 'since this is. neither appropriate'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "to thing} similar",
+      "replace": "to things similar",
+      "note": "Damage character } in 'things'.",
+      "evidence": "Transcription: 'gives subsistence to thing} similar'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "are itt a greater",
+      "replace": "are in a greater",
+      "note": "OCR corrupted 'in' into 'itt'.",
+      "evidence": "Transcription: 'things produced are itt a greater degree'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "separated front them",
+      "replace": "separated from them",
+      "note": "OCR substituted ront for rom in 'from'.",
+      "evidence": "Transcription: 'than separated front them'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "are mote similar",
+      "replace": "are more similar",
+      "note": "OCR substituted t for r in 'more'.",
+      "evidence": "Transcription: 'are mote similar than dissimilar'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "PROPOSITION XXX,",
+      "replace": "PROPOSITION XXX.",
+      "note": "Comma replaces period after 'XXX'.",
+      "evidence": "Transcription: 'PROPOSITION XXX,'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "without a medium,,",
+      "replace": "without a medium,",
+      "note": "Double comma after 'medium'.",
+      "evidence": "Transcription: 'without a medium,,'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "that which' is",
+      "replace": "that which is",
+      "note": "Stray apostrophe after 'which'.",
+      "evidence": "Transcription: 'that which' is produced'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "from its cause* If",
+      "replace": "from its cause. If",
+      "note": "Damage character * replaces period after 'cause'.",
+      "evidence": "Transcription: 'apart from its cause* If, however, it is apart'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "from the eause",
+      "replace": "from the cause",
+      "note": "OCR substituted e for c in 'cause'.",
+      "evidence": "Transcription: 'it will proceed from the eause'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "[immediately}",
+      "replace": "[immediately]",
+      "note": "Damage character } replaces closing bracket.",
+      "evidence": "Transcription: 'the natures [immediately} placed'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "as tothe principle",
+      "replace": "as to the principle",
+      "note": "Two words fused: 'to the' into 'tothe'.",
+      "evidence": "Transcription: 'so on as far as tothe principle'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Every tiling which",
+      "replace": "Every thing which",
+      "note": "OCR substituted l for h in 'thing'.",
+      "evidence": "Transcription: 'Every tiling which is converted'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "the* whole",
+      "replace": "the whole",
+      "note": "Damage character * after 'the'.",
+      "evidence": "Transcription: 'the* whole being of it'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "it lias a",
+      "replace": "it has a",
+      "note": "OCR substituted li for h in 'has'.",
+      "evidence": "Transcription: 'Hence also it lias a natural sympathy'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "being ol both",
+      "replace": "being of both",
+      "note": "OCR substituted l for f in 'of'.",
+      "evidence": "Transcription: 'either the being ol both'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "both arc allotted",
+      "replace": "both are allotted",
+      "note": "OCR substituted c for e in 'are'.",
+      "evidence": "Transcription: 'or both arc allotted similitude'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "COROLI.ABT.",
+      "replace": "COROLLARY.",
+      "note": "OCR corrupted 'COROLLARY.'",
+      "evidence": "Transcription: 'COROLI.ABT.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "it alone abided*",
+      "replace": "it alone abided,",
+      "note": "Damage character * replaces comma after 'abided'.",
+      "evidence": "Transcription: 'For if it alone abided* it would'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "accompa* nied",
+      "replace": "accompanied",
+      "note": "Damage character * splits 'accompanied'.",
+      "evidence": "Transcription: 'progression is accompa* nied with separation'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "that which is not' separated",
+      "replace": "that which is not separated",
+      "note": "Stray apostrophe after 'not'.",
+      "evidence": "Transcription: 'that which is not' separated'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "that 6rst natures",
+      "replace": "that first natures",
+      "note": "OCR substituted 6 for fi in 'first'.",
+      "evidence": "Transcription: 'it follows that 6rst natures'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "remote art more",
+      "replace": "remote are more",
+      "note": "OCR substituted t for e in 'are'.",
+      "evidence": "Transcription: 'things which are more remote art more imperfect'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "if ^ conversion",
+      "replace": "if conversion",
+      "note": "Damage character ^ after 'if'.",
+      "evidence": "Transcription: 'And if ^ conversion first begins'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "essence,are",
+      "replace": "essence, are",
+      "note": "Missing space after comma: 'essence,are'.",
+      "evidence": "Transcription: 'self-subsistent essence,are the leaders'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "is alohe produced",
+      "replace": "is alone produced",
+      "note": "OCR substituted h for n in 'alone'.",
+      "evidence": "Transcription: 'which is alohe produced by another'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "are self-subsisteut",
+      "replace": "are self-subsistent",
+      "note": "OCR substituted u for n in 'self-subsistent'.",
+      "evidence": "Transcription: 'and are self-subsisteut, are more ancient'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "a subject* can",
+      "replace": "a subject can",
+      "note": "Damage character * after 'subject'.",
+      "evidence": "Transcription: 'indigent of a subject* can never'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "adapted to* generate",
+      "replace": "adapted to generate",
+      "note": "Damage character * after 'to'.",
+      "evidence": "Transcription: 'naturally adapted to* generate itself'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "and will, be converted",
+      "replace": "and will be converted",
+      "note": "Stray comma after 'will'.",
+      "evidence": "Transcription: 'and will, be converted to itself'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "which is not* converted",
+      "replace": "which is not converted",
+      "note": "Damage character * after 'not'.",
+      "evidence": "Transcription: 'that which is not* converted to itself'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "essentially. >",
+      "replace": "essentially.",
+      "note": "Damage character > after period.",
+      "evidence": "Transcription: 'converted to itself essentially. >'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "according to esseuce",
+      "replace": "according to essence",
+      "note": "OCR substituted u for n in 'essence'.",
+      "evidence": "Transcription: 'more excellent according to esseuce'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "from essence,' it",
+      "replace": "from essence, it",
+      "note": "Stray apostrophe after comma.",
+      "evidence": "Transcription: 'energy proceeding from essence,' it'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "will .depend",
+      "replace": "will depend",
+      "note": "Stray period before 'depend'.",
+      "evidence": "Transcription: 'will .depend on itself'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "not yet* existing",
+      "replace": "not yet existing",
+      "note": "Damage character * after 'yet'.",
+      "evidence": "Transcription: 'to it not yet* existing'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROPOSmON XLVI",
+      "replace": "PROPOSITION XLVI",
+      "note": "OCR corrupted 'PROPOSITION' into 'PROPOSmON'.",
+      "evidence": "Transcription: 'PROPOSmON XLVI.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "else fas in a subject]",
+      "replace": "else as in a subject]",
+      "note": "OCR added f before 'as'.",
+      "evidence": "Transcription: 'something else fas in a subject]'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "be Cor rising",
+      "replace": "be or rising",
+      "note": "OCR substituted C for o in 'or'.",
+      "evidence": "Transcription: 'becoming to be Cor rising into existence]'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "its being But",
+      "replace": "its being. But",
+      "note": "Missing period between 'being' and 'But'.",
+      "evidence": "Transcription: 'for the perfection of its being But time'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "any one oi these",
+      "replace": "any one of these",
+      "note": "OCR substituted i for f in 'of'.",
+      "evidence": "Transcription: 'if we conceive that any one oi these'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "such as it is f depends",
+      "replace": "such as it is, depends",
+      "note": "OCR f replaces comma in 'is, depends'.",
+      "evidence": "Transcription: 'their being such as it is f depends'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "stop m the same",
+      "replace": "stop in the same",
+      "note": "OCR substituted m for in in 'in the'.",
+      "evidence": "Transcription: 'does not stop m the same state'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "neighbouring bodies-Hence",
+      "replace": "neighbouring bodies. Hence",
+      "note": "Two words fused by hyphen: 'bodies-Hence'.",
+      "evidence": "Transcription: 'impinge their neighbouring bodies-Hence motion'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "Hence) they are",
+      "replace": "Hence, they are",
+      "note": "Closing parenthesis replaces comma.",
+      "evidence": "Transcription: 'Hence) they are ready'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "trifling impulse)",
+      "replace": "trifling impulse,",
+      "note": "Closing parenthesis replaces comma.",
+      "evidence": "Transcription: 'by every trifling impulse)'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "embraces of bound)",
+      "replace": "embraces of bound,",
+      "note": "Closing parenthesis replaces comma.",
+      "evidence": "Transcription: 'from the embraces of bound)'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "eminent degree)",
+      "replace": "eminent degree,",
+      "note": "Closing parenthesis replaces comma.",
+      "evidence": "Transcription: 'in an eminent degree)'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "from sieep to",
+      "replace": "from sleep to",
+      "note": "OCR substituted ie for l in 'sleep'.",
+      "evidence": "Transcription: 'transmigration from sieep to sleep'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "COROLLA ET.",
+      "replace": "COROLLARY.",
+      "note": "OCR corrupted 'COROLLARY.' into 'COROLLA ET.'",
+      "evidence": "Transcription: 'COROLLA ET.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": ". For every thing",
+      "replace": "For every thing",
+      "note": "Stray period before 'For'.",
+      "evidence": "Transcription: '. For every thing which measures'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 26
+    },
+    {
+      "kind": "1",
+      "find": "Hence, ♦ there",
+      "replace": "Hence, there",
+      "note": "Artefact ♦ after comma.",
+      "evidence": "Transcription: 'Hence, ♦ there are only two measures'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "COROLLARY,",
+      "replace": "COROLLARY.",
+      "note": "Comma replaces period after 'COROLLARY'.",
+      "evidence": "Transcription: 'COROLLARY,'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "energizes prion to",
+      "replace": "energizes prior to",
+      "note": "OCR substituted n for r in 'prior'.",
+      "evidence": "Transcription: 'Every cause both energizes prion to'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "is uble to produce",
+      "replace": "is able to produce",
+      "note": "OCR omitted a in 'able'.",
+      "evidence": "Transcription: 'the thing caused is uble to produce'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "causes -will impart",
+      "replace": "causes will impart",
+      "note": "Stray hyphen before 'will'.",
+      "evidence": "Transcription: 'more numerous causes -will impart'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "but other? according",
+      "replace": "but others according",
+      "note": "OCR substituted ? for s in 'others'.",
+      "evidence": "Transcription: 'but other? according to that which is worse'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "things, Q. e. matter]",
+      "replace": "things, i. e. matter]",
+      "note": "OCR substituted Q for i in 'i. e.'.",
+      "evidence": "Transcription: 'the last of things, Q. e. matter]'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "less, hut the",
+      "replace": "less, but the",
+      "note": "OCR substituted u for b in 'but'.",
+      "evidence": "Transcription: 'the one is the cause of a less, hut the other'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "cause-of a greater",
+      "replace": "cause of a greater",
+      "note": "Hyphen inserted in 'cause of'.",
+      "evidence": "Transcription: 'is the cause-of a greater number'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "remote firom the",
+      "replace": "remote from the",
+      "note": "OCR corrupted 'from' into 'firom'.",
+      "evidence": "Transcription: 'more remote firom the one'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "to the one t is",
+      "replace": "to the one, is",
+      "note": "OCR substituted t for comma after 'one'.",
+      "evidence": "Transcription: 'nearer to the one t is less'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "firom it, but",
+      "replace": "from it, but",
+      "note": "OCR corrupted 'from' into 'firom'.",
+      "evidence": "Transcription: 'more remote firom it, but is greater'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "it, bang the",
+      "replace": "it, being the",
+      "note": "OCR substituted a for e in 'being'.",
+      "evidence": "Transcription: 'more similar to it, bang the cause'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "that is one . As",
+      "replace": "that is one. As",
+      "note": "Stray space before period.",
+      "evidence": "Transcription: 'because that is one . As therefore'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "to the one y so",
+      "replace": "to the one, so",
+      "note": "OCR substituted y for comma after 'one'.",
+      "evidence": "Transcription: 'more allied to the one y so likewise'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "as faf as",
+      "replace": "as far as",
+      "note": "OCR substituted f for r in 'far'.",
+      "evidence": "Transcription: 'as faf as to these'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "the dim}* nution",
+      "replace": "the diminution",
+      "note": "Damage characters }* split 'diminution'.",
+      "evidence": "Transcription: 'as to these the dim}* nution proceeds'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "but through * their",
+      "replace": "but through their",
+      "note": "Damage character * after 'through'.",
+      "evidence": "Transcription: 'but through * their self-perfect hyparxis'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "cause Cbut is",
+      "replace": "cause [but is",
+      "note": "OCR substituted C for opening bracket.",
+      "evidence": "Transcription: 'out of the cause Cbut is not'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "many things parti* cipate",
+      "replace": "many things participate",
+      "note": "Damage character * splits 'participate'.",
+      "evidence": "Transcription: 'If also many things parti* cipate of one thing'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "every tiling which",
+      "replace": "every thing which",
+      "note": "OCR substituted l for h in 'thing'.",
+      "evidence": "Transcription: 'prior to every tiling which is .participated'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "which is .participated",
+      "replace": "which is participated",
+      "note": "Stray period before 'participated'.",
+      "evidence": "Transcription: 'every tiling which is .participated'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "which is prima* rily",
+      "replace": "which is primarily",
+      "note": "Damage character * splits 'primarily'.",
+      "evidence": "Transcription: 'which is prima* rily a whole'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "thing caused * prior",
+      "replace": "thing caused prior",
+      "note": "Damage character * after 'caused'.",
+      "evidence": "Transcription: 'energizes on the thing caused * prior'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "that which'participates",
+      "replace": "that which participates",
+      "note": "Apostrophe fuses 'which' and 'participates'.",
+      "evidence": "Transcription: 'that which'participates of them'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "a leSs number",
+      "replace": "a less number",
+      "note": "OCR capitalized S in 'less'.",
+      "evidence": "Transcription: 'cause of a leSs number'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "livery form",
+      "replace": "Every form",
+      "note": "OCR corrupted 'Every' into 'livery'.",
+      "evidence": "Transcription: 'livery form is a certain whole'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "For a particular' thing",
+      "replace": "For a particular thing",
+      "note": "Stray apostrophe after 'particular'.",
+      "evidence": "Transcription: 'For a particular' thing is a whole'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "has aa immutable",
+      "replace": "has an immutable",
+      "note": "OCR substituted aa for an.",
+      "evidence": "Transcription: 'has aa immutable hyparxis'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "which is it): energy",
+      "replace": "which is in energy",
+      "note": "OCR corrupted 'in' into 'it):'.",
+      "evidence": "Transcription: 'that which is it): energy'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "which Mas in capacity",
+      "replace": "which was in capacity",
+      "note": "OCR substituted M for w in 'was'.",
+      "evidence": "Transcription: 'if that which Mas in capacity'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "becomes in. energy",
+      "replace": "becomes in energy",
+      "note": "Stray period after 'in'.",
+      "evidence": "Transcription: 'it becomes in. energy'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "according to itsown",
+      "replace": "according to its own",
+      "note": "Two words fused: 'itsown'.",
+      "evidence": "Transcription: 'operating according to itsown peculiarity'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "which is im another",
+      "replace": "which is in another",
+      "note": "OCR substituted m for n in 'in'.",
+      "evidence": "Transcription: 'make that which is im another'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROPOSITION LX XVIII",
+      "replace": "PROPOSITION LXXVIII",
+      "note": "OCR split LXXVIII into LX XVIII.",
+      "evidence": "Transcription: 'PROPOSITION LX XVIII.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "two-fold power. *",
+      "replace": "two-fold power.",
+      "note": "Damage character * after period.",
+      "evidence": "Transcription: 'from a two-fold power. *'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Scholiast bbserves",
+      "replace": "Scholiast observes",
+      "note": "OCR added b to 'observes'.",
+      "evidence": "Transcription: 'Greek Scholiast bbserves in the margin'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "essentially inefficacious*",
+      "replace": "essentially inefficacious",
+      "note": "Damage character * after 'inefficacious'.",
+      "evidence": "Transcription: 'is essentially inefficacious* but'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "just as- hodies",
+      "replace": "just as bodies",
+      "note": "OCR corrupted 'bodies' into 'hodies' with stray hyphen.",
+      "evidence": "Transcription: 'just as- hodies are able'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "is necessary*",
+      "replace": "is necessary",
+      "note": "Damage character * after 'necessary'.",
+      "evidence": "Transcription: 'a certain medium between the two is necessary*'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "other, an4 which",
+      "replace": "other, and which",
+      "note": "OCR substituted 4 for d in 'and'.",
+      "evidence": "Transcription: 'the one with the other, an4 which'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "account of rnagnitude",
+      "replace": "account of magnitude",
+      "note": "OCR added r before 'magnitude'.",
+      "evidence": "Transcription: 'on account of rnagnitude'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "becomes irabecil",
+      "replace": "becomes imbecil",
+      "note": "OCR corrupted 'imbecil' into 'irabecil'.",
+      "evidence": "Transcription: 'becomes irabecil and finite'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "which are entirelydivided",
+      "replace": "which are entirely divided",
+      "note": "Two words fused: 'entirelydivided'.",
+      "evidence": "Transcription: 'powers which are entirelydivided'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "impartible, hut",
+      "replace": "impartible, but",
+      "note": "OCR substituted u for b in 'but'.",
+      "evidence": "Transcription: 'most near to the impartible, hut the infinite'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "If„ therefore",
+      "replace": "If therefore",
+      "note": "Artefact „ after 'If'.",
+      "evidence": "Transcription: 'If„ therefore, that which is truly being'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "and has. the",
+      "replace": "and has the",
+      "note": "Stray period after 'has'.",
+      "evidence": "Transcription: 'If also it is impartible, and has. the form'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "it i? impartible",
+      "replace": "it is impartible",
+      "note": "OCR substituted ? for s in 'is'.",
+      "evidence": "Transcription: 'Moreover, it i? impartible'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "if beiugs which",
+      "replace": "if beings which",
+      "note": "OCR substituted u for n in 'beings'.",
+      "evidence": "Transcription: 'For if beiugs which subsist by themselves'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "prior to that* which",
+      "replace": "prior to that which",
+      "note": "Damage character * after 'that'.",
+      "evidence": "Transcription: 'should be prior to that* which consists'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "infinity, winch does",
+      "replace": "infinity, which does",
+      "note": "OCR substituted n for h in 'which'.",
+      "evidence": "Transcription: 'one first infinity, winch does not subsist'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "all die infinity",
+      "replace": "all the infinity",
+      "note": "OCR substituted die for the.",
+      "evidence": "Transcription: 'and of all die infinity that is in beings'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Nor is infinity beings For",
+      "replace": "Nor is infinity being. For",
+      "note": "OCR added s to 'being' and missing period.",
+      "evidence": "Transcription: 'Nor is infinity beings For this is infinite'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "the power# which",
+      "replace": "the power which",
+      "note": "Damage character # in 'power#'.",
+      "evidence": "Transcription: 'yet it evolves the power# which it contains'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "the wolds that",
+      "replace": "the words that",
+      "note": "OCR substituted l for r in 'words'.",
+      "evidence": "Transcription: 'the wolds that are wanting'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "appear to. be",
+      "replace": "appear to be",
+      "note": "Stray period after 'to'.",
+      "evidence": "Transcription: 'appear to. be it'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "form of the one y ia which",
+      "replace": "form of the one, in which",
+      "note": "OCR corrupted comma and 'in' into 'y ia'.",
+      "evidence": "Transcription: 'loses the form of the one y ia which while it remained'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "are united,*",
+      "replace": "are united,",
+      "note": "Damage character * after comma.",
+      "evidence": "Transcription: 'the powers when congregated, are united,*'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "indeed is finite,*",
+      "replace": "indeed is finite,",
+      "note": "Damage character * after comma.",
+      "evidence": "Transcription: 'if this body indeed is finite,*'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "primarily, tire series",
+      "replace": "primarily, the series",
+      "note": "OCR substituted tire for the.",
+      "evidence": "Transcription: 'that which the cause is primarily, tire series'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Bui the former",
+      "replace": "But the former",
+      "note": "OCR substituted Bui for But.",
+      "evidence": "Transcription: 'Bui the former of these is impossible'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "by the . prolific",
+      "replace": "by the prolific",
+      "note": "Stray period before 'prolific'.",
+      "evidence": "Transcription: 'present to all things by the . prolific'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "no where \\vithout",
+      "replace": "no where without",
+      "note": "Damage character \\ in '\\vithout'.",
+      "evidence": "Transcription: 'it was no where \\vithout being every where'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "it woulA not",
+      "replace": "it would not",
+      "note": "OCR substituted A for d in 'would'.",
+      "evidence": "Transcription: 'But it woulA not be in all things'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "abundant and unen vying",
+      "replace": "abundant and unenvying",
+      "note": "Word broken by space: 'unen vying'.",
+      "evidence": "Transcription: 'by the abundant and unen vying communications'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "it maybe in",
+      "replace": "it may be in",
+      "note": "Two words fused: 'maybe'.",
+      "evidence": "Transcription: 'In order therefore, that existing as a cause, it maybe in all things'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "is un begotten",
+      "replace": "is unbegotten",
+      "note": "Word broken by space: 'un begotten'.",
+      "evidence": "Transcription: 'in each series is un begotten'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "something else.*",
+      "replace": "something else.",
+      "note": "Damage character * after period.",
+      "evidence": "Transcription: 'from something else.* But if it is inferior'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROPOSITION Cl.",
+      "replace": "PROPOSITION CI.",
+      "note": "OCR used lowercase l for I.",
+      "evidence": "Transcription: 'PROPOSITION Cl.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "energize intellectually.*",
+      "replace": "energize intellectually.",
+      "note": "Damage character * after period.",
+      "evidence": "Transcription: 'nor energize intellectually.* But life is the second'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "the immortal.'",
+      "replace": "the immortal.",
+      "note": "Stray apostrophe after period.",
+      "evidence": "Transcription: \"than the immortal.'\"",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "COROIXARV.",
+      "replace": "COROLLARY.",
+      "note": "OCR corrupted 'COROLLARY.' into 'COROIXARV.'",
+      "evidence": "Transcription: 'COROIXARV.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "as a. whole",
+      "replace": "as a whole",
+      "note": "Stray period after 'a'.",
+      "evidence": "Transcription: 'intellect which ranks as a. whole'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "conjoined with them* For",
+      "replace": "conjoined with them. For",
+      "note": "Damage character * replaces period after 'them'.",
+      "evidence": "Transcription: 'unadapted to be conjoined with them* For all things'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "of participate intellect",
+      "replace": "of participated intellect",
+      "note": "OCR omitted d in 'participated'.",
+      "evidence": "Transcription: 'participate of participate intellect, *'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "superessential,* is",
+      "replace": "superessential, is",
+      "note": "Damage character * after comma.",
+      "evidence": "Transcription: 'the first God is superessential,* is evident'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "than inteU led",
+      "replace": "than intellect",
+      "note": "OCR corrupted 'intellect' into 'inteU led'.",
+      "evidence": "Transcription: 'better than inteU led'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "matter)^ Jorm y",
+      "replace": "matter), form y",
+      "note": "OCR substituted J for f in 'form'.",
+      "evidence": "Transcription: 'of things (or matter)^ Jorm y'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "— (€ surpasses",
+      "replace": "— ( surpasses",
+      "note": "OCR inserted € before 'surpasses'.",
+      "evidence": "Transcription: '— (€ surpasses every intellect'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "essence and bound \\ and",
+      "replace": "essence and bound and",
+      "note": "Damage character \\ inserted in phrase.",
+      "evidence": "Transcription: 'essence and bound \\ and containing'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "place pr&clari is",
+      "replace": "place praeclari is",
+      "note": "OCR corrupted 'praeclari' into 'pr&clari'.",
+      "evidence": "Transcription: 'in which place pr&clari is erroneously'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "measure qf all things",
+      "replace": "measure of all things",
+      "note": "OCR substituted q for o in 'of'.",
+      "evidence": "Transcription: 'the measure qf all things'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "darkness and obgptrity",
+      "replace": "darkness and obscurity",
+      "note": "OCR corrupted 'obscurity' into 'obgptrity'.",
+      "evidence": "Transcription: 'epithets darkness and obgptrity'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "the Jirst thing",
+      "replace": "the first thing",
+      "note": "OCR substituted J for f in 'first'.",
+      "evidence": "Transcription: 'Chaos was the Jirst thing'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "was generate#'",
+      "replace": "was generated,",
+      "note": "OCR corrupted 'generated,' into 'generate#'.",
+      "evidence": "Transcription: 'Chaos was the Jirst thing which was generate#'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "translated Juit f",
+      "replace": "translated first",
+      "note": "OCR corrupted 'first' into 'Juit f'.",
+      "evidence": "Transcription: 'yevero is translated Juit f'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "followers of Hesiod.,,",
+      "replace": "followers of Hesiod.,",
+      "note": "Double comma after 'Hesiod'.",
+      "evidence": "Transcription: 'followers of Hesiod.,,'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Orpheus and Musxus",
+      "replace": "Orpheus and Musaeus",
+      "note": "OCR corrupted 'Musaeus' into 'Musxus'.",
+      "evidence": "Transcription: 'Orpheus and Musxus the first'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "series £of which",
+      "replace": "series [of which",
+      "note": "OCR substituted £ for opening bracket.",
+      "evidence": "Transcription: 'whole series £of which it is the leader]'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "will be syperessential",
+      "replace": "will be superessential",
+      "note": "OCR substituted y for u in 'superessential'.",
+      "evidence": "Transcription: 'all the Gods will be syperessential'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "should be gene* N rated",
+      "replace": "should be generated",
+      "note": "Damage characters * N split 'generated'.",
+      "evidence": "Transcription: 'every thing which is generated should be gene* N rated'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "above all knowledge *nd",
+      "replace": "above all knowledge and",
+      "note": "Damage character * replaces a in 'and'.",
+      "evidence": "Transcription: 'that the first cause is above all knowledge *nd every appellation'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "(De Coclo, p. 147.)",
+      "replace": "(De Caelo, p. 147.)",
+      "note": "OCR corrupted 'Caelo' into 'Coclo'.",
+      "evidence": "Transcription: '(De Coclo, p. 147.)'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROPOSITION CXYII",
+      "replace": "PROPOSITION CXVII",
+      "note": "OCR inserted Y.",
+      "evidence": "Transcription: 'PROPOSITION CXYII.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "one being for being",
+      "replace": "one being or being",
+      "note": "OCR substituted for for or.",
+      "evidence": "Transcription: 'that which is one being for being cha¬ racterized'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "their own uuion",
+      "replace": "their own union",
+      "note": "OCR duplicated u in 'union'.",
+      "evidence": "Transcription: 'in a manner appropriate to their own uuion'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "in the Gods‘unically",
+      "replace": "in the Gods unically",
+      "note": "Curly quote inserted in phrase.",
+      "evidence": "Transcription: 'are in the Gods‘unically and superessentially'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "<9very series",
+      "replace": "Every series",
+      "note": "Artefact <9 before 'very'.",
+      "evidence": "Transcription: '<9very series of the Gods'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "And whengfe will",
+      "replace": "And whence will",
+      "note": "OCR corrupted 'whence' into 'whengfe'.",
+      "evidence": "Transcription: 'And whengfe will that be'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "hyparxis of th§ Gods",
+      "replace": "hyparxis of the Gods",
+      "note": "OCR substituted § for e in 'the'.",
+      "evidence": "Transcription: 'defines the hyparxis of th§ Gods'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "that which is Jirst",
+      "replace": "that which is first",
+      "note": "OCR substituted J for f in 'first'.",
+      "evidence": "Transcription: 'Hence, that which is Jirst, is alone'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "partible natures irapartibly",
+      "replace": "partible natures impartibly",
+      "note": "OCR inserted r in 'impartibly'.",
+      "evidence": "Transcription: 'knows partible natures irapartibly'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "which are‘not",
+      "replace": "which are not",
+      "note": "Curly quote inserted in 'are not'.",
+      "evidence": "Transcription: 'things which are‘not necessary'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "dividing ihe communications",
+      "replace": "dividing the communications",
+      "note": "OCR substituted i for t in 'the'.",
+      "evidence": "Transcription: 'multiplying and dividing ihe communications'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROPOSITION CXXVl.",
+      "replace": "PROPOSITION CXXVI.",
+      "note": "OCR used lowercase l for I.",
+      "evidence": "Transcription: 'PROPOSITION CXXVl.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "is the cause o a",
+      "replace": "is the cause of a",
+      "note": "OCR omitted f in 'of'.",
+      "evidence": "Transcription: 'he who is the cause o a greater number'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": ", Every thing divine",
+      "replace": "Every thing divine",
+      "note": "Leading comma before 'Every'.",
+      "evidence": "Transcription: ', Every thing divine, is especially'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROPOSITION CXXVUI",
+      "replace": "PROPOSITION CXXVIII",
+      "note": "OCR used U for II? Actually CXXVUI.",
+      "evidence": "Transcription: 'PROPOSITION CXXVUI.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "a less or greater * number",
+      "replace": "a less or greater number",
+      "note": "Damage character * after 'greater'.",
+      "evidence": "Transcription: 'through a less or greater * number of media'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "being indeed able * to",
+      "replace": "being indeed able to",
+      "note": "Damage character * after 'able'.",
+      "evidence": "Transcription: 'being indeed able * to coalesce with unity'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "of the supercssential",
+      "replace": "of the superessential",
+      "note": "OCR omitted e in 'superessential'.",
+      "evidence": "Transcription: 'primarily participate of the supercssential unities'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "to the body 5 and",
+      "replace": "to the body; and",
+      "note": "OCR substituted 5 for semicolon.",
+      "evidence": "Transcription: 'united to the body 5 and which'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "and is hot yet",
+      "replace": "and is not yet",
+      "note": "OCR substituted h for n in 'not'.",
+      "evidence": "Transcription: 'is alone sufficient to itself, and is hot yet prepared'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "according to ' the",
+      "replace": "according to the",
+      "note": "Stray apostrophe after 'to'.",
+      "evidence": "Transcription: \"according to ' the similitude\"",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "is a God i providence",
+      "replace": "is a God; providence",
+      "note": "OCR substituted i for semicolon.",
+      "evidence": "Transcription: 'is a God i providence being established'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "and one,unity is",
+      "replace": "and one unity is",
+      "note": "Comma fused with 'unity'.",
+      "evidence": "Transcription: 'and one,unity is participated by one being'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "But (he unity",
+      "replace": "But the unity",
+      "note": "OCR substituted ( for t in 'the'.",
+      "evidence": "Transcription: 'But (he unity belonging to every being'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "any thing else-prior",
+      "replace": "any thing else prior",
+      "note": "Hyphen inserted in 'else prior'.",
+      "evidence": "Transcription: 'there is not any thing else-prior to it'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "energy. ITence, in",
+      "replace": "energy. Hence, in",
+      "note": "OCR corrupted 'Hence' into 'ITence'.",
+      "evidence": "Transcription: 'being in energy. ITence, in the principles'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "body the last,*",
+      "replace": "body the last,",
+      "note": "Damage character * after comma.",
+      "evidence": "Transcription: 'but body the last,* for we say'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "exclude them irom",
+      "replace": "exclude them from",
+      "note": "OCR corrupted 'from' into 'irom'.",
+      "evidence": "Transcription: 'and exclude them irom being present'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "sympathize uith all",
+      "replace": "sympathize with all",
+      "note": "OCR substituted u for w in 'with'.",
+      "evidence": "Transcription: 'all things sympathize uith all'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "with each otherj",
+      "replace": "with each other;",
+      "note": "OCR substituted j for semicolon.",
+      "evidence": "Transcription: 'are in union and consent with each otherj'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "strictly 6peaking",
+      "replace": "strictly speaking",
+      "note": "OCR substituted 6 for s in 'speaking'.",
+      "evidence": "Transcription: 'nothing, strictly 6peaking, void of sympathy'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "destitute of peadiar life",
+      "replace": "destitute of peculiar life",
+      "note": "OCR corrupted 'peculiar' into 'peadiar'.",
+      "evidence": "Transcription: 'are destitute of peadiar life'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "life j yet",
+      "replace": "life; yet",
+      "note": "OCR substituted j for semicolon.",
+      "evidence": "Transcription: 'of peadiar life j yet they possess'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "universal sound$",
+      "replace": "universal sound;",
+      "note": "OCR substituted $ for semicolon.",
+      "evidence": "Transcription: 'a perpetual and universal sound$'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "to the vieV",
+      "replace": "to the view",
+      "note": "OCR substituted V for w in 'view'.",
+      "evidence": "Transcription: 'and reflect it to the vieV'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Eimead 4. lib. 3.",
+      "replace": "Ennead 4. lib. 3.",
+      "note": "OCR corrupted 'Ennead' into 'Eimead'.",
+      "evidence": "Transcription: 'Eimead 4. lib. 3.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "according to hvparxis",
+      "replace": "according to hyparxis",
+      "note": "OCR substituted v for y in 'hyparxis'.",
+      "evidence": "Transcription: 'either according to cause, or according to hvparxis'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "AH beings",
+      "replace": "All beings",
+      "note": "OCR substituted H for l in 'All'.",
+      "evidence": "Transcription: 'AH beings, and all the distributions'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "perfected through, their",
+      "replace": "perfected through their",
+      "note": "Stray comma after 'through'.",
+      "evidence": "Transcription: 'are perfected through, their power'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "into nonrentity",
+      "replace": "into nonentity",
+      "note": "OCR inserted r in 'nonentity'.",
+      "evidence": "Transcription: 'departs into nonrentity and vanishes'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "it entirety departs",
+      "replace": "it entirely departs",
+      "note": "OCR substituted entirety for entirely.",
+      "evidence": "Transcription: 'it entirety departs into nonrentity'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "according to -which",
+      "replace": "according to which",
+      "note": "Stray hyphen before 'which'.",
+      "evidence": "Transcription: 'the peculiarity according to -which that cause'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "guardian, k convertive",
+      "replace": "guardian, a convertive",
+      "note": "OCR substituted k for a.",
+      "evidence": "Transcription: 'if there is a guardian, k convertive'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "preserving* a circle",
+      "replace": "preserving a circle",
+      "note": "Damage character * after 'preserving'.",
+      "evidence": "Transcription: 'preserving* a circle without a beginning'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "the one t it",
+      "replace": "the one, it",
+      "note": "OCR substituted t for comma after 'one'.",
+      "evidence": "Transcription: 'nearer to the one t it is evident'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "not a Jess",
+      "replace": "not a less",
+      "note": "OCR substituted J for l in 'less'.",
+      "evidence": "Transcription: 'infinite is not a Jess, but is the greatest'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "incomprehensible and uncircurnscribed",
+      "replace": "incomprehensible and uncircumscribed",
+      "note": "OCR inserted rn in 'uncircumscribed'.",
+      "evidence": "Transcription: 'something incomprehensible and uncircurnscribed'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "is truly infinite.*",
+      "replace": "is truly infinite.",
+      "note": "Damage character * after period.",
+      "evidence": "Transcription: 'orders is truly infinite.* Nor is that'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "of divine lathers",
+      "replace": "of divine fathers",
+      "note": "OCR substituted l for f in 'fathers'.",
+      "evidence": "Transcription: 'And of divine lathers, some are more total'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "PROPOSITION CLIV.,",
+      "replace": "PROPOSITION CLIV.",
+      "note": "Stray comma after period.",
+      "evidence": "Transcription: 'PROPOSITION CLIV.,'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "a certain being.*",
+      "replace": "a certain being.",
+      "note": "Damage character * after period.",
+      "evidence": "Transcription: 'But form is a certain being.* Hence'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "perfective of other* Gods",
+      "replace": "perfective of other Gods",
+      "note": "Damage character * after 'other'.",
+      "evidence": "Transcription: 'a power perfective of other* Gods'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "each of• these",
+      "replace": "each of these",
+      "note": "Artefact • after 'of'.",
+      "evidence": "Transcription: 'But each of• these visible bodies'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "It is| however",
+      "replace": "It is however",
+      "note": "Damage character | in 'is|'.",
+      "evidence": "Transcription: 'It is| however, divine on account'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "union. »And if",
+      "replace": "union. And if",
+      "note": "Damage character » before 'And'.",
+      "evidence": "Transcription: 'on account of union. »And if it possesses'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "either * intellectually",
+      "replace": "either intellectually",
+      "note": "Damage character * after 'either'.",
+      "evidence": "Transcription: 'For every intellect, either * intellectually perceives'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "according to one.*",
+      "replace": "according to one.",
+      "note": "Damage character * after period.",
+      "evidence": "Transcription: 'all things according to one.* To assert'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "united isevident",
+      "replace": "united is evident",
+      "note": "Two words fused: 'isevident'.",
+      "evidence": "Transcription: 'the multitude in it is united isevident'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "the one f",
+      "replace": "the one?",
+      "note": "OCR substituted f for question mark.",
+      "evidence": "Transcription: 'how can you divide the impartible and the one f'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "without magnitude,*",
+      "replace": "without magnitude,",
+      "note": "Damage character * after comma.",
+      "evidence": "Transcription: 'which is truly without magnitude,*'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "allied to the one,,",
+      "replace": "allied to the one,",
+      "note": "Double comma after 'one'.",
+      "evidence": "Transcription: 'more allied to the one,,'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "produced fin a",
+      "replace": "produced in a",
+      "note": "OCR inserted f in 'in a'.",
+      "evidence": "Transcription: 'are produced fin a divided manner'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "secondary intellects *3",
+      "replace": "secondary intellects",
+      "note": "Damage characters *3 after 'intellects'.",
+      "evidence": "Transcription: 'from secondary intellects *3 according to many ideas'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "possesses Rn invariable",
+      "replace": "possesses an invariable",
+      "note": "OCR substituted R for a in 'an'.",
+      "evidence": "Transcription: 'essence possesses Rn invariable sameness'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "nearer to the one; *]",
+      "replace": "nearer to the one;]",
+      "note": "Damage characters *] after semicolon.",
+      "evidence": "Transcription: 'intellectual number is nearer to the one; *]'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "But i imparticipable",
+      "replace": "But imparticipable",
+      "note": "Stray i before 'imparticipable'.",
+      "evidence": "Transcription: 'But i imparticipable intellect indeed'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "' PROPOSmON CLXXXII.",
+      "replace": "PROPOSITION CLXXXII.",
+      "note": "OCR corrupted 'PROPOSITION' and added apostrophe.",
+      "evidence": "Transcription: \"' PROPOSmON CLXXXII.\"",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "conjoins h soul",
+      "replace": "conjoins a soul",
+      "note": "OCR substituted h for a.",
+      "evidence": "Transcription: 'For deity conjoins h soul which participates'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "that which is intellectual*",
+      "replace": "that which is intellectual",
+      "note": "Damage character * after 'intellectual'.",
+      "evidence": "Transcription: 'having the same relation to them as that which is intellectual*'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "supply die words",
+      "replace": "supply the words",
+      "note": "OCR substituted die for the.",
+      "evidence": "Transcription: 'it is here necessary to supply die words'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Tf therefore",
+      "replace": "If therefore",
+      "note": "OCR substituted T for I in 'If'.",
+      "evidence": "Transcription: 'Tf therefore the soul possesses'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "being co-distribuled",
+      "replace": "being co-distributed",
+      "note": "OCR corrupted 'co-distributed' into 'co-distribuled'.",
+      "evidence": "Transcription: 'subjects, being co-distribuled with divisible bulks'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "their own impartiality",
+      "replace": "their own impartibility",
+      "note": "OCR substituted m for t in 'impartibility'.",
+      "evidence": "Transcription: 'and their own impartiality'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "with life externally.] *",
+      "replace": "with life externally.]",
+      "note": "Damage character * after bracket.",
+      "evidence": "Transcription: 'filled ([with life externally.] *'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Hence/ it",
+      "replace": "Hence, it",
+      "note": "OCR substituted / for comma after 'Hence'.",
+      "evidence": "Transcription: 'from its very being. Hence/ it has'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "belong to patures",
+      "replace": "belong to natures",
+      "note": "OCR corrupted 'natures' into 'patures'.",
+      "evidence": "Transcription: 'does not belong to patures [entirely] impartible'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "from an. intellectual",
+      "replace": "from an intellectual",
+      "note": "Stray period after 'an'.",
+      "evidence": "Transcription: 'differ from an. intellectual hypostasis'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "converted to itself, »",
+      "replace": "converted to itself,",
+      "note": "Damage character » after comma.",
+      "evidence": "Transcription: 'converted to itself, » and proceeds from itself'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Every participate soul",
+      "replace": "Every participated soul",
+      "note": "OCR omitted d in 'participated'.",
+      "evidence": "Transcription: 'Every participate soul ranks'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "[truly existing! beings",
+      "replace": "[truly existing] beings",
+      "note": "OCR substituted ! for closing bracket.",
+      "evidence": "Transcription: 'number of [truly existing! beings'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "all things are in aU",
+      "replace": "all things are in all",
+      "note": "OCR substituted U for l in 'all'.",
+      "evidence": "Transcription: 'and all things are in aU, and each'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "Sinee, therefore",
+      "replace": "Since, therefore",
+      "note": "OCR corrupted 'Since' into 'Sinee'.",
+      "evidence": "Transcription: 'Sinee, therefore, essences, lives and cognitions'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "if ail impartibles",
+      "replace": "if all impartibles",
+      "note": "OCR substituted i for l in 'all'.",
+      "evidence": "Transcription: 'But if ail impartibles subsist together'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "essences. . Knowledge",
+      "replace": "essences. Knowledge",
+      "note": "Stray period before 'Knowledge'.",
+      "evidence": "Transcription: 'nor are genuine essences. . Knowledge, also'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROPOSITION CXCVUI",
+      "replace": "PROPOSITION CXCVIII",
+      "note": "OCR used U for II.",
+      "evidence": "Transcription: 'PROPOSITION CXCVUI.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "measured by periods.,",
+      "replace": "measured by periods.",
+      "note": "Stray comma after period.",
+      "evidence": "Transcription: 'is measured by periods.,'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "always is not 5 eternal",
+      "replace": "always is not eternal",
+      "note": "Artefact 5 after 'not'.",
+      "evidence": "Transcription: 'and this always is not 5 eternal'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "peculiar motion. *",
+      "replace": "peculiar motion.",
+      "note": "Damage character * after period.",
+      "evidence": "Transcription: 'possesses a peculiar motion. *'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "former indeed accoridng",
+      "replace": "former indeed according",
+      "note": "OCR transposed 'according' to 'accoridng'.",
+      "evidence": "Transcription: 'the former indeed accoridng to the one'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "through.the",
+      "replace": "through the",
+      "note": "Two words fused: 'through.the'.",
+      "evidence": "Transcription: 'middle rank, through.the participation of intellect'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "£For if it",
+      "replace": "[For if it",
+      "note": "OCR substituted £ for opening bracket.",
+      "evidence": "Transcription: '£For if it is a divine soul]'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "order £ which",
+      "replace": "order [which",
+      "note": "OCR substituted £ for opening bracket.",
+      "evidence": "Transcription: 'allotted an order £ which is the leader'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "these falone] P",
+      "replace": "these alone]?",
+      "note": "OCR corrupted 'alone]?' into 'falone] P'.",
+      "evidence": "Transcription: 'proceeds as far as to these falone] P'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "uses it,*",
+      "replace": "uses it,",
+      "note": "Damage character * after comma.",
+      "evidence": "Transcription: 'soul that uses it,*'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "of its vehicle, *",
+      "replace": "of its vehicle,",
+      "note": "Damage character * after comma.",
+      "evidence": "Transcription: 'therefore of its vehicle, * is immoveable'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "PROPOSITION ccvm.",
+      "replace": "PROPOSITION CCVIII.",
+      "note": "OCR corrupted 'CCVIII' into 'ccvm'.",
+      "evidence": "Transcription: 'PROPOSITION ccvm.'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "it will-be indivisible",
+      "replace": "it will be indivisible",
+      "note": "Hyphen inserted in 'will be'.",
+      "evidence": "Transcription: 'it will-be indivisible'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "invested iu its",
+      "replace": "invested in its",
+      "note": "OCR substituted u for n in 'in'.",
+      "evidence": "Transcription: 'with which it was invested iu its descent'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "the vehicle '3 imitates",
+      "replace": "the vehicle imitates",
+      "note": "Artefact '3 after 'vehicle'.",
+      "evidence": "Transcription: \"For the vehicle '3 imitates the lives\"",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "essence of souls, *",
+      "replace": "essence of souls,",
+      "note": "Damage character * after comma.",
+      "evidence": "Transcription: 'vivified by the very essence of souls, *'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "intellectually withtran-",
+      "replace": "intellectually with tran-",
+      "note": "Words fused: 'withtran-'.",
+      "evidence": "Transcription: 'perceives intellectually withtran-'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "which sometimes*]",
+      "replace": "which sometimes]",
+      "note": "Damage character * before bracket.",
+      "evidence": "Transcription: 'from that which sometimes*] energizes intellectually'",
+      "decided_by": "transcription",
+      "region": "the whole volume",
+      "sites": 1
+    }
+  ],
+  "findingsByClass": {
+    "1": 124,
+    "2": 157,
+    "3": 17
+  },
+  "unsure": [],
+  "rejected": [
+    {
+      "region": "the whole volume",
+      "reason": "the find does not occur in the transcription's own characters (it may come from the reading view or the parallel — either way no rule can be written against it)",
+      "proposal": {
+        "class": "2",
+        "find": "it doe3 not",
+        "replace": "it does not",
+        "note": "OCR substituted 3 for s in 'does'.",
+        "evidence": "Transcription: 'it doe3 not require another seat'",
+        "decided_by": "transcription"
+      }
+    },
+    {
+      "region": "the whole volume",
+      "reason": "the find does not occur in the transcription's own characters (it may come from the reading view or the parallel — either way no rule can be written against it)",
+      "proposal": {
+        "class": "2",
+        "find": "measure intelli gible!",
+        "replace": "measure intelligibles",
+        "note": "OCR corrupted 'intelligibles' and added !.",
+        "evidence": "Transcription: 'the measure intelli¬ gible!'",
+        "decided_by": "transcription"
+      }
+    }
+  ],
+  "failed": [],
+  "cost": {
+    "regions": 1,
+    "sent": 1,
+    "findings": 298,
+    "unsure": 0,
+    "rejected": 2,
+    "failed": 0,
+    "usage": {
+      "prompt_tokens": 138589,
+      "completion_tokens": 45075,
+      "total_tokens": 183664
+    }
+  }
+}

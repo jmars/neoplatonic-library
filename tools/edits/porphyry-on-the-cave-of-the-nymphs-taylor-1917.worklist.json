@@ -1,0 +1,147 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "the rejected-proposal worklist, verified against the 1823 parallel",
+  "mergesNothing": "Proposals only.",
+  "proposals": [
+    {
+      "find": "gam",
+      "replace": "gain",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the print reads 'he should gain the belief of mankind' (1823 parallel: 'he should gain the belief of man-'); 'gam' is 'gain' with the i dropped."
+    },
+    {
+      "find": "Andit",
+      "replace": "And it",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "a sentence beginning where the capital of the next word glued to 'And': the print reads 'kind. And it is equally absurd' (1823 parallel)."
+    },
+    {
+      "find": "BuTThev",
+      "replace": "But they",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "'But they' read through capitals standing for the lost letters: the print reads 'But they thought it to be a cave' (1823 parallel)."
+    },
+    {
+      "find": "compel ling",
+      "replace": "compelling",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the word split across a line end: the print reads 'thus compelling others to explore' (1823 parallel)."
+    },
+    {
+      "find": "pro duced",
+      "replace": "produced",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split at a line end: the print reads 'being produced by no external' (1823 parallel)."
+    },
+    {
+      "find": "con cave",
+      "replace": "concave",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'are concave, but the exterior parts' (1823 parallel)."
+    },
+    {
+      "find": "mun dane",
+      "replace": "mundane",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'mundane powers' (1823 parallel)."
+    },
+    {
+      "find": "in telligible",
+      "replace": "intelligible",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'the intelligible essence' (1823 parallel)."
+    },
+    {
+      "find": "symbol oL",
+      "replace": "symbol of",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the L is a misread f: the print reads 'a symbol of the sensible world' (1823 parallel)."
+    },
+    {
+      "find": "pro duction",
+      "replace": "production",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'the spontaneous production of caves' (1823 parallel)."
+    },
+    {
+      "find": "flow ing",
+      "replace": "flowing",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'perpetually flowing streams' — the hyphen is the line break's (1823 parallel)."
+    },
+    {
+      "find": "bp a symbol",
+      "replace": "be a symbol",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "'bp' is 'be' through the p/b confusion: the print reads 'it will not be a symbol of' (1823 parallel)."
+    },
+    {
+      "find": "ap plied",
+      "replace": "applied",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'is commonly applied to all souls' (1823 parallel)."
+    },
+    {
+      "find": "appro priately",
+      "replace": "appropriately",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'appropriately consecrated to souls' (1823 parallel)."
+    },
+    {
+      "find": "per petually",
+      "replace": "perpetually",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'there are perpetually flowing streams' (1823 parallel)."
+    },
+    {
+      "find": "ro-operation",
+      "replace": "co-operation",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the r is a misread c: the print reads 'their co-operation with generation' (1823 parallel)."
+    },
+    {
+      "find": "hemi sphere",
+      "replace": "hemisphere",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'the northern hemisphere' (1823 parallel)."
+    },
+    {
+      "find": "for bade",
+      "replace": "forbade",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'forbade speaking while' (1823 parallel)."
+    },
+    {
+      "find": "compre hensions",
+      "replace": "comprehensions",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "split: the print reads 'in ineffable comprehensions' (1823 parallel)."
+    },
+    {
+      "find": "[ stable",
+      "replace": "stable",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the bracket is debris at the head of a page-break block: the print reads 'a firm and stable essence' (1823 parallel)."
+    }
+  ]
+}

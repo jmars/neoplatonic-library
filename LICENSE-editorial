@@ -1,0 +1,24 @@
+# License — the editorial layer
+
+Copyright (c) 2026 Jaye Timothy Marshall
+
+The editorial work in this repository — the repairs and their rationales, the
+page models and anchor manifests, the apparatus and notes, the transmission
+graph, and the site's own prose (`data/repairs.json`, `data/graph/graph.json`,
+`data/editions/*/edition.json`, and the pages served under `/editions`,
+`/about`, `/errata` and the provenance sections) — is licensed under the
+**Creative Commons Attribution 4.0 International license (CC-BY-4.0)**.
+
+Canonical deed: <https://creativecommons.org/licenses/by/4.0/>
+
+You are free to share and adapt the material for any purpose, including
+commercial use, provided you give appropriate credit, provide a link to the
+license, and indicate if changes were made. Full terms are in the deed linked
+above.
+
+Attribution: **The Neoplatonic Library (neoplatonic-library.org)**, with a link
+to the page the material came from.
+
+The **transcriptions themselves are public domain** and are not covered by this
+license; see `LICENSE`. Where an editorial licence and a public-domain text are
+served together, the public-domain text stays public domain.

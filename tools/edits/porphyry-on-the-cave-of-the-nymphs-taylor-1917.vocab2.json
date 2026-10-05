@@ -1,0 +1,56 @@
+{
+  "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917",
+  "tool": "the improved vocabulary sweep (shouting + split classes)",
+  "mergesNothing": "Proposals only.",
+  "proposals": [
+    {
+      "find": "foiL",
+      "replace": "for",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the print reads 'a fiction casually devised for the purpose' (1823 parallel: 'fiction casually devised for'); the IL are the lost r."
+    },
+    {
+      "find": "cold ness",
+      "replace": "coldness",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the print reads 'coldness' (1823 parallel prints 'coldness' twice, and never 'cold ness'): the word is split at a line end."
+    },
+    {
+      "find": "de scending",
+      "replace": "descending",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the print reads 'descending' (1823 parallel): split at a line end across the whole edition."
+    },
+    {
+      "find": "Capri corn",
+      "replace": "Capricorn",
+      "class": "reading",
+      "decided_by": "parallel",
+      "note": "the print reads 'Capricorn' (1823 parallel prints 'Capricorn' fourteen times, and never 'Capri corn'): split."
+    },
+    {
+      "find": "Phcedrus",
+      "replace": "Phædrus",
+      "class": "reading",
+      "decided_by": "transcription",
+      "note": "the print reads 'Phædrus': the transcription has NO æ or œ anywhere (MEASURED: zero of both in the source), so the ligature reads as 'ce'. All three sites are the same name."
+    },
+    {
+      "find": "Phcedo",
+      "replace": "Phædo",
+      "class": "reading",
+      "decided_by": "transcription",
+      "note": "the print reads 'Phædo', the same ligature (no æ in the source). Both sites."
+    },
+    {
+      "find": "Timceus",
+      "replace": "Timæus",
+      "class": "reading",
+      "decided_by": "transcription",
+      "note": "the print reads 'Timæus', the same ligature. All four sites."
+    }
+  ]
+}

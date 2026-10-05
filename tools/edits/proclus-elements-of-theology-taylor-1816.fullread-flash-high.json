@@ -1,0 +1,450 @@
+{
+  "slug": "proclus-elements-of-theology-taylor-1816",
+  "tool": "a whole-text read by deepseek-flash at effort high, in sections, with both witnesses (reading view + transcription) and the parallel edition located per section: it PROPOSES findings in three classes and a human merges them",
+  "model": "deepseek-flash",
+  "effort": "high",
+  "endpoint": "http://10.0.0.1:8321/v1/chat/completions",
+  "generated": "2026-10-04T02:08:25Z",
+  "mergesNothing": "Nothing here has been merged. These are PROPOSALS with evidence; the last machine-merge attempt would have asserted readings the print does not have (\"but\" -> \"put\", \"the\" -> \"he\", \"caverns\" -> \"cavern\"). To accept one, add it to the rules file by hand (class \"reading\", the transcription-find verbatim) and build.",
+  "policy": {
+    "rule": "substitute-if-known-else-leave",
+    "damage": "^_~*/£>\\|#™±»«}{&"
+  },
+  "parallel": null,
+  "coverage": {
+    "regions": [
+      {
+        "region": "the whole volume",
+        "blocks": 940,
+        "chars": 268630,
+        "damageInView": {
+          "&": 6,
+          "*": 119,
+          "«": 22,
+          ">": 6,
+          "»": 5,
+          "_": 1,
+          "{": 4,
+          "£": 3,
+          "\\": 1,
+          "}": 2,
+          "#": 1,
+          "^": 3
+        }
+      }
+    ],
+    "requests": 1,
+    "regionsSent": [
+      "the whole volume"
+    ],
+    "everyRegionSent": true
+  },
+  "context": {
+    "maxParallelChars": 9000,
+    "charsPerRequest": [
+      595407
+    ],
+    "minChars": 595407,
+    "maxChars": 595407,
+    "meanChars": 595407
+  },
+  "sent": [
+    {
+      "region": "the whole volume",
+      "promptChars": 595407,
+      "parallel": {
+        "status": "no parallel volume known for this text"
+      },
+      "finish": "stop",
+      "reasoningTokens": 28689,
+      "thinkingChars": 110325,
+      "rawBodyChars": 268630
+    }
+  ],
+  "findings": [
+    {
+      "kind": "2",
+      "find": "it U necessary",
+      "replace": "it is necessary",
+      "note": "U substituted for is; clean wrong word.",
+      "evidence": "TRANSCRIPTION: '... it U necessary to read ...' and READING VIEW: '... it U necessary to read ...' (both witnesses agree on the error).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "it it requisite",
+      "replace": "it is requisite",
+      "note": "it it for it is; clean wrong phrase.",
+      "evidence": "TRANSCRIPTION: '... it it requisite to read ...' and READING VIEW: '... it it requisite to read ...' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "self-subsisteut",
+      "replace": "self-subsistent",
+      "note": "u substituted for n in self-subsistent.",
+      "evidence": "TRANSCRIPTION: 'Every thing self-subsisteut, is essentially exempt' and READING VIEW: 'Every thing self-subsisteut, is essentially exempt' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 2
+    },
+    {
+      "kind": "2",
+      "find": "sieep",
+      "replace": "sleep",
+      "note": "i substituted for l in sleep.",
+      "evidence": "TRANSCRIPTION: 'from sieep to sleep' and READING VIEW: 'from sieep to sleep' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "one t is",
+      "replace": "one is",
+      "note": "stray t inserted before is.",
+      "evidence": "TRANSCRIPTION: 'nearer to the one t is less' and READING VIEW: 'nearer to the one t is less' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "firom",
+      "replace": "from",
+      "note": "firom for from.",
+      "evidence": "TRANSCRIPTION: 'more remote firom it' and READING VIEW: 'more remote firom it' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 2
+    },
+    {
+      "kind": "2",
+      "find": "tiling",
+      "replace": "thing",
+      "note": "tiling for thing.",
+      "evidence": "TRANSCRIPTION: 'prior to every tiling which is .participated' and READING VIEW: 'prior to every tiling which is .participated' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 2
+    },
+    {
+      "kind": "1",
+      "find": "is .participated",
+      "replace": "is participated",
+      "note": "stray period artefact before participated.",
+      "evidence": "TRANSCRIPTION: 'which is .participated' and READING VIEW: 'which is .participated' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "L e.",
+      "replace": "i. e.",
+      "note": "L e. for i. e.",
+      "evidence": "TRANSCRIPTION: '1 L e. Any thing' and READING VIEW: '1 L e. Any thing' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "oaaitted",
+      "replace": "omitted",
+      "note": "oaaitted for omitted.",
+      "evidence": "TRANSCRIPTION: '* eurm is oaaitted in the original' and READING VIEW: '* eurm is oaaitted in the original' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "i? impartible",
+      "replace": "is impartible",
+      "note": "? substituted for s.",
+      "evidence": "TRANSCRIPTION: 'Moreover, it i? impartible' and READING VIEW: 'Moreover, it i? impartible' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "inffpxble",
+      "replace": "ineffable",
+      "note": "garbled ineffable.",
+      "evidence": "TRANSCRIPTION: 'an inffpxble evolution' and READING VIEW: 'an inffpxble evolution' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "dungs",
+      "replace": "things",
+      "note": "dungs for things.",
+      "evidence": "TRANSCRIPTION: 'perception of all dungs according' and READING VIEW: 'perception of all dungs according' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "it omitted",
+      "replace": "is omitted",
+      "note": "it for is in footnote.",
+      "evidence": "TRANSCRIPTION: '1 afuydu it omitted in the original' and READING VIEW: '1 afuydu it omitted in the original' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "It it necessary",
+      "replace": "It is necessary",
+      "note": "it it for it is.",
+      "evidence": "TRANSCRIPTION: '1 It it necessary here to read' and READING VIEW: '1 It it necessary here to read' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "fronai",
+      "replace": "from",
+      "note": "fronai for from.",
+      "evidence": "TRANSCRIPTION: 'far distant fronai the primary monad' and READING VIEW: 'far distant fronai the primary monad' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "3",
+      "find": "Patridns,it",
+      "replace": "Patricius, it",
+      "note": "proper name typo and fused comma+it.",
+      "evidence": "TRANSCRIPTION: 'From the ration of Patridns,it is here necessary' and READING VIEW: same (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "accessary",
+      "replace": "necessary",
+      "note": "accessary for necessary.",
+      "evidence": "TRANSCRIPTION: 'it is accessary to read' and READING VIEW: 'it is accessary to read' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "2",
+      "find": "imparticipate",
+      "replace": "imparticipable",
+      "note": "imparticipate for imparticipable.",
+      "evidence": "TRANSCRIPTION: 'For imparticipate life and imparticipable essence' and READING VIEW: same (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 2
+    },
+    {
+      "kind": "2",
+      "find": "aU",
+      "replace": "all",
+      "note": "aU for all.",
+      "evidence": "TRANSCRIPTION: 'all things are in aU' and READING VIEW: 'all things are in aU' (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "if ^ conversion",
+      "replace": "if conversion",
+      "note": "stray ^ between words.",
+      "evidence": "TRANSCRIPTION: 'And if ^ conversion first begins' and READING VIEW: same (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "essentially. >",
+      "replace": "essentially.",
+      "note": "stray > after sentence.",
+      "evidence": "TRANSCRIPTION: 'converted to itself essentially. >' and READING VIEW: same (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "Hence, ♦ there",
+      "replace": "Hence, there",
+      "note": "stray diamond artefact.",
+      "evidence": "TRANSCRIPTION: 'Hence, ♦ there are only two measures' and READING VIEW: same (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "of•",
+      "replace": "of",
+      "note": "stray bullet artefact.",
+      "evidence": "TRANSCRIPTION: 'But each of• these visible bodies' and READING VIEW: same (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    },
+    {
+      "kind": "1",
+      "find": "by. intellection",
+      "replace": "by intellection",
+      "note": "stray period artefact.",
+      "evidence": "TRANSCRIPTION: 'and by. intellection it will be' and READING VIEW: same (both agree).",
+      "decided_by": "both",
+      "region": "the whole volume",
+      "sites": 1
+    }
+  ],
+  "findingsByClass": {
+    "1": 6,
+    "2": 18,
+    "3": 1
+  },
+  "unsure": [
+    {
+      "region": "the whole volume",
+      "passage": "unities («w&«r)",
+      "question": "What Greek word does the print have here?",
+      "note": "Visible damage in reading view; Greek word not determinable from given witnesses.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read 'unities («w&«r)'."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "four*",
+      "question": "What is the correct reading for 'four*'?",
+      "note": "Visible asterisk in footnote; likely damaged Greek.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read 'read four*.'"
+    },
+    {
+      "region": "the whole volume",
+      "passage": "SO*",
+      "question": "Is this a page artefact or a damaged word?",
+      "note": "Visible asterisk; likely furniture or damaged text.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read 'SO*'."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "Instead of « aysw, it is necessary to read >j y«g «yoros.",
+      "question": "What is the correct Greek text?",
+      "note": "Visible damage characters « > in Greek note.",
+      "evidence": "TRANSCRIPTION and READING VIEW both carry the same garbled Greek."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "* For K»g ov here, it is necessary to read ox..",
+      "question": "What is the correct Greek reading?",
+      "note": "Visible » in Greek note.",
+      "evidence": "TRANSCRIPTION and READING VIEW both carry 'K»g ov' and 'ox..'."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "9 _",
+      "question": "Is '9 _' page furniture or damaged text?",
+      "note": "Visible underscore and stray 9.",
+      "evidence": "TRANSCRIPTION and READING VIEW both end block with 'most perfect. 9 _'."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "wot*",
+      "question": "What is the correct reading for 'wot*'?",
+      "note": "Visible asterisk in note.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read 'wot* is omitted'."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "I’KOP. LXVi. LXVlIi",
+      "question": "What should this running head read?",
+      "note": "Visible furniture/running-head debris.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read the same."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "3g 8 ELEMENTS PROP. C1I.",
+      "question": "What should this running head read?",
+      "note": "Visible page furniture/running-head debris.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read the same."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "mSuttk arttgitt rif «rw.",
+      "question": "What is the correct Greek text?",
+      "note": "Visible « in garbled Greek note.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read the same."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "*•«*",
+      "question": "What is the correct reading here?",
+      "note": "Visible damage characters in note.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read '*•«*'."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "* * mqi ctpxoov.",
+      "question": "What is the correct Greek text?",
+      "note": "Visible asterisks and garbled Greek.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read the same."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "•> 8. ^ 8.« «W<r«...",
+      "question": "What is the correct text?",
+      "note": "Visible damage characters in Greek note.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read the same."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "mx >• omitted hrthe original.",
+      "question": "What is the correct reading?",
+      "note": "Visible > and garbled 'hrthe'.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read the same."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "taut",
+      "question": "Is 'taut' a damaged word or Greek transliteration?",
+      "note": "Unclear whether this is print's Greek or a typo.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read '1 taut is omitted'."
+    },
+    {
+      "region": "the whole volume",
+      "passage": "uu tw mi mouvto;",
+      "question": "What is the correct Greek text?",
+      "note": "Garbled Greek in final note.",
+      "evidence": "TRANSCRIPTION and READING VIEW both read the same."
+    }
+  ],
+  "rejected": [],
+  "failed": [],
+  "cost": {
+    "regions": 1,
+    "sent": 1,
+    "findings": 25,
+    "unsure": 16,
+    "rejected": 0,
+    "failed": 0,
+    "usage": {
+      "prompt_tokens": 137619,
+      "completion_tokens": 31150,
+      "total_tokens": 168769
+    }
+  }
+}

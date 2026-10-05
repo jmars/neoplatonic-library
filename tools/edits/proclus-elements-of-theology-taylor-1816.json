@@ -1,0 +1,2498 @@
+{
+  "slug": "proclus-elements-of-theology-taylor-1816",
+  "edition": "Proclus: The Elements of Theology, translated by Thomas Taylor (London, 1816), Propositions I–CCXI as printed in The Six Books of Proclus on the Theology of Plato, vol. II",
+  "base": "_base.json",
+  "order": "The rules apply in the order this list gives them, first to last, each one to every occurrence, one text block at a time — the order the reading view applies them in and the order their hits are counted in. All fourteen are opener rules: the division number the transcription mangled, repaired to the number the sequence requires (each is the proposition due at its place, confirmed against Dodds' parallel text of the same proposition where the number alone left doubt).",
+  "edits": [
+    {
+      "find": "T>ROPOSITION XXVI.",
+      "replace": "PROPOSITION XXVI.",
+      "class": "opener",
+      "note": "Proposition XXVI is due at this place in the run (XXV stands before it, XXVII after), and the print's label is PROPOSITION throughout: the OCR read the P as T>. Dodds' prop. 26 opens 'Every cause which is productive of other things…', which is this statement."
+    },
+    {
+      "find": "PROPOSITION XXX,",
+      "replace": "PROPOSITION XXX.",
+      "class": "opener",
+      "note": "Proposition XXX is due (XXIX before, XXXI after); the print closes its label with a stop, and the OCR gave the line a comma."
+    },
+    {
+      "find": "PROPOSmON XLVI.",
+      "replace": "PROPOSITION XLVI.",
+      "class": "opener",
+      "note": "Proposition XLVI is due at this place. The statement is 'Every thing self-subsistent is incorruptible', Dodds' prop. 46 — the reconnaissance's own example of a number confirmed by the parallel text."
+    },
+    {
+      "find": "^PROPOSITION LX,",
+      "replace": "PROPOSITION LX.",
+      "class": "opener",
+      "note": "Proposition LX is due (LIX stands before it); the stray caret is the OCR's mark before the label, and the print closes its label with a stop."
+    },
+    {
+      "find": "PROPOSITION LX XVIII.",
+      "replace": "PROPOSITION LXXVIII.",
+      "class": "opener",
+      "note": "Proposition LXXVIII is due at this place (LXXVII before, LXXIX after): the OCR split the double X with a space. The statement, on the immovable and the moved, is Dodds' prop. 78."
+    },
+    {
+      "find": "PROPOSITION Cl.",
+      "replace": "PROPOSITION CI.",
+      "class": "opener",
+      "note": "Proposition CI is due (C before, CII after): the OCR read the I of CI as a lower-case l. The statement, on the one and multitude in the intellectual order, is Dodds' prop. 101."
+    },
+    {
+      "find": "PROPOSITION CXI\\ r .",
+      "replace": "PROPOSITION CXIV.",
+      "class": "opener",
+      "note": "Proposition CXIV is due at this place (CXIII before, CXV after): the OCR broke the numeral with debris. The statement is the one Dodds' prop. 114 carries, on the participated and the participant."
+    },
+    {
+      "find": "PROPOSITION CXYII.",
+      "replace": "PROPOSITION CXVII.",
+      "class": "opener",
+      "note": "Proposition CXVII is due (CXVI before, CXVIII after): the OCR read the V of CXVII as a Y."
+    },
+    {
+      "find": "PROPOSITION CXXVl.",
+      "replace": "PROPOSITION CXXVI.",
+      "class": "opener",
+      "note": "Proposition CXXVI is due (CXXV before, CXXVII after): the final I was read as a lower-case l."
+    },
+    {
+      "find": "PROPOSITION CXXVUI.",
+      "replace": "PROPOSITION CXXVIII.",
+      "class": "opener",
+      "note": "Proposition CXXVIII is due (CXXVII before, CXXIX after): the OCR read the II of the numeral as UI."
+    },
+    {
+      "find": "PROPOSITION CLIV.,",
+      "replace": "PROPOSITION CLIV.",
+      "class": "opener",
+      "note": "Proposition CLIV is due (CLIII before, CLV after); the stray comma after the stop is the OCR's, and the pipeline's punctuation pass has closed the space the transcription had before it (the rule's find is the tidied line, which is the text the reading view serves)."
+    },
+    {
+      "find": "' PROPOSmON CLXXXII.",
+      "replace": "PROPOSITION CLXXXII.",
+      "class": "opener",
+      "note": "Proposition CLXXXII is due (CLXXXI before, CLXXXIII after): a stray opening quote stands before the label and the label's second S was read as m."
+    },
+    {
+      "find": "PROPOSITION CXCVUI.",
+      "replace": "PROPOSITION CXCVIII.",
+      "class": "opener",
+      "note": "Proposition CXCVIII is due (CXCVII before, CXCIX after): the OCR read the II of the numeral as UI."
+    },
+    {
+      "find": "PROPOSITION ccvm.",
+      "replace": "PROPOSITION CCVIII.",
+      "class": "opener",
+      "note": "Proposition CCVIII is due (CCVII before, CCIX after): the label is set in small capitals here and the OCR read the II of the numeral as m."
+    },
+    {
+      "find": "of y*g w**, fc “necessary to read toAXm yag ona fttv oufo",
+      "replace": "Instead of πολλὰ γὰρ ζῇ μὲν, ζῇ, καὶ νοεῖ, it is necessary to read πολλὰ γὰρ ὄντα μὲν οὐδὲ ζῇ,",
+      "class": "reading",
+      "note": "the print reads \"Instead of πολλὰ γὰρ ζῇ μὲν, ζῇ, καὶ νοεῖ, it is necessary to read πολλὰ γὰρ ὄντα μὲν οὐδὲ ζῇ, οὐδὲ νοεῖ\" (page image, printed page 368 = archive n873; three crop reads of the first half and two of the second agree). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "mSt von.",
+      "replace": "οὐδὲ νοεῖ.",
+      "class": "reading",
+      "note": "the second line of the same note, continuing the print's πολλὰ γὰρ ὄντα μὲν οὐδὲ ζῇ, οὐδὲ νοεῖ (printed page 368 = archive n873). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "a fua, avpirvotot (mix, vavret o-uj tijrallea, i. e. t( there is one conflux 9 \\",
+      "replace": "σύρροια μία, συμπνοία μία, πάντα συμπαθέα, i. e. “there is one conflux,",
+      "class": "reading",
+      "note": "the print reads \"Thus too Hippocrates, σύρροια μία, συμπνοία μία, πάντα συμπαθέα, i. e. 'there is one conflux, one conspiration, and all things sympathize with all'\" (page image, printed page 395 = archive n900). The print's own English gloss names the three words: conflux = σύρροια, conspiration = συμπνοία, sympathize = συμπαθέα. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Instead of « aysw, it is necessary to read >j y«g «yoros.",
+      "replace": "Instead of εἰ γὰρ ἄγονον, it is necessary to read ἢ γὰρ ἄγονον.",
+      "class": "reading",
+      "note": "the print reads \"Instead of εἰ γὰρ ἄγονον, it is necessary to read ἢ γὰρ ἄγονον\" (page image, printed page 318 = archive n823; five crop reads of the Greek give ἄγονον, and ἄγονον = barren, which is the word the note turns on). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "•> 8. ^ 8.« «W<r« x*t« t,v au,,x«vo., x. x it is",
+      "replace": "οἱ δὲ μετ' ἐκείνους, διὰ πλειόνων, ἐλάσσω κατὰ τὴν δύναμιν οὐκ ἐλάμβανον ἐκεῖνοι, κ. λ. it is",
+      "class": "reading",
+      "note": "the print reads \"Instead of οἱ δὲ μετ' ἐκείνους, διὰ πλειόνων, ἐλάσσω κατὰ τὴν δύναμιν οὐκ ἐλάμβανον ἐκεῖνοι, κ. λ.\" (page image, printed page 419 = archive n924; two crop reads agree on the structure, and οὐκ ἐλάμβανον are the two words the transcription dropped). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Instead of here it is necessary to read *•«*,",
+      "replace": "Instead of πῶς here it is necessary to read πᾶς,",
+      "class": "reading",
+      "note": "the print reads \"Instead of πῶς here it is necessary to read πᾶς, and consequently the proposition is not interrogatory\" (page image, printed page 372 = archive n877); πῶς \"how\" read for πᾶς \"every\" is exactly what makes the proposition cease to be a question. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For axiwjro* here, it is requisite to read juwwo;.",
+      "replace": "For ἀκίνητος here, it is requisite to read ἀεικίνητος.",
+      "class": "reading",
+      "note": "the print reads \"For ἀκίνητος here, it is requisite to read ἀεικίνητος\" (page image, printed page 413 = archive n918). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "by. intellection",
+      "replace": "by intellection",
+      "class": "reading",
+      "note": "stray period artefact. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "It it necessary",
+      "replace": "It is necessary",
+      "class": "reading",
+      "note": "it it for it is. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "imparticipate",
+      "replace": "imparticipable",
+      "class": "reading",
+      "note": "imparticipate for imparticipable. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "Patridns,it",
+      "replace": "Patricius, it",
+      "class": "reading",
+      "note": "proper name typo and fused comma+it. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "it omitted",
+      "replace": "is omitted",
+      "class": "reading",
+      "note": "it for is in footnote. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "inffpxble",
+      "replace": "ineffable",
+      "class": "reading",
+      "note": "garbled ineffable. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "accessary",
+      "replace": "necessary",
+      "class": "reading",
+      "note": "accessary for necessary. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "oaaitted",
+      "replace": "omitted",
+      "class": "reading",
+      "note": "oaaitted for omitted. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "fronai",
+      "replace": "from",
+      "class": "reading",
+      "note": "fronai for from. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "dungs",
+      "replace": "things",
+      "class": "reading",
+      "note": "dungs for things. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "L e.",
+      "replace": "i. e.",
+      "class": "reading",
+      "note": "L e. for i. e. (decided by the transcription and the 1823 parallel.)"
+    },
+    {
+      "find": "«$* otmyxot rpti$ ttfitv raj apx a $> r av ts t<rrcv tom trgayfMtToov, xou ray xou to •£ ovtou xivarixov xai otopar oy 8 vvapar to 8e toiovtov ov ov fiovov 1 eifin 8ei, aKXa xou",
+      "replace": "ὡς ἀνάγκα τρεῖς εἶμεν τὰς ἀρχάς, τάν τε ὕλαν τῶν πραγμάτων, καὶ τὰν μορφάν, καὶ τὸ ἐξ αὑτῶν κινατικὸν καὶ ἀόρατον δύναμιν· τὸ δὲ τοιοῦτον οὔ μονον εἶμεν δεῖ, ἀλλὰ καὶ",
+      "class": "reading",
+      "note": "the print reads the Archytas fragment \"ὡς ἀνάγκα τρεῖς εἶμεν τὰς ἀρχάς, τάν τε ὕλαν τῶν πραγμάτων, καὶ τὰν μορφάν, καὶ τὸ ἐξ αὑτῶν κινατικὸν καὶ ἀόρατον δύναμιν· τὸ δὲ τοιοῦτον οὔ μονον εἶμεν δεῖ, ἀλλὰ καὶ\" (page image, printed page 376 = archive n881). The fragment is Doric, so ἀνάγκα, εἶμεν, τάν, ὕλαν, μορφάν and κινατικόν are Doric forms (not in the word list); ἀόρατον is not in the list either, the list being this shelf's Greek plus LSJ headwords. This span stops at \"ἀλλὰ καὶ\" so the reading joins the rule already recorded for the following half (\"τὸ δὲ τοιοῦτον … θεὸν φαίνεσθαι\"). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "1 For iif ro MTutrtpov, it ir necessary to read *»$ro amarev.",
+      "replace": "1 For εἰς τὸ αἰτιώτερον, it is necessary to read εἰς τὸ αἰτιατόν.",
+      "class": "reading",
+      "note": "the print reads \"For εἰς τὸ αἰτιώτερον, it is necessary to read εἰς τὸ αἰτιατόν\" (page image, printed page 349 = archive n854); the OCR's own \"MTutrtpov\" spells αἰτιώτερον (αι-τ-ι-ώ-τ-ε-ρ-ο-ν), and its \"it ir necessary\" is the print's \"it is necessary\". (decided by the transcription's own context.)"
+    },
+    {
+      "find": "£or primarily] being consists of bound and infinity.",
+      "replace": "[or primarily] being consists of bound and infinity.",
+      "class": "reading",
+      "note": "the print reads \"Hence every thing which is truly [or primarily] being consists of bound and infinity.\" (page image, printed page 361 = archive n866; the print sets Taylor's addition in square brackets, which the OCR flattened to \"£\"). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For K»g ov here, it is necessary to read ox..",
+      "replace": "For παρὸν here, it is necessary to read παράγον.",
+      "class": "reading",
+      "note": "the print reads \"For παρὸν here, it is necessary to read παράγον\" (page image, printed page 324 = archive n829). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "oXov ww, ptgo t Si xivmai, >j,",
+      "replace": "ὅλον κινεῖ, μέρος δὲ κινεῖται, ἢ,",
+      "class": "reading",
+      "note": "the print reads \"Hence, the words ὅλον κινεῖ, μέρος δὲ κινεῖται, ἢ, must be supplied\" (page image, printed page 313 = archive n818). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "t» is omitted in the original.",
+      "replace": "τὶ is omitted in the original.",
+      "class": "reading",
+      "note": "the print reads \"τὶ is omitted in the original\" (page image, printed page 363 = archive n868, footnote 1 — the worklist's printed page 332/n837 is wrong; n837's footnotes are the \"defect in the original\" and \"ούτω is omitted\" notes). The OCR's \"»\" is not a plain iota (this transcription writes a plain iota \"i\", as in \"to ti,\" for νοῦ τι), and the same page's note 2 glosses ἀϊδιότης ἀπειρία τίς ἐστιν, whose τί is the word the note says is omitted. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "mSuttk arttgitt rif «rw.",
+      "replace": "ἀϊδιότης ἀπειρία τίς ἐστιν.",
+      "class": "reading",
+      "note": "the print reads \"...appear to be ἀϊδιότης ἀπειρία τίς ἐστιν\" — the Greek runs on a second line of the same footnote (page image, printed page 363 = archive n868, footnote 2; read twice at native resolution, the diaeresis on the ἰ and the smooth breathing on the ἀ both visible). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the most perfect. 9 _",
+      "replace": "the most perfect.",
+      "class": "reading",
+      "note": "the print ends the line at \"most perfect.\" (page image, printed page 328 = archive n833): the \"9 _\" is not text — the volume's own djvu word boxes put it 1150px to the right of where the line ends (x=3605 against the line's end x=2455), i.e. stray scan marks in the margin, and the page carries no footnote. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "{rot oyrccg ovra).",
+      "replace": "(τὰ ὄντως ὄντα).",
+      "class": "reading",
+      "note": "the print reads \"or to beings truly so called (τὰ ὄντως ὄντα)\" (page image, printed page 360 = archive n865; the OCR's \"oyrccg\" is ο-ντ-ω-ς). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "£with divine fire]",
+      "replace": "[with divine fire]",
+      "class": "reading",
+      "note": "the print reads \"conjoining soul with intellect and co-inflaming it [with divine fire], when this intellect is participable\" (page image, printed page 388 = archive n893; the print uses square brackets for Taylor's additions, which the OCR flattened to \"£\"). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "unities («w&«r).",
+      "replace": "unities (ἑνάδες).",
+      "class": "reading",
+      "note": "the print reads \"it is either united, or unities (ἑνάδες)\" (page image, printed page 304 = archive n809; read at 3000px, the breathing on the ἑ and the acute on the ά both visible). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "{aei yivopevov)",
+      "replace": "(ἀεὶ γινόμενον)",
+      "class": "reading",
+      "note": "the print reads \"or rising into existence, (ἀεὶ γινόμενον) possesses an infinite power\" (page image, printed page 358 = archive n863; read twice at 2300px, both times \"ἀεὶ γινόμενον\"). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(om»s ov)",
+      "replace": "(ὄντως ὄν)",
+      "class": "reading",
+      "note": "the print reads \"Every thing which is truly being (ὄντως ὄν) is infinite\" (page image, printed page 359 = archive n864). The OCR's own \"om»s\" is ο-ντ-ω-ς, not ο-υ-τ-ω-ς: this transcription writes a υ as \"v\", as in \"ovtou\" for αὐτῶν in the same line, while it writes the ντ of ὄντως \"m\" here and \"y\" on the next page (n865's \"oyrccg\"), and the print's own English gloss of the word is \"truly being\". The vision model sometimes reads the heavy ν as υ at this resolution, which is why several of its passes print \"ουτως\". (decided by the transcription's own context.)"
+    },
+    {
+      "find": "necessary to read •< 8. ^ ew.vouj, ha rVww eX*<rcr«, x«r« n,y h»a^ mi,xx«4,v. e< ow e x . A",
+      "replace": "necessary to read οἱ δὲ μετ' ἐκείνους, διὰ πλειόνων ἐλάττω, κατὰ τὴν δυνάμεως ἔλλειψιν. εἰ οὖν ἐκεῖνοι, κ. λ.",
+      "class": "reading",
+      "note": "the print reads «necessary to read οἱ δὲ μετ' ἐκείνους, διὰ πλειόνων ἐλάττω, κατὰ τὴν δυνάμεως ἔλλειψιν. εἰ οὖν ἐκεῖνοι, κ. λ.» (printed page 419, scan n924 — NOT page 306/n811 as the worklist has it; the 306 attribution is a token-match error). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "From the Tersion of Patricius, it is here necessary to supply the words x«fa* •< y*g.",
+      "replace": "From the version of Patricius, it is here necessary to supply the words καθ' ἕν. εἰ γάρ.",
+      "class": "reading",
+      "note": "the print reads «From the version of Patricius, it is here necessary to supply the words καθ' ἕν. εἰ γάρ.» — the words Taylor's English brackets as \"[according to one. For if]\" (printed page 413, scan n918). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "for ti yetg iav tov von, **{ vovf, it is requisite to read yag tfcurov you wets ms •",
+      "replace": "For εἰ γὰρ ἑαυτὸν νοεῖ, καὶ νοῦς, it is requisite to read ἢ γὰρ ἑαυτὸν νοεῖ πᾶς νοῦς.",
+      "class": "reading",
+      "note": "the print reads «For εἰ γὰρ ἑαυτὸν νοεῖ, καὶ νοῦς, it is requisite to read ἢ γὰρ ἑαυτὸν νοεῖ πᾶς νοῦς.» (printed page 411, scan n916), the reading Dodds prints at 167.8. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "From the version of Patricias, it is here necessary to supply the words Sn to «w pq",
+      "replace": "From the version of Patricius, it is here necessary to supply the words καὶ τὸν νοῦν μὴ",
+      "class": "reading",
+      "note": "the print reads «From the version of Patricius, it is here necessary to supply the words καὶ τὸν νοῦν μὴ μετέχοντα.» — μετέχοντα. stands in the next source line (printed page 422, scan n927; three reads give καὶ τὸν νοῦν μὴ, two give διὰ τοῦ νοῦ μὴ). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "wanting in the original} but from the version of Patricias ought to be added.",
+      "replace": "wanting in the original; but from the version of Patricius ought to be added.",
+      "class": "reading",
+      "note": "the print reads «...are wanting in the original; but from the version of Patricius ought to be added.» (printed page 426, scan n931). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For jttrfucrov here, it is necessary to read afutn tr#«.",
+      "replace": "For μεθεκτοῦ here, it is necessary to read ἀμεθέκτου.",
+      "class": "reading",
+      "note": "the print reads «For μεθεκτοῦ here, it is necessary to read ἀμεθέκτου.» (printed page 409, scan n914); μεθεκτοῦ is the form the word list carries (μεθέκτου is not). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "The words xcu vous $ut{ are omitted in the original.",
+      "replace": "The words καὶ νοῦς θεῖος are omitted in the original.",
+      "class": "reading",
+      "note": "the print reads «The words καὶ νοῦς θεῖος are omitted in the original.» (printed page 422, scan n927), the reading Dodds' apparatus records at 181.1 for BCD. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For ti «v, it appears requisite to read ti ov.",
+      "replace": "For τι ἐν, it appears requisite to read τι ὄν.",
+      "class": "reading",
+      "note": "the print reads «For τι ἐν, it appears requisite to read τι ὄν.» — the ἐν/ὂν correction (printed page 406, scan n911). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xai yetg axtigos tnn orr a>( ixgwto;",
+      "replace": "καὶ γὰρ ἄπειρος ἐστιν οὕτως ἕκαστος",
+      "class": "reading",
+      "note": "the print reads «καὶ γὰρ ἄπειρος ἐστιν οὕτως ἕκαστος» after \"the words\" (printed page 401, scan n906; tight 4x band of the footnote line). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "mx >• omitted hrthe original.",
+      "replace": "οὐχ is omitted in the original.",
+      "class": "reading",
+      "note": "the print reads «οὐχ is omitted in the original.» (printed page 432, scan n937) — the OCR dropped the \"is\" and fused \"in the\". (decided by the transcription's own context.)"
+    },
+    {
+      "find": "not vivific.’}",
+      "replace": "not vivific.³]",
+      "class": "reading",
+      "note": "the print closes Taylor's bracket «...is not vivific.³]» — a superscript 3 (the note \"The words αἰτία γεννητική... are wanting in the original.\") then the closing square bracket (printed page 404, scan n909). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xo/uw&ij yap fitipuxKrxof «v, jjpero tov eiravayivaxrxorra aurep rpafjLfLaTKrrtjv (ij toi fiev TgaoTirra Xao$ yever) ex two$ to yas$ ey$vero } turep itqqgtov eyevero, toutov St eixovror jxi) avrov epyov ewai ra toixvra fotiao-xen, aXXa rwv xaXoufisvcov QtXotroQw to iwv tfijcrev o Enxovpo$ f «r’ extmvf ft oi padurreov e<rnv, eiireg avrot tijv tcov ovtcov aX rfietav ttraatv.",
+      "replace": "κομιδῇ γὰρ μειρακίσκος ὢν, πρῶτον τὸν ἐπαναγινώσκοντα αὐτῷ Γραμματιστὴν (ἤ τοι μὲν πρώτιστα Χάος γένετ') ἐκ τίνος τὸ Χάος ἐγένετο, εἰπὲ πρῶτον γένετο. τούτου δὲ εἰπόντος μὴ αὑτοῦ ἔργον εἶναι τὰ τοιαῦτα διδάσκειν, ἀλλὰ τῶν καλουμένων φιλοσόφων· τοίνυν ἔφησεν ὁ Ἐπίκουρος, ἐκείνοις μοι βαδιστέον ἐστὶν, εἴπερ αὐτοῖ τὴν τῶν ὄντων ἀλήθειαν ἴσασιν.",
+      "class": "reading",
+      "note": "the Sextus Empiricus quotation: the print reads \"κομιδῇ γὰρ μειρακίσκος ὢν, πρῶτον τὸν ἐπαναγινώσκοντά αὐτῷ Γραμματιστὴν (ἤ τοι μὲν πρώτιστα Χάος γένετ') ἐκ τίνος τὸ Χάος ἐγένετο, εἰπὲ πρῶτον γένετο. τούτου δὲ εἰπόντος μὴ αὑτοῦ ἔργον εἶναι τὰ τοιαῦτα διδάσκειν, ἀλλὰ τῶν καλουμένων φιλοσόφων· τοίνυν ἔφησεν ὁ Ἐπίκουρος, ἐκείνοις μοι βαδιστέον ἐστὶν, εἴπερ αὐτοῖ τὴν τῶν ὄντων ἀλήθειαν ἴσασιν\" (page image, printed page 378 = archive n883) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "i tierpov Be tcov txvtcov a>$ iratn ryv otxnav, xou to reXo; exihafiirovra, xcu a* %avra •Keqir/ovroLj xcu ogi£ovra rou$ afyaoroig aoroo, xcu tsolv to; vxeprpt\\ciofjL§vai$ icepotrog wtgo^ai*",
+      "replace": "μέτρον δὲ τῶν πάντων ὡς πᾶσι τὴν οὐσίαν, καὶ τὸ τέλος ἐπιλάμποντα, καὶ ὡς πάντα περιέχοντα, καὶ ὁρίζοντα ταῖς ἀφθάρτοις αὑτοῦ, καὶ πάντος ὑπερηπλωμέναις πέρατος ὑπεροχαῖς.",
+      "class": "reading",
+      "note": "the print reads \"μέτρον δὲ τῶν πάντων ὡς πᾶσι τὴν οὐσίαν, καὶ τὸ τέλος ἐπιλάμποντα, καὶ ὡς πάντα περιέχοντα, καὶ ὁρίζοντα ταῖς ἀφθάρτοις αὑτοῦ, καὶ πάντος ὑπερηπλωμέναις πέρατος ὑπεροχαῖς\" (page image, printed page 377 = archive n882) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "vav to xXtjJoj rant svahov reov /tm^o/tcvcov otto rmg aurhjTov <rc» paros 07x007x10* tori. oxiXa/xxoi yag too* tou xovjxou jxogoov, xea ha fMcov you, xai njj",
+      "replace": "καὶ τὸ πλῆθος τῶν ἑνάδων τῶν μετεχομένων ὑπό τινος αἰσθητοῦ σώματος ἐγκοσμίου ἐστι. ἐπιλάμπει γὰρ τῶν τοῦ κόσμου μερῶν, καὶ διὰ μέσου νοῦ, καὶ τῆς ψυχῆς.",
+      "class": "reading",
+      "note": "the print reads \"may be removed by reading καὶ τὸ πλῆθος τῶν ἑνάδων τῶν μετεχομένων ὑπό τινος αἰσθητοῦ σώματος ἐγκοσμίου ἐστι. ἐπιλάμπει γὰρ τῶν τοῦ κόσμου μερῶν, καὶ διὰ μέσου νοῦ, καὶ τῆς ψυχῆς\" (page image, printed page 410 = archive n915) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Toov Bum avtipaov ev [MV X eyovrcuv rov Beov a>$ eveoseoog to 0 X 01 $ amov, xcu tolvto$ too ovto$, xcu *a<n}$ %coijr f xcu you too TotvTeXo v; txtxuvct.",
+      "replace": "Τῶν θεῶν ἀνδρῶν ἐν μὲν λεγόντων τὸν θεὸν ὡς ἑνώσας τοῖς οὖσι αἴτιον, καὶ πάντως τοῦ ὄντος, καὶ πάσης ζωῆς, καὶ τοῦ νοῦ παντελῶς ἐπέκεινα.",
+      "class": "reading",
+      "note": "the print reads \"Τῶν θεῶν ἀνδρῶν ἐν μὲν λεγόντων τὸν θεὸν ὡς ἑνώσας τοῖς οὖσι αἴτιον, καὶ πάντως τοῦ ὄντος, καὶ πάσης ζωῆς, καὶ τοῦ νοῦ παντελῶς ἐπέκεινα\" (page image, printed page 377 = archive n882) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xcu tit) raov [isv xati 9 otura voovfxevuiv yevo$ V7cc<rTr)<rctvT0 IhiBayopiXoi nccutie^, eo$ etrava/3e/3i)xo$ to ev",
+      "replace": "καὶ δὴ τῶν μὲν καθ' αὑτὰ νοουμένων γένος ὑπερέχοντα Πυθαγόρειοι λέγουσι, τὸ ἐπαναβεβηκὸς τῷ ἑνί.",
+      "class": "reading",
+      "note": "the print reads \"καὶ δὴ τῶν μὲν καθ' αὑτὰ νοουμένων γένος ὑπερέχοντα Πυθαγόρειοι λέγουσι, τὸ ἐπαναβεβηκὸς τῷ ἑνί\" (page image, printed page 377 = archive n882) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "ev Qeotf apa, ij fxtv Katctgory\\$ ten xai wgcorws ayctiov, xcti ij fgovgct, xat ttccv toiqutov.",
+      "replace": "ἐν τοῖς θεοῖς ἄρα, ἡ μὲν καθαρότης ἐστι καὶ πρῶτον ἀγαθὸν, καὶ ἡ φρουρὰ, καὶ πᾶν τοιοῦτον.",
+      "class": "reading",
+      "note": "the print reads \"it is necessary to supply the words, ἐν τοῖς θεοῖς ἄρα, ἡ μὲν καθαρότης ἐστι καὶ πρῶτον ἀγαθὸν, καὶ ἡ φρουρὰ, καὶ πᾶν τοιοῦτον\" (page image, printed page 405 = archive n910) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xav to reov evatoov rwv /urf^oftcvcov uxo tivo$ ***** yag WTi reov T ou xoTftou /xegcov,",
+      "replace": "καὶ τὸ πλῆθος τῶν ἑνάδων τῶν μετεχομένων ὑπό τινος ***** γάρ ἐστι τῶν τοῦ κόσμου μερῶν,",
+      "class": "reading",
+      "note": "the print reads \"For it is as follows: καὶ τὸ πλῆθος τῶν ἑνάδων τῶν μετεχομένων ὑπό τινος ***** γάρ ἐστι τῶν τοῦ κόσμου μερῶν\" (page image, printed page 410 = archive n915) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "evaxnv 8s itiav, cckq nj$ /xeTe^oftrvitf cy*8o£. fKaa Toy y up tqvt'jov tavrov x. r. A.",
+      "replace": "ἑνώσει δὲ θείαν, ἀπὸ τῆς μετεχομένης ἑνάδος. ἕκαστον γὰρ τούτων ἑαυτοῦ καὶ τ. λ.",
+      "class": "reading",
+      "note": "the print reads \"From the version of Patricius, however, the defect may be supplied as follows: ἑνώσει δὲ θείαν, ἀπὸ τῆς μετεχομένης ἑνάδος. ἕκαστον γὰρ τούτων ἑαυτοῦ καὶ τ. λ.\" (page image, printed page 388 = archive n893) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "yo w t< x£f<r<rov voco 8c xgteeov to ti, oweg ovo/xottypev iiov pavcgov.",
+      "replace": "τὸ δὲ τοιοῦτον οὔ μονον εἶμεν δεῖ, ἀλλὰ καὶ νοῦ τι κρεῖσσον· νοῶ δὲ κρεῖσσον ἐστι, ὅπερ ὀνομάζομεν θεὸν φαίνεσθαι.",
+      "class": "reading",
+      "note": "the Archytas fragment: the print reads \"τὸ δὲ τοιοῦτον οὔ μονον εἶμεν δεῖ, ἀλλὰ καὶ νοῦ τι κρεῖσσον· νοῶ δὲ κρεῖσσον ἐστι, ὅπερ ὀνομάζομεν θεὸν φαίνεσθαι\" (page image, printed page 376 = archive n881) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "ainx ytwi itixij, aXka xot<ra curt * ym ijtixi) oux eon ^cooyowxt),",
+      "replace": "αἰτία γεννητική, ἀλλὰ πᾶσα αἰτία γεννητικὴ οὐκ ἔστι ζωογονική,",
+      "class": "reading",
+      "note": "the print reads \"The words αἰτία γεννητική, ἀλλὰ πᾶσα αἰτία γεννητικὴ οὐκ ἔστι ζωογονική, are wanting in the original\" (page image, printed page 404 = archive n909) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "aXa/xiria, <rxo rcvBiot, apu^la, ftdquBpov uroybovw, AttoMoov",
+      "replace": "ἀχαμία, σκοτία, ἀοπλία, βάραθρον, ὑποχθόνιον, ἀπόλλων",
+      "class": "reading",
+      "note": "the print reads \"such as ἀχαμία, σκοτία, ἀοπλία, βάραθρον, ὑποχθόνιον, ἀπόλλων, &c.\" (page image, printed page 377 = archive n882) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xaimpav, avarpt^tt its rtjy «unj{ fvffiv. to yap o%r)fia.",
+      "replace": "καθαράν, συντρέχειν εἰς τὴν αὑτῆς ἀρχαίαν φύσιν. τὸ γὰρ ὄχημα.",
+      "class": "reading",
+      "note": "the print reads \"I have added the words καθαράν, συντρέχειν εἰς τὴν αὑτῆς ἀρχαίαν φύσιν. τὸ γὰρ ὄχημα\" (page image, printed page 439 = archive n944) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "vow ravros xou ou<ri«$ 8uv«|xci xou •wqtvfiua uwepe^ei",
+      "replace": "νοῦ παντὸς καὶ οὐσίας δυνάμει καὶ πρεσβείᾳ ὑπερίδρυται",
+      "class": "reading",
+      "note": "the print reads \"the first cause νοῦ παντὸς καὶ οὐσίας δυνάμει καὶ πρεσβείᾳ ὑπερίδρυται\" (page image, printed page 376 = archive n881) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "axrre xaj *) fupix y 4 xm ro amov aga to u o%tipctros",
+      "replace": "ὥστε καὶ ἡ μερικὴ ψυχὴ, καὶ τὸ αἴτιον ἄρα τοῦ ὀχήματος αὐτῆς,",
+      "class": "reading",
+      "note": "the print reads \"Instead of ωστε καὶ ἡ μερικὴ ψυχὴ, καὶ τὸ αἴτιον ἄρα τοῦ ὀχήματος αὐτῆς\" (page image, printed page 438 = archive n943) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "owr# xai to oiriov tyj$ fitptxw xm of a tov o^futros",
+      "replace": "ὥστε καὶ τὸ αἴτιον τῆς μερικῆς ψυχῆς, καὶ ἄρα τοῦ ὀχήματος αὐτῆς.",
+      "class": "reading",
+      "note": "the print reads \"to be necessary to read ωστε καὶ τὸ αἴτιον τῆς μερικῆς ψυχῆς, καὶ ἄρα τοῦ ὀχήματος αὐτῆς\" (page image, printed page 438 = archive n943) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "otXXa xeu ouo-ictf, five g &»}$• SijAov yog x. A.",
+      "replace": "ἀλλὰ καὶ οὐσίας, ὥσπερ ζωῆς. δῆλον γὰρ ψυχῆς π.λ.",
+      "class": "reading",
+      "note": "the print reads \"instead of ἀλλὰ καὶ οὐσίας, ὥσπερ ζωῆς. δηλον γὰρ ψυχῆς π.λ.\" (page image, printed page 427 = archive n932) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "aXxeu ov<nag, wctg 8»jAoy. rgo yag x. A.",
+      "replace": "ἀλλὰ καὶ οὐσίας, ὥσπερ ζωῆς δῆλον. περὶ γὰρ ψυχῆς π.λ.",
+      "class": "reading",
+      "note": "the print reads \"may be restored to the true sense by reading ἀλλὰ καὶ οὐσίας, ὥσπερ ζωῆς δηλον. περὶ γὰρ ψυχῆς π.λ.\" (page image, printed page 427 = archive n932) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "wgts mw, s wgos n KgMTTov nri0Tgi$rr««",
+      "replace": "ἢ πρὸς ἑαυτὸν, ἢ πρὸς τὸ κρεῖττον ἐπιστρέφεται",
+      "class": "reading",
+      "note": "the print reads \"it is necessary to supply the words ἢ πρὸς ἑαυτὸν, ἢ πρὸς τὸ κρεῖττον ἐπιστρέφεται which are wanting in the original\" (page image, printed page 406 = archive n911) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xm' tngyiutv Si row ^yovow ptTi%»vc*.",
+      "replace": "κατ' ἐνέργειαν δὲ τοῦ χρόνου μετέχουσα.",
+      "class": "reading",
+      "note": "the print reads \"it is here requisite to supply the words κατ' ἐνέργειαν δὲ τοῦ χρόνου μετέχουσα\" (page image, printed page 428 = archive n933) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "o^gn/frai rqs Xf to f ur K * UT ¥",
+      "replace": "ἐξῆρτηται τῆς χρωμένης αὐτῷ ψυχῆς.",
+      "class": "reading",
+      "note": "the print reads \"it is necessary to read ἐξῆρτηται τῆς χρωμένης αὐτῷ ψυχῆς\" (page image, printed page 438 = archive n943) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "ifjgiyrai Tot$ xpwfjLtvoif out m",
+      "replace": "ἐξῆρται τοῖς χρωμένοις αὐτῷ ψυχῆς,",
+      "class": "reading",
+      "note": "the print reads \"For ἐξῆρται τοῖς χρωμένοις αὐτῷ ψυχῆς, it is necessary to read ἐξῆρτηται τῆς χρωμένης αὐτῷ ψυχῆς\" (page image, printed page 438 = archive n943) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Kara tijv avrou owna* oyi£«.",
+      "replace": "κατὰ τὴν αὐτοῦ οὐσίαν ἀεὶ οὖσαν.",
+      "class": "reading",
+      "note": "the print reads \"to supply in this place the words κατὰ τὴν αὐτοῦ οὐσίαν ἀεὶ οὖσαν\" (page image, printed page 415 = archive n920) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "too to rt\\tiov n ms itots.",
+      "replace": "καὶ τὸ τέλειον ἐν τοῖς θεοῖς.",
+      "class": "reading",
+      "note": "the print reads \"supply the words καὶ τὸ τέλειον ἐν τοῖς θεοῖς\" (page image, printed page 403 = archive n908) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xat ha fj*<rov, xai ttj$",
+      "replace": "καὶ διὰ μέσου, καὶ τῆς ψυχῆς.",
+      "class": "reading",
+      "note": "the print reads \"καὶ διὰ μέσου, καὶ τῆς ψυχῆς. From the version of Patricius\" (page image, printed page 410 = archive n915) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(avro to terno SijXowv)",
+      "replace": "(αὑτὸ τὸ αὑτῷ δηλοῦν)",
+      "class": "reading",
+      "note": "the print reads \"and himself manifesting himself (αὑτὸ τὸ αὑτῷ δηλοῦν)\" (page image, printed page 377 = archive n882) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "x*i axiyijrof, «/ugwro$",
+      "replace": "καὶ ἀκίνητος, ἀμέριστος",
+      "class": "reading",
+      "note": "the print reads \"to supply the words καὶ ἀκίνητος, ἀμέριστος\" (page image, printed page 414 = archive n919) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "mqfartfo* too no;, t it",
+      "replace": "προσεχῶς τοῦ νοῦ, ὁ δὲ μερικὸς ἀριθμὸς ἐγγυτέρω τοῦ ἑνός.",
+      "class": "reading",
+      "note": "the print reads \"it is necessary here to read and supply from the version of Patricius, προσεχῶς του νοῦ, ὁ δὲ μερικὸς ἀριθμὸς ἐγγυτέρω του ἑνός\" (page image, printed page 421 = archive n926) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(tvtpyua *<m irp* voo)",
+      "replace": "(ἐνέργεια γάρ ἐστι πρὸ νοῦ)",
+      "class": "reading",
+      "note": "the print reads \"is an energy prior to intellect (ἐνέργεια γάρ ἐστι πρὸ νοῦ)\" (page image, printed page 382 = archive n887) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "/iWT« It wane t decoy.",
+      "replace": "μετὰ δὲ πάντα θεοῦ.",
+      "class": "reading",
+      "note": "the print reads \"it is necessary to read μετὰ δὲ πάντα θεοῦ\" (page image, printed page 398 = archive n903) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "iuux\"9>rni «v <r»iucns",
+      "replace": "καὶ χωριστὴ τοῦ σώματος",
+      "class": "reading",
+      "note": "the print reads \"it is here necessary to supply the words καὶ χωριστὴ τοῦ σώματος\" (page image, printed page 425 = archive n930) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "jxrr«8iWi To** tfefa.",
+      "replace": "μεταδίδωσι τοῖς ἐφεξῆς.",
+      "class": "reading",
+      "note": "the print reads \"ἑαυτοῦ ἑνώσεως μεταδίδωσι τοῖς ἐφεξῆς.\" (page image, printed page 388 = archive n893) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "o/xoi»$ warra m jcwi.",
+      "replace": "ὁμοίως πάντα νοήσουσιν.",
+      "class": "reading",
+      "note": "the print reads \"it is requisite to supply the words ομοιως παντα νοησουσιν\" (page image, printed page 413 = archive n918) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "4'^X’lf ou Aoyi&piyiK",
+      "replace": "ψυχῆς οὐ λογιζομένης",
+      "class": "reading",
+      "note": "the print reads \"The words ψυχῆς οὐ λογιζομένης are wanting in the original\" (page image, printed page 426 = archive n931) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "»o>jrov to ti rovrcf",
+      "replace": "νοητὸν ἔστι τοῦτο",
+      "class": "reading",
+      "note": "the print reads \"it is necessary to read νοητον εστι τουτο\" (page image, printed page 411 = archive n916) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "vorjjov t<rn. tovto",
+      "replace": "νοητὸν ἔστι. τοῦτο",
+      "class": "reading",
+      "note": "the print reads \"Instead of νοητον εστι. τουτο here, it is necessary to read νοητον εστι τουτο\" (page image, printed page 411 = archive n916) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "jtMra 8* wana 9i»v",
+      "replace": "μετὰ δὲ πάντα θεὸν",
+      "class": "reading",
+      "note": "the print reads \"For μετὰ δὲ πάντα θεὸν, it is necessary to read μετὰ δὲ πάντα θεοῦ\" (page image, printed page 398 = archive n903) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "i) Stoxivi)<n(",
+      "replace": "ᾗ διακίνησις",
+      "class": "reading",
+      "note": "the print reads \"For ᾗ διακινησίς, it is necessary to read ἰδίαν κίνησιν\"; the transcription's \"διὰ κινήσις\" is a misreading of the two words the garble spells (iSi« = ἰδίαν, xiv>j<n$ = κίνησιν) (page image, printed page 433 = archive n938) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "ovo^oy /xovov",
+      "replace": "ὄνομα μόνον",
+      "class": "reading",
+      "note": "the print reads \"Instead of οὐ οὐ μόνον, which is evidently the true reading, ὄνομα μόνον is erroneously printed in Stobæus\" (page image, printed page 376 = archive n881). The page-image transcription of this footnote came back stripped of accents while the same page's body Greek (ὡς ἀνάγκα τρὶς εἶμεν…, οὐ μόνον) is fully accented, so the accents here are RESTORED from the page's own convention, not read off the footnote. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "iSi« xiv>j<n$",
+      "replace": "ἰδίαν κίνησιν",
+      "class": "reading",
+      "note": "the print reads \"it is necessary to read ἰδίαν κίνησιν\" (page image, printed page 433 = archive n938) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "ov ov ftovov",
+      "replace": "οὐ οὐ μόνον",
+      "class": "reading",
+      "note": "the print reads \"Instead of οὐ οὐ μόνον, which is evidently the true reading, ὄνομα μόνον is erroneously printed in Stobæus\" (page image, printed page 376 = archive n881). The page-image transcription of this footnote came back stripped of accents while the same page's body Greek (ὡς ἀνάγκα τρὶς εἶμεν…, οὐ μόνον) is fully accented, so the accents here are RESTORED from the page's own convention, not read off the footnote. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(xupitotie$)",
+      "replace": "(κυριάδες)",
+      "class": "reading",
+      "note": "the print reads \"possessing absolute dominion (κυριάδες)\" (page image, printed page 377 = archive n882) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(Agx^ve ro$)",
+      "replace": "(Ἀρχαίνετος)",
+      "class": "reading",
+      "note": "the print reads \"which Archainetus (Ἀρχαίνετος) denominates a cause prior to cause\" (page image, printed page 377 = archive n882) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "i^giifitvov.",
+      "replace": "ἐξῃρημένον.",
+      "class": "reading",
+      "note": "the print reads \"For ἐξηρημένον it is necessary to read ἐξῃρημένον\" (page image, printed page 404 = archive n909) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "miigu/xtvwy.",
+      "replace": "ἐνιδρυμένον.",
+      "class": "reading",
+      "note": "the print reads \"Here also we must read ἐνιδρυμένον for ἐνιδρυμένον\" (page image, printed page 404 = archive n909) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(«vojroiof)",
+      "replace": "(ἑνωτικὸς)",
+      "class": "reading",
+      "note": "the print reads \"or an unific (ἑνωτικὸς) goodness\" (page image, printed page 390 = archive n895) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "oti «£»fcv,",
+      "replace": "ὅτι ζωῆς ἔξωθεν,",
+      "class": "reading",
+      "note": "the print reads \"Here too, the words ὁτὶ ζωῆς ἐξωθεν, are wanting in the original\" (page image, printed page 427 = archive n932) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "tfygtifUMv",
+      "replace": "ἐξηρημένον",
+      "class": "reading",
+      "note": "the print reads \"For ἐξηρημένον it is necessary to read ἐξῃρημένον\"; the iota of the second form is lost in the transcription's glyph run of the first (page image, printed page 404 = archive n909) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "»<rri. »*»",
+      "replace": "ἐστι. καὶ γὰρ",
+      "class": "reading",
+      "note": "the print reads \"ἀμέριστος ἐστι. καὶ γὰρ\" (page image, printed page 414 = archive n919) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "/urt^orra. «",
+      "replace": "μετέχοντα.",
+      "class": "reading",
+      "note": "the print reads \"it is here necessary to supply the words καὶ τὸν νοῦν μὴ μετέχοντα\" (page image, printed page 422 = archive n927) (decided by the transcription's own context.; the stray « the scanner left after the word is part of the same garble and goes with it."
+    },
+    {
+      "find": "to votgov*",
+      "replace": "τὸ νοερόν",
+      "class": "reading",
+      "note": "the print reads \"it is necessary to read τὸ νοερόν\" (page image, printed page 424 = archive n929) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(/xovov)",
+      "replace": "(μόνος)",
+      "class": "reading",
+      "note": "the print reads \"and alone (μόνος), possessing absolute dominion\" (page image, printed page 377 = archive n882) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "*A»ov<ov",
+      "replace": "πλείονων",
+      "class": "reading",
+      "note": "the print reads \"ὡς πλείονων is omitted in the original\" (page image, printed page 387 = archive n892) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(rpowm)",
+      "replace": "(πρόνοια)",
+      "class": "reading",
+      "note": "the print reads \"But providence (πρόνοια) as the name signifies\" (page image, printed page 382 = archive n887) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "T«y mg*",
+      "replace": "τῶν νοερῶν",
+      "class": "reading",
+      "note": "the print reads \"For τῶν νοερῶν, it is necessary to read τὸ νοερόν\" (page image, printed page 424 = archive n929) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "theii*",
+      "replace": "their",
+      "class": "reading",
+      "note": "the print reads \"Hence things of a secondary nature, from their more partial subsistence\" (page image, printed page 401 = archive n906) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "*avr«",
+      "replace": "πάντα",
+      "class": "reading",
+      "note": "the print reads \"The word παντα is omitted in the original\" (page image, printed page 413 = archive n918) (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xm yog tv toi$ pig tarots at Bova/xti; truvayofj&vat ptv, xiWavXao'tatyrrat, pigiCopcyai Be, aputyouvrat, For powers when congregated are not multiplied, but united. Hence it is necessary to read xat yag iv t ot§ (tegtarotf at Buvafut; truvetyofitvat pev, ivi^ovrat, pegt&pevat Be, woXXawXatrtafyvrat, xat apvlgovvrat,",
+      "replace": "καὶ γὰρ ἐν τοῖς μεριστοῖς αἱ δυνάμεις συναγόμεναι μὲν, πολλαπλασιάζονται, μεριζόμεναι δὲ, ἀμυδροῦνται. For powers when congregated are not multiplied, but united. Hence it is necessary to read καὶ γὰρ ἐν τοῖς μεριστοῖς αἱ δυνάμεις συναγόμεναι μὲν, ἐνίζονται, μεριζόμεναι δὲ, πολλαπλασιάζονται, καὶ ἀμυδροῦνται,",
+      "class": "reading",
+      "note": "the print reads \"There is evidently a very gross error here in the original which is as follows: καὶ γὰρ ἐν τοῖς μεριστοῖς αἱ δυνάμεις συναγόμεναι μὲν, πολλαπλασιάζονται, μεριζόμεναι δὲ, ἀμυδροῦνται. … Hence it is necessary to read καὶ γὰρ ἐν τοῖς μεριστοῖς αἱ δυνάμεις συναγόμεναι μὲν, ἐνίζονται, μεριζόμεναι δὲ, πολλαπλασιάζονται, καὶ ἀμυδροῦνται.\" (page image, printed page 364 = archive n869); the served block is joined from three printed lines and is cut off after apvlgovvrat, so its comma is kept. Every flattened token lines up: xm = καὶ, yog = γὰρ, tv = ἐν, toi$ = τοῖς, pig tarots = μεριστοῖς, at = αἱ, Bova/xti; = δυνάμεις, truvayofj&vat ptv = συναγόμεναι μὲν, xiWavXao'tatyrrat = πολλαπλασιάζονται, pigiCopcyai Be = μεριζόμεναι δὲ, aputyouvrat = ἀμυδροῦνται, ivi^ovrat = ἐνίζονται. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "*m njv axe njf twiriuf xgef taw to msTgrrrixov we read ti tot tori xara njv axo n)( oottxf tytgytta* xgef taun txtrrgfirrixov.",
+      "replace": "ἐστι τὴν ἀπὸ τῆς οὐσίας πρὸς ἑαυτὸ ἐπιστρεπτικὸν we read ἢ οὖν ἐστι κατὰ τὴν ἀπὸ τῆς οὐσίας ἐνέργειαν πρὸς ἑαυτὸ ἐπιστρεπτικόν.",
+      "class": "reading",
+      "note": "the print reads \"…if instead of ἐστι τὴν ἀπὸ τῆς οὐσίας πρὸς ἑαυτὸ ἐπιστρεπτικὸν we read ἢ οὖν ἐστι κατὰ τὴν ἀπὸ τῆς οὐσίας ἐνέργειαν πρὸς ἑαυτὸ ἐπιστρεπτικόν.\" (page image, printed page 332 = archive n837); the served block joins the two hyphenated line-breaks of the source (tw- / iriuf, txt- / rrgfirrixov) without the hyphen, as it does for the block as a whole. The lemma is 8 tokens for 8 words (njv = τὴν, axe = ἀπὸ, twiriuf = οὐσίας, xgef = πρὸς, msTgrrrixov = ἐπιστρεπτικὸν) and the correction 12 for 12 (xara njv = κατὰ τὴν, oottxf = οὐσίας, tytgytta* = ἐνέργειαν, txtrrgfirrixov = ἐπιστρεπτικόν). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For to ouk ctvTov here, it U necessary to read rep at' dvr ov. * For to moT-gf^ov, it is requisite to read to fwj triorff^ov.",
+      "replace": "For τὸ αὐτὸ αὐτοῦ here, it U necessary to read τὸ αὑτὸ αὐτοῦ. * For τὸ ἐπιστρεφόμενον, it is requisite to read τὸ μὴ ἐπιστρεφόμενον.",
+      "class": "reading",
+      "note": "the print reads (note 1) \"For τὸ αὐτὸ αὐτοῦ here, it is necessary to read τὸ αὑτὸ αὐτοῦ.\" and (note 2) \"For τὸ ἐπιστρεφόμενον, it is requisite to read τὸ μὴ ἐπιστρεφόμενον.\" (page image, printed page 331 = archive n836); to ouk ctvTov = τὸ αὐτὸ αὐτοῦ, rep at' dvr ov = τὸ αὑτὸ αὐτοῦ, moT-gf^ov = ἐπιστρεφόμενον, fwj = μὴ. Both footnotes are served in one block. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Instead of fci wgarrov c£ tivcu, it is necessary to read In wge rev «£ etpfow nv*i.",
+      "replace": "Instead of τὸι πρῶτον ἐξ ἀμφοῖν εἶναι, it is necessary to read τὸι πρὸ τοῦ ἐξ ἀμφοῖν εἶναι.",
+      "class": "reading",
+      "note": "the print reads \"Instead of τὸι πρῶτον ἐξ ἀμφοῖν εἶναι, it is necessary to read τὸι πρὸ τοῦ ἐξ ἀμφοῖν εἶναι.\" (page image, printed page 361 = archive n866); fci = τὸι, wgarrov = πρῶτον, c£ = ἐξ, tivcu = ἀμφοῖν εἶναι, In = τὸι, wge rev = πρὸ τοῦ, nv*i = εἶναι (the print's τὸι is as the page prints it). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Instead of it opoiov avo/swiov, it is necessary to read u>s it op«i«v «<; o/toiov.",
+      "replace": "Instead of ὡς δὴ ὁμοίαν ἀνομοίου, it is necessary to read ὡς δ' ὁμοίαν εἰς ὁμοίου.",
+      "class": "reading",
+      "note": "the print reads \"Instead of ὡς δὴ ὁμοίαν ἀνομοίου, it is necessary to read ὡς δ' ὁμοίαν εἰς ὁμοίου.\" (page image, printed page 372 = archive n877); it = ὡς, opoiov = δὴ ὁμοίαν, avo/swiov = ἀνομοίου, u>s = ὡς, op«i«v = ὁμοίαν, «<; = εἰς, o/toiov = ὁμοίου. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For cm to fw ctvrrjv St$0)0*1, it is necessary to read m ro jatr cum\\v $18 «kti.",
+      "replace": "For αν το μεν αυτην διδωσι, it is necessary to read αν το μεν αὐτὴν διδωσι.",
+      "class": "reading",
+      "note": "the print reads \"For αν το μεν αυτην διδωσι, it is necessary to read αν το μεν αὐτὴν διδωσι.\" (page image, printed page 309 = archive n814). The page carries two footnotes, both OCR'd with the marker \"1\"; this is the second (the first, \"For τοῖς αἰτίοις here, it is obviously necessary to read τοῖς αἰτιατοῖς.\", is a separate served block). Each flattened token lines up with a Greek word: to = τὸ, ctvrrjv = αὐτὴν, St$0)0*1 = δίδωσι. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Instead .of *»$ to Stoxgifa, it is necessary to read to; to m haxgitt*.",
+      "replace": "Instead .of μὴ τὸ διακριθῆναι, it is necessary to read μὴ τὸ μὴ διακριθῆναι.",
+      "class": "reading",
+      "note": "the print reads \"Instead of μὴ τὸ διακριθῆναι, it is necessary to read μὴ τὸ μὴ διακριθῆναι.\" (page image, printed page 327 = archive n832); *»$ = μὴ, to = τὸ, Stoxgifa = διακριθῆναι, to; to m = μὴ τὸ μὴ, haxgitt*. = διακριθῆναι. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "nw; y*y«/un> vf’ «u futj^neu, I read tea St Tiro? ymptm ov fUTt^rra i.",
+      "replace": "τινὸς γενομένου υφ' ου μετέχεται, I read καὶ τὸ τινὸς γενομένου υφ' ου μετέχεται.",
+      "class": "reading",
+      "note": "the print reads \"Instead therefore of τινὸς γενομένου υφ' ου μετέχεται, I read καὶ τὸ τινὸς γενομένου υφ' ου μετέχεται.\" (page image, printed page 319 = archive n824); each flattened token lines up: nw; = τινὸς, y*y«/un> = γενομένου, vf' = υφ', «u = ου, futj^neu, = μετέχεται, tea St = καὶ τὸ, fUTt^rra = μετέχεται. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "The words to toiovy tvtpyuet ov o *vto are wanting in the original*",
+      "replace": "The words τὸ ποιοῦν ἐνεργείᾳ ᾗ αὐτὸ δύναμις, are wanting in the original*",
+      "class": "reading",
+      "note": "the print reads \"The words τὸ ποιοῦν ἐνεργείᾳ ᾗ αὐτὸ δύναμις, are wanting in the original.\" (page image, printed page 355 = archive n860); to toiovy = τὸ ποιοῦν, tvtpyuet = ἐνεργείᾳ, ov = ᾗ, o = αὐτὸ, *vto = δύναμις. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Instead of prr' oorto here, it is necewarytoread jmt* mvto.",
+      "replace": "Instead of μετ' αὐτὸν here, it is necewarytoread μετ' αὐτό.",
+      "class": "reading",
+      "note": "the print reads \"Instead of μετ' αὐτὸν here, it is necessary to read μετ' αὐτό.\" (page image, printed page 322 = archive n827); prr' oorto = μετ' αὐτὸν, jmt* mvto = μετ' αὐτό. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For /ujtaniv tetvrou, it it requisite to read fttgimy mwiw.",
+      "replace": "For μεριστὴν ἑαυτοῦ, it it requisite to read μεριστὸν ἑαυτοῦ.",
+      "class": "reading",
+      "note": "the print reads \"For μεριστὴν ἑαυτοῦ, it is requisite to read μεριστὸν ἑαυτοῦ.\" (page image, printed page 333 = archive n838); /ujtaniv = μεριστὴν, tetvrou = ἑαυτοῦ, fttgimy = μεριστὸν, mwiw = ἑαυτοῦ. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "e*v to oj/toi; *v. But instead of eav, we must read *a.v.",
+      "replace": "ἐὰν τὸ εἶναι· εἶ. But instead of ἐὰν, we must read πᾶν.",
+      "class": "reading",
+      "note": "the print reads \"…which should begin at the words ἐὰν τὸ εἶναι· εἶ. But instead of ἐὰν, we must read πᾶν.\" (page image, printed page 358 = archive n863); e*v = ἐὰν, to = τὸ, oj/toi; = εἶναι, *v = εἶ, eav = ἐὰν, *a.v = πᾶν. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For v*t*niunt{, it is necessary to read wifm/wotf.",
+      "replace": "For ὑποκείμενοις, it is necessary to read ὑπεριδρυμένοις.",
+      "class": "reading",
+      "note": "the print reads \"For ὑποκείμενοις, it is necessary to read ὑπεριδρυμένοις.\" (page image, printed page 374 = archive n879); v*t*niunt{, = ὑποκείμενοις, wifm/wotf. = ὑπεριδρυμένοις. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "ugpfns »*p«w» s,",
+      "replace": "ἄρρητος ἐξέλευσις,",
+      "class": "reading",
+      "note": "the print reads \"…the imparticipable from the ineffable is ἄρρητος ἐξέλευσις, an ineffable evolution into light.\" (page image, printed page 366 = archive n871); ugpfns = ἄρρητος, »*p«w» s, = ἐξέλευσις, (the print's comma). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "too ovtoj seems to be wanting",
+      "replace": "τοῦ ὄντος seems to be wanting",
+      "class": "reading",
+      "note": "the print reads \"τοῦ ὄντος seems to be wanting here in the original\" (page image, printed page 352 = archive n857). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "xa* on «XAo in this place",
+      "replace": "καὶ ἔτι ἄλλο in this place",
+      "class": "reading",
+      "note": "CORRECTED 2026-10-03. Three independent reads of the page image (printed page 321 = archive n826) give \"Instead of καὶ ἔτι ἄλλο in this place, it appears to me to be necessary to read καὶ ἔτι ἄλλοις\" (variants: ἄλλας / ἐπ' ἄλλοις) — the second word is ἔτι, and NO read supports the οὐκ this rule previously recorded (that reading came from a single earlier page read and is refuted). xa* = καὶ, on = ἔτι, «XAo = ἄλλο. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "«Aoy is omitted",
+      "replace": "ὅλον is omitted",
+      "class": "reading",
+      "note": "the print reads \"ὅλον is omitted in the original\" (page image, printed page 351 = archive n856); the « and the y are the OCR of the smooth breathing and of λλ. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(ro t»)",
+      "replace": "(τὸ τὶ)",
+      "class": "reading",
+      "note": "the print reads \"(τὸ τὶ)\" — \"i. e. Any thing which is not universal (τὸ τὶ)\" (page image, printed page 352 = archive n857). (decided by the transcription's own context.)"
+    },
+    {
+      "find": "incomprehensible and uncircurnscribed",
+      "replace": "incomprehensible and uncircumscribed",
+      "class": "reading",
+      "note": "OCR inserted rn in 'uncircumscribed'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that which is not' separated",
+      "replace": "that which is not separated",
+      "class": "reading",
+      "note": "Stray apostrophe after 'not'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "partible natures irapartibly",
+      "replace": "partible natures impartibly",
+      "class": "reading",
+      "note": "OCR inserted r in 'impartibly'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "dividing ihe communications",
+      "replace": "dividing the communications",
+      "class": "reading",
+      "note": "OCR substituted i for t in 'the'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that which is intellectual*",
+      "replace": "that which is intellectual",
+      "class": "reading",
+      "note": "Damage character * after 'intellectual'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "essentially inefficacious*",
+      "replace": "essentially inefficacious",
+      "class": "reading",
+      "note": "Damage character * after 'inefficacious'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Nor is infinity beings For",
+      "replace": "Nor is infinity being. For",
+      "class": "reading",
+      "note": "OCR added s to 'being' and missing period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "form of the one y ia which",
+      "replace": "form of the one, in which",
+      "class": "reading",
+      "note": "OCR corrupted comma and 'in' into 'y ia'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "a less or greater * number",
+      "replace": "a less or greater number",
+      "class": "reading",
+      "note": "Damage character * after 'greater'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "neighbouring bodies-Hence",
+      "replace": "neighbouring bodies. Hence",
+      "class": "reading",
+      "note": "Two words fused by hyphen: 'bodies-Hence'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "many things parti* cipate",
+      "replace": "many things participate",
+      "class": "reading",
+      "note": "Damage character * splits 'participate'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which are entirelydivided",
+      "replace": "which are entirely divided",
+      "class": "reading",
+      "note": "Two words fused: 'entirelydivided'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "energize intellectually.*",
+      "replace": "energize intellectually.",
+      "class": "reading",
+      "note": "Damage character * after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "destitute of peadiar life",
+      "replace": "destitute of peculiar life",
+      "class": "reading",
+      "note": "OCR corrupted 'peculiar' into 'peadiar'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "perfective of other* Gods",
+      "replace": "perfective of other Gods",
+      "class": "reading",
+      "note": "Damage character * after 'other'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "conjoined with them* For",
+      "replace": "conjoined with them. For",
+      "class": "reading",
+      "note": "Damage character * replaces period after 'them'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "of participate intellect",
+      "replace": "of participated intellect",
+      "class": "reading",
+      "note": "OCR omitted d in 'participated'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "perfected through, their",
+      "replace": "perfected through their",
+      "class": "reading",
+      "note": "Stray comma after 'through'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "with life externally.] *",
+      "replace": "with life externally.]",
+      "class": "reading",
+      "note": "Damage character * after bracket. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "intellectually withtran-",
+      "replace": "intellectually with tran-",
+      "class": "reading",
+      "note": "Words fused: 'withtran-'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which is not* converted",
+      "replace": "which is not converted",
+      "class": "reading",
+      "note": "Damage character * after 'not'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "such as it is f depends",
+      "replace": "such as it is, depends",
+      "class": "reading",
+      "note": "OCR f replaces comma in 'is, depends'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that which'participates",
+      "replace": "that which participates",
+      "class": "reading",
+      "note": "Apostrophe fuses 'which' and 'participates'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For a particular' thing",
+      "replace": "For a particular thing",
+      "class": "reading",
+      "note": "Stray apostrophe after 'particular'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "abundant and unen vying",
+      "replace": "abundant and unenvying",
+      "class": "reading",
+      "note": "Word broken by space: 'unen vying'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "essence and bound \\ and",
+      "replace": "essence and bound and",
+      "class": "reading",
+      "note": "Damage character \\ inserted in phrase. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "should be gene* N rated",
+      "replace": "should be generated",
+      "class": "reading",
+      "note": "Damage characters * N split 'generated'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "above all knowledge *nd",
+      "replace": "above all knowledge and",
+      "class": "reading",
+      "note": "Damage character * replaces a in 'and'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "either * intellectually",
+      "replace": "either intellectually",
+      "class": "reading",
+      "note": "Damage character * after 'either'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "secondary intellects *3",
+      "replace": "secondary intellects",
+      "class": "reading",
+      "note": "Damage characters *3 after 'intellects'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "possesses Rn invariable",
+      "replace": "possesses an invariable",
+      "class": "reading",
+      "note": "OCR substituted R for a in 'an'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "[truly existing! beings",
+      "replace": "[truly existing] beings",
+      "class": "reading",
+      "note": "OCR substituted ! for closing bracket. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "always is not 5 eternal",
+      "replace": "always is not eternal",
+      "class": "reading",
+      "note": "Artefact 5 after 'not'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "former indeed accoridng",
+      "replace": "former indeed according",
+      "class": "reading",
+      "note": "OCR transposed 'according' to 'accoridng'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the vehicle '3 imitates",
+      "replace": "the vehicle imitates",
+      "class": "reading",
+      "note": "Artefact '3 after 'vehicle'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "since this is. neither",
+      "replace": "since this is neither",
+      "class": "reading",
+      "note": "Stray period after 'is'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "and will, be converted",
+      "replace": "and will be converted",
+      "class": "reading",
+      "note": "Stray comma after 'will'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "else fas in a subject]",
+      "replace": "else as in a subject]",
+      "class": "reading",
+      "note": "OCR added f before 'as'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which is .participated",
+      "replace": "which is participated",
+      "class": "reading",
+      "note": "Stray period before 'participated'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "primarily, tire series",
+      "replace": "primarily, the series",
+      "class": "reading",
+      "note": "OCR substituted tire for the. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "darkness and obgptrity",
+      "replace": "darkness and obscurity",
+      "class": "reading",
+      "note": "OCR corrupted 'obscurity' into 'obgptrity'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "followers of Hesiod.,,",
+      "replace": "followers of Hesiod.,",
+      "class": "reading",
+      "note": "Double comma after 'Hesiod'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "will be syperessential",
+      "replace": "will be superessential",
+      "class": "reading",
+      "note": "OCR substituted y for u in 'superessential'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "being indeed able * to",
+      "replace": "being indeed able to",
+      "class": "reading",
+      "note": "Damage character * after 'able'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "guardian, k convertive",
+      "replace": "guardian, a convertive",
+      "class": "reading",
+      "note": "OCR substituted k for a. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "their own impartiality",
+      "replace": "their own impartibility",
+      "class": "reading",
+      "note": "OCR substituted m for t in 'impartibility'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "converted to itself, »",
+      "replace": "converted to itself,",
+      "class": "reading",
+      "note": "Damage character » after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Every participate soul",
+      "replace": "Every participated soul",
+      "class": "reading",
+      "note": "OCR omitted d in 'participated'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "it will-be indivisible",
+      "replace": "it will be indivisible",
+      "class": "reading",
+      "note": "Hyphen inserted in 'will be'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "moved in. consequence",
+      "replace": "moved in consequence",
+      "class": "reading",
+      "note": "Stray period after 'in'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "things, Q. e. matter]",
+      "replace": "things, i. e. matter]",
+      "class": "reading",
+      "note": "OCR substituted Q for i in 'i. e.'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which Mas in capacity",
+      "replace": "which was in capacity",
+      "class": "reading",
+      "note": "OCR substituted M for w in 'was'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "account of rnagnitude",
+      "replace": "account of magnitude",
+      "class": "reading",
+      "note": "OCR added r before 'magnitude'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "measure qf all things",
+      "replace": "measure of all things",
+      "class": "reading",
+      "note": "OCR substituted q for o in 'of'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "of the supercssential",
+      "replace": "of the superessential",
+      "class": "reading",
+      "note": "OCR omitted e in 'superessential'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "is a God i providence",
+      "replace": "is a God; providence",
+      "class": "reading",
+      "note": "OCR substituted i for semicolon. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "according to hvparxis",
+      "replace": "according to hyparxis",
+      "class": "reading",
+      "note": "OCR substituted v for y in 'hyparxis'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "nearer to the one; *]",
+      "replace": "nearer to the one;]",
+      "class": "reading",
+      "note": "Damage characters *] after semicolon. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "from an. intellectual",
+      "replace": "from an intellectual",
+      "class": "reading",
+      "note": "Stray period after 'an'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "essences. . Knowledge",
+      "replace": "essences. Knowledge",
+      "class": "reading",
+      "note": "Stray period before 'Knowledge'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "measured by periods.,",
+      "replace": "measured by periods.",
+      "class": "reading",
+      "note": "Stray comma after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "jt will also perfect",
+      "replace": "it will also perfect",
+      "class": "reading",
+      "note": "OCR substituted j for i in 'it'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the fqrmer supplying",
+      "replace": "the former supplying",
+      "class": "reading",
+      "note": "OCR substituted q for o in 'former'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "present to ay things",
+      "replace": "present to all things",
+      "class": "reading",
+      "note": "OCR corrupted 'all' into 'ay'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "separated front them",
+      "replace": "separated from them",
+      "class": "reading",
+      "note": "OCR substituted ront for rom in 'from'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "adapted to* generate",
+      "replace": "adapted to generate",
+      "class": "reading",
+      "note": "Damage character * after 'to'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "according to esseuce",
+      "replace": "according to essence",
+      "class": "reading",
+      "note": "OCR substituted u for n in 'essence'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "but other? according",
+      "replace": "but others according",
+      "class": "reading",
+      "note": "OCR substituted ? for s in 'others'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which is prima* rily",
+      "replace": "which is primarily",
+      "class": "reading",
+      "note": "Damage character * splits 'primarily'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "thing caused * prior",
+      "replace": "thing caused prior",
+      "class": "reading",
+      "note": "Damage character * after 'caused'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which is it): energy",
+      "replace": "which is in energy",
+      "class": "reading",
+      "note": "OCR corrupted 'in' into 'it):'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "prior to that* which",
+      "replace": "prior to that which",
+      "class": "reading",
+      "note": "Damage character * after 'that'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "infinity, winch does",
+      "replace": "infinity, which does",
+      "class": "reading",
+      "note": "OCR substituted n for h in 'which'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "in the Gods‘unically",
+      "replace": "in the Gods unically",
+      "class": "reading",
+      "note": "Curly quote inserted in phrase. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "hyparxis of th§ Gods",
+      "replace": "hyparxis of the Gods",
+      "class": "reading",
+      "note": "OCR substituted § for e in 'the'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": ", Every thing divine",
+      "replace": "Every thing divine",
+      "class": "reading",
+      "note": "Leading comma before 'Every'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "any thing else-prior",
+      "replace": "any thing else prior",
+      "class": "reading",
+      "note": "Hyphen inserted in 'else prior'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "preserving* a circle",
+      "replace": "preserving a circle",
+      "class": "reading",
+      "note": "Damage character * after 'preserving'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "But i imparticipable",
+      "replace": "But imparticipable",
+      "class": "reading",
+      "note": "Stray i before 'imparticipable'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "being co-distribuled",
+      "replace": "being co-distributed",
+      "class": "reading",
+      "note": "OCR corrupted 'co-distributed' into 'co-distribuled'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "all things are in aU",
+      "replace": "all things are in all",
+      "class": "reading",
+      "note": "OCR substituted U for l in 'all'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which ist primarily",
+      "replace": "which is primarily",
+      "class": "reading",
+      "note": "OCR added t to 'is'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that which ia moved",
+      "replace": "that which is moved",
+      "class": "reading",
+      "note": "OCR substituted a for s in 'is'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "are self-subsisteut",
+      "replace": "are self-subsistent",
+      "class": "reading",
+      "note": "OCR substituted u for n in 'self-subsistent'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "causes -will impart",
+      "replace": "causes will impart",
+      "class": "reading",
+      "note": "Stray hyphen before 'will'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "but through * their",
+      "replace": "but through their",
+      "class": "reading",
+      "note": "Damage character * after 'through'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "according to itsown",
+      "replace": "according to its own",
+      "class": "reading",
+      "note": "Two words fused: 'itsown'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which is im another",
+      "replace": "which is in another",
+      "class": "reading",
+      "note": "OCR substituted m for n in 'in'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "superessential,* is",
+      "replace": "superessential, is",
+      "class": "reading",
+      "note": "Damage character * after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "(De Coclo, p. 147.)",
+      "replace": "(De Caelo, p. 147.)",
+      "class": "reading",
+      "note": "OCR corrupted 'Caelo' into 'Coclo'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "one being for being",
+      "replace": "one being or being",
+      "class": "reading",
+      "note": "OCR substituted for for or. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that which is Jirst",
+      "replace": "that which is first",
+      "class": "reading",
+      "note": "OCR substituted J for f in 'first'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "sympathize uith all",
+      "replace": "sympathize with all",
+      "class": "reading",
+      "note": "OCR substituted u for w in 'with'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "it entirety departs",
+      "replace": "it entirely departs",
+      "class": "reading",
+      "note": "OCR substituted entirety for entirely. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "according to -which",
+      "replace": "according to which",
+      "class": "reading",
+      "note": "Stray hyphen before 'which'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "is truly infinite.*",
+      "replace": "is truly infinite.",
+      "class": "reading",
+      "note": "Damage character * after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "without magnitude,*",
+      "replace": "without magnitude,",
+      "class": "reading",
+      "note": "Damage character * after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "allied to the one,,",
+      "replace": "allied to the one,",
+      "class": "reading",
+      "note": "Double comma after 'one'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "essence of souls, *",
+      "replace": "essence of souls,",
+      "class": "reading",
+      "note": "Damage character * after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "from the goody are",
+      "replace": "from the good, are",
+      "class": "reading",
+      "note": "OCR substituted y for comma in 'good,'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "all msfevUne light",
+      "replace": "all mundane light",
+      "class": "reading",
+      "note": "OCR corrupted 'mundane' into 'msfevUne'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which is. produced",
+      "replace": "which is produced",
+      "class": "reading",
+      "note": "Stray period after 'is'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "without a medium,,",
+      "replace": "without a medium,",
+      "class": "reading",
+      "note": "Double comma after 'medium'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "from its cause* If",
+      "replace": "from its cause. If",
+      "class": "reading",
+      "note": "Damage character * replaces period after 'cause'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "as tothe principle",
+      "replace": "as to the principle",
+      "class": "reading",
+      "note": "Two words fused: 'to the' into 'tothe'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Every tiling which",
+      "replace": "Every thing which",
+      "class": "reading",
+      "note": "OCR substituted l for h in 'thing'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "embraces of bound)",
+      "replace": "embraces of bound,",
+      "class": "reading",
+      "note": "Closing parenthesis replaces comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "energizes prion to",
+      "replace": "energizes prior to",
+      "class": "reading",
+      "note": "OCR substituted n for r in 'prior'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "is uble to produce",
+      "replace": "is able to produce",
+      "class": "reading",
+      "note": "OCR omitted a in 'able'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "cause-of a greater",
+      "replace": "cause of a greater",
+      "class": "reading",
+      "note": "Hyphen inserted in 'cause of'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "every tiling which",
+      "replace": "every thing which",
+      "class": "reading",
+      "note": "OCR substituted l for h in 'thing'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "becomes in. energy",
+      "replace": "becomes in energy",
+      "class": "reading",
+      "note": "Stray period after 'in'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Scholiast bbserves",
+      "replace": "Scholiast observes",
+      "class": "reading",
+      "note": "OCR added b to 'observes'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "indeed is finite,*",
+      "replace": "indeed is finite,",
+      "class": "reading",
+      "note": "Damage character * after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Orpheus and Musxus",
+      "replace": "Orpheus and Musaeus",
+      "class": "reading",
+      "note": "OCR corrupted 'Musaeus' into 'Musxus'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "according to ' the",
+      "replace": "according to the",
+      "class": "reading",
+      "note": "Stray apostrophe after 'to'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "energy. ITence, in",
+      "replace": "energy. Hence, in",
+      "class": "reading",
+      "note": "OCR corrupted 'Hence' into 'ITence'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "according to one.*",
+      "replace": "according to one.",
+      "class": "reading",
+      "note": "Damage character * after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "if ail impartibles",
+      "replace": "if all impartibles",
+      "class": "reading",
+      "note": "OCR substituted i for l in 'all'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "peculiar motion. *",
+      "replace": "peculiar motion.",
+      "class": "reading",
+      "note": "Damage character * after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "fience there will",
+      "replace": "Hence there will",
+      "class": "reading",
+      "note": "OCR corrupted 'Hence' into 'fience'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "at the satoe time",
+      "replace": "at the same time",
+      "class": "reading",
+      "note": "OCR corrupted 'same' into 'satoe'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Thus lor instance",
+      "replace": "Thus for instance",
+      "class": "reading",
+      "note": "OCR substituted l for f in 'for'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "species of light)",
+      "replace": "species of light,",
+      "class": "reading",
+      "note": "Closing parenthesis replaces comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "to thing} similar",
+      "replace": "to things similar",
+      "class": "reading",
+      "note": "Damage character } in 'things'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "are itt a greater",
+      "replace": "are in a greater",
+      "class": "reading",
+      "note": "OCR corrupted 'in' into 'itt'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "both arc allotted",
+      "replace": "both are allotted",
+      "class": "reading",
+      "note": "OCR substituted c for e in 'are'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that 6rst natures",
+      "replace": "that first natures",
+      "class": "reading",
+      "note": "OCR substituted 6 for fi in 'first'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "is alohe produced",
+      "replace": "is alone produced",
+      "class": "reading",
+      "note": "OCR substituted h for n in 'alone'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "from essence,' it",
+      "replace": "from essence, it",
+      "class": "reading",
+      "note": "Stray apostrophe after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "not yet* existing",
+      "replace": "not yet existing",
+      "class": "reading",
+      "note": "Damage character * after 'yet'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "trifling impulse)",
+      "replace": "trifling impulse,",
+      "class": "reading",
+      "note": "Closing parenthesis replaces comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "two-fold power. *",
+      "replace": "two-fold power.",
+      "class": "reading",
+      "note": "Damage character * after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "by the . prolific",
+      "replace": "by the prolific",
+      "class": "reading",
+      "note": "Stray period before 'prolific'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "no where \\vithout",
+      "replace": "no where without",
+      "class": "reading",
+      "note": "Damage character \\ in '\\vithout'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "place pr&clari is",
+      "replace": "place praeclari is",
+      "class": "reading",
+      "note": "OCR corrupted 'praeclari' into 'pr&clari'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "translated Juit f",
+      "replace": "translated first",
+      "class": "reading",
+      "note": "OCR corrupted 'first' into 'Juit f'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "to the body 5 and",
+      "replace": "to the body; and",
+      "class": "reading",
+      "note": "OCR substituted 5 for semicolon. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "exclude them irom",
+      "replace": "exclude them from",
+      "class": "reading",
+      "note": "OCR corrupted 'from' into 'irom'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "strictly 6peaking",
+      "replace": "strictly speaking",
+      "class": "reading",
+      "note": "OCR substituted 6 for s in 'speaking'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Eimead 4. lib. 3.",
+      "replace": "Ennead 4. lib. 3.",
+      "class": "reading",
+      "note": "OCR corrupted 'Ennead' into 'Eimead'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "of divine lathers",
+      "replace": "of divine fathers",
+      "class": "reading",
+      "note": "OCR substituted l for f in 'fathers'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "a certain being.*",
+      "replace": "a certain being.",
+      "class": "reading",
+      "note": "Damage character * after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "belong to patures",
+      "replace": "belong to natures",
+      "class": "reading",
+      "note": "OCR corrupted 'natures' into 'patures'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "of its vehicle, *",
+      "replace": "of its vehicle,",
+      "class": "reading",
+      "note": "Damage character * after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which sometimes*]",
+      "replace": "which sometimes]",
+      "class": "reading",
+      "note": "Damage character * before bracket. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "participated/ is",
+      "replace": "participated is",
+      "class": "reading",
+      "note": "Damage character / replaces comma after 'participated'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "posterior to'it*",
+      "replace": "posterior to it",
+      "class": "reading",
+      "note": "Stray apostrophe and asterisk in 'to'it*'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "are mote similar",
+      "replace": "are more similar",
+      "class": "reading",
+      "note": "OCR substituted t for r in 'more'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "it alone abided*",
+      "replace": "it alone abided,",
+      "class": "reading",
+      "note": "Damage character * replaces comma after 'abided'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "any one oi these",
+      "replace": "any one of these",
+      "class": "reading",
+      "note": "OCR substituted i for f in 'of'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "remote firom the",
+      "replace": "remote from the",
+      "class": "reading",
+      "note": "OCR corrupted 'from' into 'firom'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that is one . As",
+      "replace": "that is one. As",
+      "class": "reading",
+      "note": "Stray space before period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the dim}* nution",
+      "replace": "the diminution",
+      "class": "reading",
+      "note": "Damage characters }* split 'diminution'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "has aa immutable",
+      "replace": "has an immutable",
+      "class": "reading",
+      "note": "OCR substituted aa for an. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "other, an4 which",
+      "replace": "other, and which",
+      "class": "reading",
+      "note": "OCR substituted 4 for d in 'and'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "becomes irabecil",
+      "replace": "becomes imbecil",
+      "class": "reading",
+      "note": "OCR corrupted 'imbecil' into 'irabecil'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "it i? impartible",
+      "replace": "it is impartible",
+      "class": "reading",
+      "note": "OCR substituted ? for s in 'is'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "all die infinity",
+      "replace": "all the infinity",
+      "class": "reading",
+      "note": "OCR substituted die for the. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the power# which",
+      "replace": "the power which",
+      "class": "reading",
+      "note": "Damage character # in 'power#'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "something else.*",
+      "replace": "something else.",
+      "class": "reading",
+      "note": "Damage character * after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "series £of which",
+      "replace": "series [of which",
+      "class": "reading",
+      "note": "OCR substituted £ for opening bracket. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "And whengfe will",
+      "replace": "And whence will",
+      "class": "reading",
+      "note": "OCR corrupted 'whence' into 'whengfe'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "is the cause o a",
+      "replace": "is the cause of a",
+      "class": "reading",
+      "note": "OCR omitted f in 'of'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "and one,unity is",
+      "replace": "and one unity is",
+      "class": "reading",
+      "note": "Comma fused with 'unity'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "with each otherj",
+      "replace": "with each other;",
+      "class": "reading",
+      "note": "OCR substituted j for semicolon. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "universal sound$",
+      "replace": "universal sound;",
+      "class": "reading",
+      "note": "OCR substituted $ for semicolon. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "united isevident",
+      "replace": "united is evident",
+      "class": "reading",
+      "note": "Two words fused: 'isevident'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "supply die words",
+      "replace": "supply the words",
+      "class": "reading",
+      "note": "OCR substituted die for the. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Sinee, therefore",
+      "replace": "Since, therefore",
+      "class": "reading",
+      "note": "OCR corrupted 'Since' into 'Sinee'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "pre>subsistence",
+      "replace": "pre-subsistence",
+      "class": "reading",
+      "note": "Damage character > replaces hyphen in 'pre-subsistence'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "things of wbioh",
+      "replace": "things of which",
+      "class": "reading",
+      "note": "OCR corrupted 'which' into 'wbioh'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "remote art more",
+      "replace": "remote are more",
+      "class": "reading",
+      "note": "OCR substituted t for e in 'are'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "if ^ conversion",
+      "replace": "if conversion",
+      "class": "reading",
+      "note": "Damage character ^ after 'if'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "stop m the same",
+      "replace": "stop in the same",
+      "class": "reading",
+      "note": "OCR substituted m for in in 'in the'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Hence) they are",
+      "replace": "Hence, they are",
+      "class": "reading",
+      "note": "Closing parenthesis replaces comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "eminent degree)",
+      "replace": "eminent degree,",
+      "class": "reading",
+      "note": "Closing parenthesis replaces comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "to the one t is",
+      "replace": "to the one, is",
+      "class": "reading",
+      "note": "OCR substituted t for comma after 'one'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "to the one y so",
+      "replace": "to the one, so",
+      "class": "reading",
+      "note": "OCR substituted y for comma after 'one'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "just as- hodies",
+      "replace": "just as bodies",
+      "class": "reading",
+      "note": "OCR corrupted 'bodies' into 'hodies' with stray hyphen. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "impartible, hut",
+      "replace": "impartible, but",
+      "class": "reading",
+      "note": "OCR substituted u for b in 'but'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "if beiugs which",
+      "replace": "if beings which",
+      "class": "reading",
+      "note": "OCR substituted u for n in 'beings'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "matter)^ Jorm y",
+      "replace": "matter), form y",
+      "class": "reading",
+      "note": "OCR substituted J for f in 'form'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the Jirst thing",
+      "replace": "the first thing",
+      "class": "reading",
+      "note": "OCR substituted J for f in 'first'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "their own uuion",
+      "replace": "their own union",
+      "class": "reading",
+      "note": "OCR duplicated u in 'union'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "body the last,*",
+      "replace": "body the last,",
+      "class": "reading",
+      "note": "Damage character * after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "into nonrentity",
+      "replace": "into nonentity",
+      "class": "reading",
+      "note": "OCR inserted r in 'nonentity'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "conjoins h soul",
+      "replace": "conjoins a soul",
+      "class": "reading",
+      "note": "OCR substituted h for a. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "these falone] P",
+      "replace": "these alone]?",
+      "class": "reading",
+      "note": "OCR corrupted 'alone]?' into 'falone] P'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "invested iu its",
+      "replace": "invested in its",
+      "class": "reading",
+      "note": "OCR substituted u for n in 'in'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "parti* cipates",
+      "replace": "participates",
+      "class": "reading",
+      "note": "Damage character * splits the word 'participates'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "from the moon*",
+      "replace": "from the moon,",
+      "class": "reading",
+      "note": "Damage character * replaces comma after 'moon'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that eacb will",
+      "replace": "that each will",
+      "class": "reading",
+      "note": "OCR substituted b for h in 'each'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "in a „ similar",
+      "replace": "in a similar",
+      "class": "reading",
+      "note": "Artefact „ after 'a'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "that which' is",
+      "replace": "that which is",
+      "class": "reading",
+      "note": "Stray apostrophe after 'which'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "from the eause",
+      "replace": "from the cause",
+      "class": "reading",
+      "note": "OCR substituted e for c in 'cause'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "a subject* can",
+      "replace": "a subject can",
+      "class": "reading",
+      "note": "Damage character * after 'subject'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "essentially. >",
+      "replace": "essentially.",
+      "class": "reading",
+      "note": "Damage character > after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Hence, ♦ there",
+      "replace": "Hence, there",
+      "class": "reading",
+      "note": "Artefact ♦ after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the wolds that",
+      "replace": "the words that",
+      "class": "reading",
+      "note": "OCR substituted l for r in 'words'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Bui the former",
+      "replace": "But the former",
+      "class": "reading",
+      "note": "OCR substituted Bui for But. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "is un begotten",
+      "replace": "is unbegotten",
+      "class": "reading",
+      "note": "Word broken by space: 'un begotten'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the immortal.'",
+      "replace": "the immortal.",
+      "class": "reading",
+      "note": "Stray apostrophe after period. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "than inteU led",
+      "replace": "than intellect",
+      "class": "reading",
+      "note": "OCR corrupted 'intellect' into 'inteU led'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "— (€ surpasses",
+      "replace": "— ( surpasses",
+      "class": "reading",
+      "note": "OCR inserted € before 'surpasses'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "was generate#'",
+      "replace": "was generated,",
+      "class": "reading",
+      "note": "OCR corrupted 'generated,' into 'generate#'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "and is hot yet",
+      "replace": "and is not yet",
+      "class": "reading",
+      "note": "OCR substituted h for n in 'not'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "each of• these",
+      "replace": "each of these",
+      "class": "reading",
+      "note": "Artefact • after 'of'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "It is| however",
+      "replace": "It is however",
+      "class": "reading",
+      "note": "Damage character | in 'is|'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "union. »And if",
+      "replace": "union. And if",
+      "class": "reading",
+      "note": "Damage character » before 'And'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "produced fin a",
+      "replace": "produced in a",
+      "class": "reading",
+      "note": "OCR inserted f in 'in a'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "if R consists",
+      "replace": "if it consists",
+      "class": "reading",
+      "note": "OCR substituted R for it. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the goody and",
+      "replace": "the good, and",
+      "class": "reading",
+      "note": "OCR substituted y for comma in 'good,'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "to tHat which",
+      "replace": "to that which",
+      "class": "reading",
+      "note": "OCR capitalized H in 'that'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "after it* how",
+      "replace": "after it, how",
+      "class": "reading",
+      "note": "Damage character * replaces comma after 'it'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "' Every being",
+      "replace": "Every being",
+      "class": "reading",
+      "note": "Stray apostrophe before 'Every'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "to be so* yet",
+      "replace": "to be so, yet",
+      "class": "reading",
+      "note": "Damage character * replaces comma after 'so'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "but the oth^r",
+      "replace": "but the other",
+      "class": "reading",
+      "note": "Damage character ^ in 'other'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "part winch is",
+      "replace": "part which is",
+      "class": "reading",
+      "note": "OCR substituted n for h in 'which'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "besides^ this",
+      "replace": "besides this",
+      "class": "reading",
+      "note": "Damage character ^ in 'besides^'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "[immediately}",
+      "replace": "[immediately]",
+      "class": "reading",
+      "note": "Damage character } replaces closing bracket. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "being ol both",
+      "replace": "being of both",
+      "class": "reading",
+      "note": "OCR substituted l for f in 'of'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "accompa* nied",
+      "replace": "accompanied",
+      "class": "reading",
+      "note": "Damage character * splits 'accompanied'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "be Cor rising",
+      "replace": "be or rising",
+      "class": "reading",
+      "note": "OCR substituted C for o in 'or'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "its being But",
+      "replace": "its being. But",
+      "class": "reading",
+      "note": "Missing period between 'being' and 'But'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "from sieep to",
+      "replace": "from sleep to",
+      "class": "reading",
+      "note": "OCR substituted ie for l in 'sleep'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "less, hut the",
+      "replace": "less, but the",
+      "class": "reading",
+      "note": "OCR substituted u for b in 'but'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "firom it, but",
+      "replace": "from it, but",
+      "class": "reading",
+      "note": "OCR corrupted 'from' into 'firom'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "cause Cbut is",
+      "replace": "cause [but is",
+      "class": "reading",
+      "note": "OCR substituted C for opening bracket. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "a leSs number",
+      "replace": "a less number",
+      "class": "reading",
+      "note": "OCR capitalized S in 'less'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "is necessary*",
+      "replace": "is necessary",
+      "class": "reading",
+      "note": "Damage character * after 'necessary'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "If„ therefore",
+      "replace": "If therefore",
+      "class": "reading",
+      "note": "Artefact „ after 'If'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "appear to. be",
+      "replace": "appear to be",
+      "class": "reading",
+      "note": "Stray period after 'to'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "<9very series",
+      "replace": "Every series",
+      "class": "reading",
+      "note": "Artefact <9 before 'very'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "which are‘not",
+      "replace": "which are not",
+      "class": "reading",
+      "note": "Curly quote inserted in 'are not'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "But (he unity",
+      "replace": "But the unity",
+      "class": "reading",
+      "note": "OCR substituted ( for t in 'the'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "order £ which",
+      "replace": "order [which",
+      "class": "reading",
+      "note": "OCR substituted £ for opening bracket. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "In Prop. ff.",
+      "replace": "In Prop. 11.",
+      "class": "reading",
+      "note": "OCR corrupted '11' into 'ff'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "and. another",
+      "replace": "and another",
+      "class": "reading",
+      "note": "Stray period after 'and'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "relation' of",
+      "replace": "relation of",
+      "class": "reading",
+      "note": "Stray apostrophe after 'relation'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "«. COROLLARY",
+      "replace": "COROLLARY",
+      "class": "reading",
+      "note": "Damage characters «. before COROLLARY. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "not b.e able",
+      "replace": "not be able",
+      "class": "reading",
+      "note": "Stray period in 'b.e'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "will .depend",
+      "replace": "will depend",
+      "class": "reading",
+      "note": "Stray period before 'depend'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "it, bang the",
+      "replace": "it, being the",
+      "class": "reading",
+      "note": "OCR substituted a for e in 'being'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "and has. the",
+      "replace": "and has the",
+      "class": "reading",
+      "note": "Stray period after 'has'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "are united,*",
+      "replace": "are united,",
+      "class": "reading",
+      "note": "Damage character * after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "it woulA not",
+      "replace": "it would not",
+      "class": "reading",
+      "note": "OCR substituted A for d in 'would'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the one t it",
+      "replace": "the one, it",
+      "class": "reading",
+      "note": "OCR substituted t for comma after 'one'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Tf therefore",
+      "replace": "If therefore",
+      "class": "reading",
+      "note": "OCR substituted T for I in 'If'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "one y which",
+      "replace": "one, which",
+      "class": "reading",
+      "note": "OCR substituted y for comma in 'one, which'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "s ubsisting",
+      "replace": "subsisting",
+      "class": "reading",
+      "note": "Word broken by a space: 's ubsisting'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "For if’ all",
+      "replace": "For if all",
+      "class": "reading",
+      "note": "Stray apostrophe after 'if'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "whole mores",
+      "replace": "whole moves",
+      "class": "reading",
+      "note": "OCR substituted r for v in 'moves'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "COROLLARY..",
+      "replace": "COROLLARY.",
+      "class": "reading",
+      "note": "Double period after 'COROLLARY'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "COROLI.ABT.",
+      "replace": "COROLLARY.",
+      "class": "reading",
+      "note": "OCR corrupted 'COROLLARY.' (decided by the transcription's own context.)"
+    },
+    {
+      "find": "essence,are",
+      "replace": "essence, are",
+      "class": "reading",
+      "note": "Missing space after comma: 'essence,are'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "COROLLA ET.",
+      "replace": "COROLLARY.",
+      "class": "reading",
+      "note": "OCR corrupted 'COROLLARY.' into 'COROLLA ET.' (decided by the transcription's own context.)"
+    },
+    {
+      "find": "livery form",
+      "replace": "Every form",
+      "class": "reading",
+      "note": "OCR corrupted 'Every' into 'livery'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "it maybe in",
+      "replace": "it may be in",
+      "class": "reading",
+      "note": "Two words fused: 'maybe'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "as a. whole",
+      "replace": "as a whole",
+      "class": "reading",
+      "note": "Stray period after 'a'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "to the vieV",
+      "replace": "to the view",
+      "class": "reading",
+      "note": "OCR substituted V for w in 'view'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "through.the",
+      "replace": "through the",
+      "class": "reading",
+      "note": "Two words fused: 'through.the'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "is .simply",
+      "replace": "is simply",
+      "class": "reading",
+      "note": "Stray period before 'simply'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "so aa that",
+      "replace": "so as that",
+      "class": "reading",
+      "note": "OCR substituted a for s in 'as'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "moved/ And",
+      "replace": "moved. And",
+      "class": "reading",
+      "note": "Damage character / replaces period after 'moved'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the* whole",
+      "replace": "the whole",
+      "class": "reading",
+      "note": "Damage character * after 'the'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "COROLLARY,",
+      "replace": "COROLLARY.",
+      "class": "reading",
+      "note": "Comma replaces period after 'COROLLARY'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "COROIXARV.",
+      "replace": "COROLLARY.",
+      "class": "reading",
+      "note": "OCR corrupted 'COROLLARY.' into 'COROIXARV.' (decided by the transcription's own context.)"
+    },
+    {
+      "find": "life j yet",
+      "replace": "life; yet",
+      "class": "reading",
+      "note": "OCR substituted j for semicolon. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "not a Jess",
+      "replace": "not a less",
+      "class": "reading",
+      "note": "OCR substituted J for l in 'less'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "£For if it",
+      "replace": "[For if it",
+      "class": "reading",
+      "note": "OCR substituted £ for opening bracket. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "goody but",
+      "replace": "good, but",
+      "class": "reading",
+      "note": "OCR substituted y for comma in 'good,'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "PROF. XI.",
+      "replace": "PROP. XI.",
+      "class": "reading",
+      "note": "OCR substituted F for P in 'PROP.'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "it lias a",
+      "replace": "it has a",
+      "class": "reading",
+      "note": "OCR substituted li for h in 'has'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "as faf as",
+      "replace": "as far as",
+      "class": "reading",
+      "note": "OCR substituted f for r in 'far'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "AH beings",
+      "replace": "All beings",
+      "class": "reading",
+      "note": "OCR substituted H for l in 'All'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "the one f",
+      "replace": "the one?",
+      "class": "reading",
+      "note": "OCR substituted f for question mark. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "Hence/ it",
+      "replace": "Hence, it",
+      "class": "reading",
+      "note": "OCR substituted / for comma after 'Hence'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "uses it,*",
+      "replace": "uses it,",
+      "class": "reading",
+      "note": "Damage character * after comma. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "nor jet",
+      "replace": "nor yet",
+      "class": "reading",
+      "note": "OCR substituted j for y in 'yet'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "thin gs",
+      "replace": "things",
+      "class": "reading",
+      "note": "Word broken by space: 'thin gs'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "notone",
+      "replace": "not one",
+      "class": "reading",
+      "note": "Two words fused into 'notone'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "uotone",
+      "replace": "not one",
+      "class": "reading",
+      "note": "OCR substituted u for n in 'not one'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "goocQ-",
+      "replace": "good.",
+      "class": "reading",
+      "note": "OCR corrupted 'good.' into 'goocQ-'. (decided by the transcription's own context.)"
+    },
+    {
+      "find": "isrthe",
+      "replace": "is the",
+      "class": "reading",
+      "note": "Two words fused into 'isrthe'. (decided by the transcription's own context.)"
+    }
+  ]
+}

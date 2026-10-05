@@ -1,0 +1,20 @@
+{
+  "slug": "proclus-elements-of-theology-taylor-1816",
+  "shelf": null,
+  "extract": {
+    "from": "elementsoftheology_proclus_djvu.txt",
+    "item": "thomastaylor",
+    "url": "https://archive.org/download/thomastaylor/elementsoftheology_proclus_djvu.txt",
+    "why": "The Elements of Theology is one work inside a volume that also carries the Theology of Plato and the treatises. This edition is that ONE WORK as the volume prints it: the transcription is the volume's own bytes over the lines the work occupies, not a fresh transcription.",
+    "whole_sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+    "whole_bytes": 2493500,
+    "whole_lines": 55158,
+    "lines": [
+      40345,
+      47601
+    ]
+  },
+  "sha256": "949790929d1913d6d958c121fafdfe1aa05b579964cbe63e0fccedd7c9450680",
+  "bytes": 284490,
+  "imported": "2026-10-03"
+}
