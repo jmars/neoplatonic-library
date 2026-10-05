@@ -190,7 +190,15 @@ function note(f) {
            * witness of every such rule. */
           f.decided_by === 'page'
           ? 'the page image itself'
-          : "the transcription's own context";
+          : /* A READING DECIDED FROM ANOTHER COPY OF THE SAME PRINT — another scan
+             * of the same 1816 print, its own OCR (and, where one copy's text
+             * stands alone, its own page image). It is neither the parallel (that
+             * is the second transcription, a text this library holds) nor this
+             * edition's own stored leaf, so the rule states the witness itself:
+             * which copies, which printed page, which leaf of which item. */
+            f.decided_by === 'witness' && typeof f.witness === 'string' && f.witness
+            ? f.witness
+            : "the transcription's own context";
   return `${f.note} (decided by ${w}.)`;
 }
 
@@ -572,9 +580,11 @@ const newRules = order(accepted).map((c) => {
     witness:
       c._f && c._f.decided_by === 'page' && typeof c._f.witness === 'string' && c._f.witness
         ? c._f.witness
-        : decidedByParallel && parallelLabel
-          ? parallelLabel
-          : null,
+        : c._f && c._f.decided_by === 'witness' && typeof c._f.witness === 'string' && c._f.witness
+          ? c._f.witness
+          : decidedByParallel && parallelLabel
+            ? parallelLabel
+            : null,
     /* `fires` IS MEASURED (model §4.0: "how many times `location.find` matches
      * the served text"; §4.2: "a rule that fires four times keeps one ID and
      * `fires: 4`"). It was hardcoded 1, which is right only when every rule

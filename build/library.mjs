@@ -286,6 +286,13 @@ function provenanceHtml(t, cited, stats, a, dmg, edition, base) {
    * served document (`edition` is `counts(doc)`), never typed — the same source
    * the state note's count uses. */
   const ruleCount = edition ? Object.values(edition.corrections).reduce((a, b) => a + b, 0) : null;
+  /* ... AND AN EDITION CARRYING RULES IS NOT A REPAIRED ONE UNLESS ITS STATE SAYS
+   * SO. MEASURED, and why this branch exists: this page said "A repaired edition"
+   * of Taylor's Theology of Plato — which carries rules and is served `in-repair`
+   * — in the paragraph directly above the state line that says it is not finished.
+   * The state is the SHELF's own (`repairOf`), read here rather than restated, so
+   * the two statements on one page cannot drift apart again. */
+  const rep = repairOf(t);
   if (ruleCount === 0) {
     p.push(
       `<p><b>A transcription, not a repaired text.</b> What stands here is a transcription of the printed ` +
@@ -296,6 +303,20 @@ function provenanceHtml(t, cited, stats, a, dmg, edition, base) {
         `image it was decided from, as it is made: the book and chapter structure below was recovered from the ` +
         `edition's own page images, and the repairs will be made against those images in the same way. Until ` +
         `they are, this page shows the transcription as imported and says so.</p>`,
+    );
+  } else if (rep.state === 'in-repair') {
+    p.push(
+      `<p><b>A transcription being repaired, not a clean text.</b> What stands here is a transcription of the ` +
+        `printed edition below — every character of it kept — with the repairs that have been decided recorded ` +
+        `as rules and applied to the reading view. Each repair is a rule with the words it changes, why, and ` +
+        `the witness it was decided from; the rules are applied by the view and are never baked into the words ` +
+        `served, so the transcription is always beside its repairs and the difference between the two views is ` +
+        `the repair list itself. Where the print's word could NOT be determined — from the transcription's own ` +
+        `context, from a parallel edition of the same translation, or from another copy of the same print — no ` +
+        `repair is invented: the scanner's damage stays, marked, and a rule records the decision to leave it. ` +
+        `The work is therefore NOT finished: this edition is readable from end to end, and a reader will still ` +
+        `meet garble where nothing could settle the print's word — what was settled is settled and shown, what ` +
+        `was not is shown as the transcription has it, and nothing is silently said that the print does not.</p>`,
     );
   } else {
     p.push(
@@ -312,7 +333,6 @@ function provenanceHtml(t, cited, stats, a, dmg, edition, base) {
   }
   /* THE REPAIR STATE, said on the text's own page: the index states it above the
    * list, and this is where a reader who arrived at the text directly meets it. */
-  const rep = repairOf(t);
   if (rep) {
     /* THE RULE COUNT IS DERIVED FROM THE SERVED DOCUMENT, NEVER TYPED INTO PROSE.
      * MEASURED: the shelf's own note for this edition read "402 readings applied"
@@ -1431,8 +1451,9 @@ function apparatusViewerHtml(t, version, base) {
         ? `THE WHOLE SCAN IS HERE: all ${data.leafCount} lea${data.leafCount === 1 ? 'f' : 'ves'} of the edition’s ` +
           `scan are stored with it, in leaf order, and every one of them opens and reads. ` +
           (withImage
-            ? `${withImage} readings were decided from a page image — from ${citedLeaves} of the ` +
-              `${data.leafCount} leaves, which the index marks; the other ${noImage} readings carry no page ` +
+            ? `${withImage} readings cite a page image of this edition’s own scan — from ${citedLeaves} of ` +
+              `the ${data.leafCount} leaves, which the index marks; the other ${noImage} readings carry no ` +
+              `page ` +
               `image, and the other ${data.leafCount - citedLeaves} leaves carry no reading at all, which is ` +
               `stated where the leaf is opened and not hidden. `
             : `No reading in this version was decided from a page image, so no leaf carries one; the leaves are ` +
@@ -1461,8 +1482,8 @@ function apparatusViewerHtml(t, version, base) {
           ? `No repair has been recorded for this version yet, so no reading stands beside a leaf; the leaf ` +
             `index is the whole scan, and the list of readings is empty until the first emendation is made. `
           : withImage
-            ? `${withImage} of the readings in this version were decided from a page image, and each is shown ` +
-              `with the leaf it was decided from, so the evidence for a reading is a page a reader can open ` +
+            ? `${withImage} of the readings in this version cite a page image of this edition’s own scan, and ` +
+              `each is shown with the leaf it cites, so the evidence for a reading is a page a reader can open ` +
               `rather than a claim about one. ` +
               `The other ${noImage} readings carry no page image; they are listed in their own right, so the ` +
               `viewer is browsed by reading as well as by leaf and neither side is hidden behind the other.`
@@ -1474,7 +1495,8 @@ function apparatusViewerHtml(t, version, base) {
     `<p><b>The whole log, as data.</b> The apparatus of this version is one plain file, served with the ` +
     `edition: <a href="${esc(url)}">${esc(url)}</a> — ` +
     (data.ruleCount
-      ? `every rule, with the words it changes, its reason, its witness and the leaf it was decided from, ` +
+      ? `every rule, with the words it changes, its reason, its witness, and the leaf it cites where the ` +
+        `witness was one of this edition’s own pages, ` +
         `filterable by type and searchable by word there or in any other tool. `
       : `the version’s repair log in full. At this version it carries no rule yet, because no emendation has ` +
         `been made: it is the file each new rule will be written into, and the count of what has been ` +

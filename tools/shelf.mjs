@@ -352,18 +352,17 @@ export const TEXTS = [
     // the stored leaf file names carry their volume's prefix (v1-nNNN.jpg /
     // v2-nNNN.jpg) so the two leaf spaces cannot collide.
     cat: ['proclus-theology-of-plato'],
-    // PUBLISHED, and served REPAIRED. The edition was decided from a FULL READ of
-    // the whole text — the transcription imported here, a second transcription of
-    // the same 1816 print standing beside it as witness, and the stored page
-    // images of the print itself — and the emendations the read found are recorded
-    // as rules and applied by the reading view. `repaired` is the model's word for
-    // FINISHED in the sense this library means (the state table below): every
-    // damaged place a witness could settle is settled, and what is left is
-    // deliberately left and RECORDED. It does NOT mean the text is clean, and the
-    // note says so in the reader's terms: the read left a set of open questions,
-    // and working them against the page images settled many of them but not all —
-    // the questions still open keep their reasons, and the reading view shows the
-    // transcription's own characters there, marked, rather than a guess.
+    // PUBLISHED, and served IN REPAIR, and this is a CORRECTION: this entry stood
+    // at `repaired` (commit 8426b4e) and that was an overclaim. `repaired` is the
+    // model's word for FINISHED in the sense this library means (the state table
+    // below): every damaged place a witness could settle is settled, and what is
+    // left is deliberately left and RECORDED. MEASURED against the reader, not
+    // against a count: the text read with the witnesses beside it still renders
+    // visibly garbled passages — the whole text has been read and the emendations
+    // the read found are recorded as rules and applied, but the residue the read
+    // and the further copies of the print together could NOT settle is large enough
+    // that a reader meets it as garble, not as a marked exception. So the honest
+    // state is `in-repair`, and the note says so in the reader's terms.
     //
     // THE NOTE TYPES NO COUNT. The reader learns every figure from the pages
     // themselves: build/library.mjs `counted` ("Measured on the text this page
@@ -375,20 +374,25 @@ export const TEXTS = [
     // leaves every number to the derivation.
     published: true,
     repair: {
-      state: 'repaired',
+      state: 'in-repair',
       note:
-        'the text has been read whole — the transcription imported here, a second transcription of the same ' +
-        '1816 print standing beside it as witness, and the edition’s stored page images — and the emendations ' +
-        'the read found are recorded as rules and applied by the reading view. Each rule gives the words it ' +
-        'changes, why, and the witness it was decided from; where that witness was the printed page, the rule ' +
-        'says so and cites the leaf it was read from, so the image behind it can be opened and checked. What ' +
-        'could not be settled is left standing and named, not hidden: the read left a set of open questions, ' +
-        'and working them against the page images settled many of them but not all. The questions still open ' +
-        'keep their reasons — a reading nothing places on the line it was asked about, a page line two ' +
-        'answers came back for, a word the page itself will not read — and the reading view shows the ' +
-        'transcription’s own characters there, marked, rather than a guess. So the edition is finished in the ' +
-        'sense this library means, and is not a clean text: every damaged place a witness could settle has ' +
-        'been settled, and what is left is deliberately left and recorded.',
+        'this text is READABLE BUT STILL GARBLED. The transcription it is built from is a good reading of ' +
+        'the 1816 print, not a faithful one, and where nothing could decide what the print actually says, ' +
+        'the reading view shows the transcription’s own wrong characters, marked as damage — so a reader ' +
+        'will meet passages that read as garble, and this page does not pretend otherwise. The whole text ' +
+        'has been read, and the witnesses were the second transcription of the same 1816 print that stands ' +
+        'beside this one on the shelf, together with the other copies of that same print held here — their ' +
+        'own scans, their own page images, their own reading of the page. Every reading those could settle ' +
+        'is recorded as a rule and applied by the reading view: each rule gives the words it changes, why, ' +
+        'and the witness it was decided from, and where two copies of the print read the same words at the ' +
+        'same line, the rule says that, because two independent readings of the same print agreeing is what ' +
+        'makes the reading worth trusting; where the witness was a copy’s own page rather than this ' +
+        'edition’s, the rule names that copy and the leaf of it the words stand on. What could not be ' +
+        'settled is left standing and named, not hidden: the questions still open keep their reasons — a ' +
+        'reading nothing places on the line it was asked about, a page line two answers came back for, a ' +
+        'word the page itself will not read — and the reading view shows the transcription’s characters ' +
+        'there rather than a guess. The edition is therefore not finished and not clean: what was settled ' +
+        'is settled and recorded, what was not is visible, and the work of settling the rest stands open.',
     },
   },
   {

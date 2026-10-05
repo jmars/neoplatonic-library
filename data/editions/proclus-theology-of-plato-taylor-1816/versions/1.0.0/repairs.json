@@ -173181,6 +173181,2126 @@
           "source": "archive.org"
         }
       ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8459",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "aes rivers and illuminations of the intelligible Gods. These progressions also a ee ae",
+        "page": null,
+        "leaf": null
+      },
+      "before": "aes rivers and illuminations of the intelligible Gods. These progressions also a ee ae",
+      "after": "rivers and illuminations of the intelligible Gods. These progressions also",
+      "rationale": "the print reads \"rivers and illuminations of the intelligible Gods. These progressions also\" where the transcription has \"aes rivers and illuminations of the intelligible Gods. These progressions also a ee ae\" (read off the page image of another copy of the same print, printed page 92 — this copy’s own text is garbled at that line). The full read left this open: the reading came back as absent (\"\") for every line of this passage on leaf v2-n90; one copy only reads this line, and that copy's own page image does not carry the reading (the image answered nothing for the line) (decided by the page image of a further copy of the same print (thomastaylor leaf n596), printed page 92.)",
+      "date": null,
+      "witness": "the page image of a further copy of the same print (thomastaylor leaf n596), printed page 92",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8460",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "to it. subsisting intellectually, | According: to this reasoning, therefore, es",
+        "page": null,
+        "leaf": null
+      },
+      "before": "to it. subsisting intellectually, | According: to this reasoning, therefore, es",
+      "after": "• And conformably to these, the intelligible and intellectual powers sub-",
+      "rationale": "the print reads \"• And conformably to these, the intelligible and intellectual powers sub-\" where the transcription has \"to it. subsisting intellectually, | According: to this reasoning, therefore, es\" (read off the page image of another copy of the same print, printed page 227 — this copy’s own text is garbled at that line). The full read left this open: the reading came back as absent (\"\") for every line of this passage on leaf v1-n300; the other copies read this line, but the transcription keeps too little of the printed line for the reading to be placed there (decided by the page image of a further copy of the same print (thomastaylor leaf n302), printed page 227.)",
+      "date": null,
+      "witness": "the page image of a further copy of the same print (thomastaylor leaf n302), printed page 227",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8461",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the paternal order, and is after the same manner with it triadically st",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the paternal order, and is after the same manner with it triadically st",
+      "after": "the paternal order, and is after the same manner with it triadically",
+      "rationale": "the print reads \"the paternal order, and is after the same manner with it triadically\" where the transcription has \"the paternal order, and is after the same manner with it triadically st\" (read off the page image of another copy of the same print, printed page 408 — this copy’s own text is garbled at that line). The full read left this open: the reading came back as absent (\"\") for every line of this passage on leaf v1-n481; the other copies read no word at this line that the transcription lacks (decided by the page image of a further copy of the same print (thomastaylor leaf n482), printed page 408.)",
+      "date": null,
+      "witness": "the page image of a further copy of the same print (thomastaylor leaf n482), printed page 408",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8462",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "aver it with a. coe Vhs ga But the truth of this may be seen ig",
+        "page": null,
+        "leaf": null
+      },
+      "before": "aver it with a. coe Vhs ga But the truth of this may be seen ig",
+      "after": "over it with a guardian power. But the truth of this may be seen in",
+      "rationale": "the print reads \"over it with a guardian power. But the truth of this may be seen in\" where the transcription has \"aver it with a. coe Vhs ga But the truth of this may be seen ig\" (read off the page image of another copy of the same print, printed page 92 — this copy’s own text is garbled at that line). The full read left this open: the reading came back as absent (\"\") for every line of this passage on leaf v2-n90; the other copies read no word at this line that the transcription lacks (decided by the page image of a further copy of the same print (thomastaylor leaf n596), printed page 92.)",
+      "date": null,
+      "witness": "the page image of a further copy of the same print (thomastaylor leaf n596), printed page 92",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8463",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "r aad i ee eens 5 shana ae. axioms 5 pee in",
+        "page": null,
+        "leaf": null
+      },
+      "before": "r aad i ee eens 5 shana ae. axioms 5 pee in",
+      "after": "power and dignity every where of theological axioms; but in",
+      "rationale": "the print reads \"power and dignity every where of theological axioms; but in\" where the transcription has \"r aad i ee eens 5 shana ae. axioms 5 pee in\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n79), printed page 4.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n79), printed page 4",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8464",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "by e plos | rare in ine orp: oneal power.",
+        "page": null,
+        "leaf": null
+      },
+      "before": "by e plos | rare in ine orp: oneal power.",
+      "after": "by employing an incorporeal power.",
+      "rationale": "the print reads \"by employing an incorporeal power.\" where the transcription has \"by e plos | rare in ine orp: oneal power.\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 5) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 42 — thomastaylor leaf n117 and bub_gb_svwwAQAAMAAJ leaf n119.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 42 — thomastaylor leaf n117 and bub_gb_svwwAQAAMAAJ leaf n119",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8465",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "its foniliarty: ‘erith, the: beantiful. 2",
+        "page": null,
+        "leaf": null
+      },
+      "before": "its foniliarty: ‘erith, the: beantiful. 2",
+      "after": "its familiarity with the beautiful.",
+      "rationale": "the print reads \"its familiarity with the beautiful.\" where the transcription has \"its foniliarty: ‘erith, the: beantiful. 2\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 177 — thomastaylor leaf n252 and bub_gb_svwwAQAAMAAJ leaf n254.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 177 — thomastaylor leaf n252 and bub_gb_svwwAQAAMAAJ leaf n254",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8466",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "BOS eat “bas aabslng fron c one: 2 great",
+        "page": null,
+        "leaf": null
+      },
+      "before": "BOS eat “bas aabslng fron c one: 2 great",
+      "after": "of wholes subsisting from one great",
+      "rationale": "the print reads \"of wholes subsisting from one great\" where the transcription has \"BOS eat “bas aabslng fron c one: 2 great\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n530), printed page 25.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n530), printed page 25",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8467",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "Being civilied indeec ced fr fe ~ ore",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Being civilied indeec ced fr fe ~ ore",
+      "after": "being vivified indeed from",
+      "rationale": "the print reads \"being vivified indeed from\" where the transcription has \"Being civilied indeec ced fr fe ~ ore\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 49 — thomastaylor leaf n124 and sixbooksproclus00unkngoog leaf n133 and bub_gb_svwwAQAAMAAJ leaf n126.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 49 — thomastaylor leaf n124 and sixbooksproclus00unkngoog leaf n133 and bub_gb_svwwAQAAMAAJ leaf n126",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8468",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "same 5 hina Vanten: ‘still, hei is",
+        "page": null,
+        "leaf": null
+      },
+      "before": "same 5 hina Vanten: ‘still, hei is",
+      "after": "same things. Farther still, he is",
+      "rationale": "the print reads \"same things. Farther still, he is\" where the transcription has \"same 5 hina Vanten: ‘still, hei is\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and bub_gb_svwwAQAAMAAJ leaf n442.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and bub_gb_svwwAQAAMAAJ leaf n442",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8469",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "sbiseties \"Heaven xl s suaing from",
+        "page": null,
+        "leaf": null
+      },
+      "before": "sbiseties \"Heaven xl s suaing from",
+      "after": "Heaven's exiles straying from",
+      "rationale": "the print reads \"Heaven's exiles straying from\" where the transcription has \"sbiseties \"Heaven xl s suaing from\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n784), printed page 279.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n784), printed page 279",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8470",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "one hound, sand inteligib . But he",
+        "page": null,
+        "leaf": null
+      },
+      "before": "one hound, sand inteligib . But he",
+      "after": "one,' bound, and intelligible. Bat he",
+      "rationale": "the print reads \"one,' bound, and intelligible. Bat he\" where the transcription has \"one hound, sand inteligib . But he\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n450), printed page 373.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n450), printed page 373",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8471",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "this. Por Le in inuan pcre | is",
+        "page": null,
+        "leaf": null
+      },
+      "before": "this. Por Le in inuan pcre | is",
+      "after": "this. For intellectual energy is",
+      "rationale": "the print reads \"this. For intellectual energy is\" where the transcription has \"this. Por Le in inuan pcre | is\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 79 — thomastaylor leaf n154 and sixbooksproclus00unkngoog leaf n163 and bub_gb_svwwAQAAMAAJ leaf n156.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 79 — thomastaylor leaf n154 and sixbooksproclus00unkngoog leaf n163 and bub_gb_svwwAQAAMAAJ leaf n156",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8472",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "of Timeus, viz. ‘animal itself,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "of Timeus, viz. ‘animal itself,",
+      "after": "of Timseus, via. animal itself,",
+      "rationale": "the print reads \"of Timseus, via. animal itself,\" where the transcription has \"of Timeus, viz. ‘animal itself,\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 35 of 75 print characters (| to the doctrine of Timeus, viz. ‘ -> to the doctrine of Timaeus, viz. ) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n264), printed page 189.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n264), printed page 189",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8473",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "of sooty iis | PP ers ES De ME",
+        "page": null,
+        "leaf": null
+      },
+      "before": "of sooty iis | PP ers ES De ME",
+      "after": "of this kind, and is the cause of it. For",
+      "rationale": "the print reads \"of this kind, and is the cause of it. For\" where the transcription has \"of sooty iis | PP ers ES De ME\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 140 — sixbooksproclus00unkngoog leaf n224 and bub_gb_svwwAQAAMAAJ leaf n217.)",
+      "date": null,
+      "witness": "two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 140 — sixbooksproclus00unkngoog leaf n224 and bub_gb_svwwAQAAMAAJ leaf n217",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8474",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "Thus inc eevibinn: ong: ae a '",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Thus inc eevibinn: ong: ae a '",
+      "after": "Thus much, therefore, may",
+      "rationale": "the print reads \"Thus much, therefore, may\" where the transcription has \"Thus inc eevibinn: ong: ae a '\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 6) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n580), printed page 75.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n580), printed page 75",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8475",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "thus ameiog ih ve nat tf 2 ae",
+        "page": null,
+        "leaf": null
+      },
+      "before": "thus ameiog ih ve nat tf 2 ae",
+      "after": "thus asserting that the one is",
+      "rationale": "the print reads \"thus asserting that the one is\" where the transcription has \"thus ameiog ih ve nat tf 2 ae\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8476",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "and 1 pees though gins Waed7y",
+        "page": null,
+        "leaf": null
+      },
+      "before": "and 1 pees though gins Waed7y",
+      "after": "and perfects through figures",
+      "rationale": "the print reads \"and perfects through figures\" where the transcription has \"and 1 pees though gins Waed7y\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 306 — thomastaylor leaf n381 and sixbooksproclus00unkngoog leaf n390 and bub_gb_svwwAQAAMAAJ leaf n383.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 306 — thomastaylor leaf n381 and sixbooksproclus00unkngoog leaf n390 and bub_gb_svwwAQAAMAAJ leaf n383",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8477",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is tetradic. aod spariones we",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is tetradic. aod spariones we",
+      "after": "is tetradic and triadic, we",
+      "rationale": "the print reads \"is tetradic and triadic, we\" where the transcription has \"is tetradic. aod spariones we\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 6) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n580), printed page 75.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n580), printed page 75",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8478",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "words. Haw Saetatitgsd ig it",
+        "page": null,
+        "leaf": null
+      },
+      "before": "words. Haw Saetatitgsd ig it",
+      "after": "words. How therefore, is it",
+      "rationale": "the print reads \"words. How therefore, is it\" where the transcription has \"words. Haw Saetatitgsd ig it\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 23 — thomastaylor leaf n98 and bub_gb_svwwAQAAMAAJ leaf n100.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 23 — thomastaylor leaf n98 and bub_gb_svwwAQAAMAAJ leaf n100",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8479",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "still, eoniagik eens indeed,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "still, eoniagik eens indeed,",
+      "after": "still, according to motion, indeed,",
+      "rationale": "the print reads \"still, according to motion, indeed,\" where the transcription has \"still, eoniagik eens indeed,\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504 and bub_gb_svwwAQAAMAAJ leaf n497.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504 and bub_gb_svwwAQAAMAAJ leaf n497",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8480",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "anid does: aot cause: them",
+        "page": null,
+        "leaf": null
+      },
+      "before": "anid does: aot cause: them",
+      "after": "and does not cause them",
+      "rationale": "the print reads \"and does not cause them\" where the transcription has \"anid does: aot cause: them\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 211 — thomastaylor leaf n286 and sixbooksproclus00unkngoog leaf n295 and bub_gb_svwwAQAAMAAJ leaf n288.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 211 — thomastaylor leaf n286 and sixbooksproclus00unkngoog leaf n295 and bub_gb_svwwAQAAMAAJ leaf n288",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8481",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the Suienaliy. ie partial",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the Suienaliy. ie partial",
+      "after": "the immortality of partial",
+      "rationale": "the print reads \"the immortality of partial\" where the transcription has \"the Suienaliy. ie partial\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 84 — thomastaylor leaf n159 and sixbooksproclus00unkngoog leaf n168 and bub_gb_svwwAQAAMAAJ leaf n161.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 84 — thomastaylor leaf n159 and sixbooksproclus00unkngoog leaf n168 and bub_gb_svwwAQAAMAAJ leaf n161",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8482",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is canjoined with it; and",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is canjoined with it; and",
+      "after": "is necessary to consider the infinity",
+      "rationale": "the print reads \"is necessary to consider the infinity\" where the transcription has \"is canjoined with it; and\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 5) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 214 — thomastaylor leaf n289 and sixbooksproclus00unkngoog leaf n298 and bub_gb_svwwAQAAMAAJ leaf n291.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 214 — thomastaylor leaf n289 and sixbooksproclus00unkngoog leaf n298 and bub_gb_svwwAQAAMAAJ leaf n291",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8483",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "~> theurgie ari imitating",
+        "page": null,
+        "leaf": null
+      },
+      "before": "~> theurgie ari imitating",
+      "after": "theurgic art imitating",
+      "rationale": "the print reads \"theurgic art imitating\" where the transcription has \"~> theurgie ari imitating\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8484",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "things, th d efore, Plato",
+        "page": null,
+        "leaf": null
+      },
+      "before": "things, th d efore, Plato",
+      "after": "things, therefore, Plato",
+      "rationale": "the print reads \"things, therefore, Plato\" where the transcription has \"things, th d efore, Plato\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8485",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "beings, torwhich aise i h",
+        "page": null,
+        "leaf": null
+      },
+      "before": "beings, torwhich aise i h",
+      "after": "beings, to which .extending himself, his design",
+      "rationale": "the print reads \"beings, to which .extending himself, his design\" where the transcription has \"beings, torwhich aise i h\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n98), printed page 23.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n98), printed page 23",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8486",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "with - ‘Perictione during",
+        "page": null,
+        "leaf": null
+      },
+      "before": "with - ‘Perictione during",
+      "after": "with Perictione during",
+      "rationale": "the print reads \"with Perictione during\" where the transcription has \"with - ‘Perictione during\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n784), printed page 279.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n784), printed page 279",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8487",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "THEOLOGY ee ces AR | BOOK",
+        "page": null,
+        "leaf": null
+      },
+      "before": "THEOLOGY ee ces AR | BOOK",
+      "after": "THEOLOGY BOOK",
+      "rationale": "the print reads \"THEOLOGY BOOK\" where the transcription has \"THEOLOGY ee ces AR | BOOK\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 63 of 63 print characters (a: Soe.) ua a fs is ay fy: ON ae THEOLOGY ee ces AR | BOOK ca 3 -> ON THEOLOGY BOOK III.) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n262), printed page 178.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n262), printed page 178",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8488",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "were, ere cpeokaiag: the",
+        "page": null,
+        "leaf": null
+      },
+      "before": "were, ere cpeokaiag: the",
+      "after": "were, and producing the",
+      "rationale": "the print reads \"were, and producing the\" where the transcription has \"were, ere cpeokaiag: the\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n530), printed page 25.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n530), printed page 25",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8489",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "he peas ang fers being,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "he peas ang fers being,",
+      "after": "he begins from being,",
+      "rationale": "the print reads \"he begins from being,\" where the transcription has \"he peas ang fers being,\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 297 — thomastaylor leaf n372 and sixbooksproclus00unkngoog leaf n381 and bub_gb_svwwAQAAMAAJ leaf n374.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 297 — thomastaylor leaf n372 and sixbooksproclus00unkngoog leaf n381 and bub_gb_svwwAQAAMAAJ leaf n374",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8490",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "are Seg, epee ng icc 2S",
+        "page": null,
+        "leaf": null
+      },
+      "before": "are Seg, epee ng icc 2S",
+      "after": "are able, exploring them",
+      "rationale": "the print reads \"are able, exploring them\" where the transcription has \"are Seg, epee ng icc 2S\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 3 — thomastaylor leaf n78 and bub_gb_svwwAQAAMAAJ leaf n80.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 3 — thomastaylor leaf n78 and bub_gb_svwwAQAAMAAJ leaf n80",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8491",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "His Ge) morsibatell the",
+        "page": null,
+        "leaf": null
+      },
+      "before": "His Ge) morsibatell the",
+      "after": "because it imitates the",
+      "rationale": "the print reads \"because it imitates the\" where the transcription has \"His Ge) morsibatell the\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 6) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 124 — thomastaylor leaf n199 and sixbooksproclus00unkngoog leaf n208 and bub_gb_svwwAQAAMAAJ leaf n201.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 124 — thomastaylor leaf n199 and sixbooksproclus00unkngoog leaf n208 and bub_gb_svwwAQAAMAAJ leaf n201",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8492",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "temporal neriods 5 ‘and",
+        "page": null,
+        "leaf": null
+      },
+      "before": "temporal neriods 5 ‘and",
+      "after": "temporal periods; and",
+      "rationale": "the print reads \"temporal periods; and\" where the transcription has \"temporal neriods 5 ‘and\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 49 — thomastaylor leaf n124 and sixbooksproclus00unkngoog leaf n133 and bub_gb_svwwAQAAMAAJ leaf n126.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 49 — thomastaylor leaf n124 and sixbooksproclus00unkngoog leaf n133 and bub_gb_svwwAQAAMAAJ leaf n126",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8493",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the faedes enumerating",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the faedes enumerating",
+      "after": "the Gods, enumerating",
+      "rationale": "the print reads \"the Gods, enumerating\" where the transcription has \"the faedes enumerating\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 4 — thomastaylor leaf n79 and sixbooksproclus00unkngoog leaf n88 and bub_gb_svwwAQAAMAAJ leaf n81.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 4 — thomastaylor leaf n79 and sixbooksproclus00unkngoog leaf n88 and bub_gb_svwwAQAAMAAJ leaf n81",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8494",
+      "type": "punctuation",
+      "apply": "reading",
+      "location": {
+        "find": "Parmenides. “But after",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Parmenides. “But after",
+      "after": "Parmenides. But after",
+      "rationale": "the print reads \"Parmenides. But after\" where the transcription has \"Parmenides. “But after\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 300 — thomastaylor leaf n375 and sixbooksproclus00unkngoog leaf n384 and bub_gb_svwwAQAAMAAJ leaf n377.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 300 — thomastaylor leaf n375 and sixbooksproclus00unkngoog leaf n384 and bub_gb_svwwAQAAMAAJ leaf n377",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "differs only in punctuation characters: “ (rule 3)",
+      "review": false,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8495",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "division i in: ity and",
+        "page": null,
+        "leaf": null
+      },
+      "before": "division i in: ity and",
+      "after": "division in it, and",
+      "rationale": "the print reads \"division in it, and\" where the transcription has \"division i in: ity and\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8496",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "more reniate from. the",
+        "page": null,
+        "leaf": null
+      },
+      "before": "more reniate from. the",
+      "after": "more remote from the",
+      "rationale": "the print reads \"more remote from the\" where the transcription has \"more reniate from. the\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8497",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "intellectual Moho and",
+        "page": null,
+        "leaf": null
+      },
+      "before": "intellectual Moho and",
+      "after": "intellectual motion, and",
+      "rationale": "the print reads \"intellectual motion, and\" where the transcription has \"intellectual Moho and\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8498",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "by it —: We eo me Heh",
+        "page": null,
+        "leaf": null
+      },
+      "before": "by it —: We eo me Heh",
+      "after": "by itself, surveys in",
+      "rationale": "the print reads \"by itself, surveys in\" where the transcription has \"by it —: We eo me Heh\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504 and bub_gb_svwwAQAAMAAJ leaf n497.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504 and bub_gb_svwwAQAAMAAJ leaf n497",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8499",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "place of; Sarvewe: as",
+        "page": null,
+        "leaf": null
+      },
+      "before": "place of; Sarvewe: as",
+      "after": "place of survey.",
+      "rationale": "the print reads \"place of survey.\" where the transcription has \"place of; Sarvewe: as\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8500",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "and ihe rsourengne of",
+        "page": null,
+        "leaf": null
+      },
+      "before": "and ihe rsourengne of",
+      "after": "and the production of",
+      "rationale": "the print reads \"and the production of\" where the transcription has \"and ihe rsourengne of\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 220 — thomastaylor leaf n295 and sixbooksproclus00unkngoog leaf n304 and bub_gb_svwwAQAAMAAJ leaf n297.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 220 — thomastaylor leaf n295 and sixbooksproclus00unkngoog leaf n304 and bub_gb_svwwAQAAMAAJ leaf n297",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8501",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is Janlttoray aud is",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is Janlttoray aud is",
+      "after": "is multiform, and is",
+      "rationale": "the print reads \"is multiform, and is\" where the transcription has \"is Janlttoray aud is\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 79 — thomastaylor leaf n154 and sixbooksproclus00unkngoog leaf n163 and bub_gb_svwwAQAAMAAJ leaf n156.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 79 — thomastaylor leaf n154 and sixbooksproclus00unkngoog leaf n163 and bub_gb_svwwAQAAMAAJ leaf n156",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8502",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is ‘parated i jo a 7",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is ‘parated i jo a 7",
+      "after": "is separated from the",
+      "rationale": "the print reads \"is separated from the\" where the transcription has \"is ‘parated i jo a 7\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 79 — thomastaylor leaf n154 and sixbooksproclus00unkngoog leaf n163 and bub_gb_svwwAQAAMAAJ leaf n156.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 79 — thomastaylor leaf n154 and sixbooksproclus00unkngoog leaf n163 and bub_gb_svwwAQAAMAAJ leaf n156",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8503",
+      "type": "punctuation",
+      "apply": "reading",
+      "location": {
+        "find": "and coarranges: her,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "and coarranges: her,",
+      "after": "and coarranges her,",
+      "rationale": "the print reads \"and coarranges her,\" where the transcription has \"and coarranges: her,\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 337 — thomastaylor leaf n412 and sixbooksproclus00unkngoog leaf n421 and bub_gb_svwwAQAAMAAJ leaf n414.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 337 — thomastaylor leaf n412 and sixbooksproclus00unkngoog leaf n421 and bub_gb_svwwAQAAMAAJ leaf n414",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "differs only in punctuation characters: : (rule 3)",
+      "review": false,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8504",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "constituting iti the",
+        "page": null,
+        "leaf": null
+      },
+      "before": "constituting iti the",
+      "after": "constituting it in the",
+      "rationale": "the print reads \"constituting it in the\" where the transcription has \"constituting iti the\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8505",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "unapparent penods of",
+        "page": null,
+        "leaf": null
+      },
+      "before": "unapparent penods of",
+      "after": "unapparent periods of",
+      "rationale": "the print reads \"unapparent periods of\" where the transcription has \"unapparent penods of\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8506",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "this view he curso:",
+        "page": null,
+        "leaf": null
+      },
+      "before": "this view he curso:",
+      "after": "this doxastic",
+      "rationale": "the print reads \"this doxastic\" where the transcription has \"this view he curso:\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 23 — thomastaylor leaf n98 and sixbooksproclus00unkngoog leaf n107.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 23 — thomastaylor leaf n98 and sixbooksproclus00unkngoog leaf n107",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8507",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "number, ¢ stends to",
+        "page": null,
+        "leaf": null
+      },
+      "before": "number, ¢ stends to",
+      "after": "number, extends to",
+      "rationale": "the print reads \"number, extends to\" where the transcription has \"number, ¢ stends to\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 300 — thomastaylor leaf n375 and sixbooksproclus00unkngoog leaf n384 and bub_gb_svwwAQAAMAAJ leaf n377.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 300 — thomastaylor leaf n375 and sixbooksproclus00unkngoog leaf n384 and bub_gb_svwwAQAAMAAJ leaf n377",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8508",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "~ atarally produces",
+        "page": null,
+        "leaf": null
+      },
+      "before": "~ atarally produces",
+      "after": "naturally produces",
+      "rationale": "the print reads \"naturally produces\" where the transcription has \"~ atarally produces\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 5) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 42 — thomastaylor leaf n117 and sixbooksproclus00unkngoog leaf n126 and bub_gb_svwwAQAAMAAJ leaf n119.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 42 — thomastaylor leaf n117 and sixbooksproclus00unkngoog leaf n126 and bub_gb_svwwAQAAMAAJ leaf n119",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8509",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "souls usder Saturn,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "souls usder Saturn,",
+      "after": "souls under Saturn,",
+      "rationale": "the print reads \"souls under Saturn,\" where the transcription has \"souls usder Saturn,\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8510",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "progression slg: op",
+        "page": null,
+        "leaf": null
+      },
+      "before": "progression slg: op",
+      "after": "progression analogous",
+      "rationale": "the print reads \"progression analogous\" where the transcription has \"progression slg: op\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 6) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 386 — thomastaylor leaf n461 and sixbooksproclus00unkngoog leaf n470 and bub_gb_svwwAQAAMAAJ leaf n463.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 386 — thomastaylor leaf n461 and sixbooksproclus00unkngoog leaf n470 and bub_gb_svwwAQAAMAAJ leaf n463",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8511",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "= ) ct animal. fe z",
+        "page": null,
+        "leaf": null
+      },
+      "before": "= ) ct animal. fe z",
+      "after": "Hence also Timæus establishes all-perfect animal to",
+      "rationale": "the print reads \"Hence also Timæus establishes all-perfect animal to\" where the transcription has \"= ) ct animal. fe z\" (read off the page image of another copy of the same print, printed page 227 — this copy’s own text is garbled at that line). The full read left this open: the reading came back as absent (\"\") for every line of this passage on leaf v1-n300; one copy only reads this line, and that copy's own page image does not carry the reading (the image answered nothing for the line) (decided by the page image of a further copy of the same print (thomastaylor leaf n301), printed page 227.)",
+      "date": null,
+      "witness": "the page image of a further copy of the same print (thomastaylor leaf n301), printed page 227",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8512",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "Proserpine, BE SEG",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Proserpine, BE SEG",
+      "after": "Proserpine, at",
+      "rationale": "the print reads \"Proserpine, at\" where the transcription has \"Proserpine, BE SEG\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 337 — thomastaylor leaf n412 and sixbooksproclus00unkngoog leaf n421 and bub_gb_svwwAQAAMAAJ leaf n414.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 337 — thomastaylor leaf n412 and sixbooksproclus00unkngoog leaf n421 and bub_gb_svwwAQAAMAAJ leaf n414",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8513",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "same manner. a8 in",
+        "page": null,
+        "leaf": null
+      },
+      "before": "same manner. a8 in",
+      "after": "same manner as in",
+      "rationale": "the print reads \"same manner as in\" where the transcription has \"same manner. a8 in\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 211 — thomastaylor leaf n286 and sixbooksproclus00unkngoog leaf n295 and bub_gb_svwwAQAAMAAJ leaf n288.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 211 — thomastaylor leaf n286 and sixbooksproclus00unkngoog leaf n295 and bub_gb_svwwAQAAMAAJ leaf n288",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8514",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "to ib anonding: to",
+        "page": null,
+        "leaf": null
+      },
+      "before": "to ib anonding: to",
+      "after": "to it, according to",
+      "rationale": "the print reads \"to it, according to\" where the transcription has \"to ib anonding: to\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 177 — thomastaylor leaf n252 and sixbooksproclus00unkngoog leaf n261.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 177 — thomastaylor leaf n252 and sixbooksproclus00unkngoog leaf n261",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8515",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "Mh ihpertect: and",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Mh ihpertect: and",
+      "after": "all-perfect, and",
+      "rationale": "the print reads \"all-perfect, and\" where the transcription has \"Mh ihpertect: and\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8516",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "he, al bides i in",
+        "page": null,
+        "leaf": null
+      },
+      "before": "he, al bides i in",
+      "after": "he, abides in",
+      "rationale": "the print reads \"he, abides in\" where the transcription has \"he, al bides i in\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 215 — thomastaylor leaf n290 and sixbooksproclus00unkngoog leaf n299 and bub_gb_svwwAQAAMAAJ leaf n292.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 215 — thomastaylor leaf n290 and sixbooksproclus00unkngoog leaf n299 and bub_gb_svwwAQAAMAAJ leaf n292",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8517",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "; di Gcipant Thus",
+        "page": null,
+        "leaf": null
+      },
+      "before": "; di Gcipant Thus",
+      "after": "universe, and exempt from their participants. Thus",
+      "rationale": "the print reads \"universe, and exempt from their participants. Thus\" where the transcription has \"; di Gcipant Thus\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 6) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n580), printed page 75.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n580), printed page 75",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8518",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "with eiecan' who",
+        "page": null,
+        "leaf": null
+      },
+      "before": "with eiecan' who",
+      "after": "with multitude, who",
+      "rationale": "the print reads \"with multitude, who\" where the transcription has \"with eiecan' who\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 5) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 338 — thomastaylor leaf n413 and sixbooksproclus00unkngoog leaf n422 and bub_gb_svwwAQAAMAAJ leaf n415.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 338 — thomastaylor leaf n413 and sixbooksproclus00unkngoog leaf n422 and bub_gb_svwwAQAAMAAJ leaf n415",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8519",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "as | he e genera",
+        "page": null,
+        "leaf": null
+      },
+      "before": "as | he e genera",
+      "after": "the genera",
+      "rationale": "the print reads \"the genera\" where the transcription has \"as | he e genera\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8520",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "and serial ofits",
+        "page": null,
+        "leaf": null
+      },
+      "before": "and serial ofits",
+      "after": "and variety of these",
+      "rationale": "the print reads \"and variety of these\" where the transcription has \"and serial ofits\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8521",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the fod, md ad «",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the fod, md ad «",
+      "after": "the case,",
+      "rationale": "the print reads \"the case,\" where the transcription has \"the fod, md ad «\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 6) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 124 — thomastaylor leaf n199 and bub_gb_svwwAQAAMAAJ leaf n201.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 124 — thomastaylor leaf n199 and bub_gb_svwwAQAAMAAJ leaf n201",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8522",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is erated sie to",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is erated sie to",
+      "after": "is established prior to",
+      "rationale": "the print reads \"is established prior to\" where the transcription has \"is erated sie to\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 1) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 135 — thomastaylor leaf n210 and sixbooksproclus00unkngoog leaf n219 and bub_gb_svwwAQAAMAAJ leaf n212.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 135 — thomastaylor leaf n210 and sixbooksproclus00unkngoog leaf n219 and bub_gb_svwwAQAAMAAJ leaf n212",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8523",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is a ales a Bers",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is a ales a Bers",
+      "after": "is the first",
+      "rationale": "the print reads \"is the first\" where the transcription has \"is a ales a Bers\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 215 — thomastaylor leaf n290 and sixbooksproclus00unkngoog leaf n299 and bub_gb_svwwAQAAMAAJ leaf n292.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 215 — thomastaylor leaf n290 and sixbooksproclus00unkngoog leaf n299 and bub_gb_svwwAQAAMAAJ leaf n292",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8524",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the setond Gods,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the setond Gods,",
+      "after": "the second Gods,",
+      "rationale": "the print reads \"the second Gods,\" where the transcription has \"the setond Gods,\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8525",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "these, }t Causes",
+        "page": null,
+        "leaf": null
+      },
+      "before": "these, }t Causes",
+      "after": "these, it causes",
+      "rationale": "the print reads \"these, it causes\" where the transcription has \"these, }t Causes\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and sixbooksproclus00unkngoog leaf n414 and bub_gb_svwwAQAAMAAJ leaf n407",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8526",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "mee H siento and",
+        "page": null,
+        "leaf": null
+      },
+      "before": "mee H siento and",
+      "after": "vivification, and",
+      "rationale": "the print reads \"vivification, and\" where the transcription has \"mee H siento and\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 220 — thomastaylor leaf n295 and bub_gb_svwwAQAAMAAJ leaf n297.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 220 — thomastaylor leaf n295 and bub_gb_svwwAQAAMAAJ leaf n297",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8527",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "of Jal | ‘Ati is",
+        "page": null,
+        "leaf": null
+      },
+      "before": "of Jal | ‘Ati is",
+      "after": "of Love. It is",
+      "rationale": "the print reads \"of Love. It is\" where the transcription has \"of Jal | ‘Ati is\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 5) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n759), printed page 254.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n759), printed page 254",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8528",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "a self-moved. 2",
+        "page": null,
+        "leaf": null
+      },
+      "before": "a self-moved. 2",
+      "after": "a self-moved",
+      "rationale": "the print reads \"a self-moved\" where the transcription has \"a self-moved. 2\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and bub_gb_svwwAQAAMAAJ leaf n442.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and bub_gb_svwwAQAAMAAJ leaf n442",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8529",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "and ene wholes.",
+        "page": null,
+        "leaf": null
+      },
+      "before": "and ene wholes.",
+      "after": "and transcending wholes.",
+      "rationale": "the print reads \"and transcending wholes.\" where the transcription has \"and ene wholes.\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8530",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is vochsiead to",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is vochsiead to",
+      "after": "is conjoined to",
+      "rationale": "the print reads \"is conjoined to\" where the transcription has \"is vochsiead to\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 177 — thomastaylor leaf n252 and sixbooksproclus00unkngoog leaf n261 and bub_gb_svwwAQAAMAAJ leaf n254.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 177 — thomastaylor leaf n252 and sixbooksproclus00unkngoog leaf n261 and bub_gb_svwwAQAAMAAJ leaf n254",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8531",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "1a) sleep: with",
+        "page": null,
+        "leaf": null
+      },
+      "before": "1a) sleep: with",
+      "after": "commanded him not to sleep with",
+      "rationale": "the print reads \"commanded him not to sleep with\" where the transcription has \"1a) sleep: with\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n784), printed page 279.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n784), printed page 279",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8532",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "orb ot Arles de",
+        "page": null,
+        "leaf": null
+      },
+      "before": "orb ot Arles de",
+      "after": "orb of light",
+      "rationale": "the print reads \"orb of light\" where the transcription has \"orb ot Arles de\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n784), printed page 279.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n784), printed page 279",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8533",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "of thoi: . es?",
+        "page": null,
+        "leaf": null
+      },
+      "before": "of thoi: . es?",
+      "after": "of those",
+      "rationale": "the print reads \"of those\" where the transcription has \"of thoi: . es?\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 3 — thomastaylor leaf n78 and bub_gb_svwwAQAAMAAJ leaf n80.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 3 — thomastaylor leaf n78 and bub_gb_svwwAQAAMAAJ leaf n80",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8534",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "dna three-fold",
+        "page": null,
+        "leaf": null
+      },
+      "before": "dna three-fold",
+      "after": "in a three-fold",
+      "rationale": "the print reads \"in a three-fold\" where the transcription has \"dna three-fold\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 300 — thomastaylor leaf n375 and bub_gb_svwwAQAAMAAJ leaf n377.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 300 — thomastaylor leaf n375 and bub_gb_svwwAQAAMAAJ leaf n377",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8535",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "f being i in 1",
+        "page": null,
+        "leaf": null
+      },
+      "before": "f being i in 1",
+      "after": "f being in 1",
+      "rationale": "the print reads \"being in\" where the transcription has \"being i in\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8536",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "ie iyparxis of",
+        "page": null,
+        "leaf": null
+      },
+      "before": "ie iyparxis of",
+      "after": "hyparxis of",
+      "rationale": "the print reads \"hyparxis of\" where the transcription has \"ie iyparxis of\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504 and bub_gb_svwwAQAAMAAJ leaf n497.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 420 — thomastaylor leaf n495 and sixbooksproclus00unkngoog leaf n504 and bub_gb_svwwAQAAMAAJ leaf n497",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8537",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the ein union.",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the ein union.",
+      "after": "the paternal union.",
+      "rationale": "the print reads \"the paternal union.\" where the transcription has \"the ein union.\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 373 — thomastaylor leaf n448 and sixbooksproclus00unkngoog leaf n457 and bub_gb_svwwAQAAMAAJ leaf n450.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 373 — thomastaylor leaf n448 and sixbooksproclus00unkngoog leaf n457 and bub_gb_svwwAQAAMAAJ leaf n450",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8538",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "XXXII. Ss | OF",
+        "page": null,
+        "leaf": null
+      },
+      "before": "XXXII. Ss | OF",
+      "after": "XXXII. OF",
+      "rationale": "the print reads \"XXXII. OF\" where the transcription has \"XXXII. Ss | OF\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 36 of 36 print characters (enar. XXXII. Ss | OF PLATO,: a95 uns -> CHAP. XXXII. OF PLATO. 295) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n379), printed page 295.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n379), printed page 295",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8539",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "in oie middle",
+        "page": null,
+        "leaf": null
+      },
+      "before": "in oie middle",
+      "after": "in the middle",
+      "rationale": "the print reads \"in the middle\" where the transcription has \"in oie middle\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 4 — thomastaylor leaf n79 and sixbooksproclus00unkngoog leaf n88 and bub_gb_svwwAQAAMAAJ leaf n81.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 4 — thomastaylor leaf n79 and sixbooksproclus00unkngoog leaf n88 and bub_gb_svwwAQAAMAAJ leaf n81",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8540",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "also itis the",
+        "page": null,
+        "leaf": null
+      },
+      "before": "also itis the",
+      "after": "also it is the",
+      "rationale": "the print reads \"also it is the\" where the transcription has \"also itis the\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 211 — thomastaylor leaf n286 and sixbooksproclus00unkngoog leaf n295 and bub_gb_svwwAQAAMAAJ leaf n288.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 211 — thomastaylor leaf n286 and sixbooksproclus00unkngoog leaf n295 and bub_gb_svwwAQAAMAAJ leaf n288",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "before and after equal after removing all whitespace (rule 2)",
+      "review": false,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8541",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "hth whic . is",
+        "page": null,
+        "leaf": null
+      },
+      "before": "hth whic . is",
+      "after": "which is",
+      "rationale": "the print reads \"which is\" where the transcription has \"hth whic . is\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 1) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 135 — thomastaylor leaf n210 and sixbooksproclus00unkngoog leaf n219 and bub_gb_svwwAQAAMAAJ leaf n212.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 135 — thomastaylor leaf n210 and sixbooksproclus00unkngoog leaf n219 and bub_gb_svwwAQAAMAAJ leaf n212",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8542",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "same Psst aS",
+        "page": null,
+        "leaf": null
+      },
+      "before": "same Psst aS",
+      "after": "same time, as",
+      "rationale": "the print reads \"same time, as\" where the transcription has \"same Psst aS\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 3 — thomastaylor leaf n78 and sixbooksproclus00unkngoog leaf n87 and bub_gb_svwwAQAAMAAJ leaf n80.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 3 — thomastaylor leaf n78 and sixbooksproclus00unkngoog leaf n87 and bub_gb_svwwAQAAMAAJ leaf n80",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8543",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is rear with",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is rear with",
+      "after": "is parturient with",
+      "rationale": "the print reads \"is parturient with\" where the transcription has \"is rear with\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 5) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 338 — thomastaylor leaf n413 and sixbooksproclus00unkngoog leaf n422 and bub_gb_svwwAQAAMAAJ leaf n415.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 338 — thomastaylor leaf n413 and sixbooksproclus00unkngoog leaf n422 and bub_gb_svwwAQAAMAAJ leaf n415",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8544",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "informs ui 2",
+        "page": null,
+        "leaf": null
+      },
+      "before": "informs ui 2",
+      "after": "informs us where these",
+      "rationale": "the print reads \"informs us where these\" where the transcription has \"informs ui 2\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 35 — thomastaylor leaf n110 and sixbooksproclus00unkngoog leaf n119 and bub_gb_svwwAQAAMAAJ leaf n112",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8545",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "but align PS",
+        "page": null,
+        "leaf": null
+      },
+      "before": "but align PS",
+      "after": "but also in",
+      "rationale": "the print reads \"but also in\" where the transcription has \"but align PS\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 2) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and bub_gb_svwwAQAAMAAJ leaf n407.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 330 — thomastaylor leaf n405 and bub_gb_svwwAQAAMAAJ leaf n407",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8546",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "<3 a aes see",
+        "page": null,
+        "leaf": null
+      },
+      "before": "<3 a aes see",
+      "after": "Plato; and I see",
+      "rationale": "the print reads \"Plato; and I see\" where the transcription has \"<3 a aes see\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 6) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 21 — thomastaylor leaf n96 and sixbooksproclus00unkngoog leaf n105 and bub_gb_svwwAQAAMAAJ leaf n98.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 21 — thomastaylor leaf n96 and sixbooksproclus00unkngoog leaf n105 and bub_gb_svwwAQAAMAAJ leaf n98",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8547",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "great aes as",
+        "page": null,
+        "leaf": null
+      },
+      "before": "great aes as",
+      "after": "great king as",
+      "rationale": "the print reads \"great king as\" where the transcription has \"great aes as\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n530), printed page 25.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n530), printed page 25",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8548",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "at wee same",
+        "page": null,
+        "leaf": null
+      },
+      "before": "at wee same",
+      "after": "at the same",
+      "rationale": "the print reads \"at the same\" where the transcription has \"at wee same\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 3 — thomastaylor leaf n78 and sixbooksproclus00unkngoog leaf n87 and bub_gb_svwwAQAAMAAJ leaf n80.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 3 — thomastaylor leaf n78 and sixbooksproclus00unkngoog leaf n87 and bub_gb_svwwAQAAMAAJ leaf n80",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8549",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "and don the",
+        "page": null,
+        "leaf": null
+      },
+      "before": "and don the",
+      "after": "and about the",
+      "rationale": "the print reads \"and about the\" where the transcription has \"and don the\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8550",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "Shur # also",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Shur # also",
+      "after": "thus also",
+      "rationale": "the print reads \"thus also\" where the transcription has \"Shur # also\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 6) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 46 — thomastaylor leaf n121 and sixbooksproclus00unkngoog leaf n130 and bub_gb_svwwAQAAMAAJ leaf n123.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 46 — thomastaylor leaf n121 and sixbooksproclus00unkngoog leaf n130 and bub_gb_svwwAQAAMAAJ leaf n123",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8551",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "is wim SHAR",
+        "page": null,
+        "leaf": null
+      },
+      "before": "is wim SHAR",
+      "after": "is one,",
+      "rationale": "the print reads \"is one,\" where the transcription has \"is wim SHAR\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the page's reading could not be written as a repair of the transcription: the reading came back with the illegible marker (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 237 — thomastaylor leaf n312 and bub_gb_svwwAQAAMAAJ leaf n314.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 237 — thomastaylor leaf n312 and bub_gb_svwwAQAAMAAJ leaf n314",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8552",
+      "type": "punctuation",
+      "apply": "reading",
+      "location": {
+        "find": "“tellect is",
+        "page": null,
+        "leaf": null
+      },
+      "before": "“tellect is",
+      "after": "tellect is",
+      "rationale": "the print reads \"tellect is\" where the transcription has \"“tellect is\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n252), printed page 177.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n252), printed page 177",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "differs only in punctuation characters: “ (rule 3)",
+      "review": false,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8553",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "an 85; the",
+        "page": null,
+        "leaf": null
+      },
+      "before": "an 85; the",
+      "after": "being; but the",
+      "rationale": "the print reads \"being; but the\" where the transcription has \"an 85; the\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 213 — thomastaylor leaf n288 and sixbooksproclus00unkngoog leaf n297 and bub_gb_svwwAQAAMAAJ leaf n290.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 213 — thomastaylor leaf n288 and sixbooksproclus00unkngoog leaf n297 and bub_gb_svwwAQAAMAAJ leaf n290",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8554",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "sity, says",
+        "page": null,
+        "leaf": null
+      },
+      "before": "sity, says",
+      "after": "nity, says",
+      "rationale": "the print reads \"nity, says\" where the transcription has \"sity, says\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 215 — thomastaylor leaf n290 and sixbooksproclus00unkngoog leaf n299 and bub_gb_svwwAQAAMAAJ leaf n292.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 215 — thomastaylor leaf n290 and sixbooksproclus00unkngoog leaf n299 and bub_gb_svwwAQAAMAAJ leaf n292",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8555",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "talons to",
+        "page": null,
+        "leaf": null
+      },
+      "before": "talons to",
+      "after": "belong to",
+      "rationale": "the print reads \"belong to\" where the transcription has \"talons to\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 297 — thomastaylor leaf n372 and sixbooksproclus00unkngoog leaf n381 and bub_gb_svwwAQAAMAAJ leaf n374.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 297 — thomastaylor leaf n372 and sixbooksproclus00unkngoog leaf n381 and bub_gb_svwwAQAAMAAJ leaf n374",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8556",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "a hat whi",
+        "page": null,
+        "leaf": null
+      },
+      "before": "a hat whi",
+      "after": "a more",
+      "rationale": "the print reads \"a more\" where the transcription has \"a hat whi\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 84 — thomastaylor leaf n159 and sixbooksproclus00unkngoog leaf n168 and bub_gb_svwwAQAAMAAJ leaf n161.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 84 — thomastaylor leaf n159 and sixbooksproclus00unkngoog leaf n168 and bub_gb_svwwAQAAMAAJ leaf n161",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8557",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "espace of",
+        "page": null,
+        "leaf": null
+      },
+      "before": "espace of",
+      "after": "supplier of",
+      "rationale": "the print reads \"supplier of\" where the transcription has \"espace of\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 365 — thomastaylor leaf n440 and sixbooksproclus00unkngoog leaf n449 and bub_gb_svwwAQAAMAAJ leaf n442",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8558",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "aah which",
+        "page": null,
+        "leaf": null
+      },
+      "before": "aah which",
+      "after": "which that which",
+      "rationale": "the print reads \"which that which\" where the transcription has \"aah which\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 175 — thomastaylor leaf n250 and sixbooksproclus00unkngoog leaf n259 and bub_gb_svwwAQAAMAAJ leaf n252.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 175 — thomastaylor leaf n250 and sixbooksproclus00unkngoog leaf n259 and bub_gb_svwwAQAAMAAJ leaf n252",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8559",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "BOOK ca 3",
+        "page": null,
+        "leaf": null
+      },
+      "before": "BOOK ca 3",
+      "after": "BOOK III.",
+      "rationale": "the print reads \"BOOK III.\" where the transcription has \"BOOK ca 3\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 63 of 63 print characters (a: Soe.) ua a fs is ay fy: ON ae THEOLOGY ee ces AR | BOOK ca 3 -> ON THEOLOGY BOOK III.) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n262), printed page 178.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n262), printed page 178",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8560",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the tind",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the tind",
+      "after": "the third",
+      "rationale": "the print reads \"the third\" where the transcription has \"the tind\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 297 — thomastaylor leaf n372 and sixbooksproclus00unkngoog leaf n381 and bub_gb_svwwAQAAMAAJ leaf n374.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 297 — thomastaylor leaf n372 and sixbooksproclus00unkngoog leaf n381 and bub_gb_svwwAQAAMAAJ leaf n374",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8561",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "seees he",
+        "page": null,
+        "leaf": null
+      },
+      "before": "seees he",
+      "after": "monad, he",
+      "rationale": "the print reads \"monad, he\" where the transcription has \"seees he\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 7) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 297 — thomastaylor leaf n372 and bub_gb_svwwAQAAMAAJ leaf n374.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, bub-gb-svwwaqaamaaj-djvu), printed page 297 — thomastaylor leaf n372 and bub_gb_svwwAQAAMAAJ leaf n374",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8562",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "who j is",
+        "page": null,
+        "leaf": null
+      },
+      "before": "who j is",
+      "after": "who is",
+      "rationale": "the print reads \"who is\" where the transcription has \"who j is\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 5) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 338 — thomastaylor leaf n413 and sixbooksproclus00unkngoog leaf n422 and bub_gb_svwwAQAAMAAJ leaf n415.)",
+      "date": null,
+      "witness": "two other copies of the same print (proclus-taylor-elements-theology-and-theology-of-plato-1816, sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 338 — thomastaylor leaf n413 and sixbooksproclus00unkngoog leaf n422 and bub_gb_svwwAQAAMAAJ leaf n415",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8563",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "BOOK Ry",
+        "page": null,
+        "leaf": null
+      },
+      "before": "BOOK Ry",
+      "after": "BOOK I.",
+      "rationale": "the print reads \"BOOK I.\" where the transcription has \"BOOK Ry\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the same printed line was returned for more than one of this leaf's lines — which of them it belongs to cannot be told, not accepted (decided by two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 72 — sixbooksproclus00unkngoog leaf n156 and bub_gb_svwwAQAAMAAJ leaf n149.)",
+      "date": null,
+      "witness": "two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 72 — sixbooksproclus00unkngoog leaf n156 and bub_gb_svwwAQAAMAAJ leaf n149",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r8564",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "of heal",
+        "page": null,
+        "leaf": null
+      },
+      "before": "of heal",
+      "after": "of division",
+      "rationale": "the print reads \"of division\" where the transcription has \"of heal\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 4) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (thomastaylor leaf n664), printed page 159.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (thomastaylor leaf n664), printed page 159",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
     }
   ]
 }

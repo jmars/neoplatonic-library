@@ -7,7 +7,78 @@
       "sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
       "bytes": 2493500,
       "why": "the same 1816 edition transcribed a second time — Taylor's Six Books on the Theology of Plato (1816) as the shelf holds it whole, with the Elements of Theology and the treatises; the shelf records it as a second transcription of the same print, MEASURED (sampled 40-letter runs from every part of both volumes stand in it at a uniform rate), and it is the witness a reading of this edition is checked against",
-      "imported": "2026-10-05"
+      "imported": "2026-10-05",
+      "model": {
+        "item": "thomastaylor",
+        "xml": "elementsoftheology_proclus_djvu.xml",
+        "xml_sha256": "57af980917dc8dcc9a1d1529bf27c7cddfbc63382fe6f9a886aae50ca2b2d738",
+        "covers": {
+          "v1": 75,
+          "v2": 505
+        },
+        "leaves": [
+          74,
+          801
+        ],
+        "pages": [
+          1,
+          425
+        ],
+        "images": 1066,
+        "why": "MEASURED: this is the copy already held as the second transcription above, and the item it comes from carries the whole 1816 edition in one scan of 1066 leaves, so it covers BOTH volumes of this work. Its own running heads give a different offset per volume: vol. I’s heads give printed page = leaf − 75 (144 heads), and vol. II’s give printed page = leaf − 505 (106 heads) — leaf 510 reads “CHAP. II. OF PLATO. 5” and leaf 515 “10 ON THE THEOLOGY BOOK VI.” The vol. II offset is the one this library already recorded for the Elements of Theology in the same item (archive n = printed page + 505, verified at both ends of that work). So a vol. II page of this work stands at archive leaf = printed page + 505."
+      }
+    },
+    {
+      "name": "sixbooksproclus00unkngoog-djvu",
+      "shelf": "sixbooksproclus00unkngoog_djvu.txt",
+      "sha256": "d10369022f6ae8eeab5f05a18eab73fb30cad96f7383c27c05ebf76142fa3456",
+      "bytes": 1343716,
+      "why": "a second copy of vol. I of the same 1816 print, scanned independently, with its own OCR and page model",
+      "imported": "2026-10-05",
+      "model": {
+        "item": "sixbooksproclus00unkngoog",
+        "xml": "sixbooksproclus00unkngoog_djvu.xml",
+        "xml_sha256": "d08547381d062cc9aa5c5a9d52689e339b0d8c23812424658ef55fda32ce2f4a",
+        "covers": {
+          "v1": 84
+        },
+        "leaves": [
+          85,
+          509
+        ],
+        "pages": [
+          1,
+          425
+        ],
+        "images": 517,
+        "why": "MEASURED: the item carries vol. I of the 1816 print (printed pp. 1-425) — leaf 85 is the title page (“PROCLUS, THE PLATONIC SUCCESSOR, ON”), leaf 86 opens “2 ON THE THEOLOGY BOOK I”, leaf 509 carries “CHAP. XXXIX. OF PLATO. 425”, and the leaves after it are the digitizer’s end matter. The relation is the item’s own page-number pass as well as its own running heads: all 434 numbered leaves of _page_numbers.json carry printed page = leaf − 84, in one unbroken run from leaf 86 to leaf 516. So this copy’s archive leaf = printed page + 84 against this edition’s own offset of 73, i.e. its leaf = this edition’s leaf + 11."
+      }
+    },
+    {
+      "name": "bub-gb-svwwaqaamaaj-djvu",
+      "shelf": "bub_gb_svwwAQAAMAAJ_djvu.txt",
+      "sha256": "d2d86e41995227eef009f369f3066729938c6ad2cd6cdbe621f15abd85bb37ae",
+      "bytes": 1325982,
+      "why": "a third copy of vol. I of the same 1816 print, scanned independently, with its own OCR and page model",
+      "imported": "2026-10-05",
+      "model": {
+        "item": "bub_gb_svwwAQAAMAAJ",
+        "xml": "bub_gb_svwwAQAAMAAJ_djvu.xml",
+        "xml_sha256": "6faba7dbf891ab8003452ede2b6c1f28484f6df4d8712cbd7a3fb468fb70e154",
+        "covers": {
+          "v1": 77
+        },
+        "leaves": [
+          78,
+          502
+        ],
+        "pages": [
+          1,
+          425
+        ],
+        "images": 508,
+        "why": "MEASURED: the item is a second independent copy of vol. I of the same print (printed pp. 1-425): leaf 78 is the title page, leaf 79 opens “2 ON THE THEOLOGY BOOK I.”, and its running heads run to BOOK V. Its own page-number pass (_page_numbers.json, confidence 83.4) puts printed page = leaf − 77 on every one of its 430 numbered leaves, and the leaves’ own running heads agree — 72 of the 84 heads that carry a printed page give exactly that offset, the rest being digits the OCR mangled (“4C” for 46). So this copy’s archive leaf = printed page + 77, i.e. its leaf = this edition’s leaf + 4."
+      }
     }
   ]
 }
