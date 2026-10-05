@@ -1,5 +1,5 @@
 /**
- * tools/library/extract.mjs — the library's document extractor (plan §4, phase 1;
+ * tools/extract.mjs — the library's document extractor (plan §4, phase 1;
  * the leaf-accurate page model, phase 4).
  *
  * A scanned printed edition is a STRUCTURED object: it has printed pages with
@@ -52,7 +52,7 @@
  *    build fails (`checkEdits`, called by the build): a rule that matches
  *    nothing is unreviewed machinery.
  *
- * 5. THE EDITION LIVES IN THE REPO. `content/library/<slug>/source.txt` is the
+ * 5. THE EDITION LIVES IN THE REPO. `data/editions/<slug>/versions/<semver>/source.txt` is the
  *    transcription as imported, once, from the shelf; the build reads that and
  *    never the shelf (the shelf is touched only by `--import`, below, which
  *    refuses to overwrite a changed edition). The library is still held back
@@ -61,7 +61,7 @@
  * 6. THE PAGE MODEL RESTS ON THE VOLUME'S OWN LEAVES WHEN THEY CAN BE HAD (§4.6,
  *    phase 4). A running head says what a page number IS; it does not say where
  *    one page ends and the next begins, and it cannot speak for a page whose head
- *    the transcription lost. The leaves do. `tools/library/derive.mjs` reads the
+ *    the transcription lost. The leaves do. `tools/derive.mjs` reads the
  *    item's own page files ONCE and stores, beside the edition,
  *    `data/editions/<slug>/derivs.json`: the leaf table, the line index at which
  *    each leaf begins, and the inventory of the bytes it was derived from. This
@@ -224,7 +224,7 @@ export const readEdition = (slug, version = null) => readFileSync(editionPath(sl
 /**
  * THE DERIVED PAGE MODEL, if this repo stores one (phase 4, plan §4.6).
  *
- * `data/editions/<slug>/derivs.json` is what `tools/library/derive.mjs` writes
+ * `data/editions/<slug>/derivs.json` is what `tools/derive.mjs` writes
  * from the archive item's own `_djvu.xml` and `_page_numbers.json`: the leaf
  * table, the alignment to this edition's line stream, and the inventory of the
  * bytes it was derived from. Those derivatives are 942 KB on a host path; this
@@ -472,7 +472,7 @@ const TEXT_RULES = {
   /* The Elements of Theology, as its own work out of the volume that carries
    * it: 211 propositions, each numbered in roman on a line of its own, the
    * statement and proof following as separate blocks. Everything here is
-   * MEASURED on the stored slice (content/library/<slug>/source.txt, whose
+   * MEASURED on the stored slice (data/editions/<slug>/versions/<semver>/source.txt, whose
    * import.json traces it to the volume's own file over the lines the work
    * occupies). */
   'proclus-elements-of-theology-taylor-1816': {
@@ -3006,7 +3006,7 @@ export function importWitness(slug, shelfFilename, why) {
 
 /** Copy the shelf's transcription into the repo, ONCE, and record where it came
  * from. The shelf is the source of an import, never a build dependency: after
- * this, the build reads `content/library/<slug>/source.txt` and the shelf can be
+ * this, the build reads `data/editions/<slug>/versions/<semver>/source.txt` and the shelf can be
  * absent. Re-running on a CHANGED shelf file fails rather than overwrite: the
  * stored edition may already be cited, and replacing it silently would move
  * every page number a citation names.
@@ -3067,7 +3067,7 @@ export function importEdition(slug) {
         `  Nothing was overwritten. This edition may already be cited, and page numbers move with it.\n` +
         `  Read the difference, decide, and only then import: compare the two files, and if the new ` +
         `transcription is the edition you want, import it as a NEW edition (a new slug) or delete ` +
-        `content/library/${slug}/import.json deliberately, knowing what the citations point at.`,
+        `data/editions/${slug}/import.json deliberately, knowing what the citations point at.`,
     );
   }
   mkdirSync(dirname(record), { recursive: true });

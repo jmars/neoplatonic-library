@@ -74,7 +74,7 @@ neoplatonic-library/
     graph/
       graph.json            { nodes[], edges[] } — the transmission/citation graph
   site/                     build output is written here (dist/)
-  build/                    the site build (reuses tools/library machinery)
+  build/                    the site build (reuses the tools/ machinery)
   tools/                    library machinery (reader, extract, repair, app.js)
 ```
 
@@ -446,7 +446,7 @@ that flips `review` to `false`; migration never asserts certainty it lacks.**
 ### 4.3 Canonical layout for the pipeline
 
 `data/editions/<slug>/versions/<semver>/repairs.json` is the **single source of
-truth**. There is no second copy in a `tools/library/edits/` directory: the build
+truth**. There is no second copy in a `tools/edits/` directory: the build
 reads the canonical file and derives the reader's internal shape (§4.0). The
 `_base.json` policy (damage set, `substitute-if-known-else-leave`, states) travels
 with the version — copy it to `versions/<semver>/base.json` and mirror its damage
@@ -484,7 +484,7 @@ idempotent). The Proclus rules cite their leaf and page in the rationale
 token in a rationale is a cited leaf, and the printed page is the page number
 standing immediately before it (`null` where none does). The Porphyry rules are
 matched by `find` to the proposals in the blog's own scan pass
-(`tools/library/edits/<slug>.scan.json`), whose `evidence: "scan page (archive.org
+(`tools/edits/<slug>.scan.json`), whose `evidence: "scan page (archive.org
 page/nNN)"` carries the leaf. The migration NEVER renumbers an id or changes
 `location.find`, `after` or `type`; it asserts that on every rule before writing.
 
@@ -671,7 +671,10 @@ leaf (`app-leafnav`), disabled at the ends of the run. The shape:
 **The zero-rule version is a STATE, not an empty file.** A version published
 before its first emendation carries `ruleCount: 0`, `counts: {}` and an empty
 `rules` — and the SAME `leaves`, because the scan is not the repair log
-(MEASURED: Taylor's Theology of Plato v1.0.0 — 722 stored leaves, no rule). Both
+(MEASURED, and since superseded as an example: Taylor's Theology of Plato v1.0.0
+was served in exactly that state — 722 stored leaves, no rule — and has since
+been read whole and repaired, so no served edition is in the zero-rule state
+now). Both
 pages say so plainly ("No repairs are recorded for this version yet"), the viewer
 renders the whole scan and the leaf jump, and it omits the type filter and the
 reading search, because they are controls for a list that does not exist.

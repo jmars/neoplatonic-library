@@ -1,5 +1,5 @@
 /**
- * tools/library/shelf.mjs — the shelf: which texts the library holds, and where.
+ * tools/shelf.mjs — the shelf: which texts the library holds, and where.
  *
  * The axis is the BLOG's, not a book list's. The four groups below are the
  * site's own structural argument, arranged as a shelf so a reader can walk it:
@@ -352,26 +352,43 @@ export const TEXTS = [
     // the stored leaf file names carry their volume's prefix (v1-nNNN.jpg /
     // v2-nNNN.jpg) so the two leaf spaces cannot collide.
     cat: ['proclus-theology-of-plato'],
-    // PUBLISHED, and served IN REPAIR with an EMPTY rule list — no repair has
-    // been made yet. It is put up now rather than held back, and it is marked
-    // for what it is: the transcription as imported, every mark the scanner left
-    // standing visible, and a repair log that will fill in as readings are made.
-    // The state says "readable, unfinished" — never "repaired" — and the note
-    // below says so in the reader's terms; the apparatus page states plainly that
-    // no repair has been recorded yet and what that means. `damaged` (the
-    // default) would understate it: the work HAS been begun — the division model
-    // was recovered from the page images — and `in-repair` is exactly the state
-    // the model reserves for a text that is readable and being worked on.
+    // PUBLISHED, and served REPAIRED. The edition was decided from a FULL READ of
+    // the whole text — the transcription imported here, a second transcription of
+    // the same 1816 print standing beside it as witness, and the stored page
+    // images of the print itself — and the emendations the read found are recorded
+    // as rules and applied by the reading view. `repaired` is the model's word for
+    // FINISHED in the sense this library means (the state table below): every
+    // damaged place a witness could settle is settled, and what is left is
+    // deliberately left and RECORDED. It does NOT mean the text is clean, and the
+    // note says so in the reader's terms: the read left a set of open questions,
+    // and working them against the page images settled many of them but not all —
+    // the questions still open keep their reasons, and the reading view shows the
+    // transcription's own characters there, marked, rather than a guess.
+    //
+    // THE NOTE TYPES NO COUNT. The reader learns every figure from the pages
+    // themselves: build/library.mjs `counted` ("Measured on the text this page
+    // serves: …") and build/pages.mjs "What it carries" DERIVE the counts from the
+    // version's own corrections, and both render beside this note. This is the
+    // codebase's standing rule for counts, and it is written here because a typed
+    // number in a shelf note once shipped stale beside the derived one, speaking
+    // the wrong figure on two pages. The note states what happened in words and
+    // leaves every number to the derivation.
     published: true,
     repair: {
-      state: 'in-repair',
+      state: 'repaired',
       note:
-        'the transcription as imported, its OCR damage not yet repaired. The text is readable end to end — ' +
-        'the book and chapter structure was recovered from the page images of this edition, with a second ' +
-        'transcription of the same print as a witness — but no emendation has been made yet: every damage ' +
-        'character the scanner left stands visible in the reading view, marked, and the repairs list is empty. ' +
-        'Each emendation will be recorded as a rule with the words it changes, why, and the page image it was ' +
-        'decided from, as it is made; until then this page serves the scanned transcription and nothing more.',
+        'the text has been read whole — the transcription imported here, a second transcription of the same ' +
+        '1816 print standing beside it as witness, and the edition’s stored page images — and the emendations ' +
+        'the read found are recorded as rules and applied by the reading view. Each rule gives the words it ' +
+        'changes, why, and the witness it was decided from; where that witness was the printed page, the rule ' +
+        'says so and cites the leaf it was read from, so the image behind it can be opened and checked. What ' +
+        'could not be settled is left standing and named, not hidden: the read left a set of open questions, ' +
+        'and working them against the page images settled many of them but not all. The questions still open ' +
+        'keep their reasons — a reading nothing places on the line it was asked about, a page line two ' +
+        'answers came back for, a word the page itself will not read — and the reading view shows the ' +
+        'transcription’s own characters there, marked, rather than a guess. So the edition is finished in the ' +
+        'sense this library means, and is not a clean text: every damaged place a witness could settle has ' +
+        'been settled, and what is left is deliberately left and recorded.',
     },
   },
   {
@@ -547,7 +564,7 @@ export const TEXTS = [
     },
     file: 'Porphyry-On-the-Cave-of-the-Nymphs-Taylor-1917',
     // the archive.org identifier this transcription came from. The build serves
-    // the EDITION in the repo (content/library/<slug>/), never the archive; this
+    // the EDITION in the repo (data/editions/<slug>/), never the archive; this
     // names where the edition's transcription came from, for provenance.
     item: 'onthecaveoftheny00porpuoft',
     title: 'On the Cave of the Nymphs',

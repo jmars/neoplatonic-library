@@ -28,10 +28,9 @@
  *
  *     node build/build.mjs && node tools/version-probe.mjs
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync, mkdtempSync, rmSync, cpSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, mkdtempSync, rmSync, cpSync, readdirSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
-import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import {
   extract,
@@ -157,13 +156,71 @@ for (const t of served) {
 
 /* ---------- the mutation: v1.0.0 does not move when v1.1.0 ships ---------- */
 
+/* A SCRATCH DIRECTORY OFF THE QUOTA'D TMPFS. MEASURED 2026-10-07: /tmp on this
+ * host is a 63 GB tmpfs mounted under a per-user quota (EDQUOT), holding tens of
+ * GB of accumulated agent scratch. The scratch tree here is a full copy of data/
+ * — including the 443 MB of page images Taylor's Theology of Plato stores — so
+ * `cp -r` into /tmp fails outright, and a write into it can be SILENTLY TRUNCATED
+ * rather than refused (a 13.7 KB comparison file came back as 2.4 KB with no
+ * error), which would leave the mutant build reading half a tree. The scratch
+ * therefore goes to a real filesystem: $NPL_SCRATCH if set, else /var/tmp, else a
+ * directory beside the repo. */
+function scratchBase() {
+  const candidates = [process.env.NPL_SCRATCH, '/var/tmp', join(dirname(ROOT), '.npl-scratch')].filter(Boolean);
+  for (const base of candidates) {
+    try {
+      mkdirSync(base, { recursive: true });
+      const probe = join(base, '.npl-write-probe');
+      writeFileSync(probe, 'ok');
+      rmSync(probe);
+      return base;
+    } catch {
+      /* not writable — try the next */
+    }
+  }
+  throw new Error(`version-probe: no writable scratch base among ${candidates.join(', ')}`);
+}
+
+/** THE COPY MUST BE COMPLETE, or the immutability comparison is vacuous: a
+ * truncated copy leaves the mutant build reading half a tree. Every copied
+ * directory is checked against its source by file count AND total bytes — a short
+ * write into a full filesystem is reported, never swallowed. */
+function copyTree(from, to) {
+  cpSync(from, to, { recursive: true });
+  const tally = (dir) => {
+    let files = 0;
+    let bytes = 0;
+    const walk = (d) => {
+      for (const e of readdirSync(d, { withFileTypes: true })) {
+        const p = join(d, e.name);
+        if (e.isDirectory()) walk(p);
+        else if (e.isFile()) {
+          files += 1;
+          bytes += statSync(p).size;
+        }
+      }
+    };
+    walk(dir);
+    return { files, bytes };
+  };
+  const src = tally(from);
+  const dst = tally(to);
+  if (src.files !== dst.files || src.bytes !== dst.bytes) {
+    throw new Error(
+      `version-probe: the scratch copy of ${from} is SHORT — ${dst.files} file(s)/${dst.bytes} byte(s) ` +
+        `against ${src.files}/${src.bytes}; the scratch filesystem did not hold the tree ` +
+        `(refusing to run the mutation on an incomplete copy)`,
+    );
+  }
+}
+
 section('the immutability asymmetry — a new version does not touch the old one');
 {
   /* The mutation runs in a SCRATCH COPY of the repo so nothing here is edited:
    * the tree under test stays exactly as built, and the mutant tree is thrown
    * away. The copy is of the source + data + the built tree, which is what the
    * build needs. */
-  const scratch = mkdtempSync(join(tmpdir(), 'npl-version-mutation-'));
+  const scratch = mkdtempSync(join(scratchBase(), 'npl-version-mutation-'));
   const slug = served[0].slug;
   const v0 = currentOf(slug);
   /* THE VERSION'S BYTES AND ITS DOCUMENT ARE IMMUTABLE; its PAGE is chrome around
@@ -183,7 +240,7 @@ section('the immutability asymmetry — a new version does not touch the old one
   const before = snapshot(ROOT);
   try {
     for (const d of ['build', 'tools', 'design', 'elm', 'data']) {
-      cpSync(join(ROOT, d), join(scratch, d), { recursive: true });
+      copyTree(join(ROOT, d), join(scratch, d));
     }
     /* A NEW VERSION with a CHANGED SOURCE BYTE. The change is inside a paragraph
      * (not at a section boundary), so the anchors do not move — the point of the

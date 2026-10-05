@@ -1,0 +1,13 @@
+{
+  "slug": "proclus-theology-of-plato-taylor-1816",
+  "witnesses": [
+    {
+      "name": "proclus-taylor-elements-theology-and-theology-of-plato-1816",
+      "shelf": "Proclus-Taylor-Elements-Theology-and-Theology-of-Plato-1816.txt",
+      "sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+      "bytes": 2493500,
+      "why": "the same 1816 edition transcribed a second time — Taylor's Six Books on the Theology of Plato (1816) as the shelf holds it whole, with the Elements of Theology and the treatises; the shelf records it as a second transcription of the same print, MEASURED (sampled 40-letter runs from every part of both volumes stand in it at a uniform rate), and it is the witness a reading of this edition is checked against",
+      "imported": "2026-10-05"
+    }
+  ]
+}

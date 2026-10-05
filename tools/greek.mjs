@@ -5,7 +5,7 @@
  * WHY. The 1816 Proclus prints Greek inside Taylor's brackets (the etyma, the
  * lemmas), and the scan read it as LATIN LOOKALIKES — so the transcription carries
  * runs like `y«g`, `K»g`, `futj^neu` where the print has Greek. Deciding what those
- * say needs (a) the printed page (tools/library/scan.mjs reads it) and (b) a way to
+ * say needs (a) the printed page (tools/scan.mjs reads it) and (b) a way to
  * ask whether a candidate is a real Greek word. This is (b).
  *
  * TWO LISTS, because two scripts are in play:
@@ -19,16 +19,23 @@
  * which is what a repair needs. Nor is it evidence about THIS print — Dodds is a
  * different edition; see the witness rules in the library's own policy.
  *
- *   node tools/library/greek.mjs fetch                 # build/refresh the lists
- *   node tools/library/greek.mjs check <word> [...]    # is this a Greek form?
- *   node tools/library/greek.mjs list                  # sizes and paths
+ *   node tools/greek.mjs fetch                 # build/refresh the lists
+ *   node tools/greek.mjs check <word> [...]    # is this a Greek form?
+ *   node tools/greek.mjs list                  # sizes and paths
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { homedir } from 'node:os';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const CACHE = join(ROOT, 'content', 'library', '.words');
+/* THE REPO ROOT: the tool was copied from the blog, where it lived at
+ * `<repo>/tools/library/greek.mjs`; here it is `<repo>/tools/greek.mjs`. */
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+/* THE FETCHED LISTS LIVE IN A MACHINE CACHE, not in the repo: the LSJ is ~300 MB
+ * across 27 parts and is downloadable, and the blog kept its own
+ * `content/library/.words` out of version control for the same reason.
+ * tools/vocab.mjs reads and writes the SAME directory. */
+const CACHE = join(process.env.XDG_CACHE_HOME || join(homedir(), '.cache'), 'neoplatonic-library');
 const BETACODE = join(CACHE, 'greek-betacode.txt');
 const UNICODE = join(CACHE, 'greek-unicode.txt');
 const SHELF = process.env.LIBRARY_SHELF || join(process.env.HOME || '', 'thework', 'work-text');

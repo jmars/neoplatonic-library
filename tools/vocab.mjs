@@ -15,20 +15,30 @@
  * several are OOV. So this tool REPORTS candidates with their site; a human (or
  * the scan) decides. It repairs nothing.
  *
- *   node tools/library/vocab.mjs [slug] [--json <out>] [--allow <file>]
+ *   node tools/vocab.mjs [slug] [--json <out>] [--allow <file>]
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { join } from 'node:path';
-import { applyEditsCounted } from './extract.mjs';
-import { TEXTS, SHELF, shelfFile } from './shelf.mjs';
+import { applyEditsCounted, extract, readEdition, loadEdits, sha256, LIBRARY_DIR } from './extract.mjs';
+import { TEXTS } from './shelf.mjs';
 
 const argv = process.argv.slice(2);
 const slug = argv.find((a) => TEXTS.some((t) => t.slug === a)) || 'porphyry-on-the-cave-of-the-nymphs-taylor-1917';
 const jsonOut = argv.includes('--json') ? argv[argv.indexOf('--json') + 1] : null;
 const allowFile = argv.includes('--allow') ? argv[argv.indexOf('--allow') + 1] : null;
 
-const ROOT = join(import.meta.dirname, '..', '..');
-const CACHE = join(ROOT, 'content', 'library', '.words');
+/* THE REPO ROOT. The tool was copied from the blog, where it lived at
+ * `<repo>/tools/library/vocab.mjs` and two levels up was the root; here it is
+ * `<repo>/tools/vocab.mjs`. */
+const ROOT = join(import.meta.dirname, '..');
+/* THE FETCHED WORD LISTS LIVE IN A MACHINE CACHE, not in the repo: they are
+ * downloadable (a 370k-word list; the LSJ, which tools/greek.mjs fetches into the
+ * same directory) and they are not the library's data. The blog kept them OUT of
+ * version control for the same reason (its whole `content/library/` was
+ * gitignored). The XDG cache directory is the default; tools/greek.mjs reads and
+ * writes the SAME directory. */
+const CACHE = join(process.env.XDG_CACHE_HOME || join(homedir(), '.cache'), 'neoplatonic-library');
 const WORDLIST = join(CACHE, 'words.txt');
 const WORDLIST_URL = 'https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt';
 
@@ -57,7 +67,7 @@ const core = (tok) => tok
 // compared in the same form.
 const allowPath = allowFile && existsSync(allowFile)
   ? allowFile
-  : join(ROOT, 'content', 'library', slug, 'vocab-allow.txt');
+  : join(LIBRARY_DIR, slug, 'vocab-allow.txt');
 const allow = existsSync(allowPath)
   ? new Set(readFileSync(allowPath, 'utf8').split('\n')
       .filter((l) => l && !/^\s/.test(l))
@@ -66,19 +76,27 @@ const allow = existsSync(allowPath)
       .map(core))
   : new Set();
 
-const doc = JSON.parse(readFileSync(join(ROOT, 'dist', 'library', slug, 't'), 'utf8'));
-const rules = JSON.parse(readFileSync(join(ROOT, 'tools', 'library', 'edits', `${slug}.json`), 'utf8'))
-  .edits.filter((r) => r.action !== 'leave')
-  .map((r) => ({ find: r.find, repl: r.replace }));
+/* THE DOCUMENT AND THE RULES COME FROM THE EDITION. This tool was copied from the
+ * blog, where it read the SERVED page back out of `dist/library/<slug>/t` and the
+ * blog's own rules file out of `tools/library/edits/<slug>.json`. Neither path
+ * exists here: the library's served document is `site/dist/texts/<slug>/t` (whose
+ * blocks are MEASURED byte-identical to the extractor's own — the reading view is
+ * derived from them), and the rules are the canonical `repairs.json` of the
+ * version, which `loadEdits` maps to the same engine shape this tool applied. */
+const entry2 = TEXTS.find((t) => t.slug === slug);
+const srcText = readEdition(slug);
+const doc = extract(srcText, { entry: entry2, sha256: sha256(srcText) });
+const { edits } = loadEdits(slug);
+const rules = edits.filter((r) => r.action !== 'leave').map((r) => ({ find: r.find, repl: r.repl }));
 
 // The parallel, same translation: a word that appears there cleanly is real.
-const wit = join(ROOT, 'content', 'library', slug, 'witnesses.json');
+const wit = join(LIBRARY_DIR, slug, 'witnesses.json');
 const parWords = new Set();
 let parFlat = '';
 if (existsSync(wit)) {
   const rec = JSON.parse(readFileSync(wit, 'utf8'));
   for (const w of rec.witnesses || []) {
-    const p = join(ROOT, 'content', 'library', slug, 'witnesses', `${w.name}.txt`);
+    const p = join(LIBRARY_DIR, slug, 'witnesses', `${w.name}.txt`);
     if (!existsSync(p)) continue;
     const text = readFileSync(p, 'utf8');
     for (const t of text.toLowerCase().match(/[a-z]{2,}/g) || []) parWords.add(t);
@@ -89,13 +107,13 @@ if (existsSync(wit)) {
 
 const known = new Set((await wordlist()).split(/\s+/).filter(Boolean));
 
-/* THE GREEK LISTS, when tools/library/greek.mjs has built them. A text whose print
+/* THE GREEK LISTS, when tools/greek.mjs has built them. A text whose print
  * carries Greek has two more classes: a GREEK-SCRIPT token the list does not know
  * (a gate), and a LATIN/SYMBOL run that looks like smashed Greek — this volume's
  * scan read its Greek as lookalikes, so `y«g`, `«yoros`, `futj^neu` are Greek the
- * OCR flattened. The second needs the printed PAGE (tools/library/scan.mjs) to
+ * OCR flattened. The second needs the printed PAGE (tools/scan.mjs) to
  * settle, so it is REPORTED and routed, never gated. */
-const GREEKDIR = join(ROOT, 'content', 'library', '.words');
+const GREEKDIR = CACHE; // tools/greek.mjs fetches its lists into the same cache
 const greekUnicode = existsSync(join(GREEKDIR, 'greek-unicode.txt'))
   ? new Set(readFileSync(join(GREEKDIR, 'greek-unicode.txt'), 'utf8').split('\n').filter(Boolean))
   : null;
@@ -194,8 +212,8 @@ export function detectInView(view, section, out) {
    * volume's Greek as LATIN LOOKALIKES and left Greek-adjacent marks in it, so a
    * short, whitespace-delimited run that carries one of those marks and no English
    * reading is a Greek candidate. REPORTED, never gated: settling one needs the
-   * printed PAGE (tools/library/scan.mjs reads it) plus a Greek form to check
-   * (tools/library/greek.mjs check). */
+   * printed PAGE (tools/scan.mjs reads it) plus a Greek form to check
+   * (tools/greek.mjs check). */
   for (const m of view.matchAll(/\S+/g)) {
     const raw = m[0];
     if (raw.length > 16) continue;

@@ -21,14 +21,21 @@
  *       `All readings` entry for the whole log and a `Without a page image` entry
  *       for the readings that carry none, both paged 25 at a time, over the leaf
  *       index — and LANDS on the first leaf that HAS readings, never on an empty
- *       one (and on the no-image group when no leaf carries one: booted against a
- *       doctored data file). THE WHOLE STORED SCAN is that index: every stored
- *       leaf, in leaf order, adjacent with nothing separated — the leaves a
- *       reading was decided from MARKED (a badge) and the rest as they are; a
- *       leaf no reading used still shows its page image and says plainly that it
- *       carries none; a pager steps to the next STORED leaf and is disabled at
- *       the ends. For a `#repair-<id>` fragment and for a `#leaf-nNNN` fragment
- *       it opens the entry that reading belongs to, TURNS TO THE PAGE of a paged
+ *       one. An edition whose readings cite NO page image at all lands on the
+ *       no-image group, and that state is exercised on the BUILT page when the
+ *       shelf holds such an edition and on a DOCTORED data file when it does not
+ *       (Taylor's Theology of Plato was the last edition in it; its open questions
+ *       have since been worked against the page images, and its readings cite
+ *       leaves now). THE WHOLE
+ *       STORED SCAN is that index: every stored leaf, in leaf order, adjacent with
+ *       nothing separated — the leaves a reading was decided from MARKED (a badge)
+ *       and the rest as they are (a leaf the edition stored under a volume prefix,
+ *       v1-nNNN, is keyed by its stored name) — and no leaf is marked when none is
+ *       cited; a leaf no reading used still shows its page image and says plainly
+ *       that it carries none; a pager steps to the next STORED leaf and is
+ *       disabled at the ends. For a `#repair-<id>` fragment and for a
+ *       `#leaf-nNNN` fragment it opens the entry that reading belongs to — its
+ *       first held leaf, else the no-image group — TURNS TO THE PAGE of a paged
  *       list it falls on, renders the leaf and exactly the readings decided from
  *       it, and highlights the reading. The type filter and the word search
  *       narrow both axes; a click on a leaf moves the fragment. §4f exercises the
@@ -223,7 +230,22 @@ for (const e of editions) {
       if (!ev.url) continue;
       const f = join(DIST, ev.url.replace(/^\//, ''));
       if (!existsSync(f)) unresolved.push(ev.url);
-      if (ev.url !== `/texts/${e.slug}/scans/n${ev.leaf}.jpg`) unresolved.push(`wrong address: ${ev.url}`);
+      /* THE ADDRESS IS THE LEAF'S FILE NAME, not `n<leaf>.jpg`. An edition cut from
+       * TWO archive items has two leaves numbered n74, so the stored name carries
+       * the volume prefix (`v1-n74.jpg`) — the form model §4.4 gives the leaf and
+       * tools/scan-probe.mjs already validates. MEASURED: the single-volume form
+       * rejected all 451 of this edition's first page-image readings; the probe's
+       * expectation was NARROWER than the model, not the data broadened.
+       *
+       * The apparatus data carries the leaf's NUMBER, not its file name, so the
+       * name is read off the address itself and held to three things: it is a leaf
+       * name (`<prefix>nNNN.jpg`), the number in it IS this entry's leaf, and it is
+       * the stable scan address of that name. A wrong prefix, a wrong number or a
+       * url pointing at another edition's file is still caught. */
+      const name = String(ev.url).split('/').pop();
+      const nm = /^(?:v\d+-)?n(\d+)\.jpg$/.exec(name);
+      if (!nm || Number(nm[1]) !== ev.leaf || ev.url !== `/texts/${e.slug}/scans/${name}`)
+        unresolved.push(`wrong address: ${ev.url}`);
     }
   }
   check(unresolved.length === 0,
@@ -496,9 +518,13 @@ for (const SLUG of VIEWER_EDITIONS) {
    * The edition is published IN REPAIR, before its first emendation: the log is
    * empty and the SCAN is not. What the viewer must do — measured here on the
    * built page — is say that plainly, keep every leaf of the scan openable, and
-   * land somewhere that is not a blank panel. The reading half of this section
-   * (§4a-§4f) is about a version that HAS readings and is exercised on the two
-   * that do; this branch is what the third one is. */
+   * land somewhere that is not a blank panel. MEASURED 2026-10-06: no edition on
+   * the shelf is in this state any more (Taylor's Theology of Plato, the last one
+   * in it, has since been read whole and its emendations recorded as rules), so
+   * this branch asserts nothing on the current tree — it is the model's other
+   * legal state, kept so the viewer is never untested
+   * there. §4a-§4f is the reading half, and it now covers two states: an edition
+   * that cites a leaf, and one that cites none. */
   if (!hasRules) {
     const keyed = data.leaves.map((l) => ({ key: keyOfLeaf(l), l }));
     const ids = [...leaves.querySelectorAll('button')].map((b) => b.id);
@@ -582,15 +608,32 @@ for (const SLUG of VIEWER_EDITIONS) {
   check(!!selected && selected.id === wantLanding,
     `and it is the FIRST leaf that HAS readings (${wantLanding}), not the first stored leaf`);
   if (data.leaves.length && !leafReadings.get(data.leaves[0].n)) {
-    check(!!selected && selected.id !== `leaf-n${data.leaves[0].n}`,
-      `the first stored leaf (n${data.leaves[0].n}) carries none, so it is not what the reader lands on`);
+    check(!!selected && selected.id !== `leaf-${keyOfLeaf(data.leaves[0])}`,
+      `the first stored leaf (${keyOfLeaf(data.leaves[0])}) carries none, so it is not what the reader lands on`);
   }
-  const landingRows = [...ctx.w.document.querySelectorAll('#app-panel .apparatus-entry')];
+  /* THE LANDING'S FORM FOLLOWS THE LANDING. A leaf's readings render in full
+   * (`.apparatus-entry`, beneath the page image); the no-image group renders them
+   * compactly (`.app-compact-row`) and has no page image to show. AN EDITION WHOSE
+   * READINGS CITE NO PAGE IMAGE lands on that group — MEASURED on Taylor's
+   * Theology of Plato: 0 of its 722 stored leaves carries a reading — so the panel
+   * is asserted to hold the readings in the form its landing actually uses, and to
+   * claim the page image only when there is one. For an edition that cites leaves
+   * the landing is a leaf and both checks are exactly as before. */
+  const landingIsLeaf = wantLanding !== 'leaf-none';
+  const landingRows = [...ctx.w.document.querySelectorAll(
+    landingIsLeaf ? '#app-panel .apparatus-entry' : '#app-panel .app-compact-row',
+  )];
   check(landingRows.length > 0, `the panel has ${landingRows.length} reading(s) on load — the landing is never an empty panel`);
   check(!/No reading recorded for this entry/.test(ctx.text('#app-panel')),
     'and it does not tell the reader the filter matches nothing');
-  check(ctx.w.document.querySelector('#app-panel img.app-panel-img') !== null,
-    'and the panel shows the selected leaf at a readable size');
+  check(
+    landingIsLeaf
+      ? ctx.w.document.querySelector('#app-panel img.app-panel-img') !== null
+      : ctx.w.document.querySelector('#app-panel img.app-panel-img') === null,
+    landingIsLeaf
+      ? 'and the panel shows the selected leaf at a readable size'
+      : 'and the no-image landing claims no page image — there is no leaf to show',
+  );
   if (firstWithReadings) {
     const wantRows = data.rules.filter((r) => r.evidence.some((e) => e.exists && e.leaf === firstWithReadings.n)).map((r) => `repair-${r.id}`);
     if (wantRows.length <= 25) {
@@ -602,11 +645,16 @@ for (const SLUG of VIEWER_EDITIONS) {
   /* ---------- §4b THE TWO AXES: a leaf no reading was taken from, and the two
    * reading entries ---------- */
   if (emptyLeaf) {
-    const b = ctx.w.document.getElementById(`leaf-n${emptyLeaf.n}`);
-    check(!!b && b.className.includes('app-leaf-quiet'), `a leaf no reading was decided from is set apart (n${emptyLeaf.n})`);
+    const b = ctx.w.document.getElementById(`leaf-${keyOfLeaf(emptyLeaf)}`);
+    check(!!b && b.className.includes('app-leaf-quiet'), `a leaf no reading was decided from is set apart (${keyOfLeaf(emptyLeaf)})`);
     check(!!b && b.querySelector('.app-leaf-n').textContent === 'no readings', 'and it says so rather than reading 0');
-    const lit = firstWithReadings ? ctx.w.document.getElementById(`leaf-n${firstWithReadings.n}`) : null;
-    check(!!lit && !lit.className.includes('app-leaf-quiet'), 'while a leaf that HAS readings is not marked empty');
+    /* the positive half holds only when SOME leaf has readings; on an edition
+     * whose readings cite no page image there is no such leaf to contrast with,
+     * and §4b2 asserts the marking of every leaf instead. */
+    if (firstWithReadings) {
+      const lit = ctx.w.document.getElementById(`leaf-${keyOfLeaf(firstWithReadings)}`);
+      check(!!lit && !lit.className.includes('app-leaf-quiet'), 'while a leaf that HAS readings is not marked empty');
+    }
   }
   const allBtn = ctx.w.document.getElementById('leaf-all');
   const noneBtn = ctx.w.document.getElementById('leaf-none');
@@ -620,36 +668,51 @@ for (const SLUG of VIEWER_EDITIONS) {
 
   /* ---------- §4b2 THE WHOLE SCAN IS ONE RUN, IN LEAF ORDER ---------- */
   /* MEASURED, and what this unit changed: the index is EVERY stored leaf — 141
-   * for proclus, 72 for porphyry — not only the leaves a reading used. The
-   * leaves a reading WAS decided from are marked, and the rest are neither moved
-   * out of the run nor hidden behind anything. */
+   * for the Elements, 72 for porphyry, 722 for Taylor's Theology — not only the
+   * leaves a reading used. The leaves a reading WAS decided from are marked, and
+   * the rest are neither moved out of the run nor hidden behind anything.
+   *
+   * HOW MANY LEAVES A READING RESTS ON IS NOT FIXED, and it is measured here from
+   * the RECORD, not assumed: 60 of 141 on the Elements, 4 of 72 on porphyry, and
+   * 150 of 722 on Taylor's Theology — 0 of them until its open questions were
+   * worked against the page images, and that zero is the state this section must
+   * keep handling now that every served edition cites at least one leaf (the
+   * DOCTORED file below is what exercises it). The old
+   * `evidenceLeaves.length > 0` was the one shape that last state cannot satisfy,
+   * and it read a legal state as a defect. What replaces it is stronger, not
+   * weaker: the number of leaves carrying a reading must be the number the record
+   * gives, AND the evidence mark must be present on exactly those leaves and on no
+   * other — asserted in both directions over every one of the stored leaves, so an
+   * edition that cites none is checked as exactly as one that cites many. */
   const evidenceLeaves = data.leaves.filter((l) => l.readings > 0);
   const quietLeaves = data.leaves.filter((l) => !l.readings);
-  check(evidenceLeaves.length > 0, `${evidenceLeaves.length} of the ${data.leaves.length} stored leaves carry a reading`);
+  const recCited = new Set();
+  for (const r of seen.get(SLUG).rec) for (const e of (r.evidence || [])) if (e.exists) recCited.add(String(e.url).split('/').pop());
+  check(evidenceLeaves.length === recCited.size,
+    `${evidenceLeaves.length} of the ${data.leaves.length} stored leaves carry a reading — the record’s ${recCited.size}` +
+      (evidenceLeaves.length ? '' : ' (this edition’s readings cite no page image)'));
   check(quietLeaves.length > 0, `and ${quietLeaves.length} carry none (the common case: the whole scan is stored)`);
-  const idxN = [...leaves.querySelectorAll('button')]
-    .filter((b) => /^leaf-n\d+$/.test(b.id))
-    .map((b) => Number(b.id.slice('leaf-n'.length)));
-  check(idxN.join() === data.leaves.map((l) => l.n).join(),
+  const idxKeys = [...leaves.querySelectorAll('button')]
+    .map((b) => /^leaf-((?:v\d+-)?n\d+)$/.exec(b.id))
+    .filter(Boolean)
+    .map((m) => m[1]);
+  check(idxKeys.join() === data.leaves.map(keyOfLeaf).join(),
     `the index lists all ${data.leaves.length} stored leaves in leaf order, adjacent (evidence and non-evidence interleaved, nothing separated)`);
   check(
-    evidenceLeaves.every((l) => {
-      const b = ctx.w.document.getElementById(`leaf-n${l.n}`);
-      return b && b.className.includes('app-leaf-evidence') && !!b.querySelector('.app-leaf-badge');
+    data.leaves.every((l) => {
+      const b = ctx.w.document.getElementById(`leaf-${keyOfLeaf(l)}`);
+      if (!b) return false;
+      const marked = b.className.includes('app-leaf-evidence') && !!b.querySelector('.app-leaf-badge');
+      return marked === (l.readings > 0);
     }),
-    'every leaf a reading was decided from is MARKED (app-leaf-evidence + a badge)',
+    evidenceLeaves.length
+      ? 'every leaf a reading was decided from is MARKED (app-leaf-evidence + a badge), and no other leaf is'
+      : `no leaf carries an evidence mark — none of this edition’s ${data.rules.length} readings cites a page image, and the index is still the whole scan`,
   );
   check(
-    quietLeaves.every((l) => {
-      const b = ctx.w.document.getElementById(`leaf-n${l.n}`);
-      return b && !b.className.includes('app-leaf-evidence') && !b.querySelector('.app-leaf-badge');
-    }),
-    'and a leaf no reading was decided from carries no evidence mark',
-  );
-  check(
-    !!ctx.w.document.getElementById(`leaf-n${data.leaves[0].n}`) &&
-      !!ctx.w.document.getElementById(`leaf-n${data.leaves[data.leaves.length - 1].n}`),
-    `the first (n${data.leaves[0].n}) and last (n${data.leaves[data.leaves.length - 1].n}) leaf of the scan are both in the index`,
+    !!ctx.w.document.getElementById(`leaf-${keyOfLeaf(data.leaves[0])}`) &&
+      !!ctx.w.document.getElementById(`leaf-${keyOfLeaf(data.leaves[data.leaves.length - 1])}`),
+    `the first (${keyOfLeaf(data.leaves[0])}) and last (${keyOfLeaf(data.leaves[data.leaves.length - 1])}) leaf of the scan are both in the index`,
   );
 
   /* ---------- §4b3 A LEAF WITH NO READING STILL SHOWS ITS PAGE ----------
@@ -658,12 +721,13 @@ for (const SLUG of VIEWER_EDITIONS) {
    * looking empty. */
   {
     const q = quietLeaves[0];
-    const qctx = await boot(SLUG, { hash: `#leaf-n${q.n}` });
-    check(qctx.w.document.getElementById(`leaf-n${q.n}`).className.includes('selected'),
-      `#leaf-n${q.n} — a leaf no reading used — opens`);
+    const qkey = keyOfLeaf(q);
+    const qctx = await boot(SLUG, { hash: `#leaf-${qkey}` });
+    check(qctx.w.document.getElementById(`leaf-${qkey}`).className.includes('selected'),
+      `#leaf-${qkey} — a leaf no reading used — opens`);
     check(qctx.w.document.querySelector('#app-panel img.app-panel-img') !== null,
       `and its PAGE IMAGE is shown (at the panel's width), not an empty panel`);
-    check(qctx.text('#app-panel .app-caption').startsWith(`archive leaf n${q.n}`),
+    check(qctx.text('#app-panel .app-caption').startsWith(`archive leaf ${qkey}`),
       `with its caption (${JSON.stringify(qctx.text('#app-panel .app-caption'))})`);
     check(/carries no recorded reading/.test(qctx.text('#app-panel')),
       'and it says plainly that the leaf carries no recorded reading');
@@ -678,14 +742,14 @@ for (const SLUG of VIEWER_EDITIONS) {
     const seq = data.leaves;
     const at = Math.floor(seq.length / 2);
     const mid = seq[at];
-    const mctx = await boot(SLUG, { hash: `#leaf-n${mid.n}` });
+    const mctx = await boot(SLUG, { hash: `#leaf-${keyOfLeaf(mid)}` });
     const nav = mctx.w.document.getElementById('app-leafnav');
     check(!!nav, 'the panel carries a leaf pager');
     const back = nav && nav.querySelector('.app-leaf-prev');
     const fwd = nav && nav.querySelector('.app-leaf-next');
-    check(!!back && !back.disabled && back.textContent === `Previous leaf · n${seq[at - 1].n}`,
+    check(!!back && !back.disabled && back.textContent === `Previous leaf · ${keyOfLeaf(seq[at - 1])}`,
       `Previous names the leaf BEFORE it in the scan (${back ? JSON.stringify(back.textContent) : ''})`);
-    check(!!fwd && !fwd.disabled && fwd.textContent === `Next leaf · n${seq[at + 1].n}`,
+    check(!!fwd && !fwd.disabled && fwd.textContent === `Next leaf · ${keyOfLeaf(seq[at + 1])}`,
       `and Next the leaf AFTER (${fwd ? JSON.stringify(fwd.textContent) : ''})`);
     const where = nav && nav.querySelector('.app-leafnav-at');
     check(!!where && where.textContent === `leaf ${at + 1} of ${seq.length}`,
@@ -693,21 +757,21 @@ for (const SLUG of VIEWER_EDITIONS) {
     /* the step is the NEXT STORED LEAF — the next entry of the index, recorded
      * evidence or not — which is the point: the scan is paged as a scan. */
     fwd.dispatchEvent(new mctx.w.MouseEvent('click', { bubbles: true, cancelable: true }));
-    check(mctx.w.location.hash === `#leaf-n${seq[at + 1].n}`,
-      `Next turns to n${seq[at + 1].n}, the next leaf of the run (${mctx.w.location.hash})`);
+    check(mctx.w.location.hash === `#leaf-${keyOfLeaf(seq[at + 1])}`,
+      `Next turns to ${keyOfLeaf(seq[at + 1])}, the next leaf of the run (${mctx.w.location.hash})`);
     mctx.w.dispatchEvent(new mctx.w.Event('hashchange'));
     await settle();
-    check(mctx.w.document.getElementById(`leaf-n${seq[at + 1].n}`).className.includes('selected'),
+    check(mctx.w.document.getElementById(`leaf-${keyOfLeaf(seq[at + 1])}`).className.includes('selected'),
       'and the hash change opens it');
     check(mctx.w.document.querySelector('#app-panel img.app-panel-img').getAttribute('src') === seq[at + 1].url,
       'showing that leaf’s own page image');
     /* the ends of the run are STATED by a disabled control, not by silence */
-    const fctx = await boot(SLUG, { hash: `#leaf-n${seq[0].n}` });
+    const fctx = await boot(SLUG, { hash: `#leaf-${keyOfLeaf(seq[0])}` });
     check(fctx.w.document.querySelector('.app-leaf-prev').disabled,
-      `on the scan's first leaf (n${seq[0].n}) Previous is disabled`);
-    const lctx = await boot(SLUG, { hash: `#leaf-n${seq[seq.length - 1].n}` });
+      `on the scan's first leaf (${keyOfLeaf(seq[0])}) Previous is disabled`);
+    const lctx = await boot(SLUG, { hash: `#leaf-${keyOfLeaf(seq[seq.length - 1])}` });
     check(lctx.w.document.querySelector('.app-leaf-next').disabled,
-      `on its last (n${seq[seq.length - 1].n}) Next is disabled`);
+      `on its last (${keyOfLeaf(seq[seq.length - 1])}) Next is disabled`);
   }
 
   /* ---------- §4c THE ALL-READINGS VIEW, PAGED ---------- */
@@ -760,38 +824,61 @@ for (const SLUG of VIEWER_EDITIONS) {
   }
 
   /* ---------- §4d A DEEP LINK OPENS THE RIGHT ENTRY, ON THE RIGHT PAGE ---------- */
+  /* THE MIDDLE OF THE LOG is linked, so the checks are not all about the first
+   * rule. The entry a reading belongs to is its first HELD leaf. AN EDITION WHOSE
+   * READINGS CITE NO PAGE IMAGE — Taylor's Theology of Plato — has no held leaf to
+   * open, so its deep links open the NO-IMAGE GROUP, and the reading there is
+   * asserted in the form that group actually renders (compactly). The leaf landing
+   * and the full reading markup are asserted on the editions that do cite a leaf;
+   * the choice is made from the record, and both arms assert as much as the state
+   * allows. */
   const withLeaf = data.rules.filter((r) => r.evidence.some((e) => e.exists));
-  const target = withLeaf[Math.floor(withLeaf.length / 2)];
-  const targetLeaf = target.evidence.find((e) => e.exists).leaf;
+  const target = withLeaf.length
+    ? withLeaf[Math.floor(withLeaf.length / 2)]
+    : none[Math.floor(none.length / 2)];
+  const heldEv = target.evidence.find((e) => e.exists) || null;
+  const targetKey = heldEv ? `leaf-${keyOfLeaf(heldEv)}` : 'leaf-none';
   const deep = await boot(SLUG, { hash: `#repair-${target.id}` });
-  check(deep.w.document.getElementById(`leaf-n${targetLeaf}`).className.includes('selected'),
-    `#repair-${target.id} opens the entry of the leaf it was decided from (n${targetLeaf})`);
+  check(deep.w.document.getElementById(targetKey).className.includes('selected'),
+    heldEv
+      ? `#repair-${target.id} opens the entry of the leaf it was decided from (${targetKey})`
+      : `#repair-${target.id} rests on no page image, and the deep link opens that group (${targetKey})`);
   const ruled = deep.w.document.getElementById(`repair-${target.id}`);
   check(!!ruled, `and the reading is rendered (#repair-${target.id})`);
   check(!!ruled && ruled.className.includes('target'), 'and it is marked as the linked one');
   check(deep.scrolled.includes(`repair-${target.id}`), 'and it was scrolled to');
-  const ids = [...deep.w.document.querySelectorAll('#app-panel li.apparatus-entry')].map((li) => li.id);
-  const wantIds = data.rules.filter((r) => r.evidence.some((e) => e.exists && e.leaf === targetLeaf)).map((r) => `repair-${r.id}`);
-  if (wantIds.length <= 25) {
-    check(JSON.stringify(ids) === JSON.stringify(wantIds),
-      `the panel holds exactly the ${wantIds.length} readings decided from n${targetLeaf}`);
+  if (heldEv) {
+    const targetLeaf = heldEv.leaf;
+    const ids = [...deep.w.document.querySelectorAll('#app-panel li.apparatus-entry')].map((li) => li.id);
+    const wantIds = data.rules.filter((r) => r.evidence.some((e) => e.exists && e.leaf === targetLeaf)).map((r) => `repair-${r.id}`);
+    if (wantIds.length <= 25) {
+      check(JSON.stringify(ids) === JSON.stringify(wantIds),
+        `the panel holds exactly the ${wantIds.length} readings decided from n${targetLeaf}`);
+    }
+    const rows = [...deep.w.document.querySelectorAll('#app-panel li.apparatus-entry')];
+    const row = rows[0];
+    check(!!row && /^r\d{4}$/.test(row.querySelector('.rp-id').textContent) &&
+      TYPES.includes(row.querySelector('.rp-type').textContent) &&
+      !!row.querySelector('.rp-apply') && !!row.querySelector('.rp-change .before') && !!row.querySelector('.rp-change .after') &&
+      !!row.querySelector('.rp-rationale') && !!row.querySelector('.rp-witness'),
+      'a reading carries its id, type, pipeline class, before → after, rationale and witness');
+    check(deep.text('#app-panel .app-caption').startsWith(`archive leaf ${keyOfLeaf(heldEv)}`),
+      `the panel captions the leaf (${JSON.stringify(deep.text('#app-panel .app-caption'))})`);
+  } else {
+    check(!!ruled && ruled.className.includes('app-compact-row') &&
+      !!ruled.querySelector('a.rp-id') && !!ruled.querySelector('.app-compact-change'),
+      'and it is listed compactly — an id to jump to and the change itself, the form the no-image group uses');
+    check(deep.text('#app-panel .app-caption') === 'decided without a page image',
+      `the panel captions the group (${JSON.stringify(deep.text('#app-panel .app-caption'))})`);
   }
-  const rows = [...deep.w.document.querySelectorAll('#app-panel li.apparatus-entry')];
-  const row = rows[0];
-  check(!!row && /^r\d{4}$/.test(row.querySelector('.rp-id').textContent) &&
-    TYPES.includes(row.querySelector('.rp-type').textContent) &&
-    !!row.querySelector('.rp-apply') && !!row.querySelector('.rp-change .before') && !!row.querySelector('.rp-change .after') &&
-    !!row.querySelector('.rp-rationale') && !!row.querySelector('.rp-witness'),
-    'a reading carries its id, type, pipeline class, before → after, rationale and witness');
-  check(deep.text('#app-panel .app-caption').startsWith(`archive leaf n${targetLeaf}`),
-    `the panel captions the leaf (${JSON.stringify(deep.text('#app-panel .app-caption'))})`);
 
   /* THE ENTRY A DEEP LINK OPENS is the entry the reading BELONGS to — its first
    * held leaf, else the leaf it cites without holding it, else the no-image
-   * group. Recomputed here from the data, and exercised on all three kinds. */
+   * group. Recomputed here from the data, and exercised on every kind PRESENT
+   * (an edition that cites no leaf contributes only the no-image kind). */
   const keyOf = (r) => {
     const heldFirst = r.evidence.find((e) => e.exists);
-    if (heldFirst) return `leaf-n${heldFirst.leaf}`;
+    if (heldFirst) return `leaf-${keyOfLeaf(heldFirst)}`;
     if (r.evidence.length) return `leaf-u${r.evidence[0].leaf}`;
     return 'leaf-none';
   };
@@ -821,19 +908,21 @@ for (const SLUG of VIEWER_EDITIONS) {
       `and the viewer turned to its page (${JSON.stringify(pr ? pr.textContent : '')})`);
   }
 
-  /* a deep link to a leaf, and the click that sets one */
-  const other = data.leaves.filter((l) => l.readings && l.n !== targetLeaf).pop();
-  if (other) {
-    const lctx = await boot(SLUG, { hash: `#leaf-n${other.n}` });
-    check(lctx.w.document.getElementById(`leaf-n${other.n}`).className.includes('selected'),
-      `#leaf-n${other.n} opens that leaf`);
-    check(lctx.text('#app-panel .app-caption').startsWith(`archive leaf n${other.n}`), 'and its caption is the leaf’s');
-    const btn = lctx.w.document.getElementById(`leaf-n${targetLeaf}`);
+  /* a deep link to a leaf, and the click that sets one — on an edition that HAS a
+   * leaf a reading was decided from */
+  const linkLeaf = heldEv ? data.leaves.find((l) => keyOfLeaf(l) === keyOfLeaf(heldEv)) : null;
+  const other = linkLeaf ? data.leaves.filter((l) => l.readings && l !== linkLeaf).pop() : null;
+  if (other && linkLeaf) {
+    const lctx = await boot(SLUG, { hash: `#leaf-${keyOfLeaf(other)}` });
+    check(lctx.w.document.getElementById(`leaf-${keyOfLeaf(other)}`).className.includes('selected'),
+      `#leaf-${keyOfLeaf(other)} opens that leaf`);
+    check(lctx.text('#app-panel .app-caption').startsWith(`archive leaf ${keyOfLeaf(other)}`), 'and its caption is the leaf’s');
+    const btn = lctx.w.document.getElementById(`leaf-${keyOfLeaf(linkLeaf)}`);
     btn.dispatchEvent(new lctx.w.MouseEvent('click', { bubbles: true, cancelable: true }));
-    check(lctx.w.location.hash === `#leaf-n${targetLeaf}`, `clicking a leaf moves the fragment (${lctx.w.location.hash})`);
+    check(lctx.w.location.hash === `#leaf-${keyOfLeaf(linkLeaf)}`, `clicking a leaf moves the fragment (${lctx.w.location.hash})`);
     lctx.w.dispatchEvent(new lctx.w.Event('hashchange'));
     await settle();
-    check(lctx.w.document.getElementById(`leaf-n${targetLeaf}`).className.includes('selected'),
+    check(lctx.w.document.getElementById(`leaf-${keyOfLeaf(linkLeaf)}`).className.includes('selected'),
       'and the fragment change opens it');
   }
 
@@ -841,10 +930,16 @@ for (const SLUG of VIEWER_EDITIONS) {
    * MEASURED 2026-10-05: the whole scan is stored, so no served citation is
    * unheld and this branch would never run. It is the model's honest other half
    * — a cited leaf the edition does not hold keeps its entry, url null — so it is
-   * opened here from a DOCTORED data file: one reading's held leaf is changed to
-   * a leaf the edition does not hold. */
+   * opened here from a DOCTORED data file. On an edition that cites a leaf, one
+   * reading's HELD leaf is changed to a leaf the edition does not hold; on an
+   * edition whose readings cite none (Taylor's Theology of Plato), a reading that
+   * rests on no leaf is made to CITE one the edition does not hold. Either way the
+   * branch is reached from a real reading, and the reading itself is what is
+   * asserted to render. */
   {
-    const donor = data.rules.find((r) => r.evidence.some((e) => e.exists));
+    const donor =
+      data.rules.find((r) => r.evidence.some((e) => e.exists)) ||
+      data.rules.find((r) => !r.evidence.length);
     const MISSING = 99999;
     const doctored = {
       ...data,
@@ -852,9 +947,11 @@ for (const SLUG of VIEWER_EDITIONS) {
         r === donor
           ? {
               ...r,
-              evidence: r.evidence.map((e) =>
-                e.exists ? { leaf: MISSING, page: null, url: null, exists: false } : e,
-              ),
+              evidence: r.evidence.some((e) => e.exists)
+                ? r.evidence.map((e) =>
+                    e.exists ? { leaf: MISSING, page: null, url: null, exists: false } : e,
+                  )
+                : [{ leaf: MISSING, page: null, url: null, exists: false }],
             }
           : r,
       ),
@@ -919,28 +1016,42 @@ for (const SLUG of VIEWER_EDITIONS) {
   }
 }
 
-/* ---------- §4e THE LANDING WHEN NO LEAF CARRIES A READING ---------- */
-
+/* ---------- §4e THE LANDING WHEN NO LEAF CARRIES A READING ----------
+ *
+ * MEASURED 2026-10-05, and no longer hypothetical: Taylor's Theology of Plato was
+ * the edition in this state — its readings were decided from a full read of the
+ * transcription and its witness, never from a page image, so 0 of its 722 stored
+ * leaves carried one. Its open questions have since been worked against the page
+ * images and its readings cite leaves now, as every served edition's do. The
+ * landing rule must answer the state all the same, so this section runs on the
+ * real edition when the shelf holds one, and falls back to a DOCTORED data file
+ * (every held-leaf evidence entry removed) on a shelf where every edition cites a
+ * leaf — which is the shelf now. */
 section('with no leaf carrying a reading the viewer lands on the readings with no page image');
 {
-  const SLUG = VIEWER_EDITIONS[0];
+  const real = VIEWER_EDITIONS.find((s) => !seen.get(s).data.leaves.some((l) => l.readings));
+  const SLUG = real || VIEWER_EDITIONS[0];
   const { data } = seen.get(SLUG);
-  /* A DOCTORED DATA FILE, fetched in place of the built one: every held-leaf
-   * evidence entry removed, so no stored leaf has a reading. The landing rule has
-   * to answer this — both real editions have leaves with readings. */
-  const stripped = {
-    ...data,
-    rules: data.rules.map((r) => ({ ...r, evidence: r.evidence.filter((e) => !e.exists) })),
-  };
-  const ctx = await boot(SLUG, {
-    fetchImpl: (url) =>
-      String(url).includes('apparatus.json')
-        ? Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(JSON.stringify(stripped)) })
-        : fetchFromDist(url),
-  });
+  const stripped = real
+    ? null
+    : {
+        ...data,
+        rules: data.rules.map((r) => ({ ...r, evidence: r.evidence.filter((e) => !e.exists) })),
+      };
+  const ctx = await boot(
+    SLUG,
+    real
+      ? {}
+      : {
+          fetchImpl: (url) =>
+            String(url).includes('apparatus.json')
+              ? Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(JSON.stringify(stripped)) })
+              : fetchFromDist(url),
+        },
+  );
   const sel = ctx.w.document.querySelector('#app-leaves .app-leaf.selected');
   check(!!sel && sel.id === 'leaf-none',
-    `the first leaf with readings being none, the landing is the no-image group (${sel ? sel.id : 'none'})`);
+    `${real ? `no stored leaf of ${SLUG} carries a reading` : 'the first leaf with readings being none'}, the landing is the no-image group (${sel ? sel.id : 'none'})`);
   check(ctx.w.document.querySelectorAll('#app-panel li.app-compact-row').length > 0,
     'and the panel carries the readings themselves — not an empty state');
 }

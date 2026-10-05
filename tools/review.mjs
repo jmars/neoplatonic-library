@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * tools/library/review.mjs — the LLM review pass, as a TOOL and not as an editor
+ * tools/review.mjs — the LLM review pass, as a TOOL and not as an editor
  * (plan §7, phase 3).
  *
  * WHAT IT IS FOR. The recorded rules catch what a census can see: a character the
@@ -35,7 +35,7 @@
  * chunks, how many proposals, how many unsure, how many rejected, and the token
  * usage the endpoint reports. It merges NOTHING.
  *
- *   node tools/library/review.mjs [slug]
+ *   node tools/review.mjs [slug]
  *
  * Environment: LIBRARY_REVIEW_URL (an OpenAI-compatible /chat/completions
  * endpoint; defaults to the local cache proxy), LIBRARY_REVIEW_MODEL,
@@ -266,7 +266,7 @@ function write(slug, payload) {
 async function main() {
   const slug = process.argv[2] || (TEXTS.find((t) => hasEdition(t.slug)) || {}).slug;
   if (!slug || !hasEdition(slug)) {
-    console.error('usage: node tools/library/review.mjs <slug>\n  The slug must have a stored edition (content/library/<slug>/).');
+    console.error('usage: node tools/review.mjs <slug>\n  The slug must have a stored edition (data/editions/<slug>/).');
     process.exit(2);
   }
   const entry = TEXTS.find((t) => t.slug === slug);

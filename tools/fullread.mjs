@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * tools/library/fullread.mjs — the WHOLE-TEXT read the census cannot do.
+ * tools/fullread.mjs — the WHOLE-TEXT read the census cannot do.
  *
  * WHY THIS EXISTS. The author read the published text and reported "a fair
  * amount of damage", and the build's own `leftVisible` count answered 2. The
@@ -53,12 +53,16 @@
  * is `<slug>.fullread.json`, proposals with evidence, and the guard that refuses
  * if the two paths were ever the same is the one review.mjs and repair.mjs use.
  *
- *   node tools/library/fullread.mjs [slug] [--only=1,2,15] [--append]
+ *   node tools/fullread.mjs [slug] [--only=1,2,15] [--append]
  *                                   [--self-test] [--dry-run]
  *
- * Environment: LIBRARY_FULLREAD_URL, LIBRARY_FULLREAD_MODEL (glm-5.3 — the FULL
- * model, per the author's call that this read needs the stronger model),
- * LIBRARY_FULLREAD_EFFORT (max), LIBRARY_FULLREAD_MAX_TOKENS (a starved call
+ * Environment: LIBRARY_FULLREAD_URL (default the local DeepSeek proxy at
+ * 10.0.0.1:8321), LIBRARY_FULLREAD_MODEL (default deepseek-flash — the read
+ * PROPOSES and never merges, so its failure mode is "finds less"; raise it per
+ * run for depth AND raise the effort with it),
+ * LIBRARY_FULLREAD_EFFORT (default high — at max a reasoning model spends the
+ * budget thinking and returns no answer, MEASURED),
+ * LIBRARY_FULLREAD_MAX_TOKENS (a starved call
  * returns an EMPTY answer, MEASURED), LIBRARY_FULLREAD_MAX_PAR_CHARS,
  * LIBRARY_FULLREAD_ATTEMPTS, LIBRARY_FULLREAD_TIMEOUT_MS,
  * LIBRARY_FULLREAD_NOTES_CHUNK.
@@ -86,13 +90,11 @@ import {
   parseReply,
 } from './repair.mjs';
 
-const URL_ = process.env.LIBRARY_FULLREAD_URL || 'http://10.0.0.1:8324/v1/chat/completions';
-/* THE MODEL: glm-5.3-FLASH by default, and WHAT THAT COSTS.
- *
- * It was glm-5.3 (the FULL model) — the author's call after repair.mjs measured a
- * Flash failure on this same text. But full glm-5.3 is the scarce quota, and this
- * pass is the right place to spend Flash instead, for a reason that is about the
- * SHAPE of its output, not about the model's depth:
+const URL_ = process.env.LIBRARY_FULLREAD_URL || 'http://10.0.0.1:8321/v1/chat/completions';
+/* THE MODEL: deepseek-flash on the local DeepSeek proxy (8321), the default for
+ * this repo's library work — NOT the GLM router (8324). It is a cheap tier rather
+ * than the deepest model available, and it need not be deeper, for a reason that
+ * is about the SHAPE of its output, not about the model's depth:
  *
  *   THIS PASS PROPOSES AND NEVER MERGES. Its findings go through merge.mjs, which
  *   refuses anything that does not fire, contradicts a recorded reading, or would
@@ -100,17 +102,23 @@ const URL_ = process.env.LIBRARY_FULLREAD_URL || 'http://10.0.0.1:8324/v1/chat/c
  *   read's failure mode is FINDS LESS or PROPOSES SOMETHING BAD THAT IS CAUGHT —
  *   never corrupts the text. (repair.mjs's recorded failure was the other shape: it
  *   writes readings straight into the repair pipeline, where a half repair reaches
- *   the reader.) MEASURED on Flash there: it failed the REPAIR pass at effort max
- *   with 45k reasoning characters, so the shortfall was depth, not budget — which
- *   is why this is a COST decision with a known ceiling, not a free lunch.
+ *   the reader.)
  *
- * Raise it per run with LIBRARY_FULLREAD_MODEL=glm-5.3 (or deepseek-flash at 8321,
- * which is what the whole-volume reads used) when a read must be deeper. */
-const MODEL = process.env.LIBRARY_FULLREAD_MODEL || 'glm-5.3-flash';
-/* THE EFFORT, and why it is HIGH and not max. GLM 5.3 is a REASONING model:
- * `reasoning_content` is spent from the SAME budget as `content`, so a call that
- * thinks too much returns an empty or truncated answer. MEASURED on glm-5.3-Flash
- * with an 8k prompt, the same call four ways:
+ * THE TWO EARLIER DEFAULTS, kept because their measurements still bound what a
+ * read may expect: it was glm-5.3 (the FULL model) — the author's call after
+ * repair.mjs measured a Flash failure on this same text — and then glm-5.3-flash,
+ * the cheap tier of the scarce GLM quota. MEASURED on glm-5.3-flash there: it
+ * failed the REPAIR pass at effort max with 45k reasoning characters, so the
+ * shortfall was depth, not budget — which is why a cost decision here has a known
+ * ceiling, not a free lunch.
+ *
+ * Raise it per run with LIBRARY_FULLREAD_MODEL=glm-5.3 (on 8324) when a read must
+ * be deeper. */
+const MODEL = process.env.LIBRARY_FULLREAD_MODEL || 'deepseek-flash';
+/* THE EFFORT, and why it is HIGH and not max. The models served here are
+ * REASONING models: `reasoning_content` is spent from the SAME budget as
+ * `content`, so a call that thinks too much returns an empty or truncated answer.
+ * MEASURED on glm-5.3-Flash with an 8k prompt, the same call four ways:
  *     effort max,  max_tokens 8000   -> empty / no answer
  *     effort max,  max_tokens 16000  -> empty / no answer
  *     effort max,  max_tokens 32000  -> 869 chars, 632 reasoning
@@ -119,8 +127,9 @@ const MODEL = process.env.LIBRARY_FULLREAD_MODEL || 'glm-5.3-flash';
  *     effort high, max_tokens 16000  ->  891 chars, 834 reasoning, VALID JSON
  * — high is both RELIABLE and better here, because the pass wants FINDINGS, not
  * deliberation, and at max the model deliberates until the answer is gone.
- * The FULL glm-5.3 does want max (it has the headroom); if you raise the model,
- * raise this with it: LIBRARY_FULLREAD_EFFORT=max. */
+ * (The FULL glm-5.3 on the GLM router is the exception measured to want max — it
+ * has the headroom, and glm-5.3 is what the whole-volume reads first ran on; it
+ * is no longer this tool's default.) */
 const EFFORT = process.env.LIBRARY_FULLREAD_EFFORT || 'high';
 const MAX_TOKENS = Number(process.env.LIBRARY_FULLREAD_MAX_TOKENS || 48000);
 /** The cap on the parallel excerpt sent with one region. The parallel prints
@@ -912,8 +921,40 @@ export function parseRegionReply(content) {
 
 /* ---------- the self-test: the rejections are shown to be able to fail ---------- */
 
+/* THE FIXTURE TOKEN IS TAKEN FROM THE TRANSCRIPTION UNDER TEST, not from one
+ * edition. It was the literal `jwjth`, noted as a MEASURED half-repair "standing
+ * in the body's own text" — MEASURED, but measured in PORPHYRY: `jwjth` stands in
+ * the Cave's transcription at source line 565 ("not  to  be  filled  jwjth
+ * water,  but  with  h_qney_-"), the very passage the parallel fixture below
+ * quotes. MEASURED consequence: `--self-test` PASSES for porphyry and FAILS the
+ * two ACCEPT cases for BOTH other editions, refused by the vetting guard's own
+ * message — "the find does not occur in the transcription's own characters".
+ * That is the guard working, not a repointing bug: it vetted the RIGHT text (the
+ * edition named on the command line, through the same `rawAll` the real run
+ * uses) and the FIXTURE named a token that edition does not contain. A fixture
+ * tied to one edition is no gate for the others, and `--self-test` is the
+ * pre-flight check for a read of ANY edition — so the token is derived here.
+ *
+ * It must stand ONCE (a multi-site find changes every site, so a one-site find
+ * is the honest fixture), carry a damage character from the transcription's own
+ * alphabet (class-1 damage, the class a rule is written against), and be absent
+ * from the front matter (which no rule may touch) — those are exactly the guards
+ * `vetFinding` applies, mirrored so the fixture can never be the thing that
+ * fails. */
+function fixtureToken(rawAll, front) {
+  const counts = new Map();
+  for (const w of rawAll.split(/\s+/)) if (w) counts.set(w, (counts.get(w) || 0) + 1);
+  const token = [...counts].find(
+    ([w, n]) => n === 1 && w.length >= 4 && /[A-Za-z]/.test(w) && [...w].some((c) => DAMAGE.includes(c)) && !(front || '').includes(w),
+  )?.[0];
+  if (!token) {
+    throw new Error('library: the self-test found no once-only damaged token in the transcription to stand as its fixture');
+  }
+  return token;
+}
+
 function selfTestMain({ doc, rules, front, rawAll }) {
-  const token = 'jwjth'; // MEASURED half-repair, standing in the body's own text
+  const token = fixtureToken(rawAll, front); // a token of THIS edition's own characters
   const parallelShown = 'not to be filled with water, but with honeycombs; for in these, Homer says, the bees deposit their honey';
   const cases = [
     { name: 'no evidence at all', f: { class: '1', find: token, replace: 'with', note: 'n', evidence: '' }, expect: 'reject' },

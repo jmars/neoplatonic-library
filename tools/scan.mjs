@@ -11,14 +11,14 @@
  *
  *     https://archive.org/download/<item>/page/n<N>_w1200.jpg
  *
- * This tool fetches those images INTO THE LIBRARY (`content/library/<slug>/scans/`)
+ * This tool fetches those images INTO THE LIBRARY (`data/editions/<slug>/scans/`)
  * so a decision made by reading a page can be re-checked later without a network
  * round trip, and reads one through the local vision model.
  *
- *   node tools/library/scan.mjs fetch <slug> --pages 12,25,54     # printed page numbers
- *   node tools/library/scan.mjs fetch <slug> --leaves 16,31,60    # leaf numbers
- *   node tools/library/scan.mjs list  <slug>
- *   node tools/library/scan.mjs read  <slug> --page 41 "What does the print read where the transcription has 'Qypnf'?"
+ *   node tools/scan.mjs fetch <slug> --pages 12,25,54     # printed page numbers
+ *   node tools/scan.mjs fetch <slug> --leaves 16,31,60    # leaf numbers
+ *   node tools/scan.mjs list  <slug>
+ *   node tools/scan.mjs read  <slug> --page 41 "What does the print read where the transcription has 'Qypnf'?"
  *
  * The archive index is `n = leaf - 1` (MEASURED against the page model: leaf 13
  * is printed page 7 and is served at n12). `read` sends the PERSISTED image, so a
@@ -29,13 +29,15 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(HERE, '..', '..');
+/* THE REPO ROOT: copied from the blog, where this tool lived at
+ * `<repo>/tools/library/scan.mjs` and two levels up was the root. */
+const ROOT = join(HERE, '..');
 const VISION = process.env.SCAN_VISION_ENDPOINT || 'http://10.0.0.1:8321/v1/chat/completions';
 const VISION_MODEL = process.env.SCAN_VISION_MODEL || 'deepseek-v4-flash-vision-exp';
 const DEFAULT_SLUG = 'porphyry-on-the-cave-of-the-nymphs-taylor-1917';
 
-const DEREV = (slug) => join(ROOT, 'content', 'library', slug, 'derivs.json');
-const SCANS = (slug) => join(ROOT, 'content', 'library', slug, 'scans');
+const DEREV = (slug) => join(ROOT, 'data', 'editions', slug, 'derivs.json');
+const SCANS = (slug) => join(ROOT, 'data', 'editions', slug, 'scans');
 
 function model(slug) {
   const f = DEREV(slug);
@@ -50,7 +52,7 @@ function model(slug) {
  * is served through its derived model; this is the other route, recorded beside
  * the edition so a read can find the page. */
 function scanConfig(slug) {
-  const f = join(ROOT, 'content', 'library', slug, 'scan.json');
+  const f = join(ROOT, 'data', 'editions', slug, 'scan.json');
   if (!existsSync(f)) return null;
   return JSON.parse(readFileSync(f, 'utf8'));
 }

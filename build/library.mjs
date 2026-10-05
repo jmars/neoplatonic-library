@@ -1467,8 +1467,8 @@ function apparatusViewerHtml(t, version, base) {
               `The other ${noImage} readings carry no page image; they are listed in their own right, so the ` +
               `viewer is browsed by reading as well as by leaf and neither side is hidden behind the other.`
             : `No reading in this version was decided from a page image, so the apparatus reads from the list ` +
-              `of readings rather than from the page images; every leaf of the scan is served all the same, and ` +
-              `all ${noImage} readings carry no page image.`) +
+              `of readings rather than from the page images; every leaf of the edition’s scan is served all the ` +
+              `same, and all ${noImage} readings carry no page image.`) +
         `</p>`
       : `No page image is stored with this edition, so the apparatus reads from the list of readings.</p>`) +
     `<p><b>The whole log, as data.</b> The apparatus of this version is one plain file, served with the ` +

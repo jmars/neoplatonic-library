@@ -1,7 +1,8 @@
 /**
- * tools/library/derive.mjs — the derivative reader (plan §4.6, phase 4).
+ * tools/derive.mjs — the derivative reader (plan §4.6, phase 4).
  *
- * The edition the library serves lives in the repo (`content/library/<slug>/source.txt`).
+ * The edition the library serves lives in the repo
+ * (`data/editions/<slug>/versions/<semver>/source.txt`).
  * THE DERIVATIVES DO NOT: the archive.org item's own per-page files are 930 KB and
  * 12 KB and they sit on a host path the build must not need. So they are read ONCE,
  * by this tool, and what the tool leaves behind is the DERIVED FACT the document
@@ -9,7 +10,7 @@
  * edition. `extract.mjs` reads that artifact at build time and never touches
  * `~/thework`; this tool is the only thing that does, and it is run by hand:
  *
- *     node tools/library/derive.mjs <slug>
+ *     node tools/derive.mjs <slug>
  *
  * WHAT IS DERIVED, and why each fact is in the artifact (`derivs.json`):
  *
@@ -62,7 +63,7 @@ import { join, dirname } from 'node:path';
 import { homedir } from 'node:os';
 import { pathToFileURL } from 'node:url';
 import { TEXTS } from './shelf.mjs';
-import { LIBRARY_DIR, derivsPath, pageSignals, sha256 } from './extract.mjs';
+import { derivsPath, editionPath, pageSignals, sha256 } from './extract.mjs';
 
 /** Where the item's derivatives live. `LIBRARY_DERIVS` names the directory that
  * holds one directory per item; the default is the host path they were fetched
@@ -436,7 +437,11 @@ function derive(slug, opts) {
         `  everything. Set LIBRARY_DERIVS to the directory holding the item's own directory.`,
     );
   }
-  const edition = join(LIBRARY_DIR, slug, 'source.txt');
+  /* THE VERSION'S OWN `source.txt` (data/editions/<slug>/versions/<semver>/), not
+   * the flat `data/editions/<slug>/source.txt` this line was copied with: the
+   * flat path is the blog's layout and holds no file here, so the tool threw
+   * "no stored edition" for every edition in this repo. */
+  const edition = editionPath(slug);
   if (!existsSync(edition)) throw new Error(`library: ${slug}: no stored edition at ${edition}`);
   const src = readFileSync(edition, 'utf8');
 
@@ -553,9 +558,9 @@ if (invokedDirectly) {
   const slug = args.find((a) => !a.startsWith('-'));
   if (!slug) {
     console.error(
-      'usage: node tools/library/derive.mjs <slug> [--check]\n' +
+      'usage: node tools/derive.mjs <slug> [--check]\n' +
         '  Reads the item\'s own djvu.xml and page_numbers.json once, checks the leaf model against the\n' +
-        '  edition stored in this repo, and writes content/library/<slug>/derivs.json. --check re-derives\n' +
+        '  edition stored in this repo, and writes data/editions/<slug>/derivs.json. --check re-derives\n' +
         '  and compares with the committed artifact instead of writing it.\n' +
         '  The derivatives are looked for under $LIBRARY_DERIVS (default: the fetcher\'s work-derivs directory).',
     );
@@ -590,7 +595,7 @@ if (invokedDirectly) {
       if (have !== json) {
         throw new Error(
           `library: ${slug}: the committed artifact is not what this tool derives now — the derivatives or the ` +
-            `edition have changed. Re-derive deliberately: node tools/library/derive.mjs ${slug}`,
+            `edition have changed. Re-derive deliberately: node tools/derive.mjs ${slug}`,
         );
       }
       console.log(`library: ${slug}: the committed artifact is what this tool derives now (${Buffer.byteLength(json)} bytes)`);
@@ -598,7 +603,7 @@ if (invokedDirectly) {
       mkdirSync(dirname(file), { recursive: true });
       writeFileSync(file, json);
       console.log(
-        `wrote content/library/${slug}/derivs.json (${Buffer.byteLength(json)} bytes — the leaf model and the ` +
+        `wrote ${file} (${Buffer.byteLength(json)} bytes — the leaf model and the ` +
           `inventory of what it was derived from; the derivatives themselves stay off this repo)`,
       );
     }

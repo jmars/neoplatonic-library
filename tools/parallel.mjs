@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * tools/library/parallel.mjs — derive a damaged word's reading from a PARALLEL
+ * tools/parallel.mjs — derive a damaged word's reading from a PARALLEL
  * EDITION of the same translation (plan §7, the policy's other witness).
  *
  * WHY THIS EXISTS. The base policy says the reading view shows the print's word
@@ -41,7 +41,7 @@
  * copied into the repo: it is a 600 KB scan of another book, and the repo's
  * business is the derivation, not a second copy of a primary source.
  *
- *   node tools/library/parallel.mjs [slug]
+ *   node tools/parallel.mjs [slug]
  *
  * Environment: LIBRARY_PARALLEL (a shelf filename to use instead of the map
  * below), LIBRARY_SHELF (where the shelf is), LIBRARY_PARALLEL_WINDOW (context),

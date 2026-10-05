@@ -1,5 +1,5 @@
 /**
- * tools/library/reader.mjs — the shelf's reader.
+ * tools/reader.mjs — the shelf's reader.
  *
  * The shelf holds archive.org OCR transcriptions (`_djvu.txt`) of the
  * public-domain editions the readings rest on. Those files are not prose: the
@@ -296,7 +296,7 @@ export function partition(doc, maxBytes) {
 
 /* ---------- the document's text primitives ----------
  *
- * `tools/library/extract.mjs` builds the SERVED document (the plan's §4) out of
+ * `tools/extract.mjs` builds the SERVED document (the plan's §4) out of
  * the same transcription this reader renders. The document needs the same
  * answers to two questions — what is a line, and what is a printed number — so
  * they are answered here, once, where the reader can see them: a second answer

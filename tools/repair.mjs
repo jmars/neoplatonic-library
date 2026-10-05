@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * tools/library/repair.mjs — the LLM repair pass, WITH CONTEXT, for what the
+ * tools/repair.mjs — the LLM repair pass, WITH CONTEXT, for what the
  * single-word rules cannot reach.
  *
  * WHY THIS EXISTS, and why it is not review.mjs. The recorded rules are read one
@@ -49,11 +49,12 @@
  * same is the same one review.mjs uses. It merges NOTHING: a human (or the
  * orchestrator) reads the evidence and adds the rule.
  *
- *   node tools/library/repair.mjs [slug] [--only=an/l,were/the] [--compare=an/l] [--self-test]
+ *   node tools/repair.mjs [slug] [--only=an/l,were/the] [--compare=an/l] [--self-test]
  *   LIBRARY_REPAIR_CONTEXT_narrow=1 ... (see the environment list below)
  *
  * Environment: LIBRARY_REPAIR_URL (an OpenAI-compatible /chat/completions
- * endpoint; default the GLM router), LIBRARY_REPAIR_MODEL, LIBRARY_REPAIR_MAX_TOKENS,
+ * endpoint; default the local DeepSeek proxy at 10.0.0.1:8321), LIBRARY_REPAIR_MODEL,
+ * LIBRARY_REPAIR_MAX_TOKENS,
  * LIBRARY_REPAIR_NEIGHBOURS (how many neighbouring paragraphs to send),
  * LIBRARY_REPAIR_PARALLEL_LINES (how many parallel lines either side),
  * LIBRARY_PARALLEL_WINDOW, LIBRARY_PARALLEL_MIN, LIBRARY_PARALLEL_MINSCORE,
@@ -77,20 +78,25 @@ import {
 } from './extract.mjs';
 import { TEXTS, SHELF, shelfFiles, shelfFile } from './shelf.mjs';
 
-const URL_ = process.env.LIBRARY_REPAIR_URL || 'http://10.0.0.1:8324/v1/chat/completions';
-// THE MODEL, and why not the cheaper one. The author's call after measurement:
-// the Flash pass was NOT up to this task — on `ajid_ajifonls_aj*^^`, whose
-// parallel reads "and affords a friendly branch to the suppliant", Flash proposed
-// "and affords a friendly", a HALF repair worse than the leave it replaces, and
-// left 3 items unsure. glm-5.3 (the FULL model) answered the same prompt with
-// the complete reading. Flash stays available via LIBRARY_REPAIR_MODEL for a
-// comparison run; it is not the default this edition is repaired under.
-const MODEL = process.env.LIBRARY_REPAIR_MODEL || 'glm-5.3-flash';
-// MAX THINKING. The hax presets that do this kind of reasoning (planner, reviewer,
-// strategist) all carry `effort: "max"`, and this router accepts it. The first
-// pass ran glm-5.3-flash at the default effort and was not up to the task: the
-// artifact shows it reasoned hard (up to 45,422 reasoning characters on one item)
-// and still failed, so the shortfall is depth, not a missing budget. One named
+const URL_ = process.env.LIBRARY_REPAIR_URL || 'http://10.0.0.1:8321/v1/chat/completions';
+// THE MODEL: deepseek-flash on the local DeepSeek proxy (8321), the default for
+// this repo's library work — NOT the GLM router (8324). The CHEAP tier over the
+// full model is a cost decision with a measured ceiling, not a free lunch:
+// MEASURED on this text under the GLM tiers (the default before the move to the
+// DeepSeek proxy), the Flash pass was NOT up to this task — on
+// `ajid_ajifonls_aj*^^`, whose parallel reads "and affords a friendly branch to
+// the suppliant", it proposed "and affords a friendly", a HALF repair worse than
+// the leave it replaces, and left 3 items unsure, while glm-5.3 (the FULL model)
+// answered the same prompt with the complete reading. A stronger model stays
+// available per run via LIBRARY_REPAIR_MODEL; this pass merges nothing, so a
+// weaker proposal's failure mode is a proposal a human declines.
+const MODEL = process.env.LIBRARY_REPAIR_MODEL || 'deepseek-flash';
+// MAX THINKING — the level this pass was measured at, on the GLM router. The hax
+// presets that do this kind of reasoning (planner, reviewer, strategist) all
+// carry `effort: "max"`, and that router accepted it. The first pass ran
+// glm-5.3-flash at the default effort and was not up to the task: the artifact
+// shows it reasoned hard (up to 45,422 reasoning characters on one item) and
+// still failed, so the shortfall is depth, not a missing budget. One named
 // constant, overridable, so the level is visible and changeable in one place.
 const EFFORT = process.env.LIBRARY_REPAIR_EFFORT || 'max';
 // GLM 5.3 (the FULL model, not Flash) is a REASONING model: `reasoning_content`
@@ -1300,10 +1306,22 @@ async function main() {
 
 /* ---------- the self-test: the rejections are shown to be able to fail ---------- */
 
-/** A proposal with no evidence is REJECTED — this is the proof, and it fails if
+/** A PROPOSAL with no evidence is REJECTED — this is the proof, and it fails if
  * vetRepair ever starts passing an unevidenced entry through. */
 function selfTestMain(prepared, parallel) {
-  const token = prepared.leftWords[0] || prepared.unrepaired[0];
+  /* THE FIXTURE TOKEN MUST SATISFY THE GUARDS THE CASES ARE NOT ABOUT. It was
+   * `leftWords[0] || unrepaired[0]` — MEASURED, that is `ey}` for the Theology of
+   * Plato, and that token ALSO stands in the same edition's front matter (85,478
+   * characters of it): every case was then refused by the front-matter guard
+   * before it reached the guard under test, and the two ACCEPT cases FAILED for a
+   * reason the output does not name. The guards under test are the evidence and
+   * parallel-quote rules, so the fixture is a damaged run the transcription
+   * carries OUTSIDE the front matter — which no rule may touch anyway. */
+  const pool = [...(prepared.leftWords || []), ...(prepared.unrepaired || [])];
+  const token = pool.find((t) => t && !(prepared.front || '').includes(t));
+  if (!token) {
+    throw new Error('repair: the self-test found no damaged run outside the front matter to stand as its fixture');
+  }
   const parallelText = parallel ? parallel.tokens.slice(0, 40).map((t) => t.raw).join(' ') : '';
   const cases = [
     {
@@ -1317,9 +1335,14 @@ function selfTestMain(prepared, parallel) {
       expect: 'reject',
     },
     {
+      /* IT CANNOT FIRE WITHOUT A PARALLEL. MEASURED: with no parallel known for the
+       * text (the Elements of Theology) or no LIBRARY_PARALLEL supplied, the quote
+       * rule is skipped by its own design and this case is ACCEPTED — so it is
+       * SKIPPED and named rather than failing a guard it never exercised. */
       name: 'evidence that names the parallel without quoting it',
       p: { find: token, replace: 'x', class: 'reading', note: 'n', evidence: `the parallel edition confirms the reading for ${token} plainly` },
       expect: 'reject',
+      needsParallel: true,
     },
     {
       name: 'right evidence, with a quoted line of the parallel',
@@ -1335,6 +1358,10 @@ function selfTestMain(prepared, parallel) {
   ];
   let bad = 0;
   for (const c of cases) {
+    if (c.needsParallel && !parallelText) {
+      console.log(`  SKIP   ${c.name} (no parallel was supplied — the quote rule cannot fire)`);
+      continue;
+    }
     const v = vetRepair(c.p, {
       rawBody: prepared.rawBody,
       front: prepared.front,
