@@ -427,6 +427,26 @@ ul.entries { list-style: none; padding: 0; margin: 0; }
   width: 100%; font-family: var(--mono); font-size: 0.8125rem; color: var(--fg);
   background: var(--bg2); border: 1px solid var(--line); border-radius: 2px; padding: 5px 7px;
 }
+/* THE DIRECT JUMP to a leaf: the rail is 141 cards on proclus, so a leaf a reader
+   has in mind is one action here rather than a scroll of the rail. Its number is
+   the ARCHIVE leaf number — the one printed on the rail's cards and in the panel's
+   caption — so the range rides beside the field and names exactly what to type.
+   The same family as the search field: quiet chrome, hairline, mono value. */
+.app-jump { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+.app-jump label {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--label);
+}
+.app-jump input {
+  width: 6.5rem; font-family: var(--mono); font-size: 0.8125rem; color: var(--fg);
+  background: var(--bg2); border: 1px solid var(--line); border-radius: 2px; padding: 5px 7px;
+}
+.app-jump .app-jump-go {
+  font: inherit; font-family: var(--sans); font-size: 12px; color: var(--accent2);
+  background: none; border: 1px solid var(--line); border-radius: 2px; padding: 4px 9px; cursor: pointer;
+}
+.app-jump .app-jump-go:hover { color: var(--accent); border-color: var(--accent); }
+.app-jump .app-jump-hint { font-family: var(--mono); font-size: 11px; color: var(--dim); }
 /* THE PANEL GETS THE ROOM. The index is a FINDER — thumbnails, a leaf number and a
    count per leaf — so it is sized to that job (16rem = 256px, four or five thumbnail
    rows across) and the panel takes the rest of the reader's width: 1240px of wrap,
@@ -437,19 +457,32 @@ ul.entries { list-style: none; padding: 0; margin: 0; }
   display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
   gap: var(--space-4); align-items: start;
 }
-/* THE LEAF INDEX IS NOT A SCROLL TRAP. It used to carry `max-height: 36rem;
-   overflow: auto` — a nested scroll region inside the page's own scroll, so a
-   reader who scrolled into the index was trapped in a 36rem window and had to
-   leave it (or use the jump list) to get anywhere. It FLOWS in the page now: the
-   page's own scroll is the only scroll, the whole scan runs down the left column,
-   and the panel beside it (and the jump bar above, and the back-to-top control)
-   are always reachable by the page's scroll alone. `scroll-margin-top` keeps a
-   jump to it clear of the two sticky bars. */
+/* THE LEAF RAIL: BOUNDED, ITS OWN SCROLL — AND NOT A TRAP.
+   MEASURED twice, in both directions, and the shape is the pair of reports:
+   - `max-height: 36rem; overflow: auto` alone made it a NESTED SCROLL REGION a
+     reader could be held in (the first report);
+   - REMOVING that cap made the other trap visible instead: 141 thumbnails ran
+     down the left column for ~15 screens, so reaching a late leaf meant scrolling
+     the PAGE down to it — and the panel, whose top is level with the rail's, was
+     then off-screen above, so the reader went down and back up for every leaf
+     (the second report).
+   The rail is a rail again — a BOUNDED, self-scrolling box, so a leaf far down
+   the scan is reachable in place and the page does not move while it is browsed.
+   THREE things keep it from being the first trap: the cap is the WINDOW less the
+   two sticky bars (so the rail is always wholly on screen while it is used, never
+   a window the reader has to leave to finish), `scroll-margin-top` keeps a jump
+   to it clear of those bars, and `overscroll-behavior` is deliberately NOT set —
+   at either end of the rail the scroll CHAINS to the page, so the rail is a place
+   to scroll, never a place to be stuck. The panel beside it is sticky for the same
+   reason (see .app-panel), and the index's own controls carry a direct
+   "go to leaf" jump, so a leaf is one action away without scrolling at all. */
 .app-leaves {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
   gap: var(--space-2); align-content: start;
-  padding-right: var(--space-2);
-  border-right: 1px solid var(--line);
+  max-height: calc(100vh - var(--nav-h, 52px) - var(--jump-h, 0px) - var(--space-4) * 2);
+  overflow-y: auto;
+  padding: var(--space-2);
+  background: var(--bg2); border: 1px solid var(--line); border-radius: 2px;
   scroll-margin-top: calc(var(--nav-h, 52px) + var(--jump-h, 0px) + 8px);
 }
 .app-leaf {
@@ -500,10 +533,26 @@ ul.entries { list-style: none; padding: 0; margin: 0; }
 }
 .app-leaf-cap { font-family: var(--mono); font-size: 11px; color: var(--dim); }
 .app-leaf-n { font-family: var(--sans); font-size: 10px; color: var(--dim); }
-.app-panel { min-width: 0; scroll-margin-top: calc(var(--nav-h, 52px) + var(--jump-h, 0px) + 8px); }
-/* The panel's way BACK to the index: the index flows above and beside the panel
-   now, so this is a convenience, not an escape — but a reader who has paged down
-   a long list should not have to scroll to find the index again. */
+/* THE PANEL HOLDS ITS PLACE WHILE THE RAIL IS BROWSED. It is the selected leaf and
+   its readings, and on a wide screen it sits BESIDE the rail, so pinning its top
+   under the two sticky bars (`--nav-h` and `--jump-h` are both MEASURED by the
+   shell's own boot) keeps the leaf and its readings in view for the whole time the
+   reader scrolls the rail: selecting a thumbnail updates the panel in place, and
+   no travel up and down is needed. MEASURED, and stated because it bounds the
+   claim: with `align-items: start` a sticky grid item can only travel inside its
+   grid AREA, and a full leaf image is the tallest thing in the row — so for a leaf
+   the panel IS the row and its top is already at the grid's top, while a SHORT
+   panel (an entry with few readings) now sticks against the rail beside it. The
+   load-bearing part of this fix is the rail's own scroll (see .app-leaves). */
+.app-panel {
+  min-width: 0;
+  position: sticky; top: calc(var(--nav-h, 52px) + var(--jump-h, 0px) + var(--space-2));
+  align-self: start;
+  scroll-margin-top: calc(var(--nav-h, 52px) + var(--jump-h, 0px) + 8px);
+}
+/* The panel's way BACK to the index: the rail is beside it (BELOW it on a narrow
+   screen), so this is a convenience, not an escape — but a reader who has paged
+   down a long list should not have to scroll to find the index again. */
 .app-to-index {
   display: inline-block; font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.06em;
   text-transform: uppercase; color: var(--dim); margin-bottom: var(--space-2);
@@ -682,19 +731,29 @@ ul.app-compact { list-style: none; padding: 0; margin: 0; }
 .s-noscript { font-family: var(--serif); color: var(--dim); }
 @media (max-width: 35em) { .sres .sr-sc { float: none; margin-left: 8px; } }
 
-/* THE APPARATUS ON A NARROW SCREEN: one column — the leaf index goes ABOVE the
-   panel, and the panel then takes the viewport's whole width. The index is NOT
-   capped here either: it flows in the page's own scroll like it does on a wide
-   screen, which is the whole point of removing the nested scroll (see
-   .app-leaves). (No .app-panel-img override is needed: the leaf is bounded by its
-   COLUMN, which is this same rule's subject, so it shrinks with the column
-   instead of being held to a viewport-height ceiling.) */
+/* THE APPARATUS ON A NARROW SCREEN: ONE COLUMN, BOTH PANES BOUNDED. There is no
+   room here for a rail beside the panel, and the wide screen's own reasoning does
+   not transfer: with the two stacked, whichever is left unbounded puts the other
+   a scroll away — the reported trap, on a phone. So the column is split the way a
+   phone viewer is: THE PANEL ABOVE, the leaf rail BELOW it, and a height for each
+   (the panel takes the window less the two sticky bars less the rail's own band;
+   the rail gets that band). Every leaf is then in the rail, the selected leaf is
+   in the panel directly above it, and a tap updates it in place — no travel. The
+   panel is the one pane with a scroll of its own here, because the leaf image is
+   capped by the COLUMN (it stays the full width of the screen, never a strip) and
+   the window cannot hold the leaf AND the rail at once. (No .app-panel-img
+   override is needed: the leaf is still bounded by its column, and its whole
+   width is the screen's.) */
 @media (max-width: 56em) {
   .app-browser { grid-template-columns: minmax(0, 1fr); }
-  .app-leaves {
-    padding-right: 0; padding-bottom: var(--space-2);
-    border-right: 0; border-bottom: 1px solid var(--line);
+  .app-panel {
+    grid-row: 1;
+    max-height: calc(100vh - var(--nav-h, 52px) - var(--jump-h, 0px) - 14rem);
+    overflow-y: auto;
   }
+  /* the 14rem above is this band (12rem) plus the grid's own gap (--space-4), so
+     the two panes together fit under the sticky bars with nothing left over */
+  .app-leaves { grid-row: 2; max-height: 12rem; }
 }
 
 /* ---------- the graph figure ---------- */

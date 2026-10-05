@@ -44,7 +44,10 @@
  *     so the scan is read as a sequence and not only leaf by leaf;
  *   - CONTROLS over BOTH axes: a filter by the four scholarly types (DATA-MODEL
  *     §4.1) and a word search over the located text (`find`), the reading
- *     (`after`) and the reason (`rationale`);
+ *     (`after`) and the reason (`rationale`), and a DIRECT JUMP to a leaf by its
+ *     number (the rail is 141 thumbnails on proclus, so scrolling it to a leaf a
+ *     reader has in mind is work — and a number the edition does not hold is
+ *     SAID, never swallowed);
  *   - DEEP LINKS: a `#repair-<id>` fragment on load selects the entry that rule
  *     belongs to — its leaf, or the cited-but-not-held leaf, or the no-image
  *     group — turns to the page of a paged list it falls on, and highlights it.
@@ -267,6 +270,86 @@
     search.appendChild(lab);
     search.appendChild(input);
     this.controls.appendChild(search);
+
+    /* THE DIRECT JUMP. The number a reader has in mind is the one ON the rail's
+     * cards and in the panel's caption — the ARCHIVE leaf number (proclus holds
+     * n806–n946, not n0–n140), so that is what this takes, and the range is stated
+     * beside it. A number the edition does not hold moves nothing and says so. */
+    if (!this.data.leaves.length) return;
+    var ns = this.data.leaves.map(function (l) {
+      return l.n;
+    });
+    var lo = Math.min.apply(null, ns);
+    var hi = Math.max.apply(null, ns);
+    var jump = node('div', 'app-jump');
+    jump.setAttribute('role', 'group');
+    jump.setAttribute('aria-label', 'Go to a leaf by its number');
+    var jlab = node('label', null, 'Go to leaf');
+    jlab.setAttribute('for', 'app-leaf-jump');
+    jump.appendChild(jlab);
+    var jinput = node('input', 'app-jump-n');
+    jinput.type = 'number';
+    jinput.id = 'app-leaf-jump';
+    jinput.setAttribute('inputmode', 'numeric');
+    jinput.setAttribute('autocomplete', 'off');
+    jinput.min = String(lo);
+    jinput.max = String(hi);
+    jump.appendChild(jinput);
+    var jgo = node('button', 'app-jump-go', 'Go');
+    jgo.type = 'button';
+    jump.appendChild(jgo);
+    jump.appendChild(node('span', 'app-jump-hint', 'n' + lo + '–n' + hi));
+    var submit = function () {
+      self.jumpTo(jinput.value);
+    };
+    jgo.addEventListener('click', submit);
+    jinput.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Enter' && ev.keyCode !== 13) return;
+      if (ev.preventDefault) ev.preventDefault();
+      submit();
+    });
+    this.controls.appendChild(jump);
+  };
+
+  /** GO STRAIGHT TO A LEAF, by its archive number. The rail is a scroll away from
+   * any given leaf — and on proclus it is 141 cards — so the number a reader has
+   * is an action, not a journey. A number this edition does not hold is STATED
+   * (model §0.4: an empty state is said, never omitted) and nothing moves. */
+  Viewer.prototype.jumpTo = function (value) {
+    var raw = String(value === undefined || value === null ? '' : value).trim();
+    var n = parseInt(raw, 10);
+    var ns = this.data.leaves.map(function (l) {
+      return l.n;
+    });
+    var held = this.data.leaves.some(function (l) {
+      return l.n === n;
+    });
+    if (held) {
+      location.hash = '#leaf-n' + n;
+      this.revealLeaf('n' + n);
+      return;
+    }
+    if (!this.status) return;
+    var lo = Math.min.apply(null, ns);
+    var hi = Math.max.apply(null, ns);
+    this.status.textContent =
+      'No leaf n' +
+      (raw === '' ? '' : n) +
+      ' is stored with this edition: it holds ' +
+      plural(this.data.leaves.length, 'leaf', 'leaves') +
+      ', n' +
+      lo +
+      '–n' +
+      hi +
+      '.';
+  };
+
+  /** Bring a leaf's card into the rail's own view. `block: 'nearest'` is the
+   * whole point of the call: a card already on screen moves nothing (and the page
+   * never moves at all — only the rail scrolls). */
+  Viewer.prototype.revealLeaf = function (key) {
+    var b = document.getElementById('leaf-' + key);
+    if (b && b.scrollIntoView) b.scrollIntoView({ block: 'nearest' });
   };
 
   /* ---------- the two axes, in one index ---------- */
@@ -473,11 +556,12 @@
     var entry = this.byKey[this.selected];
     if (!entry) return;
     this.panel.textContent = '';
-    /* THE PANEL'S WAY BACK TO THE INDEX. The index flows in the page now (no
-     * nested scroll), so this is not an escape — but a reader who has paged down
-     * a long list should not have to scroll to find the index again. It scrolls
-     * without touching the fragment: a `#app-leaves` anchor would fire
-     * `hashchange`, which is the viewer's own entry point. */
+    /* THE PANEL'S WAY BACK TO THE INDEX. The rail is beside the panel (above it on
+     * a narrow screen) and scrolls itself, so this is not an escape — but a reader
+     * who has paged down a long list should not have to hunt for the rail again,
+     * and on a narrow screen it may be a pane away. It scrolls without touching
+     * the fragment: a `#app-leaves` anchor would fire `hashchange`, which is the
+     * viewer's own entry point. */
     var toIndex = node('a', 'app-to-index', '↑ The leaf index');
     toIndex.href = '#app-leaves';
     toIndex.addEventListener('click', function (ev) {
@@ -677,6 +761,11 @@
       var leafKey = h.slice('leaf-'.length);
       if (this.byKey[leafKey]) {
         this.select(leafKey, null);
+        /* THE CARD COMES INTO THE RAIL'S OWN VIEW TOO: a jump (from the number
+         * input, the pager or a `#leaf-` link) may name a leaf the rail is not
+         * currently showing, and a panel that changes while the rail shows some
+         * other part of the scan is a reader's second guess. */
+        this.revealLeaf(leafKey);
         return;
       }
     }

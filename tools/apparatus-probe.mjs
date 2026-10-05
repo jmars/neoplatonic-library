@@ -1227,51 +1227,78 @@ section('the viewer’s containing block is the apparatus column — no ancestor
   }
 }
 
-/* ---------- §8 the scroll traps are gone, and the jump bars are sticky --------
+/* ---------- §8 the leaf RAIL is bounded and the panel holds its place --------
  *
- * TWO REPORTED TRAPS, both closed:
- *   1. THE APPARATUS WAS BURIED below the whole reading view — hence the route
- *      (§8a: the viewer is on the apparatus page, the edition page carries the
- *      door and NO viewer).
- *   2. THE LEAF INDEX WAS A NESTED SCROLL REGION (`.app-leaves { max-height:
- *      36rem; overflow: auto }`, and 18rem below 56em) inside the page's own
- *      scroll — a reader who scrolled into it was held in a 36rem window.
- * §8b reads the EMITTED stylesheet and asserts NO `.app-leaves` rule caps its
- * height or opens a scroll of its own, on ANY screen; the predicate is proven to
- * FIRE on the pre-fix rules (the asymmetry). §8c asserts the jump bar and the
- * back-to-top control, and that the reader's own sticky chrome offsets by the
- * jump bar's measured height as well as the nav's. */
-section('the leaf index is not a scroll trap, and the jump bars are sticky');
+ * THE LEAF INDEX HAS BEEN WRONG IN BOTH DIRECTIONS, and §8 is written from the
+ * pair of reports, so it can tell the fix from the bug:
+ *   1. `max-height: 36rem; overflow: auto` ALONE (plus 18rem below 56em) made it a
+ *      nested scroll region a reader was held in.
+ *   2. REMOVING that cap — the state this section was written against until now —
+ *      made the OTHER trap: 141 cards flowed down the left column for ~15 screens,
+ *      so a late leaf was reached by scrolling the PAGE, with the panel (whose top
+ *      is level with the rail's) off-screen above: down for the leaf, back up for
+ *      the panel, for every leaf.
+ * So the assertions are the shape of the fix, not "no cap": the rail is BOUNDED and
+ * scrolls ITSELF (§8b), its cap is the WINDOW less the two sticky bars so the rail
+ * is wholly on screen while it is used, it does NOT stop the scroll chaining with
+ * `overscroll-behavior: contain` (§8c — the property of trap 1 the fix must not
+ * bring back), the panel is STICKY in the wide layout (§8d), and on a narrow screen
+ * both panes are bounded with the panel above the rail (§8e) and the index carries a
+ * DIRECT JUMP to a leaf (§8f — exercised BOOTED, not only read in the markup).
+ *
+ * THE ASYMMETRY IS ASSERTED FIRST: §8b's predicate must FAIL on the index as it
+ * flows NOW (no cap, no overflow — the state the report was filed against) and pass
+ * on the bounded rail; §8c's must FIRE on a rule that sets `overscroll-behavior:
+ * contain`. If neither could fail, a green run here would prove nothing. */
+section('the leaf rail is bounded and scrolls itself, the panel holds, and a leaf is one jump away');
 
 /** The `.app-leaves` rules of a stylesheet, with their media context. */
 const appLeavesRules = (css) => parseCss(css).filter((r) => r.sel === '.app-leaves');
 
-/** The declarations in those rules that make a NESTED SCROLL: a height cap, or an
- * overflow that is not `visible`. Returns a description per offending declaration
- * — EMPTY means the index flows in the page. */
-function trapDecls(rules) {
+/** THE RAIL'S BOUNDING DECLARATIONS: a height cap, and an overflow that is not
+ * `visible`. EMPTY means the index FLOWS in the page — the state the second report
+ * was filed against, so this predicate FIRING is the fix and silence is the bug. */
+function railBound(rules) {
   const out = [];
   for (const r of rules) {
     const media = r.media ? ` (${r.media})` : '';
     const mh = /(?:^|;)\s*max-height\s*:\s*([^;]+)/.exec(r.body);
     if (mh) out.push(`max-height: ${mh[1].trim()}${media}`);
     const ov = /(?:^|;)\s*overflow(?:-y)?\s*:\s*([^;]+)/.exec(r.body);
-    if (ov && !/^\s*(?:visible|clip)\s*$/.test(ov[1])) out.push(`overflow: ${ov[1].trim()}${media}`);
+    if (ov && !/^\s*(?:visible|clip)\s*$/.test(ov[1])) out.push(`overflow-y: ${ov[1].trim()}${media}`);
   }
   return out;
 }
 
-/* THE ASYMMETRY, ASSERTED FIRST: the predicate must FIRE on the rules the report
- * named. If it cannot fail, a green run here proves nothing. */
+/** THE TRAP PREDICATE — what a rail must NOT do: refuse to let the scroll go at
+ * its end (`overscroll-behavior: contain`, or `none`). A rail that chains is a
+ * place to scroll; one that contains is a place to be stuck. */
+function railTraps(rules) {
+  const out = [];
+  for (const r of rules) {
+    const media = r.media ? ` (${r.media})` : '';
+    const os = /(?:^|;)\s*overscroll-behavior(?:-y)?\s*:\s*([^;]+)/.exec(r.body);
+    if (os && !/^\s*auto\s*$/.test(os[1])) out.push(`overscroll-behavior: ${os[1].trim()}${media}`);
+  }
+  return out;
+}
+
+/* THE ASYMMETRY, ASSERTED FIRST. (a) The bounded predicate FAILS on the index as
+ * it flows now — no cap, no overflow — which is the state the report was filed
+ * against; (b) the trap predicate FIRES on the rule that would make it a trap. If
+ * either could not fail, a green run here would prove nothing. */
 {
-  const before = '.app-leaves { display: grid; max-height: 36rem; overflow: auto; padding-right: 20px; }';
-  const narrow = '@media (max-width: 56em) { .app-leaves { max-height: 18rem; border-right: 0; } }';
-  check(trapDecls(appLeavesRules(before)).length === 2,
-    `THE ASYMMETRY: the predicate FIRES on the pre-fix rule (${trapDecls(appLeavesRules(before)).join(', ')})`);
-  check(trapDecls(appLeavesRules(narrow)).length === 1,
-    `and on the narrow-screen cap too (${trapDecls(appLeavesRules(narrow)).join(', ')})`);
-  check(trapDecls(appLeavesRules('.app-leaves { display: grid; gap: 8px; border-right: 1px solid; }')).length === 0,
-    'and stays SILENT on a rule that simply flows (so it is a test, not a tautology)');
+  const flowing = '.app-leaves { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); ' +
+    'gap: 8px; align-content: start; padding-right: 8px; border-right: 1px solid; ' +
+    'scroll-margin-top: calc(var(--nav-h, 52px) + var(--jump-h, 0px) + 8px); }';
+  check(railBound(appLeavesRules(flowing)).length === 0,
+    'THE ASYMMETRY: the BOUNDED check FAILS on the index as it flowed (no cap, no overflow — the reported state)');
+  check(railBound(appLeavesRules('.app-leaves { max-height: calc(100vh - var(--nav-h) - var(--jump-h)); overflow-y: auto; }')).length === 2,
+    'and passes on a bounded rail (a cap AND its own scroll) — so it is a test, not a tautology');
+  check(railTraps(appLeavesRules('.app-leaves { max-height: 36rem; overflow-y: auto; overscroll-behavior: contain; }')).length === 1,
+    'THE TRAP predicate FIRES on `overscroll-behavior: contain` (the rail that will not let the page take over)');
+  check(railTraps(appLeavesRules(flowing)).length === 0,
+    'and stays SILENT on a rail that leaves the property at its default (chaining is the default)');
 }
 
 /** The shell's own boot measures the jump bar, on every page it emits. */
@@ -1285,12 +1312,51 @@ for (const e of editions) {
   const appCss = [...appHtml.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
   const edCss = [...edHtml.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
 
-  const traps = trapDecls(appLeavesRules(appCss + '\n' + edCss));
+  const css = appCss + '\n' + edCss;
+  const rules = parseCss(css);
+
+  /* THE RAIL, §8b: BOUNDED, AND SCROLLING ITSELF. MEASURED on the EMITTED
+   * stylesheet of both editions, at both widths. */
+  const rail = railBound(appLeavesRules(css));
+  const caps = rail.filter((d) => d.startsWith('max-height'));
+  const scrolls = rail.filter((d) => d.startsWith('overflow-y'));
+  check(caps.length > 0 && scrolls.length > 0,
+    `${e.slug}: the leaf rail is BOUNDED and scrolls ITSELF — ${rail.length} declaration(s)` +
+      (rail.length ? ` (${rail.join('; ')})` : ' (none: the 141 cards flow in the page and the panel is a screen away)'));
+  const cap = caps[0] || '';
+  check(/100vh/.test(cap) && /--nav-h/.test(cap) && /--jump-h/.test(cap),
+    `${e.slug}: and its cap is the WINDOW less both sticky bars (${cap.split(' (')[0]}) — the rail is wholly on screen while it is used, never a window to leave`);
+  check(rail.some((d) => /@media \(max-width: 56em\)/.test(d)),
+    `${e.slug}: with a bound of its own on a narrow screen too (${caps.filter((d) => /56em/.test(d)).join('; ') || 'NONE'})`);
+
+  /* §8c NOT A TRAP: the scroll CHAINS to the page at the rail's end. */
+  const traps = railTraps(appLeavesRules(css));
   check(traps.length === 0,
-    `${e.slug}: NO .app-leaves rule caps its height or scrolls on its own (${traps.length ? traps.join(', ') : 'the index flows in the page'})`);
+    `${e.slug}: and it does not contain the scroll (${traps.length ? traps.join('; ') : 'no overscroll-behavior at all — the page takes over at either end'})`);
+
+  /* §8d THE PANEL HOLDS ITS PLACE beside the rail — in the WIDE layout, which is
+   * the layout the base rules describe. */
+  const pTop = cssProp(rules, '.app-panel', 'top');
+  check(cssProp(rules, '.app-panel', 'position') === 'sticky' && /var\(--nav-h/.test(pTop || '') && /var\(--jump-h/.test(pTop || ''),
+    `${e.slug}: the selected-leaf panel is STICKY at ${pTop} — below the nav AND the jump bar, both measured`);
+
+  /* §8e ONE COLUMN below 56em: both panes bounded, the panel ABOVE the rail. */
+  const narrow = (sel) => rules.filter((r) => r.sel === sel && /max-width:\s*56em/.test(r.media)).map((r) => r.body).join(';');
+  const nPanel = narrow('.app-panel');
+  const nRail = narrow('.app-leaves');
+  check(/max-height/.test(nPanel) && /overflow/.test(nPanel) && /max-height/.test(nRail),
+    `${e.slug}: on a NARROW screen both panes are bounded too (panel: ${/max-height/.test(nPanel) ? 'capped, and scrolls itself' : 'UNCAPED'}; rail: ${/max-height/.test(nRail) ? 'capped' : 'UNCAPED'})`);
+  check(/grid-row:\s*1/.test(nPanel) && /grid-row:\s*2/.test(nRail),
+    `${e.slug}: and the panel stands ABOVE the rail there, so a tap updates what is directly above it with no travel`);
+
+  /* §8f THE DIRECT JUMP: the viewer renders a "go to leaf" number input beside
+   * the filter and the search — the rail is 141 cards on proclus, and a leaf a
+   * reader has in mind is one action, not a scroll. The inlined viewer is what
+   * carries it (so it cannot be a control that exists only in a stylesheet). */
+  check(/app-leaf-jump/.test(appHtml) && /app-jump-go/.test(appHtml),
+    `${e.slug}: the viewer carries a DIRECT JUMP to a leaf (#app-leaf-jump + a Go control, inlined on the page)`);
 
   /* THE JUMP BAR: sticky under the nav, its top the nav's MEASURED height. */
-  const rules = parseCss(appCss);
   const jTop = cssProp(rules, '.page-contents', 'top');
   check(cssProp(rules, '.page-contents', 'position') === 'sticky' && /var\(--nav-h/.test(jTop || ''),
     `${e.slug}: the in-page jump bar is sticky at ${jTop} — the nav's measured height, not a constant`);
@@ -1313,6 +1379,49 @@ for (const e of editions) {
     `${e.slug}: and its contents sidebar below both of those and the toolbar`);
   check(html_has_jump_measure(appHtml),
     `${e.slug}: the shell MEASURES the jump bar into --jump-h (getBoundingClientRect -> setProperty)`);
+}
+
+/* §8f THE JUMP, BOOTED. A control that is only read in the markup is a seat
+ * nobody sits in: this BOOTS the apparatus page and uses it — a leaf the edition
+ * holds is turned to (the card selected and brought into the rail's view), and a
+ * number it does not hold is STATED, with nothing moved. */
+{
+  const SLUG = VIEWER_EDITIONS[0];
+  const { data } = seen.get(SLUG);
+  const ns = data.leaves.map((l) => l.n).sort((a, b) => a - b);
+
+  const j = await boot(SLUG);
+  /* The control is looked up the way a reader finds it; if it is absent the checks
+   * below still RUN (against a stand-in that cannot navigate), so a missing control
+   * fails the battery instead of quietly removing its checks from it. */
+  const live = j.w.document.getElementById('app-leaf-jump');
+  const liveGo = j.w.document.querySelector('.app-jump-go');
+  check(!!live && !!liveGo, 'the direct jump is in the DOM, booted: a number field and a Go control');
+  const field = live || { value: '', getAttribute: () => null };
+  const go = liveGo || { dispatchEvent: () => {} };
+  check(!!field && field.getAttribute('min') === String(ns[0]) && field.getAttribute('max') === String(ns[ns.length - 1]),
+    `and it carries the range this edition holds (min ${field && field.getAttribute('min')}, max ${field && field.getAttribute('max')} — the ARCHIVE leaf numbers, n806–n946 on proclus: not a count from 1)`);
+  check(j.text('#app-controls').includes(`n${ns[0]}–n${ns[ns.length - 1]}`),
+    `... and STATES that range beside the field (${JSON.stringify(j.text('.app-jump-hint'))})`);
+  field.value = String(ns[ns.length - 1]);
+  go.dispatchEvent(new j.w.MouseEvent('click', { bubbles: true, cancelable: true }));
+  await settle();
+  check(j.w.location.hash === `#leaf-n${ns[ns.length - 1]}`,
+    `typing the last leaf it holds (n${ns[ns.length - 1]}) and clicking Go turns to it (${j.w.location.hash})`);
+  j.w.dispatchEvent(new j.w.Event('hashchange'));
+  await settle();
+  const card = j.w.document.getElementById(`leaf-n${ns[ns.length - 1]}`);
+  check(!!card && card.className.includes('selected'),
+    'and the rail shows it selected — the number is an action, not a journey down 141 cards');
+  check(j.scrolled.includes(`leaf-n${ns[ns.length - 1]}`),
+    'and the card is brought into the RAIL’s own view (scrollIntoView on the card, so a jump is not blind within it)');
+  const gone = ns[ns.length - 1] + 500;
+  field.value = String(gone);
+  go.dispatchEvent(new j.w.MouseEvent('click', { bubbles: true, cancelable: true }));
+  await settle();
+  const said = j.text('#app-status');
+  check(j.w.location.hash === `#leaf-n${ns[ns.length - 1]}` && /No leaf n/.test(said) && said.includes(`n${ns[0]}–n${ns[ns.length - 1]}`),
+    `a number the edition does NOT hold (n${gone}) moves nothing and says so (${JSON.stringify(said)})`);
 }
 
 /* THE OLD ADDRESS STILL RESOLVES — IN A DOM, NOT ONLY IN THE MARKUP. A reading

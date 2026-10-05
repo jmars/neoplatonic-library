@@ -1366,9 +1366,9 @@ function apparatusPageHtml(t, version, currentVersion, base, app) {
     { label: t.title, href: base },
     { label: 'The apparatus' },
   ];
-  /* THE JUMP BAR (DESIGN-SYSTEM.md §5): the leaf index and the panel are the
-   * page's two regions and both are below the statement, so the page says they
-   * are there and jumps to them. The index flows in the page now, so this is a
+  /* THE JUMP BAR (DESIGN-SYSTEM.md §5): the leaf rail and the panel are the page's
+   * two regions and both are below the statement, so the page says they are there
+   * and jumps to them. They are side by side and each is bounded, so this is a
    * convenience and not an escape — which is the point. */
   const onPage = contents(['app-leaves', 'The leaf index'], ['app-panel', 'The panel']);
   const back =

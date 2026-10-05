@@ -455,8 +455,11 @@ rendered BELOW the edition page's whole reading view, so a reader had to scroll 
 the entire text to reach the leaf panel — the apparatus was buried, and the leaf index
 was a nested scroll region (`.app-leaves { max-height: 36rem; overflow: auto }`) a
 reader got stuck in. So the viewer moved to `/texts/<slug>/apparatus/` (and the pinned
-`/texts/<slug>/v/<semver>/apparatus/`) with the leaf index flowing in the page's own
-scroll; the edition page keeps its bibliographic record, citation, text and provenance,
+`/texts/<slug>/v/<semver>/apparatus/`) with a bounded, self-scrolling leaf rail beside a
+sticky panel — MEASURED both ways round: with the rail's cap alone it was a nested
+scroll a reader was held in, and with the cap removed the whole scan flowed down the
+page so a late leaf was a page-scroll away from the panel above it. The edition page
+keeps its bibliographic record, citation, text and provenance,
 and carries the short statement plus the door. The DATA ADDRESS DID NOT MOVE — the two
 apparatus pages fetch `/texts/<slug>/apparatus.json` and
 `/texts/<slug>/v/<semver>/apparatus.json` exactly as the edition page did. A

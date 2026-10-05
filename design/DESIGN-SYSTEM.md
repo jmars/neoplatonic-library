@@ -243,17 +243,45 @@ file (`/texts/<slug>/apparatus.json`, model §7.1) rendered as
   type, pipeline class, before → after, rationale, witness — each anchored
   `#repair-<id>`. The panel carries its own way BACK to the index (`app-to-index`,
   `↑ The leaf index`), which scrolls without touching the fragment;
-- **controls**: the four-type filter and a word search over the located text,
-  the reading and the reason, applied to BOTH axes.
+- **controls**: the four-type filter, a word search over the located text, the
+  reading and the reason, applied to BOTH axes, and a **direct jump to a leaf by
+  its number** (the rail is 141 cards on proclus, so a leaf a reader has in mind
+  is one action rather than a scroll of the rail; the field states the range the
+  edition holds and a number it does not hold is SAID, not swallowed).
 
-**THE LEAF INDEX IS NOT A SCROLL TRAP.** It used to be a nested scroll region
-(`.app-leaves { max-height: 36rem; overflow: auto }`, and 18rem below 56em) inside
-the page's own scroll: a reader who scrolled into it was held in a 36rem window
-and had to leave it (or use the jump list) to get anywhere. It FLOWS in the page
-now — the page's own scroll is the only scroll, the whole scan runs down the left
-column, and the panel, the jump bar and the back-to-top control are always
-reachable by that one scroll. `scroll-margin-top` keeps a jump to the index or the
-panel clear of the two sticky bars.
+**THE LEAF RAIL IS BOUNDED, AND ITS SCROLL IS ITS OWN — BUT NOT A TRAP.** MEASURED
+in both directions, because the index has been wrong each way round:
+- `max-height: 36rem; overflow: auto` ALONE (and 18rem below 56em) made it a nested
+  scroll region a reader could be held in;
+- REMOVING that cap made the opposite trap: 141 thumbnails ran the whole scan down
+  the left column for ~15 screens, so a late leaf was reached by scrolling the
+  PAGE — and the panel, whose top is level with the rail's, was then off-screen
+  above, so a reader went down for the leaf and back up for the panel, for every
+  leaf.
+It is a rail again: `.app-leaves` carries a `max-height` and `overflow-y: auto`, so
+a leaf far down the scan is reachable in place and the page does not move while the
+rail is browsed. Three things keep it from being the first trap: the cap is the
+WINDOW less the two sticky bars (`100vh` − `--nav-h` − `--jump-h`, both MEASURED by
+the shell's own boot), so the rail is wholly on screen while it is used;
+`scroll-margin-top` keeps a jump to it (or to the panel) clear of those bars; and
+`overscroll-behavior` is deliberately NOT set — at either end of the rail the scroll
+CHAINS to the page, so the rail is a place to scroll, never a place to be stuck. The
+rail reads as a contained control (a hairline box on the panel's ground, not a bare
+column), and the panel is **sticky** under the two bars (`position: sticky` at
+`--nav-h + --jump-h + --space-2`) so the selected leaf and its readings hold their
+place while the rail is scrolled. MEASURED, and stated because it bounds the claim:
+with `align-items: start` a sticky grid item can only travel inside its grid area,
+and a full leaf image is the tallest thing in the row — so for a leaf the panel IS
+the row (its top already at the grid's top) and the rail's own scroll is what does
+the work, while a short panel (few readings) sticks against the rail beside it.
+
+**On a narrow screen the two stack, and BOTH are bounded**: the panel comes FIRST,
+capped at the window less the bars less the rail's band (14rem = the rail's 12rem
+plus the grid's gap) with a scroll of its own, and the rail sits under it in that
+band — so the selected leaf is directly above the rail and a tap updates it in
+place, with no travel at all. The leaf image is still capped by its COLUMN (the full
+width of the screen), never by a viewport height: it is the PANE that is bounded
+here, not the leaf.
 
 **The landing is never empty**: the viewer opens the first leaf that HAS
 readings (on porphyry that is `n33`, not the first stored leaf `n0`), and the
@@ -283,8 +311,8 @@ report). The summary is the section's own `.hint`, widened here ALONE
 (`#the-apparatus .hint`): `.hint` still holds every other section's one-line
 description at `--measure`. The leaf index is a finder, not a paragraph, and is
 sized to that job (16rem = 256px); the panel takes the rest (916px); below 56em
-the grid collapses to one column and the panel takes the viewport, the index
-still flowing. `tools/apparatus-probe.mjs` §6 measures this off the EMITTED
+the grid collapses to one column, the panel takes the viewport's width (bounded by
+its height, with the rail as a band beneath it — see above). `tools/apparatus-probe.mjs` §6 measures this off the EMITTED
 stylesheet (reading the apparatus page's rules AND the edition page's, where the
 reader contract still lives).
 
@@ -316,9 +344,11 @@ catalogue-entry (with its `data-` sort keys) ·
 **collection-scope** (the home's count, search field, doors and All-texts door) ·
 bib-record (dl) · citation-block (serif prose, `--mono` URL) · **apparatus-viewer
 (two axes: `app-leaf-all` / `app-leaf-none` scope entries, `app-leaf` thumbnails
-with `app-leaf-quiet` for a leaf no reading was decided from, `app-panel`,
-`app-pager` for a list longer than the page, `app-to-index` for the panel's way
-back to the index, and `app-compact` for the long
+with `app-leaf-quiet` for a leaf no reading was decided from, `app-panel` — the
+BOUNDED, self-scrolling rail `app-leaves` and the sticky panel beside it —
+`app-pager` for a list longer than the page, `app-leafnav` for the leaf-by-leaf
+step, `app-jump` for the direct jump to a leaf by its number, `app-to-index` for
+the panel's way back to the index, and `app-compact` for the long
 reading lists)** · apparatus-entry · **leaf-evidence** (the page image a
 reading was decided from: the panel's full-column leaf, captioned `archive leaf nNNN ·
 printed page M`, and a stated "not held" for a leaf cited but not stored) ·
