@@ -184,11 +184,23 @@ A fixed scholarly order:
    path boundary and the host is never split mid-domain (a browser breaks at the
    literal hyphen in `neoplatonic-library.org` however the `<wbr>`s are placed —
    the span is what closes it). The duplicate address line is gone, and the
-   page's own address is the head's canonical link. DOI when present. The string
-   itself is the version's own: `Author, Title[, trans. Translator] (Place,
-   Year). The Neoplatonic Library, version <v>. <url>` — no `ed.` before the
-   version, which is not what `ed.` means in a citation. (finding 7)
-3. **The text** — the reader (`.rd*`, unchanged mechanism), its toolbar.
+   page's own address is the head's canonical link. When the record has a DOI it
+   is part of the STRING — the citable identity — and the block renders that
+   string verbatim, appending nothing, so a page cannot print a DOI its own
+   citation omits. The string itself is the version's own: `Author, Title[,
+   trans. Translator] (Place, Year). The Neoplatonic Library, version <v>[. DOI:
+   <doi>]. <url>` — no `ed.` before the
+   version, which is not what `ed.` means in a citation; the URL still ends it.
+   (finding 7)
+3. **The text** — the reader (`.rd*`, unchanged mechanism), its toolbar. **It
+   does NOT scroll the page on load.** A returning reader's stored position is
+   restored into the meter, the contents list and the position readout, but the
+   page stays where it was put — at the top, on the bibliographic record and the
+   citation, which is what a landing is for (the reported defect: the load
+   scrolled past them to the stored position, intrusively). A `#fragment` still
+   scrolls, because a citation link, a bookmark and the `#repair-` redirect ARE
+   navigations; and the reader's `focusOn` asks for keyboard focus with
+   `preventScroll`, so opening a panel never moves the page either.
 4. **The apparatus** — a SHORT statement of the version's repair log and **the
    door to its own page** (`/texts/<slug>/apparatus/`, §5.4). The viewer used to
    be rendered HERE, below the whole reading view, so a reader had to scroll

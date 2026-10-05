@@ -249,7 +249,7 @@ update msg m =
                                     ( m1, Cmd.none )
 
                                 else
-                                    goToSilent aid m1
+                                    restoreSilent aid m1
 
                             Nothing ->
                                 ( m1, Cmd.none )
@@ -515,8 +515,28 @@ viewName v =
             "transcription"
 
 
-{-| A jump the browser already made, or a restored position: scroll, but do not
-write the fragment back — re-setting it would fight the reader's back button. -}
+{-| A restored position: set it in the MODEL, and do not scroll. Landing on an
+edition page is not a navigation — the page's bibliographic record and its
+citation are the top, and a returning reader was being yanked past them down to
+their old position (the reported defect). The meter, the contents list and "you
+are here" read `posIx`, so the position must be restored; `jumpTo` is what must
+not run. A `#fragment` still scrolls — see the `GotDoc` branch above, which routes
+it to `goToSilent` and is a deep link, not a resume. A stored anchor the text no
+longer holds is left alone, silently: a landing must not open on an error about a
+position the reader did not ask for. -}
+restoreSilent : String -> Model -> ( Model, Cmd Msg )
+restoreSilent aid m =
+    case Dict.get aid m.anchors of
+        Just ix ->
+            ( withNote aid { m | posIx = ix, atPage = pageAnchor m.entries aid }, Cmd.none )
+
+        Nothing ->
+            ( m, Cmd.none )
+
+
+{-| A jump the browser already made — a fragment the reader arrived on, or a
+hashchange: scroll, but do not write the fragment back — re-setting it would
+fight the reader's back button. -}
 goToSilent : String -> Model -> ( Model, Cmd Msg )
 goToSilent aid m =
     case Dict.get aid m.anchors of

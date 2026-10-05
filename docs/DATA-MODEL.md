@@ -155,11 +155,21 @@ The `citation` string's form — the one rendered on every edition page (model �
 DATA-MODEL here) — is:
 
     Author, Title[, trans. Translator] (Place, Year). The Neoplatonic Library,
-    version <v>. <url>
+    version <v>[. DOI: <doi>]. <url>
 
 `ed.` is **not** used before the version: in a citation `ed.` abbreviates
 "edited by"/"edition", and what it would introduce here is a *version*. The
 container is named and then its version, and the URL ends the string.
+
+When the edition has a minted DOI (`edition.json.doi`), the DOI is the record's
+**identifier and belongs in the string** — the citable identity — not added at
+render time: the page prints the stored string verbatim. It is written
+`DOI: <doi>.` immediately before the final URL, so the URL still ends the
+string. Both copies (`edition.json.citation` and
+`versions/<v>/meta.json.citation`) are regenerated from the one generator
+(`build/migrate.mjs` `citationFor`) by `node build/migrate.mjs --citations`,
+which writes nothing else; an empty `doi` yields the pre-DOI string, byte for
+byte.
 
 ### 3.0 The edition directory: the record, and its sources
 
@@ -467,6 +477,19 @@ apparatus pages fetch `/texts/<slug>/apparatus.json` and
 reads it as before, and the edition page REDIRECTS an old `#repair-<id>` to
 `/texts/<slug>/apparatus/#repair-<id>`, so the address /errata printed before this
 route existed still resolves.
+
+MEASURED (2026-10-05), and why the edition page does not scroll itself on load: the
+reader used to restore a returning reader's stored position by SCROLLING to it, so a
+landing skipped the page's own top — the bibliographic record and the citation. The
+position is now restored into the reader's model only (the meter, the contents list
+and the position readout read it; MEASURED on the built page: a stored `s4` reads 17%
+and `p. 14 · §4` at scroll position 0). A `#fragment` still scrolls, and that is what
+the deep links and the redirect above depend on; the reader's `focusOn` likewise asks
+for keyboard focus with `preventScroll`, never a scroll. The boot's own scroll report
+keeps the same rule: while the reader is above the text (no flow mark above the 40%
+line) it reports NO position rather than the first entry — MEASURED, reporting the
+first entry there reset the meter to 0% and blanked the stored position on a plain
+window resize.
 
 MEASURED (2026-10-05), and what changed when the whole scan was fetched: the leaf
 axis is THE WHOLE STORED SCAN — 141 leaves for proclus, 72 for porphyry

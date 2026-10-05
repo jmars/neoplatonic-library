@@ -21,7 +21,7 @@
  *    review: true.
  */
 
-import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, copyFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -150,6 +150,42 @@ function classify(rule, damage) {
   return { type, review, type_evidence: evidence, witness };
 }
 
+/* --- --citations: regenerate ONLY the citation strings -----------------------
+ * A DOI is minted AFTER the migration (the blog records none), so the seed run
+ * cannot carry it; the citation a reader copies must, or the page prints a DOI
+ * the string it is read from omits. This mode re-derives `edition.json.citation`
+ * and every `versions/<v>/meta.json.citation` from the SAME `citationFor` here
+ * below (hoisted) and the DOI already stored in `edition.json`, writing no other
+ * field: no ids, no source bytes, no repairs, no readings. It reads ONLY this
+ * repo's data/ — the blog is not consulted.
+ * Run: node build/migrate.mjs --citations */
+if (process.argv.includes('--citations')) {
+  const edsDir = join(DATA, 'editions');
+  let n = 0;
+  for (const slug of await readdir(edsDir)) {
+    const edPath = join(edsDir, slug, 'edition.json');
+    if (!existsSync(edPath)) continue;
+    const ed = await load(edPath);
+    const doi = ed.doi || '';
+    const t = { slug: ed.slug, author: ed.author, title: ed.title, translator: ed.translator };
+    const se = ed.source_edition || {};
+    ed.citation = citationFor(t, se, ed.current_version, doi);
+    await writeFile(edPath, JSON.stringify(ed, null, 2) + '\n');
+    const vroot = join(edsDir, slug, 'versions');
+    for (const v of existsSync(vroot) ? await readdir(vroot) : []) {
+      const mPath = join(vroot, v, 'meta.json');
+      if (!existsSync(mPath)) continue;
+      const meta = await load(mPath);
+      meta.citation = citationFor(t, se, meta.version || v, doi);
+      await writeFile(mPath, JSON.stringify(meta, null, 2) + '\n');
+      n++;
+    }
+    console.log(`citation: ${slug} -> ${ed.citation}`);
+  }
+  console.log(`[citations] rewrote ${n} version citation(s) from build/migrate.mjs citationFor`);
+  process.exit(0);
+}
+
 /* ------------------------------------------------------------ migration -- */
 
 const verifyOnly = process.argv.includes('--verify');
@@ -185,17 +221,22 @@ function parseEditionStatement(statement) {
 /* The citation string, per model §3's format:
  *
  *   Author, Title[, trans. Translator] (Place, Year). The Neoplatonic Library,
- *   version <v>. <url>
+ *   version <v>[. DOI: <doi>]. <url>
  *
  * NOTE the container is named and then its VERSION, with no `ed.`: in a
  * citation `ed.` abbreviates "edited by" / "edition", and what it introduced
  * here was a version — a bibliographic slip. The version name is spelled out
  * (`version`, not `v.`) so the sentence reads as the library's own, and the
- * URL ends it, which is the address a reader copies. */
-function citationFor(t, se, version) {
+ * URL ends it, which is the address a reader copies. The DOI is the record's
+ * IDENTIFIER, so it belongs IN the string (the citable identity) and not added
+ * at render time — a page that prints a DOI its own citation string omits is
+ * advertising two different citations. Empty when no DOI is minted; the string
+ * is byte-identical to the pre-DOI form then. */
+function citationFor(t, se, version, doi = '') {
   const head = `${t.author}, ${t.title}` + (t.translator ? `, trans. ${t.translator}` : '');
   const loc = se.place && se.year ? `(${[se.place, se.imprint].filter(Boolean).join(': ')}, ${se.year})` : se.year ? `(${se.year})` : '';
-  return `${head}${loc ? ' ' + loc : ''}. The Neoplatonic Library, version ${version}. https://neoplatonic-library.org/texts/${t.slug}/`;
+  const id = doi ? ` DOI: ${doi}.` : '';
+  return `${head}${loc ? ' ' + loc : ''}. The Neoplatonic Library, version ${version}.${id} https://neoplatonic-library.org/texts/${t.slug}/`;
 }
 
 /* Measure `fires` with the blog's own extraction: `extract()` builds the SERVED
@@ -301,6 +342,12 @@ for (const t of published) {
     );
   }
 
+  /* A DOI is minted after the migration (the blog records none); a re-run must
+   * not drop it, and the citation must keep carrying it. Read what this edition
+   * already records. */
+  const priorEdPath = join(DATA, 'editions', slug, 'edition.json');
+  const doi = (existsSync(priorEdPath) ? (await load(priorEdPath)).doi : '') || '';
+
   const edition = {
     slug: t.slug,
     title: t.title,
@@ -321,8 +368,8 @@ for (const t of published) {
     },
     current_version: '1.0.0',
     licence: { text: 'public-domain', editorial: 'CC-BY-4.0', statement: LICENCE_STATEMENT },
-    citation: citationFor(t, se, '1.0.0'),
-    doi: '',
+    citation: citationFor(t, se, '1.0.0', doi),
+    doi,
     cat: t.cat,
     readings: [], // no derivation is run by the migration; see MIGRATION-NOTES
     repair_state: t.repair?.state ?? null,
@@ -348,7 +395,7 @@ for (const t of published) {
     note: 'migrated from blog.jaye.ch’s library at v1.0.0; the version date is the transcription’s import date on the blog',
     source_sha256: copiedSha,
     supersedes: null,
-    citation: citationFor(t, se, '1.0.0'),
+    citation: citationFor(t, se, '1.0.0', doi),
   };
   if (!verifyOnly) await writeFile(join(vdir, 'meta.json'), JSON.stringify(meta, null, 2) + '\n');
 

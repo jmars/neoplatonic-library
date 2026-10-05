@@ -159,12 +159,14 @@ async function boot({ hash = '', stored = null, doc = null } = {}) {
 
   const scrolled = [];
   const focused = [];
+  const focusArgs = [];
   w.HTMLElement.prototype.scrollIntoView = function () {
     scrolled.push(this.id);
   };
   const realFocus = w.HTMLElement.prototype.focus;
-  w.HTMLElement.prototype.focus = function () {
+  w.HTMLElement.prototype.focus = function (...args) {
     focused.push(this.id);
+    focusArgs.push(args[0]);
     if (realFocus) realFocus.call(this);
   };
 
@@ -197,6 +199,7 @@ async function boot({ hash = '', stored = null, doc = null } = {}) {
     w,
     scrolled,
     focused,
+    focusArgs,
     app: () => w.document.getElementById('reader-app'),
     text: () => (w.document.getElementById('reader-app') || { innerHTML: '' }).innerHTML,
     click(el) {
@@ -331,17 +334,89 @@ section('jump to page');
   }
 }
 
-/* ---------- 6. resume ---------- */
+/* ---------- 6. resume — the position is restored, and the page does NOT move ---------- */
 
-section('resume');
+section('resume — the position is restored, and the page does not move');
 {
-  const ctx = await boot({ stored: { position: 's4', page: 14, section: 's4', bookmarks: [], view: 'reading', scale: 3 } });
-  check(ctx.scrolled.includes('s4'), 'a stored position is restored on load');
-  // FAILS IF: the page does not hand the stored record to the app, the position
-  // is not consulted, or the scroll port is dead.
+  /* THE REPORTED DEFECT. Landing on an edition page with a stored position
+     scrolled the reader down to that position, past the page's own top (the
+     bibliographic record and the citation). The position is STILL restored — the
+     meter, the contents list and the position readout all read it — but nothing
+     is scrolled: the load is not a navigation. */
+  const stored = { position: 's4', page: 14, section: 's4', bookmarks: [], view: 'reading', scale: 3 };
+  const ctx = await boot({ stored });
+  check(
+    ctx.scrolled.length === 0,
+    `a stored position does NOT scroll the page on load${ctx.scrolled.length ? ` (scrolled to ${ctx.scrolled.join(', ')})` : ''}`,
+  );
+  // FAILS IF: `jumpTo` is put back into the stored-position branch of the
+  // reader's document handler (elm/src/Reader.elm, restoreSilent).
+  const pct = pctOf(ctx);
+  check(pct > 0, `and the position IS restored into the meter (${pct}% read, where the reader left off)`);
+  // FAILS IF: the fix drops the position instead of restoring it silently.
+  const cur = ctx.w.document.querySelector('#reader-app li.rd-cur a');
+  check(
+    !!cur && cur.getAttribute('href') === `#${stored.position}`,
+    `and the contents list still marks the section they were in (${cur && cur.getAttribute('href')})`,
+  );
+  // FAILS IF: the current-section derivation ignores the restored position, so a
+  // returning reader is told they are at the top when they are not.
+  const here = ctx.w.document.querySelector('#reader-app .rd-here');
+  const secNo = stored.position.replace(/^s/, '');
+  check(!!here && here.textContent.includes(`§${secNo}`), `and the position readout names it (${here && here.textContent})`);
+  // FAILS IF: the readout is derived from something other than the model position.
+
+  /* AND A REPORT FROM ABOVE THE TEXT DOES NOT OVERWRITE THAT POSITION. With the
+     page at the top the app is below the fold, and no scroll report has a
+     position to give. happy-dom does not lay out, so the geometry is STUBBED and
+     said so: every mark 5000px down, the 40% line at 307px — a reader on the
+     bibliographic record. MEASURED without the guard: reporting the first entry
+     there reset the meter to 0% AND blanked the stored position on a mere resize. */
+  Object.defineProperty(ctx.w, 'innerHeight', { value: 768, configurable: true });
+  for (const m of ctx.w.document.querySelectorAll('#reader-app [data-rd-i]')) {
+    m.getBoundingClientRect = () => ({ top: 5000, bottom: 5010, left: 0, right: 0, width: 0, height: 10, x: 0, y: 5000 });
+  }
+  ctx.w.dispatchEvent(new ctx.w.Event('resize'));
+  await settle();
+  check(pctOf(ctx) === pct, `and a resize at the top of the page does not reset it (${pctOf(ctx)}% after, ${pct}% before)`);
+  // FAILS IF: the boot's scroll report claims the first entry when no mark is
+  // above the line — the reader is above the text, and the position is frozen.
+  const kept = JSON.parse(ctx.w.localStorage.getItem(`library:${SLUG}`) || '{}');
+  check(kept.position === stored.position, `and does not blank what is stored (${JSON.stringify(kept.position)})`);
+  // FAILS IF: a report from above the text is persisted as a new position.
+
+  /* THE ASYMMETRY, BOTH WAYS: restored into the model and NOT scrolled, versus
+     arrived at by fragment and scrolled. The two must agree on the MODEL (it is
+     the same position) and differ on the PAGE (only the deep link moves it). */
+  const deep = await boot({ hash: `#${stored.position}` });
+  check(
+    pctOf(deep) === pct && pctOf(deep) > 0,
+    `the silently restored position and a #${stored.position} deep link agree (${pctOf(deep)}% and ${pct}%)`,
+  );
+  // FAILS IF: the silent restore sets a different position, or sets none.
+  check(
+    deep.scrolled.includes(stored.position) && ctx.scrolled.length === 0,
+    `but only the deep link moves the page (${deep.scrolled.join(', ') || 'nothing'} vs ${ctx.scrolled.length} scroll(s))`,
+  );
+  // FAILS IF: the load stops scrolling altogether — a citation link must land on
+  // the fragment, and so must the #repair- redirect.
+
   const ctx2 = await boot({ hash: '#p15', stored: { position: 's10', bookmarks: [], view: 'reading', scale: 3 } });
-  check(ctx2.scrolled.includes('p15') && !ctx2.scrolled.includes('s10'), 'a fragment wins over the stored position');
+  check(ctx2.scrolled.includes('p15') && !ctx2.scrolled.includes('s10'), 'a fragment wins over the stored position — and scrolls');
   // FAILS IF: a citation link opens at last week's reading position instead.
+
+  /* AND focusOn MOVES FOCUS, NOT THE PAGE. A bare focus() also scrolls its target
+     into view; the boot asks for focus WITH preventScroll, so opening a panel
+     does not shift the page under the reader. */
+  const fctx = await boot();
+  fctx.click(fctx.byText('#reader-app .rd-bar-right button', 'cite'));
+  await settle();
+  check(fctx.focused.includes('rd-cite'), 'the citation control focuses its panel');
+  // FAILS IF: focusOn stops asking for focus.
+  const args = fctx.focusArgs.filter((a) => a && a.preventScroll === true);
+  check(args.length > 0, `and asks for that focus WITHOUT scrolling the page (focus(${JSON.stringify(args[0])}))`);
+  // FAILS IF: the boot's focusOn goes back to a bare el.focus() — the option is
+  // the whole difference between focusing an element and scrolling to it.
 }
 
 /* ---------- 7. the two views differ, and only one is repaired ---------- */

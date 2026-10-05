@@ -25,7 +25,7 @@
  * resolving after a new version ships (model §3.1, plan §4).
  */
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import {
@@ -781,11 +781,20 @@ const READER_BOOT = `
       if (el && el.scrollIntoView) { el.scrollIntoView({ block: 'start' }); }
     });
   });
+  // focusOn moves KEYBOARD FOCUS, never the page. A bare focus() also scrolls
+  // the element into view, so every focusOn (a note popover, the citation panel)
+  // dragged the reader to its target — and on load that is the toolbar, below the
+  // bibliographic record. preventScroll is the option that separates the two; an
+  // engine that does not take the options object is fallen back to.
+  var focusSilently = function (el) {
+    try { el.focus({ preventScroll: true }); }
+    catch (e) { el.focus(); }
+  };
   app.ports.focusOn.subscribe(function (id) {
     soon(function () {
       var el = document.getElementById(id);
       if (el) { dropFallback(); }
-    if (el && el.focus) { el.focus(); }
+      if (el && el.focus) { focusSilently(el); }
     });
   });
   app.ports.setHash.subscribe(function (h) {
@@ -829,6 +838,13 @@ const READER_BOOT = `
       else { hi = mid - 1; }
     }
     var ix = Number(marks[best].getAttribute('data-rd-i'));
+    // NO MARK ABOVE THE LINE means the reader is ABOVE THE TEXT — on the
+    // bibliographic record or the citation, which is where a landing now stays.
+    // Report -1 (a position the app ignores) rather than the first entry:
+    // MEASURED, reporting entry 0 there wiped the stored position and reset the
+    // meter to 0% on a RESIZE at the top of the page, where the reader had not
+    // moved at all.
+    if (marks[0].getBoundingClientRect().top > y) { ix = -1; }
     if (ix !== lastSent) {
       lastSent = ix;
       app.ports.scrolled.send(ix);
@@ -1179,9 +1195,10 @@ function wrapAtSlashes(url) {
  * canonical link, which is where a page's URL belongs. The rendered text is
  * still the citation byte for byte (the `<wbr>`s and the host's `<span>` are
  * markup, not text); route-probe and version-probe read it back and hold it
- * against the record. A DOI is shown when the record carries one. */
-function citationBlockHtml(t, base, versionMeta) {
-  const doi = (t.record && t.record.doi) || '';
+ * against the record. The DOI, when one is minted, is part of the STRING (the
+ * citable identity) — the block adds nothing to it, so a page cannot print a
+ * DOI its own citation omits. */
+function citationBlockHtml(base, versionMeta) {
   const citation = String(versionMeta.citation);
   const tail = /\s+(https?:\/\/\S+)\s*$/.exec(citation);
   const prose = tail ? citation.slice(0, tail.index) : citation;
@@ -1192,7 +1209,6 @@ function citationBlockHtml(t, base, versionMeta) {
   return (
     `<div class="citation-block">` +
     `<p class="cite">${esc(prose)} <a class="cite-id" href="${esc(url)}">${wrapAtSlashes(url)}</a>` +
-    (doi ? ` · DOI <a href="https://doi.org/${esc(doi)}" rel="noreferrer">${esc(doi)}</a>` : '') +
     `</p></div>`
   );
 }
@@ -1473,7 +1489,7 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
    * heading are gone, and the version is stated where it belongs: inside the
    * citation string and in the version notice below. */
   const bib = section('The edition', null, bibRecordHtml(t), { id: 'the-edition' });
-  const cite = section('How to cite', null, citationBlockHtml(t, base, versionMeta), { id: 'how-to-cite' });
+  const cite = section('How to cite', null, citationBlockHtml(base, versionMeta), { id: 'how-to-cite' });
   const app = apparatusViewerHtml(t, version, base);
   const appPath = `${base}apparatus/`;
   /* THE DOOR TO THE APPARATUS. Its counts come from the record the viewer
