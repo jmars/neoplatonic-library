@@ -302,8 +302,9 @@ that flips `review` to `false`; migration never asserts certainty it lacks.**
   It never reuses or reorders old IDs.
 - IDs are per RULE, not per firing (§4.0). A rule that fires four times keeps one
   ID and `fires: 4`.
-- Repair links in the graph, and stable anchors on the edition page
-  (`#repair-r0001`), reference these IDs.
+- Repair links in the graph, and stable anchors on the apparatus page
+  (`#repair-r0001`), reference these IDs. The edition page redirects an old
+  top-level `#repair-<id>` to the apparatus page (§7.1).
 
 ### 4.3 Canonical layout for the pipeline
 
@@ -362,8 +363,8 @@ re-run to stamp `exists:true`/the served url on the three entries (n811, n864,
 n33) that had been stamped `false` against the old, partial leaf set. The
 `exists:false`/`url:null` form remains the rule's honest shape (§ above) but is
 no longer exercised by the served data; the viewer's unheld branch is exercised
-by a doctored data file in tools/apparatus-probe.mjs. The edition page's
-apparatus shows every stored leaf (§5.4) and states plainly when a leaf carries
+by a doctored data file in tools/apparatus-probe.mjs. The apparatus page's
+viewer shows every stored leaf (§5.4) and states plainly when a leaf carries
 no reading.
 
 ---
@@ -418,11 +419,13 @@ no reading.
 |---|---|
 | `/` | corpus list, search box, graph entry point |
 | `/texts` | browsable corpus (all published editions, ordered by author) |
-| `/texts/<slug>` | edition page: text + apparatus (a leaf viewer) + citation + attached readings |
+| `/texts/<slug>` | edition page: text + citation + the short apparatus statement and the door to its own page + attached readings |
+| `/texts/<slug>/apparatus` | **the apparatus page**: the leaf viewer on its own route (the version's whole repair log, browsed by reading and by leaf) |
 | `/texts/<slug>/t` | the version's document — the reader's own data (fetched, not page prose) |
 | `/texts/<slug>/plain` | plain-text export of that version |
-| `/texts/<slug>/apparatus.json` | **the version's whole repair log as DATA** (fetched): the counts by type, the stored leaves, and every rule with its evidence — the leaf a reading was decided from |
+| `/texts/<slug>/apparatus.json` | **the version's whole repair log as DATA** (fetched): the counts by type, the stored leaves, and every rule with its evidence — the leaf a reading was decided from (kept at this address; the apparatus page fetches it) |
 | `/texts/<slug>/v/<semver>` | pinned version |
+| `/texts/<slug>/v/<semver>/apparatus` | that version's apparatus page (fetches the version's OWN `apparatus.json`) |
 | `/texts/<slug>/v/<semver>/t` | that version's document |
 | `/texts/<slug>/v/<semver>/plain` | plain-text export of that version |
 | `/texts/<slug>/v/<semver>/apparatus.json` | that version's apparatus (the same file, at the pinned address — a pinned page fetches its OWN version's log) |
@@ -446,6 +449,21 @@ end of the leaf strip. The file is the version's whole record, and the page's vi
 browses it on TWO AXES — the readings (the whole log, and the readings with no page
 image, each paged 25 at a time) and the leaves — landing on the first leaf that HAS
 readings.
+
+MEASURED (2026-10-05), and why the VIEWER has a route of its own: the viewer was still
+rendered BELOW the edition page's whole reading view, so a reader had to scroll through
+the entire text to reach the leaf panel — the apparatus was buried, and the leaf index
+was a nested scroll region (`.app-leaves { max-height: 36rem; overflow: auto }`) a
+reader got stuck in. So the viewer moved to `/texts/<slug>/apparatus/` (and the pinned
+`/texts/<slug>/v/<semver>/apparatus/`) with the leaf index flowing in the page's own
+scroll; the edition page keeps its bibliographic record, citation, text and provenance,
+and carries the short statement plus the door. The DATA ADDRESS DID NOT MOVE — the two
+apparatus pages fetch `/texts/<slug>/apparatus.json` and
+`/texts/<slug>/v/<semver>/apparatus.json` exactly as the edition page did. A
+`#repair-<id>` fragment still selects the reading: on the apparatus page the viewer
+reads it as before, and the edition page REDIRECTS an old `#repair-<id>` to
+`/texts/<slug>/apparatus/#repair-<id>`, so the address /errata printed before this
+route existed still resolves.
 
 MEASURED (2026-10-05), and what changed when the whole scan was fetched: the leaf
 axis is THE WHOLE STORED SCAN — 141 leaves for proclus, 72 for porphyry
@@ -493,8 +511,9 @@ leaf (`app-leafnav`), disabled at the ends of the run. The shape:
   the served data).
 - The file holds the books' own words, so it is gated as a DATA FILE (hard rules
   only), exactly like `/search/index`. The address is PUBLIC (it is linked from the
-  edition page's no-script statement), so the leak gate's published-address
-  exemption carries it as a whole address — the only form allowed.
+  apparatus page's no-script statement, and from the edition page's statement), so
+  the leak gate's published-address exemption carries it as a whole address — the
+  only form allowed.
 
 ---
 
@@ -505,7 +524,7 @@ The build emits, in addition to HTML:
 - `/data/corpus.json` — every published edition's metadata + version list.
 - `/data/graph.json` — the graph as published.
 - `/texts/<slug>/apparatus.json` — the version's whole repair log, with its leaf
-  evidence (the file the edition page's viewer reads; §7.1).
+  evidence (the file the apparatus page's viewer reads; §7.1).
 - `/texts/<slug>/v/<semver>/plain` — plain text per version.
 - TEI export is desired but not required for v1; the model above is the source it
   will be generated from.

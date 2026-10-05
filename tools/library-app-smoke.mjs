@@ -1314,9 +1314,15 @@ section('the sticky toolbar clears the site header');
    * top is a variable (not a constant), and the shell measures the nav into it. */
   const barRule = /\.rd-bar \{[^}]*position:\s*sticky[^}]*\}/.exec(html);
   check(!!barRule, 'the toolbar has a sticky rule in the shell');
+  /* CHANGED EXPECTATION (the apparatus route unit): the toolbar's top is still
+   * the MEASURED nav height — but the edition page now carries a sticky in-page
+   * jump bar under the nav, so the toolbar stacks below BOTH measured heights
+   * (`--nav-h` + `--jump-h`). The failure mode the old assertion guarded (a
+   * constant putting the toolbar under a wrapped header) is unchanged: the offset
+   * is still measured, never a magic number. */
   check(
-    !!barRule && /top:\s*var\(--nav-h/.test(barRule[0]),
-    `and its sticky top is the measured nav height, not a constant (${barRule ? barRule[0].replace(/\s+/g, ' ').trim().slice(0, 100) : 'no rule'})`,
+    !!barRule && /top:\s*calc\(var\(--nav-h/.test(barRule[0]) && /var\(--jump-h/.test(barRule[0]),
+    `and its sticky top is the measured nav height plus the jump bar's, not a constant (${barRule ? barRule[0].replace(/\s+/g, ' ').trim().slice(0, 110) : 'no rule'})`,
   );
   check(
     /--nav-h/.test(html) && /getBoundingClientRect/.test(html) && /setProperty\('--nav-h'/.test(html),

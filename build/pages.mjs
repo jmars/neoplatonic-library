@@ -282,7 +282,7 @@ export function buildErrataPage(served) {
         const cap = `archive leaf n${e.leaf}${e.page != null ? ` · printed page ${e.page}` : ''}`;
         rows.push(
           `<li><code>${esc(e.file || `n${e.leaf}`)}</code> — ${esc(cap)} — cited by ` +
-            `<a href="/texts/${esc(t.slug)}/#repair-${esc(id)}"><code>${esc(id)}</code></a>. ` +
+            `<a href="/texts/${esc(t.slug)}/apparatus/#repair-${esc(id)}"><code>${esc(id)}</code></a>. ` +
             `The page image is cited here, but the leaf is not stored with the edition.</li>`,
         );
       }
@@ -313,7 +313,8 @@ export function buildErrataPage(served) {
       `. <span class="tag">${esc(REPAIR_LABELS[state.state] || state.state)}</span> — ` +
       `${gateSafeText(esc(state.note), t.slug)}</p>` +
       `<p><b>The whole record, and the page images.</b> Every one of the ${n} rule${n === 1 ? '' : 's'} is in ` +
-      `the edition’s <a href="${base}#the-apparatus">apparatus</a> at <a href="${base}">${base}</a>, browsable ` +
+      `the edition’s <a href="${base}apparatus/">apparatus</a> at ` +
+      `<a href="${base}apparatus/">${base}apparatus/</a>, a page of its own, browsable ` +
       `BOTH ways: the edition’s whole scan forms an index in leaf order, and selecting any leaf opens its ` +
       `page image together with the ` +
       `readings decided from it — each with its id, its type, the words it changes, its reason and the witness ` +

@@ -152,6 +152,54 @@ function section(h2, hint, body, { id = '', before = '', after = '', prose = tru
   );
 }
 
+/** THE STICKY OFFSETS, measured in the browser.
+ *
+ * Two sticky things stack under the site nav: the page's own jump list
+ * (`.page-contents`, DESIGN-SYSTEM.md §5) and, on an edition page, the reader's
+ * toolbar. Their tops are NOT constants — the nav's `.wrap` is flex-wrap with a
+ * 52px minimum, so it grows when its links wrap, and the jump list's own height
+ * depends on how many entries a page has. A hard-coded offset puts one bar under
+ * another as soon as either wraps (the bug the author reported for the reader's
+ * toolbar). So the shell MEASURES them: `--nav-h` is the site nav's rendered
+ * height and `--jump-h` the jump list's (0 on a page that has none), and every
+ * sticky rule below offsets from those. */
+const SHELL_BOOT = `
+(function () {
+  var nav = document.querySelector('body > nav');
+  var jump = document.querySelector('.page-contents');
+  var size = function () {
+    if (nav && nav.getBoundingClientRect) {
+      var h = nav.getBoundingClientRect().height;
+      if (h > 0) { document.documentElement.style.setProperty('--nav-h', h + 'px'); }
+    }
+    if (jump && jump.getBoundingClientRect) {
+      var j = jump.getBoundingClientRect().height;
+      if (j > 0) { document.documentElement.style.setProperty('--jump-h', j + 'px'); }
+    }
+  };
+  size();
+  window.addEventListener('resize', size);
+  if (window.ResizeObserver) {
+    try {
+      var ro = new window.ResizeObserver(size);
+      if (nav) { ro.observe(nav); }
+      if (jump) { ro.observe(jump); }
+    } catch (e) {}
+  }
+  // THE BACK-TO-TOP CONTROL scrolls without touching the fragment: a '#top'
+  // anchor would fire hashchange, and on the apparatus page the viewer reads the
+  // fragment to decide what is open — a jump to the top would reset it.
+  document.addEventListener('click', function (ev) {
+    var t = ev.target;
+    while (t && t !== document && !(t.className && String(t.className).indexOf('to-top') >= 0)) { t = t.parentNode; }
+    if (t && t !== document && String(t.className || '').indexOf('to-top') >= 0) {
+      if (ev.preventDefault) { ev.preventDefault(); }
+      if (window.scrollTo) { window.scrollTo(0, 0); }
+    }
+  });
+})();
+`;
+
 /** THE BREADCRUMB: where this page sits in the library, from the front door in
  * (DESIGN-SYSTEM.md §5). `crumbs` is `{ label, href }[]`; the last crumb is the
  * page itself and carries `aria-current`, so it is a statement and not a link.
@@ -271,6 +319,7 @@ ${designCss}</style>
 ${viz ? `<style>\n${viz.css}</style>\n` : ''}${head || ''}
 </head>
 <body>
+<a id="top"></a>
 <a class="skip" href="#main">Skip to the text</a>
 ${masthead(home)}
 ${siteNav(navCurrent)}
@@ -280,7 +329,8 @@ ${pageHead({ eyebrow, heading, standfirst })}
 ${body}
 </main>
 ${colophon()}
-${viz ? viz.script : ''}${arrive ? `<script>\n${arrive}\n</script>` : ''}</body>
+${viz ? viz.script : ''}<script>
+${stripJsComments(SHELL_BOOT)}</script>${arrive ? `<script>\n${arrive}\n</script>` : ''}</body>
 </html>
 `;
 

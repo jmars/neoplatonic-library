@@ -36,10 +36,12 @@ version; a correction ships as a new version and the old one keeps resolving.
 
 ## Routes
 
-`/` · `/texts` · `/texts/<slug>` · `/texts/<slug>/v/<semver>` · `/graph` ·
+`/` · `/texts` · `/texts/<slug>` · `/texts/<slug>/apparatus` ·
+`/texts/<slug>/v/<semver>` · `/texts/<slug>/v/<semver>/apparatus` · `/graph` ·
 `/search` · `/editions` · `/about` · `/errata`.
 
-The repair log is browsed as a **leaf viewer**: the page images are the unit of
+The repair log is browsed as a **leaf viewer** on its own page,
+`/texts/<slug>/apparatus/`: the page images are the unit of
 provenance, so a reader pages through the scan and sees the readings decided from
 each leaf.
 

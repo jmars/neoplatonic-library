@@ -160,8 +160,14 @@ const builtPages = (slug) => {
   const out = [];
   const walk = (d) => {
     for (const e of readdirSync(d, { withFileTypes: true })) {
-      if (e.isDirectory()) walk(join(d, e.name));
-      else if (e.name === 'index.html') out.push(join(d, e.name));
+      /* THE APPARATUS IS ITS OWN PAGE, NOT A TEXT PAGE. It carries the leaf
+       * viewer and no stretch of the text, so it is not a page of the edition
+       * whose paragraphs this walk counts — the text pages are the edition page
+       * and its `part-N` pages. */
+      if (e.isDirectory()) {
+        if (e.name === 'apparatus') continue;
+        walk(join(d, e.name));
+      } else if (e.name === 'index.html') out.push(join(d, e.name));
     }
   };
   walk(dir);

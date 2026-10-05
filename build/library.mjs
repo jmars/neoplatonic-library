@@ -452,8 +452,9 @@ const READER_CSS = `
 .rd-btn:disabled { opacity: .45; cursor: default; }
 /* a button label never wraps mid-word: a wrapped label reads as a broken control */
 .rd-btn { white-space: nowrap; }
-/* a jumped-to anchor lands BELOW the sticky nav and toolbar, not under them */
-.rd-p, .rd-sec, .rd-pb, .rd-verse, .rd-note { scroll-margin-top: calc(var(--nav-h, 52px) + var(--bar-h, 44px) + 12px); }
+/* a jumped-to anchor lands BELOW the sticky nav, the page's jump bar and the
+   toolbar, not under them */
+.rd-p, .rd-sec, .rd-pb, .rd-verse, .rd-note { scroll-margin-top: calc(var(--nav-h, 52px) + var(--jump-h, 0px) + var(--bar-h, 44px) + 12px); }
 .rd-x { padding: 1px 6px; }
 .rd-views { display: flex; gap: 0; }
 .rd-views .rd-btn { border-radius: 0; }
@@ -638,13 +639,14 @@ const READER_CSS = `
 .rd-status { padding: 18px 0; }
 
 @media (min-width: 62em) {
-  /* --nav-h is the site nav's MEASURED height, set by the boot script (its .wrap
-     is flex-wrap with a 52px minimum, so it grows when the links wrap). A constant
-     here put the toolbar under the header whenever the nav was taller than the
-     guess — the author's report. The fallback is the nav's minimum. */
-  .rd-bar { position: sticky; top: var(--nav-h, 52px); z-index: 45; }
+  /* --nav-h is the site nav's MEASURED height and --jump-h the page's own jump
+     bar's, both set by the shell's boot script (each wraps, so neither offset can
+     be a constant). The reader's toolbar stacks BELOW both: a constant here put the
+     toolbar under the header whenever the nav was taller than the guess — the
+     author's report. The fallbacks are the nav's minimum and no jump bar. */
+  .rd-bar { position: sticky; top: calc(var(--nav-h, 52px) + var(--jump-h, 0px)); z-index: 45; }
   .rd-cols { grid-template-columns: 17rem minmax(0, 1fr); }
-  .rd-nav { position: sticky; top: calc(var(--nav-h, 52px) + var(--bar-h, 44px)); max-height: 78vh; overflow: auto; padding-right: 8px; }
+  .rd-nav { position: sticky; top: calc(var(--nav-h, 52px) + var(--jump-h, 0px) + var(--bar-h, 44px)); max-height: 78vh; overflow: auto; padding-right: 8px; }
   .rd-notes-index { display: block; }
 }
 @media (max-width: 61.99em) {
@@ -1331,10 +1333,97 @@ function apparatusViewerHtml(t, version, base) {
     `<div class="app-leaves" id="app-leaves" role="tablist" aria-label="Every reading, and every stored leaf"></div>` +
     `<div class="app-panel" id="app-panel" role="tabpanel" aria-label="The readings of the selected entry"></div>` +
     `</div></div>`;
-  return { html, summary, withScan: withImage, url };
+  return { html, summary, withScan: withImage, url, data };
+}
+
+/** The apparatus's SHORT digest, for the door on the edition page. Counted from
+ * the record — never typed — so the line cannot advertise leaves or readings the
+ * version does not hold: "The apparatus — 141 leaves, 105 readings read from a
+ * page image →". A version with no stored leaf says its readings instead. */
+function apparatusDigestLine(data) {
+  const withImage = data.rules.filter((r) => r.evidence.some((e) => e.exists)).length;
+  const bits = [];
+  if (data.leafCount) bits.push(`${data.leafCount} lea${data.leafCount === 1 ? 'f' : 'ves'}`);
+  if (withImage) {
+    bits.push(`${withImage} reading${withImage === 1 ? '' : 's'} read from a page image`);
+  } else if (!data.leafCount) {
+    bits.push(`${data.ruleCount} reading${data.ruleCount === 1 ? '' : 's'}`);
+  }
+  return `The apparatus — ${bits.join(', ')} →`;
+}
+
+/** THE APPARATUS'S OWN PAGE (its own route, its own canonical). The viewer is an
+ * interface a reader goes to on purpose; on the edition page's eighty screens of
+ * text it was buried under the whole reading view, which is the report this route
+ * answers. `base` is the EDITION's base (bare or pinned), so the page fetches the
+ * version's own apparatus.json and links back to the version's own edition page. */
+function apparatusPageHtml(t, version, currentVersion, base, app) {
+  const appBase = `${base}apparatus/`;
+  const crumbs = [
+    { label: 'Library', href: '/' },
+    { label: 'Texts', href: '/texts/' },
+    { label: t.author },
+    { label: t.title, href: base },
+    { label: 'The apparatus' },
+  ];
+  /* THE JUMP BAR (DESIGN-SYSTEM.md §5): the leaf index and the panel are the
+   * page's two regions and both are below the statement, so the page says they
+   * are there and jumps to them. The index flows in the page now, so this is a
+   * convenience and not an escape — which is the point. */
+  const onPage = contents(['app-leaves', 'The leaf index'], ['app-panel', 'The panel']);
+  const back =
+    `<p class="app-backlink prose">The edition this apparatus belongs to: ` +
+    `<a href="${esc(base)}">${esc(t.title)}${version === currentVersion ? '' : ` (version ${esc(version)})`}</a>.</p>`;
+  const body = onPage + section('The apparatus', app.summary, back + app.html, { id: 'the-apparatus', prose: false });
+  return {
+    rel: `${appBase.replace(/^\//, '')}index.html`,
+    def: {
+      title: `The apparatus of ${t.title} — ${SITE.host}`,
+      shareTitle: `The apparatus of ${t.title}`,
+      type: 'article',
+      description:
+        `The apparatus of ${t.title}: every recorded repair in this version, with the leaf it was read from — ` +
+        `the edition's whole scan in leaf order, and the readings decided from each leaf.`,
+      eyebrow: `Apparatus · ${t.author}`,
+      heading: 'The apparatus',
+      standfirst: `${t.author} · ${t.year} · version ${version}`,
+      navCurrent: appBase,
+      crumbs,
+      arrive: viewerScript(),
+      body,
+    },
+  };
+}
+
+/** OLD `#repair-<id>` LINKS STILL RESOLVE. A reading lived on the edition page
+ * until the apparatus moved to its own URL, so `/texts/<slug>/#repair-<id>` is a
+ * published address (and the address /errata printed before this route existed),
+ * and it must keep working. The edition page sends that fragment to the apparatus
+ * page, which is where the viewer reads it. Only `#repair-` is touched: every
+ * other fragment (`#the-text`, `#provenance`) belongs to this page. */
+function repairRedirect(url) {
+  return (
+    `(function(){var h=window.location.hash;` +
+    `if(/^#repair-/.test(h)){window.location.replace(${JSON.stringify(url)}+h);}})();`
+  );
 }
 
 /* ---------- the pages: a text at one version, the index, the home ---------- */
+
+/** THE PAGE'S OWN JUMP LIST (DESIGN-SYSTEM.md §5) — "On this page". The restored
+ * TEXT, the APPARATUS and the PROVENANCE are below the fold, and the page says so
+ * and jumps to them; the list is STICKY under the site nav (design/library.css
+ * `.page-contents`), so the three regions stay reachable from anywhere on the
+ * page, and it carries the back-to-top control at its end. `items` are
+ * `[anchor, label]`. */
+function contents(...items) {
+  return (
+    `<nav class="page-contents" aria-label="On this page"><div class="wrap">` +
+    `<span class="pc-label">On this page</span><ol>` +
+    items.map(([anchor, label]) => `<li><a href="#${anchor}">${esc(label)}</a></li>`).join('') +
+    `</ol><a class="to-top" href="#top">↑ Top</a></div></nav>`
+  );
+}
 
 /** One served edition AT ONE VERSION (model §3.1, plan §4).
  *
@@ -1370,8 +1459,11 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
   });
 
   /* THE SCHOLARLY ORDER (DESIGN-SYSTEM.md §5): the bibliographic record, the
-   * citation block, the text, the apparatus, the provenance. The apparatus is
-   * FIRST-CLASS and lives here now, on the leaf it belongs to — /errata is the
+   * citation block, the text, the apparatus, the provenance. The apparatus has
+   * its OWN PAGE now (`/texts/<slug>/apparatus/`) — it was an interface buried
+   * under the whole reading view — and what stands here is the SHORT summary and
+   * the door to it, at the same `#the-apparatus` anchor the jump lists and
+   * /errata used before, so no published link moved. /errata remains the
    * site-wide corrections log, not the place an edition's own rules are read.
    *
    * THE HEADINGS ARE NOT DOUBLED. MEASURED on the review's screenshot: a
@@ -1383,14 +1475,20 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
   const bib = section('The edition', null, bibRecordHtml(t), { id: 'the-edition' });
   const cite = section('How to cite', null, citationBlockHtml(t, base, versionMeta), { id: 'how-to-cite' });
   const app = apparatusViewerHtml(t, version, base);
-  /* THE VIEWER IS THE SECTION'S BODY, NOT ITS PROSE. It is passed with
-   * `prose: false` so it is NOT wrapped in `.prose`: `.prose` caps its child at
-   * --measure (544px) on screen (the `max-width: none` is inside `@media print`
-   * only), and that cap sat on `#apparatus-viewer` — the grid, the leaf index and
-   * the panel were all held to 544px whatever `#the-apparatus .wrap` said. The
-   * genuine prose inside the viewer (the no-script fallback) carries `.prose`
-   * itself, so it keeps the measure while the interface takes the column. */
-  const apparatus = section('The apparatus', app.summary, app.html, { id: 'the-apparatus', prose: false });
+  const appPath = `${base}apparatus/`;
+  /* THE DOOR TO THE APPARATUS. Its counts come from the record the viewer
+   * fetches (never typed), and its own page carries the whole interface — the
+   * edition page keeps the text, which is what it is for. */
+  const apparatus = section(
+    'The apparatus',
+    'the version’s whole repair log — its own page',
+    `<p class="app-link"><a class="app-open" href="${esc(appPath)}">${apparatusDigestLine(app.data)}</a></p>` +
+      `<p>Every recorded repair, with the words it changes, why it was made and the witness it rested on, ` +
+      `browsed on its own page by reading and by leaf: the edition’s whole scan in leaf order, the readings ` +
+      `decided from each leaf, and the readings that carry no page image listed in their own right. The log is ` +
+      `also served with the edition as one plain file at <a href="${esc(app.url)}">${esc(app.url)}</a>.</p>`,
+    { id: 'the-apparatus' },
+  );
 
   /* WHERE THE PAGE SITS, and what is on it. A breadcrumb back into the shelf,
    * and an in-page contents list — because the restored TEXT and the APPARATUS
@@ -1402,11 +1500,6 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
     { label: t.author },
     { label: t.title },
   ];
-  const contents = (...items) =>
-    `<nav class="page-contents" aria-label="On this page"><div class="wrap">` +
-    `<span class="pc-label">On this page</span><ol>` +
-    items.map(([anchor, label]) => `<li><a href="#${anchor}">${esc(label)}</a></li>`).join('') +
-    `</ol></div></nav>`;
   /* The apparatus entry names the page images only when the version actually
    * carries a leaf — derived from the apparatus, never typed, so the label
    * cannot advertise images an edition does not hold. */
@@ -1427,9 +1520,13 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
         provenanceHtml(t, t.readings || [], null, a, null, null, base),
         { id: 'provenance' },
       );
+    const appPage = apparatusPageHtml(t, version, currentVersion, base, app);
     return {
-      urls: [base],
-      pages: [{ rel: `${dir}index.html`, def: page({ body, navCurrent: base, crumbs, arrive: viewerScript() }) }],
+      urls: [base, appPath],
+      pages: [
+        { rel: `${dir}index.html`, def: page({ body, navCurrent: base, crumbs, arrive: repairRedirect(appPath) }) },
+        appPage,
+      ],
     };
   }
 
@@ -1498,15 +1595,17 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
           navCurrent: base,
           crumbs,
           head: `<style>\n${stripComments(READER_CSS)}</style>`,
-          arrive: viewerScript(),
+          arrive: repairRedirect(appPath),
         })
       : page({
           body: onPage + bib + cite + transcription + apparatus + provSection,
           navCurrent: base,
           crumbs,
-          arrive: viewerScript(),
+          arrive: repairRedirect(appPath),
         });
     pages.push({ rel: `${dir}index.html`, def });
+    pages.push(apparatusPageHtml(t, version, currentVersion, base, app));
+    urls.push(appPath);
     return { urls, pages, doc };
   }
 
@@ -1547,9 +1646,11 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
         ),
       navCurrent: base,
       crumbs,
-      arrive: viewerScript(),
+      arrive: repairRedirect(appPath),
     }),
   });
+  pages.push(apparatusPageHtml(t, version, currentVersion, base, app));
+  urls.push(appPath);
   parts.forEach((p, i) => {
     urls.push(partPath(i));
     const pager =

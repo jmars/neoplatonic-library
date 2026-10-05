@@ -126,6 +126,26 @@ for (const e of servedEditions()) {
     label: 'texts',
     slug: e.slug,
   });
+  /* THE APPARATUS IS ITS OWN ROUTE (DESIGN-SYSTEM.md §5.4): the leaf viewer was
+   * buried under the whole reading view, so it moved to its own URL — and to the
+   * pinned `/texts/<slug>/v/<semver>/apparatus/` a pinned edition gets. Both are
+   * routes, both carry their own canonical, and both light the Texts entry. */
+  ROUTES.push({
+    file: `texts/${e.slug}/apparatus/index.html`,
+    url: `/texts/${e.slug}/apparatus/`,
+    title: `The apparatus of ${e.title} — ${HOST}`,
+    nav: '/texts/',
+    label: 'texts',
+    slug: e.slug,
+  });
+  ROUTES.push({
+    file: `texts/${e.slug}/v/${e.current_version}/apparatus/index.html`,
+    url: `/texts/${e.slug}/v/${e.current_version}/apparatus/`,
+    title: `The apparatus of ${e.title} — ${HOST}`,
+    nav: '/texts/',
+    label: 'texts',
+    slug: e.slug,
+  });
 }
 
 /* ---------- the assertions ---------- */
@@ -225,6 +245,54 @@ for (const e of servedEditions()) {
     );
     check(citeTextOf(ph) === meta.citation, `${e.slug}/v/${e.current_version}/: carries that version's citation`);
   }
+}
+
+section('the apparatus route: the viewer, the jump bar, and the deep links');
+for (const e of servedEditions()) {
+  const bare = join(DIST, 'texts', e.slug, 'apparatus', 'index.html');
+  if (!existsSync(bare)) {
+    check(false, `${e.slug}/apparatus/: the page exists`);
+    continue;
+  }
+  const html = readFileSync(bare, 'utf8');
+  check(/id="apparatus-viewer"/.test(html), `${e.slug}/apparatus/: the leaf viewer is server-rendered on its own page`);
+  check(html.includes(`data-src="/texts/${e.slug}/apparatus.json"`),
+    `${e.slug}/apparatus/: it fetches the edition’s own apparatus.json (kept at the same address)`);
+  check(/class="page-contents"[\s\S]*?aria-label="On this page"/.test(html) || html.includes('class="page-contents"'),
+    `${e.slug}/apparatus/: carries the in-page jump bar`);
+  check(html.includes('href="#app-leaves"'), `${e.slug}/apparatus/: the jump bar reaches the leaf index`);
+  check(html.includes('href="#app-panel"'), `${e.slug}/apparatus/: and the panel`);
+  check(html.includes('class="to-top"'), `${e.slug}/apparatus/: and the back-to-top control`);
+  check(html.includes(`href="/texts/${e.slug}/"`), `${e.slug}/apparatus/: links back to the edition page (the deep link both ways)`);
+
+  const ed = readFileSync(join(DIST, 'texts', e.slug, 'index.html'), 'utf8');
+  check(ed.includes(`href="/texts/${e.slug}/apparatus/"`), `${e.slug}: the edition page carries the door to the apparatus page`);
+  check(!/id="apparatus-viewer"/.test(ed), `${e.slug}: the edition page inlines NO viewer (the trap is gone with it)`);
+  check(ed.includes('class="to-top"'), `${e.slug}: the edition page carries the in-page jump bar and the back-to-top control`);
+  check(/location\.hash/.test(ed) && /location\.replace\("\/texts\//.test(ed),
+    `${e.slug}: an old #repair-<id> fragment on the edition page is redirected to the apparatus page`);
+  check(/Mea(sured|sure)/.test(ed) || /Measured on the text this page serves/.test(ed), `${e.slug}: the measured rule count is still stated`);
+
+  const pinned = join(DIST, 'texts', e.slug, 'v', e.current_version, 'apparatus', 'index.html');
+  check(existsSync(pinned), `${e.slug}/v/${e.current_version}/apparatus/: the pinned apparatus page exists`);
+  if (existsSync(pinned)) {
+    const ph = readFileSync(pinned, 'utf8');
+    check(ph.includes(`data-src="/texts/${e.slug}/v/${e.current_version}/apparatus.json"`),
+      `${e.slug}/v/${e.current_version}/apparatus/: fetches the PINNED data file`);
+    check(ph.includes(`href="/texts/${e.slug}/v/${e.current_version}/"`),
+      `${e.slug}/v/${e.current_version}/apparatus/: links back to the PINNED edition page`);
+  }
+  /* AND /errata LINKS THE APPARATUS PAGE, where the readings are. The unheld-leaf
+   * rows (the only ones that carry a `#repair-` fragment) fire only when an
+   * edition cites a leaf it does not hold — neither served edition does today —
+   * so the fragment itself is asserted where it exists and the STALE form is
+   * asserted absent everywhere. */
+  const errata = readFileSync(join(DIST, 'errata', 'index.html'), 'utf8');
+  check(errata.includes(`/texts/${e.slug}/apparatus/`), `/errata: links the apparatus page of ${e.slug}`);
+  check(
+    !new RegExp(`/texts/${e.slug}/#repair-`).test(errata),
+    `/errata: no reading link points at the edition page's old top-level #repair- anchor`,
+  );
 }
 
 section('every same-host URL the build emits begins with the site root');

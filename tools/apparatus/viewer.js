@@ -7,13 +7,17 @@
  * thumbnail buried among the 310 rules that carry no image at all. The unit of
  * provenance here is the page image, so the apparatus is fetched
  * (`/texts/<slug>/apparatus.json`, DATA-MODEL §7) and browsed the way a page is
- * turned: pick a leaf, see the readings decided from it.
+ * turned: pick a leaf, see the readings decided from it. THE VIEWER IS INLINED
+ * ON THE APPARATUS'S OWN PAGE — `/texts/<slug>/apparatus/`, and the pinned
+ * `/texts/<slug>/v/<semver>/apparatus/` — not on the edition page, so it is not
+ * buried under the whole reading view: the edition page carries the short
+ * statement and the door to here.
  *
  * MEASURED, and why it is not leaf-only: MOST readings have no page image —
- * porphyry has 384 rules and 23 stored leaves, and only 3 of the readings were
- * read off one; its first stored leaf carries none. A viewer that opened on the
- * first leaf opened on an empty panel, and the 381 readings with no image were
- * reachable only through a small entry at the end of the leaf strip.
+ * porphyry has 384 rules and 72 stored leaves, and only 4 of the readings were
+ * read off one; its first stored leaf (n0) carries none. A viewer that opened on
+ * the first leaf opened on an empty panel, and the 380 readings with no image
+ * were reachable only through a small entry at the end of the leaf strip.
  *
  * WHAT IT RENDERS, from the data and nothing else — TWO AXES over one record:
  *   - THE READINGS. An `All readings` entry (the whole log) and a `Without a
@@ -469,6 +473,18 @@
     var entry = this.byKey[this.selected];
     if (!entry) return;
     this.panel.textContent = '';
+    /* THE PANEL'S WAY BACK TO THE INDEX. The index flows in the page now (no
+     * nested scroll), so this is not an escape — but a reader who has paged down
+     * a long list should not have to scroll to find the index again. It scrolls
+     * without touching the fragment: a `#app-leaves` anchor would fire
+     * `hashchange`, which is the viewer's own entry point. */
+    var toIndex = node('a', 'app-to-index', '↑ The leaf index');
+    toIndex.href = '#app-leaves';
+    toIndex.addEventListener('click', function (ev) {
+      if (ev.preventDefault) ev.preventDefault();
+      if (self.leaves && self.leaves.scrollIntoView) self.leaves.scrollIntoView({ block: 'start' });
+    });
+    this.panel.appendChild(toIndex);
     if (entry.url) {
       var fromLeaf = entry.readings > 0;
       var fig = node('figure', 'app-figure');
@@ -664,6 +680,14 @@
         return;
       }
     }
+    /* AN UNKNOWN FRAGMENT IS AN IN-PAGE JUMP, NOT A RESET. The apparatus page's
+     * own jump bar targets `#app-leaves` and `#app-panel`, and the back-to-top
+     * control targets `#top`; none of those names an entry, and the browser has
+     * already scrolled to it. On the FIRST call the viewer must still open
+     * something — the landing entry — but a later `hashchange` from a jump link
+     * must leave the reader where they were rather than throwing the selection
+     * back to the landing leaf. */
+    if (this.selected) return;
     this.select(this.landing(), null);
   };
 

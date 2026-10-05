@@ -122,6 +122,15 @@ const storedLeaves = (slug) => {
 const TYPES = ['OCR', 'punctuation', 'transliteration', 'conjectural'];
 const seen = new Map(); // slug -> the parity of one edition's apparatus data
 
+/** THE APPARATUS PAGE'S OWN FILE. The viewer lives on its own route now
+ * (`/texts/<slug>/apparatus/`, and the pinned `/texts/<slug>/v/<semver>/apparatus/`),
+ * so every check ABOUT the viewer reads THAT page; checks about the edition
+ * page's own text read the edition page. */
+const appPage = (slug, version = null) =>
+  version
+    ? join(DIST, 'texts', slug, 'v', version, 'apparatus', 'index.html')
+    : join(DIST, 'texts', slug, 'apparatus', 'index.html');
+
 /* ---------- §1 the data file ---------- */
 
 section('the apparatus file is the version’s whole repair log, and every leaf url resolves');
@@ -238,15 +247,20 @@ for (const e of editions) {
     check(readFileSync(bare).equals(readFileSync(pinned)),
       `${e.slug}: the bare file IS the current version’s (byte-identical)`);
   }
-  const html = readFileSync(join(DIST, 'texts', e.slug, 'index.html'), 'utf8');
+  const html = readFileSync(appPage(e.slug), 'utf8');
   check(html.includes(`data-src="/texts/${e.slug}/apparatus.json"`),
-    `${e.slug}: the page fetches its own bare apparatus file`);
-  const ph = join(DIST, 'texts', e.slug, 'v', e.current_version, 'index.html');
+    `${e.slug}: the apparatus page fetches the edition’s own bare apparatus file`);
+  const ph = appPage(e.slug, e.current_version);
   if (existsSync(ph)) {
     const phtml = readFileSync(ph, 'utf8');
     check(phtml.includes(`data-src="/texts/${e.slug}/v/${e.current_version}/apparatus.json"`),
-      `${e.slug}/v/${e.current_version}/: the pinned page fetches the PINNED file, not the bare one`);
+      `${e.slug}/v/${e.current_version}/: the pinned apparatus page fetches the PINNED file, not the bare one`);
   }
+  /* AND THE EDITION PAGE NO LONGER CARRIES A VIEWER AT ALL: the door to the
+   * apparatus page is what stands there now. */
+  const ed = readFileSync(join(DIST, 'texts', e.slug, 'index.html'), 'utf8');
+  check(!/id="apparatus-viewer"/.test(ed), `${e.slug}: the edition page carries no viewer (it links the apparatus page)`);
+  check(ed.includes(`href="/texts/${e.slug}/apparatus/"`), `${e.slug}: and links the apparatus page`);
 }
 
 /* ---------- §3 the page no longer inlines the log ---------- */
@@ -261,16 +275,23 @@ for (const e of editions) {
   const appBytes = statSync(join(DIST, 'texts', e.slug, 'apparatus.json')).size;
   console.log(`  NOTE ${e.slug}: page ${html.length} bytes, apparatus.json ${appBytes} bytes`);
   check(html.length < appBytes * 3, `${e.slug}: the page is HTML, not the log (${html.length} vs ${appBytes} bytes of data)`);
+}
+
+section('the apparatus page carries the viewer, server-rendered');
+for (const e of editions) {
+  const html = readFileSync(appPage(e.slug), 'utf8');
+  const appBytes = statSync(join(DIST, 'texts', e.slug, 'apparatus.json')).size;
   check(/<noscript>/.test(html) && html.includes(`href="/texts/${e.slug}/apparatus.json"`),
-    `${e.slug}: the page states the apparatus and links the data file without scripts`);
+    `${e.slug}: the apparatus page states the whole log and links the data file without scripts`);
   check(html.includes('id="apparatus-viewer"') && html.includes('id="app-leaves"') && html.includes('id="app-panel"'),
     `${e.slug}: the viewer’s containers are server-rendered`);
   /* THE PAGE'S OWN STATEMENT NAMES THE WHOLE SCAN (server-rendered, so a reader
    * without scripts gets it too), and it counts the leaves from the directory. */
   check(html.includes('THE WHOLE SCAN IS HERE') && html.includes(`all ${seen.get(e.slug).data.leafCount} leaves`),
-    `${e.slug}: the page states the whole scan and its ${seen.get(e.slug).data.leafCount} leaves without scripts`);
+    `${e.slug}: the apparatus page states the whole scan and its ${seen.get(e.slug).data.leafCount} leaves without scripts`);
   check(!/\bleafes\b|\bleafves\b|\bleafss\b/.test(html.replace(/class="[^"]*"/g, '')),
     `${e.slug}: and pluralises "leaf" as "leaves"`);
+  console.log(`  NOTE ${e.slug}: apparatus page ${html.length} bytes, apparatus.json ${appBytes} bytes`);
 }
 /* THE SIZE DROP, measured against the tree this unit replaced: the page inlined
  * the whole log, so the log's bytes were ON the page. */
@@ -333,12 +354,13 @@ const settle = async () => {
 };
 
 /** Boot the BUILT page the way a browser does: parse it, run its scripts in
- * document order (skipping the JSON blocks). */
-async function boot(slug, { hash = '', fetchImpl = null } = {}) {
-  const html = readFileSync(join(DIST, 'texts', slug, 'index.html'), 'utf8');
+ * document order (skipping the JSON blocks). The viewer lives on the apparatus
+ * page now, so that is the page booted by default. */
+async function boot(slug, { hash = '', fetchImpl = null, page = null, url = null } = {}) {
+  const html = readFileSync(page || appPage(slug), 'utf8');
   const headInner = html.slice(html.indexOf('<head>') + 6, html.indexOf('</head>'));
   const bodyInner = html.slice(html.indexOf('<body>') + 6, html.lastIndexOf('</body>'));
-  const w = new Window({ url: `http://localhost/texts/${slug}/${hash}` });
+  const w = new Window({ url: `http://localhost${url || `/texts/${slug}/apparatus/`}${hash}` });
   installGlobals(w, fetchImpl || fetchFromDist);
   const scrolled = [];
   w.HTMLElement.prototype.scrollIntoView = function () {
@@ -783,8 +805,8 @@ section('the failure path states what happened and where the apparatus is');
   check(/plain file|served with this edition/i.test(status), 'and points at the apparatus the statement names');
   check(ctx.w.document.getElementById('app-fallback').textContent.includes(`/texts/${SLUG}/apparatus.json`),
     'the statement still names the data file');
-  check(/<noscript>/.test(readFileSync(join(DIST, 'texts', SLUG, 'index.html'), 'utf8')),
-    'and the page carries a <noscript> for a reader whose JavaScript is off');
+  check(/<noscript>/.test(readFileSync(appPage(SLUG), 'utf8')),
+    'and the apparatus page carries a <noscript> for a reader whose JavaScript is off');
 }
 
 /* ---------- §6 the apparatus is laid out AT THE READER'S WIDTH ----------
@@ -906,10 +928,17 @@ function selectorMatches(rules, sel, el) {
 section('the apparatus takes the reader’s width, and no rule caps content short of it');
 {
   const SLUG = VIEWER_EDITIONS[0];
-  const html = readFileSync(join(DIST, 'texts', SLUG, 'index.html'), 'utf8');
-  const blocks = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]);
+  /* THE READER CONTRACT IS EMITTED ON THE EDITION PAGE (the reader's own
+   * stylesheet goes with the reader), while the apparatus rules are emitted on
+   * the apparatus page; both are the served stylesheets of the SAME edition, so
+   * the rules are read from both pages together. */
+  const styleBlocks = (h) => [...h.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]);
+  const appBlocks = styleBlocks(readFileSync(appPage(SLUG), 'utf8'));
+  const edBlocks = styleBlocks(readFileSync(join(DIST, 'texts', SLUG, 'index.html'), 'utf8'));
+  const blocks = [...appBlocks, ...edBlocks];
   const css = blocks.join('\n');
-  check(blocks.length >= 2, `the stylesheets are IN the served page (${blocks.length} <style> block(s): the site's, then the reader's)`);
+  check(appBlocks.length >= 1 && edBlocks.length >= 2,
+    `the stylesheets are IN the served pages (${appBlocks.length} block(s) on the apparatus page, ${edBlocks.length} on the edition page: the site's, then the reader's)`);
 
   const rules = parseCss(css);
   const bodyOf = (sel, media = '') => cssBody(rules, sel, media);
@@ -984,7 +1013,7 @@ section('the apparatus takes the reader’s width, and no rule caps content shor
     `while .hint itself still caps every OTHER section at --measure (${MEASURE}px) — the override is scoped, not site-wide`);
   check(prop('.apparatus-entry', 'max-width') === null,
     'and the readings (.apparatus-entry) carry no max-width declaration at all');
-  const summaryClass = VIEWER_EDITIONS.map((s) => readFileSync(join(DIST, 'texts', s, 'index.html'), 'utf8'))
+  const summaryClass = VIEWER_EDITIONS.map((s) => readFileSync(appPage(s), 'utf8'))
     .filter((h) => /class="apparatus-summary"/.test(h)).length;
   check(!/\.apparatus-summary\s*\{/.test(css) && summaryClass === 0,
     'and .apparatus-summary is GONE: the rule carried no markup at all (0 elements in the built pages), so it styled nothing while reading as if it styled the summary');
@@ -1039,7 +1068,7 @@ section('the apparatus takes the reader’s width, and no rule caps content shor
 section('the viewer’s containing block is the apparatus column — no ancestor caps it');
 {
   const pageCss = (slug) =>
-    parseCss(readFileSync(join(DIST, 'texts', slug, 'index.html'), 'utf8')
+    parseCss(readFileSync(appPage(slug), 'utf8')
       .match(/<style[^>]*>([\s\S]*?)<\/style>/g)
       .map((s) => s.replace(/^<style[^>]*>/, '').replace(/<\/style>$/, ''))
       .join('\n'));
@@ -1163,8 +1192,8 @@ section('the viewer’s containing block is the apparatus column — no ancestor
   for (const slug of VIEWER_EDITIONS) {
     const version = editions.find((e) => e.slug === slug).current_version;
     for (const [label, rel] of [
-      [`/texts/${slug}/`, join('texts', slug, 'index.html')],
-      [`/texts/${slug}/v/${version}/ (pinned)`, join('texts', slug, 'v', version, 'index.html')],
+      [`/texts/${slug}/apparatus/`, join('texts', slug, 'apparatus', 'index.html')],
+      [`/texts/${slug}/v/${version}/apparatus/ (pinned)`, join('texts', slug, 'v', version, 'apparatus', 'index.html')],
     ]) {
       const path = join(DIST, rel);
       if (!existsSync(path)) { check(false, `${label}: the page exists`); continue; }
@@ -1196,6 +1225,112 @@ section('the viewer’s containing block is the apparatus column — no ancestor
         `chain ${chainNames.join(' < ')}`);
     }
   }
+}
+
+/* ---------- §8 the scroll traps are gone, and the jump bars are sticky --------
+ *
+ * TWO REPORTED TRAPS, both closed:
+ *   1. THE APPARATUS WAS BURIED below the whole reading view — hence the route
+ *      (§8a: the viewer is on the apparatus page, the edition page carries the
+ *      door and NO viewer).
+ *   2. THE LEAF INDEX WAS A NESTED SCROLL REGION (`.app-leaves { max-height:
+ *      36rem; overflow: auto }`, and 18rem below 56em) inside the page's own
+ *      scroll — a reader who scrolled into it was held in a 36rem window.
+ * §8b reads the EMITTED stylesheet and asserts NO `.app-leaves` rule caps its
+ * height or opens a scroll of its own, on ANY screen; the predicate is proven to
+ * FIRE on the pre-fix rules (the asymmetry). §8c asserts the jump bar and the
+ * back-to-top control, and that the reader's own sticky chrome offsets by the
+ * jump bar's measured height as well as the nav's. */
+section('the leaf index is not a scroll trap, and the jump bars are sticky');
+
+/** The `.app-leaves` rules of a stylesheet, with their media context. */
+const appLeavesRules = (css) => parseCss(css).filter((r) => r.sel === '.app-leaves');
+
+/** The declarations in those rules that make a NESTED SCROLL: a height cap, or an
+ * overflow that is not `visible`. Returns a description per offending declaration
+ * — EMPTY means the index flows in the page. */
+function trapDecls(rules) {
+  const out = [];
+  for (const r of rules) {
+    const media = r.media ? ` (${r.media})` : '';
+    const mh = /(?:^|;)\s*max-height\s*:\s*([^;]+)/.exec(r.body);
+    if (mh) out.push(`max-height: ${mh[1].trim()}${media}`);
+    const ov = /(?:^|;)\s*overflow(?:-y)?\s*:\s*([^;]+)/.exec(r.body);
+    if (ov && !/^\s*(?:visible|clip)\s*$/.test(ov[1])) out.push(`overflow: ${ov[1].trim()}${media}`);
+  }
+  return out;
+}
+
+/* THE ASYMMETRY, ASSERTED FIRST: the predicate must FIRE on the rules the report
+ * named. If it cannot fail, a green run here proves nothing. */
+{
+  const before = '.app-leaves { display: grid; max-height: 36rem; overflow: auto; padding-right: 20px; }';
+  const narrow = '@media (max-width: 56em) { .app-leaves { max-height: 18rem; border-right: 0; } }';
+  check(trapDecls(appLeavesRules(before)).length === 2,
+    `THE ASYMMETRY: the predicate FIRES on the pre-fix rule (${trapDecls(appLeavesRules(before)).join(', ')})`);
+  check(trapDecls(appLeavesRules(narrow)).length === 1,
+    `and on the narrow-screen cap too (${trapDecls(appLeavesRules(narrow)).join(', ')})`);
+  check(trapDecls(appLeavesRules('.app-leaves { display: grid; gap: 8px; border-right: 1px solid; }')).length === 0,
+    'and stays SILENT on a rule that simply flows (so it is a test, not a tautology)');
+}
+
+/** The shell's own boot measures the jump bar, on every page it emits. */
+function html_has_jump_measure(html) {
+  return /--jump-h/.test(html) && /getBoundingClientRect/.test(html) && /setProperty\('--jump-h'/.test(html);
+}
+
+for (const e of editions) {
+  const appHtml = readFileSync(appPage(e.slug), 'utf8');
+  const edHtml = readFileSync(join(DIST, 'texts', e.slug, 'index.html'), 'utf8');
+  const appCss = [...appHtml.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
+  const edCss = [...edHtml.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
+
+  const traps = trapDecls(appLeavesRules(appCss + '\n' + edCss));
+  check(traps.length === 0,
+    `${e.slug}: NO .app-leaves rule caps its height or scrolls on its own (${traps.length ? traps.join(', ') : 'the index flows in the page'})`);
+
+  /* THE JUMP BAR: sticky under the nav, its top the nav's MEASURED height. */
+  const rules = parseCss(appCss);
+  const jTop = cssProp(rules, '.page-contents', 'top');
+  check(cssProp(rules, '.page-contents', 'position') === 'sticky' && /var\(--nav-h/.test(jTop || ''),
+    `${e.slug}: the in-page jump bar is sticky at ${jTop} — the nav's measured height, not a constant`);
+
+  for (const [where, html] of [['the apparatus page', appHtml], ['the edition page', edHtml]]) {
+    check(html.includes('class="page-contents"') && html.includes('class="to-top"'),
+      `${e.slug}: ${where} carries the jump bar and the back-to-top control`);
+  }
+  check(/href="#app-leaves"/.test(appHtml) && /href="#app-panel"/.test(appHtml),
+    `${e.slug}: the apparatus page's jump bar reaches the leaf index and the panel`);
+  check(/href="#the-text"/.test(edHtml) && /href="#the-apparatus"/.test(edHtml) && /href="#provenance"/.test(edHtml),
+    `${e.slug}: the edition page's jump bar reaches the text, the apparatus and the provenance`);
+  check(/\.app-panel \{[^}]*scroll-margin-top:\s*calc\(var\(--nav-h/.test(appCss),
+    `${e.slug}: and a jump to the panel lands below the two sticky bars`);
+  /* THE READER'S OWN CHROME OFFSETS BY THE JUMP BAR TOO, or the toolbar would sit
+   * under it — the trap, one layer up. */
+  check(/\.rd-bar \{[^}]*top:\s*calc\(var\(--nav-h[^;]*var\(--jump-h/.test(edCss),
+    `${e.slug}: the reader's sticky toolbar stacks BELOW the nav AND the jump bar (--nav-h + --jump-h)`);
+  check(/\.rd-nav \{[^}]*top:\s*calc\(var\(--nav-h[^;]*var\(--jump-h[^;]*var\(--bar-h/.test(edCss),
+    `${e.slug}: and its contents sidebar below both of those and the toolbar`);
+  check(html_has_jump_measure(appHtml),
+    `${e.slug}: the shell MEASURES the jump bar into --jump-h (getBoundingClientRect -> setProperty)`);
+}
+
+/* THE OLD ADDRESS STILL RESOLVES — IN A DOM, NOT ONLY IN THE MARKUP. A reading
+ * lived on the edition page until the apparatus moved here, so a published
+ * `/texts/<slug>/#repair-<id>` (the address /errata printed) is redirected to the
+ * apparatus page, which is where the fragment is read. Booted, so the redirect
+ * script actually runs. */
+{
+  const SLUG = VIEWER_EDITIONS[0];
+  const rule = seen.get(SLUG).data.rules[0];
+  const rctx = await boot(SLUG, {
+    page: join(DIST, 'texts', SLUG, 'index.html'),
+    url: `/texts/${SLUG}/`,
+    hash: `#repair-${rule.id}`,
+  });
+  const href = String(rctx.w.location.href || rctx.w.location);
+  check(href.includes(`/texts/${SLUG}/apparatus/#repair-${rule.id}`),
+    `an old #repair-${rule.id} on the edition page is REDIRECTED to the apparatus page (${href.slice(-70)})`);
 }
 
 console.log(failures === 0 ? '\napparatus-probe: all checks passed' : `\napparatus-probe: ${failures} check(s) FAILED`);

@@ -84,7 +84,7 @@ the new tokens beside them.
 | `--sans` | chrome/labels | `-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif` |
 | `--mono` | data: citations, IDs, DOIs, versions | `"SFMono-Regular", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace` |
 | `--measure` | reading measure (prose that is NOT the reader or the apparatus) | `34rem` (≈66ch) |
-| `--reader` | **the reading width**: the reader section AND the apparatus below it (one page, two halves, one grid) | `1240px` |
+| `--reader` | **the reading width**: the reader section on the edition page AND the apparatus page (the viewer's own route, §5.4) | `1240px` |
 | `--wide` | catalogue/graph width | `72rem` |
 | `--space-1..6` | spacing scale | 4 / 8 / 12 / 20 / 32 / 56 px |
 
@@ -164,6 +164,12 @@ hierarchy (Library / Texts / Author / Work — findings 10), and an in-page
 `#provenance`). The restored TEXT and the APPARATUS are below the fold
 (finding: the review screenshot only caught the top), so the page SAYS they are
 there and jumps to them. Neither moves the text or the apparatus.
+**The list is STICKY under the site nav** (the nav's own pattern: `body > nav` is
+sticky at `top: 0`), so the three regions stay reachable while a reader is deep
+in eighty screens of text, and it carries a **back-to-top** control at its end.
+Its top is the nav's MEASURED height (`--nav-h`) and the reader's own sticky
+toolbar stacks below both it and the list (`--nav-h` + `--jump-h`), because the
+nav WRAPS and neither offset can be a constant.
 
 A fixed scholarly order:
 1. **Bibliographic record** — a definition list: author, title, translator,
@@ -183,64 +189,14 @@ A fixed scholarly order:
    Year). The Neoplatonic Library, version <v>. <url>` — no `ed.` before the
    version, which is not what `ed.` means in a citation. (finding 7)
 3. **The text** — the reader (`.rd*`, unchanged mechanism), its toolbar.
-4. **The apparatus** — the repair log, as a viewer on **TWO AXES**, because most
-   readings have no page image (MEASURED: porphyry has 384 readings and 23 stored
-   leaves, and only 3 of the readings were read off one — its first stored leaf
-   carries none). The log is a fetched data file (`/texts/<slug>/apparatus.json`,
-   model §7.1) rendered as
-   - a **readings axis**: an **All readings** entry (the whole log, in record
-     order) and a **Without a page image** entry (the readings that rest on no
-     leaf), both listed compactly and **paged 25 at a time** with the range, the
-     total and the page stated, so no view is a wall;
-   - a **leaf axis**: one entry per stored leaf (a small thumbnail, its number,
-     and how many readings were decided from it); a leaf **no reading was decided
-     from says so** ("no readings", set apart with a broken rule), so an empty
-     leaf can be told from a leaf the filter has merely emptied — never a trap —
-     then an entry per leaf that is cited but **not held**;
-   - a **panel** for the selection: for a leaf, the page **filling the panel's own
-     column** (it is bounded by the column, not by a viewport height — MEASURED:
-     `width: auto` beside a `max-height: 82vh` held a ~1400×2500px leaf to ≈430–560px
-     wide, a strip beside the ~916px column the panel has), its caption `archive leaf
-     nNNN · printed page M`, and beneath it the readings decided from that leaf — id,
-     type, pipeline class, before → after, rationale, witness — each anchored
-     `#repair-<id>`;
-   - **controls**: the four-type filter and a word search over the located text,
-     the reading and the reason, applied to BOTH axes.
-   **The landing is never empty**: the viewer opens the first leaf that HAS
-   readings (on porphyry that is `n42`, not the first stored leaf `n11`), and the
-   no-image group when no leaf carries one — a reader who arrives on an empty
-   panel concludes the apparatus shows nothing, which is the one thing it must
-   never say. The viewer's code is inlined; the log is NOT. A `#repair-<id>`
-   fragment opens the entry that rule belongs to, **turns to the page** of a paged
-   list it falls on and highlights the reading, which is how `/errata`'s rows (and
-   the cited-but-not-held leaves) link into it. A `<noscript>` and a failed fetch
-   both leave a server-rendered statement standing that says what the apparatus
-   is, **how many readings have a page image and how many do not**, and names the
-   data file — the viewer never silently shows nothing. Scholarly and quiet: no
-   crop is made (the stored leaf IS the region), and the rubric marks POSITION
-   (the selected entry, the linked reading).
-   **Its width is the reader's width.** The section is `#the-apparatus .wrap`
-   (`--reader`, 1240px) — the same token as the reader above it, on the same 24px
-   gutter — and NOTHING inside is capped short of that column. MEASURED: the summary
-   and the notes were capped at `--measure` (34rem = 544px) and the readings at 46rem
-   = 736px under a reader whose pane is 892px, so the apparatus rendered as the
-   NARROWER column, its margins empty on a wide screen (the author's report). The
-   summary is the section's own `.hint`, widened here ALONE (`#the-apparatus .hint`):
-   `.hint` still holds every other section's one-line description at `--measure`. The
-   leaf index is a finder, not a paragraph, and is sized to that job (16rem = 256px);
-   the panel takes the rest (916px); below 56em the grid collapses to one column and
-   the panel takes the viewport. `tools/apparatus-probe.mjs` §6 measures this off the
-   EMITTED stylesheet.
-   **And the viewer is NOT prose.** The reader's column is a `.prose` box
-   (`build/shell.mjs` `section()`), and `.prose` caps its child at `--measure` (544px)
-   ON SCREEN — the `max-width: none` beside it is inside `@media print` only. The
-   apparatus viewer is an interface (a grid, a finder, a page image), so its section
-   is emitted with `prose: false`: `#apparatus-viewer` sits directly in `#the-apparatus
-   .wrap` and inherits no cap, and the ONE genuinely prose piece inside it — the
-   no-script fallback — carries `.prose` itself and keeps the measure. Measured on the
-   ancestor chain: `tools/apparatus-probe.mjs` §7, which walks the EMITTED markup's
-   chain (and proves the asymmetry by re-wrapping the viewer in `.prose`: 544px then,
-   1192px now).
+4. **The apparatus** — a SHORT statement of the version's repair log and **the
+   door to its own page** (`/texts/<slug>/apparatus/`, §5.4). The viewer used to
+   be rendered HERE, below the whole reading view, so a reader had to scroll
+   through the entire text to reach the leaf panel (and the leaf index was a
+   nested scroll region they got stuck in). The line is DERIVED from the record
+   — "The apparatus — 141 leaves, 105 readings read from a page image →" — so it
+   cannot advertise leaves or readings the version does not hold, and the section
+   keeps the published `#the-apparatus` anchor.
 5. **Provenance** — where the transcription came from; **that the source scans
    are stored with the edition and served** at `/texts/<slug>/scans/`, with the
    archive item linked to its page; the licence split (text public-domain /
@@ -251,6 +207,98 @@ headings, and the version is stated where it belongs — inside the citation str
 and in the version notice — not a third time in a section description
 (finding 8).
 
+### `/texts/<slug>/apparatus` — the apparatus page (§5.4)
+
+**Why it is its own route.** The viewer was rendered below the whole reading
+view, so the apparatus was buried behind eighty screens of text; the edition page
+now carries the short statement and the door (§5.1a item 4), and the interface
+lives here. The page carries: a **breadcrumb** (Library / Texts / Author / Work /
+The apparatus) whose Work step links BACK to the edition (the deep link both
+ways); a **sticky in-page jump bar** (`#app-leaves` "The leaf index", `#app-panel`
+"The panel") and the **back-to-top** control, the same bar the edition page has;
+the server-rendered statement of what the apparatus is; and the viewer. The
+pinned `/texts/<slug>/v/<semver>/apparatus/` is the same page for a pinned
+edition, with its own canonical and its breadcrumb pointing at the pinned edition
+page. **The data address does not move**: both fetch `/texts/<slug>/apparatus.json`
+and `/texts/<slug>/v/<semver>/apparatus.json` (model §7.1).
+
+**The viewer, on TWO AXES**, because most readings have no page image (MEASURED:
+porphyry has 384 readings and 72 stored leaves, and only 4 of the readings were
+read off one — its first stored leaf carries none). The log is a fetched data
+file (`/texts/<slug>/apparatus.json`, model §7.1) rendered as
+- a **readings axis**: an **All readings** entry (the whole log, in record
+  order) and a **Without a page image** entry (the readings that rest on no
+  leaf), both listed compactly and **paged 25 at a time** with the range, the
+  total and the page stated, so no view is a wall;
+- a **leaf axis**: one entry per stored leaf (a small thumbnail, its number,
+  and how many readings were decided from it); a leaf **no reading was decided
+  from says so** ("no readings", set apart with a broken rule), so an empty
+  leaf can be told from a leaf the filter has merely emptied — never a trap —
+  then an entry per leaf that is cited but **not held**;
+- a **panel** for the selection: for a leaf, the page **filling the panel's own
+  column** (it is bounded by the column, not by a viewport height — MEASURED:
+  `width: auto` beside a `max-height: 82vh` held a ~1400×2500px leaf to ≈430–560px
+  wide, a strip beside the ~916px column the panel has), its caption `archive leaf
+  nNNN · printed page M`, and beneath it the readings decided from that leaf — id,
+  type, pipeline class, before → after, rationale, witness — each anchored
+  `#repair-<id>`. The panel carries its own way BACK to the index (`app-to-index`,
+  `↑ The leaf index`), which scrolls without touching the fragment;
+- **controls**: the four-type filter and a word search over the located text,
+  the reading and the reason, applied to BOTH axes.
+
+**THE LEAF INDEX IS NOT A SCROLL TRAP.** It used to be a nested scroll region
+(`.app-leaves { max-height: 36rem; overflow: auto }`, and 18rem below 56em) inside
+the page's own scroll: a reader who scrolled into it was held in a 36rem window
+and had to leave it (or use the jump list) to get anywhere. It FLOWS in the page
+now — the page's own scroll is the only scroll, the whole scan runs down the left
+column, and the panel, the jump bar and the back-to-top control are always
+reachable by that one scroll. `scroll-margin-top` keeps a jump to the index or the
+panel clear of the two sticky bars.
+
+**The landing is never empty**: the viewer opens the first leaf that HAS
+readings (on porphyry that is `n33`, not the first stored leaf `n0`), and the
+no-image group when no leaf carries one — a reader who arrives on an empty
+panel concludes the apparatus shows nothing, which is the one thing it must
+never say. The viewer's code is inlined; the log is NOT. A `#repair-<id>`
+fragment opens the entry that rule belongs to, **turns to the page** of a paged
+list it falls on and highlights the reading, which is how `/errata`'s rows (and
+the cited-but-not-held leaves) link into it — and an OLD `#repair-<id>` on the
+edition page is REDIRECTED here, so a link published before this route existed
+still resolves. A fragment that names no entry (`#app-leaves`, `#app-panel`,
+`#top` — the jump bar and the back-to-top control) is an in-page jump and never
+resets the selection. A `<noscript>` and a failed fetch both leave a
+server-rendered statement standing that says what the apparatus is, **how many
+readings have a page image and how many do not**, and names the data file — the
+viewer never silently shows nothing. Scholarly and quiet: no crop is made (the
+stored leaf IS the region), and the rubric marks POSITION (the selected entry,
+the linked reading).
+
+**Its width is the reader's width.** The section is `#the-apparatus .wrap`
+(`--reader`, 1240px) — the same token as the reader on the edition page, on the
+same 24px gutter — and NOTHING inside is capped short of that column. MEASURED:
+the summary and the notes were capped at `--measure` (34rem = 544px) and the
+readings at 46rem = 736px under a reader whose pane is 892px, so the apparatus
+rendered as the NARROWER column, its margins empty on a wide screen (the author's
+report). The summary is the section's own `.hint`, widened here ALONE
+(`#the-apparatus .hint`): `.hint` still holds every other section's one-line
+description at `--measure`. The leaf index is a finder, not a paragraph, and is
+sized to that job (16rem = 256px); the panel takes the rest (916px); below 56em
+the grid collapses to one column and the panel takes the viewport, the index
+still flowing. `tools/apparatus-probe.mjs` §6 measures this off the EMITTED
+stylesheet (reading the apparatus page's rules AND the edition page's, where the
+reader contract still lives).
+
+**And the viewer is NOT prose.** The reader's column is a `.prose` box
+(`build/shell.mjs` `section()`), and `.prose` caps its child at `--measure` (544px)
+ON SCREEN — the `max-width: none` beside it is inside `@media print` only. The
+apparatus viewer is an interface (a grid, a finder, a page image), so its section
+is emitted with `prose: false`: `#apparatus-viewer` sits directly in `#the-apparatus
+.wrap` and inherits no cap, and the ONE genuinely prose piece inside it — the
+no-script fallback — carries `.prose` itself and keeps the measure. Measured on the
+ancestor chain: `tools/apparatus-probe.mjs` §7, which walks the EMITTED markup's
+chain (and proves the asymmetry by re-wrapping the viewer in `.prose`: 544px then,
+1192px now).
+
 ### `/graph`, `/search`, `/editions`, `/about`, `/errata`
 Scholarly pages: `/graph` a figure + a typed edge table; `/search` a search
 field and result list (the result is a citation, not a card); `/editions` the
@@ -260,14 +308,17 @@ the corrections log + how to report.
 ## 6. Components (the system's vocabulary)
 
 masthead · nav (with the current entry lit) · **breadcrumb** · **page-contents**
-(the edition's jump list) · eyebrow (small-caps label) · **catalogue** ·
+(the page's jump list — STICKY under the nav on the edition and apparatus pages,
+with a `to-top` back-to-top control at its end) · eyebrow (small-caps label) ·
+**catalogue** ·
 **catalogue-controls** (the factual sort and repair-state filter) ·
 catalogue-entry (with its `data-` sort keys) ·
 **collection-scope** (the home's count, search field, doors and All-texts door) ·
 bib-record (dl) · citation-block (serif prose, `--mono` URL) · **apparatus-viewer
 (two axes: `app-leaf-all` / `app-leaf-none` scope entries, `app-leaf` thumbnails
 with `app-leaf-quiet` for a leaf no reading was decided from, `app-panel`,
-`app-pager` for a list longer than the page, and `app-compact` for the long
+`app-pager` for a list longer than the page, `app-to-index` for the panel's way
+back to the index, and `app-compact` for the long
 reading lists)** · apparatus-entry · **leaf-evidence** (the page image a
 reading was decided from: the panel's full-column leaf, captioned `archive leaf nNNN ·
 printed page M`, and a stated "not held" for a leaf cited but not stored) ·

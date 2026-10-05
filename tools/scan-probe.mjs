@@ -266,11 +266,15 @@ section('the apparatus data carries the leaf, and the viewer shows it lazily');
     check(fat.length === 0,
       `${e.slug}: every leaf entry carries exactly n/url/page/readings (${fat.length} carry more)`);
 
+    /* THE VIEWER LIVES ON THE APPARATUS PAGE (`/texts/<slug>/apparatus/`); the
+     * reader's width token is emitted on the edition page the leaf panel is
+     * reached from. Both are read where each belongs. */
+    const appHtml = readFileSync(join(DIST, 'texts', e.slug, 'apparatus', 'index.html'), 'utf8');
+    check(appHtml.includes('id="app-leaves"') && appHtml.includes('id="app-panel"'),
+      `${e.slug}: the viewer's leaf index and panel stand in the apparatus page`);
+    check(!/<img[^>]*class="app-leaf-img"/.test(appHtml),
+      `${e.slug}: the apparatus page server-renders NO leaf image (the index is the viewer's, and nothing is eager)`);
     const html = readFileSync(join(DIST, 'texts', e.slug, 'index.html'), 'utf8');
-    check(html.includes('id="app-leaves"') && html.includes('id="app-panel"'),
-      `${e.slug}: the viewer's leaf index and panel stand in the page`);
-    check(!/<img[^>]*class="app-leaf-img"/.test(html),
-      `${e.slug}: the page server-renders NO leaf image (the index is the viewer's, and nothing is eager)`);
     check(html.includes('.rd-section .wrap { max-width: var(--reader); }'),
       `${e.slug}: the emitted reader section is the --reader width (the token reaches the page)`);
   }
