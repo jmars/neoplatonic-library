@@ -19,7 +19,7 @@ import { repairsPath, readMeta } from '../tools/extract.mjs';
 import { REPAIR_LABELS, repairOf, MODERN_EDITIONS } from '../tools/shelf.mjs';
 import { esc, SITE } from './shell.mjs';
 import { gateSafeText } from './leak.mjs';
-import { scanLeafCount } from './library.mjs';
+import { linkDoi, scanLeafCount } from './library.mjs';
 
 /** The four scholarly repair types (DATA-MODEL §4.1), said once. */
 const TYPE_MEANING = {
@@ -125,7 +125,7 @@ export function buildEditionsPage(served) {
       `${bytes}. ` +
       `Version <code>${esc(t.currentVersion)}</code>, ${esc(meta.date)}, transcription checksum ` +
       `<code>${esc(meta.source_sha256.slice(0, 16))}…</code>.</p>` +
-      `<p><b>Cite it.</b> <code>${esc(t.citation)}</code></p>`
+      `<p><b>Cite it.</b> <code>${linkDoi(esc(t.citation))}</code></p>`
     );
   }).join('');
 
@@ -187,7 +187,7 @@ export function buildAboutPage(served) {
     `<div class="hint">the edition, the version, and the URL</div>` +
     `<div class="prose">` +
     `<p>${esc(SITE.citation_policy)}</p>` +
-    (example ? `<p>The form, for the editions served here:</p><p><code>${esc(example)}</code></p>` : '') +
+    (example ? `<p>The form, for the editions served here:</p><p><code>${linkDoi(esc(example))}</code></p>` : '') +
     `<p>Each edition page carries its own citation string, and a pinned version’s page carries that ` +
     `version’s — so a citation to a particular version keeps naming that version. Every published ` +
     `edition’s record and the graph are also served as plain data, at <a href="/data/corpus.json">the ` +

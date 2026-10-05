@@ -430,6 +430,83 @@ section('every same-host URL the build emits begins with the site root');
   }
 }
 
+section('the DOI is a link wherever a citation is shown');
+{
+  /* The citation STRING is the record, and the DOI in it is a bare identifier.
+   * Where a page renders that string the identifier must be a LINK to its own
+   * resolve address (`https://doi.org/<doi>`) whose TEXT is the identifier
+   * itself — so the citation a reader copies is unchanged (version-probe holds
+   * that byte-for-byte end on the version pages) and the identifier is one click
+   * from resolving. A citation whose record mints NO DOI carries no such link
+   * (never an empty anchor). FAILS ON THE PRE-FIX MARKUP, where the identifier
+   * was plain text: the page then shows DOI-bearing citations with ZERO
+   * `.cite-doi` links, and the counts disagree. */
+  const read = (rel) => (existsSync(join(DIST, rel)) ? readFileSync(join(DIST, rel), 'utf8') : '');
+  const strip = (s) =>
+    s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+  const anchorsOn = (html) =>
+    [...html.matchAll(/<a class="cite-doi" href="([^"]+)">([\s\S]*?)<\/a>/g)].map((m) => ({
+      href: m[1],
+      text: m[2].replace(/<[^>]+>/g, ''),
+    }));
+  /* A DOI is `10.<registrant>/<suffix>`; the citation's stored form ends it with
+   * the sentence's own period (`DOI: <doi>.`), which is not part of it. */
+  const DOI = /10\.\d{4,}\/\S+/g;
+  const doisIn = (s) => [...new Set((s.match(DOI) || []).map((d) => d.replace(/\.$/, '')))];
+  /* The citation displays on a page: the edition/pinned `<p class="cite">` block,
+   * the /editions "cite it" block, and the /about example block. Read from the
+   * page, so the expectation follows whatever citation the page actually shows. */
+  const citesOn = (html) => {
+    const out = [];
+    const p = /<p class="cite">[\s\S]*?<\/p>/.exec(html);
+    if (p) out.push(p[0]);
+    for (const m of html.matchAll(/<p><b>Cite it\.<\/b> <code>[\s\S]*?<\/code><\/p>/g)) out.push(m[0]);
+    for (const m of html.matchAll(/<p><code>[\s\S]*?<\/code><\/p>/g)) out.push(m[0]);
+    return out;
+  };
+  const served = servedEditions();
+  /* A DOI the page links must be one the records mint — the page cannot invent
+   * an identifier. */
+  const recordDois = new Set(served.map((e) => e.doi).filter(Boolean));
+  const pages = [
+    'editions/index.html',
+    'about/index.html',
+    ...served.flatMap((e) => [`texts/${e.slug}/index.html`, `texts/${e.slug}/v/${e.current_version}/index.html`]),
+  ];
+  let links = 0;
+  let doiCites = 0;
+  for (const rel of pages) {
+    const html = read(rel);
+    const dois = [...new Set(citesOn(html).flatMap((c) => doisIn(strip(c))))];
+    const anchors = anchorsOn(html);
+    links += anchors.length;
+    doiCites += dois.length;
+    check(dois.length > 0, `${rel}: shows a citation carrying a DOI (${dois.length})`);
+    check(
+      anchors.length === dois.length,
+      `${rel}: every DOI-bearing citation shows ONE .cite-doi link (${anchors.length} link(s), ${dois.length} DOI(s))`,
+    );
+    for (const doi of dois) {
+      const a = anchors.find((x) => x.text === doi);
+      check(
+        !!a && a.href === `https://doi.org/${doi}`,
+        `${rel}: ${doi} is linked to https://doi.org/${doi}, its text the DOI itself` +
+          (a ? ` (got href ${JSON.stringify(a.href)}, text ${JSON.stringify(a.text)})` : ' (no .cite-doi link with that text)'),
+      );
+      check(recordDois.has(doi), `${rel}: and the DOI is one the record mints (${doi})`);
+    }
+  }
+  check(links > 0, `the DOI is a link on ${links} citation(s) across ${pages.length} page(s) (${doiCites} DOI(s))`);
+
+  /* THE DOI NEVER BREAKS MID-IDENTIFIER: one unbreakable run (`white-space:
+   * nowrap`), like the citation's host. MEASURED: a DOI is meaningless split
+   * (`10.5281/zenodo.` / `23148818`). */
+  check(
+    /\.cite-doi\s*\{[^}]*white-space:\s*nowrap/.test(read('editions/index.html')),
+    'the stylesheet sets .cite-doi white-space: nowrap',
+  );
+}
+
 
 section('the search index the /search/ page points at');
 {

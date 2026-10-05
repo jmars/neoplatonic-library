@@ -187,7 +187,15 @@ A fixed scholarly order:
    page's own address is the head's canonical link. When the record has a DOI it
    is part of the STRING — the citable identity — and the block renders that
    string verbatim, appending nothing, so a page cannot print a DOI its own
-   citation omits. The string itself is the version's own: `Author, Title[,
+   citation omits. The identifier itself is a LINK to its resolve address
+   (`<a class="cite-doi" href="https://doi.org/<doi>"><doi></a>`): only markup is
+   added, the link's text is the identifier, and `DOI: ` stays plain text, so the
+   citation the reader copies is unchanged. It is one unbreakable run (`.cite-doi
+   { white-space: nowrap }`), like the host — a DOI is meaningless split
+   (`10.5281/zenodo.` / `23148818`). A citation minting no DOI renders no link.
+   The same identifier is linked everywhere the string is shown — the version
+   pages, `/editions` ("cite it") and the `/about` example. The string itself is
+   the version's own: `Author, Title[,
    trans. Translator] (Place, Year). The Neoplatonic Library, version <v>[. DOI:
    <doi>]. <url>` — no `ed.` before the
    version, which is not what `ed.` means in a citation; the URL still ends it.

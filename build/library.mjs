@@ -1187,6 +1187,22 @@ function wrapAtSlashes(url) {
   return m[2] ? host + m[2].split('/').map(esc).join('/<wbr>') : host;
 }
 
+/** THE CITATION'S DOI, AS A LINK (DESIGN-SYSTEM.md §5.2). The citation string is
+ * the RECORD and the DOI in it is a bare identifier (`DOI: 10.5281/zenodo.…`).
+ * Rendering it as a link must not alter a character of it — only markup is
+ * added, and the anchor's text is the identifier itself — so the citation a
+ * reader copies is still the stored string. A citation with NO DOI comes back
+ * unchanged (never an empty link). The identifier is one unbreakable run: the
+ * stylesheet sets `.cite-doi { white-space: nowrap }`, so it cannot wrap
+ * mid-DOI. Takes ALREADY-ESCAPED text (the escaping is the caller's, done once,
+ * so an escaped `&` is never escaped twice). */
+export function linkDoi(escaped) {
+  return escaped.replace(
+    /(DOI:\s*)(10\.\d{4,}\/\S+?)(\.)?(?=\s|$)/,
+    (_, prefix, id, dot = '') => `${prefix}<a class="cite-doi" href="https://doi.org/${id}">${id}</a>${dot}`,
+  );
+}
+
 /** THE CITATION BLOCK (DESIGN-SYSTEM.md §5.2): the version's own citation string
  * (meta.json) — its PROSE in the reference serif, the URL it ends in as the ONE
  * address, hyperlinked. MEASURED: the block used to print the URL twice — once
@@ -1196,8 +1212,9 @@ function wrapAtSlashes(url) {
  * still the citation byte for byte (the `<wbr>`s and the host's `<span>` are
  * markup, not text); route-probe and version-probe read it back and hold it
  * against the record. The DOI, when one is minted, is part of the STRING (the
- * citable identity) — the block adds nothing to it, so a page cannot print a
- * DOI its own citation omits. */
+ * citable identity) — the block adds nothing to it but a link over the
+ * identifier, so a page cannot print a DOI its own citation omits, and the
+ * reader can resolve the one it prints. */
 function citationBlockHtml(base, versionMeta) {
   const citation = String(versionMeta.citation);
   const tail = /\s+(https?:\/\/\S+)\s*$/.exec(citation);
@@ -1208,7 +1225,7 @@ function citationBlockHtml(base, versionMeta) {
   const url = tail ? tail[1] : `${BASE}/${base.replace(/^\//, '')}`;
   return (
     `<div class="citation-block">` +
-    `<p class="cite">${esc(prose)} <a class="cite-id" href="${esc(url)}">${wrapAtSlashes(url)}</a>` +
+    `<p class="cite">${linkDoi(esc(prose))} <a class="cite-id" href="${esc(url)}">${wrapAtSlashes(url)}</a>` +
     `</p></div>`
   );
 }

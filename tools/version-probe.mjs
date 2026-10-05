@@ -114,6 +114,22 @@ for (const t of served) {
       citeText(page) === meta.citation,
       `${slug} v${v}: the page's citation block IS the version's own citation string from meta.json`,
     );
+    /* AND the DOI in that string is a LINK — its text the identifier itself, so
+     * the rendered text above is unchanged, and it resolves. FAILS ON THE
+     * PRE-FIX MARKUP, where the identifier rendered as plain text: the anchor is
+     * then absent. A record that mints NO DOI must render no link (an empty one
+     * would be a citation the page cannot honour). */
+    const doi = entry.doi || '';
+    const anchor = /<a class="cite-doi" href="([^"]+)">([\s\S]*?)<\/a>/.exec(page);
+    check(
+      doi
+        ? !!anchor && anchor[1] === `https://doi.org/${doi}` && anchor[2].replace(/<[^>]+>/g, '') === doi
+        : !anchor,
+      `${slug} v${v}: the citation's DOI ${
+        doi ? `is a link to https://doi.org/${doi}, its text the DOI itself` : 'is absent (the record mints none) and no empty link is rendered'
+      }` +
+        (doi && anchor ? ` (got href ${JSON.stringify(anchor[1])}, text ${JSON.stringify(anchor[2].replace(/<[^>]+>/g, ''))})` : ''),
+    );
     if (v !== current) {
       check(
         page.includes(`Version ${v} — pinned`) && page.includes(current),

@@ -171,6 +171,14 @@ string. Both copies (`edition.json.citation` and
 which writes nothing else; an empty `doi` yields the pre-DOI string, byte for
 byte.
 
+The identifier is **rendered as a link** wherever the string is shown, while the
+rendered TEXT stays the stored string character for character: the DOI run
+becomes `<a class="cite-doi" href="https://doi.org/<doi>"><doi></a>` (only markup
+is added, and `DOI: ` stays plain text), so a citation a reader copies is
+unchanged and its identifier is one click from resolving. The stylesheet sets
+`.cite-doi { white-space: nowrap }`, so the identifier never wraps mid-DOI. A
+citation whose record mints no DOI renders no link (never an empty one).
+
 ### 3.0 The edition directory: the record, and its sources
 
 `edition.json` is the record; the directory around it is the SOURCES (see §1):

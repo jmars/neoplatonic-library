@@ -354,6 +354,12 @@ ul.entries { list-style: none; padding: 0; margin: 0; }
 }
 .citation-block .cite .cite-id { font-family: var(--mono); font-size: 0.85em; }
 .citation-block .cite .cite-host { white-space: nowrap; }
+/* The DOI identifier: the same mono treatment as the citation's URL, and ONE
+ * unbreakable run (`white-space: nowrap`) — a DOI is meaningless split
+ * (`10.5281/zenodo.` / `23148818`), exactly as the citation's host is. Unscoped
+ * to the block, so it also styles the identifier wherever a citation is shown
+ * (the /editions "cite it" line and the /about example). */
+.cite-doi { font-family: var(--mono); font-size: 0.85em; white-space: nowrap; hyphens: none; }
 
 /* ---------- the apparatus: the repair log, BY LEAF ----------
  *
