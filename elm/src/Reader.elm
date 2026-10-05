@@ -102,6 +102,10 @@ type alias Model =
     , hash0 : String
     , repair : Maybe RepairState
     , doc : Maybe Doc
+    -- THE RULES, FILED so the view can apply the few that can match a string
+    -- instead of all of them (see `Reader.Document.applyIndexed`). Built once,
+    -- when the document arrives; the rules themselves stay in the document.
+    , ruleIx : Doc.RuleIndex
     , entries : List Entry
     , notes : Dict Int String
     , noteLangs : Dict Int String
@@ -149,6 +153,7 @@ init flags =
             , hash0 = flags.hash
             , repair = flags.repair
             , doc = Nothing
+            , ruleIx = Doc.noIndex
             , entries = []
             , notes = Dict.empty
             , noteLangs = Dict.empty
@@ -233,6 +238,7 @@ update msg m =
                         m1 =
                             { m
                                 | doc = Just doc
+                                , ruleIx = Doc.ruleIndex doc.corrections
                                 , entries = entries
                                 , notes = Doc.noteTexts entries
                                 , noteLangs = noteLanguages entries
@@ -791,7 +797,7 @@ shownText m f =
                     ""
     in
     if m.view == Reading then
-        Doc.applyCorrections (docRules m) raw
+        Doc.applyIndexed m.ruleIx raw
 
     else
         raw
@@ -1071,17 +1077,25 @@ progress m =
         -- 20% after the paragraphs were joined — same text, same place, a third
         -- less "read". A length is what "% read" means, and it does not move when
         -- the grouping does (MEASURED: 39% by length at section 9, the same place).
-        size ( _, e ) =
-            String.length (shownText m e.item)
+        --
+        -- MEASURED ONCE per entry. The share asks for the same number twice — the
+        -- part read, and the whole — and in the reading view each of the two costs
+        -- a correction pass over that entry. At the top of the book the part read
+        -- is one entry, so the saving is nil there (MEASURED: the Theology edition
+        -- makes 30,576 correction passes over 3,136,026 characters whether this
+        -- list is built once or twice); the reader who is deep in the text gets
+        -- the saving, and it is half of the meter's own work.
+        sizes =
+            List.map (\( _, e ) -> String.length (shownText m e.item)) counted
 
-        done =
-            counted
-                |> List.filter (\( ix, _ ) -> ix <= m.posIx)
-                |> List.map size
-                |> List.sum
+        read =
+            List.length (List.filter (\( ix, _ ) -> ix <= m.posIx) counted)
 
         total =
-            counted |> List.map size |> List.sum
+            List.sum sizes
+
+        done =
+            List.sum (List.take read sizes)
     in
     if total == 0 then
         0
@@ -1680,7 +1694,7 @@ itemView m doc ix e inRange =
 
         txt s =
             if m.view == Reading then
-                Doc.applyCorrections doc.corrections s
+                Doc.applyIndexed m.ruleIx s
 
             else
                 s
@@ -1773,7 +1787,7 @@ inlineView m doc i =
     let
         txt s =
             if m.view == Reading then
-                Doc.applyCorrections doc.corrections s
+                Doc.applyIndexed m.ruleIx s
 
             else
                 s
