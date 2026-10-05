@@ -156,6 +156,15 @@ keys the script sorts on are the SAME keys the served order is computed from, so
 the two cannot disagree. Author names may act as lightweight headings; they are
 not required, and no reading of the corpus is printed.
 
+**The state pill is the record's `repair_state`** (model §3), in plain words:
+`repaired` ("finished — every residue settled or deliberately left and
+recorded"), `in repair` ("readable end to end, not yet finished"), `damaged`
+("readable, with the transcription's own damaged characters shown throughout").
+The legend explains only the states the served corpus is ACTUALLY in, and the
+paragraph above the list says what they mean and names the editions in each: an
+edition is published **in repair** with the state that says so rather than held
+back, which is a statement about the work, not a defect of the software.
+
 ### `/texts/<slug>` — the edition
 
 **5.1a Where the page sits, and what is on it.** A **breadcrumb** back into the
@@ -221,6 +230,21 @@ A fixed scholarly order:
    are stored with the edition and served** at `/texts/<slug>/scans/`, with the
    archive item linked to its page; the licence split (text public-domain /
    editorial CC-BY-4.0); attached readings as links out.
+
+**5.2b A text too big for one page is served in PARTS, and the reader stays.**
+A library page is capped (`LIBRARY_PAGE_MAX_BYTES`, one constant the build and
+the smoke share); the PROSE budget is that cap less the fixed chrome the page
+carries — the compiled reader, its stylesheet, the apparatus statement and the
+provenance block — because the reader page inlines the whole transcription (the
+copy a reader without scripts gets) BESIDE the reader. A text whose prose does
+not fit is split into `/texts/<slug>/part-<n>/`, split where the edition itself
+divides and never mid-paragraph. The PARENT page is where the reader stays: it
+mounts the app (which fetches the version's whole document, so every division
+and anchor resolves), carries the edition's first section as the no-script copy,
+and lists the parts. MEASURED, and why the copy is bounded: inlining the whole
+transcription on the parent as well made a 2,180,490-byte page of a 1,784,122-byte
+book — over the cap — and the parts were already the route for the reader who
+has no scripts.
 
 **5.3 No doubled headings.** A section is its `<h2>` and a caption, never two
 headings, and the version is stated where it belongs — inside the citation string
@@ -303,11 +327,26 @@ place, with no travel at all. The leaf image is still capped by its COLUMN (the 
 width of the screen), never by a viewport height: it is the PANE that is bounded
 here, not the leaf.
 
+**A VERSION WITH NO RECORDED REPAIRS is a state, and the page says it.** An
+edition published in repair before its first emendation carries a log with no
+rule at all (model §7.1) and the same whole scan. The statements say "No repairs
+are recorded for this version yet" and what that means, the leaf index is the
+scan, the whole-log entry is the empty list NAMED rather than a blank panel, and
+the type filter and the reading search are omitted — they are controls for a
+reading list that does not exist — while the leaf jump stays, because the scan
+is what the version does have.
+
+**A leaf is addressed by its STORED NAME when its number is not unique.** An
+edition cut from two archive items has two leaves numbered 74; the index card,
+the caption, the `#leaf-<name>` fragment and the jump all name the stored leaf
+(`v1-n74`), and a number that both volumes serve is STATED as ambiguous rather
+than silently opening one of them (model §7.1).
+
 **The landing is never empty**: the viewer opens the first leaf that HAS
-readings (on porphyry that is `n33`, not the first stored leaf `n0`), and the
-no-image group when no leaf carries one — a reader who arrives on an empty
-panel concludes the apparatus shows nothing, which is the one thing it must
-never say. The viewer's code is inlined; the log is NOT. A `#repair-<id>`
+readings (on porphyry that is `n33`, not the first stored leaf `n0`), the
+no-image group when no leaf carries one, and the whole log when the version has
+no readings at all — a reader who arrives on an empty panel concludes the
+apparatus shows nothing, which is the one thing it must never say. The viewer's code is inlined; the log is NOT. A `#repair-<id>`
 fragment opens the entry that rule belongs to, **turns to the page** of a paged
 list it falls on and highlights the reading, which is how `/errata`'s rows (and
 the cited-but-not-held leaves) link into it — and an OLD `#repair-<id>` on the

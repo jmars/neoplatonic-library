@@ -163,6 +163,23 @@ Every field is required unless marked *optional*; absent values are `null`/`""`/
 }
 ```
 
+**`repair_state` is how far the work on an edition has got, and it is stated
+twice — deliberately.** The model's values: `repaired` (finished — every residue
+settled or deliberately left and recorded), `in-repair` (readable end to end, and
+being worked on: published with the state that says so rather than held back),
+`damaged` (readable, and NO repair attempted yet — the DEFAULT, because a
+transcription of a printed book carries the scanner's damage until someone works
+on it), and `null`. **An edition may be published `in-repair` with no rules at
+all**: its repair has not begun, its damage shows, and the record says which. The
+state is this field in the edition RECORD and the shelf entry
+(`tools/shelf.mjs`) carries the same state beside the reader-facing NOTE, because
+the note is prose a reader reads and the state is data a build reads; the build
+REFUSES to render a disagreement between the two, which is the one place the
+drift between two files that both claim a single state can be caught. MEASURED:
+publishing Taylor's Theology of Plato with the shelf set to `in-repair` while the
+record still said `damaged` rendered `damaged` silently, until the check was
+added.
+
 The `citation` string's form — the one rendered on every edition page (model §3,
 DATA-MODEL here) — is:
 
@@ -651,13 +668,34 @@ leaf (`app-leafnav`), disabled at the ends of the run. The shape:
   the leak gate's published-address exemption carries it as a whole address — the
   only form allowed.
 
+**The zero-rule version is a STATE, not an empty file.** A version published
+before its first emendation carries `ruleCount: 0`, `counts: {}` and an empty
+`rules` — and the SAME `leaves`, because the scan is not the repair log
+(MEASURED: Taylor's Theology of Plato v1.0.0 — 722 stored leaves, no rule). Both
+pages say so plainly ("No repairs are recorded for this version yet"), the viewer
+renders the whole scan and the leaf jump, and it omits the type filter and the
+reading search, because they are controls for a list that does not exist.
+
+**A leaf's identity is its STORED NAME, not its number.** MEASURED: an edition
+whose scan is cut from TWO archive items has two leaves numbered 74
+(`v1-n74.jpg`, `v2-n74.jpg`), because the two items' leaf numbers run over each
+other. Every leaf entry is keyed by the stored name (the served url's basename),
+the viewer's index cards and its `#leaf-<name>` fragments use it, and a reading is
+counted against the name. Keying by the number merged the two volumes' leaves,
+gave two index cards one id, and made the second card show the first one's page
+image; a leaf's caption and a reading's evidence name the stored leaf, so the two
+volumes are never confused.
+
 ---
 
 ## 8. Export (survival of the corpus)
 
 The build emits, in addition to HTML:
 
-- `/data/corpus.json` — every published edition's metadata + version list.
+- `/data/corpus.json` — every published edition's metadata + version list. Each
+  edition record travels WHOLE, so `repair_state` (including `in-repair`) travels
+  with it: a reader taking the corpus can tell a finished edition from one whose
+  repair has not begun, without reading a page.
 - `/data/graph.json` — the graph as published.
 - `/texts/<slug>/apparatus.json` — the version's whole repair log, with its leaf
   evidence (the file the apparatus page's viewer reads; §7.1).

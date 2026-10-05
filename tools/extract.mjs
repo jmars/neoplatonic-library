@@ -2408,13 +2408,28 @@ export function extract(src, meta) {
       unrepairedList: policy.raw.words,
       damagedTitles: toc.filter((t) => t.damaged).map((t) => t.n),
       note:
-        // The policy is named, not its PATH: the blog's copy of this sentence
-        // printed `tools/edits/_base.json`, which is (a) an internal path
-        // in a SERVED document — the leak gate's own subject — and (b) a path
-        // that does not exist in this repo (the policy is tools/edits/_base.json,
-        // see EDITS_DIR). A path that is wrong in both directions is not worth
-        // printing; the policy is named instead.
-        'The reading view of this text is produced by these rules and nothing else, under the shared base ' +
+        // A VERSION WITH NO RULES IS A STATE, NOT AN ABSENCE. The note below is
+        // written for a version whose reading view is produced BY its rules; a
+        // version that carries none — an edition published in repair, before its
+        // first emendation — would render that sentence as machinery describing
+        // nothing ("every rule fires" of no rules). It says the zero case plainly
+        // instead, and the counts that follow (the damage census, which NEEDS no
+        // rule) still stand.
+        corrections.length === 0
+          ? 'This version carries NO repair rules: the transcription is served exactly as the scanner left ' +
+            'it, so the reading view and the transcription view are the same text. Nothing is corrected here and ' +
+            'nothing is hidden either — every damaged character the scanner left stands visible in the reading ' +
+            'view, MARKED as damage rather than read as the print\u2019s own text. Each emendation will be ' +
+            'recorded here as a rule with the words it changes, why it was made, and the page image it was ' +
+            'decided from, as it is made. Until then the damage set is the shared base policy\u2019s, and the ' +
+            'counts below are the transcription\u2019s own.'
+          // The policy is named, not its PATH: the blog's copy of this sentence
+          // printed `tools/edits/_base.json`, which is (a) an internal path
+          // in a SERVED document — the leak gate's own subject — and (b) a path
+          // that does not exist in this repo (the policy is tools/edits/_base.json,
+          // see EDITS_DIR). A path that is wrong in both directions is not worth
+          // printing; the policy is named instead.
+          : 'The reading view of this text is produced by these rules and nothing else, under the shared base ' +
         'policy: the transcription served here is verbatim and uncorrected, and each ' +
         'rule is applied to it in this order. Every rule fires at least once in the served text, and one that ' +
         'fires nowhere is caught before this document is served, because a rule that matches nothing is ' +

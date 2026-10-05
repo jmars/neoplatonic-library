@@ -228,8 +228,20 @@ for (const e of servedEditions()) {
   } else {
     const rules = JSON.parse(readFileSync(repFile, 'utf8')).rules;
     const firings = rules.reduce((a, r) => a + (r.fires || 0), 0);
-    const stated = /Measured on the text this page serves: (\d+) repair rule/.exec(html);
-    check(!!stated, `${e.slug}: the page states the measured rule count`);
+    /* A VERSION WITH NO RULES STATES THAT, and states nothing about rules
+     * firing: an edition published IN REPAIR, before its first emendation, has
+     * no count to state — the count sentence would be machinery describing
+     * nothing (MEASURED: Taylor's Theology of Plato, 0 rules). What the probe
+     * holds to the data either way is that the page says what the FILE says. */
+    check(
+      rules.length
+        ? /Measured on the text this page serves: (\d+) repair rule/.test(html)
+        : /No repairs recorded yet/.test(html) || /carries NO repair rules/.test(html),
+      rules.length
+        ? `${e.slug}: the page states the measured rule count`
+        : `${e.slug}: the page states that no repair is recorded yet (0 rules in the file)`,
+    );
+    const stated = rules.length ? /Measured on the text this page serves: (\d+) repair rule/.exec(html) : null;
     if (stated) {
       check(
         Number(stated[1]) === rules.length,
@@ -483,13 +495,26 @@ section('the DOI is a link wherever a citation is shown');
   ];
   let links = 0;
   let doiCites = 0;
+  let withoutDoi = 0;
   for (const rel of pages) {
     const html = read(rel);
     const dois = [...new Set(citesOn(html).flatMap((c) => doisIn(strip(c))))];
     const anchors = anchorsOn(html);
     links += anchors.length;
     doiCites += dois.length;
-    check(dois.length > 0, `${rel}: shows a citation carrying a DOI (${dois.length})`);
+    /* A RECORD WITH NO DOI PRINTS NONE. DESIGN-SYSTEM.md §5.2 and the citation
+     * model both say a citation minting no DOI renders no link — MEASURED: the
+     * Theology of Plato is published IN REPAIR with no DOI minted yet, and its
+     * citation carries none. So an EDITION page is held to its OWN record (DOIs
+     * if the record mints one, none if it does not); the policy pages are held to
+     * the editions they list, so a site-wide page must still show a DOI. */
+    const own = served.find((x) => rel === `texts/${x.slug}/index.html` || rel === `texts/${x.slug}/v/${x.current_version}/index.html`);
+    if (own && !own.doi) {
+      check(dois.length === 0, `${rel}: the record mints no DOI, so the page shows none (${dois.length})`);
+      withoutDoi += 1;
+    } else {
+      check(dois.length > 0, `${rel}: shows a citation carrying a DOI (${dois.length})`);
+    }
     check(
       anchors.length === dois.length,
       `${rel}: every DOI-bearing citation shows ONE .cite-doi link (${anchors.length} link(s), ${dois.length} DOI(s))`,
@@ -505,6 +530,12 @@ section('the DOI is a link wherever a citation is shown');
     }
   }
   check(links > 0, `the DOI is a link on ${links} citation(s) across ${pages.length} page(s) (${doiCites} DOI(s))`);
+  if (withoutDoi) {
+    console.log(
+      `  NOTE ${withoutDoi} edition page(s) show NO DOI because their record mints none ` +
+        `(the citation string carries none — a citation with no DOI renders no link)`,
+    );
+  }
 
   /* THE DOI NEVER BREAKS MID-IDENTIFIER: one unbreakable run (`white-space:
    * nowrap`), like the citation's host. MEASURED: a DOI is meaningless split

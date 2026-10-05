@@ -90,18 +90,37 @@
     return n + ' ' + (n === 1 ? one : many);
   }
 
+  /** THE NAME A LEAF IS STORED UNDER, and the KEY built from it.
+   *
+   * A LEAF'S NUMBER IS NOT UNIQUE IN EVERY EDITION. MEASURED: Taylor's 1816
+   * Theology of Plato is printed over two volumes and cut from two archive items
+   * whose leaf numbers run over each other — BOTH serve an n74 — so the edition
+   * stores them as v1-n74.jpg and v2-n74.jpg, and a key built from the number
+   * ('n74') collides: two index cards with one id, and clicking the second showed
+   * the first one's page image. The stored name (which the served url carries) is
+   * the identity the edition itself uses, so the KEY is the name without its
+   * extension, and it is the number only for an edition whose leaves have no
+   * volume prefix (where the number IS the name). */
+  function leafName(url, n) {
+    if (!url) return 'n' + n;
+    var base = String(url).split('/').pop().replace(/\.jpg$/i, '');
+    return /^(?:v\d+-)?n\d+$/.test(base) ? base : 'n' + n;
+  }
+
   /** The filmstrip/panel key of the entry a rule belongs to. The first HELD leaf
    * it was decided from wins; failing that the first leaf it cites (which is not
    * held); failing that it is a reading with no page image. */
   function keyOfRule(r) {
     var evs = r.evidence || [];
-    for (var i = 0; i < evs.length; i += 1) if (evs[i].exists) return 'n' + evs[i].leaf;
+    for (var i = 0; i < evs.length; i += 1) if (evs[i].exists) return leafName(evs[i].url, evs[i].leaf);
     if (evs.length) return 'u' + evs[0].leaf;
     return 'none';
   }
 
   /** How a rule was decided, in plain words (model §0.4: an empty state is
-   * stated, never omitted). */
+   * stated, never omitted). The leaf is named by its STORED name, so a leaf of a
+   * two-volume edition is not confused with the other volume's leaf of the same
+   * number. */
   function evidenceNote(r) {
     var evs = r.evidence || [];
     if (!evs.length) return 'no page image is held for this reading';
@@ -110,8 +129,8 @@
       evs
         .map(function (e) {
           return (
-            'archive leaf n' +
-            e.leaf +
+            'archive leaf ' +
+            leafName(e.url, e.leaf) +
             (e.page !== null && e.page !== undefined ? ' · printed page ' + e.page : '') +
             (e.exists ? '' : ' (not held with this edition)')
           );
@@ -124,8 +143,8 @@
     if (entry.kind === 'none') return 'decided without a page image';
     if (entry.kind === 'all') return 'every reading in this version';
     return (
-      'archive leaf n' +
-      entry.n +
+      'archive leaf ' +
+      entry.label +
       (entry.page !== null && entry.page !== undefined ? ' · printed page ' + entry.page : '')
     );
   }
@@ -155,11 +174,19 @@
      * then the leaves as the tree holds them, then the leaves a reading cites but
      * the edition does not hold. */
     this.entries = [
-      { key: 'all', kind: 'all', n: null, page: null, url: null, readings: 0 },
-      { key: 'none', kind: 'none', n: null, page: null, url: null, readings: 0 },
+      { key: 'all', kind: 'all', n: null, page: null, url: null, readings: 0, label: '' },
+      { key: 'none', kind: 'none', n: null, page: null, url: null, readings: 0, label: '' },
     ];
     data.leaves.forEach(function (l) {
-      this.entries.push({ key: 'n' + l.n, kind: 'leaf', n: l.n, url: l.url, page: l.page, readings: l.readings });
+      this.entries.push({
+        key: leafName(l.url, l.n),
+        kind: 'leaf',
+        n: l.n,
+        url: l.url,
+        page: l.page,
+        readings: l.readings,
+        label: leafName(l.url, l.n),
+      });
     }, this);
     var unheld = [];
     data.rules.forEach(function (r) {
@@ -170,7 +197,15 @@
             return u.n === e.leaf;
           })
         )
-          unheld.push({ key: 'u' + e.leaf, kind: 'unheld', n: e.leaf, page: e.page, url: null, readings: 0 });
+          unheld.push({
+            key: 'u' + e.leaf,
+            kind: 'unheld',
+            n: e.leaf,
+            page: e.page,
+            url: null,
+            readings: 0,
+            label: leafName(null, e.leaf),
+          });
       });
     });
     unheld.forEach(function (u) {
@@ -198,7 +233,7 @@
       this.readings.all.push(r);
       var keys = [];
       (r.evidence || []).forEach(function (e) {
-        var k = (e.exists ? 'n' : 'u') + e.leaf;
+        var k = e.exists ? leafName(e.url, e.leaf) : 'u' + e.leaf;
         if (keys.indexOf(k) < 0) keys.push(k);
       });
       if (!keys.length) keys.push('none');
@@ -251,7 +286,11 @@
       label.appendChild(node('span', 'af-n', n));
       box.appendChild(label);
     });
-    this.controls.appendChild(box);
+    /* A VERSION WITH NO RECORDED RULES HAS NOTHING TO FILTER OR SEARCH. The two
+     * controls would be an empty type filter and a search box over an empty list
+     * — controls for a list that does not exist. They are omitted, and the leaf
+     * jump below (the whole scan) is what the version does have. */
+    if (this.data.ruleCount) this.controls.appendChild(box);
 
     var search = node('div', 'app-search');
     var lab = node('label', null, 'Search the readings');
@@ -269,7 +308,7 @@
     });
     search.appendChild(lab);
     search.appendChild(input);
-    this.controls.appendChild(search);
+    if (this.data.ruleCount) this.controls.appendChild(search);
 
     /* THE DIRECT JUMP. The number a reader has in mind is the one ON the rail's
      * cards and in the panel's caption — the ARCHIVE leaf number (proclus holds
@@ -287,18 +326,53 @@
     var jlab = node('label', null, 'Go to leaf');
     jlab.setAttribute('for', 'app-leaf-jump');
     jump.appendChild(jlab);
+    /* A TWO-VOLUME EDITION TAKES A NAME, not only a number: the same number names
+     * a leaf of each volume, so the stored name (v1-n74) is the only unambiguous
+     * address, and a number input cannot hold one. An edition whose leaves carry
+     * no volume prefix keeps the number input it has always had, and its range. */
+    var groups = [];
+    this.data.leaves.forEach(function (l) {
+      var name = leafName(l.url, l.n);
+      var pre = /^v\d+-/.test(name) ? name.replace(/-n\d+$/, '') : '';
+      var g = groups.filter(function (x) {
+        return x.pre === pre;
+      })[0];
+      if (!g) {
+        g = { pre: pre, lo: l.n, hi: l.n };
+        groups.push(g);
+      }
+      g.lo = Math.min(g.lo, l.n);
+      g.hi = Math.max(g.hi, l.n);
+    });
+    var prefixed = groups.some(function (g) {
+      return g.pre !== '';
+    });
     var jinput = node('input', 'app-jump-n');
-    jinput.type = 'number';
+    jinput.type = prefixed ? 'text' : 'number';
     jinput.id = 'app-leaf-jump';
     jinput.setAttribute('inputmode', 'numeric');
     jinput.setAttribute('autocomplete', 'off');
-    jinput.min = String(lo);
-    jinput.max = String(hi);
+    if (!prefixed) {
+      jinput.min = String(lo);
+      jinput.max = String(hi);
+    }
     jump.appendChild(jinput);
     var jgo = node('button', 'app-jump-go', 'Go');
     jgo.type = 'button';
     jump.appendChild(jgo);
-    jump.appendChild(node('span', 'app-jump-hint', 'n' + lo + '–n' + hi));
+    jump.appendChild(
+      node(
+        'span',
+        'app-jump-hint',
+        prefixed
+          ? groups
+              .map(function (g) {
+                return (g.pre ? g.pre + ' n' : 'n') + g.lo + '–' + (g.pre ? '' : 'n') + g.hi;
+              })
+              .join(' · ')
+          : 'n' + lo + '–n' + hi,
+      ),
+    );
     var submit = function () {
       self.jumpTo(jinput.value);
     };
@@ -321,27 +395,46 @@
     var ns = this.data.leaves.map(function (l) {
       return l.n;
     });
-    var held = this.data.leaves.some(function (l) {
+    var lo = Math.min.apply(null, ns);
+    var hi = Math.max.apply(null, ns);
+    /* THE STORED NAME IS AN ADDRESS TOO, and for a two-volume edition it is the
+     * only unambiguous one: a number that both volumes serve names two leaves. */
+    if (this.byKey[raw]) {
+      location.hash = '#leaf-' + raw;
+      this.revealLeaf(raw);
+      return;
+    }
+    var matches = this.data.leaves.filter(function (l) {
       return l.n === n;
     });
-    if (held) {
-      location.hash = '#leaf-n' + n;
-      this.revealLeaf('n' + n);
+    if (matches.length === 1) {
+      var key = leafName(matches[0].url, matches[0].n);
+      location.hash = '#leaf-' + key;
+      this.revealLeaf(key);
       return;
     }
     if (!this.status) return;
-    var lo = Math.min.apply(null, ns);
-    var hi = Math.max.apply(null, ns);
-    this.status.textContent =
-      'No leaf n' +
-      (raw === '' ? '' : n) +
-      ' is stored with this edition: it holds ' +
-      plural(this.data.leaves.length, 'leaf', 'leaves') +
-      ', n' +
-      lo +
-      '–n' +
-      hi +
-      '.';
+    this.status.textContent = matches.length
+      ? 'Leaf n' +
+        n +
+        ' is stored ' +
+        matches.length +
+        ' times in this edition, once for each volume that serves it — the index holds ' +
+        matches
+          .map(function (l) {
+            return leafName(l.url, l.n);
+          })
+          .join(' and ') +
+        '. Type one of those names to open it.'
+      : 'No leaf n' +
+        (raw === '' ? '' : n) +
+        ' is stored with this edition: it holds ' +
+        plural(this.data.leaves.length, 'leaf', 'leaves') +
+        ', n' +
+        lo +
+        '–n' +
+        hi +
+        '.';
   };
 
   /** Bring a leaf's card into the rail's own view. `block: 'nearest'` is the
@@ -382,14 +475,14 @@
         if (e.url) {
           var img = node('img', 'app-leaf-img');
           img.src = e.url;
-          img.alt = 'archive leaf n' + e.n + ' — the page image, as a thumbnail';
+          img.alt = 'archive leaf ' + e.label + ' — the page image, as a thumbnail';
           img.loading = 'lazy';
           img.decoding = 'async';
           b.appendChild(img);
         } else {
           b.appendChild(node('span', 'app-leaf-img app-leaf-noimg', e.kind === 'none' ? 'no page image' : 'not held'));
         }
-        b.appendChild(node('span', 'app-leaf-cap', 'n' + e.n));
+        b.appendChild(node('span', 'app-leaf-cap', e.label));
         /* A LEAF A READING WAS DECIDED FROM carries a small rubric mark. It is
          * NOT moved out of the run: the index is the whole scan, in leaf order,
          * and the mark says which leaves the apparatus rests on. */
@@ -431,7 +524,11 @@
         b.setAttribute(
           'title',
           total === 0
-            ? 'no reading was decided from this leaf'
+            ? e.kind === 'leaf' || e.kind === 'unheld'
+              ? 'no reading was decided from this leaf'
+              : self.data.ruleCount
+                ? 'no reading is recorded for this entry'
+                : 'no repair is recorded in this version yet'
             : total + ' reading(s) recorded for this entry; ' + shown + ' shown by the current filter',
         );
       }
@@ -458,6 +555,10 @@
   };
 
   Viewer.prototype.noteFor = function (entry) {
+    /* A VERSION WITH NO RULES SAYS IT ONCE, in the panel's empty state, and not
+     * three times over: the per-entry notes below describe readings that would be
+     * beneath them, and there are none. */
+    if (!this.data.ruleCount) return null;
     if (entry.kind === 'all')
       return (
         'The version’s readings in record order, each with the leaf it was decided from where the record ' +
@@ -537,11 +638,11 @@
     var nav = node('nav', 'app-leafnav');
     nav.id = 'app-leafnav';
     nav.setAttribute('aria-label', 'Leaf by leaf through the page images');
-    var back = node('button', 'app-leaf-prev', prev ? 'Previous leaf · n' + prev.n : 'Previous leaf');
+    var back = node('button', 'app-leaf-prev', prev ? 'Previous leaf · ' + prev.label : 'Previous leaf');
     back.type = 'button';
     back.disabled = !prev;
     if (prev) back.addEventListener('click', go(prev));
-    var fwd = node('button', 'app-leaf-next', next ? 'Next leaf · n' + next.n : 'Next leaf');
+    var fwd = node('button', 'app-leaf-next', next ? 'Next leaf · ' + next.label : 'Next leaf');
     fwd.type = 'button';
     fwd.disabled = !next;
     if (next) fwd.addEventListener('click', go(next));
@@ -626,16 +727,32 @@
     if (note) this.panel.appendChild(node('p', 'app-note', note));
 
     if (!matched.length) {
-      this.panel.appendChild(
-        node(
-          'p',
-          'app-note',
-          held.length
-            ? 'No reading recorded for this entry matches the current filter.'
-            : 'This leaf carries no recorded reading: no rule of this version was decided from it. ' +
-              'The page image is above — the whole scan is stored, so every leaf of it is readable here.',
-        ),
-      );
+      /* AN EMPTY LIST IS A STATE AND IS SAID, NEVER LEFT BLANK (model §0.4).
+       * Three different emptinesses, told apart: a filter that hides everything,
+       * a version whose log is empty because no repair has been made yet, and a
+       * leaf no reading was decided from. The old code said "this leaf carries no
+       * recorded reading" of ALL of them — including the whole-log entry, which
+       * is not a leaf. */
+      var msg;
+      if (held.length) {
+        msg = 'No reading recorded for this entry matches the current filter.';
+      } else if (!this.data.ruleCount) {
+        msg =
+          'This version carries NO recorded repairs yet: the reading view and the transcription view are the ' +
+          'same text, every damaged character standing as the scanner left it and marked as damage. No reading ' +
+          'is recorded here — and none is lost, because nothing has been changed: each emendation will appear ' +
+          'in this list as it is made. The page images beside this panel are the other axis, and they are all ' +
+          'here: every leaf of the edition’s scan is stored and readable, whether or not a reading comes from it.';
+      } else if (entry.kind === 'all') {
+        msg = 'No reading in this version matches the current filter.';
+      } else if (entry.kind === 'none') {
+        msg = 'Every reading in this version rests on a page image, so none is listed without one.';
+      } else {
+        msg =
+          'This leaf carries no recorded reading: no rule of this version was decided from it. ' +
+          'The page image is above — the whole scan is stored, so every leaf of it is readable here.';
+      }
+      this.panel.appendChild(node('p', 'app-note', msg));
       return;
     }
     if (matched.length > PAGE) this.panel.appendChild(this.pager(start, rows.length, matched.length));

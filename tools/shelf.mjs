@@ -352,13 +352,27 @@ export const TEXTS = [
     // the stored leaf file names carry their volume's prefix (v1-nNNN.jpg /
     // v2-nNNN.jpg) so the two leaf spaces cannot collide.
     cat: ['proclus-theology-of-plato'],
-    // NOT PUBLISHED, and it must not be until the repair phase has run: the
-    // stored transcription is the shelf's own OCR of two badly-scanned volumes,
-    // served with an EMPTY rule list — no reading supplied anywhere, every mark
-    // the scanner left standing visible. Serving that would present damage as
-    // the print's own text. The entry is held back until its rules exist and
-    // every one of them fires.
-    published: false,
+    // PUBLISHED, and served IN REPAIR with an EMPTY rule list — no repair has
+    // been made yet. It is put up now rather than held back, and it is marked
+    // for what it is: the transcription as imported, every mark the scanner left
+    // standing visible, and a repair log that will fill in as readings are made.
+    // The state says "readable, unfinished" — never "repaired" — and the note
+    // below says so in the reader's terms; the apparatus page states plainly that
+    // no repair has been recorded yet and what that means. `damaged` (the
+    // default) would understate it: the work HAS been begun — the division model
+    // was recovered from the page images — and `in-repair` is exactly the state
+    // the model reserves for a text that is readable and being worked on.
+    published: true,
+    repair: {
+      state: 'in-repair',
+      note:
+        'the transcription as imported, its OCR damage not yet repaired. The text is readable end to end — ' +
+        'the book and chapter structure was recovered from the page images of this edition, with a second ' +
+        'transcription of the same print as a witness — but no emendation has been made yet: every damage ' +
+        'character the scanner left stands visible in the reading view, marked, and the repairs list is empty. ' +
+        'Each emendation will be recorded as a rule with the words it changes, why, and the page image it was ' +
+        'decided from, as it is made; until then this page serves the scanned transcription and nothing more.',
+    },
   },
   {
     slug: 'dionysius-divine-names-mystical-theology-parker-1897',

@@ -88,7 +88,14 @@ for (const t of served) {
     );
     /* /plain IS the plain text of THIS version — recomputed here, not read from
      * the build's report. */
-    const entry = { ...t, ...JSON.parse(readFileSync(join(LIBRARY_DIR, slug, 'edition.json'), 'utf8')) };
+    /* THE BUILD'S OWN VIEW OF THE ENTRY. The record is the source of every
+     * bibliographic field the page prints (build/build.mjs `editionView`), so the
+     * edition STATEMENT comes from edition.json and not from the shelf's own
+     * prose — MEASURED on Taylor's Theology of Plato, whose shelf entry and whose
+     * record carry different statements: taking the shelf's here recomputed a
+     * /plain the build never wrote. */
+    const rec = JSON.parse(readFileSync(join(LIBRARY_DIR, slug, 'edition.json'), 'utf8'));
+    const entry = { ...t, ...rec, edition: rec.source_edition.statement };
     const doc = extract(src, { entry, sha256: sha256(src), version: v });
     const got = readFileSync(join(base, 'plain'), 'utf8');
     check(got === plainText(doc, entry), `${slug} v${v}: /plain is the plain text of THIS version (recomputed here, byte for byte)`);

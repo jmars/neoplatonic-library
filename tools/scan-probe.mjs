@@ -83,16 +83,22 @@ function servedEditions() {
     .filter((e) => e && e.current_version && SERVED.has(e.slug));
 }
 
-/** The leaves stored with an edition: the files in its scans/. A leaf file is
- * `nNNN.jpg`, or `v<N>-nNNN.jpg` where the edition's scan comes from more than
+/** The leaves stored with an edition: the FILE NAMES in its scans/. A leaf file
+ * is `nNNN.jpg`, or `v<N>-nNNN.jpg` where the edition's scan comes from more than
  * one archive item (the prefix carries the volume; the number is the leaf in its
- * own item). */
+ * own item). The NAME is the leaf's identity, not the number: an edition cut from
+ * two items has two leaves numbered 74 (`v1-n74.jpg`, `v2-n74.jpg`), so a set of
+ * numbers would collapse them into one. */
+const LEAF_FILE = /^(?:v\d+-)?n\d+\.jpg$/;
 function storedLeaves(slug) {
   const dir = join(ROOT, 'data', 'editions', slug, 'scans');
   if (!existsSync(dir)) return new Set();
-  const re = /^(?:v\d+-)?n(\d+)\.jpg$/;
-  return new Set(readdirSync(dir).map((f) => re.exec(f)).filter(Boolean).map((m) => Number(m[1])));
+  return new Set(readdirSync(dir).filter((f) => LEAF_FILE.test(f)));
 }
+/** The number a stored leaf file carries, and the volume prefix it carries (empty
+ * when the edition's leaves have none). */
+const leafNum = (f) => Number(/n(\d+)\.jpg$/.exec(f)[1]);
+const leafPre = (f) => (/^v\d+-/.exec(f) || [''])[0];
 
 const rulesOf = (slug, version) =>
   JSON.parse(readFileSync(join(ROOT, 'data', 'editions', slug, 'versions', version, 'repairs.json'), 'utf8')).rules;
@@ -125,15 +131,19 @@ for (const e of editions) {
   for (const r of rules) {
     for (const ev of r.evidence || []) {
       cited++;
-      if (ev.kind !== 'scan' || !Number.isInteger(ev.leaf) || ev.file !== `n${ev.leaf}.jpg` || ev.source !== 'archive.org') {
+      /* THE FILE IS THE LEAF'S IDENTITY (model §4.4): `nNNN.jpg`, or `v<N>-nNNN.jpg`
+       * for an edition whose scan comes from two items whose leaf numbers run over
+       * each other. The number must be the file's own. */
+      const fm = typeof ev.file === 'string' ? /^(?:v\d+-)?n(\d+)\.jpg$/.exec(ev.file) : null;
+      if (ev.kind !== 'scan' || !Number.isInteger(ev.leaf) || !fm || Number(fm[1]) !== ev.leaf || ev.source !== 'archive.org') {
         badShape.push(`${r.id}: ${JSON.stringify(ev)}`);
         continue;
       }
-      const isHeld = leaves.has(ev.leaf);
-      if (ev.exists !== isHeld) badExists.push(`${r.id}: leaf n${ev.leaf} exists=${ev.exists} but ${isHeld ? 'is' : 'is not'} stored`);
+      const isHeld = leaves.has(ev.file);
+      if (ev.exists !== isHeld) badExists.push(`${r.id}: leaf ${ev.file} exists=${ev.exists} but ${isHeld ? 'is' : 'is not'} stored`);
       const want = isHeld ? `/texts/${e.slug}/scans/${ev.file}` : null;
-      if (ev.url !== want) badUrl.push(`${r.id}: leaf n${ev.leaf} url=${JSON.stringify(ev.url)} (want ${JSON.stringify(want)})`);
-      (isHeld ? held.get(e.slug) : notHeld.get(e.slug)).add(ev.leaf);
+      if (ev.url !== want) badUrl.push(`${r.id}: leaf ${ev.file} url=${JSON.stringify(ev.url)} (want ${JSON.stringify(want)})`);
+      (isHeld ? held.get(e.slug) : notHeld.get(e.slug)).add(ev.file);
     }
   }
   totalCited += cited;
@@ -152,18 +162,28 @@ check(totalRules > 0 && totalCited > 0, `the corpus cites leaves at all (${total
  * against the range the edition's own record names. */
 section('the whole scan is stored — every leaf of the run, contiguous');
 {
+  /* PER VOLUME, where a work is cut from more than one item: the prefix names the
+   * volume and each volume's run is checked on its own — MEASURED, Taylor's
+   * Theology of Plato is cut from TWO items (v1: leaves 74-498 of vol. I; v2:
+   * leaves 1-297 of vol. II, over printed pages 1-299), and the two runs OVERLAP
+   * in number (both serve an n74), so a single range check would be meaningless. */
   const RANGE = {
-    'proclus-elements-of-theology-taylor-1816': [806, 946],
-    'porphyry-on-the-cave-of-the-nymphs-taylor-1917': [0, 71],
+    'proclus-elements-of-theology-taylor-1816': { '': [806, 946] },
+    'porphyry-on-the-cave-of-the-nymphs-taylor-1917': { '': [0, 71] },
+    'proclus-theology-of-plato-taylor-1816': { 'v1-': [74, 498], 'v2-': [1, 297] },
   };
-  for (const [slug, [lo, hi]] of Object.entries(RANGE)) {
+  for (const [slug, ranges] of Object.entries(RANGE)) {
     if (!editions.some((e) => e.slug === slug)) continue;
-    const got = [...storedLeaves(slug)].sort((a, b) => a - b);
-    check(got.length === hi - lo + 1,
-      `${slug}: all ${hi - lo + 1} leaves of the scan are stored (n${lo}..n${hi}; got ${got.length})`);
-    check(got[0] === lo && got[got.length - 1] === hi, `${slug}: the stored range runs n${lo}..n${hi}`);
-    const gaps = got.filter((n, i) => i > 0 && n !== got[i - 1] + 1);
-    check(gaps.length === 0, `${slug}: no leaf is missing from the middle of the run (${gaps.length} gap(s))`);
+    const files = [...storedLeaves(slug)];
+    for (const [pre, [lo, hi]] of Object.entries(ranges)) {
+      const got = files.filter((f) => leafPre(f) === pre).map(leafNum).sort((a, b) => a - b);
+      const label = pre ? `${slug} (${pre.replace(/-$/, '')})` : slug;
+      check(got.length === hi - lo + 1,
+        `${label}: all ${hi - lo + 1} leaves of the scan are stored (n${lo}..n${hi}; got ${got.length})`);
+      check(got.length > 0 && got[0] === lo && got[got.length - 1] === hi, `${label}: the stored range runs n${lo}..n${hi}`);
+      const gaps = got.filter((n, i) => i > 0 && n !== got[i - 1] + 1);
+      check(gaps.length === 0, `${label}: no leaf is missing from the middle of the run (${gaps.length} gap(s))`);
+    }
   }
 }
 
@@ -174,9 +194,9 @@ section('the whole scan is stored — every leaf of the run, contiguous');
  * left no cited leaf unheld — the list is empty for both editions. */
 section('every cited leaf is held (nothing a reading rests on is unshown)');
 for (const e of editions) {
-  const got = [...notHeld.get(e.slug)].sort((a, b) => a - b);
+  const got = [...notHeld.get(e.slug)].sort();
   check(got.length === 0,
-    `${e.slug}: no reading cites a leaf the edition does not hold (${got.length} unheld${got.length ? `: ${got.map((n) => `n${n}`).join(', ')}` : ''})`);
+    `${e.slug}: no reading cites a leaf the edition does not hold (${got.length} unheld${got.length ? `: ${got.join(', ')}` : ''})`);
 }
 
 /* ---------- §2 the built tree: every held leaf resolves ---------- */
@@ -189,20 +209,21 @@ for (const e of editions) {
     continue;
   }
   const leaves = storedLeaves(e.slug);
-  const shipped = new Set(readdirSync(distDir).filter((f) => /^n\d+\.jpg$/.test(f)).map((f) => Number(f.slice(1, -4))));
-  const orphans = [...leaves].filter((l) => !shipped.has(l));
-  const extras = [...shipped].filter((l) => !leaves.has(l));
-  check(orphans.length === 0, `${e.slug}: every stored leaf is shipped (${orphans.length} missing${orphans.length ? `: ${orphans.map((n) => `n${n}`).join(', ')}` : ''})`);
+  const shipped = new Set(readdirSync(distDir).filter((f) => LEAF_FILE.test(f)));
+  const orphans = [...leaves].filter((f) => !shipped.has(f));
+  const extras = [...shipped].filter((f) => !leaves.has(f));
+  check(orphans.length === 0, `${e.slug}: every stored leaf is shipped (${orphans.length} missing${orphans.length ? `: ${orphans.sort().slice(0, 6).join(', ')}` : ''})`);
   check(extras.length === 0, `${e.slug}: no shipped leaf is unstored (${extras.length} extra)`);
   check(shipped.size === leaves.size, `${e.slug}: ${shipped.size} served = ${leaves.size} stored`);
 
-  /* BYTE-IDENTITY of ONE leaf: the copy is a copy. Comparing all 213 would be
-   * slow and prove nothing more than the one — the copy is mechanical. */
-  const one = [...leaves].sort((a, b) => a - b)[0];
-  if (one != null) {
-    const a = readFileSync(join(ROOT, 'data', 'editions', e.slug, 'scans', `n${one}.jpg`));
-    const b = readFileSync(join(distDir, `n${one}.jpg`));
-    check(a.equals(b), `${e.slug}: the served leaf n${one}.jpg is byte-identical to the stored one`);
+  /* BYTE-IDENTITY of ONE leaf per volume: the copy is a copy. Comparing all 935
+   * would be slow and prove nothing more than the ones — the copy is mechanical. */
+  for (const pre of new Set([...leaves].map(leafPre))) {
+    const one = [...leaves].filter((f) => leafPre(f) === pre).sort()[0];
+    if (one == null) continue;
+    const a = readFileSync(join(ROOT, 'data', 'editions', e.slug, 'scans', one));
+    const b = readFileSync(join(distDir, one));
+    check(a.equals(b), `${e.slug}: the served leaf ${one} is byte-identical to the stored one`);
   }
 }
 
@@ -260,7 +281,14 @@ section('the apparatus data carries the leaf, and the viewer shows it lazily');
     const leaves = storedLeaves(e.slug);
     const entries = data.rules.flatMap((r) => r.evidence);
 
-    const badAddr = entries.filter((ev) => ev.exists && ev.url !== `/texts/${e.slug}/scans/n${ev.leaf}.jpg`);
+    /* The apparatus data carries each evidence entry's SERVED URL (model §7.1),
+     * not a separate file field: the leaf's stored name is the url's basename, and
+     * it must be a leaf file whose number is the entry's leaf. */
+    const badAddr = entries.filter((ev) => {
+      if (!ev.exists) return false;
+      const base = String(ev.url || '').split('/').pop();
+      return ev.url !== `/texts/${e.slug}/scans/${base}` || !LEAF_FILE.test(base) || leafNum(base) !== ev.leaf;
+    });
     check(badAddr.length === 0, `${e.slug}: every held leaf's url is the stable scan address (${badAddr.length} wrong${badAddr.length ? `: ${badAddr[0].url}` : ''})`);
     const unresolved = entries.filter((ev) => ev.url && !existsSync(join(DIST, ev.url.replace(/^\//, ''))));
     check(unresolved.length === 0,

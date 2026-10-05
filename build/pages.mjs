@@ -19,7 +19,7 @@ import { repairsPath, readMeta } from '../tools/extract.mjs';
 import { REPAIR_LABELS, repairOf, MODERN_EDITIONS } from '../tools/shelf.mjs';
 import { esc, SITE } from './shell.mjs';
 import { gateSafeText } from './leak.mjs';
-import { linkDoi, scanLeafCount } from './library.mjs';
+import { linkDoi, scanLeafCount, archiveItems } from './library.mjs';
 
 /** The four scholarly repair types (DATA-MODEL §4.1), said once. */
 const TYPE_MEANING = {
@@ -92,15 +92,19 @@ export function buildEditionsPage(served) {
      * migration used to flag work is `false` throughout. */
     const conjectural = rep.rules.filter((r) => r.type === 'conjectural').length;
     const bytes = `<code>${rep.damage.map((c) => esc(JSON.stringify(c))).join(' ')}</code>`;
-    const src = t.record.scan_source || {};
+    /* The items the scan came from, as a LIST: one volume's item, or the two of
+     * a work the print divides over two volumes. Naming only the first would
+     * misstate where this edition's leaves come from. */
+    const items = archiveItems(t);
+    const itemsHtml = items
+      .map((i) => `<a href="${esc(i.url)}" rel="noreferrer"><code>${esc(i.id)}</code></a>`)
+      .join(' and ');
     return (
       `<h3 id="ed-${esc(t.slug)}">${esc(t.title)} — ${esc(t.author)}${t.translator ? `, tr. ${esc(t.translator)}` : ''}</h3>` +
       `<p><b>Source.</b> ${esc(t.record.source_edition.statement)}</p>` +
       `<p><b>Scanned from.</b> ` +
-      (src.archive_id
-        ? `Internet Archive identifier: ` +
-          `<a href="https://archive.org/details/${esc(src.archive_id)}" rel="noreferrer">` +
-          `<code>${esc(src.archive_id)}</code></a>. ` +
+      (items.length
+        ? `Internet Archive identifier${items.length === 1 ? '' : 's'}: ${itemsHtml}. ` +
           `The whole import record (the line range, the checksums, the page arithmetic) is in ` +
           `<a href="/data/corpus.json">the data export</a>.`
         : `the archive item is not recorded for this edition.`) +
@@ -110,21 +114,28 @@ export function buildEditionsPage(served) {
           `${scanLeafCount(t.slug) === 1 ? 'leaf' : 'leaves'} of it — is stored with it and served, one image per ` +
           `leaf, at <a href="/texts/${esc(t.slug)}/scans/">/texts/${esc(t.slug)}/scans/</a> — so the leaf a repair ` +
           `cites resolves to the image itself, and a leaf no reading used is readable all the same. They are the ` +
-          (src.archive_id
-            ? `Internet Archive's scan of this volume (<a href="https://archive.org/details/${esc(src.archive_id)}" rel="noreferrer">item <code>${esc(src.archive_id)}</code></a>)`
+          (items.length
+            ? `Internet Archive's scan${items.length === 1 ? '' : 's'} of the ${items.length === 1 ? 'volume' : `${items.length} items`} this edition's leaves come from (${itemsHtml})`
             : `archive's scan of this volume`) +
           `, a public-domain work like the transcription; the editorial layer over them — the repairs and ` +
           `their rationales, the page models, the apparatus — is CC BY 4.0.</p>`
         : '') +
       `<p><b>The state.</b> <span class="tag">${esc(REPAIR_LABELS[repairOf(t).state] || repairOf(t).state)}</span> ` +
       `— ${gateSafeText(esc(repairOf(t).note), t.slug)}</p>` +
-      `<p><b>What it carries.</b> ${rep.rules.length} repair rule${rep.rules.length === 1 ? '' : 's'} ` +
-      `(${TYPE_ORDER.filter((k) => byType[k]).map((k) => `${byType[k]} ${k}`).join(', ')}), ` +
-      `${conjectural} of them a reading supplied with no witness (see <a href="/errata/">errata</a>). ` +
-      `The base policy is <code>${esc(rep.policy)}</code>, and the damage characters a rule may reach are ` +
-      `${bytes}. ` +
-      `Version <code>${esc(t.currentVersion)}</code>, ${esc(meta.date)}, transcription checksum ` +
-      `<code>${esc(meta.source_sha256.slice(0, 16))}…</code>.</p>` +
+      (rep.rules.length
+        ? `<p><b>What it carries.</b> ${rep.rules.length} repair rule${rep.rules.length === 1 ? '' : 's'} ` +
+          `(${TYPE_ORDER.filter((k) => byType[k]).map((k) => `${byType[k]} ${k}`).join(', ')}), ` +
+          `${conjectural} of them a reading supplied with no witness (see <a href="/errata/">errata</a>). ` +
+          `The base policy is <code>${esc(rep.policy)}</code>, and the damage characters a rule may reach are ` +
+          `${bytes}. ` +
+          `Version <code>${esc(t.currentVersion)}</code>, ${esc(meta.date)}, transcription checksum ` +
+          `<code>${esc(meta.source_sha256.slice(0, 16))}…</code>.</p>`
+        : `<p><b>What it carries.</b> No repair rules yet: the transcription is served exactly as it stands and ` +
+          `no emendation has been made, so the reading view and the transcription view are the same text. The ` +
+          `base policy a rule will be written under is <code>${esc(rep.policy)}</code>, and the damage ` +
+          `characters a rule may reach are ${bytes}. ` +
+          `Version <code>${esc(t.currentVersion)}</code>, ${esc(meta.date)}, transcription checksum ` +
+          `<code>${esc(meta.source_sha256.slice(0, 16))}…</code>.</p>`) +
       `<p><b>Cite it.</b> <code>${linkDoi(esc(t.citation))}</code></p>`
     );
   }).join('');
@@ -261,12 +272,19 @@ export function buildErrataPage(served) {
           `${safe(evidenceNote(r))}</span></li>`,
       )
       .join('');
+    const total = repairsOf(t).rules.length;
     return (
       editionHeading(t) +
       (rules.length
         ? `<ol class="errata">${rows}</ol>`
-        : `<p>None. Every rule in this version is typed <code>OCR</code>, <code>punctuation</code> or ` +
-          `<code>transliteration</code> — no reading here was supplied without a witness.</p>`)
+        : total
+          ? `<p>None. Every rule in this version is typed <code>OCR</code>, <code>punctuation</code> or ` +
+            `<code>transliteration</code> — no reading here was supplied without a witness.</p>`
+          /* NO RULES IS NOT "EVERY RULE IS FINE" — it is no rule at all. Saying
+           * "every rule is typed…" of an empty list would read as a clean bill of
+           * health for a text whose repair has not begun. */
+          : `<p>None yet. This edition carries no recorded repairs, so there is no reading here that was ` +
+            `supplied without a witness: the list fills as emendations are made.</p>`)
     );
   }).join('');
 
@@ -287,11 +305,16 @@ export function buildErrataPage(served) {
         );
       }
     }
+    const n = repairsOf(t).rules.length;
     return (
       editionHeading(t) +
       (rows.length
         ? `<ol class="errata">${rows.join('')}</ol>`
-        : `<p>None. Every page image this edition’s rules cite is held with the edition.</p>`)
+        : n
+          ? `<p>None. Every page image this edition’s rules cite is held with the edition.</p>`
+          : `<p>None yet. This edition records no repairs, so it cites no page image; the ${scanLeafCount(t.slug)} ` +
+            `leaves of its own scan are stored with it and served, one image per leaf, at ` +
+            `<a href="/texts/${esc(t.slug)}/scans/">/texts/${esc(t.slug)}/scans/</a>.</p>`)
     );
   }).join('');
 
@@ -307,24 +330,38 @@ export function buildErrataPage(served) {
     const state = repairOf(t);
     return (
       editionHeading(t) +
-      `<p><b>The version served here.</b> <code>${esc(t.currentVersion)}</code> — ${n} repair rule${n === 1 ? '' : 's'} ` +
-      `in the version, ${withScan} of ${withScan === 1 ? 'which' : 'them'} read off a page image` +
+      `<p><b>The version served here.</b> <code>${esc(t.currentVersion)}</code> — ` +
+      (n
+        ? `${n} repair rule${n === 1 ? '' : 's'} in the version, ${withScan} of ${withScan === 1 ? 'which' : 'them'} ` +
+          `read off a page image`
+        : `NO recorded repair: the transcription is served exactly as it stands and no emendation has been made`) +
       (leaves ? `; ${leaves} leaf image${leaves === 1 ? '' : 's'} ${leaves === 1 ? 'is' : 'are'} stored with the edition` : '') +
       `. <span class="tag">${esc(REPAIR_LABELS[state.state] || state.state)}</span> — ` +
       `${gateSafeText(esc(state.note), t.slug)}</p>` +
-      `<p><b>The whole record, and the page images.</b> Every one of the ${n} rule${n === 1 ? '' : 's'} is in ` +
-      `the edition’s <a href="${base}apparatus/">apparatus</a> at ` +
-      `<a href="${base}apparatus/">${base}apparatus/</a>, a page of its own, browsable ` +
-      `BOTH ways: the edition’s whole scan forms an index in leaf order, and selecting any leaf opens its ` +
-      `page image together with the ` +
-      `readings decided from it — each with its id, its type, the words it changes, its reason and the witness ` +
-      `it rested on, anchored at <code>#repair-&lt;id&gt;</code> so a single reading can be cited — while the ` +
-      `readings that carry no page image (${n - withScan} of ${n} here) are listed in their own right, and a ` +
-      `list of all ${n} readings is paged 25 at a time for a reader who has no leaf in mind. The whole log is ` +
-      `served with the edition as data at <a href="${base}apparatus.json">${base}apparatus.json</a>, so it can be ` +
-      `read, filtered and searched without the page. <b>That is where the scans are:</b> the page images are stored ` +
-      `with the edition and served beside its text, one image per leaf, at <a href="${base}scans/">${base}scans/</a>` +
-      `${leaves ? ` — its whole scan, ${leaves} leaf image${leaves === 1 ? '' : 's'} for this edition` : ''}.</p>`
+      (n
+        ? `<p><b>The whole record, and the page images.</b> Every one of the ${n} rule${n === 1 ? '' : 's'} is in ` +
+          `the edition’s <a href="${base}apparatus/">apparatus</a> at ` +
+          `<a href="${base}apparatus/">${base}apparatus/</a>, a page of its own, browsable ` +
+          `BOTH ways: the edition’s whole scan forms an index in leaf order, and selecting any leaf opens its ` +
+          `page image together with the ` +
+          `readings decided from it — each with its id, its type, the words it changes, its reason and the witness ` +
+          `it rested on, anchored at <code>#repair-&lt;id&gt;</code> so a single reading can be cited — while the ` +
+          `readings that carry no page image (${n - withScan} of ${n} here) are listed in their own right, and a ` +
+          `list of all ${n} readings is paged 25 at a time for a reader who has no leaf in mind. The whole log is ` +
+          `served with the edition as data at <a href="${base}apparatus.json">${base}apparatus.json</a>, so it can be ` +
+          `read, filtered and searched without the page. <b>That is where the scans are:</b> the page images are stored ` +
+          `with the edition and served beside its text, one image per leaf, at <a href="${base}scans/">${base}scans/</a>` +
+          `${leaves ? ` — its whole scan, ${leaves} leaf image${leaves === 1 ? '' : 's'} for this edition` : ''}.</p>`
+        : `<p><b>The record so far, and the page images.</b> The repair log is empty at this version, so there ` +
+          `is nothing yet to list here; the <a href="${base}apparatus/">apparatus</a> at ` +
+          `<a href="${base}apparatus/">${base}apparatus/</a> opens on ` +
+          (leaves
+            ? `the edition’s WHOLE SCAN in leaf order — ${leaves} leaf image${leaves === 1 ? '' : 's'}, every one ` +
+              `openable — and states at each leaf that no reading has been recorded from it yet`
+            : `the statement that no repair has been recorded yet and no page image is stored`) +
+          `. The log is served with the edition as data at ` +
+          `<a href="${base}apparatus.json">${base}apparatus.json</a>, empty of rules at this version, and each ` +
+          `emendation will be written into it as it is made.</p>`)
     );
   }).join('');
 
@@ -334,7 +371,8 @@ export function buildErrataPage(served) {
     `with the edition. It is not a worklist. Every rule served here has been read and classified — ` +
     `<code>OCR</code>, <code>punctuation</code>, <code>transliteration</code> or <code>conjectural</code> — and ` +
     `that review is COMPLETE: no rule on this site is flagged for one, and the counts below are the counts of the ` +
-    `record itself.</p>` +
+    `record itself. An edition whose repair has not begun records no rules yet, and its own block below says so ` +
+    `rather than reading as a clean bill of health.</p>` +
     `<p><b>A correction is a new rule.</b> Where a place is wrong the library does not edit the served text in ` +
     `silence: the report becomes a NEW RULE in a NEW VERSION, the old version stands at its own address, and the ` +
     `change is citable (see the <a href="/editions/">versioning promise</a>). The rules are not reworded to fit ` +

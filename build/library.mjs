@@ -52,9 +52,29 @@ const log = (msg) => console.log(`[build] ${msg}`);
 const DAMAGED_TITLE = '[the opening words are damaged in this transcription]';
 
 
-/** A single library page is capped at ~1.8 MB of prose; a text over it is
- * served as parts. Nothing is ever split mid-paragraph. */
-const LIBRARY_MAX_BYTES = 1800000;
+/**
+ * THE PAGE BUDGET, and the PROSE it leaves for the text.
+ *
+ * `LIBRARY_PAGE_MAX_BYTES` is the size a single library page may not exceed —
+ * the page a reader on a slow link actually waits for. `library-smoke` asserts
+ * it, and it reads THIS constant (one source of truth). A text whose prose does
+ * not fit is served in PARTS, split where the edition itself divides; nothing is
+ * ever split mid-paragraph.
+ *
+ * The prose budget is NOT the page budget: the reader page inlines the whole
+ * transcription (the copy a reader without scripts gets) BESIDE the compiled
+ * reader app and the site's own chrome. MEASURED (2026-10-05, the largest page
+ * the build emits): the page is 2,180,490 bytes and its prose is 1,784,122, so
+ * the fixed chrome — the reader app, its stylesheet, the apparatus statement and
+ * the provenance block — is 396,368 bytes. The old constant was 1,800,000, which
+ * is prose-only: a text just under it produced a page just OVER the cap, and the
+ * two numbers could not both hold. Subtracting the chrome is what makes them
+ * agree. Taylor's Theology of Plato is the first text in the library to reach
+ * the budget; it is served in parts, with the reader app on the parent page.
+ */
+export const LIBRARY_PAGE_MAX_BYTES = 2 * 1024 * 1024;
+const LIBRARY_CHROME_BYTES = 400000;
+const LIBRARY_MAX_BYTES = LIBRARY_PAGE_MAX_BYTES - LIBRARY_CHROME_BYTES;
 
 /** The extracted DOCUMENT of a stored edition, by slug, so the text's page and
  * the document it serves are built from ONE extraction: two extractions of the
@@ -189,6 +209,29 @@ function editionHtml(t, lib, base) {
           `division’s own words.`) +
       `</p>`,
   );
+  /* A VERSION WITH NO RULES. `cls.opener` and its neighbours are all 0, so this
+   * paragraph would read "0 for the divisions, 0 for the numbers … every rule
+   * firing at least once" of no rules. An edition published in repair, whose
+   * first emendation has not been made, gets the paragraph that says so — and
+   * the damage counts, which need no rule, are the same either way. */
+  if (!Object.values(cls).some((n) => n)) {
+    p.push(
+      `<p><b>No repairs recorded yet.</b> This version carries NO repair rules: the reading view and the ` +
+        `transcription view are the same text, because no emendation has been made. Nothing is hidden either — ` +
+        `every damaged character the scanner left stands visible in the reading view, MARKED as damage so a ` +
+        `reader can see it is the scanner’s and not the author’s, and no word is silently corrected. ` +
+        `The damage that stands is counted in TWO classes, stated apart because they are different things: ` +
+        `<b>${m.leftWordCount} damaged word(s)</b> the transcription carries, and <b>${m.leftMarkerCount} ` +
+        `standalone marker(s)</b> — one or more damage characters standing as their own token BETWEEN words ` +
+        `(a lost space, or the scanner’s debris) — which are NOT words and are not counted as any. Between ` +
+        `them they account for every one of the ${m.leftDamageChars} damage character(s) the text shows over ` +
+        `the stretch the reading view renders (the note definitions and the unlabelled paragraphs included). ` +
+        `Each emendation will be recorded here as a rule — the words it changes, why, and the page image it was ` +
+        `decided from — as it is made. The policy, once rules are written, is: a recorded reading is ` +
+        `substituted, and where none is recorded the transcription’s own characters stay.</p>`,
+    );
+    return p.join('');
+  }
   p.push(
     `<p><b>The repairs, as rules.</b> Every repair the reading view makes is a recorded rule applied ` +
       `to the transcription’s own words — ${cls.opener} for the divisions, ` +
@@ -236,17 +279,37 @@ function provenanceHtml(t, cited, stats, a, dmg, edition, base) {
    * and nothing is repaired beyond what a witness decides. (MEASURED, this text:
    * 115 reading rules, 3 division openers, 5 digit normalisations, and 2 damaged
    * runs where no reading was determinable — left visible, not guessed.) */
-  p.push(
-    `<p><b>A repaired edition, not a clean text.</b> What stands here is a transcription of the printed ` +
-      `edition below — every character of it kept — with a RECORDED SET OF REPAIRS applied to the reading ` +
-      `view. Each repair is a rule with the words it changes, why, and how many times it fires; the rules ` +
-      `are applied by the view and are never baked into the words served, so the transcription is always ` +
-      `beside its repairs and the difference between the two views is the repair list itself. Where the ` +
-      `print's word could NOT be determined — from the transcription's own context or from a parallel ` +
-      `edition of the same translation — no repair is invented: the scanner's damage stays, marked, and a ` +
-      `rule records the decision to leave it. So this edition reads cleanly in most places and shows its ` +
-      `damage in the rest, and it never silently says anything the print does not.</p>`,
-  );
+  /* WHAT THIS IS, in the first line, and WHICH ONE IT IS. The paragraph below is
+   * written for an edition whose reading view is produced by its rules; an
+   * edition published in repair, with no emendation yet, is NOT a repaired
+   * edition and must not be called one. The rule count is MEASURED from the
+   * served document (`edition` is `counts(doc)`), never typed — the same source
+   * the state note's count uses. */
+  const ruleCount = edition ? Object.values(edition.corrections).reduce((a, b) => a + b, 0) : null;
+  if (ruleCount === 0) {
+    p.push(
+      `<p><b>A transcription, not a repaired text.</b> What stands here is a transcription of the printed ` +
+        `edition below — every character of it kept — and no repair has been made to it yet, so the reading ` +
+        `view and the transcription view are the same words. Every damaged character the scanner left stands ` +
+        `as it stands, MARKED as damage rather than read as the print's own text, and nothing is silently ` +
+        `corrected. Each emendation will be recorded as a rule with the words it changes, why, and the page ` +
+        `image it was decided from, as it is made: the book and chapter structure below was recovered from the ` +
+        `edition's own page images, and the repairs will be made against those images in the same way. Until ` +
+        `they are, this page shows the transcription as imported and says so.</p>`,
+    );
+  } else {
+    p.push(
+      `<p><b>A repaired edition, not a clean text.</b> What stands here is a transcription of the printed ` +
+        `edition below — every character of it kept — with a RECORDED SET OF REPAIRS applied to the reading ` +
+        `view. Each repair is a rule with the words it changes, why, and how many times it fires; the rules ` +
+        `are applied by the view and are never baked into the words served, so the transcription is always ` +
+        `beside its repairs and the difference between the two views is the repair list itself. Where the ` +
+        `print's word could NOT be determined — from the transcription's own context or from a parallel ` +
+        `edition of the same translation — no repair is invented: the scanner's damage stays, marked, and a ` +
+        `rule records the decision to leave it. So this edition reads cleanly in most places and shows its ` +
+        `damage in the rest, and it never silently says anything the print does not.</p>`,
+    );
+  }
   /* THE REPAIR STATE, said on the text's own page: the index states it above the
    * list, and this is where a reader who arrived at the text directly meets it. */
   const rep = repairOf(t);
@@ -280,7 +343,17 @@ function provenanceHtml(t, cited, stats, a, dmg, edition, base) {
    * editorial layer. */
   {
     const n = scanLeafCount(t.slug);
-    const item = archiveItemUrl(t);
+    const items = archiveItems(t);
+    const itemNote = !items.length
+      ? `The archive item the leaves were taken from is not recorded for this edition. `
+      : items.length === 1
+        ? `They are the Internet Archive's scan of this volume ` +
+          `(<a href="${esc(items[0].url)}" rel="noreferrer">item <code>${esc(items[0].id)}</code></a>), a ` +
+          `public-domain work like the transcription. `
+        : `They are the Internet Archive's scans of the ${items.length} items this edition's leaves come from ` +
+          `(${items
+            .map((i) => `<a href="${esc(i.url)}" rel="noreferrer">item <code>${esc(i.id)}</code></a>`)
+            .join(' and ')}), a public-domain work like the transcription. `;
     if (n) {
       p.push(
         `<p><b>The source page images.</b> The edition’s whole scan — all ${n} ` +
@@ -289,11 +362,7 @@ function provenanceHtml(t, cited, stats, a, dmg, edition, base) {
           `and browses every leaf of it in leaf order, so a leaf a reading was decided from can be opened ` +
           `beside the reading, and a leaf no reading used is readable all the same; the readings that carry no ` +
           `page image are listed in the apparatus in their own right. ` +
-          (item
-            ? `They are the Internet Archive's scan of this volume ` +
-              `(<a href="${esc(item.url)}" rel="noreferrer">item <code>${esc(item.id)}</code></a>), a ` +
-              `public-domain work like the transcription. `
-            : 'The archive item the leaves were taken from is not recorded for this edition. ') +
+          itemNote +
           `The editorial layer over them — the repairs and their rationales, the page models, the apparatus — ` +
           `is the part released under a licence of its own; see the licence below.`,
       );
@@ -1023,8 +1092,18 @@ function readerSectionHtml(doc, n) {
 /** The shell: provenance (elsewhere), the contents list, the first division, the
  * app, and the floor under it. Order is deliberate — the app mounts first and the
  * server-rendered copy is what a reader without scripts gets, and the app hides
- * that copy once it is up (see the boot script), so nothing is shown twice. */
+ * that copy once it is up (see the boot script), so nothing is shown twice.
+ *
+ * THE COPY IS BOUNDED WHEN THE TEXT IS SERVED IN PARTS. `legacySection` is the
+ * whole transcription rendered for a reader without scripts; a text whose page
+ * would exceed `LIBRARY_PAGE_MAX_BYTES` is served in parts instead (the parts
+ * are linked from the parent page), and the parent then carries the app and the
+ * edition's FIRST section, not the whole book. `legacySection` empty IS that
+ * mode, and the no-script statement says it — the whole text is one plain file
+ * and the parts, both named there. The app is not affected: it fetches the
+ * version's own document and renders the whole of it either way. */
 function readerShell(t, doc, legacySection, base) {
+  const wholeCopy = legacySection !== '';
   const flags = {
     slug: t.slug,
     url: `${base}t`,
@@ -1038,11 +1117,15 @@ function readerShell(t, doc, legacySection, base) {
       return { state: r.state, label: REPAIR_LABELS[r.state] || r.state, note: r.note || '' };
     })(),
   };
-  const noscript =
-    `<noscript><p><b>This page reads without scripts.</b> Below is the edition's ` +
-    `own first section, with its note references and page markers, and then the whole ` +
-    `transcription of the volume in its printed order. The same text is also served as ` +
-    `<a href="${base}plain">one plain file</a>, which needs no scripts at all.</p></noscript>`;
+  const noscript = wholeCopy
+    ? `<noscript><p><b>This page reads without scripts.</b> Below is the edition's ` +
+      `own first section, with its note references and page markers, and then the whole ` +
+      `transcription of the volume in its printed order. The same text is also served as ` +
+      `<a href="${base}plain">one plain file</a>, which needs no scripts at all.</p></noscript>`
+    : `<noscript><p><b>This page reads without scripts.</b> Below is the edition's ` +
+      `own first section, with its note references and page markers. The whole transcription is too long ` +
+      `for one page, so it is served in PARTS — each linked under “The text, in parts” below — and as ` +
+      `<a href="${base}plain">one plain file</a>, which needs no scripts either.</p></noscript>`;
   const app =
     `<div id="reader-app"></div>\n` +
     `<script type="application/json" id="reader-flags">${JSON.stringify(flags)}</script>\n` +
@@ -1055,9 +1138,17 @@ function readerShell(t, doc, legacySection, base) {
   const fallback =
     `<div id="reader-fallback">` +
     shown +
-    `<p class="dim">Every word of the volume follows, exactly as the transcription has it; ` +
-    `the reader above shows the same text with the repairs recorded as rules, which is why ` +
-    `one page of this book can read two ways.</p>` +
+    (wholeCopy
+      ? `<p class="dim">Every word of the volume follows, exactly as the transcription has it` +
+        ((doc.corrections || []).length
+          ? `; the reader above shows the same text with the repairs recorded as rules, which is why ` +
+            `one page of this book can read two ways.</p>`
+          : `. No repair has been recorded for this edition yet, so the reader above and this copy are ` +
+            `the same words.</p>`)
+      : `<p class="dim">This is the edition’s first section. The whole transcription follows in parts, ` +
+        `linked under “The text, in parts” below, and as <a href="${base}plain">one plain file</a>; ` +
+        `the reader above shows the whole of it, with the repairs recorded as rules` +
+        ((doc.corrections || []).length ? `.</p>` : ` — none of them yet.</p>`)) +
     legacySection +
     `</div>`;
   // The app comes FIRST and the server-rendered copy after it. Both carry the
@@ -1244,11 +1335,18 @@ export function scanLeafCount(slug) {
   }
 }
 
-/** The Internet Archive item page for the scan (the item `edition.json`'s
- * `scan_source.archive_id` names), or null when no item is recorded. */
-function archiveItemUrl(t) {
-  const id = t.record && t.record.scan_source && t.record.scan_source.archive_id;
-  return id ? { id, url: `https://archive.org/details/${id}` } : null;
+/** The Internet Archive item page(s) the scan came from — from `edition.json`'s
+ * `scan_source.items[]` when it names more than one, else `.archive_id`.
+ * MEASURED, and why a LIST: Taylor's 1816 Theology of Plato is printed over two
+ * volumes and its transcription is cut from TWO archive items (its stored leaf
+ * names carry the volume's prefix). Naming only the first item would misstate
+ * where the edition's leaves come from, so every recorded item is named and the
+ * count is stated. Returns `[{ id, url }]`, empty when none is recorded. */
+export function archiveItems(t) {
+  const s = (t.record && t.record.scan_source) || {};
+  const ids = Array.isArray(s.items) ? s.items.map((i) => i && i.archive_id).filter(Boolean) : [];
+  if (!ids.length && s.archive_id) ids.push(s.archive_id);
+  return [...new Set(ids)].map((id) => ({ id, url: `https://archive.org/details/${id}` }));
 }
 
 /** THE VIEWER'S CODE, read once and comment-stripped: it is inlined into the
@@ -1304,33 +1402,54 @@ function apparatusViewerHtml(t, version, base) {
     .map((n) => `n${n}`)
     .join(', ');
   const scans = `/texts/${esc(t.slug)}/scans/`;
-  const summary =
-    `${data.ruleCount} recorded repair${data.ruleCount === 1 ? '' : 's'} in this version — ` +
-    byType.map((k) => `${data.counts[k]} ${k}`).join(', ') +
-    `. Every one is a rule: the words it changes, why it was made, and the witness it rested on. ` +
+  /* NO RECORDED REPAIRS YET — a real state, not a broken page. The log is empty;
+   * the whole scan is not. The old summary opened on the rule count, so it read
+   * "0 recorded repairs in this version — . Every one is a rule" and then said
+   * "the other 0 readings carry no page image": machinery describing nothing.
+   * An edition published in repair says what it DOES hold (the scan) and what it
+   * does not yet (readings), and the empty list is named rather than left blank. */
+  const emptyLog =
+    `<b>No repairs are recorded for this version yet.</b> The text is served as the transcription stands — ` +
+    `the reading view and the transcription view are the same words — every damaged character visible and ` +
+    `marked. Each emendation will appear here as a rule, with the words it changes, why it was made, and the ` +
+    `page image it was decided from, as it is made. ` +
     (data.leafCount
-      ? `THE WHOLE SCAN IS HERE: all ${data.leafCount} lea${data.leafCount === 1 ? 'f' : 'ves'} of the edition’s ` +
-        `scan are stored with it, in leaf order, and every one of them opens and reads. ` +
-        (withImage
-          ? `${withImage} readings were decided from a page image — from ${citedLeaves} of the ` +
-            `${data.leafCount} leaves, which the index marks; the other ${noImage} readings carry no page ` +
-            `image, and the other ${data.leafCount - citedLeaves} leaves carry no reading at all, which is ` +
-            `stated where the leaf is opened and not hidden. `
-          : `No reading in this version was decided from a page image, so no leaf carries one; the leaves are ` +
-            `stored and shown all the same. `) +
-        `The “All readings” entry lists every reading in the version, filtered by type or searched by word. `
-      : `No page image is stored with this edition, so the readings are browsable from the “All readings” ` +
-        `entry below, filtered by type or searched by word. `) +
-    (citingUnheld
-      ? `${citingUnheld} of the readings cite${citingUnheld === 1 ? 's' : ''} a leaf that is not held with this ` +
-        `edition (${unheldNames}); the viewer names those leaves and shows no image for them` +
-        (unheldOnly
-          ? `, and ${unheldOnly} of them rest${unheldOnly === 1 ? 's' : ''} on no page image at all`
-          : '') +
-        `. `
-      : '') +
-    `The reading view applies every rule and the transcription view applies none, so this list is the ` +
-    `difference between the two.`;
+      ? `THE WHOLE SCAN IS HERE: all ${data.leafCount} lea${data.leafCount === 1 ? 'f' : 'ves'} of the ` +
+        `edition’s scan are stored with it, in leaf order, and every one of them opens and reads. No leaf ` +
+        `carries a reading yet, which is stated where the leaf is opened and not hidden; the “All readings” ` +
+        `entry is the list of readings and says so while it is empty. `
+      : `No page image is stored with this edition either, so the page shows the statement of the state and ` +
+        `nothing else until the first reading is recorded. `) +
+    `The reading view applies every rule and the transcription view applies none, so once rules exist this ` +
+    `list is the difference between the two.`;
+  const summary = !data.ruleCount
+    ? emptyLog
+    : `${data.ruleCount} recorded repair${data.ruleCount === 1 ? '' : 's'} in this version — ` +
+      byType.map((k) => `${data.counts[k]} ${k}`).join(', ') +
+      `. Every one is a rule: the words it changes, why it was made, and the witness it rested on. ` +
+      (data.leafCount
+        ? `THE WHOLE SCAN IS HERE: all ${data.leafCount} lea${data.leafCount === 1 ? 'f' : 'ves'} of the edition’s ` +
+          `scan are stored with it, in leaf order, and every one of them opens and reads. ` +
+          (withImage
+            ? `${withImage} readings were decided from a page image — from ${citedLeaves} of the ` +
+              `${data.leafCount} leaves, which the index marks; the other ${noImage} readings carry no page ` +
+              `image, and the other ${data.leafCount - citedLeaves} leaves carry no reading at all, which is ` +
+              `stated where the leaf is opened and not hidden. `
+            : `No reading in this version was decided from a page image, so no leaf carries one; the leaves are ` +
+              `stored and shown all the same. `) +
+          `The “All readings” entry lists every reading in the version, filtered by type or searched by word. `
+        : `No page image is stored with this edition, so the readings are browsable from the “All readings” ` +
+          `entry below, filtered by type or searched by word. `) +
+      (citingUnheld
+        ? `${citingUnheld} of the readings cite${citingUnheld === 1 ? 's' : ''} a leaf that is not held with this ` +
+          `edition (${unheldNames}); the viewer names those leaves and shows no image for them` +
+          (unheldOnly
+            ? `, and ${unheldOnly} of them rest${unheldOnly === 1 ? 's' : ''} on no page image at all`
+            : '') +
+          `. `
+        : '') +
+      `The reading view applies every rule and the transcription view applies none, so this list is the ` +
+      `difference between the two.`;
   const fallback =
     `<div class="app-fallback prose" id="app-fallback">` +
     `<p><b>The apparatus, and the page images.</b> ` +
@@ -1338,20 +1457,30 @@ function apparatusViewerHtml(t, version, base) {
       ? `The edition’s WHOLE SCAN — all ${data.leafCount} lea${data.leafCount === 1 ? 'f' : 'ves'} — is stored ` +
         `with it and served beside the text, one image per leaf, at <a href="${scans}">${scans}</a>: every leaf ` +
         `the edition was read against, not only the leaves a reading was decided from. ` +
-        (withImage
-          ? `${withImage} of the readings in this version were decided from a page image, and each is shown ` +
-            `with the leaf it was decided from, so the evidence for a reading is a page a reader can open ` +
-            `rather than a claim about one. `
-          : `No reading in this version was decided from a page image, so the apparatus is worked from the ` +
-            `reading list, not from the page images. `) +
-        `The other ${noImage} readings carry no page image; they are listed in their own right, so the viewer ` +
-        `is browsed by reading as well as by leaf and neither side is hidden behind the other.</p>`
-      : `No page image is stored with this edition, so the apparatus is worked from the reading list.</p>`) +
+        (!data.ruleCount
+          ? `No repair has been recorded for this version yet, so no reading stands beside a leaf; the leaf ` +
+            `index is the whole scan, and the list of readings is empty until the first emendation is made. `
+          : withImage
+            ? `${withImage} of the readings in this version were decided from a page image, and each is shown ` +
+              `with the leaf it was decided from, so the evidence for a reading is a page a reader can open ` +
+              `rather than a claim about one. ` +
+              `The other ${noImage} readings carry no page image; they are listed in their own right, so the ` +
+              `viewer is browsed by reading as well as by leaf and neither side is hidden behind the other.`
+            : `No reading in this version was decided from a page image, so the apparatus reads from the list ` +
+              `of readings rather than from the page images; every leaf of the scan is served all the same, and ` +
+              `all ${noImage} readings carry no page image.`) +
+        `</p>`
+      : `No page image is stored with this edition, so the apparatus reads from the list of readings.</p>`) +
     `<p><b>The whole log, as data.</b> The apparatus of this version is one plain file, served with the ` +
-    `edition: <a href="${esc(url)}">${esc(url)}</a> — every rule, with the words it changes, its reason, its ` +
-    `witness and the leaf it was decided from, filterable by type and searchable by word there or in any ` +
-    `other tool. This page renders it in the viewer below; that viewer needs JavaScript, and without it the ` +
-    `file linked here IS the apparatus, in full.</p>` +
+    `edition: <a href="${esc(url)}">${esc(url)}</a> — ` +
+    (data.ruleCount
+      ? `every rule, with the words it changes, its reason, its witness and the leaf it was decided from, ` +
+        `filterable by type and searchable by word there or in any other tool. `
+      : `the version’s repair log in full. At this version it carries no rule yet, because no emendation has ` +
+        `been made: it is the file each new rule will be written into, and the count of what has been ` +
+        `repaired so far can be read from it directly. `) +
+    `This page renders it in the viewer below; that viewer needs JavaScript, and without it the file linked ` +
+    `here IS the apparatus, in full.</p>` +
     `<noscript><p>JavaScript is off, so the apparatus viewer does not run on this page. Nothing is hidden by ` +
     `that: the apparatus is the data file linked above, and every page image a reading was decided from is ` +
     `one of the leaves served at <a href="${scans}">${scans}</a>.</p></noscript>` +
@@ -1377,7 +1506,11 @@ function apparatusDigestLine(data) {
   const withImage = data.rules.filter((r) => r.evidence.some((e) => e.exists)).length;
   const bits = [];
   if (data.leafCount) bits.push(`${data.leafCount} lea${data.leafCount === 1 ? 'f' : 'ves'}`);
-  if (withImage) {
+  /* A VERSION WITH NO RULES SAYS SO, rather than leaving the door to read as a
+   * leaf count alone — which would advertise an apparatus of 722 leaves. */
+  if (!data.ruleCount) {
+    bits.push('no readings recorded yet');
+  } else if (withImage) {
     bits.push(`${withImage} reading${withImage === 1 ? '' : 's'} read from a page image`);
   } else if (!data.leafCount) {
     bits.push(`${data.ruleCount} reading${data.ruleCount === 1 ? '' : 's'}`);
@@ -1414,9 +1547,11 @@ function apparatusPageHtml(t, version, currentVersion, base, app) {
       title: `The apparatus of ${t.title} — ${SITE.host}`,
       shareTitle: `The apparatus of ${t.title}`,
       type: 'article',
-      description:
-        `The apparatus of ${t.title}: every recorded repair in this version, with the leaf it was read from — ` +
-        `the edition's whole scan in leaf order, and the readings decided from each leaf.`,
+      description: app.data.ruleCount
+        ? `The apparatus of ${t.title}: every recorded repair in this version, with the leaf it was read from — ` +
+          `the edition's whole scan in leaf order, and the readings decided from each leaf.`
+        : `The apparatus of ${t.title}: the edition's whole scan in leaf order. No repair has been recorded ` +
+          `for this version yet, and the page says so.`,
       eyebrow: `Apparatus · ${t.author}`,
       heading: 'The apparatus',
       standfirst: `${t.author} · ${t.year} · version ${version}`,
@@ -1516,10 +1651,16 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
     'The apparatus',
     'the version’s whole repair log — its own page',
     `<p class="app-link"><a class="app-open" href="${esc(appPath)}">${apparatusDigestLine(app.data)}</a></p>` +
-      `<p>Every recorded repair, with the words it changes, why it was made and the witness it rested on, ` +
-      `browsed on its own page by reading and by leaf: the edition’s whole scan in leaf order, the readings ` +
-      `decided from each leaf, and the readings that carry no page image listed in their own right. The log is ` +
-      `also served with the edition as one plain file at <a href="${esc(app.url)}">${esc(app.url)}</a>.</p>`,
+      (app.data.ruleCount
+        ? `<p>Every recorded repair, with the words it changes, why it was made and the witness it rested on, ` +
+          `browsed on its own page by reading and by leaf: the edition’s whole scan in leaf order, the readings ` +
+          `decided from each leaf, and the readings that carry no page image listed in their own right. The log is ` +
+          `also served with the edition as one plain file at <a href="${esc(app.url)}">${esc(app.url)}</a>.</p>`
+        : `<p>No repair has been recorded for this version yet, so the apparatus carries no reading: it opens ` +
+          `on the edition’s WHOLE SCAN in leaf order, every leaf of it readable, and says so where each leaf is ` +
+          `opened. The log is also served with the edition as one plain file at ` +
+          `<a href="${esc(app.url)}">${esc(app.url)}</a>, and each emendation will be written into it as it is ` +
+          `made.</p>`),
     { id: 'the-apparatus' },
   );
 
@@ -1642,8 +1783,15 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
     return { urls, pages, doc };
   }
 
-  // Too big for one page: the parent carries the furniture and the way in; each
-  // part carries its own stretch of the text and the way to its neighbours.
+  /* TOO BIG FOR ONE PAGE: the parent carries the furniture, the READER APP and
+   * the way in; each part carries its own stretch of the text and the way to its
+   * neighbours. The parent no longer inlines the whole transcription — inlining
+   * it is what made the page too big — so the server-rendered copy it carries is
+   * the edition's first section (`readerShell` with an empty legacy section), and
+   * the whole text is the app's own document, the plain file, and the parts. The
+   * app is not optional: a served edition's page mounts the reader (DATA-MODEL
+   * §3.1, and route-probe checks it), and the app fetches `/texts/<slug>/t` — the
+   * WHOLE document, whatever the prose is split into here. */
   const partPath = (i) => `${base}part-${i + 1}/`;
   const partRel = (i) => `${dir}part-${i + 1}/index.html`;
   const index =
@@ -1663,12 +1811,14 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
         contents(
           ['the-edition', 'The edition'],
           ['how-to-cite', 'How to cite'],
+          ['the-text', 'The text'],
           ['the-apparatus', appLabel],
           ['the-parts', 'The text, in parts'],
           ['provenance', 'Provenance'],
         ) +
         bib +
         cite +
+        (doc ? readerShell(t, doc, '', base) : '') +
         apparatus +
         section('Provenance', 'the edition, and what was done to it', prov, { id: 'provenance' }) +
         section(
@@ -1679,6 +1829,9 @@ export function libraryTextPages(t, doc, base, version, currentVersion, versionM
         ),
       navCurrent: base,
       crumbs,
+      // the app's own stylesheet, as on the single-page edition: the reader is
+      // mounted here too, and without it the app renders unstyled
+      ...(doc ? { head: `<style>\n${stripComments(READER_CSS)}</style>` } : {}),
       arrive: repairRedirect(appPath),
     }),
   });
@@ -1988,10 +2141,12 @@ export function buildTextsIndex(served, allTexts) {
   if (inRepair.length) {
     sentences.push(
       `${inRepair.length === 1 ? 'One is' : `${inRepair.length} are`} ${tag('in-repair')} — ${names(inRepair)}: ` +
-        `readable end to end and NOT finished, with damage that neither the transcription's own context nor a ` +
-        `parallel edition of the same translation could settle, each place being cleared against the printed page ` +
-        `itself. Until a site is settled the reader shows the transcription's own damaged characters, marked — ` +
-        `it never guesses in the print's name.`,
+        `readable end to end and NOT finished — its repair is still open. A place the transcription's own ` +
+        `context and a parallel edition of the same translation could not settle is cleared against the printed ` +
+        `page image itself and recorded as a rule; until it is cleared, the reader shows the transcription's own ` +
+        `damaged characters, marked — it never guesses in the print's name. An edition that has not yet had its ` +
+        `first emendation recorded carries no rules and says so on its own page, and its damage shows the same ` +
+        `way.`,
     );
   }
   if (repaired.length) {

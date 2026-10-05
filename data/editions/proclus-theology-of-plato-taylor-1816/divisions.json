@@ -1,6 +1,6 @@
 {
  "slug": "proclus-theology-of-plato-taylor-1816",
- "method": "the chapter and book numerals are read off the SCANS by the vision model (tools/vision-heads.mjs, one reading per leaf: running head, chapter heading, printed page) — the transcription destroyed them (`CHAP. au.`, `CHAPTER VE`, `BOOK actrees`) and fitting one from the sequence is how a division is attributed to the wrong book. Each division is placed in the transcription by fingerprinting the opening prose of its first page (the item's own _djvu.xml against source.txt), and a run that does not occur EXACTLY ONCE places nothing.",
+ "method": "the chapter and book numerals are read off the PAGE IMAGES themselves, one reading per leaf (its running head, its chapter heading, its printed page) — the transcription destroyed them (`CHAP. au.`, `CHAPTER VE`, `BOOK actrees`) and fitting one from the sequence is how a division is attributed to the wrong book. Each division is then placed in the transcription by matching the opening words of its first page against the text layer the scan itself carries, and a run that does not occur EXACTLY ONCE places nothing. A second transcription of the same print was read against the model as a witness, book by book.",
  "source": {
   "version": "1.0.0",
   "sha256": "b4828cd8a4975c95f51e3d5aee120a57552601e52b53d5f005846d52576616aa",

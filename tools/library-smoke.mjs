@@ -27,6 +27,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TEXTS, shelfFiles, textSource, isPublished, REPAIR_LABELS } from './shelf.mjs';
 import { BASE } from '../build/shell.mjs';
+import { LIBRARY_PAGE_MAX_BYTES } from '../build/library.mjs';
 import { preprocess, joinLines, assess, countParagraphs } from './reader.mjs';
 import { readEdition, hasEdition, editionRecord } from './extract.mjs';
 
@@ -229,13 +230,19 @@ for (const t of TEXTS) {
    * assuming the bare page is the lone one — which is what it was before the
    * version layout existed. */
   const partPages = pages.filter((p) => /\/part-\d+\/index\.html$/.test(p));
-  const parent = pages.find((p) => !/\/part-\d+\/index\.html$/.test(p));
+  /* EVERY NON-PART PAGE IS A PARENT when the text is served in parts: a stored
+   * edition is served at TWO URLs (the bare one and the pinned `/v/<semver>/`),
+   * and both carry the parts list instead of the text. MEASURED, and why this is
+   * a SET and not one page: the single `find` here matched the bare page only, so
+   * the pinned parent — which no longer inlines the whole transcription — was
+   * counted as a part-less text page and failed the text-region check. */
+  const parents = new Set(pages.filter((p) => !/\/part-\d+\/index\.html$/.test(p)));
   let gotParas = 0;
   let gotHeadings = 0;
   let missing = 0;
   for (const p of pages) {
     const region = textParagraphs(readFileSync(p, 'utf8'));
-    if (partPages.length > 0 && p === parent) {
+    if (partPages.length > 0 && parents.has(p)) {
       check(
         readFileSync(p, 'utf8').includes('<h2>The text, in parts</h2>'),
         `${t.slug}: the parent page lists the parts instead of carrying the text`,
@@ -249,7 +256,12 @@ for (const t of TEXTS) {
     gotParas += region.count;
     gotHeadings += region.headings;
   }
-  const factor = partPages.length > 0 ? 1 : pages.length;
+  /* HOW MANY TIMES THE TEXT IS CARRIED. Without parts, each page carries the
+   * whole of it (the bare and the pinned URL). With parts, each PARENT carries a
+   * complete set of part pages, so the multiplication is by the number of parents
+   * — MEASURED: the old `1` counted one set and failed a text served in parts at
+   * both its URLs, whose paragraphs then added up to twice the source. */
+  const factor = partPages.length > 0 ? parents.size : pages.length;
   expected.set(t.slug, {
     paras: doc.stats.parasOut * factor,
     headings: doc.stats.headings * factor,
@@ -282,14 +294,26 @@ for (const t of TEXTS) {
 section('what a page may not say');
 // An INDEPENDENT list, not the build's: a test that asks the build what a leak
 // is proves only that the build is self-consistent.
+/* WHICH RULES RUN ON WHICH FILE. The walk below reads EVERY emitted text file
+ * under site/dist/texts/ — the pages, and the two DATA files a stored edition
+ * serves (the document and the plain text) — but a data file is the BOOK'S OWN
+ * TEXT, and a book's words cannot be the site's vocabulary. MEASURED, and why
+ * this split is here: Taylor's Theology of Plato prints "e,/*u" (a comment
+ * delimiter in OCR debris) and "enlightens", and the gate's own module states
+ * the same rule for the same reason (build/leak.mjs: a phrase rule cannot tell
+ * the site's vocabulary from a 19th-century author's). The first three rules
+ * name the site's CONSTRUCTION — a path, a tool, a source-file name — and no
+ * printed book contains one, so they run everywhere; the rest are PHRASES and a
+ * comment delimiter, and run on the rendered pages, which is where a leak is
+ * that a reader would see. */
 const BANNED = [
-  [/(?:^|["'\s(])(?:~|\/home\/[a-z])\/[\w./-]+/, 'local filesystem path'],
-  [/\b[\w.-]+\.(?:txt|mjs|json)\b(?=[\s"',.)]|$)/, 'source-file name'],
-  [/\btools\/(?:build|viz|check-scope)[\w./-]*/, 'internal path'],
-  [/\bthe scan\b|\bthe brief\b|\bthe manifest\b|\bthe plumbing\b|\bthe corpus\b|\bthe extract\b/i, 'workshop wording'],
-  [/\b\d[\d,]{2,}\s*(?:bytes|KB|MB)\b/i, 'file size'],
-  [/\/\*\s*[-=]*\s*[a-z]/i, 'a comment delimiter in emitted code'],
-  [/^\s*\/\/\s/m, 'a line comment in emitted code'],
+  [/(?:^|["'\s(])(?:~|\/home\/[a-z])\/[\w./-]+/, 'local filesystem path', true],
+  [/\b[\w.-]+\.(?:txt|mjs|json)\b(?=[\s"',.)]|$)/, 'source-file name', true],
+  [/\btools\/(?:build|viz|check-scope)[\w./-]*/, 'internal path', true],
+  [/\bthe scan\b|\bthe brief\b|\bthe manifest\b|\bthe plumbing\b|\bthe corpus\b|\bthe extract\b/i, 'workshop wording', false],
+  [/\b\d[\d,]{2,}\s*(?:bytes|KB|MB)\b/i, 'file size', false],
+  [/\/\*\s*[-=]*\s*[a-z]/i, 'a comment delimiter in emitted code', false],
+  [/^\s*\/\/\s/m, 'a line comment in emitted code', false],
 ];
 /* THE SITE'S OWN PUBLISHED ADDRESSES ARE NOT A LEAK. The data model names them
  * (model §7/§8) and a page must be able to link them: the corpus and graph
@@ -343,7 +367,11 @@ function isPublishedAddress(text, at, len) {
     if (/<p>\s*<\/p>/.test(html)) empty++;
     const region = textParagraphs(html);
     if (region && /\n{3,}/.test(region.region)) threeNewlines++;
-    for (const [re, what] of BANNED) {
+    // A PAGE is an .html file; every other emitted text file is DATA (the
+    // document, the plain text, an apparatus.json) and a book's own words.
+    const isPage = p.endsWith('.html');
+    for (const [re, what, hard] of BANNED) {
+      if (!isPage && !hard) continue;
       // EVERY occurrence, not the first: a page legitimately carries a published
       // address AND must still be caught for a leak anywhere else on it.
       const g = new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g');
@@ -750,7 +778,12 @@ section('measured');
   };
   walk(LIB);
   const sized = pages.map((p) => ({ p, size: statSync(p).size })).sort((a, b) => b.size - a.size);
-  const over = sized.filter((x) => x.size > 2 * 1024 * 1024);
+  /* THE CAP IS THE BUILD'S OWN CONSTANT, not a second number typed here: the
+   * page budget and the prose budget it leaves (LIBRARY_PAGE_MAX_BYTES minus the
+   * fixed chrome) are what decide whether a text is served in parts, and a smoke
+   * that carried its own copy of the number could not tell the two agreeing from
+   * the two drifting. */
+  const over = sized.filter((x) => x.size > LIBRARY_PAGE_MAX_BYTES);
   console.log(`  texts: ${pages.length} page(s), ${libBytes} bytes across site/dist/texts/`);
   console.log(`  largest page: ${sized[0].size} bytes (${sized[0].p.slice(DIST.length + 1)})`);
   check(over.length === 0, `no page exceeds 2 MB (${over.length} over; largest ${(sized[0].size / 1048576).toFixed(2)} MB)`);

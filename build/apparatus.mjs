@@ -93,11 +93,19 @@ export function apparatusData(t, version) {
    * the reading's, not the entry's. A rule that cites two leaves belongs to both
    * (the viewer lists it under each), so the two counts are the same rule seen
    * from two pages. */
-  const cited = new Map(); // leaf -> { readings:Set(rule id), pages:Set }
+  /* A READING IS COUNTED AGAINST THE LEAF'S STORED NAME, not its number: an
+   * edition cut from two volumes has two leaves numbered n74 (v1-n74 and
+   * v2-n74), and keying by the number would merge them — each volume's readings
+   * counted on the other's leaf. The evidence carries the file (model §4.4), so
+   * the name is there to key on; an evidence entry with no file falls back to its
+   * number, which is what every single-volume edition has always carried. */
+  const leafKeyOf = (e) => (e.file ? String(e.file).replace(/\.jpg$/i, '') : String(e.leaf));
+  const cited = new Map(); // leaf name -> { readings:Set(rule id), pages:Set }
   for (const r of rules) {
     for (const e of Array.isArray(r.evidence) ? r.evidence : []) {
-      if (!cited.has(e.leaf)) cited.set(e.leaf, { readings: new Set(), pages: new Set() });
-      const c = cited.get(e.leaf);
+      const k = leafKeyOf(e);
+      if (!cited.has(k)) cited.set(k, { readings: new Set(), pages: new Set() });
+      const c = cited.get(k);
       c.readings.add(r.id);
       if (e.page != null) c.pages.add(e.page);
     }
@@ -110,7 +118,7 @@ export function apparatusData(t, version) {
     counts,
     leafCount: stored.length,
     leaves: stored.map((s) => {
-      const c = cited.get(s.n);
+      const c = cited.get(s.file.replace(/\.jpg$/i, ''));
       const pages = c ? [...c.pages] : [];
       return {
         n: s.n,

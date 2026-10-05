@@ -702,12 +702,18 @@ if (notes.length) {
 
 const out = {
   slug,
+  // THE METHOD IS SERVED. This string travels into the edition's document
+  // (`divisions.readFrom`, tools/extract.mjs) and is therefore written for a
+  // READER: it names no internal file and no tool. It said `tools/vision-heads.mjs`
+  // and `source.txt`/`_djvu.xml`, which the leak gate caught the first time this
+  // edition was published (an internal path in a served document).
   method:
-    'the chapter and book numerals are read off the SCANS by the vision model (tools/vision-heads.mjs, one reading ' +
-    'per leaf: running head, chapter heading, printed page) — the transcription destroyed them (`CHAP. au.`, ' +
+    'the chapter and book numerals are read off the PAGE IMAGES themselves, one reading per leaf (its running ' +
+    'head, its chapter heading, its printed page) — the transcription destroyed them (`CHAP. au.`, ' +
     '`CHAPTER VE`, `BOOK actrees`) and fitting one from the sequence is how a division is attributed to the wrong ' +
-    'book. Each division is placed in the transcription by fingerprinting the opening prose of its first page ' +
-    '(the item\'s own _djvu.xml against source.txt), and a run that does not occur EXACTLY ONCE places nothing.',
+    'book. Each division is then placed in the transcription by matching the opening words of its first page ' +
+    'against the text layer the scan itself carries, and a run that does not occur EXACTLY ONCE places nothing. ' +
+    'A second transcription of the same print was read against the model as a witness, book by book.',
   source: {
     version,
     sha256: sha256(source),

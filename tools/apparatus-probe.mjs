@@ -116,15 +116,22 @@ function servedEditions() {
 const rulesFile = (slug, version) =>
   JSON.parse(readFileSync(join(ROOT, 'data', 'editions', slug, 'versions', version, 'repairs.json'), 'utf8'));
 
+/** The stored leaves, as the BUILDER reads them: `{ n, file }`, sorted by the
+ * leaf's number and then by name — the order build/apparatus.mjs writes, so the
+ * probe and the file cannot disagree about it. The NAME is the identity (an
+ * edition cut from two items has two leaves numbered 74); the NUMBER is what the
+ * caption and the record's `leaf` field carry. */
 const storedLeaves = (slug) => {
   const dir = join(ROOT, 'data', 'editions', slug, 'scans');
   if (!existsSync(dir)) return [];
   const re = /^(?:v\d+-)?n(\d+)\.jpg$/;
   return readdirSync(dir)
-    .map((f) => re.exec(f))
+    .map((f) => {
+      const m = re.exec(f);
+      return m ? { n: Number(m[1]), file: f } : null;
+    })
     .filter(Boolean)
-    .map((m) => Number(m[1]))
-    .sort((a, b) => a - b);
+    .sort((a, b) => a.n - b.n || (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));
 };
 
 const TYPES = ['OCR', 'punctuation', 'transliteration', 'conjectural'];
@@ -232,12 +239,25 @@ for (const e of editions) {
   /* the leaves: one entry per stored leaf, with the readings decided from it */
   check(data.leafCount === leaves.length && data.leaves.length === leaves.length,
     `${rel}: carries all ${leaves.length} stored leaves (leafCount ${data.leafCount})`);
-  const badLeaf = data.leaves.filter((l, i) => l.n !== leaves[i] || l.url !== `/texts/${e.slug}/scans/n${l.n}.jpg`);
+  const badLeaf = data.leaves.filter((l, i) => l.n !== leaves[i].n || l.url !== `/texts/${e.slug}/scans/${leaves[i].file}`);
   check(badLeaf.length === 0, `${rel}: the leaf entries are the stored leaves, in order, at the served address (${badLeaf.length} wrong)`);
-  const wantReadings = new Map(leaves.map((n) => [n, new Set()]));
-  for (const d of data.rules) for (const ev of d.evidence) if (ev.exists) wantReadings.get(ev.leaf).add(d.id);
-  const badCount = data.leaves.filter((l) => l.readings !== wantReadings.get(l.n).size);
+  /* A READING IS COUNTED AGAINST THE LEAF'S STORED NAME, not its number: two
+   * volumes' leaves numbered 74 are two leaves (v1-n74, v2-n74). The apparatus
+   * data carries each evidence entry's url, so the name is the url's basename. */
+  const wantReadings = new Map(leaves.map((l) => [l.file, new Set()]));
+  for (const d of data.rules) for (const ev of d.evidence) {
+    if (!ev.exists) continue;
+    const f = String(ev.url).split('/').pop();
+    if (wantReadings.has(f)) wantReadings.get(f).add(d.id);
+  }
+  const badCount = data.leaves.filter((l, i) => l.readings !== wantReadings.get(leaves[i].file).size);
   check(badCount.length === 0, `${rel}: every leaf’s reading count is the record’s (${badCount.length} wrong)`);
+  /* EVERY LEAF'S CARD IS ITS OWN: a duplicate key (two leaves of the same number)
+   * would give two index cards one id and make the second unclickable — MEASURED
+   * before the leaf key became the stored name. */
+  const leafIds = data.leaves.map((l) => String(l.url).split('/').pop().replace(/\.jpg$/i, ''));
+  check(new Set(leafIds).size === leafIds.length,
+    `${rel}: every leaf's index key is unique (${leafIds.length - new Set(leafIds).size} duplicate(s))`);
   console.log(`  NOTE ${rel}: ${data.rules.length} rule(s), ${data.leaves.length} leaf/leaves, ` +
     `${data.leaves.filter((l) => l.readings).length} cited, ${[...wantReadings.values()].reduce((a, b) => a + b.size, 0)} reading(s) with a leaf`);
 
@@ -274,6 +294,10 @@ for (const e of editions) {
 /* ---------- §3 the page no longer inlines the log ---------- */
 
 section('the edition page no longer carries the rule list');
+/** The weight of the reader the edition page mounts — MEASURED from the compiled
+ * bundle, not typed: every edition page inlines it, so it is part of what the
+ * page is, and the size bound below has to allow for it. */
+const readerBytes = statSync(join(ROOT, 'tools', 'app.js')).size;
 for (const e of editions) {
   const html = readFileSync(join(DIST, 'texts', e.slug, 'index.html'), 'utf8');
   check(!/id="repair-/.test(html), `${e.slug}: 0 rendered rule rows in the page (the anchors are the viewer’s to make)`);
@@ -282,7 +306,17 @@ for (const e of editions) {
     `${e.slug}: the page states no rule type (the type is in the data)`);
   const appBytes = statSync(join(DIST, 'texts', e.slug, 'apparatus.json')).size;
   console.log(`  NOTE ${e.slug}: page ${html.length} bytes, apparatus.json ${appBytes} bytes`);
-  check(html.length < appBytes * 3, `${e.slug}: the page is HTML, not the log (${html.length} vs ${appBytes} bytes of data)`);
+  /* THE PAGE IS NOT THE LOG. The markers above prove the rule list is not
+   * inlined; this bounds the page's weight, and the bound is not the data alone:
+   * every edition page is a PAGE, and it carries the reader (MEASURED: the
+   * compiled reader is `tools/app.js`, inlined on both the edition page and the
+   * apparatus page). MEASURED before this bound was stated: Taylor's Theology
+   * of Plato's apparatus.json is small (106,751 bytes, mostly the 722-leaf index)
+   * while its page is 334,600 — a page serving a book and mounting the reader,
+   * not a page carrying a log. An inlined log would add the version's whole rule
+   * set on top of that. */
+  check(html.length < appBytes * 3 + readerBytes,
+    `${e.slug}: the page is HTML, not the log (${html.length} vs ${appBytes} bytes of data + ${readerBytes} bytes of reader)`);
 }
 
 section('the apparatus page carries the viewer, server-rendered');
@@ -391,9 +425,20 @@ async function boot(slug, { hash = '', fetchImpl = null, page = null, url = null
 }
 
 const VIEWER_EDITIONS = editions.map((e) => e.slug).filter((s) => seen.has(s));
+const allBtnOf = (ctx) => ctx.w.document.getElementById('leaf-all');
+const noneBtnOf = (ctx) => ctx.w.document.getElementById('leaf-none');
 for (const SLUG of VIEWER_EDITIONS) {
   section(`the viewer, booted — ${SLUG}`);
   const { data } = seen.get(SLUG);
+  /* A VERSION WITH NO RECORDED RULES is a state, not a smaller edition: it has
+   * no readings to page, filter or search, and the viewer says so. The reading-by-
+   * reading half of this section is exercised on the editions that have them; the
+   * zero-rule edition gets its own assertions (below, and §4g). */
+  const hasRules = data.rules.length > 0;
+  /** The key the VIEWER builds for a leaf: the stored name without its extension
+   * (the served url's basename). An edition cut from two items has two leaves
+   * numbered 74, and this is what tells them apart. */
+  const keyOfLeaf = (l) => String(l.url).split('/').pop().replace(/\.jpg$/i, '');
   const unheldLeaves = [...new Set(data.rules.flatMap((r) => r.evidence.filter((e) => !e.exists).map((e) => e.leaf)))];
   const none = data.rules.filter((r) => !r.evidence.length);
   const wantEntries = data.leaves.length + unheldLeaves.length + 2;
@@ -408,7 +453,16 @@ for (const SLUG of VIEWER_EDITIONS) {
   }
   const firstWithReadings = data.leaves.find((l) => leafReadings.get(l.n) > 0) || null;
   const emptyLeaf = data.leaves.find((l) => !leafReadings.get(l.n)) || null;
-  const wantLanding = firstWithReadings ? `leaf-n${firstWithReadings.n}` : 'leaf-none';
+  /* THE VIEWER'S OWN LANDING RULE, recomputed: the first leaf that HAS readings;
+   * failing that the readings that carry no page image; failing that the whole
+   * log. MEASURED on the zero-rule edition: with no readings at all the landing
+   * is the whole log — the old expectation said `leaf-none`, which holds only
+   * when some readings rest on no leaf. */
+  const wantLanding = firstWithReadings
+    ? `leaf-${keyOfLeaf(firstWithReadings)}`
+    : none.length
+      ? 'leaf-none'
+      : 'leaf-all';
 
   const ctx = await boot(SLUG);
   check(!!ctx.w.Apparatus && typeof ctx.w.Apparatus.boot === 'function', 'the viewer published itself as window.Apparatus');
@@ -425,11 +479,102 @@ for (const SLUG of VIEWER_EDITIONS) {
     'and every thumbnail src is a file the site ships');
   check(!ctx.w.document.getElementById('app-leaves').innerHTML.includes('<details'),
     'no leaf is hidden behind a collapsed disclosure');
-  check(ctx.text('#app-controls').includes('Filter by type') && ctx.text('#app-controls').includes('Search the readings'),
-    'the controls are rendered: a filter by type and a search');
+  check(
+    hasRules
+      ? ctx.text('#app-controls').includes('Filter by type') && ctx.text('#app-controls').includes('Search the readings')
+      : !/Filter by type|Search the readings/.test(ctx.text('#app-controls')) &&
+          ctx.text('#app-controls').includes('Go to leaf'),
+    hasRules
+      ? 'the controls are rendered: a filter by type and a search'
+      : 'a version with NO rules renders no filter and no search — only the leaf jump, which is what it has',
+  );
   check(ctx.w.document.querySelector('#apparatus-viewer p.app-data a') &&
     ctx.w.document.querySelector('#apparatus-viewer p.app-data a').getAttribute('href') === `/texts/${SLUG}/apparatus.json`,
     'and the data file stays reachable (the address is restated under the viewer)');
+
+  /* ---------- §4g A VERSION WITH NO RECORDED RULES ----------
+   * The edition is published IN REPAIR, before its first emendation: the log is
+   * empty and the SCAN is not. What the viewer must do — measured here on the
+   * built page — is say that plainly, keep every leaf of the scan openable, and
+   * land somewhere that is not a blank panel. The reading half of this section
+   * (§4a-§4f) is about a version that HAS readings and is exercised on the two
+   * that do; this branch is what the third one is. */
+  if (!hasRules) {
+    const keyed = data.leaves.map((l) => ({ key: keyOfLeaf(l), l }));
+    const ids = [...leaves.querySelectorAll('button')].map((b) => b.id);
+    check(new Set(ids).size === ids.length,
+      `every index card has its own id (${ids.length - new Set(ids).size} duplicate(s))`);
+    /* TWO VOLUMES, TWO LEAVES NUMBERED 74: both cards are in the index, each with
+     * its own id and its own page image — the collision this unit fixed. */
+    const dup = [...new Set(keyed.map(({ l }) => l.n))]
+      .map((n) => keyed.filter(({ l }) => l.n === n))
+      .filter((g) => g.length > 1);
+    if (dup.length) {
+      const g = dup[0];
+      check(
+        g.every(({ key }) => !!ctx.w.document.getElementById(`leaf-${key}`)),
+        `${g.length} leaves are stored under the number n${g[0].l.n} (${g.map(({ key }) => key).join(', ')}) — each is its own card`,
+      );
+      for (const { key, l } of g) {
+        const b = ctx.w.document.getElementById(`leaf-${key}`);
+        const img = b && b.querySelector('img.app-leaf-img');
+        check(!!img && img.getAttribute('src') === l.url,
+          `and the card ${key} carries ITS OWN page image (${img ? img.getAttribute('src') : 'none'})`);
+      }
+    }
+    const sel = ctx.w.document.querySelector('#app-leaves .app-leaf.selected');
+    check(!!sel && sel.id === 'leaf-all',
+      `with no reading recorded anywhere, the viewer lands on the whole log (${sel ? sel.id : 'none'}), not on an empty leaf`);
+    check(/NO recorded repairs yet/.test(ctx.text('#app-panel')),
+      'and the panel says the version carries no recorded repairs yet');
+    check(!/carries no recorded reading/.test(ctx.text('#app-panel')),
+      'not the leaf-empty wording — this is the version, not a leaf');
+    check(ctx.w.document.querySelector('#app-panel img.app-panel-img') === null,
+      'and it claims no page image for the whole-log entry (there is no single leaf to show)');
+    const zero = (b) => (b ? b.querySelector('.app-leaf-n').textContent : '');
+    check(zero(allBtnOf(ctx)) === 'no readings' && zero(noneBtnOf(ctx)) === 'no readings',
+      `the two reading axes read "no readings" (${zero(allBtnOf(ctx))} / ${zero(noneBtnOf(ctx))})`);
+    /* A LEAF WITH NO READING STILL OPENS ON ITS PAGE — and on ITS OWN page. */
+    for (const { key, l } of keyed.slice(0, 1).concat(dup.length ? dup[0] : [])) {
+      const lctx = await boot(SLUG, { hash: `#leaf-${key}` });
+      const b = lctx.w.document.getElementById(`leaf-${key}`);
+      check(!!b && b.className.includes('selected'), `#leaf-${key} opens`);
+      check(b.className.includes('app-leaf-quiet') && b.querySelector('.app-leaf-n').textContent === 'no readings',
+        `and it is set apart as a leaf no reading was decided from (${key})`);
+      const img = lctx.w.document.querySelector('#app-panel img.app-panel-img');
+      check(!!img && img.getAttribute('src') === l.url,
+        `and its own page image is shown (${img ? img.getAttribute('src') : 'none'})`);
+      check(lctx.text('#app-panel .app-caption').startsWith(`archive leaf ${key}`),
+        `captioned by its stored name (${JSON.stringify(lctx.text('#app-panel .app-caption'))})`);
+      /* The version-level statement wins over the leaf-level one when the whole
+       * log is empty: "no reading was decided from THIS leaf" would imply other
+       * leaves have readings, and none has. */
+      check(/NO recorded repairs yet/.test(lctx.text('#app-panel')),
+        'and it says plainly that the version records no repairs yet');
+    }
+    /* THE JUMP SAYS WHICH LEAF IT MEANS when a number names two volumes. */
+    if (dup.length) {
+      const g = dup[0];
+      const jctx = await boot(SLUG);
+      const jinput = jctx.w.document.getElementById('app-leaf-jump');
+      const jgo = jctx.w.document.querySelector('.app-jump-go');
+      check(!!jinput && !!jgo, 'the leaf jump is rendered');
+      jinput.value = String(g[0].l.n);
+      jgo.dispatchEvent(new jctx.w.MouseEvent('click', { bubbles: true, cancelable: true }));
+      await settle();
+      check(/stored 2 times/.test(jctx.text('#app-status')) &&
+        g.every(({ key }) => jctx.text('#app-status').includes(key)),
+        `a number that names two volumes is STATED, with both names (${JSON.stringify(jctx.text('#app-status').slice(0, 90))})`);
+      jinput.value = g[0].key;
+      jgo.dispatchEvent(new jctx.w.MouseEvent('click', { bubbles: true, cancelable: true }));
+      await settle();
+      check(jctx.w.document.getElementById(`leaf-${g[0].key}`).className.includes('selected'),
+        `and the stored name opens the one it names (${g[0].key})`);
+    }
+    check(/app-leaf-jump/.test(readFileSync(join(ROOT, 'tools', 'apparatus', 'viewer.js'), 'utf8')),
+      'and the control the viewer builds is the leaf jump (it is rendered by the viewer, not server-side)');
+    continue;
+  }
 
   /* ---------- §4a THE LANDING IS NEVER EMPTY ---------- */
   const selected = ctx.w.document.querySelector('#app-leaves .app-leaf.selected');

@@ -120,11 +120,20 @@ if (!existsSync(DIST)) {
    * honest provenance of v1.0.0). It is not a link and not a build string; it is
    * named here so the exemption is visible rather than folded into a wildcard. */
   const MIGRATION_NOTE = /migrated from blog\.jaye\.ch/;
+  /* A REPO REFERENCE IS A PATH, NOT A WORD. MEASURED: Taylor's Theology of Plato
+   * prints "enlightens: all things with its rays" (its source, line 72526), and
+   * that one word reached /t, /plain and the search index — the served BOOK's own
+   * text, which is the book speaking, not a reference to the blog repo beside
+   * this one. The build's SOURCES are still tested for the bare word above (a
+   * source file has no book in it); the EMITTED tree is tested for the repo as a
+   * path segment, which is the shape a leak would have (`/home/jaye/enlighten/`,
+   * `~/enlighten`, `enlighten/build/...`) and which no printed word is. */
+  const REPO_PATH = /(?:^|[^A-Za-z])enlighten\/|(?:^|[^A-Za-z])\/enlighten\b/;
   let notesCount = 0;
   for (const f of files) {
     const text = readFileSync(f, 'utf8');
     const rel = relative(DIST, f);
-    if (/enlighten/.test(text)) envLeaks.push(rel);
+    if (REPO_PATH.test(text)) envLeaks.push(rel);
     for (const m of text.matchAll(/blog\.jaye\.ch/g)) {
       const window = text.slice(Math.max(0, m.index - 60), m.index + 60);
       if (MIGRATION_NOTE.test(window)) {

@@ -84,6 +84,23 @@ function editionView(t) {
   if (!e) {
     return { ...t, cat: t.cat || [], readings: [], currentVersion: null, place: '', imprint: '' };
   }
+  /* THE REPAIR STATE IS STATED TWICE, so the two statements are held together:
+   * the edition record carries `repair_state` (the model's field, §3) and the
+   * shelf entry carries the same state beside the reader-facing NOTE. MEASURED,
+   * and why this fails loudly: publishing Taylor's Theology of Plato set the
+   * shelf to `in-repair` while the record still said `damaged`, and the built
+   * page silently showed "damaged" — the record wins in the code below, so the
+   * two files agreed by one of them being ignored. A state that two records
+   * claim is a state that can drift; a build that refuses to render the
+   * disagreement is the only place the drift can be caught. */
+  const recordState = e.repair_state || 'damaged';
+  const shelfState = (t.repair && t.repair.state) || 'damaged';
+  if (recordState !== shelfState) {
+    throw new Error(
+      `library: ${t.slug}: the repair state disagrees — data/editions/${t.slug}/edition.json says ` +
+        `"${recordState}", the shelf entry says "${shelfState}". One state, two files: set both.`,
+    );
+  }
   return {
     ...t,
     title: e.title,
@@ -198,11 +215,22 @@ for (const t of served) {
     const report = checkEdits(doc);
     ruleTotal += report.length;
     const byCls = report.reduce((a, r) => ((a[r.cls] = (a[r.cls] || 0) + 1), a), {});
-    log(
-      `library: ${t.slug} v${version}: ${report.length} rule(s) — ` +
-        `${Object.entries(byCls).map(([k, n]) => `${n} ${k}`).join(', ')} — every one fires; ` +
-        `${report.reduce((a, r) => a + r.hits, 0)} application(s) in the served text`,
-    );
+    /* A VERSION WITH NO RULES IS A STATE, NOT A FAILURE. `checkEdits` is
+     * vacuously satisfied by an empty rule list (there is no rule that fails to
+     * fire), so the old line printed "0 rule(s) — every one fires" of no rules.
+     * An edition published in repair, before its first emendation, says so. */
+    if (report.length) {
+      log(
+        `library: ${t.slug} v${version}: ${report.length} rule(s) — ` +
+          `${Object.entries(byCls).map(([k, n]) => `${n} ${k}`).join(', ')} — every one fires; ` +
+          `${report.reduce((a, r) => a + r.hits, 0)} application(s) in the served text`,
+      );
+    } else {
+      log(
+        `library: ${t.slug} v${version}: NO repair rules — the transcription is served exactly as imported, ` +
+          `unrepaired (state: in repair); the reading view and the transcription view are the same text`,
+      );
+    }
     for (const r of report.filter((r) => r.hits > 1)) {
       log(`library:   (fires ${r.hits}×) ${JSON.stringify(r.find)} → ${JSON.stringify(r.repl)}`);
     }
