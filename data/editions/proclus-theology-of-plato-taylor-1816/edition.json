@@ -1,0 +1,52 @@
+{
+  "slug": "proclus-theology-of-plato-taylor-1816",
+  "title": "On the Theology of Plato",
+  "author": "Proclus",
+  "translator": "Thomas Taylor",
+  "lang": "en",
+  "source_edition": {
+    "statement": "The Six Books of Proclus on the Theology of Plato, translated from the Greek, to which a seventh book is added in order to supply the deficiency of another book on this subject which was written by Proclus but since lost, by Thomas Taylor, 2 vols (London: printed for the author, 1816). This edition serves the Theology of Plato alone, over the two volumes the print gives it: vol. I entire, and vol. II only as far as the Theology runs in it (its printed pages 1-299). It stops there deliberately, and the printed volume does not: vol. II's next work is the Elements of Theology (its printed pages 301-441), which is a work of its own and already has its own edition in this library, and the treatises follow the Elements (On Providence and Fate, the Ten Doubts concerning Providence, and the Subsistence of Evil). Carrying vol. II on to the treatises would not serve this work; it would serve a second work twice.",
+    "place": "London",
+    "year": 1816,
+    "imprint": null
+  },
+  "scan_source": {
+    "archive_id": "taylor-theology-of-plato-en-t.-1-1816",
+    "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-1-1816/",
+    "whole_sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
+    "items": [
+      {
+        "archive_id": "taylor-theology-of-plato-en-t.-1-1816",
+        "role": "vol. I (the work entire, printed pp. 1-425)",
+        "prefix": "v1",
+        "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-1-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.1%2C%201816_djvu.txt",
+        "whole_sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
+        "leaves": [74, 498]
+      },
+      {
+        "archive_id": "taylor-theology-of-plato-en-t.-2-1816",
+        "role": "vol. II, the Theology alone (printed pp. 1-299)",
+        "prefix": "v2",
+        "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-2-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.2%2C%201816_djvu.txt",
+        "whole_sha256": "d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff",
+        "leaves": [1, 297]
+      }
+    ],
+    "note": "TWO archive items, not one: Taylor's 1816 edition divides the work over two volumes, so the scans are the two volume items' own leaves over the pages the work occupies in each (vol. I leaves 74-498 = printed pp. 1-425; vol. II leaves 1-297 = printed pp. 1-299). The stored leaf file names carry the volume's prefix -- v1-nNNN.jpg, v2-nNNN.jpg -- because the two items' leaf numbers run over each other and an unprefixed name would collide; a rule's evidence file/url carries the same prefix. `archive_id`, `url` and `whole_sha256` here name the FIRST item (vol. I) only, because the model's field is single-valued: `items[]` carries both in full, and the whole record with the measured leaf arithmetic is in the edition's scan.json."
+  },
+  "current_version": "1.0.0",
+  "licence": {
+    "text": "public-domain",
+    "editorial": "CC-BY-4.0",
+    "statement": "The transcriptions are public-domain works. The editorial work — repairs, page models, apparatus, notes — is released under CC BY 4.0."
+  },
+  "citation": "Proclus, On the Theology of Plato, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.0. https://neoplatonic-library.org/texts/proclus-theology-of-plato-taylor-1816/",
+  "doi": "",
+  "cat": [
+    "proclus-theology-of-plato"
+  ],
+  "readings": [
+    "proclus-theology-of-plato"
+  ],
+  "repair_state": "damaged"
+}

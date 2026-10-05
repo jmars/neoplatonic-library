@@ -1,0 +1,25 @@
+{
+  "slug": "proclus-theology-of-plato-taylor-1816",
+  "version": "1.0.0",
+  "policy": "substitute-if-known-else-leave",
+  "damage": [
+    "^",
+    "_",
+    "~",
+    "*",
+    "/",
+    "£",
+    ">",
+    "\\",
+    "|",
+    "#",
+    "™",
+    "±",
+    "»",
+    "«",
+    "}",
+    "{",
+    "&"
+  ],
+  "rules": []
+}

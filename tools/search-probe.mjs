@@ -24,6 +24,12 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { publishedTexts } from './shelf.mjs';
+
+/** THE SERVED SET, from the shelf's own publication switch: the search index is
+ * built over the SERVED editions, and the data directory may hold one that is
+ * held back. */
+const SERVED = new Set(publishedTexts().map((t) => t.slug));
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const INDEX = join(ROOT, 'site', 'dist', 'search', 'index');
@@ -65,7 +71,7 @@ function servedSlugs() {
     .map((d) => join(dir, d.name, 'edition.json'))
     .filter(existsSync)
     .map((f) => JSON.parse(readFileSync(f, 'utf8')))
-    .filter((e) => e.current_version)
+    .filter((e) => e.current_version && SERVED.has(e.slug))
     .map((e) => e.slug)
     .sort();
 }

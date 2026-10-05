@@ -66,6 +66,12 @@ import { createRequire } from 'node:module';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { setTimeout as sleep } from 'node:timers/promises';
+import { publishedTexts } from './shelf.mjs';
+
+/** THE SERVED SET, from the shelf's own publication switch: the data directory
+ * may hold an edition that is NOT served (an unrepaired transcription is held
+ * back), and this probe's scope is the served site. */
+const SERVED = new Set(publishedTexts().map((t) => t.slug));
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'site', 'dist');
@@ -104,7 +110,7 @@ function servedEditions() {
       const f = join(dir, d.name, 'edition.json');
       return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : null;
     })
-    .filter((e) => e && e.current_version);
+    .filter((e) => e && e.current_version && SERVED.has(e.slug));
 }
 
 const rulesFile = (slug, version) =>
@@ -113,9 +119,11 @@ const rulesFile = (slug, version) =>
 const storedLeaves = (slug) => {
   const dir = join(ROOT, 'data', 'editions', slug, 'scans');
   if (!existsSync(dir)) return [];
+  const re = /^(?:v\d+-)?n(\d+)\.jpg$/;
   return readdirSync(dir)
-    .filter((f) => /^n\d+\.jpg$/.test(f))
-    .map((f) => Number(f.slice(1, -4)))
+    .map((f) => re.exec(f))
+    .filter(Boolean)
+    .map((m) => Number(m[1]))
     .sort((a, b) => a - b);
 };
 

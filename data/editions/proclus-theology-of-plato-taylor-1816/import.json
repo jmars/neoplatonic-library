@@ -1,0 +1,38 @@
+{
+  "slug": "proclus-theology-of-plato-taylor-1816",
+  "shelf": null,
+  "extract": {
+    "why": "The served transcription is the shelf's TWO volume transcriptions of Taylor's 1816 edition, concatenated: vol. I entire, then vol. II over the lines the Theology of Plato occupies in it. It is not a fresh transcription. The work stops where vol. II's own second work begins (the Elements of Theology, which has its own edition in this library), not where the treatises begin -- the measurement is recorded in scan.json, and the reasoning in edition.json.source_edition.statement.",
+    "sources": [
+      {
+        "role": "vol. I, the work entire (printed pp. 1-425)",
+        "from": "Proclus-Theology-of-Plato-Taylor-Vol-1-1816.txt",
+        "item": "taylor-theology-of-plato-en-t.-1-1816",
+        "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-1-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.1%2C%201816_djvu.txt",
+        "whole_sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
+        "whole_bytes": 1118118,
+        "whole_lines": 59784,
+        "lines": [1, 59784],
+        "sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
+        "bytes": 1118118
+      },
+      {
+        "role": "vol. II, the Theology of Plato alone (printed pp. 1-299)",
+        "from": "Proclus-Theology-of-Plato-Taylor-Vol-2-1816.txt",
+        "item": "taylor-theology-of-plato-en-t.-2-1816",
+        "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-2-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.2%2C%201816_djvu.txt",
+        "whole_sha256": "d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff",
+        "whole_bytes": 1281618,
+        "whole_lines": 72540,
+        "lines": [1, 40786],
+        "sha256": "1b0e974284bc684593181c38d100ea30e6129e2893fd60d420cbe66cac55ca66",
+        "bytes": 694627,
+        "stops": "The Theology's last text line is vol. II line 40786, the close of CHAP. LI (printed page 299). Vol. II's next work begins at line 40813 -- the Elements of Theology, Proposition I -- and the treatises (On Providence and Fate, whose text opens at line 58122; the Ten Doubts concerning Providence; the Subsistence of Evil) follow the Elements. Neither is cut from this source: the Elements has its own edition here, and the treatises are outside the work."
+      }
+    ]
+  },
+  "sha256": "b4828cd8a4975c95f51e3d5aee120a57552601e52b53d5f005846d52576616aa",
+  "bytes": 1812745,
+  "lines": 100570,
+  "imported": "2026-10-05"
+}

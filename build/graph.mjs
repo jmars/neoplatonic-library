@@ -70,7 +70,7 @@ export function readGraph() {
 
 /** The figure's layout + markup. Nodes are placed by type column in the file's
  * own order, so the same data draws the same figure twice. */
-function figure(g) {
+function figure(g, served = null) {
   const at = new Map();
   const rows = {};
   for (const n of g.nodes) {
@@ -109,7 +109,14 @@ function figure(g) {
     const sub = `<tspan class="n-sub" x="${p.x + 12}" dy="15">${esc(TYPE_LABEL[n.type] || n.type)}</tspan>`;
     const inner = `<rect x="${p.x}" y="${p.y}" width="${NODE_W}" height="${NODE_H}"></rect>` +
       `<text class="n-label" x="${p.x + 12}" y="${p.y + 20}">${label}${sub}</text>`;
-    const body = n.slug
+    /* A NODE LINKS TO ITS TEXT PAGE ONLY WHEN THAT PAGE EXISTS. The graph is
+     * authored data and grows before an edition does: an edition node can be
+     * recorded while its text is held back (shelf `published: false`), and a link
+     * to the page it would have is a dead link on a live page. So the caller
+     * passes the served slugs and only those nodes are anchor-wrapped; the node
+     * is still drawn, labelled and filterable — the data is not hidden, only the
+     * link that would 404 is. */
+    const body = n.slug && (!served || served.has(n.slug))
       ? `<a href="/texts/${esc(n.slug)}/">${inner}</a>`
       : inner;
     return `<g class="g-node node-${esc(n.type)}" data-id="${esc(n.id)}" data-type="${esc(n.type)}">${body}</g>`;
@@ -163,10 +170,10 @@ function edgeTable(g) {
   );
 }
 
-export function buildGraphPage(g) {
+export function buildGraphPage(g, servedSlugs = null) {
   const presentEdges = new Set(g.edges.map((e) => e.type));
   const missing = EDGE_TYPES.filter((t) => !presentEdges.has(t));
-  const fig = figure(g);
+  const fig = figure(g, servedSlugs ? new Set(servedSlugs) : null);
   const counts = NODE_TYPES.map((t) => ({ t, n: g.nodes.filter((x) => x.type === t).length })).filter((c) => c.n);
   const body =
     `<section><div class="wrap">` +

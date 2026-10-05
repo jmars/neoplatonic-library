@@ -45,7 +45,7 @@ import { gateSafeText, stripJsComments } from './leak.mjs';
 /* The four repair types (model §4.1) and the apparatus data-file builder, from
  * ONE module: the file's counts and the page's filter cannot come from two
  * lists. */
-import { APPARATUS_TYPES, apparatusData } from './apparatus.mjs';
+import { APPARATUS_TYPES, apparatusData, LEAF_FILE } from './apparatus.mjs';
 
 const log = (msg) => console.log(`[build] ${msg}`);
 
@@ -1238,7 +1238,7 @@ function citationBlockHtml(base, versionMeta) {
  * leaves. */
 export function scanLeafCount(slug) {
   try {
-    return readdirSync(join(ROOT, 'data', 'editions', slug, 'scans')).filter((f) => /^n\d+\.jpg$/.test(f)).length;
+    return readdirSync(join(ROOT, 'data', 'editions', slug, 'scans')).filter((f) => LEAF_FILE.test(f)).length;
   } catch {
     return 0;
   }

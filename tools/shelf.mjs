@@ -320,6 +320,47 @@ export const TEXTS = [
     },
   },
   {
+    slug: 'proclus-theology-of-plato-taylor-1816',
+    group: 'ascent-argued',
+    // THE WORK THE TWO VOLUME TRANSCRIPTIONS BESIDE IT ARE OF, served whole. The
+    // 1816 edition divides the Theology of Plato over its two volumes: vol. I
+    // carries it entire to Book V ch. XXXIX (printed pp. 1-425, ending 'END OF
+    // VOL. I.'), vol. II opens on the continuation of that chapter and runs the
+    // work to its close at printed p. 299. Vol. II then carries ANOTHER work —
+    // the Elements of Theology, pp. 301-441, which is served here as its own
+    // edition — and the treatises after it. This entry is the FIRST work alone:
+    // the stored source.txt is vol. I entire followed by vol. II only as far as
+    // the Theology runs, cut at the measured line (vol. II line 40786, the close
+    // of CHAP. LI). The range and its measurement are in the edition's
+    // import.json and scan.json.
+    // `file` names the FIRST of this entry's TWO shelf sources (vol. I); the
+    // served transcription is that file followed by the Theology portion of
+    // 'Proclus-Theology-of-Plato-Taylor-Vol-2-1816'. Both are recorded, with
+    // their line ranges and checksums, in the edition's import.json.
+    file: 'Proclus-Theology-of-Plato-Taylor-Vol-1-1816',
+    title: 'On the Theology of Plato',
+    author: 'Proclus',
+    translator: 'Thomas Taylor',
+    year: 1816,
+    lang: 'en',
+    edition:
+      'The Six Books of Proclus on the Theology of Plato, translated by Thomas Taylor, 2 vols (London: printed for the author, 1816). This edition serves the Theology of Plato alone, over the two volumes the print gives it: vol. I entire, and vol. II only as far as the Theology runs in it (its printed pages 1-299).',
+    // TWO archive.org identifiers, not one: the work is cut from two volumes and
+    // so from two scans. They are recorded (with their leaves and their measured
+    // arithmetic) in data/editions/<slug>/scan.json, which is where the fetch
+    // reads them; the shelf keeps no `item` because there is no single one, and
+    // the stored leaf file names carry their volume's prefix (v1-nNNN.jpg /
+    // v2-nNNN.jpg) so the two leaf spaces cannot collide.
+    cat: ['proclus-theology-of-plato'],
+    // NOT PUBLISHED, and it must not be until the repair phase has run: the
+    // stored transcription is the shelf's own OCR of two badly-scanned volumes,
+    // served with an EMPTY rule list — no reading supplied anywhere, every mark
+    // the scanner left standing visible. Serving that would present damage as
+    // the print's own text. The entry is held back until its rules exist and
+    // every one of them fires.
+    published: false,
+  },
+  {
     slug: 'dionysius-divine-names-mystical-theology-parker-1897',
     group: 'ascent-argued',
     file: 'Pseudo-Dionysius-Mystical-Theology-Divine-Names-Parker-1897',

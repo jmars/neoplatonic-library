@@ -81,13 +81,17 @@ check(new Set(edgeIds).size === edgeIds.length, 'every edge id is unique');
 const declared = new Set(nodeIds);
 const dangling = graph.edges.filter((e) => !declared.has(e.from) || !declared.has(e.to));
 check(dangling.length === 0, `every edge endpoint resolves to a declared node${dangling.length ? `: ${dangling.map((e) => e.id).join(', ')}` : ''}`);
-/* Every edition node must name a slug the corpus holds: the graph and the
- * corpus cannot disagree about which editions exist. */
+/* Every edition node must name a slug the corpus holds OR an edition the shelf
+ * holds back ON PURPOSE. The graph is authored data and records an edition as
+ * soon as the library has one; the corpus carries only what is served. So the
+ * two still cannot disagree about a SERVED edition -- that is the check -- and a
+ * node for a held-back edition must be a real shelf entry, named, not a stray. */
+const heldBackSlugs = new Set(TEXTS.filter((t) => !isPublished(t)).map((t) => t.slug));
 const editionSlugs = graph.nodes.filter((n) => n.type === 'edition').map((n) => n.slug);
-const unknown = editionSlugs.filter((s) => !corpusSlugs.has(s));
+const unknown = editionSlugs.filter((s) => !corpusSlugs.has(s) && !heldBackSlugs.has(s));
 check(
   unknown.length === 0,
-  `every edition node's slug is in the corpus${unknown.length ? `: ${unknown.join(', ')}` : ` (${editionSlugs.join(', ')})`}`,
+  `every edition node's slug is in the corpus or is an edition the shelf holds back${unknown.length ? `: ${unknown.join(', ')}` : ` (${editionSlugs.join(', ')})`}`,
 );
 /* Plan §7 risk 6: a seed that still says TODO ships looking finished. */
 const withTodo = [

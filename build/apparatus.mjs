@@ -36,17 +36,31 @@ import { ROOT } from './shell.mjs';
  * them, so the counts and the viewer's filter read the same order. */
 export const APPARATUS_TYPES = ['OCR', 'punctuation', 'transliteration', 'conjectural'];
 
-/** The leaves stored WITH the edition — its WHOLE scan, held in
- * `data/editions/<slug>/scans/` and served at `/texts/<slug>/scans/nNNN.jpg`,
+/** A STORED LEAF'S FILE NAME, and the leaf number it carries. A leaf file is
+ * `nNNN.jpg`, or `v<N>-nNNN.jpg` for an edition whose scan comes from more than
+ * one archive item: Taylor's 1816 Theology of Plato is cut from TWO volumes and
+ * so from two items, whose leaf numbers run over each other (both serve an
+ * `n74`), so the stored name carries its volume's prefix. The prefix belongs to
+ * the FILE NAME — and therefore to the evidence `file`/`url` — not to the leaf
+ * number: `n` stays the leaf's own number in its own item. */
+export const LEAF_FILE = /^(?:v\d+-)?n(\d+)\.jpg$/;
+
+/** The leaves stored WITH THE EDITION — its WHOLE scan, held in
+ * `data/editions/<slug>/scans/` and served at `/texts/<slug>/scans/<file>`,
  * not only the leaves a reading used. Read from the directory: the list of
- * stored leaves is a fact about the tree, never a number typed into the data. */
+ * stored leaves is a fact about the tree, never a number typed into the data.
+ * Each entry is `{ n, file }` — the number and the stored name, so the address
+ * the page serves is always a name that is really on disk. */
 export function storedLeaves(slug) {
   const dir = join(ROOT, 'data', 'editions', slug, 'scans');
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
-    .filter((f) => /^n\d+\.jpg$/.test(f))
-    .map((f) => Number(f.slice(1, -4)))
-    .sort((a, b) => a - b);
+    .map((f) => {
+      const m = LEAF_FILE.exec(f);
+      return m ? { n: Number(m[1]), file: f } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.n - b.n || (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));
 }
 
 /** The version's repair log, as the record holds it. */
@@ -65,7 +79,7 @@ function rulesOf(slug, version) {
 export function apparatusData(t, version) {
   const rules = rulesOf(t.slug, version);
   const stored = storedLeaves(t.slug);
-  const held = new Set(stored);
+  const held = new Set(stored.map((s) => s.n));
 
   const counts = {};
   for (const k of APPARATUS_TYPES) {
@@ -95,12 +109,12 @@ export function apparatusData(t, version) {
     ruleCount: rules.length,
     counts,
     leafCount: stored.length,
-    leaves: stored.map((n) => {
-      const c = cited.get(n);
+    leaves: stored.map((s) => {
+      const c = cited.get(s.n);
       const pages = c ? [...c.pages] : [];
       return {
-        n,
-        url: `/texts/${t.slug}/scans/n${n}.jpg`,
+        n: s.n,
+        url: `/texts/${t.slug}/scans/${s.file}`,
         page: pages.length === 1 ? pages[0] : null,
         readings: c ? c.readings.size : 0,
       };

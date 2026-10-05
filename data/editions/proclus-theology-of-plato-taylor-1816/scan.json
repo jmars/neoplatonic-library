@@ -1,0 +1,54 @@
+{
+  "slug": "proclus-theology-of-plato-taylor-1816",
+  "note": "WHERE THIS EDITION'S PAGE IMAGES ARE, and why they come from TWO items rather than one. The work is the Six Books on the Theology of Plato as Taylor's 1816 edition prints it, and that edition divides it over two volumes: vol. I carries it entire from its title page to Book V ch. XXXIX (its printed pages 1-425, ending 'END OF VOL. I.'), and vol. II opens on the continuation of that chapter and carries Books VI-VII to the work's close (vol. II printed pages 1-299, CHAP. LI). Vol. II's next work is a DIFFERENT work with its own edition in this library (the Elements of Theology, printed pp. 301-441), and its treatises follow those; neither is this edition's text. So the scans are the two volume items, each over the run of leaves its own part of the work occupies. LEAF FILE NAMES carry their volume's prefix -- v1-n74.jpg ... v1-n498.jpg and v2-n1.jpg ... v2-n297.jpg -- because the two items' leaf numbers run over each other (both serve a leaf n74) and an unprefixed name would collide; any scan URL a rule cites carries the same prefix (/texts/<slug>/scans/v2-n873.jpg). The two shelf transcriptions this edition's source.txt is cut from ARE the two items' own _djvu.txt files, MEASURED byte for byte (vol. I 1,118,118 bytes sha256 061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749; vol. II 1,281,618 bytes sha256 d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff) -- which is what makes the leaf-to-line arithmetic below exact rather than estimated: the item's own page text locates each leaf in the served transcription.",
+  "items": [
+    {
+      "archive_id": "taylor-theology-of-plato-en-t.-1-1816",
+      "role": "vol. I (the work entire, printed pp. 1-425)",
+      "prefix": "v1",
+      "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-1-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.1%2C%201816_djvu.txt",
+      "whole_sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
+      "whole_bytes": 1118118,
+      "leaves": [74, 498],
+      "pages": [1, 425],
+      "archiveOffset": 73,
+      "why": "THE OFFSET IS THE ITEM'S OWN, not read off a page by eye. This item carries a page-number pass (_page_numbers.json: 425 numbered pages, confidence 74.8) and it gives leafNum 74 = printed page '1' and leafNum 498 = '425', so archive n = printed page + 73, at one leaf per printed page across the whole 425-page run. The volume's unnumbered front matter (leaves 1-73) is not part of the work.",
+      "verified": [
+        {
+          "archive": 74,
+          "page": 1,
+          "evidence": "the item's own page-number model: leafNum 74 carries pageNumber \"1\""
+        },
+        {
+          "archive": 498,
+          "page": 425,
+          "evidence": "pageNumber \"425\"; and the leaf's own page text is the volume's last page -- \"CHAP. XXXIN.\" over \"OF PLaro.\" in the OCR, i.e. CHAP. XXXIX -- which is the served transcription's last text page (its chapter head stands at line 59626 and its text at 59705-59708)"
+        }
+      ]
+    },
+    {
+      "archive_id": "taylor-theology-of-plato-en-t.-2-1816",
+      "role": "vol. II, the Theology alone (printed pp. 1-299)",
+      "prefix": "v2",
+      "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-2-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.2%2C%201816_djvu.txt",
+      "whole_sha256": "d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff",
+      "whole_bytes": 1281618,
+      "leaves": [1, 297],
+      "pages": [1, 299],
+      "archiveOffset": null,
+      "why": "NO SINGLE OFFSET HOLDS FOR THIS VOLUME, so the range is given in LEAVES. The item's page-number pass found nothing (its _page_numbers.json carries 559 pages and not one pageNumber; confidence 0), and the item's leaf-to-page relation is not constant anyway: leaf 1 carries printed page 1 while leaf 297 carries printed page 299 -- 297 leaves over 299 numbered pages -- because two of the scan's leaves carry two printed pages each. The relation was therefore MEASURED against the transcription itself: the served source.txt over vol. II is this item's own _djvu.txt (byte-identical, see the note above), and each leaf's page text was located in it, so a leaf boundary is a line position of the text actually served. A constant offset is deliberately NOT asserted where the item does not supply one.",
+      "verified": [
+        {
+          "archive": 1,
+          "page": 1,
+          "evidence": "leaf 1's page text is transcription lines 85-285; the next leaf (2, lines 285-432) opens on the words \"about it. And as all the fountains are the progeny of the intelligible\", which Taylor's printed page 2 carries (the clean transcription of the same edition prints it under its p. 2 head)"
+        },
+        {
+          "archive": 297,
+          "page": 299,
+          "evidence": "leaf 297's page text is transcription lines 40668-40788, and the last of those lines is the Theology's closing sentence (\"...returning to the good as to the preexisting object of desire.\"), which is Taylor's printed page 299 (the clean transcription of the same edition prints it under \"CHAP. LI. OF PLATO. 299\"). The leaf AFTER it already carries another work: leaf 298 is transcription lines 40788-40852, whose first text is the Elements of Theology's Proposition I, \"All multitude participates in a certain respect of the one\""
+        }
+      ]
+    }
+  ]
+}

@@ -46,17 +46,38 @@ const POOL = 4;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** The edition's item and the archive leaf range its record implies. */
-async function rangeOf(slug) {
+/** The edition's item, and the archive leaf range its record implies.
+ *
+ * ONE ITEM OR SEVERAL. `scan.json` may name ONE item with a measured offset
+ * (archive n = printed page + offset), or SEVERAL, one per volume of a printed
+ * edition: Taylor's 1816 Theology of Plato comes from two items, and the two
+ * items' leaf numbers run over each other, so each range carries a PREFIX and a
+ * stored leaf is `<prefix>-n<N>.jpg` (`v1-n74.jpg`). A range given in LEAVES
+ * (`leaves: [from, to]`) is used as it stands — that is the honest form where
+ * the item supplies no page-number model and no single offset holds (the
+ * measurement is in the edition's scan.json). */
+async function rangesOf(slug) {
   const scanF = join(EDITIONS, slug, 'scan.json');
   if (existsSync(scanF)) {
     const s = JSON.parse(readFileSync(scanF, 'utf8'));
-    return {
+    if (Array.isArray(s.items) && s.items.length) {
+      return s.items.map((it) => ({
+        item: it.archive_id || it.item,
+        prefix: it.prefix || '',
+        from: it.leaves ? it.leaves[0] : it.firstPage + it.archiveOffset,
+        to: it.leaves ? it.leaves[1] : it.lastPage + it.archiveOffset,
+        why: it.leaves
+          ? `scan.json: the leaves this volume's part of the work occupies (${it.archive_id || it.item})`
+          : `scan.json: printed pages ${it.firstPage}–${it.lastPage} + offset ${it.archiveOffset}`,
+      }));
+    }
+    return [{
       item: s.item,
+      prefix: '',
       from: s.firstPage + s.archiveOffset,
       to: s.lastPage + s.archiveOffset,
       why: `scan.json: printed pages ${s.firstPage}–${s.lastPage} + offset ${s.archiveOffset}`,
-    };
+    }];
   }
   const derivsF = join(EDITIONS, slug, 'derivs.json');
   if (existsSync(derivsF)) {
@@ -68,13 +89,17 @@ async function rangeOf(slug) {
     if (!Number.isFinite(count) || count <= 0) {
       throw new Error(`fetch-scans: ${d.item} metadata carries no imagecount`);
     }
-    return { item: d.item, from: 0, to: count - 1, why: `derivs.json + item imagecount ${count}` };
+    return [{ item: d.item, prefix: '', from: 0, to: count - 1, why: `derivs.json + item imagecount ${count}` }];
   }
   throw new Error(`fetch-scans: ${slug} has neither scan.json nor derivs.json — no item to fetch from`);
 }
 
 const scansDir = (slug) => join(EDITIONS, slug, 'scans');
-const leafPath = (slug, n) => join(scansDir(slug), `n${n}.jpg`);
+/** The stored leaf's own file name — `<prefix>-n<N>.jpg`, or `n<N>.jpg` for a
+ * single-item edition. The prefix is part of the NAME on disk and in every URL
+ * that cites the leaf; the leaf number stays the number in its own item. */
+const leafFile = (prefix, n) => `${prefix ? `${prefix}-` : ''}n${n}.jpg`;
+const leafPath = (slug, prefix, n) => join(scansDir(slug), leafFile(prefix, n));
 const isJpeg = (buf) => buf.length > 1000 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff;
 const url = (item, n) => `https://archive.org/download/${item}/page/n${n}_w1200.jpg`;
 
@@ -102,14 +127,14 @@ async function fetchLeaf(item, n) {
   return { n, error: last && last.message ? last.message : String(last) };
 }
 
-async function run(slug) {
-  const { item, from, to, why } = await rangeOf(slug);
+async function run(slug, range) {
+  const { item, prefix, from, to, why } = range;
   const dir = scansDir(slug);
   const wanted = [];
   let stored = 0;
   let bad = 0;
   for (let n = from; n <= to; n += 1) {
-    const p = leafPath(slug, n);
+    const p = leafPath(slug, prefix, n);
     if (existsSync(p)) {
       const buf = readFileSync(p);
       if (isJpeg(buf)) {
@@ -121,7 +146,8 @@ async function run(slug) {
     wanted.push(n);
   }
   console.log(
-    `\n${slug}\n  item ${item} — ${why}\n  leaves n${from}..n${to} (${to - from + 1}) — ` +
+    `\n${slug}\n  item ${item}${prefix ? ` (leaves ${prefix}-n<N>.jpg)` : ''} — ${why}\n  ` +
+      `leaves n${from}..n${to} (${to - from + 1}) — ` +
       `${stored} already stored${bad ? `, ${bad} stored file(s) invalid` : ''}, ${wanted.length} to fetch`,
   );
 
@@ -139,12 +165,12 @@ async function run(slug) {
       const r = await fetchLeaf(item, n);
       if (r.missing) {
         missing.push(n);
-        console.log(`  n${n}: not served by the item (HTTP 404)`);
+        console.log(`  ${leafFile(prefix, n)}: not served by the item (HTTP 404)`);
       } else if (r.error) {
         failed.push({ n, error: r.error });
-        console.log(`  n${n}: FAILED — ${r.error}`);
+        console.log(`  ${leafFile(prefix, n)}: FAILED — ${r.error}`);
       } else {
-        writeFileSync(leafPath(slug, n), r.buf);
+        writeFileSync(leafPath(slug, prefix, n), r.buf);
         fetched += 1;
         bytes += r.buf.length;
       }
@@ -152,15 +178,17 @@ async function run(slug) {
   };
   await Promise.all(Array.from({ length: Math.min(POOL, Math.max(1, wanted.length)) }, worker));
 
-  const total = readdirSync(dir).filter((f) => /^n\d+\.jpg$/.test(f)).length;
+  const total = readdirSync(dir).filter((f) => /^(?:v\d+-)?n\d+\.jpg$/.test(f)).length;
   const size = readdirSync(dir)
-    .filter((f) => /^n\d+\.jpg$/.test(f))
+    .filter((f) => /^(?:v\d+-)?n\d+\.jpg$/.test(f))
     .reduce((a, f) => a + statSync(join(dir, f)).size, 0);
   console.log(
     `  fetched ${fetched} (${(bytes / 1e6).toFixed(1)} MB), skipped ${stored} stored, ` +
       `${missing.length} not served, ${failed.length} failed`,
   );
-  console.log(`  ${slug}: ${total} leaf image(s) on disk, ${(size / 1e6).toFixed(1)} MB`);
+  /* The DIRECTORY total, not this range's: an edition fetched from several items
+   * (several ranges) has one scans/ directory, and its size is stated once, by
+   * the caller, after the last range. */
   return { slug, item, fetched, bytes, stored, missing, failed, total, size };
 }
 
@@ -177,7 +205,7 @@ if (bad.length) throw new Error(`fetch-scans: no such edition: ${bad.join(', ')}
 if (list) {
   for (const slug of slugs) {
     const dir = scansDir(slug);
-    const files = existsSync(dir) ? readdirSync(dir).filter((f) => /^n\d+\.jpg$/.test(f)) : [];
+    const files = existsSync(dir) ? readdirSync(dir).filter((f) => /^(?:v\d+-)?n\d+\.jpg$/.test(f)) : [];
     const size = files.reduce((a, f) => a + statSync(join(dir, f)).size, 0);
     console.log(`${slug}: ${files.length} leaf image(s), ${(size / 1e6).toFixed(1)} MB`);
   }
@@ -188,10 +216,16 @@ let totalLeaves = 0;
 let totalBytes = 0;
 let failures = 0;
 for (const slug of slugs) {
-  const r = await run(slug);
-  totalLeaves += r.total;
-  totalBytes += r.size;
-  failures += r.failed.length;
+  let last = null;
+  for (const range of await rangesOf(slug)) {
+    last = await run(slug, range);
+    failures += last.failed.length;
+  }
+  if (last) {
+    console.log(`  ${slug}: ${last.total} leaf image(s) on disk, ${(last.size / 1e6).toFixed(1)} MB`);
+    totalLeaves += last.total;
+    totalBytes += last.size;
+  }
 }
 console.log(`\nTOTAL: ${totalLeaves} leaf image(s), ${(totalBytes / 1e6).toFixed(1)} MB, ${failures} failed`);
 process.exit(failures === 0 ? 0 : 1);

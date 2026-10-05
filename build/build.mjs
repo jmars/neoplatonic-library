@@ -65,7 +65,7 @@ import {
 import { libraryTextPages, buildTextsIndex, buildHome, logPageModel } from './library.mjs';
 import { buildShelfIndex, buildSearchPage } from './search.mjs';
 import { readGraph, buildGraphPage } from './graph.mjs';
-import { apparatusJson } from './apparatus.mjs';
+import { apparatusJson, LEAF_FILE } from './apparatus.mjs';
 import { buildEditionsPage, buildAboutPage, buildErrataPage, buildNotFoundPage } from './pages.mjs';
 import { checkWorkshop, checkWorkshopAll } from './leak.mjs';
 
@@ -274,7 +274,7 @@ for (const t of served) {
   if (existsSync(scansFrom)) {
     const scansTo = join(DIST, 'texts', t.slug, 'scans');
     cpSync(scansFrom, scansTo, { recursive: true });
-    const n = readdirSync(scansTo).filter((f) => /^n\d+\.jpg$/.test(f)).length;
+    const n = readdirSync(scansTo).filter((f) => LEAF_FILE.test(f)).length;
     scanTotal += n;
     log(`library: ${t.slug}: ${n} source leaf image(s) -> texts/${t.slug}/scans/`);
   }
@@ -305,9 +305,11 @@ log(
 );
 
 /* THE GRAPH is rendered from data/graph/graph.json AS AUTHORED — no edge is
- * inferred. The seed is sparse and the page says so (§7 risk 6). */
+ * inferred. The seed is sparse and the page says so (§7 risk 6). The served
+ * slugs go with it: the graph is authored data and can name an edition before
+ * that edition's text is served, and only a node whose page exists is a link. */
 const graph = readGraph();
-written.push({ rel: 'graph/index.html', html: writePage('graph/index.html', buildGraphPage(graph)) });
+written.push({ rel: 'graph/index.html', html: writePage('graph/index.html', buildGraphPage(graph, served.map((t) => t.slug))) });
 sitemapUrls.push('/graph/');
 log(`graph: ${graph.nodes.length} node(s), ${graph.edges.length} edge(s) — rendered as authored (the seed is sparse)`);
 

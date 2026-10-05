@@ -13,9 +13,21 @@
       "slug": "porphyry-on-the-cave-of-the-nymphs-taylor-1917"
     },
     {
+      "id": "edition:proclus-theology-of-plato-taylor-1816",
+      "type": "edition",
+      "label": "Thomas Taylor 1816",
+      "slug": "proclus-theology-of-plato-taylor-1816"
+    },
+    {
       "id": "text:proclus-elements-of-theology",
       "type": "text",
       "label": "Elements of Theology",
+      "slug": null
+    },
+    {
+      "id": "text:proclus-theology-of-plato",
+      "type": "text",
+      "label": "On the Theology of Plato",
       "slug": null
     },
     {
@@ -60,6 +72,18 @@
       "id": "e0004",
       "from": "edition:porphyry-on-the-cave-of-the-nymphs-taylor-1917",
       "to": "text:on-the-cave-of-the-nymphs",
+      "type": "translates"
+    },
+    {
+      "id": "e0005",
+      "from": "author:proclus",
+      "to": "text:proclus-theology-of-plato",
+      "type": "wrote"
+    },
+    {
+      "id": "e0006",
+      "from": "edition:proclus-theology-of-plato-taylor-1816",
+      "to": "text:proclus-theology-of-plato",
       "type": "translates"
     }
   ]

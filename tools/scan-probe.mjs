@@ -45,6 +45,14 @@ import { fileURLToPath } from 'node:url';
  * the text the reader gets is the stripped one — and that is what the leak gate
  * reads. Check the same text, not the source's comments. */
 import { stripJsComments } from '../build/leak.mjs';
+import { publishedTexts } from './shelf.mjs';
+
+/** THE SERVED SET, from the shelf's own publication switch: an edition is served
+ * when its shelf entry says `published: true`, and the data directory may hold an
+ * edition that is not (an unrepaired transcription is held back). Reading THIS
+ * is what keeps the probe's scope the served site; reading the data directory
+ * alone would put a held-back edition under the served site's checks. */
+const SERVED = new Set(publishedTexts().map((t) => t.slug));
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'site', 'dist');
@@ -72,14 +80,18 @@ function servedEditions() {
       const f = join(dir, d.name, 'edition.json');
       return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : null;
     })
-    .filter((e) => e && e.current_version);
+    .filter((e) => e && e.current_version && SERVED.has(e.slug));
 }
 
-/** The leaves stored with an edition: the set of `nNNN.jpg` in its scans/. */
+/** The leaves stored with an edition: the files in its scans/. A leaf file is
+ * `nNNN.jpg`, or `v<N>-nNNN.jpg` where the edition's scan comes from more than
+ * one archive item (the prefix carries the volume; the number is the leaf in its
+ * own item). */
 function storedLeaves(slug) {
   const dir = join(ROOT, 'data', 'editions', slug, 'scans');
   if (!existsSync(dir)) return new Set();
-  return new Set(readdirSync(dir).filter((f) => /^n\d+\.jpg$/.test(f)).map((f) => Number(f.slice(1, -4))));
+  const re = /^(?:v\d+-)?n(\d+)\.jpg$/;
+  return new Set(readdirSync(dir).map((f) => re.exec(f)).filter(Boolean).map((m) => Number(m[1])));
 }
 
 const rulesOf = (slug, version) =>

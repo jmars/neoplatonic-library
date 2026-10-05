@@ -44,6 +44,13 @@ neoplatonic-library/
         witnesses.json      the other prints/editions a reading was decided from
         witnesses/          those witnesses, held verbatim beside the text
         derivs.json         the leaf/page model derived from the archive item
+        heads.json          WHAT THE PAGES SAY: one vision reading per stored
+                            leaf (running head, body heading, printed page) —
+                            the primary evidence for an edition whose division
+                            numerals the scan destroyed (§3.2)
+        divisions.json      WHERE THE DIVISIONS STAND: one entry per division
+                            (line, book, chapter, label, anchor, confidence,
+                            evidence), derived by tools/divisions.mjs (§3.2)
         vocab-allow.txt     the words the vocabulary check allows for this text
         scans/              THE EDITION'S WHOLE SCAN, one image per leaf:
                             `nNNN.jpg` = archive leaf NNN, every leaf of the
@@ -52,7 +59,12 @@ neoplatonic-library/
                             for the two editions, MEASURED 2026-10-05: proclus
                             141 leaves 36.1M, porphyry 72 leaves 22.5M): a
                             leaf is part of the citable record, not a
-                            re-fetchable by-product
+                            re-fetchable by-product. An edition whose work is
+                            cut from MORE THAN ONE archive item prefixes the
+                            name with its volume — `v1-nNNN.jpg`,
+                            `v2-nNNN.jpg` — because the items' leaf numbers
+                            run over each other; the prefix is part of the
+                            served address, the leaf number is not (see §3.0)
         versions/
           <semver>/
             source.txt      the served transcription, frozen at this version
@@ -193,7 +205,20 @@ served at
 
     /texts/<slug>/scans/<nNNN.jpg>
 
-— the exact URL a repair's `evidence[].url` carries (§4). The address does not
+— the exact URL a repair's `evidence[].url` carries (§4).
+
+**When the work is cut from more than one volume, the leaf name carries its
+volume and the address does too.** Taylor's 1816 *On the Theology of Plato* comes
+from TWO archive items — vol. I and the Theology portion of vol. II — and the two
+items' leaf numbers run over each other (both serve an `n74`), so its stored
+leaves are `v1-n74.jpg … v1-n498.jpg` and `v2-n1.jpg … v2-n297.jpg` and its
+evidence urls read `/texts/<slug>/scans/v2-n74.jpg`. The leaf NUMBER stays the
+number in its own item; the PREFIX says which item. The edition's own records
+carry the arithmetic of both items (`scan.json` `items[]`: item, prefix, the
+leaves the work occupies, and the measurement that settled the range), and
+`scan_source.items[]` repeats the pair in the edition record.
+
+The address does not
 carry the version: the leaf set belongs to the EDITION, not to one version of its
 text, so a pinned version's page cites the same stable leaf. The deploy carries
 the images (tools/deploy.sh has no `--delete`, so a leaf a later build drops is
@@ -220,6 +245,83 @@ retained server-side); the size cost — ≈59M for the two editions (MEASURED
 
 - URLs: `/texts/<slug>/` → current; `/texts/<slug>/v/<semver>/` → pinned;
   `/texts/<slug>/v/<semver>/plain` → plain-text export of that version.
+
+---
+
+### 3.2 The recorded divisions (`heads.json`, `divisions.json`)
+
+An edition's **divisions** are the units it is cited by: the 18 sections of the
+Cave, the 211 propositions of the Elements of Theology, the 215 CHAPTERS (in 7
+BOOKS) of the Theology of Plato. The extraction reads them out of the
+transcription — `7. ` for an arabic opener, `PROPOSITION XXVI.` for a roman one —
+and requires them to run 1…N with none missing, so a mis-read number fails the
+build instead of serving a wrong division.
+
+**Where the numerals are not in the transcription at all**, that model cannot be
+used, and reading one off the sequence is how a division is attributed to the
+wrong BOOK — a wrong text, served silently. Taylor's 1816 *Theology of Plato* is
+that case: it is SEVEN BOOKS of roman-numbered chapters, the chapter numbers
+RESTART at I in every book, and the scan wrote the numerals as `CHAP. au.`,
+`CHAP REX`, `CHAPTER VE`, `BOOK actrees`. For such an edition the divisions are
+**recorded**, from two sources and neither of them the transcription:
+
+- `heads.json` — **WHAT THE PAGES SAY.** One reading per stored leaf, taken by the
+  vision model from the page image (`tools/vision-heads.mjs`): the running head
+  verbatim, any chapter/book heading printed in the body verbatim, and the printed
+  page number where one is printed. It is a plain cache — a leaf already read is
+  never re-asked — and it is the primary evidence, because the model can SEE the
+  numeral the scan's OCR destroyed.
+
+```jsonc
+{ "slug": "…", "model": "deepseek-v4-flash-vision-exp", "leaves": {
+  "v1-n100.jpg": { "page": "97", "head": "CHAP. X.  OF PLATO.",
+                   "heading": "CHAPTER X.", "raw": "{…}", "bytes": 538813,
+                   "at": "2026-10-05T…", "model": "…" } } }
+```
+
+- `divisions.json` — **WHERE THEY STAND IN THE TEXT.** One entry per division,
+  derived by `tools/divisions.mjs` from `heads.json`, the item's own `_djvu.xml`
+  (fingerprinted against `source.txt`, so a leaf's position is MEASURED, not
+  inferred from order or from a page number), and the print's second transcription
+  as a cross-check.
+
+```jsonc
+{
+  "slug": "proclus-theology-of-plato-taylor-1816",
+  "method": "…what was read, and from what, and why not from the transcription…",
+  "source": { "version": "1.0.0", "sha256": "…", "lines": 100570, "linesWithText": … },
+  "vision": { "model": "…", "leaves": 722, "readings": 722, "placed": 671 },
+  "witness": { "file": "…", "lists": [ { "book": 1, "chapters": 29, "line": 2430 } ] },
+  "books":  [ { "n": 1, "label": "Book I", "chapters": 29, "witness": 29, "witnessAgreement": "agree" } ],
+  "divisions": [ {
+    "n": 1, "book": 1, "chapter": 1, "label": "Book I, Chapter I", "anchor": "s1",
+    "line": 7768,            // 1-based line of source.txt this division OPENS on
+    "flat": 7701,            // the same line in the extractor's own stream
+    "text": "…",             // the line's text, verbatim — the extractor checks this
+    "page": 1, "leaf": "v1-n74.jpg", "how": "opening", "confidence": "high",
+    "evidence": { "leaf": "v1-n74.jpg", "head": "…", "heading": "…", "raw": "…" }
+  } ],
+  "notes": []                // every reading that could NOT be reconciled, verbatim
+}
+```
+
+Rules the model is held to:
+
+- **the numeral is never fitted.** A reading that does not run 1…N with none
+  missing, restart at I in the next book, and start a book whose number the print
+  itself prints is put in `notes` with its leaf and its verbatim head, not
+  smoothed into place;
+- **a division's line is verified.** `text` is the transcription's own line at
+  `line`, and the extractor refuses the whole model if the line no longer carries
+  it (`loadDivisions`), so a model of another transcription cannot be applied to
+  moved line positions;
+- **agreement with the witness is recorded per book**, and a book whose chapter
+  count the witness contradicts is `witnessAgreement: "FLAGGED"` — never silently
+  preferred either way.
+
+The extractor's `opener: "recorded"` mode is what consumes it: the sections are
+the model, one for one, and the assertion the mode rests on is that they open
+exactly 1…N in document order (`opener`, `digits` and the rest are unaffected).
 
 ---
 

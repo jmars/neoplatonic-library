@@ -90,6 +90,7 @@ import {
   runningHead,
   bareFolio,
   joinLines,
+  collapseLine,
 } from './reader.mjs';
 import { TEXTS, SHELF, shelfFiles, shelfFile, textSource } from './shelf.mjs';
 
@@ -149,6 +150,73 @@ export const editionPath = (slug, version = null) => {
 };
 export const importPath = (slug) => join(LIBRARY_DIR, slug, 'import.json');
 export const derivsPath = (slug) => join(LIBRARY_DIR, slug, 'derivs.json');
+
+/** Where a text's RECORDED DIVISIONS live, if it has any (§3.2, `opener:
+ * "recorded"`): `data/editions/<slug>/divisions.json`. Like `derivs.json` it is
+ * derived, not hand-written, and it is refused when it was derived against other
+ * bytes than the edition being extracted. */
+export const divisionsPath = (slug) => join(LIBRARY_DIR, slug, 'divisions.json');
+
+/** The archive.org items this edition's PAGE IMAGES come from, as the edition's
+ * own `scan.json` records them. An edition cut from ONE volume names it with
+ * `item`; an edition cut from two (Taylor's 1816 Theology of Plato is vol. I and
+ * vol. II of one edition, and the two scans' leaf numbers run over each other)
+ * keeps no single `item` and names its items HERE — the reader's `source.item`
+ * has to be a string, so those names are joined rather than dropped, which would
+ * have made the document undecodable (`D.field "item" D.string`). */
+export function scanItemNames(slug) {
+  const file = join(LIBRARY_DIR, slug, 'scan.json');
+  if (!existsSync(file)) return [];
+  try {
+    const s = JSON.parse(readFileSync(file, 'utf8'));
+    if (Array.isArray(s.items) && s.items.length) {
+      return s.items.map((it) => it.archive_id || it.item).filter((x) => typeof x === 'string' && x !== '');
+    }
+    return typeof s.item === 'string' ? [s.item] : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * THE RECORDED DIVISIONS, if this edition has them (§3.2).
+ *
+ * An edition whose division numerals the scan destroyed cannot have its
+ * divisions read out of the transcription at all (see the `recorded` opener
+ * spec). Its divisions were read off the SCANS and are stored as data beside the
+ * edition: every division's line in the transcription, its book and chapter, its
+ * label, its anchor, its confidence and the leaf/head it was read from
+ * (`tools/divisions.mjs` writes it). Loaded here and verified against the
+ * edition's own bytes, so a model of another transcription is refused rather than
+ * applied to line positions that have moved.
+ */
+export function loadDivisions(slug, edition = null) {
+  const file = divisionsPath(slug);
+  if (!existsSync(file)) return null;
+  let model;
+  try {
+    model = JSON.parse(readFileSync(file, 'utf8'));
+  } catch (e) {
+    throw new Error(`library: ${slug}: the recorded divisions are not valid JSON — ${e.message}`);
+  }
+  if (!Array.isArray(model.divisions) || model.divisions.length === 0) {
+    throw new Error(`library: ${slug}: the recorded divisions carry no divisions[] — it is not a division model`);
+  }
+  if (edition != null && model.source && model.source.sha256 && model.source.sha256 !== edition) {
+    throw new Error(
+      `library: ${slug}: the recorded divisions were read against other bytes than the edition this repo stores ` +
+        `(model: ${model.source.sha256.slice(0, 12)}…, edition: ${edition.slice(0, 12)}…) — every division in it is a ` +
+        `line position of the transcription it was derived against, so its anchors would land in the wrong places.\n` +
+        `  Make a new model deliberately: node tools/divisions.mjs ${slug}`,
+    );
+  }
+  for (const d of model.divisions) {
+    if (!Number.isInteger(d.n) || !Number.isInteger(d.line) || typeof d.text !== 'string') {
+      throw new Error(`library: ${slug}: a recorded division is not {n, line, text} — it is not one`);
+    }
+  }
+  return model;
+}
 export const anchorPath = (slug) => join(ANCHOR_DIR, `${slug}.json`);
 export const hasEdition = (slug) => versionOf(slug) != null && existsSync(editionPath(slug));
 export const readEdition = (slug, version = null) => readFileSync(editionPath(slug, version), 'utf8');
@@ -277,6 +345,20 @@ const OPENER_SPECS = {
     re: /^['\u2018]?\s*PROPOSITION\s+([IVXLCDM]+)\b[.,]?/,
     read: readRoman,
   },
+  /* `recorded` — THE DIVISIONS ARE NOT IN THE TRANSCRIPTION TO BE READ. Some
+   * editions have had their division numerals destroyed by the scan: Taylor's
+   * 1816 Theology of Plato prints `CHAP. VII. OF PLATO.` in the running head and
+   * `CHAPTER VII.` under it, and the transcription writes those as `CHAP. au.`,
+   * `CHAPTER VE`, `CHAP REX`. No regex reads a number that is not there, and
+   * fitting one from the sequence is how a division gets attributed to the wrong
+   * BOOK (the earlier attempt's silent-wrong). So for such an edition the numbers
+   * are read off the SCANS (the vision pass — `head`/`heading` per leaf, cached in
+   * `heads.json`) and the divisions are shipped as DATA beside the edition
+   * (`divisions.json`); the extraction OPENS a section at each recorded line and
+   * verifies the line's text against the model. This entry exists so
+   * `cfg.opener` can name the mode without a fork in the loop; its matcher never
+   * fires (the recorded path tests line positions, not a regex). */
+  recorded: { re: /$^/, read: () => null },
 };
 
 /** A roman numeral as the print writes it, read subtractively. The transcription
@@ -460,6 +542,40 @@ const TEXT_RULES = {
     // one word 'PROP.'; the rest are the shapes named above.
     furnitureHead: 'proclus-1816',
   },
+
+  /* The Theology of Plato, 1816, as the same edition prints it: SEVEN BOOKS of
+   * CHAPTERS, the chapters numbered in roman and RESTARTING at I in every book
+   * (Book I has xxix, Book II xii, Book III xxviii, Book IV xxxix, Book V xl,
+   * Book VI xxiv, Book VII li — 223 in all, MEASURED from the print's own
+   * contents lists by `tools/divisions.mjs` and cross-read off the scans).
+   *
+   * THE DIVISIONS ARE NOT READ FROM THE TRANSCRIPTION. They cannot be: the scan
+   * wrote the chapter numerals of the running heads and of the chapter headings
+   * as `CHAP. au.`, `CHAP REX`, `CHAPTER VE`, `CHAPTER Piglets` — the number is
+   * gone, not misspelt — and fitting one from the sequence is exactly how the
+   * earlier attempt assigned chapters to the wrong BOOK. So the numbers were read
+   * off the SCANS (the vision pass, one reading per leaf, cached in `heads.json`)
+   * and their positions in the transcription located by leaf (the item's own
+   * `_djvu.xml` fingerprinted against `source.txt`). The result is the data file
+   * `data/editions/<slug>/divisions.json`, and the extraction opens a section at
+   * each recorded line. */
+  'proclus-theology-of-plato-taylor-1816': {
+    opener: 'recorded',
+    // the recorded model, loaded and verified against this edition's bytes
+    divisionModel: true,
+    /* NO `damageExclude` HERE, deliberately. The same press's asterisk footnote
+     * marker and ampersand are the Elements' own measurement, and an `exclude`
+     * has to agree with THIS edition's `repairs.json` damage set — which is the
+     * unrepaired base set, because no repair pass has been run for this edition.
+     * Declaring the exclusion without measuring the edition's own set is refused
+     * by `loadEdits` ("A version whose damage set is another set is a version of
+     * another edition"), and measuring it is the repair pipeline's job, not the
+     * division model's.
+     */
+    // No head is read from the transcription: the heads are the very lines whose
+    // numbers the scan destroyed, and the page model of this edition rests on the
+    // recorded divisions and on whatever folios survive, not on a head phrase.
+  },
 };
 
 /* ---------- the edits: the reviewed rules, and what they do ---------- */
@@ -602,8 +718,14 @@ export function loadEdits(slug, version = null) {
         `"${base.rule}" and will not apply another`,
     );
   }
-  if (!Array.isArray(raw.rules) || raw.rules.length === 0) {
-    throw new Error(`library: ${slug}: the repairs file carries no rules`);
+  /* AN EMPTY RULE LIST IS A STATEMENT; an absent one is a loss. A version that has
+   * not been through the repair pass yet serves the transcription as the scanner
+   * left it and says so with `rules: []` — that is the honest record of an
+   * unrepaired edition, and the shelf holds it back from the site until the rules
+   * exist. A file whose `rules` is not a list at all is a truncated record and is
+   * refused: those two shapes must not be the same shape. */
+  if (!Array.isArray(raw.rules)) {
+    throw new Error(`library: ${slug}: the repairs file carries no rules list`);
   }
   /* THE DAMAGE SET travels with the version (model §4.3): the reader marks a
    * character of this set, so it must be the edition's own. Where the canonical
@@ -1364,6 +1486,44 @@ export function extract(src, meta) {
         `a text's division numbering must name a shape the extraction can read`,
     );
   }
+  /* THE RECORDED DIVISIONS (§3.2), when the edition has them: the model beside
+   * the edition, verified against this transcription's own bytes, indexed by the
+   * line each division OPENS on. The index is the one the emission pass and the
+   * page model already share (a line of the edition as `pageSignals` counts them),
+   * so a division and a leaf boundary name the same coordinate. A recorded line
+   * that falls on no line carrying text, or whose text is not what the model
+   * recorded, is a stale model and is refused rather than opened at a guess. */
+  const divisionModel = cfg.divisionModel ? loadDivisions(entry.slug, meta.sha256) : null;
+  if (cfg.divisionModel && !divisionModel) {
+    throw new Error(
+      `library: ${entry.slug}: this edition's divisions are recorded (a ${JSON.stringify(String(cfg.opener))} opener) ` +
+        `and its model is missing (${divisionsPath(entry.slug)}) — the divisions were read off the scans and are not ` +
+        `recoverable from the transcription:\n  node tools/divisions.mjs ${entry.slug}`,
+    );
+  }
+  let divisionAt = null;
+  if (divisionModel) {
+    // the edition's lines as `pageSignals` counts them: the lines that carry text,
+    // in order (a blank line is not a line a division can stand on)
+    const raw = src.replace(/\r\n?/g, '\n').replace(/^\uFEFF/, '').split('\n');
+    const flatOfRaw = [];
+    let f = 0;
+    for (let i = 0; i < raw.length; i++) flatOfRaw[i] = collapseLine(raw[i]) !== '' ? f++ : -1;
+    divisionAt = new Map();
+    for (const d of divisionModel.divisions) {
+      const at = flatOfRaw[d.line - 1];
+      if (at == null || at < 0) {
+        throw new Error(
+          `library: ${entry.slug}: division ${d.n} is recorded at line ${d.line} of the transcription, whose text ` +
+            `does not exist (it is blank or past the end) — the recorded model was made against other bytes`,
+        );
+      }
+      if (divisionAt.has(at)) {
+        throw new Error(`library: ${entry.slug}: two recorded divisions open on the same line (${d.line})`);
+      }
+      divisionAt.set(at, d);
+    }
+  }
   /* The rules come from the CANONICAL repairs.json of the version being
    * extracted (model §4.3), not from a second copy in tools/edits/ and not from
    * this module, and the whole list is loaded before anything is read: the
@@ -1637,6 +1797,53 @@ export function extract(src, meta) {
         continue;
       }
 
+      /* A RECORDED DIVISION OPENS HERE (§3.2). The test is the line's own
+       * position, not a regex: the number is in the model, read off the scan, and
+       * the transcription's line only says WHERE the division stands. The line's
+       * text must be the model's — a recorded model that no longer matches the
+       * line it names has been made against other bytes, and opening a section at
+       * it would anchor every citation after it to the wrong place. */
+      if (divisionAt) {
+        const div = divisionAt.get(sig.at(bi, li));
+        if (div) {
+          if (collapseLine(line) !== div.text) {
+            throw new Error(
+              `library: ${entry.slug}: division ${div.n} is recorded at line ${div.line} carrying ` +
+                `${JSON.stringify(div.text)} and this transcription has ${JSON.stringify(collapseLine(line))} there — ` +
+                `the recorded model is stale (the transcription has changed):\n  node tools/divisions.mjs ${entry.slug}`,
+            );
+          }
+          flush();
+          par = 0;
+          if (region === 'front') {
+            push({ t: 'region', kind: 'body' });
+            region = 'body';
+          }
+          secN = div.n;
+          expectedSec = div.n + 1;
+          push({
+            t: 'sec',
+            n: div.n,
+            id: `s${div.n}`,
+            // the division's structure, carried on the section so the contents
+            // list can state it. The reader renders the titles it already knew;
+            // book/chapter/label are data the document keeps and the app MAY show
+            // once its decoder learns the field (no anchor depends on them).
+            book: div.book,
+            chapter: div.chapter,
+            label: div.label,
+            // THE PRINTED PAGE the division opens on, read off the scan (the same
+            // reading the model was recovered from) — served rather than the
+            // marker-derived page, which for this edition is built on folios the
+            // scan mangled far worse than it mangled the chapter numbers
+            ...(div.page != null ? { page: div.page } : {}),
+            ...(div.confidence ? { confidence: div.confidence } : {}),
+          });
+          start('p', line, { sameParagraph: false });
+          continue;
+        }
+      }
+
       const fixed = applyCorrections(line, openers);
 
       if (line === (cfg.divisions || {}).notes) {
@@ -1787,7 +1994,7 @@ export function extract(src, meta) {
    * Proclus's 211 are both MEASURED facts about one edition, and a count that
    * is not the edition's names a missed or a spurious opener rather than a
    * different book. */
-  const wantDivisions = cfg.expectedDivisions || 18;
+  const wantDivisions = cfg.expectedDivisions || (divisionModel ? divisionModel.divisions.length : 18);
   if (expectedSec - 1 !== wantDivisions) {
     throw new Error(
       `library: ${entry.slug}: the text's divisions do not run 1…${wantDivisions} — ` +
@@ -1795,6 +2002,26 @@ export function extract(src, meta) {
         `mangled) or detected twice (an opener that is not one); the offender is the division whose ` +
         `number is not the one due`,
     );
+  }
+  /* 4a. THE RECORDED DIVISIONS, COUNTED (§3.2). Here the count alone is not
+   * enough: the divisions are opened by LINE POSITION, so a model that names a
+   * line carrying text but the WRONG one would still produce N sections — and a
+   * section that opens one line early silently moves a paragraph into the wrong
+   * chapter. The sections must be exactly 1…N in document order, each once. This
+   * is the assertion the recorded mode rests on, and it is the one the earlier
+   * fuzzy-matching attempt could not make. */
+  if (divisionModel) {
+    const found = out.filter((b) => b.t === 'sec').map((b) => b.n);
+    const want = divisionModel.divisions.map((d) => d.n);
+    if (found.length !== want.length || found.some((n, i) => n !== want[i])) {
+      const firstBad = found.find((n, i) => n !== want[i]);
+      throw new Error(
+        `library: ${entry.slug}: the recorded divisions did not open where the model says — ` +
+          `${found.length} section(s) were opened against the model's ${want.length}, and the first that is not ` +
+          `the one at its position is ${firstBad == null ? '(none; the counts differ)' : firstBad} — ` +
+          `a recorded line that carries the wrong text is a model made against another transcription`,
+      );
+    }
   }
   /* THE NOTE MACHINERY IS THE EDITION'S OWN. The 1917 Cave carries a numbered
    * Notes division, every marker `(n)` defined and referenced; the 1816 Proclus
@@ -1855,7 +2082,11 @@ export function extract(src, meta) {
   let here = null;
   for (const b of out) {
     if (b.t === 'pb' && b.page != null) here = b.page;
-    else if (b.t === 'sec') b.page = here != null ? here : firstPage;
+    // a RECORDED division already carries the page its own scan reads (the
+    // vision pass read the printed number off the page the chapter opens on);
+    // the marker-derived page is the fallback, not an overwrite — this edition's
+    // folios survive too badly to be the better witness (§3.2)
+    else if (b.t === 'sec') b.page = b.page != null ? b.page : here != null ? here : firstPage;
   }
 
   /* 5b. The fragment grammar, materialised: `#s<n>` a division, `#p<n>` a printed
@@ -2020,6 +2251,10 @@ export function extract(src, meta) {
       // words themselves stand in `raw` for the reader and the review
       ...(harm.damaged ? { damaged: true, damagedWords: harm.words } : {}),
       page: b.page,
+      // the STRUCTURE the division carries, where the edition records it (the
+      // recorded-division mode §3.2): book and chapter are the print's own numbers
+      // read off the scans, and the label is what a citation calls the division.
+      ...(b.book != null ? { book: b.book, chapter: b.chapter, label: b.label } : {}),
     });
   }
   const titles = toc.map((t) => t.title);
@@ -2076,7 +2311,7 @@ export function extract(src, meta) {
     slug: entry.slug,
     lang: entry.lang || 'en',
     source: {
-      item: entry.item || null,
+      item: entry.item || scanItemNames(entry.slug).join(' + ') || null,
       sha256: meta.sha256,
       // what the page model rests on, named in the document itself: the leaves
       // when there is a leaf model, and nothing but the transcription otherwise
@@ -2110,6 +2345,29 @@ export function extract(src, meta) {
       .map((m) => (leafModel ? { leaf: m.leaf ?? null, page: m.page, how: m.how } : { leaf: null, page: m.page })),
     toc,
     blocks: out,
+    // THE DIVISION MODEL, when the edition's divisions are recorded rather than
+    // read from the transcription (§3.2): what was recovered, from what, and the
+    // count. The document carries it so a reader can check the section numbering
+    // against the structure it came from — the sections are the model, one for one.
+    ...(divisionModel
+      ? {
+          divisions: {
+            count: divisionModel.divisions.length,
+            // each book's count, and the witness's own against it: a book the
+            // print does not print as many chapters of as its contents list names
+            // is CARRIED as a disagreement, never silently reconciled
+            books: (divisionModel.books || []).map((b) => ({
+              n: b.n,
+              label: b.label,
+              chapters: b.chapters,
+              witness: b.witness == null ? null : b.witness,
+              agreement: b.witnessAgreement || null,
+            })),
+            readFrom: divisionModel.method || null,
+            source: divisionModel.source || null,
+          },
+        }
+      : {}),
     corrections,
     // THE DAMAGE SET, from the base policy to the reading view. The app marks a
     // character of this set where a damaged word has no recorded reading, so the

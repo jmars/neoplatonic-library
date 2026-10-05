@@ -27,6 +27,12 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { publishedTexts } from './shelf.mjs';
+
+/** THE SERVED SET, from the shelf's own publication switch: an edition is served
+ * when its shelf entry says `published: true`, and the data directory may hold
+ * one that is not (an unrepaired transcription is held back). */
+const SERVED = new Set(publishedTexts().map((t) => t.slug));
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'site', 'dist');
@@ -103,8 +109,10 @@ const ROUTES = [
   { file: '404.html', url: null, title: `Not found — ${HOST}`, nav: null, label: null },
 ];
 
-/** The served editions, from the data: an edition record with `current_version`
- * set is published, and its page belongs at /texts/<slug>/. */
+/** The served editions: an edition record with a `current_version` AND a shelf
+ * entry that publishes it. A stored edition is not automatically a served one --
+ * the shelf holds an unrepaired transcription back -- and the site is the served
+ * set. */
 function servedEditions() {
   const dir = join(ROOT, 'data', 'editions');
   if (!existsSync(dir)) return [];
@@ -114,7 +122,7 @@ function servedEditions() {
       const f = join(dir, d.name, 'edition.json');
       return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : null;
     })
-    .filter((e) => e && e.current_version);
+    .filter((e) => e && e.current_version && SERVED.has(e.slug));
 }
 
 for (const e of servedEditions()) {

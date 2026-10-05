@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "date": "2026-10-05",
+  "note": "first import; the transcription is UNREPAIRED. The served text is the shelf's own transcription of vol. I and of the Theology portion of vol. II, exactly as the scanner left it, with an empty rule list: no repair pass has been run over this text, so no reading is supplied and the damage the scanner left stands visible. The damage set is the shared base policy's, unmeasured for this edition, and no per-text extraction config has been measured for it yet either.",
+  "source_sha256": "b4828cd8a4975c95f51e3d5aee120a57552601e52b53d5f005846d52576616aa",
+  "supersedes": null,
+  "citation": "Proclus, On the Theology of Plato, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.0. https://neoplatonic-library.org/texts/proclus-theology-of-plato-taylor-1816/"
+}
