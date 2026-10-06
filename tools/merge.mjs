@@ -150,6 +150,64 @@ const inWordDeletion = (find, replace) => {
   return false;
 };
 
+/* ---------- the type a class of finding will get, and what it decides ---------- */
+/** The characters by which two strings differ, as a multiset (a char present in
+ * one and not the other). Kept in step with build/migrate.mjs's own classifier —
+ * it is the migration's §4.1 implementation, and this is the same decision. */
+function diffChars(a, b) {
+  const m = new Map();
+  for (const c of a) m.set(c, (m.get(c) || 0) - 1);
+  for (const c of b) m.set(c, (m.get(c) || 0) + 1);
+  const out = [];
+  for (const [c, v] of m) if (v !== 0) out.push(c);
+  return out;
+}
+
+const GREEK = /[\u0370-\u03ff\u1f00-\u1fff]/;
+const DAMAGE_CHARS = new Set('^_~*/£>\\|#™±»«}{&');
+
+/* DATA-MODEL §4.1's ordered decision, for the classes a READ proposes. Rules 1-3
+ * are byte-wise; rule 4 (`opener`/`digit`) cannot arise here (a finding is class
+ * 1/2/3 damage, not a division number); rule 5's conjectural detection reads the
+ * note's own wording and is deliberately NOT asserted — a type not fixed by rules
+ * 1-4 falls to the conservative default, rule 6 `OCR` with `review: true`, which
+ * is the direction the model asks for (a machine asserts no certainty it lacks).
+ *
+ * IT IS CALLED ABOVE THE DROP LOOP TOO, and it is defined up here for that reason:
+ * the front-matter region admits exactly one type (model §4.1's `transliteration`,
+ * see the drop below), so the drop has to know the type of a candidate BEFORE the
+ * candidate is accepted — and a `const` first initialised further down would be in
+ * its temporal dead zone at that point. */
+function classifyRule(find, after) {
+  if (GREEK.test(after) && !GREEK.test(find)) {
+    return { type: 'transliteration', review: false, evidence: 'after contains Greek script, before does not (rule 1)' };
+  }
+  if (find.replace(/\s+/g, '') === after.replace(/\s+/g, '')) {
+    return { type: 'OCR', review: false, evidence: 'before and after equal after removing all whitespace (rule 2)' };
+  }
+  const diff = diffChars(find, after);
+  if (diff.length && diff.every((c) => DAMAGE_CHARS.has(c))) {
+    return { type: 'OCR', review: true, evidence: `differs only in OCR-noise damage characters (${[...new Set(diff)].join('')}) — the print recovered, not punctuation (rule 6)` };
+  }
+  if (diff.length && diff.every((c) => /[^\w\s]/u.test(c))) {
+    return { type: 'punctuation', review: false, evidence: `differs only in punctuation characters: ${[...new Set(diff)].join('')} (rule 3)` };
+  }
+  return { type: 'OCR', review: true, evidence: 'default OCR (rule 6)' };
+}
+
+/** THE ONE INSTRUMENT A READING RESTS ON, when the artifact says it rests on one.
+ *
+ * A finding from a vision pass may record which instruments READ the line
+ * (`instruments`, written by `tools/greek-classify.mjs` from the pass's own draw
+ * cache). A length of one is the pass stating that no second reader gave these
+ * letters — the reading stands on one instrument — and that fact belongs in the
+ * RULE: it is stated in the rationale and the rule is `review: true`, because
+ * nothing here is a two-instrument agreement. Any other length (including an
+ * artifact that records no instruments at all, which is every other pass's) leaves
+ * the rule exactly as the type taxonomy decides it. MEASURED: this is a no-op for
+ * every existing merge input. */
+const oneInstrument = (f) => (Array.isArray(f && f.instruments) && f.instruments.length === 1 ? f.instruments[0] : null);
+
 const drop = []; // { finding, why }
 const candidates = [];
 
@@ -166,8 +224,23 @@ for (const f of findings) {
   if (!served.includes(find)) { drop.push([f, 'the find is not in the served transcription']); continue; }
 
   if (frontMatter.includes(find)) {
-    drop.push([f, 'the find stands in the front-matter region (the title page is preserved by construction)']);
-    continue;
+    /* THE PRESERVED REGION ADMITS ONE TYPE (2026-10-06, the Greek pass): a rule of
+     * type `transliteration` is a GREEK reading taken off the page image, which
+     * restores what the PRINT sets rather than emending the front matter's English —
+     * the thing the refusal exists to stop. The authority is extract.mjs
+     * `checkFrontMatter` (it refuses every other type there and is re-run by the
+     * build); this drop is its mirror, so a candidate of another type is dropped
+     * HERE, named, instead of failing the build there. MEASURED: before this, 8
+     * two-reader-corroborated Greek findings and 60 single-instrument ones stood
+     * refused in this drop alone. WHAT THE TYPE DOES AND DOES NOT SETTLE: a rule's
+     * span is the whole damaged run the reader settled, so nine of those 68 also
+     * settle English inside the same span (18 letters) — the measurement, and the
+     * reason the exception is stated by TYPE alone, stand in extract.mjs
+     * `checkFrontMatter`. */
+    if (classifyRule(find, replace).type !== 'transliteration') {
+      drop.push([f, 'the find stands in the front-matter region (the title page is preserved by construction)']);
+      continue;
+    }
   }
   const existing = rules.find((r) => rFind(r) === find);
   if (existing) {
@@ -232,7 +305,26 @@ function note(f) {
             f.decided_by === 'witness' && typeof f.witness === 'string' && f.witness
             ? f.witness
             : "the transcription's own context";
-  return `${f.note} (decided by ${w}.)`;
+  /* THE ONE-INSTRUMENT FACT, STATED IN THE RULE ITSELF. A reading the pass records
+   * as resting on ONE instrument — no second reader's own draws carry these letters
+   * twice alike — is folded in (the author's call: render it and state the
+   * uncertainty rather than drop it) and the rule says so in its own words, never
+   * only in the pass's note.
+   *
+   * THE WORDING IS THE MEASUREMENT, and it was tightened after measuring the other
+   * reader: on three of the 146, the SECOND reader did produce one draw carrying
+   * these letters and another that disagreed with itself (`κατ᾽ ἐξοχὴν` against
+   * `κατ' ἔξοχον`). So "the second reader never gave these letters" would be false
+   * on 3 of 146; what is true on all 146 is the thing corroboration is actually
+   * defined as here — a second reader's own draws AGREEING. The clause says that,
+   * and says nothing stronger. */
+  const one = oneInstrument(f);
+  const clause = one
+    ? ` ONE INSTRUMENT'S READING: these letters rest on ONE reader, ${one} — no second reader's own ` +
+      `draws corroborate them. The rule is merged with that fact stated, the review flag stands on it, ` +
+      `and the rule is listed in the edition's review worklist.`
+    : '';
+  return `${f.note} (decided by ${w}.)${clause}`;
 }
 
 /* ---------- T4: a bare find that occurs more than once would repair them all ---------- */
@@ -617,44 +709,6 @@ const idNum = (r) => Number((/:r(\d+)$/.exec(r.id) || [])[1] || 0);
 const idFloor = Number(rawFile.id_floor || 0) || 0;
 let nextId = rules.reduce((m, r) => Math.max(m, idNum(r)), idFloor);
 
-/** The characters by which two strings differ, as a multiset (a char present in
- * one and not the other). Kept in step with build/migrate.mjs's own classifier —
- * it is the migration's §4.1 implementation, and this is the same decision. */
-function diffChars(a, b) {
-  const m = new Map();
-  for (const c of a) m.set(c, (m.get(c) || 0) - 1);
-  for (const c of b) m.set(c, (m.get(c) || 0) + 1);
-  const out = [];
-  for (const [c, v] of m) if (v !== 0) out.push(c);
-  return out;
-}
-
-const GREEK = /[\u0370-\u03ff\u1f00-\u1fff]/;
-const DAMAGE_CHARS = new Set('^_~*/£>\\|#™±»«}{&');
-
-/* DATA-MODEL §4.1's ordered decision, for the classes a READ proposes. Rules 1-3
- * are byte-wise; rule 4 (`opener`/`digit`) cannot arise here (a finding is class
- * 1/2/3 damage, not a division number); rule 5's conjectural detection reads the
- * note's own wording and is deliberately NOT asserted — a type not fixed by rules
- * 1-4 falls to the conservative default, rule 6 `OCR` with `review: true`, which
- * is the direction the model asks for (a machine asserts no certainty it lacks). */
-function classifyRule(find, after) {
-  if (GREEK.test(after) && !GREEK.test(find)) {
-    return { type: 'transliteration', review: false, evidence: 'after contains Greek script, before does not (rule 1)' };
-  }
-  if (find.replace(/\s+/g, '') === after.replace(/\s+/g, '')) {
-    return { type: 'OCR', review: false, evidence: 'before and after equal after removing all whitespace (rule 2)' };
-  }
-  const diff = diffChars(find, after);
-  if (diff.length && diff.every((c) => DAMAGE_CHARS.has(c))) {
-    return { type: 'OCR', review: true, evidence: `differs only in OCR-noise damage characters (${[...new Set(diff)].join('')}) — the print recovered, not punctuation (rule 6)` };
-  }
-  if (diff.length && diff.every((c) => /[^\w\s]/u.test(c))) {
-    return { type: 'punctuation', review: false, evidence: `differs only in punctuation characters: ${[...new Set(diff)].join('')} (rule 3)` };
-  }
-  return { type: 'OCR', review: true, evidence: 'default OCR (rule 6)' };
-}
-
 const newRules = order(accepted).map((c) => {
   const t = classifyRule(c.find, c.replace);
   const decidedByParallel = c._f && (c._f.decided_by === 'parallel' || c._f.decided_by === 'both');
@@ -682,6 +736,13 @@ const newRules = order(accepted).map((c) => {
           : decidedByParallel && parallelLabel
             ? parallelLabel
             : null,
+    /* THE INSTRUMENTS THAT READ THIS LINE (model §4.0), when the pass recorded them
+     * (`tools/greek-classify.mjs` measures them from the draw cache). The array is
+     * the FACT the `review` flag and the rationale are derived from, not a second
+     * statement of them: one entry is one instrument's reading. An artifact that
+     * records none — every other pass's — leaves the array empty, and the rule is
+     * exactly what the type taxonomy decides. */
+    ...(Array.isArray(c._f && c._f.instruments) && c._f.instruments.length ? { instruments: c._f.instruments } : {}),
     /* `fires` IS MEASURED (model §4.0: "how many times `location.find` matches
      * the served text"; §4.2: "a rule that fires four times keeps one ID and
      * `fires: 4`"). It was hardcoded 1, which is right only when every rule
@@ -695,7 +756,12 @@ const newRules = order(accepted).map((c) => {
     fires: ctotal.get(c) || 0,
     join: false,
     type_evidence: t.evidence,
-    review: t.review,
+    /* `review` IS THE RULE AWAITING HUMAN REVIEW, and a reading that rests on ONE
+     * instrument awaits it however the type was fixed (DATA-MODEL §4.1). The type
+     * here is `transliteration` — decided byte-wise by rule 1, so the taxonomy alone
+     * would clear a rule whose READING no second reader corroborates; the flag is
+     * what keeps that distinction visible in the apparatus. */
+    review: t.review || !!oneInstrument(c._f),
     evidence: c._f && c._f.decided_by === 'page' && Array.isArray(c._f.evidence) ? c._f.evidence : [],
   };
 });
@@ -728,6 +794,19 @@ for (const [r, n] of [...byReason].sort((a, b) => b[1] - a[1])) console.log(`   
 console.log(`  rejected by the fire contract: ${rejectedByContract.length}`);
 for (const [c, why] of rejectedByContract) console.log(`     ${why}: ${JSON.stringify(c.find)} -> ${JSON.stringify(c.replace)}`);
 console.log(`  ACCEPTED ${newRules.length} new rule(s)`);
+/* THE CLASSES, COUNTED (2026-10-06). A rule's footing is what the artifact says it
+ * is: a reading the pass records as resting on ONE instrument against one two
+ * instruments read. Printed every run because the number is the claim — the
+ * apparatus page states it and the echo probe holds it to the rules file. */
+const oneInstr = newRules.filter((r) => /ONE INSTRUMENT'S READING/.test(r.rationale)).length;
+const inFront = (() => {
+  const f = frontMatterText(doc);
+  return newRules.filter((r) => f.includes(rFind(r))).length;
+})();
+console.log(
+  `     footing: ${newRules.length - oneInstr} corroborated (two instruments), ${oneInstr} single-instrument ` +
+    `(review: true); standing in the front-matter region: ${inFront}`,
+);
 console.log(`  rules ${rules.length} -> ${outRules.length}`);
 console.log(`  verification: dead existing ${deadExisting.length}, dead new ${deadNew.length}`);
 console.log(`  engine vs from-scratch pass: ${mismatched.length ? `MISMATCH on ${mismatched.length} rule(s)` : 'exact (every reading rule and every accepted rule)'}`);

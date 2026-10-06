@@ -378,7 +378,8 @@ Required fields:
   "fires": 1,                        // MEASURED: how many times `location.find` matches the served text
   "join": false,                     // true when the rule also joins two paragraph blocks
   "type_evidence": "note says \"the print reads\"",  // the rationale substring that decided `type`
-  "review": false,                   // true when `type` rested on judgment and awaits human review
+  "review": false,                   // true when `type` rested on judgment, OR when the READING rests on one instrument (§4.1)
+  "instruments": ["google/gemini-2.5-flash"],  // OPTIONAL: the readers whose OWN draws carry the reading (§4.1); absent on every rule no vision pass read
   "evidence": [ /* the scan leaves the reading was decided from — see §4.4 */ ]
 }
 ```
@@ -431,6 +432,20 @@ listed in the edition's review worklist. A rule in rule 6 without page-image/pri
 evidence is also `review: true`. `type_evidence` records the rationale substring
 (or "rule N") that decided it. **Human review over the worklist is the only thing
 that flips `review` to `false`; migration never asserts certainty it lacks.**
+
+**`review` has a second footing, and it is a different claim.** A rule may also be
+`review: true` because its READING rests on ONE instrument, whatever its `type`
+fixes — the Greek pass of 2026-10-06 read the page images with two instruments
+chosen for not echoing the transcription, and where only one of them settled on
+the letters, the reading is merged with that fact stated in the rule's own
+rationale and flagged here. That footing is carried by `instruments`: the readers
+whose OWN non-echo draws carry the reading. It is written only where a pass
+recorded it and is ABSENT — never `[]` — on every rule no such pass read, which is
+every migrated rule. ONE entry is one instrument's reading; TWO or more is a
+reading two instruments gave, and such a rule is NOT flagged for it. The flag is
+therefore not the footing: the migrated rule-6 rules above carry the flag with no
+`instruments` at all, and a page that lists one-instrument readings must read
+`instruments`, not `review`.
 
 ### 4.2 Repair IDs
 

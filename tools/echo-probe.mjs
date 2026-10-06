@@ -216,6 +216,176 @@ if (r11688) {
   }
 }
 
+/* ---------- 5. the CLASSED merge: the single-instrument rules, and the region they stand in ---------- */
+/* THE AUTHOR'S CALL OF 2026-10-06: the pass's one-instrument Greek is MERGED, with
+ * the uncertainty stated, and the preserved front-matter region admits a rule whose
+ * type is `transliteration`. Both are claims about the RULES FILE, so both are held
+ * here to the thing they rest on — the draw cache, the classed artifact, and the
+ * extractor's own front-matter assertion.
+ *
+ * THE CLASS IS RE-DERIVED FROM THE CACHE, not read off the artifact: a finding's
+ * instruments are the readers whose OWN non-echo draws carry its letters, plus any
+ * the pass recorded in `agreeModels`. A drift between the tool that classed the
+ * findings and this re-derivation fails.
+ */
+const MERGE_INPUT = join(ROOT, 'tools/edits', `${SLUG}.greek-merge.json`);
+const classed = existsSync(MERGE_INPUT) ? JSON.parse(readFileSync(MERGE_INPUT, 'utf8')) : null;
+check(!!classed, 'the classed merge input exists (tools/greek-classify.mjs) and states each finding\'s instruments');
+if (classed) {
+  const twoDrawsAll = drawMap(classed);
+  const instrumentsOf = (f) => {
+    const want = fold(f.replace);
+    const out = new Set(Array.isArray(f.agreeModels) ? f.agreeModels : []);
+    for (const model of classed.models) {
+      if (out.has(model)) continue;
+      const agree = (twoDrawsAll.get(model) || []).filter(
+        (d) => d.line === f.line && d.text && d.text !== '?' && !isVerbatim(d.line, d.text) && fold(d.text).includes(want),
+      );
+      if (agree.length >= 2) out.add(model);
+    }
+    return [...out];
+  };
+  const same = (a, b) => a.slice().sort().join('|') === b.slice().sort().join('|');
+  const drift = classed.findings.filter((f) => !same(instrumentsOf(f), f.instruments || []));
+  check(
+    drift.length === 0,
+    `every classed finding's instruments are what its own draws say (${drift.length} drift${drift.length ? `, first: line ${drift[0].line} ${JSON.stringify(drift[0].instruments)} vs ${JSON.stringify(instrumentsOf(drift[0]))}` : ''})`,
+  );
+  const one = classed.findings.filter((f) => (f.instruments || []).length === 1).length;
+  const two = classed.findings.filter((f) => (f.instruments || []).length >= 2).length;
+  check(
+    one + two === classed.findings.length,
+    `every finding is classed (${one} single-instrument, ${two} corroborated, ${classed.findings.length} distinct)`,
+  );
+
+  /* EVERY MERGED RULE CARRIES ITS OWN FOOTING. A rule born of a classed finding is
+   * matched by its `find`, and the rule's `instruments`, `review` and rationale must
+   * agree with the class — one instrument means the clause naming that model and the
+   * review flag; two means the flag is NOT the single-instrument one and the pass's
+   * "ONE instrument repeated" sentence has been corrected. */
+  /* EVERY RULE THE MERGE FOLDED CARRIES ITS FOOTING, and only those rules do. A
+   * `find` can be WIDENED by the merge to isolate one site (` geous ` for `geous`,
+   * MEASURED once on this pass), so a folded rule is matched to its classed finding
+   * by containment; and a rule that predates this pass carries no `instruments` and
+   * is not re-classed here — its own unit's instrument set and its own stated
+   * footing are the record for it (three of them, r11679/r11685/r11687, come from
+   * the EARLIER echo check, whose configured set included an instrument this pass
+   * excludes). */
+  const classedFinds = classed.findings.map((f) => f.find);
+  const backingAll = (r) => classed.findings.filter((f) => r.location && (r.location.find === f.find || r.location.find.includes(f.find)));
+  const backing = (r) => backingAll(r)[0];
+  /* THE MATCH ABOVE IS BY CONTAINMENT, so it is only sound while ONE classed
+   * finding can contain a rule's `find`. If a later pass folds in a finding whose
+   * own `find` is a substring of another's, `backing` would silently take the
+   * earlier one and every footing below would be checked against the wrong
+   * instrument set — so the ambiguity is a FAILURE here, not a reading. */
+  const ambiguous = classed.findings.filter((f) => classedFinds.filter((g) => g !== f.find && f.find.includes(g)).length);
+  check(
+    ambiguous.length === 0,
+    `no classed finding's find contains another's (${ambiguous.length} do${ambiguous.length ? `, first: ${JSON.stringify(ambiguous[0].find)}` : ''}) — otherwise a rule's footing below could be read against the wrong finding`,
+  );
+  const foldedRules = rules.filter((r) => Array.isArray(r.instruments) && r.instruments.length);
+  const stray = foldedRules.filter((r) => !backing(r));
+  check(
+    stray.length === 0,
+    `every rule carrying instruments has a classed finding behind it (${stray.length} without${stray.length ? `: ${stray[0].id}` : ''})`,
+  );
+  const multi = foldedRules.filter((r) => backingAll(r).length !== 1);
+  check(multi.length === 0, `and exactly ONE classed finding behind each (${multi.length} not${multi.length ? `: ${multi[0].id}` : ''})`);
+  /* THE SPLIT IS MEASURED, not asserted in the message: the counts below are what
+   * the rules file yields, so the line cannot state a split the rules do not have. */
+  const foldedOne = foldedRules.filter((r) => r.instruments.length === 1).length;
+  const foldedTwo = foldedRules.length - foldedOne;
+  check(
+    foldedRules.length === 154,
+    `the merge folded 154 rules off this pass (${foldedRules.length} carry instruments) — MEASURED ${foldedOne} one-instrument and ${foldedTwo} two-instrument; the artifact classes ${classed.findings.filter((f) => (f.instruments || []).length === 1).length} of its ${classed.findings.length} findings as one instrument's`,
+  );
+  const clauseFail = [];
+  const flagFail = [];
+  for (const r of foldedRules) {
+    const f = backing(r);
+    const names = f ? f.instruments || [] : [];
+    if (!same(r.instruments || [], names)) {
+      flagFail.push(`${r.id} carries instruments ${JSON.stringify(r.instruments || [])} against the classed ${JSON.stringify(names)}`);
+      continue;
+    }
+    if (names.length === 1) {
+      if (!r.review) flagFail.push(`${r.id} is one instrument's reading and is not flagged for review`);
+      if (!/ONE INSTRUMENT'S READING/.test(r.rationale)) clauseFail.push(`${r.id} does not state that it is one instrument's reading`);
+      else if (!r.rationale.includes(names[0])) clauseFail.push(`${r.id} does not name ${names[0]} as the one reader`);
+    } else if (names.length >= 2) {
+      if (r.review) flagFail.push(`${r.id} is corroborated by ${names.join(' and ')} and is flagged for review`);
+      if (/ONE instrument repeated/.test(r.rationale)) clauseFail.push(`${r.id} still carries the pass's single-instrument sentence beside a two-instrument claim`);
+    }
+  }
+  check(clauseFail.length === 0, `every merged single-instrument rule states its one instrument in its own rationale (${clauseFail.length} wrong${clauseFail.length ? `: ${clauseFail[0]}` : ''})`);
+  check(flagFail.length === 0, `and every one is flagged for review, with the class the artifact measures (${flagFail.length} wrong${flagFail.length ? `: ${flagFail[0]}` : ''})`);
+
+  /* THE PRESERVED REGION, on the REAL document, through the extractor's OWN code.
+   * MEASURED at the merge: 68 of the folded rules stand inside it. The policy admits
+   * a rule there IFF its type is `transliteration` — the assertion ACCEPTS the served
+   * document when it is given the rules' canonical types, and REFUSES it (naming the
+   * rules) when it is not. That asymmetry is what proves the exception is the reason
+   * they are served, rather than the check having been weakened. */
+  const { extract, frontMatterText, checkFrontMatter, loadEdits, sha256, versionOf, hasEdition } = await import('./extract.mjs');
+  const { TEXTS } = await import('./shelf.mjs');
+  const src = source.join('\n');
+  const { meta } = loadEdits(SLUG);
+  /* THE EXTRACTOR ITSELF IS THE FIRST GATE: it runs `checkFrontMatter` while it
+   * builds the document, so a rule of another type standing in the preserved region
+   * fails HERE — and the probe reports that as a FAIL rather than a stack trace. */
+  let doc = null;
+  try {
+    doc = extract(src, { entry: TEXTS.find((t) => t.slug === SLUG), sha256: sha256(src), version: '1.0.0' });
+  } catch (e) {
+    check(false, `the served document extracts under the front-matter policy (${String(e.message).split('\n')[0].slice(0, 120)})`);
+  }
+  if (doc) {
+    const front = frontMatterText(doc);
+    const inFront = rules.filter((r) => r.location && front.includes(r.location.find));
+    check(inFront.length > 0, `rules stand inside the preserved front-matter region (${inFront.length})`);
+    const notGreek = inFront.filter((r) => r.type !== 'transliteration');
+    check(notGreek.length === 0, `and every one of them is a Greek restoration (${notGreek.length} of another type${notGreek.length ? `: ${notGreek[0].id} ${notGreek[0].type}` : ''})`);
+    const inFrontUnbacked = inFront.filter((r) => !backing(r));
+    check(
+      inFrontUnbacked.length === 0,
+      `and every rule standing there is one the classed artifact read (${inFront.length} rule(s) there, ${inFrontUnbacked.length} without a classed finding)`,
+    );
+    const typeMap = new Map((meta.types ? [...meta.types] : []));
+    let acceptedWith = null;
+    let refusedWithout = null;
+    try {
+      checkFrontMatter(doc, typeMap);
+      acceptedWith = 'accepted';
+    } catch (e) {
+      acceptedWith = `threw: ${e.message.split('\n')[0]}`;
+    }
+    try {
+      checkFrontMatter(doc);
+      refusedWithout = 'accepted';
+    } catch (e) {
+      refusedWithout = e.message;
+    }
+    check(acceptedWith === 'accepted', `the extractor's own front-matter assertion accepts the served document GIVEN its rules' types (${String(acceptedWith).slice(0, 80)})`);
+    check(
+      typeof refusedWithout === 'string' && refusedWithout.includes('preserved by construction'),
+      `and REFUSES it — naming the rules — when the types are not passed (${String(refusedWithout).split('\n')[0].slice(0, 90)})`,
+    );
+    check(
+      typeof refusedWithout === 'string' && refusedWithout.startsWith(`library: ${SLUG}: ${inFront.length} correction rule(s)`),
+      `the refusal counts exactly the ${inFront.length} rule(s) standing in the region (${String(refusedWithout).split('\n')[0].slice(0, 70)})`,
+    );
+  }
+  /* THE OTHER EDITIONS ARE NOT TOUCHED BY THE POLICY: neither has a rule in its
+   * front-matter region, which is why their documents are byte-identical either way
+   * (the build's parity gate and the deploy's live check are the record of that). */
+  for (const other of TEXTS.filter((t) => t.slug !== SLUG && hasEdition(t.slug))) {
+    const oRules = JSON.parse(readFileSync(join(ROOT, 'data/editions', other.slug, 'versions', versionOf(other.slug), 'repairs.json'), 'utf8')).rules;
+    const moved = oRules.filter((r) => Array.isArray(r.instruments) && r.instruments.length);
+    check(moved.length === 0, `${other.slug}: no rule of another edition was classed by the Greek pass (${moved.length} found)`);
+  }
+}
+
 console.log(`echo-probe: ${ok} OK, ${fails.length} FAIL`);
 for (const f of fails) console.log(`  FAIL  ${f}`);
 if (fails.length) process.exit(1);

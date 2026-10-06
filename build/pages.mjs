@@ -87,10 +87,19 @@ export function buildEditionsPage(served) {
     const rep = repairsOf(t);
     const meta = readMeta(t.slug, t.currentVersion);
     const byType = countBy(rep.rules, 'type');
-    /* The readings supplied with no witness — the places /errata lists. NOT a
-     * review count: every rule's type is settled (model §4.1), and the field the
-     * migration used to flag work is `false` throughout. */
+    /* THREE COUNTS THAT ARE NOT THE SAME COUNT, stated apart because merging them
+     * would misname two of them:
+     *   - `conjectural`  a TYPE: no witness settled the place (model §4.1, rule 5);
+     *   - `oneInstr`     a FOOTING: the reading rests on ONE instrument and no
+     *                    second reader corroborates it — `instruments` holds one
+     *                    reader (the Greek pass of 2026-10-06);
+     *   - `awaiting`     the review flag, which is true for the count above AND for
+     *                    every rule whose TYPE fell to model §4.1's conservative
+     *                    default (MEASURED: 2,092 of this edition's migrated rules).
+     * /errata lists the first two; the third is carried per rule in the apparatus. */
     const conjectural = rep.rules.filter((r) => r.type === 'conjectural').length;
+    const oneInstr = rep.rules.filter((r) => Array.isArray(r.instruments) && r.instruments.length === 1).length;
+    const awaiting = rep.rules.filter((r) => r.review).length;
     const bytes = `<code>${rep.damage.map((c) => esc(JSON.stringify(c))).join(' ')}</code>`;
     /* The items the scan came from, as a LIST: one volume's item, or the two of
      * a work the print divides over two volumes. Naming only the first would
@@ -125,7 +134,11 @@ export function buildEditionsPage(served) {
       (rep.rules.length
         ? `<p><b>What it carries.</b> ${rep.rules.length} repair rule${rep.rules.length === 1 ? '' : 's'} ` +
           `(${TYPE_ORDER.filter((k) => byType[k]).map((k) => `${byType[k]} ${k}`).join(', ')}), ` +
-          `${conjectural} of them a reading supplied with no witness (see <a href="/errata/">errata</a>). ` +
+          `${conjectural} of them a reading supplied with no witness` +
+          (oneInstr ? `, ${oneInstr} a reading that rests on ONE instrument` : '') +
+          (awaiting ? `, and ${awaiting} flagged for human review` : '') +
+          ` (see <a href="/errata/">errata</a>; every rule's review flag is in its ` +
+          `<a href="/texts/${esc(t.slug)}/apparatus.json">apparatus</a>). ` +
           `The base policy is <code>${esc(rep.policy)}</code>, and the damage characters a rule may reach are ` +
           `${bytes}. ` +
           `Version <code>${esc(t.currentVersion)}</code>, ${esc(meta.date)}, transcription checksum ` +
@@ -246,14 +259,16 @@ function evidenceNote(r) {
 
 /** THE DURABLE CORRECTIONS LOG (DESIGN-SYSTEM.md §5, DATA-MODEL §7). An
  * edition's OWN repair log lives on the edition's page, first-class and complete
- * — every rule, in the version. This is the standing record of the two places an
- * erratum is most likely: a reading the library SUPPLIED where no witness
- * settled the place (a rule typed `conjectural`, model §4.1), and a page image a
- * reading rested on that is NOT held with the edition (`evidence[].exists:false`,
- * model §4.4). It is NOT a review worklist: every rule's type is settled, and the
- * way to a correction is a new rule in a new version (the report paragraph
- * below), never a silent edit. The scans themselves live in the edition's
- * apparatus, which is where this page points. */
+ * — every rule, in the version. This is the standing record of the three places
+ * an erratum is most likely: a reading the library SUPPLIED where no witness
+ * settled the place (a rule typed `conjectural`, model §4.1), a reading that
+ * rests on ONE INSTRUMENT and no second reader corroborates it (`review: true` —
+ * the Greek pass of 2026-10-06), and a page image a reading rested on that is NOT
+ * held with the edition (`evidence[].exists:false`, model §4.4). It is a WORKLIST
+ * only in the second sense and says so: the first two lists are places a human
+ * should look, and the way to a correction is a new rule in a new version (the
+ * report paragraph below), never a silent edit. The scans themselves live in the
+ * edition's apparatus, which is where this page points. */
 export function buildErrataPage(served) {
   /* 1. READINGS SUPPLIED WITHOUT A WITNESS — per edition, the rules typed
    * `conjectural`: the places an erratum is most likely, listed in full with the
@@ -288,7 +303,47 @@ export function buildErrataPage(served) {
     );
   }).join('');
 
-  /* 2. LEAVES CITED BUT NOT HELD — per edition, every evidence entry the store
+  /* 2. READINGS THAT REST ON ONE INSTRUMENT — per edition, every rule whose
+   * `instruments` array holds ONE reader: a reading one instrument gave and no
+   * second reader corroborates (the Greek pass of 2026-10-06, whose two
+   * non-echoing readers each read this print's small Greek; where only one of them
+   * settled on the letters, the rule says so in its own rationale and is listed
+   * here). The reading is MERGED — the author's call: render it and state the
+   * uncertainty rather than drop it — and this list is where that footing is
+   * visible, rule by rule.
+   *
+   * WHY NOT `review`. The flag is true for these rules AND for 2,092 of the
+   * Theology's migrated rules, whose TYPE fell to model §4.1's conservative rule 6
+   * — a different fact. The footing is `instruments`, and this page spells out the
+   * distinction rather than merging two claims under one heading. */
+  const oneInstrument = served.map((t) => {
+    const rules = repairsOf(t).rules.filter((r) => Array.isArray(r.instruments) && r.instruments.length === 1);
+    const safe = (s) => gateSafeText(esc(s), t.slug);
+    const rows = rules
+      .map(
+        (r) =>
+          `<li id="review-${esc(r.id.split(':')[1])}">` +
+          `<a href="/texts/${esc(t.slug)}/apparatus/#repair-${esc(r.id.split(':')[1])}"><code>${esc(r.id)}</code></a> · ` +
+          `<b>${esc(r.type)}</b><br>` +
+          `“${safe(r.before)}” → “${safe(r.after)}”<br>` +
+          `<span class="dim">${safe(r.rationale)}</span></li>`,
+      )
+      .join('');
+    const total = repairsOf(t).rules.length;
+    return (
+      editionHeading(t) +
+      (rules.length
+        ? `<p>${rules.length} reading${rules.length === 1 ? '' : 's'} in this version ` +
+          `rest${rules.length === 1 ? 's' : ''} on ONE instrument. Each rationale names the reader and states that ` +
+          `no second reader corroborates it.</p><ol class="errata">${rows}</ol>`
+        : total
+          ? `<p>None. Every reading in this version is corroborated by a second reader, or rests on a witness ` +
+            `that is not a single instrument.</p>`
+          : `<p>None yet. This edition carries no recorded repairs, so no reading here rests on one instrument.</p>`)
+    );
+  }).join('');
+
+  /* 3. LEAVES CITED BUT NOT HELD — per edition, every evidence entry the store
    * does not hold: the page image a reading rested on, named so a reader who can
    * supply one knows which. */
   const unheld = served.map((t) => {
@@ -318,7 +373,7 @@ export function buildErrataPage(served) {
     );
   }).join('');
 
-  /* 3. THE PER-EDITION SUMMARY — the version and its counts, and the way to the
+  /* 4. THE PER-EDITION SUMMARY — the version and its counts, and the way to the
    * whole record: the edition's APPARATUS, which renders EVERY rule and, for each
    * image-based reading, the leaf it was decided from. The scans live there. */
   const summaries = served.map((t) => {
@@ -365,13 +420,34 @@ export function buildErrataPage(served) {
     );
   }).join('');
 
+  /* THE FLAG THAT IS NOT A FOOTING, COUNTED FROM THE RECORD. A rule is flagged
+   * where its TYPE fell to §4.1's conservative default and NOT because it rests on
+   * one instrument, and the number is DERIVED here — counts are never typed into
+   * prose, because a typed one goes stale the moment a rule is merged and nobody
+   * notices. It is stated per edition because the rules it counts are an edition's
+   * own. */
+  const flaggedByType = served
+    .map((t) => ({
+      n: repairsOf(t).rules.filter((r) => r.review && !(Array.isArray(r.instruments) && r.instruments.length === 1)).length,
+      title: t.title,
+    }))
+    .filter((x) => x.n)
+    .map((x) => `${x.n} in ${x.title}`)
+    .join(' and ');
+
   const intro =
-    `<p><b>What this page is.</b> A standing record of the two places an error is most likely: a reading the ` +
-    `library supplied where no witness settled the place, and a page image a reading rested on that is not held ` +
-    `with the edition. It is not a worklist. Every rule served here has been read and classified — ` +
-    `<code>OCR</code>, <code>punctuation</code>, <code>transliteration</code> or <code>conjectural</code> — and ` +
-    `that review is COMPLETE: no rule on this site is flagged for one, and the counts below are the counts of the ` +
-    `record itself. An edition whose repair has not begun records no rules yet, and its own block below says so ` +
+    `<p><b>What this page is.</b> A standing record of the three places an error is most likely: a reading the ` +
+    `library supplied where no witness settled the place; a reading that rests on ONE instrument and no second ` +
+    `reader corroborates it — merged, so it can be seen and checked, and flagged for human review; and a page ` +
+    `image a reading rested on that is not held with the edition. It is a worklist in the second sense only: the ` +
+    `first and third lists record what the library asserted, not what someone is being asked to do. ` +
+    `Every rule served here has been read and classified — ` +
+    `<code>OCR</code>, <code>punctuation</code>, <code>transliteration</code> or <code>conjectural</code>. ` +
+    `The REVIEW FLAG is a second thing, and this page does not conflate it with the second list: it is true for ` +
+    `every reading that rests on one instrument, and also for every rule whose TYPE fell to the taxonomy's ` +
+    `conservative default (model §4.1 rule 6) — ${flaggedByType || 'no rule on this site, at this version'}. Each ` +
+    `rule's flag is carried in its <code>apparatus.json</code>; the list below is the footing, not the flag. ` +
+    `An edition whose repair has not begun records no rules yet, and its own block below says so ` +
     `rather than reading as a clean bill of health.</p>` +
     `<p><b>A correction is a new rule.</b> Where a place is wrong the library does not edit the served text in ` +
     `silence: the report becomes a NEW RULE in a NEW VERSION, the old version stands at its own address, and the ` +
@@ -397,7 +473,8 @@ export function buildErrataPage(served) {
     shareTitle: 'Errata',
     type: 'website',
     description:
-      'The corrections log: the readings a served edition supplied without a witness, the page images its rules cite but do not hold, and how to report an error.',
+      'The corrections log: the readings a served edition supplied without a witness, the readings that rest on one ' +
+        'instrument and await review, the page images its rules cite but do not hold, and how to report an error.',
     eyebrow: 'The library',
     heading: 'Errata',
     standfirst: 'What was asserted where the print left it open, and how to correct it.',
@@ -408,6 +485,9 @@ export function buildErrataPage(served) {
       `<section><div class="wrap"><h2>Readings supplied without a witness</h2>` +
       `<div class="hint">a reading the library supplied where no witness settled the place — an erratum is most likely here</div>` +
       `<div class="prose">${supplied}</div></div></section>` +
+      `<section><div class="wrap"><h2>Readings that rest on one instrument</h2>` +
+      `<div class="hint">a reading one reader gave and no second reader corroborates — merged, stated, and awaiting human review</div>` +
+      `<div class="prose">${oneInstrument}</div></div></section>` +
       `<section><div class="wrap"><h2>Leaves cited but not held</h2>` +
       `<div class="hint">the page image a reading rested on that is not stored with the edition</div>` +
       `<div class="prose">${unheld}</div></div></section>` +

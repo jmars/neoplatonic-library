@@ -21,7 +21,15 @@
  *                      by r0045);
  *   rules[].evidence   the leaf, the page, the served url and whether the leaf
  *                      is held — carried whole, so a viewer never has to guess
- *                      and a reader can read the file without the page.
+ *                      and a reader can read the file without the page;
+ *   rules[].review     the rule AWAITS HUMAN REVIEW (model §4.1) — true where the
+ *                      type rested on judgment AND true where the READING rests on
+ *                      ONE instrument (a Greek reading one reader gave and no
+ *                      second reader corroborates);
+ *   rules[].instruments  the readers whose OWN draws carry the reading, when the
+ *                      pass that settled it recorded them: ONE entry is why the
+ *                      rule is flagged, and the viewer marks it on that fact rather
+ *                      than on prose. [] for every rule no such pass read.
  *
  * NO TIMESTAMP: the file is a pure function of the record, so a rebuild that
  * changes nothing writes the same bytes.
@@ -138,6 +146,16 @@ export function apparatusData(t, version) {
       rationale: r.rationale,
       witness: r.witness || '',
       date: r.date || null,
+      /* THE REVIEW FLAG, carried (model §4.1): a rule whose READING rests on one
+       * instrument awaits human review however its type was fixed, and the apparatus
+       * is where a reader meets it. `!!` because the record may omit the field — an
+       * absent flag is not a review, and the file's shape must not depend on which
+       * writer wrote the rule. The flag is NOT the class: the migrated rule-6 rules
+       * carry it too (their TYPE fell to the conservative default), so a viewer that
+       * marked every flagged rule "one instrument" would misname 2,092 of them —
+       * `instruments` is the field that says WHICH footing, and the badge reads it. */
+      review: !!r.review,
+      instruments: Array.isArray(r.instruments) ? r.instruments.slice() : [],
       evidence: (Array.isArray(r.evidence) ? r.evidence : []).map((e) => ({
         leaf: e.leaf,
         page: e.page != null ? e.page : null,

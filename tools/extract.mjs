@@ -826,6 +826,14 @@ export function loadEdits(slug, version = null) {
     };
   });
   checkReadingPolicy(edits, slug, base, damageList);
+  /* THE CANONICAL TYPES, BESIDE THE READER VIEW. `checkFrontMatter` admits ONE type
+   * in the preserved front-matter region (§7 / model §4.1), and the reader view does
+   * NOT carry `type` — it is `{find, repl, cls, note, action}`, and the served
+   * document's bytes are pinned by the parity gate. So the map is keyed by the rule's
+   * own `find` (unique by the validation above: two rules sharing a find are one
+   * unreachable rule) and travels in the meta, which is pipeline state and is never
+   * serialised into a document. */
+  const types = new Map(raw.rules.map((r, i) => [edits[i].find, r.type]));
   return {
     edits,
     meta: {
@@ -833,6 +841,7 @@ export function loadEdits(slug, version = null) {
       file,
       classes: Object.fromEntries(EDIT_CLASSES.map((k) => [k, edits.filter((e) => e.cls === k).length])),
       damage: damageList,
+      types,
       base,
     },
   };
@@ -1276,17 +1285,51 @@ export function frontMatterText(doc) {
  * it by construction — and NO rule may touch the front-matter region at all. A
  * rule added later that reaches into the title page fails here rather than
  * silently repairing the evidence.
+ *
+ * THE REGION ADMITS ONE TYPE, and one only (2026-10-06, the Greek pass): a rule
+ * whose `type` is `transliteration` — Greek restored from the page image, the type
+ * §4.1 rule 1 fixes — restores what the PRINT sets rather than emending the front
+ * matter's English, which is the thing the refusal above exists to stop. Every
+ * other type is refused there exactly as before.
+ *
+ * WHAT THAT ADMISSION ACTUALLY LETS IN, MEASURED (2026-10-06, before the commit):
+ * 68 of this edition's rules stand in the region, and they change it by +1,455
+ * Greek characters and by 1,317 ASCII letters — 1,299 REMOVED and 18 ADDED. The
+ * removed 1,299 are the OCR-damage Latin the Greek replaced (the print sets Greek
+ * there, which is why rule 1 types these rules at all). The added 18 stand in nine
+ * rules and are English the same page image settled INSIDE the same span — a
+ * spelling ("dianoelic" -> "dianoetic"), a small-caps head-word, a Roman numeral.
+ * A rule's span is the whole damaged run the reader settled, not the Greek
+ * fragment inside it, so this exception does not (and this comment may not claim
+ * it does) forbid the page's own reading of a span that carries both. What it
+ * refuses is a rule of ANOTHER TYPE standing there: an OCR, punctuation or
+ * conjectural emendation, which is what the refusal above is for.
+ *
+ * THE TYPE IS NOT IN THE READER VIEW. The served `corrections` array is
+ * `{find, repl, cls, note, action}` (model §4.0), and adding a key to it would
+ * change every served document's bytes — the parity gate of plan §6 is the record
+ * of that. So the canonical `type` travels BESIDE the view, in the map `loadEdits`
+ * returns (`meta.types`) and the extractor passes here. A caller that passes NO map
+ * gets no exception at all: the refusal is the default, so a document checked
+ * without its rules' types is checked as strictly as it was before this exception
+ * existed.
  */
-export function checkFrontMatter(doc) {
+export const FRONT_MATTER_TYPES = Object.freeze(['transliteration']);
+
+export function checkFrontMatter(doc, ruleTypes = null) {
   const front = frontMatterText(doc);
-  const into = (doc.corrections || []).filter((c) => c.find && front.includes(c.find));
+  const typeOf = (c) => (ruleTypes instanceof Map ? ruleTypes.get(c.find) : ruleTypes ? ruleTypes[c.find] : null) || null;
+  const into = (doc.corrections || []).filter(
+    (c) => c.find && front.includes(c.find) && !FRONT_MATTER_TYPES.includes(typeOf(c)),
+  );
   if (into.length) {
     throw new Error(
-      `library: ${doc.slug}: ${into.length} correction rule(s) match inside the front-matter region — ` +
-        `the front matter is the print's title page, and one of its readings is cited as evidence by a ` +
-        `reading that uses this text:\n` +
+      `library: ${doc.slug}: ${into.length} correction rule(s) match inside the front-matter region without being a ` +
+        `Greek restoration — the front matter is the print's title page, and one of its readings is cited as ` +
+        `evidence by a reading that uses this text:\n` +
         into.map((c) => `  ${c.cls}  ${JSON.stringify(c.find)}`).join('\n') +
-        `\n  The title page is preserved by construction and no correction may touch it (plan §7).`,
+        `\n  The front matter is preserved by construction: no rule may touch it whose type is not ` +
+        `${FRONT_MATTER_TYPES.join(', ')} (a Greek reading taken from the page image — plan §7, model §4.1).`,
     );
   }
   return front;
@@ -2207,8 +2250,10 @@ export function extract(src, meta) {
 
   /* 6a. THE POLICY'S ONE EXCEPTION, ASSERTED (§7) — the assertion itself is
    * `checkFrontMatter` below, so the smoke can call the same code over a fixture
-   * instead of re-stating it. */
-  checkFrontMatter({ slug: entry.slug, blocks: out, dropped: dropped.map((x) => ({ x })), corrections });
+   * instead of re-stating it. The rules' canonical `type`s travel in the load's
+   * meta (the reader view does not carry them), and the assertion admits only a
+   * `transliteration` into the preserved region. */
+  checkFrontMatter({ slug: entry.slug, blocks: out, dropped: dropped.map((x) => ({ x })), corrections }, ruleMeta && ruleMeta.types);
 
   /* 7. The table of contents: generated, from the divisions the edition itself
    * makes, each entry carrying the section's own opening words.

@@ -654,6 +654,14 @@ ol.apparatus-list { list-style: none; padding: 0; margin: 0; counter-reset: rp; 
 .apparatus-entry .rp-rationale { color: var(--dim); font-size: 0.9375rem; margin-bottom: 2px; }
 .apparatus-entry .rp-witness { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); }
 .apparatus-entry .rp-apply { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); }
+/* THE READING THAT AWAITS REVIEW: one instrument read it and no second reader
+   corroborated it (model §4.1). Marked in the rubric's own colour so it is not
+   mistaken for a settled reading — the flag is DATA (`review`), not prose. */
+.apparatus-entry .rp-review,
+.app-compact-row .rp-review {
+  font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--accent); margin-left: var(--space-2);
+}
 /* THE NO-IMAGE GROUP: the readings that rest on a witness other than a page
    image, listed compactly — an id to jump to, the type, and the change. */
 /* The compact no-image list is a reading list too: it takes the panel's width, like

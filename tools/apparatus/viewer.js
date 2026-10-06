@@ -90,6 +90,17 @@
     return n + ' ' + (n === 1 ? one : many);
   }
 
+  /** IS THIS RULE A READING THAT RESTS ON ONE INSTRUMENT? The data says so:
+   * `instruments` names the readers whose own draws carry the reading, and ONE
+   * entry is one instrument's reading — the rule awaits human review on that
+   * footing (model §4.1). The `review` flag alone does NOT answer it: the migrated
+   * rule-6 rules carry the flag too, because their TYPE fell to the conservative
+   * default, so a badge keyed on the flag would call 2,092 of the Theology's rules
+   * "one instrument". A rule from a pass that recorded no instruments answers no. */
+  function oneInstrument(r) {
+    return !!(r && r.instruments && r.instruments.length === 1);
+  }
+
   /** THE NAME A LEAF IS STORED UNDER, and the KEY built from it.
    *
    * A LEAF'S NUMBER IS NOT UNIQUE IN EVERY EDITION. MEASURED: Taylor's 1816
@@ -771,9 +782,11 @@
       var li = node('li', 'apparatus-entry');
       li.id = 'repair-' + r.id;
       li.setAttribute('data-type', r.type);
+      if (r.review) li.setAttribute('data-review', 'true');
       li.appendChild(node('span', 'rp-id', r.id));
       li.appendChild(node('span', 'rp-type', r.type));
       li.appendChild(node('span', 'rp-apply', r.apply));
+      if (oneInstrument(r)) li.appendChild(node('span', 'rp-review', 'awaiting review · one instrument'));
       var change = node('p', 'rp-change');
       change.appendChild(node('span', 'before', r.before));
       change.appendChild(node('span', null, ' → '));
@@ -801,12 +814,14 @@
       var li = node('li', 'app-compact-row');
       li.id = 'repair-' + r.id;
       li.setAttribute('data-type', r.type);
+      if (r.review) li.setAttribute('data-review', 'true');
       var a = node('a', 'rp-id');
       a.href = '#repair-' + r.id;
       a.textContent = r.id;
       li.appendChild(a);
       li.appendChild(node('span', 'rp-type', r.type));
       li.appendChild(node('span', 'rp-apply', r.apply));
+      if (oneInstrument(r)) li.appendChild(node('span', 'rp-review', 'one instrument'));
       li.appendChild(node('span', 'app-compact-change', r.before + ' → ' + r.after));
       li.appendChild(node('span', 'app-compact-witness', evidenceNote(r)));
       ul.appendChild(li);
