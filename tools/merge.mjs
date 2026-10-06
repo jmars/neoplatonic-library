@@ -357,7 +357,16 @@ for (const c of candidates) {
 if (args.includes('--self-test')) {
   const cases = [
     ['situa tion', 'situation', { _f: { sites: 2 } }, 'bare', 'a multi-site find with one reading stays bare'],
-    ['tne', 'the', { _f: { sites: 5 } }, 'widen', 'a find with an occurrence inside a word is widened (tne in "sweetness")'],
+    /* MEASURED, and the case had to be re-pointed when the base was RE-SOURCED
+     * (commit 34f2cb8): the fixture's old find `tne` stood whole 5 times in the
+     * 1917 Cave's transcription, but in THIS transcription it occurs 11 times and
+     * NOT ONCE as a whole token — every occurrence is inside a longer word — so
+     * the widener correctly REFUSED it (`properIndices` finds no site to isolate,
+     * and the case came out `drop`). The refusal is the behaviour the test wants
+     * to keep; the example had to be one this text carries. `etsi` does: it stands
+     * inside `nnivetsi` and also whole, so a bare `etsi` would reach into the
+     * longer word and the widener must isolate it. */
+    ['etsi', 'ϵτσι', { _f: { sites: 2 } }, 'widen', 'a find with an occurrence inside a word is widened (etsi, which also stands whole)'],
   ];
   let bad = 0;
   for (const [find, replace, meta, want, why] of cases) {

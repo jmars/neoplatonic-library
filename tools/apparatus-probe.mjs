@@ -857,7 +857,15 @@ for (const SLUG of VIEWER_EDITIONS) {
     }
     const rows = [...deep.w.document.querySelectorAll('#app-panel li.apparatus-entry')];
     const row = rows[0];
-    check(!!row && /^r\d{4}$/.test(row.querySelector('.rp-id').textContent) &&
+    /* THE ID IS THE ONE THE FILE MINTS. `tools/merge.mjs` pads to four digits, so
+     * an edition that has re-sourced a base carries five (`r11643`): the floor
+     * recorded in `repairs.json` keeps the retired ids spent and the sequence
+     * continues above them. MEASURED: this check held `/^r\d{4}$/` and never fired
+     * on the Theology of Plato, because until this unit that edition carried no
+     * rule citing a leaf, so the arm this one belongs to was never reached — its
+     * first leaf-citing rules are r8566 and up, which the four-digit ceiling read
+     * as not-an-id. */
+    check(!!row && /^r\d{4,}$/.test(row.querySelector('.rp-id').textContent) &&
       TYPES.includes(row.querySelector('.rp-type').textContent) &&
       !!row.querySelector('.rp-apply') && !!row.querySelector('.rp-change .before') && !!row.querySelector('.rp-change .after') &&
       !!row.querySelector('.rp-rationale') && !!row.querySelector('.rp-witness'),

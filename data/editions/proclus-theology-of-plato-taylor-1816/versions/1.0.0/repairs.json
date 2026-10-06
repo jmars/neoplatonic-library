@@ -61043,6 +61043,1676 @@
       "type_evidence": "default OCR (rule 6)",
       "review": true,
       "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11617",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "Tgwrou here, it is necessary to read co^oerov. For in this place, Prod",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Tgwrou here, it is necessary to read co^oerov. For in this place, Prod",
+      "after": "πρώτου here, it is necessary to read ἐσχάτου. For in this place, Procl",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"πρώτου here, it is necessary to read ἐσχάτου. For in this place, Procl\" where the transcription has \"Tgwrou here, it is necessary to read co^oerov. For in this place, Prod\" (page image, printed page 175 = archive v1-n250). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 175 = archive v1-n250",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 250,
+          "page": 175,
+          "file": "v1-n250.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n250.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11618",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "rm iem iragwnetf, it is requisite to read <ru/t/3oXixa rr,s toiv, x. X",
+        "page": null,
+        "leaf": null
+      },
+      "before": "rm iem iragwnetf, it is requisite to read <ru/t/3oXixa rr,s toiv, x. X",
+      "after": "συμβολικῆς τῶν θεῶν παρουσίας, it is requisite to read συμβολικὰ τῆς τῶν, κ. λ",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"συμβολικῆς τῶν θεῶν παρουσίας, it is requisite to read συμβολικὰ τῆς τῶν, κ. λ\" where the transcription has \"rm iem iragwnetf, it is requisite to read <ru/t/3oXixa rr,s toiv, x. X\" (page image, printed page 299 = archive v2-n804). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 299 = archive v2-n804",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 804,
+          "page": 299,
+          "file": "v2-n804.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n804.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11619",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "vo»j<ri$ ftira A oyov, it is necessary to read, vo>j<r«i fitra A oyov",
+        "page": null,
+        "leaf": null
+      },
+      "before": "vo»j<ri$ ftira A oyov, it is necessary to read, vo>j<r«i fitra A oyov",
+      "after": "νοῦς ἄνευ λόγου, it is necessary to read, νοῦς μετὰ λόγου",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"νοῦς ἄνευ λόγου, it is necessary to read, νοῦς μετὰ λόγου\" where the transcription has \"vo»j<ri$ ftira A oyov, it is necessary to read, vo>j<r«i fitra A oyov\" (page image, printed page 6 = archive v1-n81). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 6 = archive v1-n81",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 81,
+          "page": 6,
+          "file": "v1-n81.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n81.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11620",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "adyta Of the Gods; biit it shlnes forth in this order, and from ‘",
+        "page": null,
+        "leaf": null
+      },
+      "before": "adyta Of the Gods; biit it shlnes forth in this order, and from ‘",
+      "after": "ἄδυτα of the Gods; but it shines forth in this order, and from ",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"ἄδυτα of the Gods; but it shines forth in this order, and from \" where the transcription has \"adyta Of the Gods; biit it shlnes forth in this order, and from ‘\" (page image, printed page 249 = archive v1-n324). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 249 = archive v1-n324",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 324,
+          "page": 249,
+          "file": "v1-n324.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n324.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11621",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "mtXoi/v in the original, it is requisite to insert mai",
+        "page": null,
+        "leaf": null
+      },
+      "before": "mtXoi/v in the original, it is requisite to insert mai",
+      "after": "ἁπλοῦν in the original, it is requisite to insert εἶναι καὶ.",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"ἁπλοῦν in the original, it is requisite to insert εἶναι καὶ.\" where the transcription has \"mtXoi/v in the original, it is requisite to insert mai\" (page image, printed page 69 = archive v1-n144). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 69 = archive v1-n144",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 144,
+          "page": 69,
+          "file": "v1-n144.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n144.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11622",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "1 In the original, after xeu vow in this sentence, it",
+        "page": null,
+        "leaf": null
+      },
+      "before": "1 In the original, after xeu vow in this sentence, it",
+      "after": "all other things, if we not only demonstrate that it",
+      "rationale": "the print reads \"all other things, if we not only demonstrate that it\" where the transcription has \"1 In the original, after xeu vow in this sentence, it\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading came back as absent (\"\") for every line of this passage on leaf v1-n220 (decided by two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 145 — sixbooksproclus00unkngoog leaf n229 and bub_gb_svwwAQAAMAAJ leaf n222.)",
+      "date": null,
+      "witness": "two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 145 — sixbooksproclus00unkngoog leaf n229 and bub_gb_svwwAQAAMAAJ leaf n222",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11623",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "xat it is necessary to supply t« /wv mvrtu xvu. -",
+        "page": null,
+        "leaf": null
+      },
+      "before": "xat it is necessary to supply t« /wv mvrtu xvu. -",
+      "after": "καὶ it is necessary to supply τὰ μὲν ἐόντα καὶ.",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"καὶ it is necessary to supply τὰ μὲν ἐόντα καὶ.\" where the transcription has \"xat it is necessary to supply t« /wv mvrtu xvu. -\" (page image, printed page 312 = archive v1-n387). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 312 = archive v1-n387",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 387,
+          "page": 312,
+          "file": "v1-n387.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n387.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11624",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "hfu ovpyov, it is necessary to read 8ij/*.iovpy«»",
+        "page": null,
+        "leaf": null
+      },
+      "before": "hfu ovpyov, it is necessary to read 8ij/*.iovpy«»",
+      "after": "τὴν οὐσίαν, it is necessary to read δημιουργὸν",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"τὴν οὐσίαν, it is necessary to read δημιουργὸν\" where the transcription has \"hfu ovpyov, it is necessary to read 8ij/*.iovpy«»\" (page image, printed page 366 = archive v1-n441). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 366 = archive v1-n441",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 441,
+          "page": 366,
+          "file": "v1-n441.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n441.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11625",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": " xeu iruvSii rag ipu%ag roig iiSmXorowif xoXroif",
+        "page": null,
+        "leaf": null
+      },
+      "before": " xeu iruvSii rag ipu%ag roig iiSmXorowif xoXroif",
+      "after": "καὶ συνδεῖ τὰς ψυχὰς τοῖς εἰδωλοποιοῖς κόλποις",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"καὶ συνδεῖ τὰς ψυχὰς τοῖς εἰδωλοποιοῖς κόλποις\" where the transcription has \" xeu iruvSii rag ipu%ag roig iiSmXorowif xoXroif\" (page image, printed page 269 = archive v2-n774). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 269 = archive v2-n774",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 774,
+          "page": 269,
+          "file": "v2-n774.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n774.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11626",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "Eviot xoTOf rc $ovo; n xou aXXm tivtot xrjgwv",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Eviot xoTOf rc $ovo; n xou aXXm tivtot xrjgwv",
+      "after": "Ἔνθα κότος τε φόνος τε καὶ ἄλλων ἔθνεα κηρῶν",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"Ἔνθα κότος τε φόνος τε καὶ ἄλλων ἔθνεα κηρῶν\" where the transcription has \"Eviot xoTOf rc $ovo; n xou aXXm tivtot xrjgwv\" (page image, printed page 154 = archive v2-n659). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 154 = archive v2-n659",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 659,
+          "page": 154,
+          "file": "v2-n659.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n659.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11627",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "Auro; Vtv ngunotg ugtvg irvgog tpyu xvfiegvwv",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Auro; Vtv ngunotg ugtvg irvgog tpyu xvfiegvwv",
+      "after": "Αὐτὸς δ' ἐν πρώτοις ἱερεὺς πυρὸς ἔργα κυβερνῶν",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"Αὐτὸς δ' ἐν πρώτοις ἱερεὺς πυρὸς ἔργα κυβερνῶν\" where the transcription has \"Auro; Vtv ngunotg ugtvg irvgog tpyu xvfiegvwv\" (page image, printed page 156 = archive v2-n661). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 156 = archive v2-n661",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 661,
+          "page": 156,
+          "file": "v2-n661.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n661.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11628",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "‘For *gg»)Toy, it is necessary to read *g«rw",
+        "page": null,
+        "leaf": null
+      },
+      "before": "‘For *gg»)Toy, it is necessary to read *g«rw",
+      "after": "Instead of τοῦ παντὸς, it is doubtless necessary to read τὰ πάντα. For the demiurgus also has an hypostasis which is above the forms of the universe",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"Instead of τοῦ παντὸς, it is doubtless necessary to read τὰ πάντα. For the demiurgus also has an hypostasis which is above the forms of the universe\" where the transcription has \"‘For *gg»)Toy, it is necessary to read *g«rw\" (page image, printed page 392 = archive v1-n467). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 392 = archive v1-n467",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 467,
+          "page": 392,
+          "file": "v1-n467.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n467.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11629",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "a Here also ov must be substituted for «*•",
+        "page": null,
+        "leaf": null
+      },
+      "before": "a Here also ov must be substituted for «*•",
+      "after": "2 Here also ov must be substituted for ev.",
+      "rationale": "the print reads \"2 Here also ov must be substituted for ev.\" where the transcription has \"a Here also ov must be substituted for «*•\" (page image, printed page 116 = archive v1-n191). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription carries the reading at this place. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 116 = archive v1-n191",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 191,
+          "page": 116,
+          "file": "v1-n191.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n191.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11630",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "tor the sake of concealment call the inedi",
+        "page": null,
+        "leaf": null
+      },
+      "before": "tor the sake of concealment call the inedi",
+      "after": "for the sake of concealment call the ineffa",
+      "rationale": "the print reads \"for the sake of concealment call the ineffa\" where the transcription has \"tor the sake of concealment call the inedi\" (page image, printed page 87 = archive v1-n162). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription carries the reading at this place. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 87 = archive v1-n162",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 162,
+          "page": 87,
+          "file": "v1-n162.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n162.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11631",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "Auxpqgai n voffoi, xou tgya n purr**",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Auxpqgai n voffoi, xou tgya n purr**",
+      "after": "Αὐχμηραί τε νόσοι, καὶ σήψιες ἔργα τε ῥευστά.",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"Αὐχμηραί τε νόσοι, καὶ σήψιες ἔργα τε ῥευστά.\" where the transcription has \"Auxpqgai n voffoi, xou tgya n purr**\" (page image, printed page 154 = archive v2-n659). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 154 = archive v2-n659",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 659,
+          "page": 154,
+          "file": "v2-n659.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n659.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11632",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "voeptogf it is necessary to read",
+        "page": null,
+        "leaf": null
+      },
+      "before": "voeptogf it is necessary to read",
+      "after": "νοητοῖς, it is necessary to read νοητῶς.",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"νοητοῖς, it is necessary to read νοητῶς.\" where the transcription has \"voeptogf it is necessary to read\" (page image, printed page 354 = archive v1-n429). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 5 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 354 = archive v1-n429",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 429,
+          "page": 354,
+          "file": "v1-n429.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n429.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11633",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "rcuv fiotpyytToir xa\\oofitva>v",
+        "page": null,
+        "leaf": null
+      },
+      "before": "rcuv fiotpyytToir xa\\oofitva>v",
+      "after": "τῶν ποιητικῶν καλουμένων",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"τῶν ποιητικῶν καλουμένων\" where the transcription has \"rcuv fiotpyytToir xa\\\\oofitva>v\" (page image, printed page 235 = archive v2-n740). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 235 = archive v2-n740",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 740,
+          "page": 235,
+          "file": "v2-n740.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n740.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11634",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "lift on the Geology Bobk h\\",
+        "page": null,
+        "leaf": null
+      },
+      "before": "lift on the Geology Bobk h\\",
+      "after": "236 ON THE THEOLOGY BOOK IV.",
+      "rationale": "the print reads \"236 ON THE THEOLOGY BOOK IV.\" where the transcription has \"lift on the Geology Bobk h\\\\\" (page image, printed page 256 = archive v1-n331). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription carries the reading at this place. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 256 = archive v1-n331",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 331,
+          "page": 256,
+          "file": "v1-n331.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n331.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11635",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "* • xf oye s i® omitted in",
+        "page": null,
+        "leaf": null
+      },
+      "before": "* • xf oye s i® omitted in",
+      "after": "time order in",
+      "rationale": "the print reads \"time order in\" where the transcription has \"* • xf oye s i® omitted in\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the reading came back as absent (\"\") for every line of this passage on leaf v1-n220 (decided by two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 145 — sixbooksproclus00unkngoog leaf n229 and bub_gb_svwwAQAAMAAJ leaf n222.)",
+      "date": null,
+      "witness": "two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 145 — sixbooksproclus00unkngoog leaf n229 and bub_gb_svwwAQAAMAAJ leaf n222",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11636",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "preceptor Syrianus. * The",
+        "page": null,
+        "leaf": null
+      },
+      "before": "preceptor Syrianus. * The",
+      "after": "preceptor Syrian us. ' The",
+      "rationale": "the print reads \"preceptor Syrian us. ' The\" where the transcription has \"preceptor Syrianus. * The\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n79), printed page 2.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n79), printed page 2",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11637",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "CHAP. XV. OF PLATO. * I85",
+        "page": null,
+        "leaf": null
+      },
+      "before": "CHAP. XV. OF PLATO. * I85",
+      "after": "CHAP. XII. OF PLATO. 145",
+      "rationale": "the print reads \"CHAP. XII. OF PLATO. 145\" where the transcription has \"CHAP. XV. OF PLATO. * I85\" (read off the page image of another copy of the same print, printed page 145 — this copy’s own text is garbled at that line). The full read left this open: the reading came back as absent (\"\") for every line of this passage on leaf v1-n220; one copy only reads this line, and that copy's own page image does not carry the reading (decided by the page image of a further copy of the same print (sixbooksproclus00unkngoog leaf n229), printed page 145.)",
+      "date": null,
+      "witness": "the page image of a further copy of the same print (sixbooksproclus00unkngoog leaf n229), printed page 145",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11638",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "to ^atvuv xat xtpxt^tiv",
+        "page": null,
+        "leaf": null
+      },
+      "before": "to ^atvuv xat xtpxt^tiv",
+      "after": "τὸ ξαίνειν καὶ κερκίζειν",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"τὸ ξαίνειν καὶ κερκίζειν\" where the transcription has \"to ^atvuv xat xtpxt^tiv\" (page image, printed page 200 = archive v2-n705). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 200 = archive v2-n705",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 705,
+          "page": 200,
+          "file": "v2-n705.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n705.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11639",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "ouaiots, I read ou<nas*",
+        "page": null,
+        "leaf": null
+      },
+      "before": "ouaiots, I read ou<nas*",
+      "after": "οὐσιότης, I read οὐσίας.",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"οὐσιότης, I read οὐσίας.\" where the transcription has \"ouaiots, I read ou<nas*\" (page image, printed page 207 = archive v2-n712). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 2 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 207 = archive v2-n712",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 712,
+          "page": 207,
+          "file": "v2-n712.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n712.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11640",
+      "type": "punctuation",
+      "apply": "reading",
+      "location": {
+        "find": "hyparxis to' intellect,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "hyparxis to' intellect,",
+      "after": "hyparxis to intellect,",
+      "rationale": "the print reads \"hyparxis to intellect,\" where the transcription has \"hyparxis to' intellect,\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n380), printed page 303.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n380), printed page 303",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "differs only in punctuation characters: ' (rule 3)",
+      "review": false,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11641",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "■ For auroi* read av",
+        "page": null,
+        "leaf": null
+      },
+      "before": "■ For auroi* read av",
+      "after": "For αὐτοῖς read ἄν",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"For αὐτοῖς read ἄν\" where the transcription has \"■ For auroi* read av\" (page image, printed page 163 = archive v1-n238). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 163 = archive v1-n238",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 238,
+          "page": 163,
+          "file": "v1-n238.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n238.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11642",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": ", xyi.:OF.PM,TO. 137",
+        "page": null,
+        "leaf": null
+      },
+      "before": ", xyi.:OF.PM,TO. 137",
+      "after": ". XII. OF PLATO. 145",
+      "rationale": "the print reads \". XII. OF PLATO. 145\" where the transcription has \", xyi.:OF.PM,TO. 137\" (page image, printed page 145 = archive v1-n220). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The reading stamps printed page 145, which is THIS leaf's own recorded page (the page model's measured offset), so the reading has located itself. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 145 = archive v1-n220",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 220,
+          "page": 145,
+          "file": "v1-n220.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n220.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11643",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "tavrm to read mutov",
+        "page": null,
+        "leaf": null
+      },
+      "before": "tavrm to read mutov",
+      "after": "ταὐτὸν to read μῦθον",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"ταὐτὸν to read μῦθον\" where the transcription has \"tavrm to read mutov\" (page image, printed page 184 = archive v2-n689). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 184 = archive v2-n689",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 689,
+          "page": 184,
+          "file": "v2-n689.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n689.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11644",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "to ttopo* to koron,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "to ttopo* to koron,",
+      "after": "to koron,",
+      "rationale": "the print reads \"to koron,\" where the transcription has \"to ttopo* to koron,\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 54 of 145 print characters (to ttopo* to koron, indicates nothing else than the po -> τὸ κόρον to koron, indicates nothing else than the pu) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n396), printed page 319.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n396), printed page 319",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11645",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "{^Mp <0 H MTa>y )'",
+        "page": null,
+        "leaf": null
+      },
+      "before": "{^Mp <0 H MTa>y )'",
+      "after": "(πληρωμάτων)·",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"(πληρωμάτων)·\" where the transcription has \"{^Mp <0 H MTa>y )'\" (page image, printed page 288 = archive v2-n793). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 288 = archive v2-n793",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 793,
+          "page": 288,
+          "file": "v2-n793.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n793.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11646",
+      "type": "punctuation",
+      "apply": "reading",
+      "location": {
+        "find": "secondary causes*-",
+        "page": null,
+        "leaf": null
+      },
+      "before": "secondary causes*-",
+      "after": "secondary causes,",
+      "rationale": "the print reads \"secondary causes,\" where the transcription has \"secondary causes*-\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n426), printed page 349.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n426), printed page 349",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "differs only in punctuation characters: *-, (rule 3)",
+      "review": false,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11647",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "Sanrai is ro^nrat",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Sanrai is ro^nrat",
+      "after": "δαίμων is τὸ μερικόν",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"δαίμων is τὸ μερικόν\" where the transcription has \"Sanrai is ro^nrat\" (page image, printed page 268 = archive v2-n773). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 268 = archive v2-n773",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 773,
+          "page": 268,
+          "file": "v2-n773.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n773.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11648",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "QN THE - THEOLOGY",
+        "page": null,
+        "leaf": null
+      },
+      "before": "QN THE - THEOLOGY",
+      "after": "296 ON THE THEOLOGY BOOK IV.",
+      "rationale": "the print reads \"296 ON THE THEOLOGY BOOK IV.\" where the transcription has \"QN THE - THEOLOGY\" (page image, printed page 286 = archive v1-n361). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription carries the reading at this place. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 286 = archive v1-n361",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 361,
+          "page": 286,
+          "file": "v1-n361.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n361.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11649",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "to his* immutable",
+        "page": null,
+        "leaf": null
+      },
+      "before": "to his* immutable",
+      "after": "to his ' immutable",
+      "rationale": "the print reads \"to his ' immutable\" where the transcription has \"to his* immutable\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 23 of 76 print characters (v cause of this to his* -> cause of this to his¹) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n482), printed page 405.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n482), printed page 405",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11650",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "it it nepemry to",
+        "page": null,
+        "leaf": null
+      },
+      "before": "it it nepemry to",
+      "after": "it is necessary to",
+      "rationale": "the print reads \"it is necessary to\" where the transcription has \"it it nepemry to\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 48 of 49 print characters (* for ficvnu it it nepemry to read aunty -> ¹ For τὴν ἐκείνου it is necessary to read ταύτης) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n229), printed page 145.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n229), printed page 145",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11651",
+      "type": "punctuation",
+      "apply": "reading",
+      "location": {
+        "find": "an all-perfect.",
+        "page": null,
+        "leaf": null
+      },
+      "before": "an all-perfect.",
+      "after": "an all-perfect",
+      "rationale": "the print reads \"an all-perfect\" where the transcription has \"an all-perfect.\" (two independent copies of the same print read it so, at the same line of the same page). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 313 — sixbooksproclus00unkngoog leaf n397 and bub_gb_svwwAQAAMAAJ leaf n390.)",
+      "date": null,
+      "witness": "two other copies of the same print (sixbooksproclus00unkngoog-djvu, bub-gb-svwwaqaamaaj-djvu), printed page 313 — sixbooksproclus00unkngoog leaf n397 and bub_gb_svwwAQAAMAAJ leaf n390",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "differs only in punctuation characters: . (rule 3)",
+      "review": false,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11652",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "not only 3 that",
+        "page": null,
+        "leaf": null
+      },
+      "before": "not only 3 that",
+      "after": "not only' that",
+      "rationale": "the print reads \"not only' that\" where the transcription has \"not only 3 that\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n79), printed page 2.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n79), printed page 2",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11653",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the good t but",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the good t but",
+      "after": "the good, but",
+      "rationale": "the print reads \"the good, but\" where the transcription has \"the good t but\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n468), printed page 391.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n468), printed page 391",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11654",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "one, 1 bound,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "one, 1 bound,",
+      "after": "one,' bound,",
+      "rationale": "the print reads \"one,' bound,\" where the transcription has \"one, 1 bound,\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n450), printed page 373.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n450), printed page 373",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11655",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "Qi>MxeuyiMns",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Qi>MxeuyiMns",
+      "after": "φιλοπαίγμονες",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"φιλοπαίγμονες\" where the transcription has \"Qi>MxeuyiMns\" (page image, printed page 217 = archive v2-n722). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 217 = archive v2-n722",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 722,
+          "page": 217,
+          "file": "v2-n722.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n722.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11656",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "xorpof kotrn",
+        "page": null,
+        "leaf": null
+      },
+      "before": "xorpof kotrn",
+      "after": "κόσμος kosm",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"κόσμος kosm\" where the transcription has \"xorpof kotrn\" (page image, printed page 297 = archive v2-n802). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 297 = archive v2-n802",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 802,
+          "page": 297,
+          "file": "v2-n802.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n802.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11657",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "to irtpt o,",
+        "page": null,
+        "leaf": null
+      },
+      "before": "to irtpt o,",
+      "after": "τὸ περὶ οὗ",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"τὸ περὶ οὗ\" where the transcription has \"to irtpt o,\" (page image, printed page 136 = archive v1-n211). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 2 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 136 = archive v1-n211",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 211,
+          "page": 136,
+          "file": "v1-n211.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n211.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11658",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "the v cause",
+        "page": null,
+        "leaf": null
+      },
+      "before": "the v cause",
+      "after": "the cause",
+      "rationale": "the print reads \"the cause\" where the transcription has \"the v cause\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 23 of 76 print characters (v cause of this to his* -> cause of this to his¹) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n482), printed page 405.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n482), printed page 405",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11659",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "ofcov read",
+        "page": null,
+        "leaf": null
+      },
+      "before": "ofcov read",
+      "after": "αἰῶνι ἐνεργείᾳ, read, ὡς ἐν ἐνεργείᾳ.",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"αἰῶνι ἐνεργείᾳ, read, ὡς ἐν ἐνεργείᾳ.\" where the transcription has \"ofcov read\" (page image, printed page 46 = archive v1-n121). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 46 = archive v1-n121",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 121,
+          "page": 46,
+          "file": "v1-n121.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n121.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11660",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "jeleioumei",
+        "page": null,
+        "leaf": null
+      },
+      "before": "jeleioumei",
+      "after": "teleioumet",
+      "rationale": "the print reads \"teleioumet\" where the transcription has \"jeleioumei\" (page image, printed page 279 = archive v1-n354). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription is damaged at this place and carries no reading to corroborate it. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 279 = archive v1-n354",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 354,
+          "page": 279,
+          "file": "v1-n354.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n354.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11661",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "iSay/MPis",
+        "page": null,
+        "leaf": null
+      },
+      "before": "iSay/MPis",
+      "after": "δαίμονες",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"δαίμονες\" where the transcription has \"iSay/MPis\" (page image, printed page 275 = archive v2-n780). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 275 = archive v2-n780",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 780,
+          "page": 275,
+          "file": "v2-n780.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n780.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11662",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "CHAP. XIL",
+        "page": null,
+        "leaf": null
+      },
+      "before": "CHAP. XIL",
+      "after": "CHAP. XII.",
+      "rationale": "the print reads \"CHAP. XII.\" where the transcription has \"CHAP. XIL\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference is not in a printed word (the transcription has only punctuation or single characters there) (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n416), printed page 339.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n416), printed page 339",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11663",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "proteiaa",
+        "page": null,
+        "leaf": null
+      },
+      "before": "proteiaa",
+      "after": "προτέλεια",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"προτέλεια\" where the transcription has \"proteiaa\" (page image, printed page 200 = archive v1-n275). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 200 = archive v1-n275",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 275,
+          "page": 200,
+          "file": "v1-n275.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n275.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11664",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "ivc, Vo ",
+        "page": null,
+        "leaf": null
+      },
+      "before": "ivc, Vo ",
+      "after": "roc. Vo",
+      "rationale": "the print reads \"roc. Vo\" where the transcription has \"ivc, Vo \" (page image, printed page 249 = archive v2-n754). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription is damaged at this place and carries no reading to corroborate it. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 249 = archive v2-n754",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 754,
+          "page": 249,
+          "file": "v2-n754.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n754.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11665",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "s tot* a",
+        "page": null,
+        "leaf": null
+      },
+      "before": "s tot* a",
+      "after": "s more a",
+      "rationale": "the print reads \"more\" where the transcription has \"tot*\" (page image, printed page 285 = archive v2-n790). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription is damaged at this place and carries no reading to corroborate it. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 285 = archive v2-n790",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 790,
+          "page": 285,
+          "file": "v2-n790.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n790.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11666",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "it isoc-",
+        "page": null,
+        "leaf": null
+      },
+      "before": "it isoc-",
+      "after": "it is oc-",
+      "rationale": "the print reads \"it is oc-\" where the transcription has \"it isoc-\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading could not be written as a repair of the transcription: the difference was not in a printed word (decided by another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n205), printed page 121.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n205), printed page 121",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "before and after equal after removing all whitespace (rule 2)",
+      "review": false,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11667",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "to ovov",
+        "page": null,
+        "leaf": null
+      },
+      "before": "to ovov",
+      "after": "τὸ οἷον",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"τὸ οἷον\" where the transcription has \"to ovov\" (page image, printed page 208 = archive v2-n713). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 208 = archive v2-n713",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 713,
+          "page": 208,
+          "file": "v2-n713.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n713.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11668",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "otovovg",
+        "page": null,
+        "leaf": null
+      },
+      "before": "otovovg",
+      "after": "οἰνοῦς",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"οἰνοῦς\" where the transcription has \"otovovg\" (page image, printed page 216 = archive v2-n721). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 216 = archive v2-n721",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 721,
+          "page": 216,
+          "file": "v2-n721.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n721.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11669",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "wijra w",
+        "page": null,
+        "leaf": null
+      },
+      "before": "wijra w",
+      "after": "votpav",
+      "rationale": "the print reads \"votpav\" where the transcription has \"wijra w\" (page image, printed page 261 = archive v1-n336). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription is damaged at this place and carries no reading to corroborate it. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 261 = archive v1-n336",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 336,
+          "page": 261,
+          "file": "v1-n336.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n336.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11670",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "' v^ooQ",
+        "page": null,
+        "leaf": null
+      },
+      "before": "' v^ooQ",
+      "after": " Goog",
+      "rationale": "the print reads \" Goog\" where the transcription has \"' v^ooQ\" (page image, printed page 107 = archive v1-n182). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription is damaged at this place and carries no reading to corroborate it. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 107 = archive v1-n182",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 182,
+          "page": 107,
+          "file": "v1-n182.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n182.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11671",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "Vol. J.",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Vol. J.",
+      "after": "Vol. I.",
+      "rationale": "the print reads \"Vol. I.\" where the transcription has \"Vol. J.\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 3) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n342), printed page 265.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n342), printed page 265",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11672",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "BOOK i:",
+        "page": null,
+        "leaf": null
+      },
+      "before": "BOOK i:",
+      "after": "BOOK I.",
+      "rationale": "the print reads \"BOOK I.\" where the transcription has \"BOOK i:\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the reading shares no run of 8 characters with the transcription's line (the longest common run is 5) and the second transcription does not place it at this line — the model read a different printed line, not accepted (decided by another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n127), printed page 50.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (bub_gb_svwwAQAAMAAJ leaf n127), printed page 50",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11673",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "1 After",
+        "page": null,
+        "leaf": null
+      },
+      "before": "1 After",
+      "after": "' After",
+      "rationale": "the print reads \"' After\" where the transcription has \"1 After\" (one other copy of the same print reads it so, and that copy's page image carries the same words). The full read left this open: the page's reading rewrites 93 of 102 print characters (*AA« in the original it it necessary to supply the words xeu touts * tovr®, xou sregov sourow -> ἀλλὰ in the original it) and the second transcription neither carries it nor places it at this line — past the damaged span and uncorroborated, not accepted (decided by another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n506), printed page 422.)",
+      "date": null,
+      "witness": "another copy of the same print, its own OCR and its own page image (sixbooksproclus00unkngoog leaf n506), printed page 422",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": []
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11674",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "xarpos",
+        "page": null,
+        "leaf": null
+      },
+      "before": "xarpos",
+      "after": "χάρπος",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"χάρπος\" where the transcription has \"xarpos\" (page image, printed page 204 = archive v2-n709). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 204 = archive v2-n709",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 709,
+          "page": 204,
+          "file": "v2-n709.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n709.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11675",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "funiv",
+        "page": null,
+        "leaf": null
+      },
+      "before": "funiv",
+      "after": "ἐστιν",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"ἐστιν\" where the transcription has \"funiv\" (page image, printed page 169 = archive v1-n244). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 2 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 169 = archive v1-n244",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 244,
+          "page": 169,
+          "file": "v1-n244.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n244.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11676",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "oivog",
+        "page": null,
+        "leaf": null
+      },
+      "before": "oivog",
+      "after": "οἶνος",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"οἶνος\" where the transcription has \"oivog\" (page image, printed page 216 = archive v2-n721). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 3 time(s) and 3 of them read these characters. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 216 = archive v2-n721",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 721,
+          "page": 216,
+          "file": "v2-n721.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n721.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11677",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "eeewn",
+        "page": null,
+        "leaf": null
+      },
+      "before": "eeewn",
+      "after": "comm",
+      "rationale": "the print reads \"comm\" where the transcription has \"eeewn\" (page image, printed page 380 = archive v1-n455). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription is damaged at this place and carries no reading to corroborate it. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 380 = archive v1-n455",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 455,
+          "page": 380,
+          "file": "v1-n455.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n455.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11678",
+      "type": "OCR",
+      "apply": "reading",
+      "location": {
+        "find": "oheu",
+        "page": null,
+        "leaf": null
+      },
+      "before": "oheu",
+      "after": "che",
+      "rationale": "the print reads \"che\" where the transcription has \"oheu\" (page image, printed page 302 = archive v1-n377). The transcription and the second transcription (the witness) are both OCR passes over this print, and the full read could not settle the question. The second transcription is damaged at this place and carries no reading to corroborate it. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 302 = archive v1-n377",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "default OCR (rule 6)",
+      "review": true,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 377,
+          "page": 302,
+          "file": "v1-n377.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n377.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
     }
   ]
 }

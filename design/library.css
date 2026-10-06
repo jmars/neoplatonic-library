@@ -38,7 +38,22 @@
   --rule: #c3b89f;
   --accent: #8a2b23;
   --accent2: #26456e;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, Georgia, serif;
+  /* THE SERIF STACK, and its GREEK. This library now SERVES polytonic Greek —
+     the Theology of Plato's rules restore the Greek the scan read as Latin
+     lookalikes, and the apparatus prints those readings — so the reading face
+     has to have the glyphs. The families named first are the reading face; they
+     are NOT the guarantee. MEASURED on the build host (`fc-list :charset=1f00`,
+     which asks the system which faces carry the polytonic block U+1F00-U+1FFF):
+     exactly two serif-capable families answer — DejaVu Serif and Noto Serif —
+     and neither of them nor Georgia (which carries no Greek at all) is named in
+     the original stack. A browser falls back per character, so a reader whose
+     system resolves any earlier family gets its Greek from whatever the system
+     substitutes — usually right, never checked. The two families that DO carry
+     the block are named here explicitly, before the generic `serif`, so the
+     guarantee is in the stack rather than in each reader's default. They sit
+     AFTER the reading face: a machine that has Iowan Old Style or Palatino
+     Linotype is unaffected. */
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, Georgia, "Noto Serif", "DejaVu Serif", "FreeSerif", serif;
   --sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: "SFMono-Regular", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
   --measure: 34rem;

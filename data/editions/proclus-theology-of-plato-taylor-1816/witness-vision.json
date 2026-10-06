@@ -3,3191 +3,2337 @@
  "model": "deepseek-v4-flash-vision-exp",
  "method": "the other copies’ page images, fetched from the archive item",
  "leaves": {
-  "thomastaylor#n98#10451-10451": {
-   "item": "thomastaylor",
-   "leaf": 98,
-   "lines": [
-    10451
-   ],
-   "reading": {
-    "10451": "trine, and the unity of all beings, to which extending himself, his design"
-   },
-   "raw": "{\"1\":\"trine, and the unity of all beings, to which extending himself, his design\"}",
-   "at": "2026-10-05T21:35:16.229Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n414#48005-48005": {
+  "bub_gb_svwwAQAAMAAJ#n102#5327-5327": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 414,
+   "leaf": 102,
    "lines": [
-    48005
+    5327
    ],
    "reading": {
-    "48005": "genial Goddess who is the middle of the fathers."
+    "5327": "defensive enclosure, and elevates those that use it, to the good itself, and"
    },
-   "raw": "{\"1\":\"genial Goddess who is the middle of the fathers.\"}",
-   "at": "2026-10-05T21:35:24.582Z",
+   "raw": "{\"1\":\"defensive enclosure, and elevates those that use it, to the good itself, and\"}",
+   "at": "2026-10-06T11:35:00.036Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "thomastaylor#n79#8088-8088": {
-   "item": "thomastaylor",
-   "leaf": 79,
-   "lines": [
-    8088
-   ],
-   "reading": {
-    "8088": "power and dignity every where of theological axioms ; but in the middle"
-   },
-   "raw": "{\"1\":\"power and dignity every where of theological axioms ; but in the middle\"}",
-   "at": "2026-10-05T21:35:36.806Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n80#8154-8154": {
-   "item": "thomastaylor",
-   "leaf": 80,
-   "lines": [
-    8154
-   ],
-   "reading": {
-    "8154": ""
-   },
-   "raw": "{\"1\":\"\"}",
-   "at": "2026-10-05T21:35:50.192Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n311#33495-33495": {
+  "sixbooksproclus00unkngoog#n229#15271-15271": {
    "item": "sixbooksproclus00unkngoog",
-   "leaf": 311,
+   "leaf": 229,
    "lines": [
-    33495
+    15271
    ],
    "reading": {
-    "33495": ""
+    "15271": "* For τῷ θεῷ it is necessary to read τοῖς θεοῖς."
    },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T21:35:56.062Z",
+   "raw": "{\"1\":\"* For τῷ θεῷ it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:35:07.591Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "thomastaylor#n375#43216-43216": {
-   "item": "thomastaylor",
-   "leaf": 375,
-   "lines": [
-    43216
-   ],
-   "reading": {
-    "43216": "The first order therefore of intelligibles and intellectuals is thus sur-"
-   },
-   "raw": "{\"1\":\"The first order therefore of intelligibles and intellectuals is thus sur-\"}",
-   "at": "2026-10-05T21:36:02.261Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n384#43217-43217": {
+  "sixbooksproclus00unkngoog#n200#9922-9922": {
    "item": "sixbooksproclus00unkngoog",
-   "leaf": 384,
+   "leaf": 200,
    "lines": [
-    43217
+    9922
    ],
    "reading": {
-    "43217": "veyed by Parmenides. But after this the order which possesses the"
+    "9922": "* For ev it is necessary to read ov."
    },
-   "raw": "{\"1\":\"veyed by Parmenides. But after this the order which possesses the\"}",
-   "at": "2026-10-05T21:36:08.468Z",
+   "raw": "{\"1\":\"* For ev it is necessary to read ov.\"}",
+   "at": "2026-10-06T11:35:12.530Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "bub_gb_svwwAQAAMAAJ#n377#43216-43311": {
+  "bub_gb_svwwAQAAMAAJ#n377#18900-18900": {
    "item": "bub_gb_svwwAQAAMAAJ",
    "leaf": 377,
    "lines": [
-    43216,
-    43311
+    18900
    ],
    "reading": {
-    "43216": "The first order therefore of intelligibles and intellectuals is thus sur-",
-    "43311": "300 ON THE THEOLOGY BOOK IV."
+    "18900": "middle place of intelligibles and intellectuals, and which a little before we"
    },
-   "raw": "{\"1\":\"The first order therefore of intelligibles and intellectuals is thus sur-\",\"2\":\"300 ON THE THEOLOGY BOOK IV.\"}",
-   "at": "2026-10-05T21:36:38.896Z",
+   "raw": "{\"1\":\"middle place of intelligibles and intellectuals, and which a little before we\"}",
+   "at": "2026-10-06T11:35:16.582Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "thomastaylor#n524#62262-62262": {
-   "item": "thomastaylor",
-   "leaf": 524,
-   "lines": [
-    62262
-   ],
-   "reading": {
-    "62262": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T21:37:27.297Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n558#66762-66762": {
-   "item": "thomastaylor",
-   "leaf": 558,
-   "lines": [
-    66762
-   ],
-   "reading": {
-    "66762": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T21:38:26.234Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n580#69913-69915": {
-   "item": "thomastaylor",
-   "leaf": 580,
-   "lines": [
-    69913,
-    69914,
-    69915
-   ],
-   "reading": {
-    "69913": "universe, and exempt from their participants. Thus much, therefore, may",
-    "69914": "suffice concerning the first division of these Gods. Since, however, we",
-    "69915": "have before observed that their progression is tetradic and triadic, we"
-   },
-   "raw": "{\"1\":\"universe, and exempt from their participants. Thus much, therefore, may\",\"2\":\"suffice concerning the first division of these Gods. Since, however, we\",\"3\":\"have before observed that their progression is tetradic and triadic, we\"}",
-   "at": "2026-10-05T21:38:57.800Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n784#97525-97579": {
-   "item": "thomastaylor",
-   "leaf": 784,
-   "lines": [
-    97525,
-    97579
-   ],
-   "reading": {
-    "97525": "commanded him not to sleep with Perictione during the time of her",
-    "97579": "Heaven's exiles straying from the orb of light."
-   },
-   "raw": "{\"1\": \"commanded him not to sleep with Perictione during the time of her\", \"2\": \"Heaven's exiles straying from the orb of light.\"}",
-   "at": "2026-10-05T21:39:09.626Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n145#16263-16263": {
-   "item": "thomastaylor",
-   "leaf": 145,
-   "lines": [
-    16263
-   ],
-   "reading": {
-    "16263": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T21:39:48.195Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n154#16266-16266": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 154,
-   "lines": [
-    16266
-   ],
-   "reading": {
-    "16266": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T21:40:56.691Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n497#59089-59089": {
+  "bub_gb_svwwAQAAMAAJ#n79#4152-4155": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 497,
+   "leaf": 79,
    "lines": [
-    59089
+    4152,
+    4155
    ],
    "reading": {
-    "59089": "this motion and permanency, he evidently does not attribute the ele-"
+    "4152": "would not be sufficient. But if it is necessary, not only³ that we should",
+    "4155": "¹ Meaning Plato. ² Meaning his preceptor Syrianus. ³ The word μόνος is omitted in the original."
    },
-   "raw": "{\"1\":\"this motion and permanency, he evidently does not attribute the ele-\"}",
-   "at": "2026-10-05T21:41:27.056Z",
+   "raw": "{\"1\":\"would not be sufficient. But if it is necessary, not only³ that we should\",\"2\":\"¹ Meaning Plato. ² Meaning his preceptor Syrianus. ³ The word μόνος is omitted in the original.\"}",
+   "at": "2026-10-06T11:35:17.829Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "thomastaylor#n759#94393-94394": {
-   "item": "thomastaylor",
-   "leaf": 759,
-   "lines": [
-    94393,
-    94394
-   ],
-   "reading": {
-    "94393": "Love is neither to be placed in the first, nor among the last of beings.",
-    "94394": "among the last, because the lover participates of Love. It is requisite,"
-   },
-   "raw": "{\"1\":\"Love is neither to be placed in the first, nor among the last of beings.\",\"2\":\"among the last, because the lover participates of Love. It is requisite,\"}",
-   "at": "2026-10-05T21:42:27.975Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n147#16488-16488": {
-   "item": "thomastaylor",
-   "leaf": 147,
-   "lines": [
-    16488
-   ],
-   "reading": {
-    "16488": "72 ON THE THEOLOGY BOOK I."
-   },
-   "raw": "{\"1\":\"72 ON THE THEOLOGY BOOK I.\"}",
-   "at": "2026-10-05T21:42:42.909Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n266#29380-29400": {
+  "bub_gb_svwwAQAAMAAJ#n376#18868-18868": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 266,
+   "leaf": 376,
    "lines": [
-    29380,
-    29400
+    18868
    ],
    "reading": {
-    "29380": "of the intelligible monad, which Timæus on this account denominates",
-    "29400": "view, according to the doctrine of Timæus, viz. animal itself, eternity,"
+    "18868": "1 Instead of ἀγαπῶμ' ὑμᾶς ἀπὸ τῶν νοητῶν ἐπὶ τὴν αἰσθητὴν φύσιν, it is necessary to read ἀγαπῶμ' ὑμᾶς ἐπὶ τῶν νοητῶν ἀπὸ τῆς αἰσθητῆς φύσεως."
    },
-   "raw": "{\"1\":\"of the intelligible monad, which Timæus on this account denominates\",\"2\":\"view, according to the doctrine of Timæus, viz. animal itself, eternity,\"}",
-   "at": "2026-10-05T21:44:45.769Z",
+   "raw": "{\"1\":\"1 Instead of ἀγαπῶμ' ὑμᾶς ἀπὸ τῶν νοητῶν ἐπὶ τὴν αἰσθητὴν φύσιν, it is necessary to read ἀγαπῶμ' ὑμᾶς ἐπὶ τῶν νοητῶν ἀπὸ τῆς αἰσθητῆς φύσεως.\"}",
+   "at": "2026-10-06T11:35:35.675Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "bub_gb_svwwAQAAMAAJ#n450#52596-52596": {
+  "bub_gb_svwwAQAAMAAJ#n396#19780-19780": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 450,
+   "leaf": 396,
    "lines": [
-    52596
+    19780
    ],
    "reading": {
-    "52596": "one, bound, and intelligible. But he obtains the other name from the"
+    "19780": "to this order. For τὸ κωριον to koron, indicates nothing else than the pure"
    },
-   "raw": "{\"1\":\"one, bound, and intelligible. But he obtains the other name from the\"}",
-   "at": "2026-10-05T21:44:55.223Z",
+   "raw": "{\"1\":\"to this order. For τὸ κωριον to koron, indicates nothing else than the pure\"}",
+   "at": "2026-10-06T11:35:37.572Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "thomastaylor#n530#63445-63445": {
-   "item": "thomastaylor",
-   "leaf": 530,
-   "lines": [
-    63445
-   ],
-   "reading": {
-    "63445": "of wholes subsisting from one great king as it were, and producing the"
-   },
-   "raw": "{\"1\":\"of wholes subsisting from one great king as it were, and producing the\"}",
-   "at": "2026-10-05T21:45:06.447Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n133#13754-13754": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 133,
-   "lines": [
-    13754
-   ],
-   "reading": {
-    "13754": "unities of the Gods contractedly comprehend in themselves all know-"
-   },
-   "raw": "{\"1\":\"unities of the Gods contractedly comprehend in themselves all know-\"}",
-   "at": "2026-10-05T21:47:18.527Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n126#13754-13754": {
+  "bub_gb_svwwAQAAMAAJ#n162#8374-8374": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 126,
-   "lines": [
-    13754
-   ],
-   "reading": {
-    "13754": "being Gods, they are ignorant of what is proper and fit."
-   },
-   "raw": "{\"1\":\"being Gods, they are ignorant of what is proper and fit.\"}",
-   "at": "2026-10-05T21:48:33.476Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n264#29400-29400": {
-   "item": "thomastaylor",
-   "leaf": 264,
-   "lines": [
-    29400
-   ],
-   "reading": {
-    "29400": "view, according to the doctrine of Timæus, viz. animal itself, eternity,"
-   },
-   "raw": "{\"1\":\"view, according to the doctrine of Timæus, viz. animal itself, eternity,\"}",
-   "at": "2026-10-05T21:48:41.452Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n268#29580-29580": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 268,
-   "lines": [
-    29580
-   ],
-   "reading": {
-    "29580": "gotten, it will possess this peculiarity according to bound. But again, it"
-   },
-   "raw": "{\"1\":\"gotten, it will possess this peculiarity according to bound. But again, it\"}",
-   "at": "2026-10-05T21:48:58.633Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n266#29400-29400": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 266,
-   "lines": [
-    29400
-   ],
-   "reading": {
-    "29400": "view, according to the doctrine of Timæus, viz. animal itself, eternity,"
-   },
-   "raw": "{\"1\":\"view, according to the doctrine of Timæus, viz. animal itself, eternity,\"}",
-   "at": "2026-10-05T21:57:59.736Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n413#46966-46966": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 413,
-   "lines": [
-    46966
-   ],
-   "reading": {
-    "46966": "CHAP. VIII. OF PLATO. 329"
-   },
-   "raw": "{\"1\":\"CHAP. VIII. OF PLATO. 329\"}",
-   "at": "2026-10-05T21:58:40.644Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n291#32013-32013": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 291,
-   "lines": [
-    32013
-   ],
-   "reading": {
-    "32013": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T21:59:08.042Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n597#71699-71710": {
-   "item": "thomastaylor",
-   "leaf": 597,
-   "lines": [
-    71699,
-    71710
-   ],
-   "reading": {
-    "71699": "",
-    "71710": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\"}",
-   "at": "2026-10-05T21:59:11.438Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n687#84352-84352": {
-   "item": "thomastaylor",
-   "leaf": 687,
-   "lines": [
-    84352
-   ],
-   "reading": {
-    "84352": "the world, divine souls, intellects and Gods. For whether was he"
-   },
-   "raw": "{\"1\":\"the world, divine souls, intellects and Gods. For whether was he\"}",
-   "at": "2026-10-05T21:59:14.173Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n379#42645-42645": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 379,
-   "lines": [
-    42645
-   ],
-   "reading": {
-    "42645": "CHAP. XXXII. OF PLATO. 295"
-   },
-   "raw": "{\"1\":\"CHAP. XXXII. OF PLATO. 295\"}",
-   "at": "2026-10-05T21:59:18.658Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n298#32011-32013": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 298,
-   "lines": [
-    32011,
-    32012,
-    32013
-   ],
-   "reading": {
-    "32011": "nides, is primogenial. For this first imparts the power of being generated;",
-    "32012": "beings, gives completion to multitude, then the participation of the duad",
-    "32013": "neration in teaching concerning the progression of the intelligible multi-"
-   },
-   "raw": "{\"1\":\"nides, is primogenial. For this first imparts the power of being generated;\",\"2\":\"beings, gives completion to multitude, then the participation of the duad\",\"3\":\"neration in teaching concerning the progression of the intelligible multi-\"}",
-   "at": "2026-10-05T21:59:20.441Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n252#27902-27902": {
-   "item": "thomastaylor",
-   "leaf": 252,
-   "lines": [
-    27902
-   ],
-   "reading": {
-    "27902": "tellect is conjoined to it, according to its familiarity with the beautiful."
-   },
-   "raw": "{\"1\":\"tellect is conjoined to it, according to its familiarity with the beautiful.\"}",
-   "at": "2026-10-05T21:59:23.332Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n558#66759-66762": {
-   "item": "thomastaylor",
-   "leaf": 558,
-   "lines": [
-    66759,
-    66762
-   ],
-   "reading": {
-    "66759": "But that the similar and the dissimilar proceed from the demiurgic",
-    "66762": "in continuity with the total orders of the Gods, its progression may not"
-   },
-   "raw": "{\"1\": \"But that the similar and the dissimilar proceed from the demiurgic\", \"2\": \"in continuity with the total orders of the Gods, its progression may not\"}",
-   "at": "2026-10-05T21:59:37.371Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n262#28003-28003": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 262,
-   "lines": [
-    28003
-   ],
-   "reading": {
-    "28003": "178 ON THE THEOLOGY BOOK III."
-   },
-   "raw": "{\"1\":\"178 ON THE THEOLOGY BOOK III.\"}",
-   "at": "2026-10-05T21:59:55.656Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n466#53745-53745": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 466,
-   "lines": [
-    53745
-   ],
-   "reading": {
-    "53745": "ON THE THEOLOGY"
-   },
-   "raw": "{\"1\":\"ON THE THEOLOGY\"}",
-   "at": "2026-10-05T21:59:56.942Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n664#81086-81086": {
-   "item": "thomastaylor",
-   "leaf": 664,
-   "lines": [
-    81086
-   ],
-   "reading": {
-    "81086": "Mars, Jupiter, and Saturn, of which the first who is the source of division"
-   },
-   "raw": "{\"1\": \"Mars, Jupiter, and Saturn, of which the first who is the source of division\"}",
-   "at": "2026-10-05T22:00:46.842Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n388#44663-44663": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 388,
-   "lines": [
-    44663
-   ],
-   "reading": {
-    "44663": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:01:12.943Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n538#64571-64571": {
-   "item": "thomastaylor",
-   "leaf": 538,
-   "lines": [
-    64571
-   ],
-   "reading": {
-    "64571": "total Jupiter receives from Saturn the one law which is to be the co-ad-"
-   },
-   "raw": "{\"1\": \"total Jupiter receives from Saturn the one law which is to be the co-ad-\"}",
-   "at": "2026-10-05T22:01:23.152Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n302#33498-33502": {
-   "item": "thomastaylor",
-   "leaf": 302,
-   "lines": [
-    33498,
-    33499,
-    33500,
-    33501,
-    33502
-   ],
-   "reading": {
-    "33498": "• And conformably to these, the intelligible and intellectual powers sub-",
-    "33499": "sist; one indeed, by its very essence producing the life of secondary na-",
-    "33500": "tures, according to a certain intelligible comprehension; but another",
-    "33501": "being connective of every thing which is divided, and imparting by illu-",
-    "33502": "mination the intelligible measure to those natures that relinquish the one"
-   },
-   "raw": "{\"1\":\"• And conformably to these, the intelligible and intellectual powers sub-\",\"2\":\"sist; one indeed, by its very essence producing the life of secondary na-\",\"3\":\"tures, according to a certain intelligible comprehension; but another\",\"4\":\"being connective of every thing which is divided, and imparting by illu-\",\"5\":\"mination the intelligible measure to those natures that relinquish the one\"}",
-   "at": "2026-10-05T22:03:34.479Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n302#33505-33507": {
-   "item": "thomastaylor",
-   "leaf": 302,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "",
-    "33506": "",
-    "33507": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:02:28.698Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n301#33498-33502": {
-   "item": "thomastaylor",
-   "leaf": 301,
-   "lines": [
-    33498,
-    33499,
-    33500,
-    33501,
-    33502
-   ],
-   "reading": {
-    "33498": "to it subsisting intellectually. According to this reasoning, therefore,",
-    "33499": "the first intellectual Gods are also intelligible; and we do not, deriving",
-    "33500": "these things from a foreign source, ascribe them to Plato, but they are as-",
-    "33501": "serted by us in consequence of receiving auxiliaries from him. This,",
-    "33502": "however, will be more manifest through what follows."
-   },
-   "raw": "{\"1\":\"to it subsisting intellectually. According to this reasoning, therefore,\",\"2\":\"the first intellectual Gods are also intelligible; and we do not, deriving\",\"3\":\"these things from a foreign source, ascribe them to Plato, but they are as-\",\"4\":\"serted by us in consequence of receiving auxiliaries from him. This,\",\"5\":\"however, will be more manifest through what follows.\"}",
-   "at": "2026-10-05T22:02:38.250Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n254#28228-28228": {
-   "item": "thomastaylor",
-   "leaf": 254,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": "that forms should subsist first and become apparent in intellect. If there-"
-   },
-   "raw": "{\"1\":\"that forms should subsist first and become apparent in intellect. If there-\"}",
-   "at": "2026-10-05T22:03:05.930Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n303#33498-33502": {
-   "item": "thomastaylor",
-   "leaf": 303,
-   "lines": [
-    33498,
-    33499,
-    33500,
-    33501,
-    33502
-   ],
-   "reading": {
-    "33498": "",
-    "33499": "",
-    "33500": "",
-    "33501": "",
-    "33502": ""
-   },
-   "raw": "{\"1\": \"\", \"2\": \"\", \"3\": \"\", \"4\": \"\", \"5\": \"\"}",
-   "at": "2026-10-05T22:03:25.191Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n253#28228-28228": {
-   "item": "thomastaylor",
-   "leaf": 253,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:03:39.784Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n301#33505-33507": {
-   "item": "thomastaylor",
-   "leaf": 301,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "",
-    "33506": "",
-    "33507": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:03:41.104Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n144#16187-16187": {
-   "item": "thomastaylor",
-   "leaf": 144,
-   "lines": [
-    16187
-   ],
-   "reading": {
-    "16187": "CHAP. XX. OF PLATO. 69"
-   },
-   "raw": "{\"1\": \"CHAP. XX. OF PLATO. 69\"}",
-   "at": "2026-10-05T22:04:24.320Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n255#28228-28228": {
-   "item": "thomastaylor",
-   "leaf": 255,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": "itself with the powers of being. And it is measured indeed, from thence"
-   },
-   "raw": "{\"1\": \"itself with the powers of being. And it is measured indeed, from thence\"}",
-   "at": "2026-10-05T22:04:42.266Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n163#18373-18373": {
-   "item": "thomastaylor",
-   "leaf": 163,
-   "lines": [
-    18373
-   ],
-   "reading": {
-    "18373": "88 ON THE THEOLOGY BOOK I."
-   },
-   "raw": "{\"1\":\"88 ON THE THEOLOGY BOOK I.\"}",
-   "at": "2026-10-05T22:04:51.578Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n143#16187-16187": {
-   "item": "thomastaylor",
-   "leaf": 143,
-   "lines": [
-    16187
-   ],
-   "reading": {
-    "16187": "68 ON THE THEOLOGY BOOK I."
-   },
-   "raw": "{\"1\":\"68 ON THE THEOLOGY BOOK I.\"}",
-   "at": "2026-10-05T22:04:57.208Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n303#33505-33507": {
-   "item": "thomastaylor",
-   "leaf": 303,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "",
-    "33506": "",
-    "33507": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:04:58.570Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n145#16187-16187": {
-   "item": "thomastaylor",
-   "leaf": 145,
-   "lines": [
-    16187
-   ],
-   "reading": {
-    "16187": "70 ON THE THEOLOGY BOOK I."
-   },
-   "raw": "{\"1\":\"70 ON THE THEOLOGY BOOK I.\"}",
-   "at": "2026-10-05T22:05:12.881Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n162#18373-18373": {
-   "item": "thomastaylor",
    "leaf": 162,
    "lines": [
-    18373
+    8374
    ],
    "reading": {
-    "18373": "CHAP. XXVII. OF PLATO. 87"
+    "8374": "1 For τὸ ὂν it is necessary to read τῷ ὄντι."
    },
-   "raw": "{\"1\":\"CHAP. XXVII. OF PLATO. 87\"}",
-   "at": "2026-10-05T22:05:21.581Z",
+   "raw": "{\"1\":\"1 For τὸ ὂν it is necessary to read τῷ ὄντι.\"}",
+   "at": "2026-10-06T11:35:46.065Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "sixbooksproclus00unkngoog#n153#16187-16187": {
+  "sixbooksproclus00unkngoog#n205#10165-10165": {
    "item": "sixbooksproclus00unkngoog",
-   "leaf": 153,
+   "leaf": 205,
    "lines": [
-    16187
+    10165
    ],
    "reading": {
-    "16187": "CHAP. XX. OF PLATO. 69"
+    "10165": "and is exempt from all beings, thus also the union of all things with it is oc-"
    },
-   "raw": "{\"1\":\"CHAP. XX. OF PLATO. 69\"}",
-   "at": "2026-10-05T22:06:11.784Z",
+   "raw": "{\"1\":\"and is exempt from all beings, thus also the union of all things with it is oc-\"}",
+   "at": "2026-10-06T11:35:46.116Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "sixbooksproclus00unkngoog#n263#28228-28228": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 263,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": "that forms should subsist first and become apparent in intellect. If there-"
-   },
-   "raw": "{\"1\":\"that forms should subsist first and become apparent in intellect. If there-\"}",
-   "at": "2026-10-05T22:06:12.056Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n164#18373-18373": {
-   "item": "thomastaylor",
-   "leaf": 164,
-   "lines": [
-    18373
-   ],
-   "reading": {
-    "18373": "CHAP. XXIX. OF PLATO. 89"
-   },
-   "raw": "{\"1\": \"CHAP. XXIX. OF PLATO. 89\"}",
-   "at": "2026-10-05T22:06:13.586Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n311#33505-33507": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 311,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "CHAP. II.                    OF PLATO.                    227",
-    "33506": "uniformly things multiplied, occultly such as are divided, and according",
-    "33507": "to a certain admirable transcendency of simplicity, the various genera of"
-   },
-   "raw": "{\"1\":\"CHAP. II.                    OF PLATO.                    227\",\"2\":\"uniformly things multiplied, occultly such as are divided, and according\",\"3\":\"to a certain admirable transcendency of simplicity, the various genera of\"}",
-   "at": "2026-10-05T22:06:19.342Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n172#18373-18373": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 172,
-   "lines": [
-    18373
-   ],
-   "reading": {
-    "18373": "1 πατήρ is omitted in the original."
-   },
-   "raw": "{\"1\":\"1 πατήρ is omitted in the original.\"}",
-   "at": "2026-10-05T22:06:45.517Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n171#18373-18373": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 171,
-   "lines": [
-    18373
-   ],
-   "reading": {
-    "18373": ""
-   },
-   "raw": "{\"1\":\"\"}",
-   "at": "2026-10-05T22:06:56.031Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n152#16187-16187": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 152,
-   "lines": [
-    16187
-   ],
-   "reading": {
-    "16187": "68 ON THE THEOLOGY BOOK I."
-   },
-   "raw": "{\"1\": \"68 ON THE THEOLOGY BOOK I.\"}",
-   "at": "2026-10-05T22:07:08.140Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n310#33505-33507": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 310,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "ary natures, but are divided into more numbers, and such as are more",
-    "33506": "distant from the monad. They likewise relinquish the union which is",
-    "33507": "the cause of primarily efficient natures, and variety is assumed by them"
-   },
-   "raw": "{\"1\":\"ary natures, but are divided into more numbers, and such as are more\",\"2\":\"distant from the monad. They likewise relinquish the union which is\",\"3\":\"the cause of primarily efficient natures, and variety is assumed by them\"}",
-   "at": "2026-10-05T22:07:15.555Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n262#28228-28228": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 262,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": "genus of Gods. But infinite is the never-failing power of this God, un-"
-   },
-   "raw": "{\"1\": \"genus of Gods. But infinite is the never-failing power of this God, un-\"}",
-   "at": "2026-10-05T22:07:41.967Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n173#18373-18373": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 173,
-   "lines": [
-    18373
-   ],
-   "reading": {
-    "18373": "Digitized by Google"
-   },
-   "raw": "{\"1\":\"Digitized by Google\"}",
-   "at": "2026-10-05T22:07:50.101Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n154#16187-16187": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 154,
-   "lines": [
-    16187
-   ],
-   "reading": {
-    "16187": "70 ON THE THEOLOGY BOOK I."
-   },
-   "raw": "{\"1\": \"70 ON THE THEOLOGY BOOK I.\"}",
-   "at": "2026-10-05T22:07:51.311Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n146#16187-16187": {
+  "bub_gb_svwwAQAAMAAJ#n380#19034-19034": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 146,
+   "leaf": 380,
    "lines": [
-    16187
+    19034
    ],
    "reading": {
-    "16187": "all composition, and produce from themselves the variety of beings, it is"
+    "19034": "the nature of intellect ; but being gives hyparxis to intellect, and intellect"
    },
-   "raw": "{\"1\": \"all composition, and produce from themselves the variety of beings, it is\"}",
-   "at": "2026-10-05T22:07:55.450Z",
+   "raw": "{\"1\":\"the nature of intellect ; but being gives hyparxis to intellect, and intellect\"}",
+   "at": "2026-10-06T11:35:50.788Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "sixbooksproclus00unkngoog#n312#33505-33507": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 312,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "having infinity consubstantial with its nature, and the power of infinity, is",
-    "33506": "generative of the whole of things.  But from the triadic hypostasis of in-",
-    "33507": "telligibles, they receive a distribution into first, middle and last.  For it"
-   },
-   "raw": "{\"1\":\"having infinity consubstantial with its nature, and the power of infinity, is\",\"2\":\"generative of the whole of things.  But from the triadic hypostasis of in-\",\"3\":\"telligibles, they receive a distribution into first, middle and last.  For it\"}",
-   "at": "2026-10-05T22:08:23.218Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n264#28228-28228": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 264,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": "itself with the powers of being. And it is measured indeed, from thence"
-   },
-   "raw": "{\"1\":\"itself with the powers of being. And it is measured indeed, from thence\"}",
-   "at": "2026-10-05T22:08:37.134Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n165#18373-18373": {
+  "bub_gb_svwwAQAAMAAJ#n468#23344-23344": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 165,
-   "lines": [
-    18373
-   ],
-   "reading": {
-    "18373": "* πατηρ is omitted in the original."
-   },
-   "raw": "{\"1\":\"* πατηρ is omitted in the original.\"}",
-   "at": "2026-10-05T22:09:07.514Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n145#16187-16187": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 145,
-   "lines": [
-    16187
-   ],
-   "reading": {
-    "16187": "to secondary natures, to itself, and about itself. It is also in itself, and is"
-   },
-   "raw": "{\"1\": \"to secondary natures, to itself, and about itself. It is also in itself, and is\"}",
-   "at": "2026-10-05T22:09:21.113Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n256#28228-28228": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 256,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": "that forms should subsist first and become apparent in intellect. If there-"
-   },
-   "raw": "{\"1\":\"that forms should subsist first and become apparent in intellect. If there-\"}",
-   "at": "2026-10-05T22:09:28.032Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n304#33505-33507": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 304,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "",
-    "33506": "",
-    "33507": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:09:35.163Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n164#18373-18373": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 164,
-   "lines": [
-    18373
-   ],
-   "reading": {
-    "18373": "CHAP. XXVII. OF PLATO. 87"
-   },
-   "raw": "{\"1\":\"CHAP. XXVII. OF PLATO. 87\"}",
-   "at": "2026-10-05T22:09:51.116Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n147#16187-16187": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 147,
-   "lines": [
-    16187
-   ],
-   "reading": {
-    "16187": "truth therefore of the Gods alone, is the undivided union and all-perfect"
-   },
-   "raw": "{\"1\":\"truth therefore of the Gods alone, is the undivided union and all-perfect\"}",
-   "at": "2026-10-05T22:10:18.606Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n166#18373-18373": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 166,
-   "lines": [
-    18373
-   ],
-   "reading": {
-    "18373": "OF PLATO."
-   },
-   "raw": "{\"1\":\"OF PLATO.\"}",
-   "at": "2026-10-05T22:10:29.785Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n307#34025-34025": {
-   "item": "thomastaylor",
-   "leaf": 307,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": "They are likewise the suppliers of divine perfection, * imitating the all-"
-   },
-   "raw": "{\"1\": \"They are likewise the suppliers of divine perfection, * imitating the all-\"}",
-   "at": "2026-10-05T22:10:31.452Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n255#28228-28228": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 255,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": "genus of Gods. But infinite is the never-failing power of this God, un-"
-   },
-   "raw": "{\"1\": \"genus of Gods. But infinite is the never-failing power of this God, un-\"}",
-   "at": "2026-10-05T22:10:54.370Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n306#34025-34025": {
-   "item": "thomastaylor",
-   "leaf": 306,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:11:08.329Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n303#33505-33507": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 303,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "ary natures, but are divided into more numbers, and such as are more",
-    "33506": "distant from the monad. They likewise relinquish the union which is",
-    "33507": "the cause of primarily efficient natures, and variety is assumed by them"
-   },
-   "raw": "{\"1\":\"ary natures, but are divided into more numbers, and such as are more\",\"2\":\"distant from the monad. They likewise relinquish the union which is\",\"3\":\"the cause of primarily efficient natures, and variety is assumed by them\"}",
-   "at": "2026-10-05T22:11:12.550Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n308#34025-34025": {
-   "item": "thomastaylor",
-   "leaf": 308,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": "CHAP. V. OF PLATO. 233"
-   },
-   "raw": "{\"1\": \"CHAP. V. OF PLATO. 233\"}",
-   "at": "2026-10-05T22:11:30.883Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n305#33505-33507": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 305,
-   "lines": [
-    33505,
-    33506,
-    33507
-   ],
-   "reading": {
-    "33505": "having infinity consubstantient with its nature, and the power of infinity, is",
-    "33506": "generative of the whole of things. But from the triadic hypostasis of in-",
-    "33507": "telligibles, they receive a distribution into first, middle and last. For it"
-   },
-   "raw": "{\"1\":\"having infinity consubstantient with its nature, and the power of infinity, is\",\"2\":\"generative of the whole of things. But from the triadic hypostasis of in-\",\"3\":\"telligibles, they receive a distribution into first, middle and last. For it\"}",
-   "at": "2026-10-05T22:11:54.998Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n257#28228-28228": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 257,
-   "lines": [
-    28228
-   ],
-   "reading": {
-    "28228": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:12:17.949Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n307#34050-34051": {
-   "item": "thomastaylor",
-   "leaf": 307,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "παιδείᾳ",
-    "34051": "οὐ"
-   },
-   "raw": "{\"1\":\"παιδείᾳ\",\"2\":\"οὐ\"}",
-   "at": "2026-10-05T22:12:21.251Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n400#46427-46427": {
-   "item": "thomastaylor",
-   "leaf": 400,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:12:21.573Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n306#34050-34051": {
-   "item": "thomastaylor",
-   "leaf": 306,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "",
-    "34051": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\"}",
-   "at": "2026-10-05T22:12:39.201Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n399#46427-46427": {
-   "item": "thomastaylor",
-   "leaf": 399,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": "perceives likewise, all the natures prior to itself. And by how much the"
-   },
-   "raw": "{\"1\": \"perceives likewise, all the natures prior to itself. And by how much the\"}",
-   "at": "2026-10-05T22:12:49.242Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n316#34025-34025": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 316,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": "the intelligible nature. It is also said that Jupiter is the leader of all"
-   },
-   "raw": "{\"1\": \"the intelligible nature. It is also said that Jupiter is the leader of all\"}",
-   "at": "2026-10-05T22:13:14.798Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n400#46435-46437": {
-   "item": "thomastaylor",
-   "leaf": 400,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "CHAP. VI. OF PLATO. 325",
-    "46436": "incorruptible intellect. For he in the intellectual is intelligible. Since",
-    "46437": "however, he is not simply intelligible, but as in intellectuals, he is"
-   },
-   "raw": "{\n  \"1\": \"CHAP. VI. OF PLATO. 325\",\n  \"2\": \"incorruptible intellect. For he in the intellectual is intelligible. Since\",\n  \"3\": \"however, he is not simply intelligible, but as in intellectuals, he is\"\n}",
-   "at": "2026-10-05T22:13:14.903Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n399#46435-46437": {
-   "item": "thomastaylor",
-   "leaf": 399,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "",
-    "46436": "",
-    "46437": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:13:26.473Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n401#46427-46427": {
-   "item": "thomastaylor",
-   "leaf": 401,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": "VERY properly therefore, has this universe twofold lives, periods, and"
-   },
-   "raw": "{\"1\": \"VERY properly therefore, has this universe twofold lives, periods, and\"}",
-   "at": "2026-10-05T22:13:51.527Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n401#46435-46437": {
-   "item": "thomastaylor",
-   "leaf": 401,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "326 ON THE THEOLOGY BOOK V.",
-    "46436": "CHAPTER VII.",
-    "46437": "VERY properly therefore, has this universe twofold lives, periods, and"
-   },
-   "raw": "{\n  \"1\": \"326 ON THE THEOLOGY BOOK V.\",\n  \"2\": \"CHAPTER VII.\",\n  \"3\": \"VERY properly therefore, has this universe twofold lives, periods, and\"\n}",
-   "at": "2026-10-05T22:14:13.669Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n308#34050-34051": {
-   "item": "thomastaylor",
-   "leaf": 308,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "These things therefore, are asserted in the Phædrus, Socrates being",
-    "34051": "cessary however, prior to other things, to consider what the heaven is of"
-   },
-   "raw": "{\"1\":\"These things therefore, are asserted in the Phædrus, Socrates being\",\"2\":\"cessary however, prior to other things, to consider what the heaven is of\"}",
-   "at": "2026-10-05T22:14:24.847Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n409#46427-46427": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 409,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": "prolific powers of his father Heaven as far as to the last of things; but"
-   },
-   "raw": "{\"1\": \"prolific powers of his father Heaven as far as to the last of things; but\"}",
-   "at": "2026-10-05T22:15:02.765Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n409#46435-46437": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 409,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "",
-    "46436": "",
-    "46437": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:15:10.707Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n408#46435-46437": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 408,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "",
-    "46436": "",
-    "46437": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:15:16.001Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n315#34025-34025": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 315,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": "the intelligible and at the same time intellectual triad, should be defined"
-   },
-   "raw": "{\"1\":\"the intelligible and at the same time intellectual triad, should be defined\"}",
-   "at": "2026-10-05T22:15:20.007Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n408#46427-46427": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 408,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": "perceives likewise, all the natures prior to itself. And by how much the"
-   },
-   "raw": "{\"1\":\"perceives likewise, all the natures prior to itself. And by how much the\"}",
-   "at": "2026-10-05T22:15:41.476Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n410#46427-46427": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 410,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": "VERY properly therefore, has this universe twofold lives, periods, and"
-   },
-   "raw": "{\"1\":\"VERY properly therefore, has this universe twofold lives, periods, and\"}",
-   "at": "2026-10-05T22:16:17.060Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n410#46435-46437": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 410,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "326- ON THE THEOLOGY BOOK V.",
-    "46436": "CHAPTER VII.",
-    "46437": "VERY properly therefore, has this universe twofold lives, periods, and"
-   },
-   "raw": "{\"1\":\"326- ON THE THEOLOGY BOOK V.\",\"2\":\"CHAPTER VII.\",\"3\":\"VERY properly therefore, has this universe twofold lives, periods, and\"}",
-   "at": "2026-10-05T22:16:34.412Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n316#34050-34051": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 316,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "CHAPTER IV.",
-    "34051": "They are likewise the suppliers of divine perfection, ' imitating the all-"
-   },
-   "raw": "{\"1\": \"CHAPTER IV.\", \"2\": \"They are likewise the suppliers of divine perfection, ' imitating the all-\"}",
-   "at": "2026-10-05T22:16:42.444Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n317#34025-34025": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 317,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": "towards the heaven; the one indeed being primarily placed above it, but"
-   },
-   "raw": "{\"1\": \"towards the heaven; the one indeed being primarily placed above it, but\"}",
-   "at": "2026-10-05T22:17:03.396Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n402#46427-46427": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 402,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:17:12.783Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n401#46427-46427": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 401,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:17:17.563Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n402#46435-46437": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 402,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "",
-    "46436": "",
-    "46437": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:17:31.965Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n315#34050-34051": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 315,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "",
-    "34051": ""
-   },
-   "raw": "{\"1\": \"\", \"2\": \"\"}",
-   "at": "2026-10-05T22:17:37.674Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n403#46427-46427": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 403,
-   "lines": [
-    46427
-   ],
-   "reading": {
-    "46427": "VERY properly therefore, has this universe twofold lives, periods, and"
-   },
-   "raw": "{\"1\":\"VERY properly therefore, has this universe twofold lives, periods, and\"}",
-   "at": "2026-10-05T22:17:51.153Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n401#46435-46437": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 401,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "",
-    "46436": "",
-    "46437": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:17:59.057Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n309#34025-34025": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 309,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": "the intelligible nature. It is also said that Jupiter is the leader of all"
-   },
-   "raw": "{\"1\": \"the intelligible nature. It is also said that Jupiter is the leader of all\"}",
-   "at": "2026-10-05T22:18:32.110Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n403#46435-46437": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 403,
-   "lines": [
-    46435,
-    46436,
-    46437
-   ],
-   "reading": {
-    "46435": "326 ON THE THEOLOGY BOOK V.",
-    "46436": "CHAPTER VII.",
-    "46437": "VERY properly therefore, has this universe twofold lives, periods, and"
-   },
-   "raw": "{\"1\": \"326 ON THE THEOLOGY BOOK V.\", \"2\": \"CHAPTER VII.\", \"3\": \"VERY properly therefore, has this universe twofold lives, periods, and\"}",
-   "at": "2026-10-05T22:18:43.550Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n317#34050-34051": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 317,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "  These things therefore, are asserted in the Phaedrus, Socrates being",
-    "34051": "* After τὴν οὐρανίαν ψυχὴν, it is obviously necessary to add καὶ τὸν οὐρανοῦν τόπον."
-   },
-   "raw": "{\"1\": \"  These things therefore, are asserted in the Phaedrus, Socrates being\", \"2\": \"* After τὴν οὐρανίαν ψυχὴν, it is obviously necessary to add καὶ τὸν οὐρανοῦν τόπον.\"}",
-   "at": "2026-10-05T22:19:13.788Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n308#34025-34025": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 308,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": "CHAP. III. OF PLATO. 231"
-   },
-   "raw": "{\"1\":\"CHAP. III. OF PLATO. 231\"}",
-   "at": "2026-10-05T22:19:28.715Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n264#29379-29381": {
-   "item": "thomastaylor",
-   "leaf": 264,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "",
-    "29380": "",
-    "29381": ""
-   },
-   "raw": "{\n  \"1\": \"\",\n  \"2\": \"\",\n  \"3\": \"\"\n}",
-   "at": "2026-10-05T22:19:33.456Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n450#52957-52960": {
-   "item": "thomastaylor",
-   "leaf": 450,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "CHAP. XXIII.        OF PLATO.        375",
-    "52958": "thence, and fill all things with intellectual arrangement. It must be",
-    "52959": "admitted therefore, that the world is animated and endowed with intellect.",
-    "52960": "Hence from this Socrates ascends to the cause itself of the whole world,"
-   },
-   "raw": "{\"1\": \"CHAP. XXIII.        OF PLATO.        375\", \"2\": \"thence, and fill all things with intellectual arrangement. It must be\", \"3\": \"admitted therefore, that the world is animated and endowed with intellect.\", \"4\": \"Hence from this Socrates ascends to the cause itself of the whole world,\"}",
-   "at": "2026-10-05T22:19:54.417Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n449#52957-52960": {
-   "item": "thomastaylor",
-   "leaf": 449,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "",
-    "52958": "",
-    "52959": "",
-    "52960": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:20:09.756Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n309#34050-34051": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 309,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "They are likewise the suppliers of divine perfection, 'imitating the all-",
-    "34051": "perfect intelligible triads; just as the connectedly containing Gods imitate"
-   },
-   "raw": "{\"1\":\"They are likewise the suppliers of divine perfection, 'imitating the all-\",\"2\":\"perfect intelligible triads; just as the connectedly containing Gods imitate\"}",
-   "at": "2026-10-05T22:20:41.654Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n451#52957-52960": {
-   "item": "thomastaylor",
-   "leaf": 451,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "from another. As I have said therefore, we must leave this opinion, as",
-    "52958": "by no means adapted to Plato, though it is adopted by some of his",
-    "52959": "interpreters. But considering cause to be the same as Jupiter, we must",
-    "52960": "say that soul and intellect are established in him exemptly ; and that"
-   },
-   "raw": "{\n  \"1\": \"from another. As I have said therefore, we must leave this opinion, as\",\n  \"2\": \"by no means adapted to Plato, though it is adopted by some of his\",\n  \"3\": \"interpreters. But considering cause to be the same as Jupiter, we must\",\n  \"4\": \"say that soul and intellect are established in him exemptly ; and that\"\n}",
-   "at": "2026-10-05T22:21:24.432Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n310#34025-34025": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 310,
-   "lines": [
-    34025
-   ],
-   "reading": {
-    "34025": "These things therefore, are asserted in the Phædrus, Socrates being"
-   },
-   "raw": "{\"1\": \"These things therefore, are asserted in the Phædrus, Socrates being\"}",
-   "at": "2026-10-05T22:21:33.742Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n459#52957-52960": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 459,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "",
-    "52958": "",
-    "52959": "",
-    "52960": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:21:34.093Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n263#29379-29381": {
-   "item": "thomastaylor",
-   "leaf": 263,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "says eternity abides, in this case, eternity will be in itself. It is necessary",
-    "29380": "if any one should suppose that it is the one of eternity, in which Timæus",
-    "29381": "however, that it should abide in itself, by having its subsistence in abiding"
-   },
-   "raw": "{\"1\":\"says eternity abides, in this case, eternity will be in itself. It is necessary\",\"2\":\"if any one should suppose that it is the one of eternity, in which Timæus\",\"3\":\"however, that it should abide in itself, by having its subsistence in abiding\"}",
-   "at": "2026-10-05T22:21:43.293Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n458#52957-52960": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 458,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "",
-    "52958": "",
-    "52959": "",
-    "52960": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:22:03.843Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n265#29379-29381": {
-   "item": "thomastaylor",
-   "leaf": 265,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "",
-    "29380": "",
-    "29381": ""
-   },
-   "raw": "{\"1\": \"\", \"2\": \"\", \"3\": \"\"}",
-   "at": "2026-10-05T22:22:21.484Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n308#34050-34051": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 308,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "triad had only the third part of being; for it consisted of bound, and in-",
-    "34051": "preserving by itself the preexistent cause of the whole of things. There"
-   },
-   "raw": "{\"1\":\"triad had only the third part of being; for it consisted of bound, and in-\",\"2\":\"preserving by itself the preexistent cause of the whole of things. There\"}",
-   "at": "2026-10-05T22:22:25.284Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n330#37064-37064": {
-   "item": "thomastaylor",
-   "leaf": 330,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": "CHAP. XV. OF PLATO. 255"
-   },
-   "raw": "{\"1\": \"CHAP. XV. OF PLATO. 255\"}",
-   "at": "2026-10-05T22:22:31.127Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n329#37064-37064": {
-   "item": "thomastaylor",
-   "leaf": 329,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": "254"
-   },
-   "raw": "{\"1\": \"254\"}",
-   "at": "2026-10-05T22:22:59.876Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n460#52957-52960": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 460,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "",
-    "52958": "",
-    "52959": "",
-    "52960": ""
-   },
-   "raw": "{\n  \"1\": \"\",\n  \"2\": \"\",\n  \"3\": \"\",\n  \"4\": \"\"\n}",
-   "at": "2026-10-05T22:23:27.358Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n331#37064-37064": {
-   "item": "thomastaylor",
-   "leaf": 331,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": "255"
-   },
-   "raw": "{\"1\":\"255\"}",
-   "at": "2026-10-05T22:23:40.821Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n310#34050-34051": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 310,
-   "lines": [
-    34050,
-    34051
-   ],
-   "reading": {
-    "34050": "CHAP. V.",
-    "34051": "OF PLATO. 233"
-   },
-   "raw": "{\"1\":\"CHAP. V.\",\"2\":\"OF PLATO. 233\"}",
-   "at": "2026-10-05T22:24:04.183Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n273#29379-29381": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 273,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "is the ever in conjunction with being. But the duad in eternity participates",
-    "29380": "coordinated with them. For the union is different from this which is ex-",
-    "29381": "with respect to the permanency of the whole of things, we say that the"
-   },
-   "raw": "{\"1\": \"is the ever in conjunction with being. But the duad in eternity participates\", \"2\": \"coordinated with them. For the union is different from this which is ex-\", \"3\": \"with respect to the permanency of the whole of things, we say that the\"}",
-   "at": "2026-10-05T22:24:17.270Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n452#52957-52960": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 452,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "",
-    "52958": "",
-    "52959": "",
-    "52960": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:24:20.257Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n339#37064-37064": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 339,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": "CHAP. XV. OF PLATO. 255"
-   },
-   "raw": "{\"1\": \"CHAP. XV. OF PLATO. 255\"}",
-   "at": "2026-10-05T22:24:28.835Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n272#29379-29381": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 272,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "Since, however, eternity subsists according to the middle centre of in-",
-    "29380": "telligibles, and animal itself according to the extremity of them, and the",
-    "29381": "most splendid of that which is intelligible, what is that which is the first"
-   },
-   "raw": "{\"1\": \"Since, however, eternity subsists according to the middle centre of in-\", \"2\": \"telligibles, and animal itself according to the extremity of them, and the\", \"3\": \"most splendid of that which is intelligible, what is that which is the first\"}",
-   "at": "2026-10-05T22:25:38.864Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n451#52957-52960": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 451,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "374 ON THE THEOLOGY BOOK V.",
-    "52958": "and shown that what the whole world contains is greater and more perfect",
-    "52959": "than what we contain, and that wholes have a greater authority, and a",
-    "52960": "more ruling essence than partial natures, and having placed intellect over"
-   },
-   "raw": "{\"1\":\"374 ON THE THEOLOGY BOOK V.\",\"2\":\"and shown that what the whole world contains is greater and more perfect\",\"3\":\"than what we contain, and that wholes have a greater authority, and a\",\"4\":\"more ruling essence than partial natures, and having placed intellect over\"}",
-   "at": "2026-10-05T22:25:38.976Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n338#37064-37064": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 338,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": "AFTER these things therefore, we may survey another triad"
-   },
-   "raw": "{\"1\": \"AFTER these things therefore, we may survey another triad\"}",
-   "at": "2026-10-05T22:25:50.185Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n452#53191-53191": {
-   "item": "thomastaylor",
-   "leaf": 452,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": "tribute to all souls the knowledge of things just, beautiful, and good, but"
-   },
-   "raw": "{\"1\": \"tribute to all souls the knowledge of things just, beautiful, and good, but\"}",
-   "at": "2026-10-05T22:26:03.172Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n274#29379-29381": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 274,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "first triad is that on account of which this permanency is effected ; but that",
-    "29380": "the second triad is that by which it is produced. For the firm establish-",
-    "29381": "ment of beings is indeed according to this second triad, but is on account"
-   },
-   "raw": "{\"1\":\"first triad is that on account of which this permanency is effected ; but that\",\"2\":\"the second triad is that by which it is produced. For the firm establish-\",\"3\":\"ment of beings is indeed according to this second triad, but is on account\"}",
-   "at": "2026-10-05T22:26:31.991Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n453#52957-52960": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 453,
-   "lines": [
-    52957,
-    52958,
-    52959,
-    52960
-   ],
-   "reading": {
-    "52957": "",
-    "52958": "",
-    "52959": "",
-    "52960": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:26:35.020Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n597#71702-71703": {
-   "item": "thomastaylor",
-   "leaf": 597,
-   "lines": [
-    71702,
-    71703
-   ],
-   "reading": {
-    "71702": "",
-    "71703": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\"}",
-   "at": "2026-10-05T22:26:51.489Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n340#37064-37064": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 340,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": "things to itself through divine intelligence. For that [which] the [banquet] indeed"
-   },
-   "raw": "{\"1\":\"things to itself through divine intelligence. For that [which] the [banquet] indeed\"}",
-   "at": "2026-10-05T22:26:57.972Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n596#71702-71703": {
-   "item": "thomastaylor",
-   "leaf": 596,
-   "lines": [
-    71702,
-    71703
-   ],
-   "reading": {
-    "71702": "forth the whole of the life which is inseparable from body, from the one",
-    "71703": "fountain of souls, establishing it as an image of the life which is separate"
-   },
-   "raw": "{\"1\":\"forth the whole of the life which is inseparable from body, from the one\",\"2\":\"fountain of souls, establishing it as an image of the life which is separate\"}",
-   "at": "2026-10-05T22:27:01.031Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n598#71702-71703": {
-   "item": "thomastaylor",
-   "leaf": 598,
-   "lines": [
-    71702,
-    71703
-   ],
-   "reading": {
-    "71702": "",
-    "71703": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\"}",
-   "at": "2026-10-05T22:27:22.311Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n451#53191-53191": {
-   "item": "thomastaylor",
-   "leaf": 451,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": "of intellect indeed, from his father, but of soul from the queen [Rhea]"
-   },
-   "raw": "{\"1\":\"of intellect indeed, from his father, but of soul from the queen [Rhea]\"}",
-   "at": "2026-10-05T22:27:35.255Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n332#37064-37064": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 332,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": "CHAP. XV. OF PLATO. 255"
-   },
-   "raw": "{\"1\":\"CHAP. XV. OF PLATO. 255\"}",
-   "at": "2026-10-05T22:27:44.182Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n597#71713-71713": {
-   "item": "thomastaylor",
-   "leaf": 597,
-   "lines": [
-    71713
-   ],
-   "reading": {
-    "71713": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:27:55.935Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n596#71713-71713": {
-   "item": "thomastaylor",
-   "leaf": 596,
-   "lines": [
-    71713
-   ],
-   "reading": {
-    "71713": "over it with a guardian power. But the truth of this may be seen in"
-   },
-   "raw": "{\"1\":\"over it with a guardian power. But the truth of this may be seen in\"}",
-   "at": "2026-10-05T22:28:03.654Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n266#29379-29381": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 266,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "is the ever in conjunction with being. But the duad in eternity participates",
-    "29380": "of the intelligible monad, which Timæus on this account denominates",
-    "29381": "Digitized by Google"
-   },
-   "raw": "{\n  \"1\": \"is the ever in conjunction with being. But the duad in eternity participates\",\n  \"2\": \"of the intelligible monad, which Timæus on this account denominates\",\n  \"3\": \"Digitized by Google\"\n}",
-   "at": "2026-10-05T22:28:11.139Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n598#71713-71713": {
-   "item": "thomastaylor",
-   "leaf": 598,
-   "lines": [
-    71713
-   ],
-   "reading": {
-    "71713": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:28:17.172Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n331#37064-37064": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 331,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": "prolific power of life, and of all-various reasons, is the comprehension of"
-   },
-   "raw": "{\"1\":\"prolific power of life, and of all-various reasons, is the comprehension of\"}",
-   "at": "2026-10-05T22:28:47.752Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n333#37064-37064": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 333,
-   "lines": [
-    37064
-   ],
-   "reading": {
-    "37064": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:28:51.325Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n453#53191-53191": {
-   "item": "thomastaylor",
-   "leaf": 453,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:29:15.966Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n269#29992-29996": {
-   "item": "thomastaylor",
-   "leaf": 269,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "1 For νοητοῖς it is necessary to read νοεροῖς.",
-    "29993": "2 For δεντέρας it is necessary to read δεντέρας.",
-    "29994": "that as species or forms present themselves to the view1 in the intelligible,",
-    "29995": "194 ON THE THEOLOGY BOOK III.",
-    "29996": "Digitized by Google"
-   },
-   "raw": "{\n  \"1\": \"1 For νοητοῖς it is necessary to read νοεροῖς.\",\n  \"2\": \"2 For δεντέρας it is necessary to read δεντέρας.\",\n  \"3\": \"that as species or forms present themselves to the view1 in the intelligible,\",\n  \"4\": \"194 ON THE THEOLOGY BOOK III.\",\n  \"5\": \"Digitized by Google\"\n}",
-   "at": "2026-10-05T22:29:43.245Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n429#50366-50369": {
-   "item": "thomastaylor",
-   "leaf": 429,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "354 ON THE THEOLOGY BOOK V.",
-    "50367": "CHAPTER XVII.",
-    "50368": "In the third place therefore, let us purify our conceptions about the de-",
-    "50369": "miurgic cause according to other projecting energies of intellect, following"
-   },
-   "raw": "{\"1\":\"354 ON THE THEOLOGY BOOK V.\",\"2\":\"CHAPTER XVII.\",\"3\":\"In the third place therefore, let us purify our conceptions about the de-\",\"4\":\"miurgic cause according to other projecting energies of intellect, following\"}",
-   "at": "2026-10-05T22:29:59.910Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n265#29379-29381": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 265,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "If therefore eternity abides in itself, to what shall we primarily assign",
-    "29380": "if any one should suppose that it is the one of eternity, in which Timæus",
-    "29381": "Timæus, it is established in the one of the first triad, or rather in the whole"
-   },
-   "raw": "{\"1\":\"If therefore eternity abides in itself, to what shall we primarily assign\",\"2\":\"if any one should suppose that it is the one of eternity, in which Timæus\",\"3\":\"Timæus, it is established in the one of the first triad, or rather in the whole\"}",
-   "at": "2026-10-05T22:30:21.879Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n461#53191-53191": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 461,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": "not in a divided manner, as different arts are distributed to different"
-   },
-   "raw": "{\"1\": \"not in a divided manner, as different arts are distributed to different\"}",
-   "at": "2026-10-05T22:30:38.567Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n268#29992-29996": {
-   "item": "thomastaylor",
-   "leaf": 268,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "CHAP. XIX.          OF PLATO.          193",
-    "29993": "ing their order. For we have spoken of these things in a treatise consist-",
-    "29994": "ing of one book, in which we demonstrate that truth is co-ordinate to the",
-    "29995": "philosopher, beauty to the lover, and symmetry to the musician; and",
-    "29996": "that such as is the order of these lives, such also is the relation of truth,"
-   },
-   "raw": "{\n  \"1\": \"CHAP. XIX.          OF PLATO.          193\",\n  \"2\": \"ing their order. For we have spoken of these things in a treatise consist-\",\n  \"3\": \"ing of one book, in which we demonstrate that truth is co-ordinate to the\",\n  \"4\": \"philosopher, beauty to the lover, and symmetry to the musician; and\",\n  \"5\": \"that such as is the order of these lives, such also is the relation of truth,\"\n}",
-   "at": "2026-10-05T22:30:48.009Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n428#50366-50369": {
-   "item": "thomastaylor",
-   "leaf": 428,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "",
-    "50367": "",
-    "50368": "",
-    "50369": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:30:48.556Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n270#29992-29996": {
-   "item": "thomastaylor",
-   "leaf": 270,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "",
-    "29993": "",
-    "29994": "",
-    "29995": "",
-    "29996": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:31:18.976Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n430#50366-50369": {
-   "item": "thomastaylor",
-   "leaf": 430,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "",
-    "50367": "",
-    "50368": "",
-    "50369": ""
-   },
-   "raw": "{\"1\": \"\", \"2\": \"\", \"3\": \"\", \"4\": \"\"}",
-   "at": "2026-10-05T22:31:19.853Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n460#53191-53191": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 460,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:31:26.690Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n278#29992-29996": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 278,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "",
-    "29993": "",
-    "29994": "",
-    "29995": "",
-    "29996": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:31:47.962Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n438#50366-50369": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 438,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "",
-    "50367": "",
-    "50368": "",
-    "50369": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:32:10.673Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n267#29379-29381": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 267,
-   "lines": [
-    29379,
-    29380,
-    29381
-   ],
-   "reading": {
-    "29379": "first triad is that on account of which this permanency is effected ; but that",
-    "29380": "the second triad is that by which it is produced. For the firm establish-",
-    "29381": "ment of beings is indeed according to this second triad, but is on account"
-   },
-   "raw": "{\"1\":\"first triad is that on account of which this permanency is effected ; but that\",\"2\":\"the second triad is that by which it is produced. For the firm establish-\",\"3\":\"ment of beings is indeed according to this second triad, but is on account\"}",
-   "at": "2026-10-05T22:32:32.348Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n462#53191-53191": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 462,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": "definitely imparts to all things that which is divine, and weaves one polity"
-   },
-   "raw": "{\"1\":\"definitely imparts to all things that which is divine, and weaves one polity\"}",
-   "at": "2026-10-05T22:32:35.890Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n277#29992-29996": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 277,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "",
-    "29993": "",
-    "29994": "",
-    "29995": "",
-    "29996": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:32:47.149Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n279#29992-29996": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 279,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "",
-    "29993": "",
-    "29994": "",
-    "29995": "",
-    "29996": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:32:57.885Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n437#50366-50369": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 437,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "",
-    "50367": "",
-    "50368": "",
-    "50369": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:33:38.309Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n151#17055-17055": {
-   "item": "thomastaylor",
-   "leaf": 151,
-   "lines": [
-    17055
-   ],
-   "reading": {
-    "17055": "IN the next place let us consider the beautiful, what it is, and how"
-   },
-   "raw": "{\"1\":\"IN the next place let us consider the beautiful, what it is, and how\"}",
-   "at": "2026-10-05T22:33:49.510Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n439#50366-50369": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 439,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "",
-    "50367": "",
-    "50368": "",
-    "50369": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:34:09.580Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n454#53191-53191": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 454,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": "tribute to all souls the knowledge of things just, beautiful, and good, but"
-   },
-   "raw": "{\"1\":\"tribute to all souls the knowledge of things just, beautiful, and good, but\"}",
-   "at": "2026-10-05T22:34:21.175Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n271#29992-29996": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 271,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "194 ON THE THEOLOGY BOOK III.",
-    "29993": "four, unfolding themselves first into light, according to the all-perfect te-",
-    "29994": "trad,—this being the case, in the first place it deserves to be considered,",
-    "29995": "that as species or forms present themselves to the view in the intelligible,",
-    "29996": "it is necessary by a much greater priority, that the genera of beings should"
-   },
-   "raw": "{\n  \"1\": \"194 ON THE THEOLOGY BOOK III.\",\n  \"2\": \"four, unfolding themselves first into light, according to the all-perfect te-\",\n  \"3\": \"trad,—this being the case, in the first place it deserves to be considered,\",\n  \"4\": \"that as species or forms present themselves to the view in the intelligible,\",\n  \"5\": \"it is necessary by a much greater priority, that the genera of beings should\"\n}",
-   "at": "2026-10-05T22:34:35.816Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n150#17055-17055": {
-   "item": "thomastaylor",
-   "leaf": 150,
-   "lines": [
-    17055
-   ],
-   "reading": {
-    "17055": "CHAP. XXIII. OF PLATO. 75"
-   },
-   "raw": "{\"1\":\"CHAP. XXIII. OF PLATO. 75\"}",
-   "at": "2026-10-05T22:34:36.624Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n152#17055-17055": {
-   "item": "thomastaylor",
-   "leaf": 152,
-   "lines": [
-    17055
-   ],
-   "reading": {
-    "17055": "CHAP. XXIV. OF PLATO. 77"
-   },
-   "raw": "{\"1\": \"CHAP. XXIV. OF PLATO. 77\"}",
-   "at": "2026-10-05T22:35:28.125Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n431#50366-50369": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 431,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "",
-    "50367": "",
-    "50368": "",
-    "50369": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:35:34.977Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n160#17055-17055": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 160,
-   "lines": [
-    17055
-   ],
-   "reading": {
-    "17055": "76 ON THE THEOLOGY BOOK I."
-   },
-   "raw": "{\"1\": \"76 ON THE THEOLOGY BOOK I.\"}",
-   "at": "2026-10-05T22:36:13.599Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n270#29992-29996": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 270,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "CHAP. XIX.          OF PLATO.          193",
-    "29993": "ing their order.   For we have spoken of these things in a treatise consist-",
-    "29994": "ing of one book, in which we demonstrate that truth is co-ordinate to the",
-    "29995": "philosopher, beauty to the lover, and symmetry to the musician; and",
-    "29996": "that such as is the order of these lives, such also is the relation of truth,"
-   },
-   "raw": "{\"1\":\"CHAP. XIX.          OF PLATO.          193\",\"2\":\"ing their order.   For we have spoken of these things in a treatise consist-\",\"3\":\"ing of one book, in which we demonstrate that truth is co-ordinate to the\",\"4\":\"philosopher, beauty to the lover, and symmetry to the musician; and\",\"5\":\"that such as is the order of these lives, such also is the relation of truth,\"}",
-   "at": "2026-10-05T22:36:15.453Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n430#50366-50369": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 430,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "",
-    "50367": "",
-    "50368": "",
-    "50369": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:36:32.916Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n432#50366-50369": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 432,
-   "lines": [
-    50366,
-    50367,
-    50368,
-    50369
-   ],
-   "reading": {
-    "50366": "",
-    "50367": "",
-    "50368": "",
-    "50369": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\"}",
-   "at": "2026-10-05T22:36:59.446Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n272#29992-29996": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 272,
-   "lines": [
-    29992,
-    29993,
-    29994,
-    29995,
-    29996
-   ],
-   "reading": {
-    "29992": "",
-    "29993": "",
-    "29994": "",
-    "29995": "",
-    "29996": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:37:09.985Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n453#53191-53191": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 453,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": "376 ON THE THEOLOGY BOOK V."
-   },
-   "raw": "{\"1\":\"376 ON THE THEOLOGY BOOK V.\"}",
-   "at": "2026-10-05T22:37:10.758Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n159#17055-17055": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 159,
-   "lines": [
-    17055
-   ],
-   "reading": {
-    "17055": "* For γεγραμμένης it is requisite to read γεγραμμένοις."
-   },
-   "raw": "{\"1\": \"* For γεγραμμένης it is requisite to read γεγραμμένοις.\"}",
-   "at": "2026-10-05T22:37:25.853Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n460#54236-54240": {
-   "item": "thomastaylor",
-   "leaf": 460,
-   "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
-   ],
-   "reading": {
-    "54236": "",
-    "54237": "",
-    "54238": "",
-    "54239": "",
-    "54240": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:37:34.880Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n161#17055-17055": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 161,
-   "lines": [
-    17055
-   ],
-   "reading": {
-    "17055": "CHAP. XXIV. OF PLATO. 77"
-   },
-   "raw": "{\"1\": \"CHAP. XXIV. OF PLATO. 77\"}",
-   "at": "2026-10-05T22:37:57.482Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n151#17088-17090": {
-   "item": "thomastaylor",
-   "leaf": 151,
-   "lines": [
-    17088,
-    17089,
-    17090
-   ],
-   "reading": {
-    "17088": "76 ON THE THEOLOGY BOOK I.",
-    "17089": "CHAPTER XXIV.",
-    "17090": "————"
-   },
-   "raw": "{\"1\":\"76 ON THE THEOLOGY BOOK I.\",\"2\":\"CHAPTER XXIV.\",\"3\":\"————\"}",
-   "at": "2026-10-05T22:38:22.675Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n459#54236-54240": {
-   "item": "thomastaylor",
-   "leaf": 459,
-   "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
-   ],
-   "reading": {
-    "54236": "",
-    "54237": "",
-    "54238": "",
-    "54239": "",
-    "54240": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:38:27.285Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n455#53191-53191": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 455,
-   "lines": [
-    53191
-   ],
-   "reading": {
-    "53191": "Is it not therefore superfluous to endeavour to prove that he who possesses"
-   },
-   "raw": "{\"1\":\"Is it not therefore superfluous to endeavour to prove that he who possesses\"}",
-   "at": "2026-10-05T22:39:09.995Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n483#57086-57086": {
-   "item": "thomastaylor",
-   "leaf": 483,
-   "lines": [
-    57086
-   ],
-   "reading": {
-    "57086": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:39:15.019Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n461#54236-54240": {
-   "item": "thomastaylor",
-   "leaf": 461,
-   "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
-   ],
-   "reading": {
-    "54236": "",
-    "54237": "",
-    "54238": "",
-    "54239": "",
-    "54240": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:39:19.056Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n482#57086-57086": {
-   "item": "thomastaylor",
-   "leaf": 482,
-   "lines": [
-    57086
-   ],
-   "reading": {
-    "57086": "the paternal order, and is after the same manner with it triadically"
-   },
-   "raw": "{\"1\":\"the paternal order, and is after the same manner with it triadically\"}",
-   "at": "2026-10-05T22:39:22.545Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n484#57086-57086": {
-   "item": "thomastaylor",
-   "leaf": 484,
-   "lines": [
-    57086
-   ],
-   "reading": {
-    "57086": ""
-   },
-   "raw": "{\"1\":\"\"}",
-   "at": "2026-10-05T22:39:29.492Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n150#17088-17090": {
-   "item": "thomastaylor",
-   "leaf": 150,
-   "lines": [
-    17088,
-    17089,
-    17090
-   ],
-   "reading": {
-    "17088": "",
-    "17089": "",
-    "17090": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:39:39.895Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n302#33494-33495": {
-   "item": "thomastaylor",
-   "leaf": 302,
-   "lines": [
-    33494,
-    33495
-   ],
-   "reading": {
-    "33494": "",
-    "33495": ""
-   },
-   "raw": "{\"1\": \"\", \"2\": \"\"}",
-   "at": "2026-10-05T22:40:00.510Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n153#17055-17055": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 153,
-   "lines": [
-    17055
-   ],
-   "reading": {
-    "17055": "all the genera of the Gods, and illuminates their superessential unities,"
-   },
-   "raw": "{\"1\": \"all the genera of the Gods, and illuminates their superessential unities,\"}",
-   "at": "2026-10-05T22:40:05.347Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n469#54236-54240": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 469,
-   "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
-   ],
-   "reading": {
-    "54236": "",
-    "54237": "",
-    "54238": "",
-    "54239": "",
-    "54240": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:40:07.605Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n301#33494-33495": {
-   "item": "thomastaylor",
-   "leaf": 301,
-   "lines": [
-    33494,
-    33495
-   ],
-   "reading": {
-    "33494": "Hence also Timæus establishes all-perfect animal to",
-    "33495": "be the most beautiful of intelligibles, because there are intelligibles pos-"
-   },
-   "raw": "{\"1\":\"Hence also Timæus establishes all-perfect animal to\",\"2\":\"be the most beautiful of intelligibles, because there are intelligibles pos-\"}",
-   "at": "2026-10-05T22:40:24.529Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n152#17088-17090": {
-   "item": "thomastaylor",
-   "leaf": 152,
-   "lines": [
-    17088,
-    17089,
-    17090
-   ],
-   "reading": {
-    "17088": "Digitized by",
-    "17089": "Google",
-    "17090": ""
-   },
-   "raw": "{\"1\": \"Digitized by\", \"2\": \"Google\", \"3\": \"\"}",
-   "at": "2026-10-05T22:40:41.976Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n303#33494-33495": {
-   "item": "thomastaylor",
-   "leaf": 303,
-   "lines": [
-    33494,
-    33495
-   ],
-   "reading": {
-    "33494": "",
-    "33495": ""
-   },
-   "raw": "{\"1\":\"\",\"2\":\"\"}",
-   "at": "2026-10-05T22:40:58.985Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n597#71710-71710": {
-   "item": "thomastaylor",
-   "leaf": 597,
-   "lines": [
-    71710
-   ],
-   "reading": {
-    "71710": ""
-   },
-   "raw": "{\"1\": \"\"}",
-   "at": "2026-10-05T22:41:06.475Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n596#71710-71710": {
-   "item": "thomastaylor",
-   "leaf": 596,
-   "lines": [
-    71710
-   ],
-   "reading": {
-    "71710": "rivers and illuminations of the intelligible Gods. These progressions also"
-   },
-   "raw": "{\"1\":\"rivers and illuminations of the intelligible Gods. These progressions also\"}",
-   "at": "2026-10-05T22:41:20.534Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "thomastaylor#n598#71710-71710": {
-   "item": "thomastaylor",
-   "leaf": 598,
-   "lines": [
-    71710
-   ],
-   "reading": {
-    "71710": ""
-   },
-   "raw": "{\"1\":\"\"}",
-   "at": "2026-10-05T22:41:25.544Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n152#17055-17055": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 152,
-   "lines": [
-    17055
-   ],
-   "reading": {
-    "17055": "1 For γονιμωτα, it is requisite to read γονιμως."
-   },
-   "raw": "{\"1\":\"1 For γονιμωτα, it is requisite to read γονιμως.\"}",
-   "at": "2026-10-05T22:41:53.855Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "sixbooksproclus00unkngoog#n468#54236-54240": {
-   "item": "sixbooksproclus00unkngoog",
    "leaf": 468,
    "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
+    23344
    ],
    "reading": {
-    "54236": "IT will remain, therefore, that we should make mention of what is",
-    "54237": "written in the Laws concerning Jupiter. For perhaps in them also it",
-    "54238": "will appear that Plato assigns the same order to the demiurgus and to",
-    "54239": "Jupiter. As the equalities, therefore, according to which polities are",
-    "54240": "adorned, are twofold, and the one polity indeed proposes the equal"
+    "23344": "animal. For the best indeed, remarkably participates of the good, but"
    },
-   "raw": "{\n  \"1\": \"IT will remain, therefore, that we should make mention of what is\",\n  \"2\": \"written in the Laws concerning Jupiter. For perhaps in them also it\",\n  \"3\": \"will appear that Plato assigns the same order to the demiurgus and to\",\n  \"4\": \"Jupiter. As the equalities, therefore, according to which polities are\",\n  \"5\": \"adorned, are twofold, and the one polity indeed proposes the equal\"\n}",
-   "at": "2026-10-05T22:42:12.639Z",
+   "raw": "{\"1\": \"animal. For the best indeed, remarkably participates of the good, but\"}",
+   "at": "2026-10-06T11:35:59.370Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "sixbooksproclus00unkngoog#n160#17088-17090": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 160,
-   "lines": [
-    17088,
-    17089,
-    17090
-   ],
-   "reading": {
-    "17088": "76          ON THE THEOLOGY          BOOK I.",
-    "17089": "CHAPTER XXIV.",
-    "17090": "—"
-   },
-   "raw": "{\"1\":\"76          ON THE THEOLOGY          BOOK I.\",\"2\":\"CHAPTER XXIV.\",\"3\":\"—\"}",
-   "at": "2026-10-05T22:42:26.151Z",
-   "model": "deepseek-v4-flash-vision-exp"
-  },
-  "bub_gb_svwwAQAAMAAJ#n154#17055-17055": {
+  "bub_gb_svwwAQAAMAAJ#n342#17227-17227": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 154,
+   "leaf": 342,
    "lines": [
-    17055
+    17227
    ],
    "reading": {
-    "17055": "CHAP. XXIV. OF PLATO. 77"
+    "17227": "VOL. I."
    },
-   "raw": "{\"1\": \"CHAP. XXIV. OF PLATO. 77\"}",
-   "at": "2026-10-05T22:42:41.807Z",
+   "raw": "{\"1\": \"VOL. I.\"}",
+   "at": "2026-10-06T11:36:13.047Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "sixbooksproclus00unkngoog#n159#17088-17090": {
-   "item": "sixbooksproclus00unkngoog",
-   "leaf": 159,
+  "bub_gb_svwwAQAAMAAJ#n416#20754-20754": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 416,
    "lines": [
-    17088,
-    17089,
-    17090
+    20754
    ],
    "reading": {
-    "17088": "",
-    "17089": "",
-    "17090": ""
+    "20754": "CHAP. XII. OF PLATO. 339"
+   },
+   "raw": "{\"1\":\"CHAP. XII. OF PLATO. 339\"}",
+   "at": "2026-10-06T11:36:22.371Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n124#6469-6469": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 124,
+   "lines": [
+    6469
+   ],
+   "reading": {
+    "6469": "2 It seems requisite to supply here the word ὑπεξοφλημένα as in the translation."
+   },
+   "raw": "{\"1\":\"2 It seems requisite to supply here the word ὑπεξοφλημένα as in the translation.\"}",
+   "at": "2026-10-06T11:36:25.755Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#13290-14511": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    13290,
+    13447,
+    14511
+   ],
+   "reading": {
+    "13290": "CHAP. XII. OF PLATO. 145",
+    "13447": "",
+    "14511": ""
+   },
+   "raw": "{\n  \"1\": \"CHAP. XII. OF PLATO. 145\",\n  \"2\": \"\",\n  \"3\": \"\"\n}",
+   "at": "2026-10-06T11:36:28.793Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n450#22444-22444": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 450,
+   "lines": [
+    22444
+   ],
+   "reading": {
+    "22444": "one,' bound, and intelligible. But he obtains the other name from the"
+   },
+   "raw": "{\"1\":\"one,' bound, and intelligible. But he obtains the other name from the\"}",
+   "at": "2026-10-06T11:36:33.264Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n127#6591-6591": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 127,
+   "lines": [
+    6591
+   ],
+   "reading": {
+    "6591": "BOOK I."
+   },
+   "raw": "{\"1\":\"BOOK I.\"}",
+   "at": "2026-10-06T11:36:33.361Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n426#21284-21284": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 426,
+   "lines": [
+    21284
+   ],
+   "reading": {
+    "21284": "with Plato to introduce names to the ineffable from secondary causes,"
+   },
+   "raw": "{\"1\":\"with Plato to introduce names to the ineffable from secondary causes,\"}",
+   "at": "2026-10-06T11:36:40.134Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n193#9565-9565": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 193,
+   "lines": [
+    9565
+   ],
+   "reading": {
+    "9565": "• For av it is necessary to read w."
+   },
+   "raw": "{\"1\":\"• For av it is necessary to read w.\"}",
+   "at": "2026-10-06T11:37:01.092Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n482#24039-24039": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 482,
+   "lines": [
+    24039
+   ],
+   "reading": {
+    "24039": "to the partible genera of Gods, refers the cause of this to his* immutable"
+   },
+   "raw": "{\"1\":\"to the partible genera of Gods, refers the cause of this to his* immutable\"}",
+   "at": "2026-10-06T11:37:10.370Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n176#9061-9061": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 176,
+   "lines": [
+    9061
+   ],
+   "reading": {
+    "9061": "2 Instead of τὸ ὂν it is necessary to read τὸ ἓν."
+   },
+   "raw": "{\"1\":\"2 Instead of τὸ ὂν it is necessary to read τὸ ἓν.\"}",
+   "at": "2026-10-06T11:37:13.479Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n506#24887-24887": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 506,
+   "lines": [
+    24887
+   ],
+   "reading": {
+    "24887": "1 After ἀλλ' in the original it is necessary to supply the words καὶ ταὐτὸν ἑαυτῷ, καὶ ἕτερον ἑαυτοῦ."
+   },
+   "raw": "{\"1\":\"1 After ἀλλ' in the original it is necessary to supply the words καὶ ταὐτὸν ἑαυτῷ, καὶ ἕτερον ἑαυτοῦ.\"}",
+   "at": "2026-10-06T11:37:18.708Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n218#10800-10800": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 218,
+   "lines": [
+    10800
+   ],
+   "reading": {
+    "10800": "1 For πρᾶξιν, it is neceſſary to read τάξιν."
+   },
+   "raw": "{\"1\":\"1 For πρᾶξιν, it is neceſſary to read τάξιν.\"}",
+   "at": "2026-10-06T11:37:33.804Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13186-13186": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13186
+   ],
+   "reading": {
+    "13186": "1 For τῷ εἶναι it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\":\"1 For τῷ εἶναι it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:38:00.119Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#15196-15197": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    15196,
+    15197
+   ],
+   "reading": {
+    "15196": "",
+    "15197": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:38:05.185Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#11881-11881": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    11881
+   ],
+   "reading": {
+    "11881": "1 For οὐρανὸς is omitted in the original."
+   },
+   "raw": "{\"1\":\"1 For οὐρανὸς is omitted in the original.\"}",
+   "at": "2026-10-06T11:38:05.596Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#11881-11881": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    11881
+   ],
+   "reading": {
+    "11881": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:38:12.752Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#11928-11930": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    11928,
+    11929,
+    11930
+   ],
+   "reading": {
+    "11928": "",
+    "11929": "1 For τῶν εἰδῶν it is necessary to read τοῖς θεοῖς.",
+    "11930": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"1 For τῶν εἰδῶν it is necessary to read τοῖς θεοῖς.\",\"3\":\"\"}",
+   "at": "2026-10-06T11:38:13.353Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13186-13186": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13186
+   ],
+   "reading": {
+    "13186": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:38:15.744Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#11928-11930": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    11928,
+    11929,
+    11930
+   ],
+   "reading": {
+    "11928": "",
+    "11929": "",
+    "11930": ""
    },
    "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:43:16.505Z",
+   "at": "2026-10-06T11:38:16.263Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "sixbooksproclus00unkngoog#n470#54236-54240": {
+  "sixbooksproclus00unkngoog#n230#11928-11930": {
    "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    11928,
+    11929,
+    11930
+   ],
+   "reading": {
+    "11928": "",
+    "11929": "",
+    "11930": ""
+   },
+   "raw": "{\"1\": \"\", \"2\": \"\", \"3\": \"\"}",
+   "at": "2026-10-06T11:38:18.402Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13186-13186": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13186
+   ],
+   "reading": {
+    "13186": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:38:24.512Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#15196-15197": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    15196,
+    15197
+   ],
+   "reading": {
+    "15196": "",
+    "15197": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:38:24.735Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#11881-11881": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    11881
+   ],
+   "reading": {
+    "11881": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:38:29.294Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#15196-15197": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    15196,
+    15197
+   ],
+   "reading": {
+    "15196": "",
+    "15197": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:38:32.216Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13309-13310": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13309,
+    13310
+   ],
+   "reading": {
+    "13309": "",
+    "13310": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:38:47.151Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#12194-12194": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    12194
+   ],
+   "reading": {
+    "12194": "1 For τοῦ θείου it is necessary to read τοὺς θείους."
+   },
+   "raw": "{\"1\":\"1 For τοῦ θείου it is necessary to read τοὺς θείους.\"}",
+   "at": "2026-10-06T11:38:56.377Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#12194-12194": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    12194
+   ],
+   "reading": {
+    "12194": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:39:01.429Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#13186-13186": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    13186
+   ],
+   "reading": {
+    "13186": "1 For ταὐτὸν it is necessary to read τὸ ἕν."
+   },
+   "raw": "{\"1\":\"1 For ταὐτὸν it is necessary to read τὸ ἕν.\"}",
+   "at": "2026-10-06T11:39:03.919Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#12194-12194": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    12194
+   ],
+   "reading": {
+    "12194": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:39:06.068Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#13186-13186": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    13186
+   ],
+   "reading": {
+    "13186": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:39:14.629Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13309-13310": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13309,
+    13310
+   ],
+   "reading": {
+    "13309": "",
+    "13310": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:39:21.728Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#13186-13186": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    13186
+   ],
+   "reading": {
+    "13186": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:39:21.809Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13309-13310": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13309,
+    13310
+   ],
+   "reading": {
+    "13309": "",
+    "13310": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:39:46.255Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#12194-12194": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    12194
+   ],
+   "reading": {
+    "12194": "1 For τοῦ θεοῦ it is necessary to read τοὺς θεούς."
+   },
+   "raw": "{\"1\":\"1 For τοῦ θεοῦ it is necessary to read τοὺς θεούς.\"}",
+   "at": "2026-10-06T11:39:31.308Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#12194-12194": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    12194
+   ],
+   "reading": {
+    "12194": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:39:34.302Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#13309-13310": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    13309,
+    13310
+   ],
+   "reading": {
+    "13309": "",
+    "13310": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:39:34.308Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#13309-13310": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    13309,
+    13310
+   ],
+   "reading": {
+    "13309": "",
+    "13310": ""
+   },
+   "raw": "{\"1\": \"\", \"2\": \"\"}",
+   "at": "2026-10-06T11:39:37.545Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#13309-13310": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    13309,
+    13310
+   ],
+   "reading": {
+    "13309": "",
+    "13310": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:39:42.410Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#15196-15197": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    15196,
+    15197
+   ],
+   "reading": {
+    "15196": "",
+    "15197": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:39:46.164Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#12194-12194": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    12194
+   ],
+   "reading": {
+    "12194": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:39:47.485Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#15577-15577": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    15577
+   ],
+   "reading": {
+    "15577": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:39:50.524Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#15577-15577": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    15577
+   ],
+   "reading": {
+    "15577": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:39:53.617Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#15434-15435": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    15434,
+    15435
+   ],
+   "reading": {
+    "15434": "",
+    "15435": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:39:54.341Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#15577-15577": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    15577
+   ],
+   "reading": {
+    "15577": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:39:57.942Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#12446-12446": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    12446
+   ],
+   "reading": {
+    "12446": "* For παρ' ὅτου it is necessary to read παρ' ὅλως."
+   },
+   "raw": "{\"1\":\"* For παρ' ὅτου it is necessary to read παρ' ὅλως.\"}",
+   "at": "2026-10-06T11:40:00.943Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#15434-15435": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    15434,
+    15435
+   ],
+   "reading": {
+    "15434": "",
+    "15435": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:40:02.338Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#15577-15577": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    15577
+   ],
+   "reading": {
+    "15577": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:40:03.851Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#12446-12446": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    12446
+   ],
+   "reading": {
+    "12446": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:06.429Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#15577-15577": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    15577
+   ],
+   "reading": {
+    "15577": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:09.553Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#15196-15197": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    15196,
+    15197
+   ],
+   "reading": {
+    "15196": "",
+    "15197": ""
+   },
+   "raw": "{\"1\": \"\", \"2\": \"\"}",
+   "at": "2026-10-06T11:40:10.292Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#12446-12446": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    12446
+   ],
+   "reading": {
+    "12446": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:10.505Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#15577-15577": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    15577
+   ],
+   "reading": {
+    "15577": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:40:11.916Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#15434-15435": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    15434,
+    15435
+   ],
+   "reading": {
+    "15434": "",
+    "15435": ""
+   },
+   "raw": "{\"1\": \"\", \"2\": \"\"}",
+   "at": "2026-10-06T11:40:12.464Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13411-13412": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13411,
+    13412
+   ],
+   "reading": {
+    "13411": "",
+    "13412": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:40:21.951Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#15434-15435": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    15434,
+    15435
+   ],
+   "reading": {
+    "15434": "",
+    "15435": ""
+   },
+   "raw": "{\"1\": \"\", \"2\": \"\"}",
+   "at": "2026-10-06T11:40:22.461Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#15434-15435": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    15434,
+    15435
+   ],
+   "reading": {
+    "15434": "",
+    "15435": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:40:25.326Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#15434-15435": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    15434,
+    15435
+   ],
+   "reading": {
+    "15434": "",
+    "15435": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:40:28.761Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#15196-15197": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    15196,
+    15197
+   ],
+   "reading": {
+    "15196": "",
+    "15197": ""
+   },
+   "raw": "{\"1\": \"\", \"2\": \"\"}",
+   "at": "2026-10-06T11:40:34.863Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#12446-12446": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    12446
+   ],
+   "reading": {
+    "12446": "1 For τῶν δ' ἐν it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\":\"1 For τῶν δ' ἐν it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:40:39.351Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13411-13412": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13411,
+    13412
+   ],
+   "reading": {
+    "13411": "",
+    "13412": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:40:40.685Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#12446-12446": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    12446
+   ],
+   "reading": {
+    "12446": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:42.272Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n429#21092-21092": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 429,
+   "lines": [
+    21092
+   ],
+   "reading": {
+    "21092": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:42.612Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#12446-12446": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    12446
+   ],
+   "reading": {
+    "12446": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:44.762Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13415-13415": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13415
+   ],
+   "reading": {
+    "13415": "For τοῦ θείου it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\":\"For τοῦ θείου it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:40:48.957Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13415-13415": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13415
+   ],
+   "reading": {
+    "13415": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:40:51.496Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13411-13412": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13411,
+    13412
+   ],
+   "reading": {
+    "13411": "",
+    "13412": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:40:51.667Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n478#23520-23520": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 478,
+   "lines": [
+    23520
+   ],
+   "reading": {
+    "23520": "Google"
+   },
+   "raw": "{\"1\":\"Google\"}",
+   "at": "2026-10-06T11:40:52.400Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n428#21092-21092": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 428,
+   "lines": [
+    21092
+   ],
+   "reading": {
+    "21092": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:53.041Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13415-13415": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13415
+   ],
+   "reading": {
+    "13415": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:54.241Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n430#21092-21092": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 430,
+   "lines": [
+    21092
+   ],
+   "reading": {
+    "21092": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:40:57.307Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n509#25120-25120": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 509,
+   "lines": [
+    25120
+   ],
+   "reading": {
+    "25120": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:40:58.251Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n422#21092-21092": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 422,
+   "lines": [
+    21092
+   ],
+   "reading": {
+    "21092": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:41:01.647Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n421#21092-21092": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 421,
+   "lines": [
+    21092
+   ],
+   "reading": {
+    "21092": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:41:09.789Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n423#21092-21092": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 423,
+   "lines": [
+    21092
+   ],
+   "reading": {
+    "21092": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:41:16.605Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#13411-13412": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    13411,
+    13412
+   ],
+   "reading": {
+    "13411": "",
+    "13412": ""
+   },
+   "raw": "{\"1\": \"\", \"2\": \"\"}",
+   "at": "2026-10-06T11:41:18.963Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#13411-13412": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    13411,
+    13412
+   ],
+   "reading": {
+    "13411": "",
+    "13412": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:41:28.103Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#13411-13412": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    13411,
+    13412
+   ],
+   "reading": {
+    "13411": "",
+    "13412": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:41:33.851Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n477#23520-23520": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 477,
+   "lines": [
+    23520
+   ],
+   "reading": {
+    "23520": "Digitized by Google"
+   },
+   "raw": "{\"1\":\"Digitized by Google\"}",
+   "at": "2026-10-06T11:41:34.858Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n508#25120-25120": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 508,
+   "lines": [
+    25120
+   ],
+   "reading": {
+    "25120": "424 ON THEOLOGY BOOK V."
+   },
+   "raw": "{\"1\": \"424 ON THEOLOGY BOOK V.\"}",
+   "at": "2026-10-06T11:41:48.827Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n479#23520-23520": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 479,
+   "lines": [
+    23520
+   ],
+   "reading": {
+    "23520": "Digitized by Google"
+   },
+   "raw": "{\"1\":\"Digitized by Google\"}",
+   "at": "2026-10-06T11:41:48.865Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n510#25120-25120": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 510,
+   "lines": [
+    25120
+   ],
+   "reading": {
+    "25120": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:41:53.508Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13620-13620": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13620
+   ],
+   "reading": {
+    "13620": "* For τῶν θεῶν it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\": \"* For τῶν θεῶν it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:41:53.872Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13620-13620": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13620
+   ],
+   "reading": {
+    "13620": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:41:57.059Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13620-13620": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13620
+   ],
+   "reading": {
+    "13620": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:42:00.658Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n471#23520-23520": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 471,
+   "lines": [
+    23520
+   ],
+   "reading": {
+    "23520": "Digitized by Google"
+   },
+   "raw": "{\"1\": \"Digitized by Google\"}",
+   "at": "2026-10-06T11:42:07.119Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n470#23520-23520": {
+   "item": "bub_gb_svwwAQAAMAAJ",
    "leaf": 470,
    "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
+    23520
    ],
    "reading": {
-    "54236": "is the demiurgus of the universe ; and we may collect into one, the",
-    "54237": "And animal itself, indeed, intelligibly comprehends in itself the whole",
-    "54238": "perfect animal prior to the demiurgus ; but others afford an hypostasis",
-    "54239": "also arranges and adorns this universe. For Jupiter binding to himself",
-    "54240": "For, as we have said, the intelligible hypostases being triple, and one"
+    "23520": ""
    },
-   "raw": "{\"1\":\"is the demiurgus of the universe ; and we may collect into one, the\",\"2\":\"And animal itself, indeed, intelligibly comprehends in itself the whole\",\"3\":\"perfect animal prior to the demiurgus ; but others afford an hypostasis\",\"4\":\"also arranges and adorns this universe. For Jupiter binding to himself\",\"5\":\"For, as we have said, the intelligible hypostases being triple, and one\"}",
-   "at": "2026-10-05T22:44:18.375Z",
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:42:13.950Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "sixbooksproclus00unkngoog#n161#17088-17090": {
+  "sixbooksproclus00unkngoog#n229#13622-13622": {
    "item": "sixbooksproclus00unkngoog",
-   "leaf": 161,
+   "leaf": 229,
    "lines": [
-    17088,
-    17089,
-    17090
+    13622
    ],
    "reading": {
-    "17088": "",
-    "17089": "",
-    "17090": ""
+    "13622": "7 For σὺν θεῷ it is necessary to read τοῖς θεοῖς."
    },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\"}",
-   "at": "2026-10-05T22:44:34.053Z",
+   "raw": "{\"1\":\"7 For σὺν θεῷ it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:42:21.236Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "bub_gb_svwwAQAAMAAJ#n462#54236-54240": {
+  "bub_gb_svwwAQAAMAAJ#n472#23520-23520": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 462,
+   "leaf": 472,
    "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
+    23520
    ],
    "reading": {
-    "54236": "",
-    "54237": "",
-    "54238": "",
-    "54239": "",
-    "54240": ""
+    "23520": "Digitized by Google"
    },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:44:42.744Z",
+   "raw": "{\"1\": \"Digitized by Google\"}",
+   "at": "2026-10-06T11:42:33.469Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "bub_gb_svwwAQAAMAAJ#n461#54236-54240": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 461,
+  "sixbooksproclus00unkngoog#n229#13672-13672": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
    "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
+    13672
    ],
    "reading": {
-    "54236": "",
-    "54237": "",
-    "54238": "",
-    "54239": "",
-    "54240": ""
+    "13672": ""
    },
-   "raw": "{\"1\":\"\",\"2\":\"\",\"3\":\"\",\"4\":\"\",\"5\":\"\"}",
-   "at": "2026-10-05T22:44:57.265Z",
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:42:41.275Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "bub_gb_svwwAQAAMAAJ#n153#17088-17090": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 153,
+  "sixbooksproclus00unkngoog#n228#13672-13672": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
    "lines": [
-    17088,
-    17089,
-    17090
+    13672
    ],
    "reading": {
-    "17088": "76 ON THE THEOLOGY BOOK I.",
-    "17089": "imperfect habit to the perfect ; but from a self-perfect hyparxis a power",
-    "17090": "prolific of inferior natures proceeds. But in the Theætetus he indicates"
+    "13672": ""
    },
-   "raw": "{\"1\": \"76 ON THE THEOLOGY BOOK I.\", \"2\": \"imperfect habit to the perfect ; but from a self-perfect hyparxis a power\", \"3\": \"prolific of inferior natures proceeds. But in the Theætetus he indicates\"}",
-   "at": "2026-10-05T22:47:33.637Z",
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:42:44.501Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "bub_gb_svwwAQAAMAAJ#n463#54236-54240": {
-   "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 463,
+  "sixbooksproclus00unkngoog#n230#13672-13672": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
    "lines": [
-    54236,
-    54237,
-    54238,
-    54239,
-    54240
+    13672
    ],
    "reading": {
-    "54236": "FROM these things, therefore, and from all that has been previously said,",
-    "54237": "we confidently assert, following Plato and paternal rumours, that Jupiter",
-    "54238": "is the demiurgus of the universe; and we may collect into one, the",
-    "54239": "scattered opinions of the ancients on this subject; of whom, some, indeed,",
-    "54240": "refer the paradigm of the world, and the demiurgic cause to the same"
+    "13672": ""
    },
-   "raw": "{\"1\":\"FROM these things, therefore, and from all that has been previously said,\",\"2\":\"we confidently assert, following Plato and paternal rumours, that Jupiter\",\"3\":\"is the demiurgus of the universe; and we may collect into one, the\",\"4\":\"scattered opinions of the ancients on this subject; of whom, some, indeed,\",\"5\":\"refer the paradigm of the world, and the demiurgic cause to the same\"}",
-   "at": "2026-10-05T22:47:58.472Z",
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:42:47.222Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "bub_gb_svwwAQAAMAAJ#n152#17088-17090": {
+  "bub_gb_svwwAQAAMAAJ#n222#13620-13620": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 152,
+   "leaf": 222,
    "lines": [
-    17088,
-    17089,
-    17090
+    13620
    ],
    "reading": {
-    "17088": "and generations. And the perfect consummately leads progressions to",
-    "17089": "conversions and convolutions. But through these three causes, the good-",
-    "17090": "ness of the Gods fixing the unical power and authority of its proper hy-"
+    "13620": "¹ For τὸν θεὸν it is necessary to read τοῖς θεοῖς."
    },
-   "raw": "{\"1\":\"and generations. And the perfect consummately leads progressions to\",\"2\":\"conversions and convolutions. But through these three causes, the good-\",\"3\":\"ness of the Gods fixing the unical power and authority of its proper hy-\"}",
-   "at": "2026-10-05T22:49:16.093Z",
+   "raw": "{\"1\":\"¹ For τὸν θεὸν it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:42:48.160Z",
    "model": "deepseek-v4-flash-vision-exp"
   },
-  "bub_gb_svwwAQAAMAAJ#n154#17088-17090": {
+  "bub_gb_svwwAQAAMAAJ#n221#13620-13620": {
    "item": "bub_gb_svwwAQAAMAAJ",
-   "leaf": 154,
+   "leaf": 221,
    "lines": [
-    17088,
-    17089,
-    17090
+    13620
    ],
    "reading": {
-    "17088": "CHAP. XXIV. OF PLATO. 77",
-    "17089": "thence all the Gods derive beauty, and being filled with it, fill the",
-    "17090": "natures posterior to themselves, exciting all things, agitating them with"
+    "13620": ""
    },
-   "raw": "{\"1\": \"CHAP. XXIV. OF PLATO. 77\", \"2\": \"thence all the Gods derive beauty, and being filled with it, fill the\", \"3\": \"natures posterior to themselves, exciting all things, agitating them with\"}",
-   "at": "2026-10-05T22:50:49.060Z",
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:42:52.692Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#13620-13620": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    13620
+   ],
+   "reading": {
+    "13620": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:42:55.741Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#13672-13672": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    13672
+   ],
+   "reading": {
+    "13672": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:43:07.811Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n502#25120-25120": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 502,
+   "lines": [
+    25120
+   ],
+   "reading": {
+    "25120": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:43:07.900Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#13672-13672": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    13672
+   ],
+   "reading": {
+    "13672": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:43:10.657Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#13672-13672": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    13672
+   ],
+   "reading": {
+    "13672": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:43:16.674Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13688-13688": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13688
+   ],
+   "reading": {
+    "13688": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:43:23.346Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#14708-14708": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    14708
+   ],
+   "reading": {
+    "14708": "1 For τῶν θεῶν it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\":\"1 For τῶν θεῶν it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:43:24.111Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13622-13622": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13622
+   ],
+   "reading": {
+    "13622": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:43:24.288Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13688-13688": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13688
+   ],
+   "reading": {
+    "13688": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:43:27.664Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13688-13688": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13688
+   ],
+   "reading": {
+    "13688": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:43:32.642Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#14708-14708": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    14708
+   ],
+   "reading": {
+    "14708": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:43:33.954Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#14708-14708": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    14708
+   ],
+   "reading": {
+    "14708": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:43:37.004Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#13688-13688": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    13688
+   ],
+   "reading": {
+    "13688": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:44:04.242Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#14708-14708": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    14708
+   ],
+   "reading": {
+    "14708": "1 For τῶν δ' ἐν it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\":\"1 For τῶν δ' ἐν it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:44:04.414Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#14708-14708": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    14708
+   ],
+   "reading": {
+    "14708": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:44:06.772Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13622-13622": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13622
+   ],
+   "reading": {
+    "13622": "146 ON THE THEOLOGY BOOK II."
+   },
+   "raw": "{\"1\":\"146 ON THE THEOLOGY BOOK II.\"}",
+   "at": "2026-10-06T11:44:08.124Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#14708-14708": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    14708
+   ],
+   "reading": {
+    "14708": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:44:10.677Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13763-13763": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13763
+   ],
+   "reading": {
+    "13763": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:44:21.807Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#13688-13688": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    13688
+   ],
+   "reading": {
+    "13688": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:44:28.479Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13763-13763": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13763
+   ],
+   "reading": {
+    "13763": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:44:28.858Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#13688-13688": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    13688
+   ],
+   "reading": {
+    "13688": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:44:30.962Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n501#25120-25120": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 501,
+   "lines": [
+    25120
+   ],
+   "reading": {
+    "25120": "them, but particularly unfolds itself into light in the demiurgic order,"
+   },
+   "raw": "{\"1\":\"them, but particularly unfolds itself into light in the demiurgic order,\"}",
+   "at": "2026-10-06T11:44:34.772Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n503#25120-25120": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 503,
+   "lines": [
+    25120
+   ],
+   "reading": {
+    "25120": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:44:38.561Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13763-13763": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13763
+   ],
+   "reading": {
+    "13763": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:44:49.705Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#14959-14959": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    14959
+   ],
+   "reading": {
+    "14959": "* For τῶν θείων it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\":\"* For τῶν θείων it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:44:54.064Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#14959-14959": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    14959
+   ],
+   "reading": {
+    "14959": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:44:56.980Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#14959-14959": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    14959
+   ],
+   "reading": {
+    "14959": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:45:00.092Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#13622-13622": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    13622
+   ],
+   "reading": {
+    "13622": "' For τοῦ θείου it is necessary to read τοῖς θείοις,"
+   },
+   "raw": "{\"1\":\"' For τοῦ θείου it is necessary to read τοῖς θείοις,\"}",
+   "at": "2026-10-06T11:45:00.366Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#13763-13763": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    13763
+   ],
+   "reading": {
+    "13763": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:45:00.440Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#13763-13763": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    13763
+   ],
+   "reading": {
+    "13763": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:45:03.662Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#13763-13763": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    13763
+   ],
+   "reading": {
+    "13763": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:45:06.246Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#15010-15010": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    15010
+   ],
+   "reading": {
+    "15010": "* For τοῦ θεοῦ it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\":\"* For τοῦ θεοῦ it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:45:06.681Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#15010-15010": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    15010
+   ],
+   "reading": {
+    "15010": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:45:10.777Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#15010-15010": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    15010
+   ],
+   "reading": {
+    "15010": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:45:15.968Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#14959-14959": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    14959
+   ],
+   "reading": {
+    "14959": "For τῶν θεῶν it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\": \"For τῶν θεῶν it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:45:40.623Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13967-13967": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13967
+   ],
+   "reading": {
+    "13967": "1 For τῶν ἐστι it is necessary to read τοὺς θεούς."
+   },
+   "raw": "{\"1\":\"1 For τῶν ἐστι it is necessary to read τοὺς θεούς.\"}",
+   "at": "2026-10-06T11:45:41.084Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#14959-14959": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    14959
+   ],
+   "reading": {
+    "14959": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:45:44.799Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#14959-14959": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    14959
+   ],
+   "reading": {
+    "14959": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:45:47.464Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#15010-15010": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    15010
+   ],
+   "reading": {
+    "15010": "1 For τῶν θεῶν it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\": \"1 For τῶν θεῶν it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:45:48.592Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#15010-15010": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    15010
+   ],
+   "reading": {
+    "15010": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:45:53.005Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13967-13967": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13967
+   ],
+   "reading": {
+    "13967": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:45:55.801Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#15010-15010": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    15010
+   ],
+   "reading": {
+    "15010": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:45:55.953Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13967-13967": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13967
+   ],
+   "reading": {
+    "13967": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:46:10.907Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13290-13290": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13290
+   ],
+   "reading": {
+    "13290": "CHAP. XII. OF PLATO. 145"
+   },
+   "raw": "{\"1\":\"CHAP. XII. OF PLATO. 145\"}",
+   "at": "2026-10-06T11:46:17.733Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13290-13290": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13290
+   ],
+   "reading": {
+    "13290": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:46:20.573Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13290-13290": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13290
+   ],
+   "reading": {
+    "13290": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:46:24.013Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#16030-16031": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    16030,
+    16031
+   ],
+   "reading": {
+    "16030": "",
+    "16031": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:46:33.226Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#14511-14511": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    14511
+   ],
+   "reading": {
+    "14511": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:46:40.666Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#13622-13622": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    13622
+   ],
+   "reading": {
+    "13622": "that the one transcends according to one simplicity such a peculiarity of"
+   },
+   "raw": "{\"1\": \"that the one transcends according to one simplicity such a peculiarity of\"}",
+   "at": "2026-10-06T11:46:43.173Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#14511-14511": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    14511
+   ],
+   "reading": {
+    "14511": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:46:43.670Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#14017-14017": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    14017
+   ],
+   "reading": {
+    "14017": "* For μὲν θεὸν it is necessary to read τοῖς θεοῖς."
+   },
+   "raw": "{\"1\":\"* For μὲν θεὸν it is necessary to read τοῖς θεοῖς.\"}",
+   "at": "2026-10-06T11:46:46.070Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#14511-14511": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    14511
+   ],
+   "reading": {
+    "14511": ""
+   },
+   "raw": "{\"1\":\"\"}",
+   "at": "2026-10-06T11:46:47.045Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#14017-14017": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    14017
+   ],
+   "reading": {
+    "14017": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:46:49.624Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#14017-14017": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    14017
+   ],
+   "reading": {
+    "14017": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:46:52.049Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#16030-16031": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    16030,
+    16031
+   ],
+   "reading": {
+    "16030": "",
+    "16031": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:46:58.570Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#16030-16031": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    16030,
+    16031
+   ],
+   "reading": {
+    "16030": "",
+    "16031": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:47:04.651Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#14511-14511": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    14511
+   ],
+   "reading": {
+    "14511": "1 For ταῦ δ' ἐν it is necessary to read τοῖς θεοῖς,"
+   },
+   "raw": "{\"1\":\"1 For ταῦ δ' ἐν it is necessary to read τοῖς θεοῖς,\"}",
+   "at": "2026-10-06T11:47:25.342Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#14017-14017": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    14017
+   ],
+   "reading": {
+    "14017": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:47:31.557Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#13622-13622": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    13622
+   ],
+   "reading": {
+    "13622": "146 ON THE THEOLOGY BOOK II."
+   },
+   "raw": "{\"1\":\"146 ON THE THEOLOGY BOOK II.\"}",
+   "at": "2026-10-06T11:47:32.763Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#14017-14017": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    14017
+   ],
+   "reading": {
+    "14017": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:47:36.556Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#14017-14017": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    14017
+   ],
+   "reading": {
+    "14017": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:47:40.608Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#14511-14511": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    14511
+   ],
+   "reading": {
+    "14511": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:47:42.597Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n222#16030-16031": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 222,
+   "lines": [
+    16030,
+    16031
+   ],
+   "reading": {
+    "16030": "",
+    "16031": ""
+   },
+   "raw": "{\"1\": \"\", \"2\": \"\"}",
+   "at": "2026-10-06T11:47:44.904Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#14511-14511": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    14511
+   ],
+   "reading": {
+    "14511": ""
+   },
+   "raw": "{\"1\": \"\"}",
+   "at": "2026-10-06T11:47:45.608Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n229#13447-13448": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 229,
+   "lines": [
+    13447,
+    13448
+   ],
+   "reading": {
+    "13447": "",
+    "13448": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:48:12.240Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n221#16030-16031": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 221,
+   "lines": [
+    16030,
+    16031
+   ],
+   "reading": {
+    "16030": "",
+    "16031": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:48:12.925Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "bub_gb_svwwAQAAMAAJ#n223#16030-16031": {
+   "item": "bub_gb_svwwAQAAMAAJ",
+   "leaf": 223,
+   "lines": [
+    16030,
+    16031
+   ],
+   "reading": {
+    "16030": "",
+    "16031": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:48:26.925Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n228#13447-13448": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 228,
+   "lines": [
+    13447,
+    13448
+   ],
+   "reading": {
+    "13447": "",
+    "13448": ""
+   },
+   "raw": "{\"1\":\"\",\"2\":\"\"}",
+   "at": "2026-10-06T11:48:49.759Z",
+   "model": "deepseek-v4-flash-vision-exp"
+  },
+  "sixbooksproclus00unkngoog#n230#13447-13448": {
+   "item": "sixbooksproclus00unkngoog",
+   "leaf": 230,
+   "lines": [
+    13447,
+    13448
+   ],
+   "reading": {
+    "13447": "participation of intelligibles and sensibles, and in an ineffable manner",
+    "13448": "that the one is unically exempt from all things, subsisting without the"
+   },
+   "raw": "{\"1\":\"participation of intelligibles and sensibles, and in an ineffable manner\",\"2\":\"that the one is unically exempt from all things, subsisting without the\"}",
+   "at": "2026-10-06T11:50:41.678Z",
    "model": "deepseek-v4-flash-vision-exp"
   }
  }
