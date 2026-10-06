@@ -904,9 +904,39 @@ for (const r of selected) {
  * read by Qwen ALONE — one instrument repeated, never two. The count is reported per model
  * (and per model in the artifact) because "two models were configured" is NOT
  * the same claim as "two models read it", and the difference is invisible in the
- * findings alone. */
+ * findings alone.
+ *
+ * AND THE TOTAL IS AN UPPER BOUND, because the target set is not all garble: it
+ * is every run the vocab instrument does not know, and some of those runs are
+ * English or the print's Latin, where returning the transcription verbatim IS the
+ * correct reading. MEASURED on this item, the share restricted to the lines where
+ * some model read something OTHER than the transcription — the lines where the
+ * page demonstrably differs from the OCR, `differing` below — is the honest
+ * anti-confound figure, and it is reported beside the total. This is also why a
+ * model above the echo line must be dropped from MODELS rather than merely
+ * flagged: a verbatim draw agrees with the transcription, so on the tool's own
+ * two-draw-agreement rule it VOTES for the transcription and can outvote a
+ * reader. MEASURED on the 2-model pass (gemma + Qwen), on 290 of the 292 lines
+ * the consensus called "the page reads as the transcription has it", EVERY
+ * agreeing draw was one that had returned the transcription verbatim — the echo
+ * instrument decided those lines. (The tool's `stats.same` counts RUNS — 453 of
+ * them — which are 292 distinct source LINES; the count above is over the lines.) */
+const isVerbatim = (l, text) => stripMarker(collapse(text)) === stripMarker(servedLine(l)) || collapse(text) === collapse(rawLines[l - 1]);
 const echo = new Map();
-for (const model of MODELS) echo.set(model, { draws: 0, verbatim: 0, firsthand: 0 });
+for (const model of MODELS) echo.set(model, { draws: 0, verbatim: 0, firsthand: 0, differing: { draws: 0, verbatim: 0 } });
+/* THE LINES THE PAGE DEMONSTRABLY DIFFERS ON: some configured model's draw
+ * returned a reading that is not the transcription. */
+const differing = new Set();
+for (const rec of Object.values(cache.leaves)) {
+  if (!MODELS.includes(rec.model)) continue;
+  for (const [line, text] of Object.entries(rec.reading || {})) {
+    const l = Number(line);
+    if (!(l >= 1 && l <= rawLines.length)) continue;
+    const t = collapse(text);
+    if (!t || t === '?') continue;
+    if (!isVerbatim(l, t)) differing.add(l);
+  }
+}
 for (const rec of Object.values(cache.leaves)) {
   if (!MODELS.includes(rec.model)) continue;
   for (const [line, text] of Object.entries(rec.reading || {})) {
@@ -914,8 +944,9 @@ for (const rec of Object.values(cache.leaves)) {
     if (!(l >= 1 && l <= rawLines.length)) continue;
     const e = echo.get(rec.model);
     e.draws++;
-    if (stripMarker(collapse(text)) === stripMarker(servedLine(l)) || collapse(text) === collapse(rawLines[l - 1])) e.verbatim++;
+    if (isVerbatim(l, text)) e.verbatim++;
     else e.firsthand++;
+    if (differing.has(l)) { e.differing.draws++; if (isVerbatim(l, text)) e.differing.verbatim++; }
   }
 }
 const artifact = {
@@ -947,7 +978,11 @@ console.log(`  STILL OPEN: ${open.length} (no two draws agreed: ${stats.noAgree}
 console.log(`  a find that is not in the served transcription: ${stats.notInServed}`);
 console.log(`  runs on leaves this edition does NOT hold (reported, not read): ${unplaced.length}`);
 console.log('--- what each model actually did ---');
-for (const [m, e] of echo) console.log(`  ${m}: ${e.draws} draw(s), ${e.verbatim} returned the transcription's own line verbatim (${(100 * e.verbatim / Math.max(1, e.draws)).toFixed(1)}%), ${e.firsthand} read something else`);
+for (const [m, e] of echo) {
+  const d = e.differing;
+  console.log(`  ${m}: ${e.draws} draw(s), ${e.verbatim} returned the transcription's own line verbatim (${(100 * e.verbatim / Math.max(1, e.draws)).toFixed(1)}%), ${e.firsthand} read something else`);
+  console.log(`      on the ${differing.size} line(s) where some model read something OTHER than the transcription: ${d.draws} draw(s), ${d.verbatim} verbatim (${(100 * d.verbatim / Math.max(1, d.draws)).toFixed(1)}%)`);
+}
 console.log(`  findings read by ONE model twice: ${findings.filter((f) => (f.agreeModels || []).length === 1).length} of ${findings.length}; by two models: ${findings.filter((f) => (f.agreeModels || []).length > 1).length}`);
 if (argv.includes('--verbose')) console.log(findings.map((f) => `     ${JSON.stringify(f.find)} -> ${JSON.stringify(f.replace)}`).join('\n'));
 console.log(`  artifact: ${outFile}`);

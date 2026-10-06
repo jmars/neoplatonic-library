@@ -6,11 +6,19 @@
  * WHAT IT ASSERTS, per edition, over the CANONICAL record
  * (`data/editions/<slug>/versions/<semver>/repairs.json`) for EVERY version:
  *
- *  1. every id matches `<slug>:r<NNNN>` and the ids are SEQUENTIAL in rule order,
- *     with no gaps and no renumbering (model §4.2: ids are forever). The sequence
- *     runs from the file's own `id_floor` + 1 — `r0001…` for a first base, and
- *     `r8566…` where a re-sourced base retired the rules that had spent r0001–r8565
+ *  1. every id matches `<slug>:r<NNNN>` and the ids ASCEND in rule order — no
+ *     renumbering, no reuse (model §4.2: ids are forever). The sequence runs from
+ *     the file's own `id_floor` + 1 — `r0001…` for a first base, and `r8566…`
+ *     where a re-sourced base retired the rules that had spent r0001–r8565
  *     (MEASURED, this edition: the retired list ran to r8565);
+ *  1a. AND THE SEQUENCE HAS NO GAP, except the ids this repo RECORDS as
+ *     withdrawn. MEASURED 2026-10-06: five Greek readings of the Theology of Plato
+ *     were withdrawn after an echo check found that no second instrument that
+ *     does not echo the transcription agreed with them (2 instruments agreed on
+ *     the other readings and those stand), so r11680/r11681/r11683/r11684/r11686
+ *     are SPENT, not freed — ids are forever, so the gap is the record of the
+ *     withdrawal and is asserted to be exactly those five, nowhere else and never
+ *     more. Any other edition must still be gap-free;
  *  2. no id is reused ACROSS versions of the same edition (a new version appends;
  *     it never reuses or reorders old ids);
  *  3. `before` !== `after` for every rule that supplies a reading, and every
@@ -32,6 +40,15 @@ import { TEXTS, isPublished } from '../tools/shelf.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'site', 'dist');
 const TYPES = ['OCR', 'punctuation', 'transliteration', 'conjectural'];
+/* THE IDS THIS REPO HAS RECORDED AS WITHDRAWN — spent, never reused (model §4.2),
+ * so the gap in the sequence IS the record. Named here rather than derived so the
+ * gate states the withdrawal instead of accepting any gap:
+ * MEASURED 2026-10-06, the echo check (tools/echo-probe.mjs) found that no second
+ * vision instrument which does not return the transcription verbatim agreed with
+ * these five Greek readings; the other four the check examined stand. */
+const WITHDRAWN = new Map([
+  ['proclus-theology-of-plato-taylor-1816', [11680, 11681, 11683, 11684, 11686]],
+]);
 
 let failures = 0;
 const check = (cond, msg) => {
@@ -60,16 +77,25 @@ for (const t of served) {
 
     /* 1. the id grammar and the sequence, from the version's own floor. */
     const floor = Number(file.id_floor || 0) || 0;
-    const want = (i) => `${slug}:r${String(i + 1 + floor).padStart(4, '0')}`;
-    const badId = rules.filter((r, i) => r.id !== want(i));
+    const nums = rules.map((r) => Number((/:r(\d+)$/.exec(r.id) || [])[1]));
+    const grammar = rules.filter((r) => !/^[^:]+:r\d{4,}$/.test(r.id));
+    const ascending = nums.every((n, i) => Number.isInteger(n) && (i === 0 || n > nums[i - 1]));
     const badFloor =
       file.id_floor != null && (!Number.isInteger(file.id_floor) || file.id_floor < 0)
         ? ` (the file states id_floor ${JSON.stringify(file.id_floor)} — not a non-negative integer)`
         : '';
+    const gaps = [];
+    if (nums.length) {
+      const present = new Set(nums);
+      for (let n = floor + 1; n <= nums[nums.length - 1]; n++) if (!present.has(n)) gaps.push(n);
+    }
+    const expected = WITHDRAWN.get(slug) || [];
     check(
-      badId.length === 0 && !badFloor,
-      `v${v}: every id is ${slug}:rNNNN and the sequence runs ${want(0)}…${rules.length ? want(rules.length - 1) : '—'} in rule order${badFloor}` +
-        (badId.length ? ` — first divergence: ${rules.findIndex((r, i) => r.id !== want(i)) + 1} is ${badId[0].id}` : ''),
+      grammar.length === 0 && ascending && gaps.join(',') === expected.join(',') && !badFloor,
+      `v${v}: every id is ${slug}:rNNNN and they ASCEND in rule order, gap-free except the ${expected.length} id(s) this repo records as withdrawn` +
+        (expected.length ? ` (${expected.map((n) => `r${n}`).join(', ')})` : '') +
+        ` — first id ${rules.length ? rules[0].id : '—'}, last ${rules.length ? rules[rules.length - 1].id : '—'}, gaps [${gaps.join(', ')}]` +
+        (badFloor || (!ascending ? ' — the ids do not ascend' : '') || (grammar.length ? ` — bad id: ${grammar[0].id}` : '')),
     );
     check(
       new Set(rules.map((r) => r.id)).size === rules.length,
