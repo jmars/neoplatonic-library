@@ -49,8 +49,13 @@ import { extract, readEdition, sha256, tidyPunctuation } from './extract.mjs';
 import { TEXTS } from './shelf.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ENDPOINT = process.env.LIBRARY_WITNESS_URL || 'http://10.0.0.1:8321/v1/chat/completions';
-const MODEL = process.env.LIBRARY_WITNESS_MODEL || 'deepseek-v4-flash-vision-exp';
+/* THE PAGE-IMAGE ROUTE runs on the DeepInfra VL models (10.0.0.1:8322), the same
+ * instruments tools/greek-runs.mjs and tools/vision-unsure.mjs use: the DeepSeek
+ * vision model returns EMPTY on many of these leaves. The library's standing order
+ * still points its TEXT work at 10.0.0.1:8321; LIBRARY_WITNESS_URL returns this
+ * tool there. */
+const ENDPOINT = process.env.LIBRARY_WITNESS_URL || 'http://10.0.0.1:8322/v1/chat/completions';
+const MODEL = process.env.LIBRARY_WITNESS_MODEL || 'Qwen/Qwen3-VL-235B-A22B-Instruct';
 const REQUEST_TIMEOUT_MS = 300_000;
 /* MEASURED CAP, carried over from tools/vision-unsure.mjs: this model's reasoning
  * runs away nondeterministically and an answer that hits the cap comes back

@@ -1,8 +1,33 @@
 {
   "slug": "proclus-theology-of-plato-taylor-1816",
-  "note": "WHERE THIS EDITION'S PAGE IMAGES ARE: ONE archive item, TWO printed volumes of the work. Re-sourced 2026-10-05 onto the copy whose OCR this edition's transcription now IS. Taylor's 1816 edition divides the work over two volumes: vol. I carries it entire from its title page to Book V ch. XXXIX (printed pages 1-425, ending 'END OF VOL. I.'), and vol. II opens on the continuation of that chapter and carries Books VI-VII to the work's close (vol. II printed pages 1-299, CHAP. LI). Both volumes are bound in ONE scanned item, `thomastaylor`, so the leaves are that one item's own page numbers, taken over the two runs of pages the work occupies in it -- vol. I leaves n76-n500, vol. II leaves n506-n804 -- and each run carries its own measured offset. The leaf file names keep the VOLUME prefix (v1-n76.jpg, v2-n506.jpg) because a leaf's volume is part of what a citation of it names, and because the two runs, though they do not overlap here, are the two halves of one work whose pages restart at 1 in vol. II; the ITEM is the same for both, and that is what the entries below say. The item's next work, the Elements of Theology (its own edition in this library), begins at n805, and the treatises follow it; neither is part of this work.",
+  "note": "WHERE THIS EDITION'S PAGE IMAGES ARE: ONE archive item, TWO printed volumes of the work. Re-sourced 2026-10-05 onto the copy whose OCR this edition's transcription now IS. Taylor's 1816 edition divides the work over two volumes: vol. I carries it entire from its title page to Book V ch. XXXIX (printed pages 1-425, ending 'END OF VOL. I.'), and vol. II opens on the continuation of that chapter and carries Books VI-VII to the work's close (vol. II printed pages 1-299, CHAP. LI). Both volumes are bound in ONE scanned item, `thomastaylor`, so the leaves are that one item's own page numbers, taken over the two runs of pages the work occupies in it -- vol. I leaves n76-n500, vol. II leaves n506-n804 -- and each run carries its own measured offset. The leaf file names keep the VOLUME prefix (v1-n76.jpg, v2-n506.jpg) because a leaf's volume is part of what a citation of it names, and because the two runs, though they do not overlap here, are the two halves of one work whose pages restart at 1 in vol. II; the ITEM is the same for both, and that is what the entries below say. The item's next work, the Elements of Theology (its own edition in this library), begins at n805, and the treatises follow it; neither is part of this work. The FRONT MATTER of vol. I is part of the same scan and is recorded separately below (archive leaves n0-n75): it carries no printed page at all — its hand folios are ROMAN, and its own run is the title page, Taylor's Introduction and the explanatory glossary that ends it — so it gets its own entry with NO offset and no printed-page range, and the page model computes none for it.",
   "item": "thomastaylor",
   "items": [
+    {
+      "archive_id": "thomastaylor",
+      "volume": "The front matter",
+      "role": "the volume's preliminaries: the title page, Taylor's Introduction, and the explanatory glossary that closes it (archive leaves n0-n75)",
+      "prefix": "",
+      "url": "https://archive.org/download/thomastaylor/",
+      "whole_sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+      "whole_bytes": 2493500,
+      "leaves": [0, 75],
+      "pages": null,
+      "archiveOffset": null,
+      "why": "NO PRINTED PAGE, AND SO NO OFFSET — MEASURED. This run precedes vol. I's title page (leaf 76 is printed page 1), and the only page numbers its leaves carry are ROMAN: leaf 74's first line is 'Ixxix' and leaf 75's is 'Ixxx', the last two leaves of Taylor's glossary, so there is no arabic printed page to compute and none is stated. The run is recorded as LEAVES and the leaf files are stored without a volume prefix (n0.jpg..n75.jpg), because the number is the leaf's own in the item and these leaves belong to no numbered page run. WHY IT IS HELD AT ALL: the served transcription's lines 1-4075 are this front matter, and 339 of the Greek runs an emendation can cite stand on these leaves (tools/greek-runs.mjs) — a rule citing a leaf the edition does not hold cannot be checked against its page, so the leaves are stored and served like every other.",
+      "verified": [
+        {
+          "archive": 0,
+          "page": null,
+          "evidence": "leaf 0's own lines read 'THE / SIX BOOKS OF PROCLUS / ... / ON THE THEOLOGY OF PLATO, / TRANSLATED FROM THE GREEK; / TO WHICH ...' -- the volume's title page, the item's first leaf"
+        },
+        {
+          "archive": 75,
+          "page": null,
+          "evidence": "leaf 75's first line is 'Ixxx' over 'Imparticipable, apedtKTOf. One thing is said to be imparticipable with respect to another...' -- the last leaf before leaf 76, which reads 'PROCLUS, / THE PLATONIC SUCCESSOR, / ON / The Theology of Plato. / BOOK I.' and is printed page 1"
+        }
+      ]
+    },
     {
       "archive_id": "thomastaylor",
       "volume": "vol. I",

@@ -25,17 +25,21 @@
  * USAGE
  *   node tools/vision-heads.mjs <slug> [--limit N] [--concurrency N]
  *
- * The endpoint is the LOCAL proxy (10.0.0.1:8321); no key is sent — the proxy
- * injects it. See the `vision` skill. Everything sent is treated as leaving the
- * machine.
+ * The endpoint and the model come from LIBRARY_HEADS_URL / LIBRARY_HEADS_MODEL. The
+ * DEFAULT is the DeepInfra VL proxy (10.0.0.1:8322), whose models read this print's
+ * page images where the DeepSeek vision model returns EMPTY (its reasoning burns the
+ * output budget); the library's standing order still points its text work at the
+ * DeepSeek proxy on 10.0.0.1:8321, and setting LIBRARY_HEADS_URL returns this tool
+ * there. No key is sent — the proxy injects it. See the `vision` skill. Everything
+ * sent is treated as leaving the machine.
  */
 import { readFileSync, writeFileSync, renameSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ENDPOINT = 'http://10.0.0.1:8321/v1/chat/completions';
-const MODEL = 'deepseek-v4-flash-vision-exp';
+const ENDPOINT = process.env.LIBRARY_HEADS_URL || 'http://10.0.0.1:8322/v1/chat/completions';
+const MODEL = process.env.LIBRARY_HEADS_MODEL || 'Qwen/Qwen3-VL-235B-A22B-Instruct';
 const REQUEST_TIMEOUT_MS = 300_000;
 /* MEASURED CAP. The model's reasoning runs to several thousand tokens on a page
  * that carries TWO chapter headings (v1-n312 reads `CHAPTER VIII.` at the top and

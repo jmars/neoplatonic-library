@@ -49,9 +49,12 @@ const leafKey = (file) => file.replace(/\.jpg$/i, '');
  * THE RECORDED PAGE RUNS of an edition: `[{ prefix, offset, lo, hi, pages }]`,
  * read from `scan.json`. A two-volume work records one run per volume, keyed by
  * the prefix its leaf files carry; a single-item edition records one run with no
- * prefix. A run is used only when the record states its offset AND the leaf range
- * the offset holds over — a run with either missing stamps nothing, because a
- * page computed over an unstated range is a guess wearing a measurement's name.
+ * prefix. A run stamps a printed page only when the record states BOTH its offset
+ * and the leaf range the offset holds over — a page computed over an unstated
+ * range is a guess wearing a measurement's name. A run that states a leaf range
+ * and NO offset is still a run for the index's sake: MEASURED, Taylor's Theology
+ * records the volume's FRONT MATTER (leaves n0-n75, whose only folios are roman)
+ * that way, so it names and groups those leaves and stamps no page on them.
  */
 function pageRuns(t) {
   const file = join(ROOT, 'data', 'editions', t.slug, 'scan.json');
@@ -62,10 +65,10 @@ function pageRuns(t) {
     for (const i of s.items) {
       const lo = i.leaves && i.leaves[0];
       const hi = i.leaves && i.leaves[1];
-      if (!Number.isInteger(i.archiveOffset) || !Number.isInteger(lo) || !Number.isInteger(hi)) continue;
+      if (!Number.isInteger(lo) || !Number.isInteger(hi)) continue;
       runs.push({
         prefix: (i.prefix || '').replace(/-+$/, ''),
-        offset: i.archiveOffset,
+        offset: Number.isInteger(i.archiveOffset) ? i.archiveOffset : null,
         lo,
         hi,
         pages: Array.isArray(i.pages) && i.pages.length === 2 ? i.pages : null,
@@ -88,9 +91,11 @@ function pageRuns(t) {
   return runs;
 }
 
-/** The printed page the record stamps for a stored leaf, or null. */
+/** The printed page the record stamps for a stored leaf, or null. A run with no
+ * stated offset (the front matter) stamps nothing for any of its leaves. */
 function pageOf(runs, leaf) {
   for (const r of runs) {
+    if (!Number.isInteger(r.offset)) continue;
     if (r.prefix !== leaf.prefix) continue;
     if (leaf.n < r.lo || leaf.n > r.hi) continue;
     const p = leaf.n - r.offset;
@@ -176,7 +181,12 @@ function groupHint(g) {
  * THE FIRST SECTION IS NOT CALLED "The scans": the page's own <h1> is, and a
  * section that restates its page's heading is the doubled heading the design
  * review removed. It is named for what it holds — the leaf index — and the
- * heading below it is the volume's own name, or (one volume) nothing more. */
+ * heading below it is the run's own name, or (one run) nothing more.
+ *
+ * THE GROUPS ARE RUNS, NOT ALWAYS VOLUMES: MEASURED, Taylor's Theology records
+ * its front matter as a run of its own with no printed-page offset, so the page is
+ * grouped in three parts — the front matter, vol. I, vol. II — and the copy says
+ * "parts", not "volumes", because two of the three are not volumes. */
 export function scansIndexPage(t) {
   const { groups, total } = editionScans(t);
   const scansBase = `/texts/${t.slug}/scans/`;
@@ -185,7 +195,7 @@ export function scansIndexPage(t) {
   const intro =
     `<p><b>Every leaf the edition is built on.</b> The whole stored run of images of ${esc(t.title)} — ` +
     `${total} ${total === 1 ? 'leaf' : 'leaves'} of it` +
-    (multi ? `, in ${groups.length} volumes` : '') +
+    (multi ? `, in ${groups.length} parts` : '') +
     ` — is served beside the text at <code>${esc(scansBase)}&lt;leaf&gt;.jpg</code>, one image per leaf, ` +
     `at full page size. This page is its index: the leaves in their own order, each opening the image it ` +
     `names. They are the pages the transcription was read against — not only the leaves a recorded reading ` +
@@ -195,7 +205,7 @@ export function scansIndexPage(t) {
     `beside the leaf key. A leaf the record does not reach carries none, and none is computed for it: a ` +
     `number the record does not stamp is not shown as one.</p>`;
 
-  const overall = `${total} ${total === 1 ? 'leaf' : 'leaves'}${multi ? ` in ${groups.length} volumes` : ''}`;
+  const overall = `${total} ${total === 1 ? 'leaf' : 'leaves'}${multi ? ` in ${groups.length} parts` : ''}`;
   const sections = multi
     ? [
         section('The leaf index', overall, intro, { id: 'the-scan' }),

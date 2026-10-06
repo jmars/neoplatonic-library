@@ -62713,6 +62713,276 @@
           "source": "archive.org"
         }
       ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11679",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "Tefrrai otykxa Texva xvgtQteytiovjet xgotrwxoig'",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Tefrrai otykxa Texva xvgtQteytiovjet xgotrwxoig'",
+      "after": "Τεξεται αγλαα τεκνα πυριφλεγεθοντα προσωποις.",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"Τεξεται αγλαα τεκνα πυριφλεγεθοντα προσωποις.\" where the transcription has \"Tefrrai otykxa Texva xvgtQteytiovjet xgotrwxoig'\" (page image, printed page 152 = archive v2-n657). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 152 = archive v2-n657",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 657,
+          "page": 152,
+          "file": "v2-n657.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n657.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11680",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "fur avrov, it is necessary to read pur avrri $.",
+        "page": null,
+        "leaf": null
+      },
+      "before": "fur avrov, it is necessary to read pur avrri $.",
+      "after": "φυσιν, it is necessary to read φύσιν αὐτῆς",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"φυσιν, it is necessary to read φύσιν αὐτῆς\" where the transcription has \"fur avrov, it is necessary to read pur avrri $.\" (page image, printed page 206 = archive v2-n711). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 2 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 206 = archive v2-n711",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 711,
+          "page": 206,
+          "file": "v2-n711.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n711.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11681",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "- 1 For rjyoj it is necessary to read nvij",
+        "page": null,
+        "leaf": null
+      },
+      "before": "- 1 For rjyoj it is necessary to read nvij",
+      "after": "For εξηρηται it is necessary to read εξηρηται",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"For εξηρηται it is necessary to read εξηρηται\" where the transcription has \"- 1 For rjyoj it is necessary to read nvij\" (page image, printed page 167 = archive v1-n242). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 167 = archive v1-n242",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 242,
+          "page": 167,
+          "file": "v1-n242.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n242.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11682",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "vofffwy, it is necessary to read vo^tov",
+        "page": null,
+        "leaf": null
+      },
+      "before": "vofffwy, it is necessary to read vo^tov",
+      "after": "νοῦς, it is necessary to read νοῦτον",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"νοῦς, it is necessary to read νοῦτον\" where the transcription has \"vofffwy, it is necessary to read vo^tov\" (page image, printed page 313 = archive v1-n388). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 313 = archive v1-n388",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 388,
+          "page": 313,
+          "file": "v1-n388.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n388.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11683",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "Ka.ga.xeTa instead of xagarna^fuiiTa",
+        "page": null,
+        "leaf": null
+      },
+      "before": "Ka.ga.xeTa instead of xagarna^fuiiTa",
+      "after": "Κα.γα.χεΤα instead of χαγαρνα^φυιιΤα",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"Κα.γα.χεΤα instead of χαγαρνα^φυιιΤα\" where the transcription has \"Ka.ga.xeTa instead of xagarna^fuiiTa\" (page image, printed page 214 = archive v2-n719). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 214 = archive v2-n719",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 719,
+          "page": 214,
+          "file": "v2-n719.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n719.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11684",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "opoum and d«<»",
+        "page": null,
+        "leaf": null
+      },
+      "before": "opoum and d«<»",
+      "after": "ὄρος and θεῖον",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"ὄρος and θεῖον\" where the transcription has \"opoum and d«<»\" (page image, printed page 227 = archive v2-n732). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 227 = archive v2-n732",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 732,
+          "page": 227,
+          "file": "v2-n732.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n732.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11685",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "batwgmws",
+        "page": null,
+        "leaf": null
+      },
+      "before": "batwgmws",
+      "after": "hat ἄγιοτα",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"hat ἄγιοτα\" where the transcription has \"batwgmws\" (page image, printed page 8 = archive v2-n513). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 8 = archive v2-n513",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 513,
+          "page": 8,
+          "file": "v2-n513.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n513.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11686",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "'T^aJoj",
+        "page": null,
+        "leaf": null
+      },
+      "before": "'T^aJoj",
+      "after": " Θεολογία",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \" Θεολογία\" where the transcription has \"'T^aJoj\" (page image, printed page 40 = archive v2-n545). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 40 = archive v2-n545",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 545,
+          "page": 40,
+          "file": "v2-n545.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n545.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11687",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "xupou*;",
+        "page": null,
+        "leaf": null
+      },
+      "before": "xupou*;",
+      "after": "λυραιος",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"λυραιος\" where the transcription has \"xupou*;\" (page image, printed page 143 = archive v2-n648). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 143 = archive v2-n648",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 648,
+          "page": 143,
+          "file": "v2-n648.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n648.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
     }
   ]
 }

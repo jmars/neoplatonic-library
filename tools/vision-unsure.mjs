@@ -33,12 +33,13 @@
  *      used as the mapping when it is available and (a) is the cross-check: the
  *      measured disagreement between the two is the error bound reported below.
  *
- *   3. GROUP BY LEAF, and READ. One vision call per leaf covers every question
- *      on it: the model is given the leaf's image and the transcription's own
- *      lines for the questioned passages, and is asked to transcribe what the
- *      page prints on those lines, verbatim. Readings are cached as DATA in
- *      `data/editions/<slug>/unsure-vision.json`, written after every leaf, so a
- *      re-run costs nothing and a parser bug can be re-run without another pass.
+ *   3. GROUP BY LEAF, and READ. One vision call per leaf PER CONFIGURED MODEL
+ *      covers every question on it: the model is given the leaf's image and the
+ *      transcription's own lines for the questioned passages, and is asked to
+ *      transcribe what the page prints on those lines, verbatim. Readings are
+ *      cached as DATA in `data/editions/<slug>/unsure-vision.json`, keyed by model
+ *      and written after every leaf, so a re-run costs nothing and a parser bug can
+ *      be re-run without another pass.
  *
  *   4. EMIT FINDINGS `{region, find, replace, class, note, witness, evidence}`
  *      for what the page DECIDES, and keep the question OPEN where it does not:
@@ -67,9 +68,33 @@ import { fileURLToPath } from 'node:url';
 import { tidyPunctuation, sha256 } from './extract.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ENDPOINT = 'http://10.0.0.1:8321/v1/chat/completions';
-const MODEL = 'deepseek-v4-flash-vision-exp';
+/* THE ENDPOINT, and the models — the same knobs tools/greek-runs.mjs carries.
+ * The library's standing order points its LLM work at the DeepSeek proxy on
+ * 10.0.0.1:8321, but THIS route reads a page image, and the page-image instruments
+ * are the DeepInfra VL models on 10.0.0.1:8322 (the DeepSeek vision model returns
+ * EMPTY on many of these leaves — its reasoning burns the output budget).
+ *
+ * MORE THAN ONE MODEL, AND WHY. MEASURED on this print, the VL models are
+ * complementary: each reads Greek the other misreads (google/gemma-3-27b-it got a
+ * lemma's `οὐκ` right where Qwen/Qwen3-VL-235B-A22B-Instruct read it as `ὅτι`, and
+ * the order reverses elsewhere), so ONE model's reading is not evidence on its
+ * own. LIBRARY_UNSURE_MODELS is a comma-separated list; with two or more, a line is
+ * a reading only where two of them put the same characters there (see collect()),
+ * and a question that is not so agreed stays OPEN with its reason. With a single
+ * model the tool falls back to the page's own authority plus its guards, as before,
+ * and says so in the artifact. */
+const ENDPOINT = process.env.LIBRARY_UNSURE_URL || 'http://10.0.0.1:8322/v1/chat/completions';
+const MODELS = (process.env.LIBRARY_UNSURE_MODELS || process.env.LIBRARY_UNSURE_MODEL || 'Qwen/Qwen3-VL-235B-A22B-Instruct')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
 const REQUEST_TIMEOUT_MS = 300_000;
+
+/** The leaf's own key in the record: `v1-n76` where the edition's leaves carry a
+ * volume prefix, `n76` where they do not. MEASURED: the Theology of Plato records
+ * its FRONT MATTER under the EMPTY prefix (those leaves have no volume of their
+ * own), so a key built as `${vol}-n${num}` would read `-n0` and name nothing. */
+const leafKeyOf = (vol, num) => `${vol ? `${vol}-` : ''}n${num}`;
 
 /* MEASURED CAP. This model's reasoning RUNS AWAY nondeterministically and the
  * answer is EMPTY when the reasoning hits the cap. tools/vision-heads.mjs (three
@@ -299,7 +324,7 @@ function leafTable() {
    * `_scandata.xml`, which is page geometry and carries no lines. */
   const names = readdirSync(xmlDir).filter((n) => n.endsWith('_djvu.xml'));
   const items = ((JSON.parse(readFileSync(join(EDITION, 'scan.json'), 'utf8')).items) || []);
-  const pairs = [];
+  const leafCand = [];
   const placed = [];
   for (const it of items) {
     const prefix = it.prefix || '';
@@ -328,27 +353,37 @@ function leafTable() {
     const hi = Array.isArray(it.leaves) ? it.leaves[1] : Infinity;
     for (const o of parseDjvu(readFileSync(join(xmlDir, name), 'utf8'))) {
       if (o.leaf == null || o.leaf < lo || o.leaf > hi) continue;
+      const cand = [];
       for (const l of o.lines) {
         const raw = placeLine(l);
         if (raw == null) continue;
-        pairs.push({ vol: prefix, num: o.leaf, line: rawOfFlat[raw] });
+        cand.push(rawOfFlat[raw]);
       }
+      leafCand.push({ vol: prefix, num: o.leaf, cand });
     }
     placed.push(`${prefix}: ${name}`);
   }
-  if (!pairs.length) return null;
-  /* MONOTONICITY: a leaf's text can only stand after the previous leaf's. A
-   * fingerprint that lands BEHIND the run so far is a false match (a 5-token run
-   * that happens to recur), and is dropped — MEASURED: 11 of 10,142. */
-  pairs.sort((a, b) => (a.vol < b.vol ? -1 : a.vol > b.vol ? 1 : a.num - b.num) || a.line - b.line);
+  if (!leafCand.length) return null;
+  /* THE LEAF'S OWN PLACE, chosen AGAINST THE RUN SO FAR — the same rule
+   * tools/greek-runs.mjs uses, and MEASURED necessary here. Taking every line of
+   * every leaf and keeping the ones that stand forward looked fine while the only
+   * runs were the two BODY volumes, and BROKE the moment the front matter was
+   * added: the title page and the contents pages carry verbatim the body's own
+   * headings, so one of their lines fingerprints thousands of lines into the work,
+   * `last` jumps past the whole of vol. I, and 9,174 of 23,370 placements are
+   * dropped as non-monotone (MEASURED on this item, this unit). Per leaf, taking
+   * the SMALLEST placement that stands after the previous leaf's keeps the
+   * coincidental far-forward match out of the run: the leaf's own opening line is
+   * placed near the leaf's own place and the other candidate is discarded. */
   const kept = [];
   let last = -1;
   let dropped = 0;
-  for (const p of pairs) {
-    if (p.line > last) {
-      kept.push(p);
-      last = p.line;
-    } else dropped++;
+  for (const lc of leafCand) {
+    lc.cand.sort((a, b) => a - b);
+    const pick = lc.cand.find((x) => x > last);
+    if (pick === undefined) { dropped++; continue; }
+    last = pick;
+    kept.push({ vol: lc.vol, num: lc.num, line: pick });
   }
   const byVol = new Map();
   for (const p of kept) {
@@ -357,9 +392,30 @@ function leafTable() {
   }
   for (const arr of byVol.values()) arr.sort((a, b) => a.line - b.line);
   const vols = [...byVol.keys()].sort();
-  const firstOfLast = byVol.get(vols[vols.length - 1])[0].line;
+  /* WHICH RUN A LINE BELONGS TO, in general — MEASURED BUG this replaces: the old
+   * rule was `line < firstOfLast ? vols[0] : vols[last]`, which assumed exactly TWO
+   * items (the two volumes). The Theology now records THREE runs (its front matter
+   * under the empty prefix, then vol. I, then vol. II), and under the old rule every
+   * line before vol. II's first leaf resolved to the FRONT MATTER's leaves — the
+   * whole body would have been read off the wrong pages. A line is now placed in the
+   * run whose own line range contains it; a line outside every run goes to the
+   * nearest run's end. */
+  const ranges = vols.map((v) => {
+    const arr = byVol.get(v);
+    return { vol: v, lo: arr[0].line, hi: arr[arr.length - 1].line };
+  });
+  const volAt = (line) => {
+    for (const r of ranges) if (line >= r.lo && line <= r.hi) return r.vol;
+    let best = ranges[0];
+    let bd = Infinity;
+    for (const r of ranges) {
+      const d = line < r.lo ? r.lo - line : line - r.hi;
+      if (d < bd) { bd = d; best = r; }
+    }
+    return best.vol;
+  };
   const at = (line) => {
-    const vol = line < firstOfLast + 1e-9 && vols.length > 1 ? vols[0] : vols[vols.length - 1];
+    const vol = volAt(line);
     const arr = byVol.get(vol) || [];
     if (!arr.length) return null;
     if (line <= arr[0].line) return { vol, num: arr[0].num, conf: 'before-first' };
@@ -383,12 +439,12 @@ function leafTable() {
   const near = (line) => {
     const one = at(line);
     if (!one) return [];
-    const out = [`${one.vol}-n${one.num}`];
+    const out = [leafKeyOf(one.vol, one.num)];
     if (one.conf === 'boundary') {
       const prev = at(Math.max(1, line - 1));
-      if (prev && `${prev.vol}-n${prev.num}` !== out[0]) out.push(`${prev.vol}-n${prev.num}`);
+      if (prev && leafKeyOf(prev.vol, prev.num) !== out[0]) out.push(leafKeyOf(prev.vol, prev.num));
       const next = at(line + 40);
-      if (next && !out.includes(`${next.vol}-n${next.num}`)) out.push(`${next.vol}-n${next.num}`);
+      if (next && !out.includes(leafKeyOf(next.vol, next.num))) out.push(leafKeyOf(next.vol, next.num));
     }
     return out;
   };
@@ -446,9 +502,9 @@ for (let i = 0; i < unsure.length; i++) {
     from: hit.from,
     to: hit.to,
     how: hit.how,
-    leaf: near ? near[0] : am ? `${am.vol}-n${am.rounded}` : null,
+    leaf: near ? near[0] : am ? leafKeyOf(am.vol, am.rounded) : null,
     leaves: near,
-    anchorLeaf: am ? `${am.vol}-n${am.rounded}` : null,
+    anchorLeaf: am ? leafKeyOf(am.vol, am.rounded) : null,
     boundary: table ? table.at(hit.from).conf === 'boundary' : false,
   });
 }
@@ -470,22 +526,24 @@ const scan = existsSync(join(EDITION, 'scan.json')) ? JSON.parse(readFileSync(jo
 const offsetOf = new Map();
 for (const it of scan.items || []) if (Number.isFinite(it.archiveOffset)) offsetOf.set(it.prefix || '', it.archiveOffset);
 const heldFiles = new Set(existsSync(scanDir) ? readdirSync(scanDir).filter((f) => /^(?:v\d+-)?n\d+\.jpg$/.test(f)) : []);
-/** The printed page the record stamps for a leaf: vol. I's own verified offset
- * (archive n = printed page + 73, confirmed at both ends of the work), else the
- * page a division anchor carries FOR THAT EXACT LEAF. A leaf with neither gets
- * null rather than a guessed number — the apparatus prints "no page recorded". */
+/** The printed page the record stamps for a leaf: the volume's own verified offset
+ * (archive n = printed page + offset, confirmed at both ends of the run) where the
+ * record states one, else the page a division anchor carries FOR THAT EXACT LEAF. A
+ * leaf with neither gets null rather than a guessed number — the apparatus prints
+ * "no page recorded". The FRONT MATTER's leaves (stored as `n0`..`n75`, no volume
+ * prefix) carry no arabic printed page at all and so always get null. */
 function pageOfLeaf(leaf) {
-  const m = /^(v\d+)-n(\d+)$/.exec(leaf);
+  const m = /^(?:([a-z0-9]+)-)?n(\d+)$/.exec(leaf);
   if (!m) return null;
-  const [, vol, numS] = m;
+  const [, vol = '', numS] = m;
   const num = Number(numS);
   if (offsetOf.has(vol)) return num - offsetOf.get(vol);
   const hit = divisions.find((d) => d.leaf === `${leaf}.jpg`);
   return hit && hit.page != null ? hit.page : null;
 }
 function evidenceEntry(leaf) {
-  const [vol, numS] = leaf.split('-n');
-  const num = Number(numS);
+  const m = /^(?:([a-z0-9]+)-)?n(\d+)$/.exec(leaf);
+  const num = m ? Number(m[2]) : NaN;
   const file = `${leaf}.jpg`;
   const exists = heldFiles.has(file);
   return { kind: 'scan', leaf: num, page: pageOfLeaf(leaf), file, url: exists ? `/texts/${slug}/scans/${file}` : null, exists, source: 'archive.org' };
@@ -504,14 +562,14 @@ for (const r of located) {
   if (!t || !a) continue;
   const d = Math.abs(t.num - a.num);
   margin.push(d);
-  if (`${t.vol}-n${t.num}` !== `${a.vol}-n${a.rounded}`) disagree++;
+  if (leafKeyOf(t.vol, t.num) !== leafKeyOf(a.vol, a.rounded)) disagree++;
 }
 margin.sort((x, y) => x - y);
 const q = (f) => (margin.length ? margin[Math.min(margin.length - 1, Math.floor(margin.length * f))] : NaN);
 console.log(`${slug}: ${unsure.length} unsure question(s) in ${new Set(unsure.map((e) => e.region)).size} region(s)`);
 console.log(`  located ${located.length} (${counts.passage || located.filter((r) => r.how === 'passage').length} whole, ${counts.partial} by a leading fragment), not located ${unlocated.length}`);
 console.log(`  leaf map: ${table ? table.method : 'divisions.json anchors (no --xml-dir)'}`);
-if (table) console.log(`    leaf table: ${table.kept} placed line(s), ${table.dropped} dropped as non-monotone; xml: ${table.placed.join('; ')}`);
+if (table) console.log(`    leaf table: ${table.kept} leaf/leaves placed, ${table.dropped} dropped (no placement left standing after the previous leaf); xml: ${table.placed.join('; ')}`);
 if (margin.length) console.log(`    the anchors vs the leaf table, over the ${margin.length} located line(s): median ${q(0.5).toFixed(2)} leaf, p90 ${q(0.9).toFixed(2)}, max ${q(1).toFixed(2)}; they round to DIFFERENT leaves for ${disagree}`);
 console.log(`  leaves to read: ${byLeaf.size}; questions on them: ${located.filter((r) => byLeaf.has(r.leaf)).length}`);
 const noLeaf = located.filter((r) => !r.leaf);
@@ -649,7 +707,7 @@ function parseAnswer(text) {
   return null;
 }
 
-async function ask(leaf, lines) {
+async function ask(leaf, lines, model) {
   const file = `${leaf}.jpg`;
   const src = join(scanDir, file);
   if (!existsSync(src)) return { error: `no stored leaf ${file}` };
@@ -657,7 +715,7 @@ async function ask(leaf, lines) {
   const mime = extname(file).toLowerCase() === '.png' ? 'image/png' : 'image/jpeg';
   const asked = lines.map((l, i) => `${i + 1}: ${rawLines[l - 1]}`).join('\n');
   const body = {
-    model: MODEL,
+    model,
     max_tokens: MAX_TOKENS,
     /* EFFORT. MEASURED on one leaf: the model's default effort spent 22,577
      * reasoning tokens and 96 s; `low` spent 12,290 and 56 s for the same answer,
@@ -709,7 +767,7 @@ async function ask(leaf, lines) {
         if (attempt < 4) continue;
         return { error: 'the answer carried none of the asked line labels' };
       }
-      return { reading: out, raw: text, at: new Date().toISOString(), model: MODEL };
+      return { reading: out, raw: text, at: new Date().toISOString(), model };
     } catch (e) {
       if (attempt === 4) return { error: String(e && e.message ? e.message : e) };
       await new Promise((r) => setTimeout(r, 2000 * attempt));
@@ -724,34 +782,91 @@ async function ask(leaf, lines) {
  * is never asked again. It carries the model's whole answer verbatim (`raw`), so a
  * change to the finding rule can be re-run against the SAME readings without
  * another vision pass. */
-const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : { slug, model: MODEL, method: table ? table.method : 'divisions.json anchors', leaves: {} };
+/* THE CACHE CARRIES THE MODEL IN EVERY KEY, for the same reason tools/greek-runs.mjs
+ * does: the two models' readings of one leaf DIFFER, so a key naming only the leaf
+ * would serve one model's answer as the other's. An older cache (one model, keys
+ * without a model prefix) is MIGRATED by prefixing each entry's own recorded
+ * `model`; those draws keep their provenance and are not among the configured
+ * models, so collect() does not count them. */
+const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : { slug, method: table ? table.method : 'divisions.json anchors', leaves: {} };
 if (!cache.leaves) cache.leaves = {};
+{
+  const migrated = {};
+  for (const [k, v] of Object.entries(cache.leaves)) {
+    migrated[k.includes('#') && k.split('#').length >= 3 ? k : `${(v && v.model) || 'unknown'}#${k}`] = v;
+  }
+  cache.leaves = migrated;
+}
+cache.models = MODELS.slice();
+cache.method = table ? table.method : 'divisions.json anchors';
 const writeCache = () => {
   const tmp = `${cachePath}.tmp`;
   writeFileSync(tmp, JSON.stringify(cache, null, 1));
   renameSync(tmp, cachePath);
 };
 
-const jobKey = (j) => `${j.leaf}#${j.lines[0]}-${j.lines[j.lines.length - 1]}`;
+/* THE KEY NAMES THE MODEL AND THE LINES it was asked: one draw per (leaf, lines,
+ * model). */
+const jobKey = (j) => `${j.model}#${j.leaf}#${j.lines[0]}-${j.lines[j.lines.length - 1]}`;
 const isDone = (j) => {
   const c = cache.leaves[jobKey(j)];
   return !!c && (!c.error || c.tries >= 2);
 };
 
-/** The reading for a source line, from whichever job answered for it. A page
- * that does not carry the line answers "", which is a reading too. */
+/** The reading for a source line. A page that does not carry the line answers "",
+ * which is a reading too.
+ *
+ * WITH MORE THAN ONE MODEL THE READING IS WHAT THEY AGREE ON: each configured
+ * model's own reading of the line is gathered, and the line is a reading only
+ * where at least two models returned the SAME non-blank characters. One model's
+ * word is not evidence — MEASURED, the two VL models give different Greek for the
+ * same printed word as often as not — so a line only one model read, or two
+ * models read differently, is NOT settled here and is recorded in `unsettledLines`
+ * with the reason, which keeps the question OPEN downstream.
+ *
+ * WITH A SINGLE MODEL the old rule stands (a reading from a leaf beats a "not on
+ * this page" answer from another), and the artifact says the route ran that way. */
 const readLines = new Map();
+/** line -> why the models did not settle it (only used with >= 2 models). */
+const unsettledLines = new Map();
 /** The readings the SAME leaf gave for MORE THAN ONE of its lines. */
 const dupLines = new Map();
 function collect() {
   readLines.clear();
+  unsettledLines.clear();
+  const perLine = new Map(); // line -> Map(model -> text)
   for (const rec of Object.values(cache.leaves)) {
+    if (!MODELS.includes(rec.model)) continue;
     for (const [line, text] of Object.entries(rec.reading || {})) {
       const l = Number(line);
-      const cur = readLines.get(l);
-      /* A reading from a leaf beats a "not on this page" answer from another. */
-      if (cur === undefined || (cur === '' && text !== '')) readLines.set(l, text);
+      if (!perLine.has(l)) perLine.set(l, new Map());
+      const m = perLine.get(l);
+      const t = collapse(text);
+      const cur = m.get(rec.model);
+      /* A reading from a leaf beats a "not on this page" answer from the same model. */
+      if (cur === undefined || (cur === '' && t !== '')) m.set(rec.model, t);
     }
+  }
+  for (const [l, m] of perLine) {
+    if (MODELS.length < 2) {
+      for (const t of m.values()) {
+        const cur = readLines.get(l);
+        if (cur === undefined || (cur === '' && t !== '')) readLines.set(l, t);
+      }
+      continue;
+    }
+    const nonblank = new Map([...m].filter(([, t]) => t && t !== '?'));
+    if (!nonblank.size) { readLines.set(l, m.size ? '' : '?'); continue; }
+    if (nonblank.size < 2) {
+      unsettledLines.set(l, `only ${nonblank.size} of the ${MODELS.length} models returned a reading for this line`);
+      continue;
+    }
+    const texts = [...new Set(nonblank.values())];
+    if (texts.length > 1) {
+      unsettledLines.set(l, `the ${nonblank.size} models read this line differently (${texts.map((t) => JSON.stringify(t.slice(0, 40))).join(' vs ')})`);
+      continue;
+    }
+    readLines.set(l, texts[0]);
   }
 }
 function collectDupes() {
@@ -811,18 +926,18 @@ async function runJobs(jobs, concurrency) {
   async function worker() {
     while (next < todo.length) {
       const j = todo[next++];
-      const rec = await ask(j.leaf, j.lines);
+      const rec = await ask(j.leaf, j.lines, j.model);
       done++;
       if (rec.error) {
         failed++;
         const prev = cache.leaves[jobKey(j)] || {};
-        cache.leaves[jobKey(j)] = { leaf: j.leaf, lines: j.lines, error: rec.error, tries: (prev.tries || 0) + 1 };
+        cache.leaves[jobKey(j)] = { leaf: j.leaf, lines: j.lines, model: j.model, error: rec.error, tries: (prev.tries || 0) + 1 };
         console.log(`[${done}/${todo.length}] ${jobKey(j)} FAILED: ${rec.error}`);
       } else {
         /* THE ASKED LINES AND THE ANSWER ARE DIFFERENT FIELDS. MEASURED: the answer
          * was stored under `lines` and overwrote the asked-line array — the cache kept
          * the reading but lost what had been asked. */
-        cache.leaves[jobKey(j)] = { ...rec, leaf: j.leaf, lines: j.lines };
+        cache.leaves[jobKey(j)] = { ...rec, leaf: j.leaf, lines: j.lines, model: j.model };
         console.log(`[${done}/${todo.length}] ${jobKey(j)} ${j.lines.length} line(s) answered`);
       }
       writeCache();
@@ -856,7 +971,7 @@ const leafJobs = (map, size) => {
   const jobs = [];
   for (const [leaf, set] of map) {
     const lines = [...set].sort((a, b) => a - b);
-    for (const c of chunk(lines, size)) jobs.push({ leaf, lines: c });
+    for (const c of chunk(lines, size)) for (const model of MODELS) jobs.push({ leaf, lines: c, model });
   }
   return jobs;
 };
@@ -952,12 +1067,22 @@ function nextCleanLine(rec) {
 const findings = [];
 const open = [];
 const confirmed = [];
-const stats = { stamped: 0, duplicate: 0, guardDropped: 0, corroborated: 0, placed: 0, small: 0, uncorroboratedLarge: 0, noReading: 0, illegible: 0, unanchored: 0, same: 0 };
+const stats = { stamped: 0, duplicate: 0, guardDropped: 0, corroborated: 0, placed: 0, small: 0, uncorroboratedLarge: 0, noReading: 0, illegible: 0, unanchored: 0, same: 0, unsettled: 0 };
 
 for (const rec of located) {
   if (!inScope(rec)) continue;
   const ev = rec.leaf ? evidenceEntry(rec.leaf) : null;
   const lines = linesOf(rec);
+  /* WITH TWO MODELS, AGREEMENT IS THE FIRST TEST. A passage whose line(s) the two
+   * models did not settle — one model only, or two different readings — is OPEN
+   * with that as its reason; nothing is emitted from a reading a single instrument
+   * supplied, which is exactly how the model invents a word that fits the sense. */
+  const unsettled = lines.filter((l) => unsettledLines.has(l));
+  if (unsettled.length) {
+    stats.unsettled++;
+    open.push({ region: rec.region, passage: rec.passage, leaf: rec.leaf, leaves: rec.leaves, page: ev && ev.page, why: `the configured models did not settle this passage: ${[...new Set(unsettled.map((l) => unsettledLines.get(l)))].join('; ')}` });
+    continue;
+  }
   const pageLeaf = lines.map((l) => readLines.get(l));
   const answered = lines.filter((l) => lineHasReading(l) || readLines.get(l) === '');
   if (!answered.length) {
@@ -1216,7 +1341,8 @@ for (const rec of located) {
 
 const artifact = {
   slug,
-  model: MODEL,
+  models: MODELS,
+  agreesAcrossModels: MODELS.length > 1,
   from: fromFile,
   method: table ? table.method : 'divisions.json anchors',
   unsure: unsure.length,
@@ -1235,6 +1361,6 @@ console.log('--- findings ---');
 console.log(`  RESOLVED with a rule: ${findings.length} finding(s) over ${new Set(findings.map((f) => f.leaf)).size} leaf/leaves (${stats.corroborated} carried by the second transcription, ${stats.placed} placed in it at this line, ${stats.stamped} a running head stamping this leaf's own page, ${stats.small} a small repair)`);
 console.log(`  RESOLVED with no rule needed (the page reads as the transcription prints it): ${confirmed.length}`);
 console.log(`  STILL OPEN: ${open.length}`);
-console.log(`     no reading came back: ${stats.noReading}; illegible on the page: ${stats.illegible}; one reading returned for more than one line: ${stats.duplicate}; the reading could not be written as a repair: ${stats.guardDropped}; uncorroborated long rewrite: ${stats.uncorroboratedLarge}; reading not anchored to the transcription's line: ${stats.unanchored}`);
+console.log(`     the models did not agree: ${stats.unsettled}; no reading came back: ${stats.noReading}; illegible on the page: ${stats.illegible}; one reading returned for more than one line: ${stats.duplicate}; the reading could not be written as a repair: ${stats.guardDropped}; uncorroborated long rewrite: ${stats.uncorroboratedLarge}; reading not anchored to the transcription's line: ${stats.unanchored}`);
 console.log(`  not located in the transcription at all: ${unlocated.length}`);
 console.log(`  artifact: ${outFile}`);

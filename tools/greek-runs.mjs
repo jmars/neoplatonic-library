@@ -34,12 +34,15 @@
  *     three.
  *
  * So the tool puts the question that way, and then applies the only test the
- * instrument supports: the leaf is drawn SAMPLES times and a line is accepted only
- * where two or more draws AGREE character for character — the standard the rest of
- * the pipeline applies to two independent witnesses (two instruments did not both
- * invent the same characters). Where they disagree the run stays OPEN with the
- * disagreement as its reason, and no Greek is invented. A reading also has to be
- * GREEK: a draw that comes back Latin or English is not this tool's finding.
+ * instrument supports: the leaf is drawn SAMPLES times OF EACH CONFIGURED MODEL and
+ * a line is accepted only where two or more draws AGREE character for character —
+ * the standard the rest of the pipeline applies to two independent witnesses (two
+ * instruments did not both invent the same characters). Two MODELS are configured
+ * by default (see MODELS below), because MEASURED on this print the VL models are
+ * complementary: each reads Greek the other misreads, and neither is reliable
+ * alone. Where the draws disagree the run stays OPEN with the disagreement as its
+ * reason, and no Greek is invented. A reading also has to be GREEK: a draw that
+ * comes back Latin or English is not this tool's finding.
  *
  * OUTPUT. `tools/edits/<slug>.greek.json`, proposals in the Elements of Theology
  * form: `{find, replace, class, note, decided_by, witness, evidence, line, leaf}`
@@ -49,7 +52,7 @@
  * citation resolves on the site.
  *
  *   node tools/greek-runs.mjs <slug> [--vocab FILE] [--xml-dir DIR] [--out FILE]
- *        [--samples N] [--concurrency N] [--limit N] [--report]
+ *        [--lines FILE] [--samples N] [--concurrency N] [--limit N] [--report]
  *
  * NOT in the build's module graph: it reads the archive item's `_djvu.xml`
  * (megabytes, not in the repo) and calls the vision model by hand, like
@@ -62,8 +65,27 @@ import { extract, readEdition, tidyPunctuation, sha256 } from './extract.mjs';
 import { TEXTS } from './shelf.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ENDPOINT = process.env.LIBRARY_GREEK_URL || 'http://10.0.0.1:8321/v1/chat/completions';
-const MODEL = process.env.LIBRARY_GREEK_MODEL || 'deepseek-v4-flash-vision-exp';
+/* THE ENDPOINT, and the models. The library's standing order points its LLM work
+ * at the DeepSeek proxy on 10.0.0.1:8321; THIS pass reads a page image, and the
+ * page-image instruments are the DeepInfra VL models on 10.0.0.1:8322 — the
+ * DeepSeek vision model returns EMPTY on many of these leaves (its reasoning
+ * burns the output budget), which is what hobbled the first Greek pass.
+ *
+ * MORE THAN ONE MODEL, AND WHY. MEASURED on this print: the VL models are
+ * COMPLEMENTARY rather than one being better. On a leaf whose Greek is known from
+ * another edition's independently verified page, google/gemma-3-27b-it read the
+ * key word `οὐκ` right, WITH its breathing, where Qwen/Qwen3-VL-235B-A22B-Instruct
+ * read it as `ὅτι`; on other leaves the order reverses. One model's reading is
+ * therefore not evidence on its own, and MODELS takes a comma-separated list: every
+ * (leaf, lines) job is drawn once per model per sample, and the consensus below
+ * counts draws from ANY of them, so a reading has to be produced twice over by
+ * instruments that did not both invent it. LIBRARY_GREEK_MODELS is the list;
+ * LIBRARY_GREEK_MODEL remains the single-model form. */
+const ENDPOINT = process.env.LIBRARY_GREEK_URL || 'http://10.0.0.1:8322/v1/chat/completions';
+const MODELS = (process.env.LIBRARY_GREEK_MODELS || process.env.LIBRARY_GREEK_MODEL || 'Qwen/Qwen3-VL-235B-A22B-Instruct')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
 const REQUEST_TIMEOUT_MS = 300_000;
 /* MEASURED (tools/vision-unsure.mjs): this model's reasoning runs away
  * nondeterministically and an answer that hits the cap comes back EMPTY. */
@@ -100,7 +122,7 @@ const WORDS = (() => {
 const isEnglishWord = (w) => (WORDS ? WORDS.has(w) : (!unknown.has(w) && !greeklike.has(w)));
 
 const argv = process.argv.slice(2);
-const VALUE_FLAGS = new Set(['--vocab', '--xml-dir', '--out', '--samples', '--concurrency', '--limit']);
+const VALUE_FLAGS = new Set(['--vocab', '--xml-dir', '--out', '--samples', '--concurrency', '--limit', '--lines', '--list']);
 const slug = argv.find((a, i) => !a.startsWith('--') && !VALUE_FLAGS.has(argv[i - 1]));
 const opt = (name, dflt) => {
   const i = argv.indexOf(`--${name}`);
@@ -111,7 +133,7 @@ const num = (name, dflt) => {
   return i >= 0 && argv[i + 1] ? Number(argv[i + 1]) : dflt;
 };
 if (!slug) {
-  console.error('usage: node tools/greek-runs.mjs <slug> [--vocab FILE] [--xml-dir DIR] [--out FILE] [--samples N] [--concurrency N] [--limit N] [--report]');
+  console.error('usage: node tools/greek-runs.mjs <slug> [--vocab FILE] [--xml-dir DIR] [--out FILE] [--lines FILE] [--samples N] [--concurrency N] [--limit N] [--report]');
   process.exit(2);
 }
 const entry = TEXTS.find((t) => t.slug === slug);
@@ -124,6 +146,17 @@ const samples = num('samples', 3);
 const concurrency = num('concurrency', 6);
 const limit = num('limit', Infinity);
 const reportOnly = argv.includes('--report');
+/* THE TARGETED RE-RUN. A pass that only re-reads SOME runs — the ones a pass left
+ * open, say — names them in a file (a JSON array of source line numbers, or an
+ * object with a `lines` array) and only those runs are placed and read. Everything
+ * else the tool does is unchanged, so the selection is data, not a second tool. */
+const linesFile = opt('lines', '');
+const LINES_ONLY = (() => {
+  if (!linesFile) return null;
+  const j = JSON.parse(readFileSync(linesFile, 'utf8'));
+  const arr = Array.isArray(j) ? j : j.lines || [];
+  return new Set(arr.map(Number));
+})();
 
 const EDITION = join(ROOT, 'data', 'editions', slug);
 const version = readdirSync(join(EDITION, 'versions'), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort().pop();
@@ -392,7 +425,9 @@ console.log(`  the English wordlist: ${WORDS ? `${WORDS.size} word(s) from ${joi
 console.log(`  leaf map: ${table.leaves} leaf/leaves placed from ${table.placed.join('; ')} (${table.dropped} fingerprint(s) dropped as non-monotone)`);
 console.log(`  placed on a HELD leaf: ${placed.length}; NOT held by the edition: ${unplaced.length}${unplaced.length ? ` (leaves ${[...new Set(unplaced.map((u) => u.leaf))].sort((a, b) => a - b).join(', ')})` : ''}`);
 const byLeaf = new Map();
-for (const r of placed.slice(0, limit === Infinity ? placed.length : limit)) {
+const selected = LINES_ONLY ? placed.filter((r) => LINES_ONLY.has(r.line)) : placed;
+if (LINES_ONLY) console.log(`  --lines ${linesFile}: ${selected.length} of ${placed.length} placed run(s) are in the target set`);
+for (const r of selected.slice(0, limit === Infinity ? selected.length : limit)) {
   if (!byLeaf.has(r.leaf.file)) byLeaf.set(r.leaf.file, { leaf: r.leaf, lines: new Set(), runs: [] });
   byLeaf.get(r.leaf.file).lines.add(r.line);
   byLeaf.get(r.leaf.file).runs.push(r);
@@ -445,16 +480,19 @@ function parseAnswer(text) {
   return null;
 }
 
-async function ask(file, lines) {
+async function ask(file, lines, model) {
   const src = join(scansDir, file);
   if (!existsSync(src)) return { error: `no held leaf ${file}` };
   const buf = readFileSync(src);
   const mime = extname(file).toLowerCase() === '.png' ? 'image/png' : 'image/jpeg';
   const body = {
-    model: MODEL,
+    model,
     max_tokens: MAX_TOKENS,
     /* `low` is the working effort (MEASURED in tools/vision-unsure.mjs); the last
-     * attempt drops it so a stubborn page still gets the model's own effort. */
+     * attempt drops it so a stubborn page still gets the model's own effort. The
+     * DeepInfra VL models do not know this knob, and MEASURED they answer at `low`
+     * as well as without it (their answers here are one or two lines), so it is
+     * kept only for the DeepSeek endpoint's sake. */
     reasoning_effort: 'low',
     messages: [
       {
@@ -483,7 +521,7 @@ async function ask(file, lines) {
         if (typeof v === 'string') out[lines[i]] = v;
       }
       if (!Object.keys(out).length) { if (attempt < 4) continue; return { error: 'the answer carried none of the asked labels' }; }
-      return { reading: out, raw: text, at: new Date().toISOString(), model: MODEL };
+      return { reading: out, raw: text, at: new Date().toISOString(), model };
     } catch (e) {
       if (attempt === 4) return { error: String(e && e.message ? e.message : e) };
       await new Promise((r) => setTimeout(r, 2000 * attempt));
@@ -494,15 +532,34 @@ async function ask(file, lines) {
   return { error: 'no answer' };
 }
 
-const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : { slug, model: MODEL, method: table.placed.join('; '), samples, leaves: {} };
+/* THE CACHE CARRIES THE MODEL IN EVERY KEY. A draw is only usable as the MODEL
+ * that made it: the whole point of running two of them is that their readings
+ * differ, so a key that named only the leaf would let one model's answer be
+ * returned for the other's question. Older caches (one model, keys without a
+ * model prefix) are MIGRATED here by prefixing each entry's own recorded `model`
+ * — the draws keep their provenance and are simply not among the configured
+ * models, so the consensus below ignores them. */
+const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : { slug, method: table.placed.join('; '), samples, leaves: {} };
 if (!cache.leaves) cache.leaves = {};
+{
+  const migrated = {};
+  for (const [k, v] of Object.entries(cache.leaves)) {
+    migrated[k.includes('#') && k.split('#').length >= 4 ? k : `${(v && v.model) || 'unknown'}#${k}`] = v;
+  }
+  cache.leaves = migrated;
+}
+cache.models = MODELS.slice();
+cache.method = table.placed.join('; ');
 const writeCache = () => {
   const tmp = `${cachePath}.tmp`;
   writeFileSync(tmp, JSON.stringify(cache, null, 1));
   renameSync(tmp, cachePath);
 };
 
-const jobKey = (j, k) => `${j.leaf.file}#${j.lines[0]}-${j.lines[j.lines.length - 1]}#${PROMPT_ID}#${k}`;
+/* THE KEY NAMES THE MODEL, THE PROMPT AND THE SAMPLE: a cached draw is only
+ * usable under the same model and the same wording of the question (see
+ * PROMPT_ID), so a change to either re-asks rather than mixes. */
+const jobKey = (j, k) => `${j.model}#${j.leaf.file}#${j.lines[0]}-${j.lines[j.lines.length - 1]}#${PROMPT_ID}#${k}`;
 const chunk = (arr, n) => {
   const out = [];
   for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
@@ -511,7 +568,7 @@ const chunk = (arr, n) => {
 const jobs = [];
 for (const g of byLeaf.values()) {
   const lines = [...g.lines].sort((a, b) => a - b);
-  for (const c of chunk(lines, CHUNK)) for (let k = 1; k <= samples; k++) jobs.push({ leaf: g.leaf, lines: c, k });
+  for (const c of chunk(lines, CHUNK)) for (const model of MODELS) for (let k = 1; k <= samples; k++) jobs.push({ leaf: g.leaf, lines: c, model, k });
 }
 const isDone = (j) => {
   const c = cache.leaves[jobKey(j, j.k)];
@@ -527,15 +584,15 @@ async function runJobs(list) {
   async function worker() {
     while (next < todo.length) {
       const j = todo[next++];
-      const rec = await ask(j.leaf.file, j.lines);
+      const rec = await ask(j.leaf.file, j.lines, j.model);
       done++;
       if (rec.error) {
         failed++;
         const prev = cache.leaves[jobKey(j, j.k)] || {};
-        cache.leaves[jobKey(j, j.k)] = { leaf: j.leaf.file, lines: j.lines, sample: j.k, error: rec.error, tries: (prev.tries || 0) + 1 };
+        cache.leaves[jobKey(j, j.k)] = { leaf: j.leaf.file, lines: j.lines, model: j.model, sample: j.k, error: rec.error, tries: (prev.tries || 0) + 1 };
         console.log(`[${done}/${todo.length}] ${jobKey(j, j.k)} FAILED: ${rec.error}`);
       } else {
-        cache.leaves[jobKey(j, j.k)] = { ...rec, leaf: j.leaf.file, lines: j.lines, sample: j.k };
+        cache.leaves[jobKey(j, j.k)] = { ...rec, leaf: j.leaf.file, lines: j.lines, model: j.model, sample: j.k };
         console.log(`[${done}/${todo.length}] ${jobKey(j, j.k)} ${j.lines.length} line(s) answered`);
       }
       writeCache();
@@ -562,8 +619,11 @@ const neighbour = (n) => {
 {
   const misses = new Map();
   const readLines = new Set();
-  for (const rec of Object.values(cache.leaves)) for (const [line, text] of Object.entries(rec.reading || {})) if (text && text !== '?') readLines.add(Number(line));
-  for (const r of placed) {
+  for (const rec of Object.values(cache.leaves)) {
+    if (!MODELS.includes(rec.model)) continue;
+    for (const [line, text] of Object.entries(rec.reading || {})) if (text && text !== '?') readLines.add(Number(line));
+  }
+  for (const r of selected) {
     if (readLines.has(r.line)) continue;
     for (const nb of neighbour(r.leaf.leaf)) {
       if (!misses.has(nb.file)) misses.set(nb.file, { leaf: nb, lines: new Set() });
@@ -573,7 +633,7 @@ const neighbour = (n) => {
   const jobs2 = [];
   for (const g of misses.values()) {
     const lines = [...g.lines].sort((a, b) => a - b);
-    for (const c of chunk(lines, 5)) for (let k = 1; k <= samples; k++) jobs2.push({ leaf: g.leaf, lines: c, k });
+    for (const c of chunk(lines, 5)) for (const model of MODELS) for (let k = 1; k <= samples; k++) jobs2.push({ leaf: g.leaf, lines: c, model, k });
   }
   const r2 = await runJobs(jobs2);
   console.log(`${slug}: round 2 — ${r2.asked} job(s) asked over ${misses.size} neighbour leaf/leaves, ${r2.failed} failed`);
@@ -582,13 +642,18 @@ const neighbour = (n) => {
 
 /* ---------- 5. THE READING: what the draws AGREE on ---------- */
 
-/** Every draw's reading of one line, collapsed for comparison. */
-const readingsOf = new Map(); // line -> [{sample, text}]
+/** Every draw's reading of one line, collapsed for comparison, WITH the model
+ * that made it. Only the configured models count: the consensus below is over
+ * draws a reader can name, and dropping a retired model's draws is the whole
+ * meaning of "the old model is dropped for this work" (its readings stay in the
+ * cache with their provenance, they are simply not evidence). */
+const readingsOf = new Map(); // line -> [{model, sample, text}]
 for (const rec of Object.values(cache.leaves)) {
+  if (!MODELS.includes(rec.model)) continue;
   for (const [line, text] of Object.entries(rec.reading || {})) {
     const l = Number(line);
     if (!readingsOf.has(l)) readingsOf.set(l, []);
-    readingsOf.get(l).push({ sample: rec.sample, text: collapse(text) });
+    readingsOf.get(l).push({ model: rec.model, sample: rec.sample, text: collapse(text) });
   }
 }
 /** THE FOOTNOTE MARKER IS NOT THE READING. Taylor's notes are keyed `1`, `2`,
@@ -623,8 +688,8 @@ function consensus(line) {
     const key = stripMarker(r.text);
     if (!key) continue;
     const cur = counts.get(key);
-    if (cur) cur.n += 1;
-    else counts.set(key, { n: 1, text: r.text });
+    if (cur) { cur.n += 1; cur.models.add(r.model); }
+    else counts.set(key, { n: 1, text: r.text, models: new Set([r.model]) });
   }
   const best = [...counts.values()].sort((a, b) => b.n - a.n)[0];
   const total = list.filter((r) => r.text && r.text !== '?').length;
@@ -632,9 +697,12 @@ function consensus(line) {
    * mapped leaf, then a neighbour), so a bare count of 2 says nothing on its own:
    * MEASURED, 2 of 6 draws agreeing is a line the instrument could not settle,
    * while 2 of 2 is every draw there was. The reading stands when at least two
-   * draws agree AND they are at least half of the draws that returned anything. */
+   * draws agree AND they are at least half of the draws that returned anything.
+   * The draws counted here are the CONFIGURED MODELS' draws (readingsOf filtered
+   * them), so "two agree" can be one model twice or the two models once each —
+   * either way two instruments put the same characters there. */
   if (!best || best.n < 2 || best.n < 0.5 * total) return { text: null, draws: total, distinct: counts.size };
-  return { text: best.text, draws: total, agree: best.n, distinct: counts.size };
+  return { text: best.text, draws: total, agree: best.n, distinct: counts.size, models: [...best.models] };
 }
 
 /* ---------- 6. FINDINGS ---------- */
@@ -738,7 +806,7 @@ const open = [];
 const agreedNoRule = [];
 const stats = { lines: 0, agree: 0, noAgree: 0, noReading: 0, same: 0, notGreek: 0, unanchored: 0, guards: 0, notInServed: 0 };
 
-for (const r of placed) {
+for (const r of selected) {
   const line = r.line;
   stats.lines++;
   const con = consensus(line);
@@ -814,21 +882,49 @@ for (const r of placed) {
       ],
       agree: con.agree,
       draws: con.draws,
+      agreeModels: con.models,
       note:
         `the print sets GREEK here, which the scan read as a Latin lookalike: it reads ${JSON.stringify(s.replace)} where the transcription has ${JSON.stringify(s.find)}` +
         ` (page image, ${r.leaf.page != null ? `printed page ${r.leaf.page} = ` : ''}archive ${r.leaf.file.replace(/\.jpg$/, '')}). ` +
         `The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. ` +
-        `The leaf was drawn ${con.draws} time(s) and ${con.agree} of them read these characters.`,
+        `The leaf was drawn ${con.draws} time(s) over ${MODELS.length} model(s) (${MODELS.join(', ')}); the ${con.agree} draw(s) that read these characters were ${con.models.join(' and ')}` +
+        (MODELS.length > 1 && con.models.length === 1 ? ` — ONE instrument repeated, not two, so this reading rests on that model alone.` : '.'),
     });
   }
 }
 
+/* ---------- 7. WHAT EACH MODEL ACTUALLY DID (the echo diagnostic) ---------- */
+
+/** A draw that returns the transcriber's own line CHARACTER FOR CHARACTER is not
+ * a reading of the page: no instrument that looks at this print reproduces its
+ * OCR garble exactly. MEASURED on this item (2026-10-06): google/gemma-3-27b-it
+ * returned the line verbatim in 612 of its 700 draws (87.4%) while
+ * Qwen/Qwen3-VL-235B-A22B-Instruct did so in 159 of 764 (20.8%) — so gemma was
+ * an ECHO here, not a second reader, and EVERY finding of this pass (23 of 23) was
+ * read by Qwen ALONE — one instrument repeated, never two. The count is reported per model
+ * (and per model in the artifact) because "two models were configured" is NOT
+ * the same claim as "two models read it", and the difference is invisible in the
+ * findings alone. */
+const echo = new Map();
+for (const model of MODELS) echo.set(model, { draws: 0, verbatim: 0, firsthand: 0 });
+for (const rec of Object.values(cache.leaves)) {
+  if (!MODELS.includes(rec.model)) continue;
+  for (const [line, text] of Object.entries(rec.reading || {})) {
+    const l = Number(line);
+    if (!(l >= 1 && l <= rawLines.length)) continue;
+    const e = echo.get(rec.model);
+    e.draws++;
+    if (stripMarker(collapse(text)) === stripMarker(servedLine(l)) || collapse(text) === collapse(rawLines[l - 1])) e.verbatim++;
+    else e.firsthand++;
+  }
+}
 const artifact = {
   slug,
-  model: MODEL,
+  models: MODELS,
   tool: 'tools/greek-runs.mjs — the GREEK the scan read as Latin lookalikes, read off the PAGE images (the leaves this edition holds), samples agreed',
   method: table.placed.join('; '),
   samples,
+  targets: LINES_ONLY ? { file: linesFile, count: LINES_ONLY.size, lines: [...LINES_ONLY].sort((a, b) => a - b) } : null,
   vocab: vocabFile,
   runs: runs.length,
   latinReported: latin.map((r) => ({ line: r.line, text: r.text })),
@@ -838,6 +934,7 @@ const artifact = {
   findings,
   open,
   agreedNoRule,
+  echo: Object.fromEntries(echo),
   stats,
 };
 writeFileSync(outFile, `${JSON.stringify(artifact, null, 1)}\n`);
@@ -849,5 +946,8 @@ console.log(`  the page reads as the transcription has it: ${stats.same}`);
 console.log(`  STILL OPEN: ${open.length} (no two draws agreed: ${stats.noAgree}; nothing returned: ${stats.noReading}; the agreed reading is not Greek: ${stats.notGreek}; the reading is not anchored to this line: ${stats.unanchored}; not stateable as a repair: ${stats.guards})`);
 console.log(`  a find that is not in the served transcription: ${stats.notInServed}`);
 console.log(`  runs on leaves this edition does NOT hold (reported, not read): ${unplaced.length}`);
+console.log('--- what each model actually did ---');
+for (const [m, e] of echo) console.log(`  ${m}: ${e.draws} draw(s), ${e.verbatim} returned the transcription's own line verbatim (${(100 * e.verbatim / Math.max(1, e.draws)).toFixed(1)}%), ${e.firsthand} read something else`);
+console.log(`  findings read by ONE model twice: ${findings.filter((f) => (f.agreeModels || []).length === 1).length} of ${findings.length}; by two models: ${findings.filter((f) => (f.agreeModels || []).length > 1).length}`);
 if (argv.includes('--verbose')) console.log(findings.map((f) => `     ${JSON.stringify(f.find)} -> ${JSON.stringify(f.replace)}`).join('\n'));
 console.log(`  artifact: ${outFile}`);

@@ -173,7 +173,11 @@ section('the whole scan is stored — every leaf of the run, contiguous');
   const RANGE = {
     'proclus-elements-of-theology-taylor-1816': { '': [806, 946] },
     'porphyry-on-the-cave-of-the-nymphs-taylor-1917': { '': [0, 71] },
-    'proclus-theology-of-plato-taylor-1816': { 'v1-': [76, 500], 'v2-': [506, 804] },
+    /* The Theology's FRONT MATTER is stored without a volume prefix (`n0.jpg` ..
+     * `n75.jpg`) because those leaves carry no printed page — the record gives
+     * them their own run with no offset (scan.json). Their prefix is therefore ''
+     * and they are checked as their own contiguous run, exactly as a volume is. */
+    'proclus-theology-of-plato-taylor-1816': { '': [0, 75], 'v1-': [76, 500], 'v2-': [506, 804] },
   };
   for (const [slug, ranges] of Object.entries(RANGE)) {
     if (!editions.some((e) => e.slug === slug)) continue;
