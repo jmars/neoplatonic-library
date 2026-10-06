@@ -563,6 +563,17 @@ const TEXT_RULES = {
     opener: 'recorded',
     // the recorded model, loaded and verified against this edition's bytes
     divisionModel: true,
+    /* THE TITLE: the cap cuts it, the punctuation does not. This print's chapters
+     * open with a discourse connective — 'In the next place, let us …' opens
+     * THIRTEEN of the 215 divisions — so the punctuation stop collapses those
+     * thirteen into one title at every cap (MEASURED on the recorded model's own
+     * opening lines: 202 distinct titles at each of 8, 10, 12, 15, 20, 30 and 50
+     * with the stop on, 215 at 11 with it off). The cap is therefore raised to the
+     * smallest that distinguishes all 215 (MEASURED with the stop off: 195 at 4,
+     * 207 at 5, 210 at 6, 214 at 7-10, 215 at 11) and the stop is turned off for
+     * this text alone. */
+    titleWords: 11,
+    titleStop: 'cap',
     /* NO `damageExclude` HERE, deliberately. The same press's asterisk footnote
      * marker and ampersand are the Elements' own measurement, and an `exclude`
      * has to agree with THIS edition's `repairs.json` damage set — which is the
@@ -1135,14 +1146,25 @@ function reconcile(markers, cfg = {}) {
  * page (MEASURED: nothing between the title page and the first division), so
  * the table of contents is generated apparatus and the title is honestly
  * derived from the text, not taken from the edition. */
-export function sectionTitle(text, cap = 8) {
+export function sectionTitle(text, cap = 8, stopAtPunctuation = true) {
   const words = text.split(' ').filter((w) => w !== '');
   const max = Math.min(words.length, cap);
   let cut = max;
-  for (let i = 2; i < max; i++) {
-    if (/[,.;:?!]$/.test(words[i])) {
-      cut = i + 1;
-      break;
+  /* THE PUNCTUATION STOP IS PER-TEXT (`titleStop`), not universal. It makes a
+   * title the shortest natural phrase where the print's openers ARE sentences
+   * (the Cave's `1. What does Homer…`) — but a text whose chapters open with a
+   * discourse connective is collapsed by it: Taylor's 1816 Theology opens
+   * THIRTEEN of its 215 divisions with 'In the next place, let us …', and the
+   * stop gives all thirteen the one title 'In the next place' at EVERY cap
+   * (MEASURED: 202 distinct titles at each of 8, 10, 12, 15, 20, 30 and 50).
+   * Where the text declares `titleStop: 'cap'`, the cap alone cuts the title and
+   * the contents list distinguishes its divisions again. */
+  if (stopAtPunctuation) {
+    for (let i = 2; i < max; i++) {
+      if (/[,.;:?!]$/.test(words[i])) {
+        cut = i + 1;
+        break;
+      }
     }
   }
   const title = words.slice(0, cut).join(' ').replace(/[,.;:?!]+$/, '');
@@ -2215,7 +2237,7 @@ export function extract(src, meta) {
    * damaged after correction is marked `damaged` and the entry names the words: it
    * is NEVER repaired by inventing a reading. */
   const titleCap = cfg.titleWords || 8;
-  const titleOf = (text) => sectionTitle(text, titleCap);
+  const titleOf = (text) => sectionTitle(text, titleCap, cfg.titleStop !== 'cap');
   // the roman shape's own label line: stripped whole, so the title is the
   // statement's words rather than the label repeated 211 times. The test is on
   // the CORRECTED line — the opener rules have repaired the mangled label by

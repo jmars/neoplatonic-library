@@ -64,7 +64,7 @@ import { fileURLToPath } from 'node:url';
  * (MEASURED: 8,577 of 42,410 non-blank transcription lines are changed by it, and
  * a `find` taken before it is dropped by the merge as "not in the served
  * transcription"). One definition, so the two cannot drift. */
-import { tidyPunctuation } from './extract.mjs';
+import { tidyPunctuation, sha256 } from './extract.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ENDPOINT = 'http://10.0.0.1:8321/v1/chat/completions';
@@ -295,22 +295,39 @@ function placeLine(text) {
 /** `null` when the item's xml is not on disk; else a line -> {vol,n} mapper. */
 function leafTable() {
   if (!xmlDir || !existsSync(xmlDir)) return null;
-  const names = readdirSync(xmlDir).filter((n) => n.endsWith('_djvu.xml') || n.endsWith('.xml'));
+  /* ONLY A `_djvu.xml` IS AN ITEM'S TEXT LAYER: the same directory holds
+   * `_scandata.xml`, which is page geometry and carries no lines. */
+  const names = readdirSync(xmlDir).filter((n) => n.endsWith('_djvu.xml'));
   const items = ((JSON.parse(readFileSync(join(EDITION, 'scan.json'), 'utf8')).items) || []);
   const pairs = [];
   const placed = [];
   for (const it of items) {
     const prefix = it.prefix || '';
-    /* THE FILE FOR AN ITEM: its archive id in the name, else the volume prefix
-     * standing as its own token (`v1.xml` for the item of prefix `v1`), else a
-     * lone xml for a lone item. */
-    const name =
-      names.find((n) => n.includes(it.archive_id)) ||
-      names.find((n) => new RegExp(`(^|[^a-z0-9])${prefix}([^a-z0-9]|$)`).test(n)) ||
-      (items.length === names.length ? names[items.indexOf(it)] : null);
+    /* THE FILE FOR AN ITEM. Its archive id in the name where the derivative
+     * carries one; else the item's own `_djvu.txt` found by the sha256 the
+     * edition's scan.json records (the text beside the xml IS that file, so a
+     * match proves the two are the same upload); else the volume prefix standing
+     * as its own token; else a lone xml for a lone item.
+     *
+     * MEASURED after the re-source: Taylor's 1816 Theology of Plato is ONE item
+     * (`thomastaylor`) entered TWICE, once per printed volume, and that item's
+     * derivative is named after the uploaded FILE, not the item
+     * (`elementsoftheology_proclus_djvu.xml`) -- so the name match finds nothing
+     * and the sha of the sibling text is what identifies it. */
+    let name = names.find((n) => n.includes(it.archive_id)) || null;
+    if (!name && it.whole_sha256) {
+      const txt = readdirSync(xmlDir).find((n) => n.endsWith('_djvu.txt') && sha256(readFileSync(join(xmlDir, n))) === it.whole_sha256);
+      if (txt) name = names.find((n) => n === txt.replace(/_djvu\.txt$/, '_djvu.xml')) || null;
+    }
+    if (!name) name = names.find((n) => new RegExp(`(^|[^a-z0-9])${prefix}([^a-z0-9]|$)`).test(n)) || (items.length === names.length ? names[items.indexOf(it)] : null);
     if (!name) continue;
+    /* THE ITEM'S OWN LEAF RUN, where scan.json gives one: two entries can name
+     * the SAME item (one scan, two volumes), and without the bound every leaf of
+     * that scan would be mapped to BOTH volumes. */
+    const lo = Array.isArray(it.leaves) ? it.leaves[0] : -Infinity;
+    const hi = Array.isArray(it.leaves) ? it.leaves[1] : Infinity;
     for (const o of parseDjvu(readFileSync(join(xmlDir, name), 'utf8'))) {
-      if (o.leaf == null) continue;
+      if (o.leaf == null || o.leaf < lo || o.leaf > hi) continue;
       for (const l of o.lines) {
         const raw = placeLine(l);
         if (raw == null) continue;

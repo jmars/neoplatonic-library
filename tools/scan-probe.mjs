@@ -164,13 +164,16 @@ section('the whole scan is stored — every leaf of the run, contiguous');
 {
   /* PER VOLUME, where a work is cut from more than one item: the prefix names the
    * volume and each volume's run is checked on its own — MEASURED, Taylor's
-   * Theology of Plato is cut from TWO items (v1: leaves 74-498 of vol. I; v2:
-   * leaves 1-297 of vol. II, over printed pages 1-299), and the two runs OVERLAP
-   * in number (both serve an n74), so a single range check would be meaningless. */
+   * Theology of Plato is cut from ONE item over the two volumes of the print
+   * (v1: that item's leaves 76-500, printed pp. 1-425; v2: its leaves 506-804,
+   * printed pp. 1-299), and the two runs are the two halves of a work whose pages
+   * restart at 1 in vol. II, so a single range check would be meaningless. The
+   * leaves between the runs (501-505) are the copy's own end matter and the
+   * volume title page, and are not part of the work. */
   const RANGE = {
     'proclus-elements-of-theology-taylor-1816': { '': [806, 946] },
     'porphyry-on-the-cave-of-the-nymphs-taylor-1917': { '': [0, 71] },
-    'proclus-theology-of-plato-taylor-1816': { 'v1-': [74, 498], 'v2-': [1, 297] },
+    'proclus-theology-of-plato-taylor-1816': { 'v1-': [76, 500], 'v2-': [506, 804] },
   };
   for (const [slug, ranges] of Object.entries(RANGE)) {
     if (!editions.some((e) => e.slug === slug)) continue;

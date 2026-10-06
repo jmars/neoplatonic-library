@@ -120,10 +120,29 @@ section('a word query reaches every passage the word stands in');
 
 section('a ~word one edit out finds the corrected word');
 {
-  const exact = new Set(Search.queryShelf('proclus', {}).results.map((x) => x.p));
-  const fuzzy = new Set(Search.queryShelf('~proculs', {}).results.map((x) => x.p));
-  check(exact.size > 0, `"proclus" returns ${exact.size} passage(s)`);
-  check(exact.size === fuzzy.size && [...exact].every((p) => fuzzy.has(p)), '~proculs returns the same passages as proclus (one edit: a swap)');
+  /* THE WORD QUERY IS A PREFIX QUERY (the client's own rule, §above) and the
+   * one-edit query is a WORD query: they answer different questions, and the
+   * difference is real rather than a defect. MEASURED after the re-source: the
+   * new transcription glues two words on vol. II's title page as one token
+   * ('PROCLUSplatonic'), which the prefix query rightly reaches and the one-edit
+   * query rightly does not — so the property that holds is:
+   *   every passage the one-edit query finds is one the prefix query finds
+   *   (fuzzy ⊆ prefix), AND
+   *   every passage that holds the word ITSELF is found by the one-edit query
+   *   (word ⊆ fuzzy).
+   * Asserting set EQUALITY to the prefix query, as this check used to, would
+   * assert that the fuzzy query reaches a word it must not: a longer token that
+   * merely begins with the word. */
+  const prefix = passagesWithPrefix('proclus');
+  const word = passagesWithWord('proclus');
+  /* THE FULL LIST, not the page's first page of it: the query's own cap is a
+   * display rule, and this check is about which passages match at all. */
+  const fuzzy = new Set(Search.queryShelf('~proculs', { limit: 100000 }).results.map((x) => x.p));
+  check(word.size > 0, `the word itself stands in ${word.size} passage(s)`);
+  const outside = [...fuzzy].filter((p) => !prefix.has(p));
+  check(outside.length === 0, `~proculs returns the ${fuzzy.size} passage(s) the prefix query also returns (${outside.length} outside it)`);
+  const missed = [...word].filter((p) => !fuzzy.has(p));
+  check(missed.length === 0, `and every passage holding the word itself is one of them (${missed.length} missed)`);
 }
 
 section('a pattern is matched against the words themselves');

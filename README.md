@@ -60,6 +60,31 @@ The build needs only Node — no pandoc, no framework. Verify with the probes in
 `leak-probe`, `exports-probe`, `version-probe`, `repair-id-probe`,
 `standalone-probe`, `library-smoke`, `library-extract-smoke`, `library-app-smoke`).
 
+## Adding a text
+
+**Find as many copies as exist — scans, transcriptions, other printings of the
+same edition — measure their OCR, and build on the cleanest one.** Hold the
+others as witnesses.
+
+This is not optional polish. A book added from the first copy to hand was later
+found to be built on the weakest of four scans of the same 1816 print — 85%
+plausible tokens against 97% for the best. The reading view came out
+unreadable — `"…{ ireames against the bertien 9 dat nee 0 Valet…"` where a
+better copy reads *"Indeed, that after the great incomprehensible cause of all,
+a divine multitude subsists…"* — and a day of repair could not fix it, because
+**repair cannot recover a bad base.** The copy chosen also becomes the edition's
+scans, so it is a data decision as much as a textual one.
+
+**Check coverage, not just quality.** In that case the two cleanest copies
+turned out to carry only the first volume; the cleanest copy of the *whole* work
+was a third scan. Score every candidate, then keep the ones that carry what the
+edition needs — the others are witnesses, and any part no clean copy carries has
+to be sourced from the best copy that does.
+
+The test is cheap: sample a few hundred thousand characters from the middle of
+each candidate and score the share of word-shaped tokens. It separates the copies
+in seconds, and it should be run **before** anything is imported.
+
 ## Licence
 
 The transcriptions are **public-domain** works. The editorial work — repairs,

@@ -328,15 +328,25 @@ export const TEXTS = [
     // VOL. I.'), vol. II opens on the continuation of that chapter and runs the
     // work to its close at printed p. 299. Vol. II then carries ANOTHER work —
     // the Elements of Theology, pp. 301-441, which is served here as its own
-    // edition — and the treatises after it. This entry is the FIRST work alone:
-    // the stored source.txt is vol. I entire followed by vol. II only as far as
-    // the Theology runs, cut at the measured line (vol. II line 40786, the close
-    // of CHAP. LI). The range and its measurement are in the edition's
-    // import.json and scan.json.
-    // `file` names the FIRST of this entry's TWO shelf sources (vol. I); the
-    // served transcription is that file followed by the Theology portion of
-    // 'Proclus-Theology-of-Plato-Taylor-Vol-2-1816'. Both are recorded, with
-    // their line ranges and checksums, in the edition's import.json.
+    // edition — and the treatises after it. This entry is the FIRST work alone.
+    //
+    // RE-SOURCED 2026-10-05, and this entry used to say otherwise: the stored
+    // source.txt is NO LONGER these two shelf transcriptions concatenated. It is
+    // the text layer of ONE archive item, `thomastaylor` — the same item the
+    // Elements edition is cut from, the two volumes bound in one scan — over its
+    // `elementsoftheology_proclus_djvu.txt` lines 1-40344, the work entire to its
+    // close. The superseded two-volume text read 85.2% of its tokens as
+    // dictionary words against 97.4% for this one over the same work span
+    // (MEASURED; every candidate copy's own score is in the edition's
+    // witnesses.json note), and repair cannot recover a bad base. The range, the
+    // whole-file checksum and the slice checksum are in the edition's
+    // import.json (`extract.sources`) and its version meta.json.
+    //
+    // `file` names the vol. I shelf transcription. It is no longer the served
+    // source — that is the item's slice above — but the pipeline reads it as the
+    // FALLBACK source for an edition with no stored one (`imported || shelfFile`),
+    // and both volume transcriptions are held as WITNESSES of the print, recorded
+    // with their checksums in the edition's witnesses.json.
     file: 'Proclus-Theology-of-Plato-Taylor-Vol-1-1816',
     title: 'On the Theology of Plato',
     author: 'Proclus',
@@ -345,12 +355,16 @@ export const TEXTS = [
     lang: 'en',
     edition:
       'The Six Books of Proclus on the Theology of Plato, translated by Thomas Taylor, 2 vols (London: printed for the author, 1816). This edition serves the Theology of Plato alone, over the two volumes the print gives it: vol. I entire, and vol. II only as far as the Theology runs in it (its printed pages 1-299).',
-    // TWO archive.org identifiers, not one: the work is cut from two volumes and
-    // so from two scans. They are recorded (with their leaves and their measured
-    // arithmetic) in data/editions/<slug>/scan.json, which is where the fetch
-    // reads them; the shelf keeps no `item` because there is no single one, and
-    // the stored leaf file names carry their volume's prefix (v1-nNNN.jpg /
-    // v2-nNNN.jpg) so the two leaf spaces cannot collide.
+    // ONE archive.org identifier NOW, where this entry used to carry none: the
+    // work is cut from a single item, `thomastaylor` — the two volumes bound in
+    // one scan — so this is the same shape the Elements edition beside it has.
+    // The item, its two page runs, their measured offsets and the superseded
+    // two-item range are recorded in data/editions/<slug>/scan.json, which is
+    // where the fetch reads them; the shelf's `item` is the archive.org
+    // identifier the slice was carved from. The stored leaf file names still
+    // carry their volume prefix (v1-nNNN.jpg / v2-nNNN.jpg) because a leaf's
+    // volume is part of its identity in the item: one item, two runs of pages.
+    item: 'thomastaylor',
     cat: ['proclus-theology-of-plato'],
     // PUBLISHED, and served IN REPAIR, and this is a CORRECTION: this entry stood
     // at `repaired` (commit 8426b4e) and that was an overclaim. `repaired` is the

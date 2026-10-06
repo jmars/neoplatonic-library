@@ -2,33 +2,6 @@
   "slug": "proclus-theology-of-plato-taylor-1816",
   "witnesses": [
     {
-      "name": "proclus-taylor-elements-theology-and-theology-of-plato-1816",
-      "shelf": "Proclus-Taylor-Elements-Theology-and-Theology-of-Plato-1816.txt",
-      "sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
-      "bytes": 2493500,
-      "why": "the same 1816 edition transcribed a second time — Taylor's Six Books on the Theology of Plato (1816) as the shelf holds it whole, with the Elements of Theology and the treatises; the shelf records it as a second transcription of the same print, MEASURED (sampled 40-letter runs from every part of both volumes stand in it at a uniform rate), and it is the witness a reading of this edition is checked against",
-      "imported": "2026-10-05",
-      "model": {
-        "item": "thomastaylor",
-        "xml": "elementsoftheology_proclus_djvu.xml",
-        "xml_sha256": "57af980917dc8dcc9a1d1529bf27c7cddfbc63382fe6f9a886aae50ca2b2d738",
-        "covers": {
-          "v1": 75,
-          "v2": 505
-        },
-        "leaves": [
-          74,
-          801
-        ],
-        "pages": [
-          1,
-          425
-        ],
-        "images": 1066,
-        "why": "MEASURED: this is the copy already held as the second transcription above, and the item it comes from carries the whole 1816 edition in one scan of 1066 leaves, so it covers BOTH volumes of this work. Its own running heads give a different offset per volume: vol. I’s heads give printed page = leaf − 75 (144 heads), and vol. II’s give printed page = leaf − 505 (106 heads) — leaf 510 reads “CHAP. II. OF PLATO. 5” and leaf 515 “10 ON THE THEOLOGY BOOK VI.” The vol. II offset is the one this library already recorded for the Elements of Theology in the same item (archive n = printed page + 505, verified at both ends of that work). So a vol. II page of this work stands at archive leaf = printed page + 505."
-      }
-    },
-    {
       "name": "sixbooksproclus00unkngoog-djvu",
       "shelf": "sixbooksproclus00unkngoog_djvu.txt",
       "sha256": "d10369022f6ae8eeab5f05a18eab73fb30cad96f7383c27c05ebf76142fa3456",
@@ -79,6 +52,22 @@
         "images": 508,
         "why": "MEASURED: the item is a second independent copy of vol. I of the same print (printed pp. 1-425): leaf 78 is the title page, leaf 79 opens “2 ON THE THEOLOGY BOOK I.”, and its running heads run to BOOK V. Its own page-number pass (_page_numbers.json, confidence 83.4) puts printed page = leaf − 77 on every one of its 430 numbered leaves, and the leaves’ own running heads agree — 72 of the 84 heads that carry a printed page give exactly that offset, the rest being digits the OCR mangled (“4C” for 46). So this copy’s archive leaf = printed page + 77, i.e. its leaf = this edition’s leaf + 4."
       }
+    },
+    {
+      "name": "proclus-theology-of-plato-taylor-vol-1-1816",
+      "shelf": "Proclus-Theology-of-Plato-Taylor-Vol-1-1816.txt",
+      "sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
+      "bytes": 1118118,
+      "why": "the transcription this edition SERVED until 2026-10-05 (vol. I): the item 'taylor-theology-of-plato-en-t.-1-1816' is an independent scan of the same 1816 print, and its text is the junk OCR the edition was re-sourced OFF. Held as a witness because it is an independent transcription of the same print, and because the 8,564 retired repair rules were derived against these bytes -- with its readings recorded here, a rule's evidence can still be re-checked. MEASURED over printed pp. 1-425: 85.5% of its tokens are dictionary words, against 97.6% for bub_gb_svwwAQAAMAAJ and 97.3% for the copy that is now the source, so where it disagrees with those two it is the copy that is wrong.",
+      "imported": "2026-10-05"
+    },
+    {
+      "name": "proclus-theology-of-plato-taylor-vol-2-1816",
+      "shelf": "Proclus-Theology-of-Plato-Taylor-Vol-2-1816.txt",
+      "sha256": "d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff",
+      "bytes": 1281618,
+      "why": "the transcription this edition SERVED until 2026-10-05 (vol. II, printed pp. 1-299 to the work's close): the item 'taylor-theology-of-plato-en-t.-2-1816' is an independent scan of the same 1816 print. It is the ONLY other copy of these pages this library holds -- Books VI-VII stand in no other copy but the source -- so for that part of the work it is the only independent witness there is, MEASURED at 84.9% of its tokens being dictionary words against the source copy's 97.5%.",
+      "imported": "2026-10-05"
     }
   ]
 }

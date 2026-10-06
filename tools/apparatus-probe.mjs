@@ -1021,16 +1021,24 @@ for (const SLUG of VIEWER_EDITIONS) {
  * MEASURED 2026-10-05, and no longer hypothetical: Taylor's Theology of Plato was
  * the edition in this state — its readings were decided from a full read of the
  * transcription and its witness, never from a page image, so 0 of its 722 stored
- * leaves carried one. Its open questions have since been worked against the page
- * images and its readings cite leaves now, as every served edition's do. The
- * landing rule must answer the state all the same, so this section runs on the
- * real edition when the shelf holds one, and falls back to a DOCTORED data file
- * (every held-leaf evidence entry removed) on a shelf where every edition cites a
- * leaf — which is the shelf now. */
+ * leaves carried one. The landing rule must answer the state all the same, so
+ * this section runs on the real edition when the shelf holds one, and falls back
+ * to a DOCTORED data file (every held-leaf evidence entry removed) when no served
+ * edition is in that state.
+ *
+ * THE THIRD STATE IS NOT THIS ONE, and the two must not be confused: an EDITION
+ * WITH NO RULES AT ALL carries no reading on any leaf either, but its landing is
+ * the whole log and its panel STATES that nothing is recorded yet. MEASURED after
+ * the re-source: Taylor's Theology of Plato carries `rules: []`, so this section
+ * takes the doctored path on an edition whose log is not empty, and the empty log
+ * is checked on its own below. */
 section('with no leaf carrying a reading the viewer lands on the readings with no page image');
 {
-  const real = VIEWER_EDITIONS.find((s) => !seen.get(s).data.leaves.some((l) => l.readings));
-  const SLUG = real || VIEWER_EDITIONS[0];
+  const real = VIEWER_EDITIONS.find((s) => {
+    const d = seen.get(s).data;
+    return d.rules.length > 0 && !d.leaves.some((l) => l.readings);
+  });
+  const SLUG = real || VIEWER_EDITIONS.find((s) => seen.get(s).data.rules.length > 0);
   const { data } = seen.get(SLUG);
   const stripped = real
     ? null
@@ -1054,6 +1062,39 @@ section('with no leaf carrying a reading the viewer lands on the readings with n
     `${real ? `no stored leaf of ${SLUG} carries a reading` : 'the first leaf with readings being none'}, the landing is the no-image group (${sel ? sel.id : 'none'})`);
   check(ctx.w.document.querySelectorAll('#app-panel li.app-compact-row').length > 0,
     'and the panel carries the readings themselves — not an empty state');
+}
+
+/* ---------- §4f THE EMPTY LOG IS A STATE, NOT AN EMPTY PANEL ----------
+ *
+ * An edition published in repair carries `rules: []` (Taylor's Theology of Plato
+ * does, after its re-source onto the cleaner scan: the rules derived against the
+ * superseded transcription are retired and the read over the new text has not run
+ * yet). The apparatus must answer that state without pretending: the landing is
+ * the WHOLE LOG — there is no leaf and no no-image group to land on — and the
+ * panel states what the version holds and what it does not. */
+section('an edition with no rules at all lands on the whole log and says so');
+{
+  const empty = VIEWER_EDITIONS.find((s) => seen.get(s).data.rules.length === 0);
+  if (!empty) {
+    check(true, 'no served edition carries an empty repair log — the state is not on this shelf');
+  } else {
+    const { data } = seen.get(empty);
+    const ctx = await boot(empty);
+    const sel = ctx.w.document.querySelector('#app-leaves .app-leaf.selected');
+    check(!!sel && sel.id === 'leaf-all',
+      `${empty} carries no readings at all, so the landing is the whole log (${sel ? sel.id : 'none'})`);
+    const panel = ctx.text('#app-panel');
+    check(/carries NO recorded repairs yet/.test(panel),
+      'and the panel STATES the state rather than showing an unexplained empty list');
+    const page = readFileSync(join(ROOT, 'site', 'dist', 'texts', empty, 'apparatus', 'index.html'), 'utf8');
+    check(/No repairs are recorded for this version yet/.test(page),
+      'and the served page carries the same state in its own words, before the viewer runs');
+    check(ctx.w.document.querySelectorAll('#app-panel li.apparatus-entry').length === 0 &&
+      ctx.w.document.querySelectorAll('#app-panel li.app-compact-row').length === 0,
+      'and it shows no reading, because the version records none');
+    check(data.leafCount > 0 && !/No page image is stored with this edition/.test(panel),
+      `and it names the scan it DOES hold (${data.leafCount} leaf/leaves) instead of claiming there is none`);
+  }
 }
 
 /* ---------- §5 a failed fetch leaves the statement, and says so ---------- */

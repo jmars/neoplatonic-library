@@ -11,28 +11,36 @@
     "imprint": null
   },
   "scan_source": {
-    "archive_id": "taylor-theology-of-plato-en-t.-1-1816",
-    "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-1-1816/",
-    "whole_sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
+    "archive_id": "thomastaylor",
+    "url": "https://archive.org/download/thomastaylor/",
+    "whole_sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
     "items": [
       {
-        "archive_id": "taylor-theology-of-plato-en-t.-1-1816",
-        "role": "vol. I (the work entire, printed pp. 1-425)",
+        "archive_id": "thomastaylor",
+        "volume": "vol. I",
+        "role": "vol. I, the work entire (printed pp. 1-425, to Book V ch. XXXIX)",
         "prefix": "v1",
-        "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-1-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.1%2C%201816_djvu.txt",
-        "whole_sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
-        "leaves": [74, 498]
+        "url": "https://archive.org/download/thomastaylor/",
+        "whole_sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+        "leaves": [
+          76,
+          500
+        ]
       },
       {
-        "archive_id": "taylor-theology-of-plato-en-t.-2-1816",
-        "role": "vol. II, the Theology alone (printed pp. 1-299)",
+        "archive_id": "thomastaylor",
+        "volume": "vol. II",
+        "role": "vol. II, the Theology alone (printed pp. 1-299, Books VI-VII to the work's close CHAP. LI)",
         "prefix": "v2",
-        "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-2-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.2%2C%201816_djvu.txt",
-        "whole_sha256": "d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff",
-        "leaves": [1, 297]
+        "url": "https://archive.org/download/thomastaylor/",
+        "whole_sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+        "leaves": [
+          506,
+          804
+        ]
       }
     ],
-    "note": "TWO archive items, not one: Taylor's 1816 edition divides the work over two volumes, so the scans are the two volume items' own leaves over the pages the work occupies in each (vol. I leaves 74-498 = printed pp. 1-425; vol. II leaves 1-297 = printed pp. 1-299). The stored leaf file names carry the volume's prefix -- v1-nNNN.jpg, v2-nNNN.jpg -- because the two items' leaf numbers run over each other and an unprefixed name would collide; a rule's evidence file/url carries the same prefix. `archive_id`, `url` and `whole_sha256` here name the FIRST item (vol. I) only, because the model's field is single-valued: `items[]` carries both in full, and the whole record with the measured leaf arithmetic is in the edition's scan.json."
+    "note": "ONE archive item, TWO printed volumes of the work -- re-sourced 2026-10-05. Taylor's 1816 edition divides the work over two volumes (vol. I printed pp. 1-425 to Book V ch. XXXIX; vol. II printed pp. 1-299, Books VI-VII to the work's close), and BOTH are bound in one scanned item, `thomastaylor`, so the scans are that one item's own leaves over the two runs of pages the work occupies in it: v1-n76.jpg .. v1-n500.jpg and v2-n506.jpg .. v2-n804.jpg. The stored leaf file names carry the VOLUME prefix because the two runs are the two halves of one work whose pages restart at 1 in vol. II, and because a rule's evidence file/url is written the same way; the ITEM is the same for both, and `items[]` says so. The item's next work begins at n805 (the Elements of Theology, printed pp. 301-441 -- its own edition in this library, cut from this same item at n806-n946), so the leaves after n804 belong to another work. The measured leaf arithmetic, verified at both ends of each run, is in the edition's scan.json, which this record summarises."
   },
   "current_version": "1.0.0",
   "licence": {

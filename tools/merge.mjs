@@ -21,7 +21,11 @@
  *   - write a bracket glyph the print does not use (a `replace` that introduces
  *     `[`/`]` where the find has none is the PARALLEL's glyph, MEASURED: the 1917
  *     print sets Taylor's brackets as parentheses, 91 "(" against 0 "[");
- *   - keep a rule whose find the transcription does not carry verbatim.
+ *   - keep a rule whose find the transcription does not carry verbatim;
+ *   - keep a rule that resolves a damage character standing INSIDE a word by
+ *     deletion alone — the extractor's reading policy (extract.mjs
+ *     `checkReadingPolicy`, re-run over the finished file here) refuses it, and the
+ *     drop is named like every other.
  *
  * WRITES ONLY the version's rule file
  * (`data/editions/<slug>/versions/<semver>/repairs.json`, model §4.3), and only
@@ -36,7 +40,7 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { applyEditsCounted, extract, frontMatterText, readEdition, sha256, editsPath, repairsPath, versionOf } from './extract.mjs';
+import { applyEditsCounted, checkReadingPolicy, extract, frontMatterText, isPureDeletion, loadBasePolicy, readEdition, sha256, editsPath, repairsPath, versionOf } from './extract.mjs';
 import { TEXTS } from './shelf.mjs';
 
 const args = process.argv.slice(2);
@@ -133,6 +137,19 @@ const parallelLabel = (() => {
 const DAMAGE = new Set('^_~*/£>\\|#™±»«}{&');
 const hasBracket = (s) => s.includes('[') || s.includes(']');
 
+/** The in-word half of the extractor's reading policy, mirrored so a single
+ *  candidate can be dropped instead of the whole file being refused by the throw.
+ *  It walks the find for a damage character with a LETTER on each side and, at the
+ *  first one, asks `isPureDeletion` (imported, not re-implemented). The authority
+ *  is re-run over the finished file below, so a drift here cannot ship. */
+const inWordDeletion = (find, replace) => {
+  for (let i = 1; i < find.length - 1; i++) {
+    if (!DAMAGE.has(find[i])) continue;
+    if (/[A-Za-z]/.test(find[i - 1]) && /[A-Za-z]/.test(find[i + 1])) return isPureDeletion(find, replace);
+  }
+  return false;
+};
+
 const drop = []; // { finding, why }
 const candidates = [];
 
@@ -173,6 +190,22 @@ for (const f of findings) {
   }
   // a replace that still carries a damage character would assert damaged print
   if ([...replace].some((c) => DAMAGE.has(c)) && ![...find].some((c) => DAMAGE.has(c))) { drop.push([f, 'the replacement still carries a damage character']); continue; }
+  /* THE READING POLICY, extract.mjs's own (`checkReadingPolicy`), run HERE because
+   * the extractor throws on the whole FILE: a rule may not resolve a damage
+   * character standing INSIDE a word by deletion alone, because the mechanism
+   * cannot tell the print's word ("therefore") from a marker glued into one
+   * ("there*fore" -> "therefore" is exactly the silent repair the policy exists to
+   * refuse). MEASURED on the re-read of the clean base: 4 findings — "there*fore",
+   * "u^ndefiled", "pro*ceed", "above-men*tioned" — every one decided from the
+   * transcription's own context, with no parallel and no page image. The extractor
+   * names two alternatives: record the print's word so the replace is not a bare
+   * deletion, or record a `review` rule and let the damage show. Neither is a
+   * reading this merge can mint — the first is unrepresentable (the print's word
+   * IS the deletion) and a `review` rule here would change nothing while the site
+   * already names every such word in the reader's list of DAMAGED WORDS LEFT
+   * VISIBLE — so the candidate is DROPPED and named, like every other refusal, and
+   * the finding stands in the read's own artifact. */
+  if (inWordDeletion(find, replace)) { drop.push([f, 'a damage character inside a word resolved by deletion alone — the reading policy refuses it (extract.mjs checkReadingPolicy)']); continue; }
 
   candidates.push({ find, replace, class: f.kind === '1' || f.kind === '2' || f.kind === '3' ? 'reading' : 'reading', note: note(f), _f: f });
 }
@@ -456,13 +489,24 @@ for (let b = 0; b < base.length; b++) {
   const hits = curation2[b].hits;
   if (hits.size) { rhits[b] = hits; for (const [i, n] of hits) rtotal[i] += n; }
 }
+/* THE REVERSE INDEX, so `affected` can be widened past the blocks that already
+ * carry a find (see `creates` below): candidate -> the blocks it fires in. */
+const cblocks = new Map();
 function untotal(b) {
   const c = chits[b];
-  if (c) for (const [o, n] of c) ctotal.set(o, (ctotal.get(o) || 0) - n);
+  if (c) for (const [o, n] of c) {
+    ctotal.set(o, (ctotal.get(o) || 0) - n);
+    cblocks.get(o).delete(b);
+  }
 }
 function total(b) {
   const c = chits[b];
-  if (c) for (const [o, n] of c) ctotal.set(o, (ctotal.get(o) || 0) + n);
+  if (c) for (const [o, n] of c) {
+    ctotal.set(o, (ctotal.get(o) || 0) + n);
+    let s = cblocks.get(o);
+    if (!s) cblocks.set(o, (s = new Set()));
+    s.add(b);
+  }
 }
 /** Recompute block `b` under the trial's ordered candidate list and leave the
  *  running totals carrying its new hits. `cur[b]` is the text the READING RULES
@@ -483,6 +527,32 @@ function recompute(b, list) {
 
 // Greedy: add candidates one at a time (longest first); keep each only if the
 // whole set still satisfies (a) every existing rule fires and (b) this candidate fires.
+/** CAN ONE ACCEPTED REPLACEMENT CREATE THIS FIND? An occurrence of `find` in a
+ *  block after the candidates run is either already in `cur[b]` (the head+reading
+ *  text, which the `affected` test below reads directly) or it SPANS THE EDGE of a
+ *  replacement. A span's part inside the replacement is a suffix of it (the find
+ *  starts inside and runs out) or a prefix of it (the find starts outside and ends
+ *  inside); `replace.includes(find)` covers an occurrence wholly inside. Both seam
+ *  tests are SUPERSETS — they compare against the find's own characters, not the
+ *  neighbour's — which is sound because a widened block is recomputed exactly.
+ *  MEASURED, the reason this exists: without it the incremental engine reported 1
+ *  where the from-scratch pass found 2 for three rules, and the write refused
+ *  (`"In, the next place" -> "In the next place,"` creates the `"place,,"` that
+ *  `"place,," -> "place,"` then consumes in the same block; `"prpcedaneously" ->
+ *  "procedaneously"` contains `"proced"`; `"up apparent" -> "super-apparent"`
+ *  contains `"super-"`), i.e. the running totals were short by exactly the
+ *  occurrences the candidates create for each other. */
+function creates(replace, find) {
+  if (replace.includes(find)) return true;
+  /* The occurrence can also run OUT beyond both edges of the replacement, in which
+   * case the replacement sits whole INSIDE the find (find "AXYB", replacement "XY":
+   * neither seam test sees it). */
+  if (replace && find.includes(replace)) return true;
+  for (let i = 1; i < find.length; i++) if (replace.endsWith(find.slice(0, i))) return true;
+  for (let j = 1; j < find.length; j++) if (replace.startsWith(find.slice(find.length - j))) return true;
+  return false;
+}
+
 let sortedAccepted = []; // `accepted` in `order()` order, kept by insertion
 for (const c of placed) {
   // where `c` lands in `order([...accepted, c])`: a stable sort by find length
@@ -493,7 +563,17 @@ for (const c of placed) {
   trial.splice(at, 0, c);
 
   const affected = [];
-  for (let b = 0; b < cur.length; b++) if (cur[b].includes(c.find)) affected.push(b);
+  const inAffected = new Set();
+  for (let b = 0; b < cur.length; b++) if (cur[b].includes(c.find)) { affected.push(b); inAffected.add(b); }
+  /* The blocks an accepted replacement could hand the find to — a candidate
+   * already placed AFTER `c` runs later and cannot affect `c`'s own count, so the
+   * trial's rule order is unchanged by widening this set. */
+  for (const d of sortedAccepted) {
+    if (!creates(d.replace, c.find)) continue;
+    const blocks = cblocks.get(d);
+    if (!blocks) continue;
+    for (const b of blocks) if (!inAffected.has(b)) { affected.push(b); inAffected.add(b); }
+  }
   const saved = affected.map((b) => [b, cur[b], rhits[b], chits[b]]);
   for (const b of affected) recompute(b, trial);
 
@@ -516,9 +596,17 @@ for (const c of placed) {
 /* ---------- the canonical rule (model §4.0-§4.3) ---------- */
 
 /* THE ID IS MINTED, never reused or renumbered (model §4.2): the next free
- * `<slug>:r<NNNN>` after the highest the file already carries. */
+ * `<slug>:r<NNNN>` after the highest the file already carries — or, where the
+ * file records one, after the ID FLOOR the edition has already spent. A
+ * re-sourced base retires its rules (`rules: []`, the transcription they were
+ * read against is gone) but it does NOT retire their ids: a reader who cited
+ * `r1804` off the old base must not find that id on a different rule afterwards,
+ * so the sequence continues and the floor is recorded in the file. MEASURED: this
+ * edition's retired rules ran to r8565 (commit 9be6edd), so its new rules start at
+ * r8566. */
 const idNum = (r) => Number((/:r(\d+)$/.exec(r.id) || [])[1] || 0);
-let nextId = rules.reduce((m, r) => Math.max(m, idNum(r)), 0);
+const idFloor = Number(rawFile.id_floor || 0) || 0;
+let nextId = rules.reduce((m, r) => Math.max(m, idNum(r)), idFloor);
 
 /** The characters by which two strings differ, as a multiset (a char present in
  * one and not the other). Kept in step with build/migrate.mjs's own classifier —
@@ -638,6 +726,14 @@ for (const m of mismatched.slice(0, 10)) console.log(`     ENGINE MISMATCH: ${m}
 if (deadExisting.length) console.log(`     DEAD EXISTING (would fail the build): ${deadExisting.map((r) => rFind(r)).join(' | ')}`);
 if (deadNew.length) console.log(`     DEAD NEW: ${deadNew.map((r) => rFind(r)).join(' | ')}`);
 if (args.includes('--verbose')) console.log(`  ACCEPTED:\n${newRules.map((r) => `     ${JSON.stringify(rFind(r))} -> ${JSON.stringify(rAfter(r))}`).join('\n')}`);
+
+/* THE AUTHORITY, over the file about to be written: the reading policy the
+ * EXTRACTOR runs (extract.mjs `checkReadingPolicy`) throws on the whole edition if
+ * any rule resolves an in-word damage character by deletion alone. The drop above
+ * is a MIRROR of it (one candidate at a time, where the authority takes the set),
+ * so the authority is asked here as the mirror's oracle — if the two ever drift,
+ * the merge fails instead of writing a file the build will refuse. */
+checkReadingPolicy(toEngine(outRules), slug, loadBasePolicy(), rawFile.damage);
 
 if (write) {
   if (deadExisting.length || deadNew.length) throw new Error('merge: refusing to write — the fire contract is not met');

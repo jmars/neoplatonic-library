@@ -2,37 +2,49 @@
   "slug": "proclus-theology-of-plato-taylor-1816",
   "shelf": null,
   "extract": {
-    "why": "The served transcription is the shelf's TWO volume transcriptions of Taylor's 1816 edition, concatenated: vol. I entire, then vol. II over the lines the Theology of Plato occupies in it. It is not a fresh transcription. The work stops where vol. II's own second work begins (the Elements of Theology, which has its own edition in this library), not where the treatises begin -- the measurement is recorded in scan.json, and the reasoning in edition.json.source_edition.statement.",
+    "why": "RE-SOURCED 2026-10-05: the served transcription is ONE archive item's own text layer over the lines the work occupies in it, not a fresh transcription and no longer the two volume items' text. The item is `thomastaylor`, the same scan the Elements of Theology edition in this library is cut from: its two volumes are bound in one scan of 1066 leaves, so ONE slice carries the work entire -- vol. I from its title page to printed page 425, then vol. II to the Theology's close on printed page 299. The slice ENDS where the other edition's slice BEGINS (line 40345 of the item's text is that edition's recorded line 1), so the two editions partition the item with no gap and no overlap, and the work stops at the Theology's own close (Book VII ch. LI) -- not where the treatises begin, which are outside the work, and not at the Elements, which has its own edition here. The measurement is recorded in scan.json, and the reasoning in edition.json.source_edition.statement.",
     "sources": [
       {
-        "role": "vol. I, the work entire (printed pp. 1-425)",
-        "from": "Proclus-Theology-of-Plato-Taylor-Vol-1-1816.txt",
-        "item": "taylor-theology-of-plato-en-t.-1-1816",
-        "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-1-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.1%2C%201816_djvu.txt",
-        "whole_sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
-        "whole_bytes": 1118118,
-        "whole_lines": 59784,
-        "lines": [1, 59784],
-        "sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
-        "bytes": 1118118
-      },
-      {
-        "role": "vol. II, the Theology of Plato alone (printed pp. 1-299)",
-        "from": "Proclus-Theology-of-Plato-Taylor-Vol-2-1816.txt",
-        "item": "taylor-theology-of-plato-en-t.-2-1816",
-        "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-2-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.2%2C%201816_djvu.txt",
-        "whole_sha256": "d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff",
-        "whole_bytes": 1281618,
-        "whole_lines": 72540,
-        "lines": [1, 40786],
-        "sha256": "1b0e974284bc684593181c38d100ea30e6129e2893fd60d420cbe66cac55ca66",
-        "bytes": 694627,
-        "stops": "The Theology's last text line is vol. II line 40786, the close of CHAP. LI (printed page 299). Vol. II's next work begins at line 40813 -- the Elements of Theology, Proposition I -- and the treatises (On Providence and Fate, whose text opens at line 58122; the Ten Doubts concerning Providence; the Subsistence of Evil) follow the Elements. Neither is cut from this source: the Elements has its own edition here, and the treatises are outside the work."
+        "role": "the work entire, over the two volumes the print gives it (vol. I printed pp. 1-425, vol. II printed pp. 1-299)",
+        "from": "elementsoftheology_proclus_djvu.txt",
+        "item": "thomastaylor",
+        "url": "https://archive.org/download/thomastaylor/elementsoftheology_proclus_djvu.txt",
+        "whole_sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+        "whole_bytes": 2493500,
+        "whole_lines": 55158,
+        "lines": [1, 40344],
+        "sha256": "748e58cef10981193585a101fcf67951cc3a37577eaf756f08399e343e1dd8bf",
+        "bytes": 1851974,
+        "slice_lines": 40344,
+        "slice_lines_with_text": 28444,
+        "stops": "The slice stops at line 40344 of the item's text. Line 40345 is the FIRST LINE OF ANOTHER WORK -- it is the line the Elements of Theology edition's own import.json records as its transcription's first (`THE ` of `THE ELEMENTS OF THEOLOGY`), so the boundary is the sibling edition's own recorded measurement and not an eyeballed page. What stands at the end of the slice is the Theology's closing page, the item's leaf 804 (`CHAP. LI. OF PLATO. 299`), and the last text line of the work is line 40338 ('...returning to the good, as to the preexisting object of desire.'); the digitizer's stamp line that follows it on the page run belongs to this slice and not to the Elements'.",
+        "why_this_copy": "CHOSEN BY MEASUREMENT, not by name: over the same work span this slice reads 97.4% of its tokens as dictionary words against the superseded two-item transcription's 85.2% (every candidate's number is in the edition's witnesses.json note, which also gives each copy's score over printed pp. 1-425 and pp. 1-299 separately). The two other copies of the print that score as well are BOTH VOL. I ONLY -- `bub_gb_svwwAQAAMAAJ` (97.6% of printed pp. 1-425) and `sixbooksproclus00unkngoog` (94.9%) end at printed page 425, the close of Book V ch. XXXIX, and carry no part of Books VI-VII -- so neither can be the source of a work that runs to Book VII ch. LI, and they are held as WITNESSES for vol. I instead."
       }
-    ]
+    ],
+    "superseded": {
+      "note": "The transcription this edition served until 2026-10-05, recorded here because the record of what was replaced is part of the provenance. Both items' text is JUNK OCR -- the passage the served text read as 'hee hes nck the second boat of { ireames against the bertien 9 dat nee 0 Valet' is 'Indeed, that after the great incomprehensible cause of all, a divine multitude subsists, co-operating with this cause' in the copy that is now the source -- and the 8,564 repair rules derived against it fix damage that does not exist in the new text. Their text is kept as a witness (`witnesses.json`), the rules are retired (versions/1.0.0/meta.json), and the old rule file remains retrievable at commit 9be6edd.",
+      "sources": [
+        {
+          "role": "vol. I, the work entire (printed pp. 1-425) -- SUPERSEDED",
+          "item": "taylor-theology-of-plato-en-t.-1-1816",
+          "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-1-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.1%2C%201816_djvu.txt",
+          "whole_sha256": "061931f9aca9a485506a639e046209a2009bb72e6583a70c9797cc3aecf28749",
+          "whole_bytes": 1118118,
+          "whole_lines": 59784
+        },
+        {
+          "role": "vol. II, the Theology alone (printed pp. 1-299) -- SUPERSEDED; the slice ended at its line 40786, the close of CHAP. LI",
+          "item": "taylor-theology-of-plato-en-t.-2-1816",
+          "url": "https://archive.org/download/taylor-theology-of-plato-en-t.-2-1816/Taylor%20-%20Theology%20of%20Plato%2C%20%5Ben%5D%2C%20t.2%2C%201816_djvu.txt",
+          "whole_sha256": "d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff",
+          "whole_bytes": 1281618,
+          "whole_lines": 72540
+        }
+      ]
+    }
   },
-  "sha256": "b4828cd8a4975c95f51e3d5aee120a57552601e52b53d5f005846d52576616aa",
-  "bytes": 1812745,
-  "lines": 100570,
+  "sha256": "748e58cef10981193585a101fcf67951cc3a37577eaf756f08399e343e1dd8bf",
+  "bytes": 1851974,
+  "lines": 40344,
   "imported": "2026-10-05"
 }

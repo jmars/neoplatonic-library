@@ -6,8 +6,11 @@
  * WHAT IT ASSERTS, per edition, over the CANONICAL record
  * (`data/editions/<slug>/versions/<semver>/repairs.json`) for EVERY version:
  *
- *  1. every id matches `<slug>:r<NNNN>` and the ids are SEQUENTIAL from r0001,
- *     in rule order — no gaps, no renumbering (model §4.2: ids are forever);
+ *  1. every id matches `<slug>:r<NNNN>` and the ids are SEQUENTIAL in rule order,
+ *     with no gaps and no renumbering (model §4.2: ids are forever). The sequence
+ *     runs from the file's own `id_floor` + 1 — `r0001…` for a first base, and
+ *     `r8566…` where a re-sourced base retired the rules that had spent r0001–r8565
+ *     (MEASURED, this edition: the retired list ran to r8565);
  *  2. no id is reused ACROSS versions of the same edition (a new version appends;
  *     it never reuses or reorders old ids);
  *  3. `before` !== `after` for every rule that supplies a reading, and every
@@ -55,12 +58,18 @@ for (const t of served) {
     perVersion.set(v, rules.length);
     check(file.slug === slug && file.version === v, `v${v}: the file names ${file.slug} v${file.version}`);
 
-    /* 1. the id grammar and the sequence. */
-    const badId = rules.filter((r, i) => r.id !== `${slug}:r${String(i + 1).padStart(4, '0')}`);
+    /* 1. the id grammar and the sequence, from the version's own floor. */
+    const floor = Number(file.id_floor || 0) || 0;
+    const want = (i) => `${slug}:r${String(i + 1 + floor).padStart(4, '0')}`;
+    const badId = rules.filter((r, i) => r.id !== want(i));
+    const badFloor =
+      file.id_floor != null && (!Number.isInteger(file.id_floor) || file.id_floor < 0)
+        ? ` (the file states id_floor ${JSON.stringify(file.id_floor)} — not a non-negative integer)`
+        : '';
     check(
-      badId.length === 0,
-      `v${v}: every id is ${slug}:rNNNN and the sequence runs r0001…r${String(rules.length).padStart(4, '0')} in rule order` +
-        (badId.length ? ` — first divergence: ${rules.findIndex((r, i) => r.id !== `${slug}:r${String(i + 1).padStart(4, '0')}`) + 1} is ${badId[0].id}` : ''),
+      badId.length === 0 && !badFloor,
+      `v${v}: every id is ${slug}:rNNNN and the sequence runs ${want(0)}…${rules.length ? want(rules.length - 1) : '—'} in rule order${badFloor}` +
+        (badId.length ? ` — first divergence: ${rules.findIndex((r, i) => r.id !== want(i)) + 1} is ${badId[0].id}` : ''),
     );
     check(
       new Set(rules.map((r) => r.id)).size === rules.length,

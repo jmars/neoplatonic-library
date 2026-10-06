@@ -65,16 +65,20 @@ function leafOfPage(m, page) {
 }
 /** leaf -> archive page index. MEASURED n = leaf - 1 (leaf 13 = printed p7 = n12). */
 const archiveIndex = (leaf) => leaf - 1;
-const scanPath = (slug, n) => join(SCANS(slug), `n${n}.jpg`);
+/* THE STORED NAME CARRIES THE VOLUME'S PREFIX where the edition's scan comes from
+ * one item entered twice (`v1-n76.jpg`); an edition cut from one volume stores
+ * `n<N>.jpg`. Both tools that touch a leaf build the name here, so a read and a
+ * fetch can never look for different files. */
+const scanPath = (slug, n, prefix = '') => join(SCANS(slug), `${prefix ? `${prefix}-` : ''}n${n}.jpg`);
 
 function url(item, n) {
   return `https://archive.org/download/${item}/page/n${n}_w1200.jpg`;
 }
 
-async function fetchPages(slug, item, ns) {
+async function fetchPages(slug, item, ns, prefix = '') {
   mkdirSync(SCANS(slug), { recursive: true });
   for (const n of ns) {
-    const p = scanPath(slug, n);
+    const p = scanPath(slug, n, prefix);
     if (existsSync(p) && statSync(p).size > 1000) {
       console.log(`  n${n}: already saved (${statSync(p).size} bytes)`);
       continue;
@@ -89,8 +93,8 @@ async function fetchPages(slug, item, ns) {
   }
 }
 
-async function readImage(slug, n, question) {
-  const p = scanPath(slug, n);
+async function readImage(slug, n, question, prefix = '') {
+  const p = scanPath(slug, n, prefix);
   if (!existsSync(p)) throw new Error(`scan: ${p} is not saved — fetch it first`);
   const b64 = readFileSync(p).toString('base64');
   const body = {
@@ -133,19 +137,71 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const cfg = scanConfig(slug);
   const m = !cfg && existsSync(DEREV(slug)) ? model(slug) : null;
   if (!cfg && !m) throw new Error(`scan: ${slug} has neither a derived page model nor a scan.json`);
-  const item = cfg ? cfg.item : m.item;
-  const pageToN = cfg ? (pg) => pg + cfg.archiveOffset : (pg) => archiveIndex(leafOfPage(m, pg));
+  /* THE VOLUMES. `scan.json` names ONE item with one measured offset, or an
+   * `items[]` list -- one entry per VOLUME of the print, each with its own run of
+   * leaves and its own offset. Taylor's 1816 Theology of Plato is ONE scanned item
+   * entered twice, because the work's pages restart at 1 in vol. II: a printed
+   * page number alone does not name a leaf, so a page the volumes both print is
+   * disambiguated with `--vol` and NEVER guessed. */
+  const vols = cfg
+    ? (Array.isArray(cfg.items) && cfg.items.length
+        ? cfg.items.map((it) => ({
+            prefix: it.prefix || '',
+            item: it.archive_id || it.item,
+            offset: it.archiveOffset,
+            lo: it.leaves ? it.leaves[0] : (it.firstPage ?? cfg.firstPage) + it.archiveOffset,
+            hi: it.leaves ? it.leaves[1] : (it.lastPage ?? cfg.lastPage) + it.archiveOffset,
+          }))
+        : [{ prefix: '', item: cfg.item, offset: cfg.archiveOffset, lo: cfg.firstPage + cfg.archiveOffset, hi: cfg.lastPage + cfg.archiveOffset }])
+    : null;
+  const volNamed = (name) => {
+    if (!name) return null;
+    const v = vols.find((x) => x.prefix === name || x.prefix === `${name}-` || x.item === name);
+    if (!v) throw new Error(`scan: ${slug} has no volume "${name}" (${vols.map((x) => x.prefix || x.item).join(', ')})`);
+    return v;
+  };
+  /** The volume a printed page or an archive leaf belongs to. A page printed in
+   * more than one volume (or a leaf number held by more than one run) must be
+   * named; nothing is fitted. */
+  const volOf = (value, which) => {
+    const named = volNamed(volArg());
+    if (named) return named;
+    const hits = vols.filter((v) => (which === 'page' ? value + v.offset >= v.lo && value + v.offset <= v.hi : value >= v.lo && value <= v.hi));
+    if (hits.length === 1) return hits[0];
+    if (hits.length === 0) {
+      throw new Error(`scan: ${which} ${value} is outside this work in every volume (${vols.map((v) => `${v.prefix || v.item}: ${which === 'page' ? `pages ${v.lo - v.offset}-${v.hi - v.offset}` : `leaves ${v.lo}-${v.hi}`}`).join('; ')})`);
+    }
+    throw new Error(`scan: ${which} ${value} stands in ${hits.length} volumes (${hits.map((v) => v.prefix || v.item).join(', ')}) — name one with --vol`);
+  };
+  const volArg = () => (argv.includes('--vol') ? argv[argv.indexOf('--vol') + 1] : null);
+  const item = cfg ? (vols.length === 1 ? vols[0].item : cfg.item) : m.item;
+  const pageToN = cfg ? (pg) => pg + volOf(pg, 'page').offset : (pg) => archiveIndex(leafOfPage(m, pg));
   const nToPage = cfg
-    ? (n) => n - cfg.archiveOffset
+    ? (n) => (vols ? n - volOf(n, 'leaf').offset : null)
     : (n) => m.leaves.find((l) => l.leaf === n + 1)?.page ?? null;
   if (cmd === 'list') {
     if (!existsSync(SCANS(slug))) { console.log('scan: nothing saved yet'); process.exit(0); }
-    const files = readdirSync(SCANS(slug)).filter((f) => f.endsWith('.jpg')).sort((a, b) => Number(a.slice(1, -4)) - Number(b.slice(1, -4)));
+    /* A STORED LEAF'S NAME IS `<volume prefix>-n<N>.jpg` where the edition's
+     * volumes carry a prefix, and `n<N>.jpg` where it has one volume. The name
+     * must be parsed, not sliced: `f.slice(1, -4)` reads `v1-n76.jpg` as the
+     * number `1-n76` — MEASURED, which is NaN and made every leaf look as if it
+     * stood outside the work. */
+    const leafOf = (f) => {
+      const m = /^(?:([a-z]\d+)-)?n(\d+)\.jpg$/i.exec(f);
+      return m ? { prefix: m[1] || '', n: Number(m[2]) } : null;
+    };
+    const files = readdirSync(SCANS(slug))
+      .filter((f) => leafOf(f))
+      .sort((a, b) => {
+        const A = leafOf(a);
+        const B = leafOf(b);
+        return A.prefix === B.prefix ? A.n - B.n : A.prefix < B.prefix ? -1 : 1;
+      });
     console.log(`${files.length} scan page(s) saved for ${slug}:`);
     for (const f of files) {
-      const n = Number(f.slice(1, -4));
-      const pg = nToPage(n);
-      const where = cfg ? `printed page ${pg ?? '?'}` : `leaf ${n + 1} = printed page ${pg ?? '?'}`;
+      const { prefix, n } = leafOf(f);
+      const pg = cfg ? n - volOf(n, 'leaf').offset : nToPage(n);
+      const where = cfg ? `${prefix ? `${prefix} printed page` : 'printed page'} ${pg ?? '?'}` : `leaf ${n + 1} = printed page ${pg ?? '?'}`;
       console.log(`  ${f}  (archive n${n} = ${where}, ${statSync(join(SCANS(slug), f)).size} bytes)`);
     }
   } else if (cmd === 'fetch') {
@@ -153,16 +209,23 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     const leaves = nums('--leaves');
     const ns = [];
     if (pages) {
-      for (const p of pages) {
-        if (cfg && (p < cfg.firstPage || p > cfg.lastPage)) {
-          throw new Error(`scan: printed page ${p} is outside this work (${cfg.firstPage}-${cfg.lastPage})`);
-        }
-        ns.push(cfg ? pageToN(p) : archiveIndex(leafOfPage(m, p)));
-      }
+      for (const p of pages) ns.push(cfg ? pageToN(p) : archiveIndex(leafOfPage(m, p)));
     }
     if (leaves) { if (cfg) throw new Error('scan: this text is addressed by printed page, not leaf'); for (const l of leaves) ns.push(archiveIndex(l)); }
     if (!ns.length) { console.error('scan: give --pages <printed,...> or --leaves <leaf,...>'); process.exit(2); }
-    await fetchPages(slug, item, ns);
+    /* WHICH VOLUME EACH NAMED LEAF GOES TO: the ranges are the record's, and a
+     * leaf no run holds is reported rather than guessed. */
+    if (cfg && vols.length > 1) {
+      const byPrefix = new Map();
+      for (const n of ns) {
+        const v = volOf(n, 'leaf');
+        if (!byPrefix.has(v.prefix)) byPrefix.set(v.prefix, { item: v.item, ns: [] });
+        byPrefix.get(v.prefix).ns.push(n);
+      }
+      for (const [prefix, group] of byPrefix) await fetchPages(slug, group.item, group.ns, prefix);
+    } else {
+      await fetchPages(slug, item, ns, cfg ? vols[0].prefix : '');
+    }
   } else if (cmd === 'read') {
     const pi = argv.indexOf('--page');
     const li = argv.indexOf('--leaf');
@@ -171,7 +234,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     const n = pi >= 0 ? pageToN(Number(argv[pi + 1])) : archiveIndex(Number(argv[li + 1]));
     const question = argv.filter((a, i) => !a.startsWith('--') && i > 0 && argv[i - 1] !== '--page' && argv[i - 1] !== '--leaf' && a !== slug).join(' ') ||
       'Transcribe the printed text of this page exactly.';
-    const r = await readImage(slug, n, question);
+    const prefix = cfg ? volOf(pi >= 0 ? Number(argv[pi + 1]) : n, pi >= 0 ? 'page' : 'leaf').prefix : '';
+    const r = await readImage(slug, n, question, prefix);
     console.log(`# ${slug} page n${n} (finish=${r.finish})\n${r.text}`);
   } else {
     console.log('usage: scan.mjs fetch <slug> --pages 12,25 | fetch <slug> --leaves 16,31 | list <slug> | read <slug> --page 41 "<question>"');

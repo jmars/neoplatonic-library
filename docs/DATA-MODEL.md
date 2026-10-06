@@ -437,6 +437,14 @@ that flips `review` to `false`; migration never asserts certainty it lacks.**
 - Namespaced: `<slug>:r<NNNN>`, zero-padded, assigned in rule order at first
   migration and **never renumbered**. A new version appends `r0416`, `r0417`, …
   It never reuses or reorders old IDs.
+- The sequence is **monotonic across a re-sourced base**. When an edition's
+  transcription is replaced, the rules read against the old bytes are retired
+  (`rules: []`) — their finds match nothing on the new text — but their IDs stay
+  spent, because a reader who cited `r1804` must not find that ID on a different
+  rule afterwards. The file records the highest retired number as `id_floor` and
+  the new rules continue from `id_floor + 1` (`id_floor_why` states which base
+  spent them). A version with no retired predecessor omits the field and starts at
+  `r0001`.
 - IDs are per RULE, not per firing (§4.0). A rule that fires four times keeps one
   ID and `fires: 4`.
 - Repair links in the graph, and stable anchors on the apparatus page
