@@ -36062,10 +36062,1945 @@
     19019
    ],
    "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n15.jpg#703-704#greek-letters-v1#1": {
+   "reading": {
+    "703": "* Relect igitar in anima teluria imago quedam circuli zodaci sensibilia, totiusque adeo firmamenti, vinculum",
+    "704": "sympathiæ rerum cælestium et terrestrium."
+   },
+   "raw": "```json\n{\n  \"1\": \"* Relect igitar in anima teluria imago quedam circuli zodaci sensibilia, totiusque adeo firmamenti, vinculum\",\n  \"2\": \"sympathiæ rerum cælestium et terrestrium.\"\n}\n```",
+   "at": "2026-10-06T19:33:03.469Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n15.jpg",
+   "lines": [
+    703,
+    704
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#n15.jpg#703-704#greek-letters-v1#2": {
+   "reading": {
+    "703": "* Relect agitur in anima telluris imago quaedam circuli zodiaci sensibilia, totiusque adeo firmamenti, vinculum",
+    "704": "sympathiae rerum caelestium et terrestrium. 9"
+   },
+   "raw": "```json\n{\n  \"1\": \"* Relect agitur in anima telluris imago quaedam circuli zodiaci sensibilia, totiusque adeo firmamenti, vinculum\",\n  \"2\": \"sympathiae rerum caelestium et terrestrium. 9\"\n}\n```",
+   "at": "2026-10-06T19:33:04.259Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n15.jpg",
+   "lines": [
+    703,
+    704
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#n15.jpg#703-704#greek-letters-v1#2": {
+   "reading": {
+    "703": "2 “Relucet igitur in anima telluris imago quædam circuli zodiaci sensibilis, totiusque adeo firmamenti, vinculum",
+    "704": "sympathiæ rerum cœlestium et terrestrium.”"
+   },
+   "raw": "```json\n{\n  \"1\": \"2 “Relucet igitur in anima telluris imago quædam circuli zodiaci sensibilis, totiusque adeo firmamenti, vinculum\",\n  \"2\": \"sympathiæ rerum cœlestium et terrestrium.”\"\n}\n```",
+   "at": "2026-10-06T19:33:05.733Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n15.jpg",
+   "lines": [
+    703,
+    704
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#n15.jpg#703-704#greek-letters-v1#1": {
+   "reading": {
+    "703": "“ Relucet igitur in anima telluris imago quædam circuli zodiaci sensibilis, totiusque adeo firmamenti, vinculum",
+    "704": "sympathiæ rerum cælestium et terrestrium.”"
+   },
+   "raw": "```json\n{\n  \"1\": \"“ Relucet igitur in anima telluris imago quædam circuli zodiaci sensibilis, totiusque adeo firmamenti, vinculum\",\n  \"2\": \"sympathiæ rerum cælestium et terrestrium.”\"\n}\n```",
+   "at": "2026-10-06T19:33:06.376Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n15.jpg",
+   "lines": [
+    703,
+    704
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n17.jpg#703-704#greek-letters-v1#1": {
+   "reading": {
+    "703": "?",
+    "704": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:07.917Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n17.jpg",
+   "lines": [
+    703,
+    704
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n17.jpg#703-704#greek-letters-v1#2": {
+   "reading": {
+    "703": "?",
+    "704": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:08.056Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n17.jpg",
+   "lines": [
+    703,
+    704
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n17.jpg#703-704#greek-letters-v1#1": {
+   "reading": {
+    "703": "?",
+    "704": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```\n\nThe labelled lines provided do not appear on the visible page shown in the image. The page displays English text from the Introduction section (page xxii) discussing the Apostle Paul and faith, with no occurrence of the Latin/Greek text fragments referenced in lines 1 and 2.",
+   "at": "2026-10-06T19:33:12.590Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n17.jpg",
+   "lines": [
+    703,
+    704
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n31.jpg#1520-1520#greek-letters-v1#1": {
+   "reading": {
+    "1520": "of reason, [or the productive principle of things.] But the γένος of beetles has no female; and"
+   },
+   "raw": "```json\n{\n  \"1\": \"of reason, [or the productive principle of things.] But the γένος of beetles has no female; and\"\n}\n```",
+   "at": "2026-10-06T19:33:12.867Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n31.jpg",
+   "lines": [
+    1520
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#n31.jpg#1520-1520#greek-letters-v1#1": {
+   "reading": {
+    "1520": "of reason, [or the productive principle of things.] But the genus of beetles has no female; and"
+   },
+   "raw": "```json\n{\n  \"1\": \"of reason, [or the productive principle of things.] But the genus of beetles has no female; and\"\n}\n```",
+   "at": "2026-10-06T19:33:12.991Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n31.jpg",
+   "lines": [
+    1520
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n31.jpg#1520-1520#greek-letters-v1#2": {
+   "reading": {
+    "1520": "of reason, [or the productive principle of things.] But the γένος of beetles has no female; and"
+   },
+   "raw": "```json\n{\n  \"1\": \"of reason, [or the productive principle of things.] But the γένος of beetles has no female; and\"\n}\n```",
+   "at": "2026-10-06T19:33:14.373Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n31.jpg",
+   "lines": [
+    1520
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n31.jpg#1520-1520#greek-letters-v1#2": {
+   "reading": {
+    "1520": "of reason, [or the productive principle of things.] But the geous of beetles has no female; and"
+   },
+   "raw": "```json\n{\n  \"1\": \"of reason, [or the productive principle of things.] But the geous of beetles has no female; and\"\n}\n```",
+   "at": "2026-10-06T19:33:15.354Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n31.jpg",
+   "lines": [
+    1520
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n17.jpg#703-704#greek-letters-v1#2": {
+   "reading": {
+    "703": "?",
+    "704": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:16.068Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n17.jpg",
+   "lines": [
+    703,
+    704
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n33.jpg#1520-1520#greek-letters-v1#1": {
+   "reading": {
+    "1520": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:21.587Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n33.jpg",
+   "lines": [
+    1520
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#n33.jpg#1520-1520#greek-letters-v1#2": {
+   "reading": {
+    "1520": "of reason, [or the productive principle of things.] But the γένος of beetles has no female; and"
+   },
+   "raw": "```json\n{\n  \"1\": \"of reason, [or the productive principle of things.] But the γένος of beetles has no female; and\"\n}\n```",
+   "at": "2026-10-06T19:33:22.434Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n33.jpg",
+   "lines": [
+    1520
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#n33.jpg#1520-1520#greek-letters-v1#2": {
+   "reading": {
+    "1520": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:22.488Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n33.jpg",
+   "lines": [
+    1520
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#n33.jpg#1520-1520#greek-letters-v1#1": {
+   "reading": {
+    "1520": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:22.831Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n33.jpg",
+   "lines": [
+    1520
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n44.jpg#2189-2193#greek-letters-v1#1": {
+   "reading": {
+    "2189": "sphere, which has a sapphire'stone inclosed in its middle part, and through its whole extremity characters, and",
+    "2193": "restrain the fury of the winds; on which account he was called ἀλεξάνεμος, an expeller of wind."
+   },
+   "raw": "```json\n{\n  \"1\": \"sphere, which has a sapphire'stone inclosed in its middle part, and through its whole extremity characters, and\",\n  \"2\": \"restrain the fury of the winds; on which account he was called ἀλεξάνεμος, an expeller of wind.\"\n}\n```",
+   "at": "2026-10-06T19:33:25.336Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n44.jpg",
+   "lines": [
+    2189,
+    2193
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n44.jpg#2189-2193#greek-letters-v1#2": {
+   "reading": {
+    "2189": "sphere, which has a sapphire'stone inclosed in its middle part, and through its whole extremity characters, and",
+    "2193": "restrain the fury of the winds; on which account he was called ἀλεξάνεμος, an expeller of wind."
+   },
+   "raw": "```json\n{\n  \"1\": \"sphere, which has a sapphire'stone inclosed in its middle part, and through its whole extremity characters, and\",\n  \"2\": \"restrain the fury of the winds; on which account he was called ἀλεξάνεμος, an expeller of wind.\"\n}\n```",
+   "at": "2026-10-06T19:33:26.533Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n44.jpg",
+   "lines": [
+    2189,
+    2193
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n44.jpg#2189-2193#greek-letters-v1#1": {
+   "reading": {
+    "2189": "sphere, which is a sapphire'stone inclosed in its middle part, and through its whole extremity characters, and",
+    "2193": "restrain the fury of the winds; on which account he was called ἀνεμόπομπος, an expeller of wind."
+   },
+   "raw": "```json\n{\n  \"1\": \"sphere, which is a sapphire'stone inclosed in its middle part, and through its whole extremity characters, and\",\n  \"2\": \"restrain the fury of the winds; on which account he was called ἀνεμόπομπος, an expeller of wind.\"\n}\n```",
+   "at": "2026-10-06T19:33:29.023Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n44.jpg",
+   "lines": [
+    2189,
+    2193
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#n44.jpg#2189-2193#greek-letters-v1#2": {
+   "reading": {
+    "2189": "sphere, which has a sapphire stone inclosed in its middle part, and through its whole extremity characters, and",
+    "2193": "restrain the fury of the winds; on which account he was called αἰολέμπορος, an expeller of wind."
+   },
+   "raw": "```json\n{\n  \"1\": \"sphere, which has a sapphire stone inclosed in its middle part, and through its whole extremity characters, and\",\n  \"2\": \"restrain the fury of the winds; on which account he was called αἰολέμπορος, an expeller of wind.\"\n}\n```",
+   "at": "2026-10-06T19:33:29.393Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n44.jpg",
+   "lines": [
+    2189,
+    2193
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n46.jpg#2189-2193#greek-letters-v1#1": {
+   "reading": {
+    "2189": "?",
+    "2193": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:32.260Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n46.jpg",
+   "lines": [
+    2189,
+    2193
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#n46.jpg#2189-2193#greek-letters-v1#2": {
+   "reading": {
+    "2189": "?",
+    "2193": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:33.757Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n46.jpg",
+   "lines": [
+    2189,
+    2193
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#n46.jpg#2189-2193#greek-letters-v1#1": {
+   "reading": {
+    "2189": "?",
+    "2193": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:35.629Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n46.jpg",
+   "lines": [
+    2189,
+    2193
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n64.jpg#3459-3493#greek-letters-v1#1": {
+   "reading": {
+    "3459": "chapter thirty-six. And instead of ὡς τὴν ἀκρότητα, it is therefore necessary to read πῶς τὴν ἀκρότητα. Hence what",
+    "3493": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"chapter thirty-six. And instead of ὡς τὴν ἀκρότητα, it is therefore necessary to read πῶς τὴν ἀκρότητα. Hence what\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:39.419Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n64.jpg",
+   "lines": [
+    3459,
+    3493
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n64.jpg#3459-3493#greek-letters-v1#2": {
+   "reading": {
+    "3459": "chapter thirty-six. And instead of ὡς τὴν ἀκρότητα therefore necessary to read πῶς τὴν ἀκρότητα. Hence what",
+    "3493": "chapter forty is wanting."
+   },
+   "raw": "```json\n{\n  \"1\": \"chapter thirty-six. And instead of ὡς τὴν ἀκρότητα therefore necessary to read πῶς τὴν ἀκρότητα. Hence what\",\n  \"2\": \"chapter forty is wanting.\"\n}\n```",
+   "at": "2026-10-06T19:33:40.766Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n64.jpg",
+   "lines": [
+    3459,
+    3493
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n64.jpg#3459-3493#greek-letters-v1#1": {
+   "reading": {
+    "3459": "chapter thirty-six. And instead of ταὐ τὸ ἐκφ?, it is therefore necessary to read ταὐ τὸ ἐκφορ. Hence what",
+    "3493": "are marked as υπ. xf, υφ. xa, and υφ. xf, should be marked υφ. xi, υφ. xf, and υφ. p'."
+   },
+   "raw": "```json\n{\n  \"1\": \"chapter thirty-six. And instead of ταὐ τὸ ἐκφ?, it is therefore necessary to read ταὐ τὸ ἐκφορ. Hence what\",\n  \"2\": \"are marked as υπ. xf, υφ. xa, and υφ. xf, should be marked υφ. xi, υφ. xf, and υφ. p'.\"\n}\n```",
+   "at": "2026-10-06T19:33:42.622Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n64.jpg",
+   "lines": [
+    3459,
+    3493
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n46.jpg#2189-2193#greek-letters-v1#2": {
+   "reading": {
+    "2189": "?",
+    "2193": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:42.691Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n46.jpg",
+   "lines": [
+    2189,
+    2193
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n64.jpg#3459-3493#greek-letters-v1#2": {
+   "reading": {
+    "3459": "chapter thirty-six. And instead of ὧ τῷ ὑψέρος, it is therefore necessary to read ὡς τῷ ὑψέρος. Hence what",
+    "3493": "are marked as υψ. χξ, υψ. λς, and υψ. λζ, and υψ. ρ'. It will be found also that"
+   },
+   "raw": "```json\n{\n  \"1\": \"chapter thirty-six. And instead of ὧ τῷ ὑψέρος, it is therefore necessary to read ὡς τῷ ὑψέρος. Hence what\",\n  \"2\": \"are marked as υψ. χξ, υψ. λς, and υψ. λζ, and υψ. ρ'. It will be found also that\"\n}\n```",
+   "at": "2026-10-06T19:33:43.319Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n64.jpg",
+   "lines": [
+    3459,
+    3493
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#n66.jpg#3459-3493#greek-letters-v1#1": {
+   "reading": {
+    "3459": "?",
+    "3493": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:45.047Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n66.jpg",
+   "lines": [
+    3459,
+    3493
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#n66.jpg#3459-3493#greek-letters-v1#1": {
+   "reading": {
+    "3459": "?",
+    "3493": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```\n\nThe text provided as OCR output for lines 1 and 2 does not appear on the visible page shown. The page displays a Contents section listing Chapters IX through XVII. The lines referenced cannot be located or read on this page.",
+   "at": "2026-10-06T19:33:49.626Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n66.jpg",
+   "lines": [
+    3459,
+    3493
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n66.jpg#3459-3493#greek-letters-v1#2": {
+   "reading": {
+    "3459": "?",
+    "3493": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:50.013Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n66.jpg",
+   "lines": [
+    3459,
+    3493
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#n65.jpg#3512-3512#greek-letters-v1#1": {
+   "reading": {
+    "3512": "That Jupiter is twofold; one indeed, being prior to the three sons of Saturn, [but the other being"
+   },
+   "raw": "```json\n{\n  \"1\": \"That Jupiter is twofold; one indeed, being prior to the three sons of Saturn, [but the other being\"\n}\n```",
+   "at": "2026-10-06T19:33:50.322Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n65.jpg",
+   "lines": [
+    3512
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#n66.jpg#3459-3493#greek-letters-v1#2": {
+   "reading": {
+    "3459": "?",
+    "3493": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```\n\nThe lines referenced do not appear to be visible on the page image provided, which shows the Contents page listing Chapters IX through XVII.",
+   "at": "2026-10-06T19:33:50.383Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n66.jpg",
+   "lines": [
+    3459,
+    3493
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n65.jpg#3512-3512#greek-letters-v1#1": {
+   "reading": {
+    "3512": "That Jupiter is twofold; one indeed, being prior to the three sons of Saturn, [but the other being one of them.] And how the three proceed from Saturn, and the one Jupiter."
+   },
+   "raw": "```json\n{\n  \"1\": \"That Jupiter is twofold; one indeed, being prior to the three sons of Saturn, [but the other being one of them.] And how the three proceed from Saturn, and the one Jupiter.\"\n}\n```",
+   "at": "2026-10-06T19:33:50.479Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n65.jpg",
+   "lines": [
+    3512
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n65.jpg#3512-3512#greek-letters-v1#2": {
+   "reading": {
+    "3512": "That Jupiter is twofold; one indeed, being prior to the three sons of Saturn, [but the other being"
+   },
+   "raw": "```json\n{\n  \"1\": \"That Jupiter is twofold; one indeed, being prior to the three sons of Saturn, [but the other being\"\n}\n```",
+   "at": "2026-10-06T19:33:50.884Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n65.jpg",
+   "lines": [
+    3512
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n65.jpg#3512-3512#greek-letters-v1#2": {
+   "reading": {
+    "3512": "That Jupiter is twofold ; one indeed, being prior to the three sons of Saturn, [but the other being"
+   },
+   "raw": "```json\n{\n  \"1\": \"That Jupiter is twofold ; one indeed, being prior to the three sons of Saturn, [but the other being\"\n}\n```",
+   "at": "2026-10-06T19:33:56.163Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n65.jpg",
+   "lines": [
+    3512
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#n67.jpg#3512-3512#greek-letters-v1#2": {
+   "reading": {
+    "3512": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:57.430Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n67.jpg",
+   "lines": [
+    3512
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#n67.jpg#3512-3512#greek-letters-v1#1": {
+   "reading": {
+    "3512": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:58.429Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n67.jpg",
+   "lines": [
+    3512
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#n67.jpg#3512-3512#greek-letters-v1#1": {
+   "reading": {
+    "3512": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```\n\nThe text specified in line 1 does not appear on the visible page provided. The page shown is a contents listing for Chapters XVIII-XXIV and subsequent chapters, not the page containing the statement about Jupiter being twofold.",
+   "at": "2026-10-06T19:33:58.438Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "n67.jpg",
+   "lines": [
+    3512
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#n67.jpg#3512-3512#greek-letters-v1#2": {
+   "reading": {
+    "3512": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:33:59.213Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "n67.jpg",
+   "lines": [
+    3512
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n122.jpg#6466-6466#greek-letters-v1#1": {
+   "reading": {
+    "6466": "¹ Instead of ὁμοιου μη κατα δυναμιν, it is necessary to read και κατα δυναμιν τῳ παντι ομοιον, as both"
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ Instead of ὁμοιου μη κατα δυναμιν, it is necessary to read και κατα δυναμιν τῳ παντι ομοιον, as both\"\n}\n```",
+   "at": "2026-10-06T19:34:01.920Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n122.jpg",
+   "lines": [
+    6466
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n122.jpg#6466-6466#greek-letters-v1#1": {
+   "reading": {
+    "6466": "1 Instead of ὑμνου μὴ κατα δυναμιν, it is necessary to read και κατα δυναμιν τῳ παντι ορμων, as both"
+   },
+   "raw": "```json\n{\n  \"1\": \"1 Instead of ὑμνου μὴ κατα δυναμιν, it is necessary to read και κατα δυναμιν τῳ παντι ορμων, as both\"\n}\n```",
+   "at": "2026-10-06T19:34:04.782Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n122.jpg",
+   "lines": [
+    6466
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n122.jpg#6466-6466#greek-letters-v1#2": {
+   "reading": {
+    "6466": "1 Instead of ἀμόνυ μη κατα δυναμιν, it is necessary to read και κατα δυναμιν τῳ παντι ορμον, as both·"
+   },
+   "raw": "```json\n{\n  \"1\": \"1 Instead of ἀμόνυ μη κατα δυναμιν, it is necessary to read και κατα δυναμιν τῳ παντι ορμον, as both·\"\n}\n```",
+   "at": "2026-10-06T19:34:05.052Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n122.jpg",
+   "lines": [
+    6466
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n124.jpg#6466-6466#greek-letters-v1#1": {
+   "reading": {
+    "6466": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:07.390Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n124.jpg",
+   "lines": [
+    6466
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n124.jpg#6466-6466#greek-letters-v1#2": {
+   "reading": {
+    "6466": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:08.210Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n124.jpg",
+   "lines": [
+    6466
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n124.jpg#6466-6466#greek-letters-v1#1": {
+   "reading": {
+    "6466": "* It is necessary here to supply the words, ἐκ τοῦ νοεροῦ θεῶν."
+   },
+   "raw": "```json\n{\n  \"1\": \"* It is necessary here to supply the words, ἐκ τοῦ νοεροῦ θεῶν.\"\n}\n```",
+   "at": "2026-10-06T19:34:09.810Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n124.jpg",
+   "lines": [
+    6466
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n122.jpg#6466-6466#greek-letters-v1#2": {
+   "reading": {
+    "6466": "¹ Instead of ὁμοιου μη κατα δυναμιν, it is necessary to read και κατα δυναμιν τῳ παντι ομοιον, as both"
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ Instead of ὁμοιου μη κατα δυναμιν, it is necessary to read και κατα δυναμιν τῳ παντι ομοιον, as both\"\n}\n```",
+   "at": "2026-10-06T19:34:10.327Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n122.jpg",
+   "lines": [
+    6466
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n124.jpg#6466-6466#greek-letters-v1#2": {
+   "reading": {
+    "6466": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:12.479Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n124.jpg",
+   "lines": [
+    6466
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n166.jpg#8644-8644#greek-letters-v1#1": {
+   "reading": {
+    "8644": "* For οὐσιαν it is necessary to read"
+   },
+   "raw": "```json\n{\n  \"1\": \"* For οὐσιαν it is necessary to read\"\n}\n```",
+   "at": "2026-10-06T19:34:14.447Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n166.jpg",
+   "lines": [
+    8644
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n166.jpg#8644-8644#greek-letters-v1#2": {
+   "reading": {
+    "8644": "' For owmw it is necessary to read αἰτίας."
+   },
+   "raw": "```json\n{\n  \"1\": \"' For owmw it is necessary to read αἰτίας.\"\n}\n```",
+   "at": "2026-10-06T19:34:16.118Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n166.jpg",
+   "lines": [
+    8644
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n166.jpg#8644-8644#greek-letters-v1#2": {
+   "reading": {
+    "8644": "* For οὐσιαν it is necessary to read"
+   },
+   "raw": "```json\n{\n  \"1\": \"* For οὐσιαν it is necessary to read\"\n}\n```",
+   "at": "2026-10-06T19:34:16.128Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n166.jpg",
+   "lines": [
+    8644
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n166.jpg#8644-8644#greek-letters-v1#1": {
+   "reading": {
+    "8644": "¹ For οἴεσθαι it is necessary to read αἰτίας."
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ For οἴεσθαι it is necessary to read αἰτίας.\"\n}\n```",
+   "at": "2026-10-06T19:34:16.683Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n166.jpg",
+   "lines": [
+    8644
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n168.jpg#8644-8644#greek-letters-v1#1": {
+   "reading": {
+    "8644": "* For ὅμοια it is necessary to read"
+   },
+   "raw": "```json\n{\n  \"1\": \"* For ὅμοια it is necessary to read\"\n}\n```",
+   "at": "2026-10-06T19:34:20.034Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n168.jpg",
+   "lines": [
+    8644
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n168.jpg#8644-8644#greek-letters-v1#1": {
+   "reading": {
+    "8644": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:21.703Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n168.jpg",
+   "lines": [
+    8644
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n168.jpg#8644-8644#greek-letters-v1#2": {
+   "reading": {
+    "8644": "* For ὅμοια it is necessary to read"
+   },
+   "raw": "```json\n{\n  \"1\": \"* For ὅμοια it is necessary to read\"\n}\n```",
+   "at": "2026-10-06T19:34:22.913Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n168.jpg",
+   "lines": [
+    8644
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n168.jpg#8644-8644#greek-letters-v1#2": {
+   "reading": {
+    "8644": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:23.643Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n168.jpg",
+   "lines": [
+    8644
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n220.jpg#11341-11341#greek-letters-v1#2": {
+   "reading": {
+    "11341": "* For τῶν θεῶν it is necessary to read τοῖς θεοῖις."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For τῶν θεῶν it is necessary to read τοῖς θεοῖις.\"\n}\n```",
+   "at": "2026-10-06T19:34:25.871Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n220.jpg",
+   "lines": [
+    11341
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n220.jpg#11341-11341#greek-letters-v1#1": {
+   "reading": {
+    "11341": "* For τον ἑνος it is necessary to read τις θεοὺς."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For τον ἑνος it is necessary to read τις θεοὺς.\"\n}\n```",
+   "at": "2026-10-06T19:34:26.433Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n220.jpg",
+   "lines": [
+    11341
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n220.jpg#11341-11341#greek-letters-v1#1": {
+   "reading": {
+    "11341": "* For τῶν θεῶν it is necessary to read τοῖς θεοῖις."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For τῶν θεῶν it is necessary to read τοῖς θεοῖις.\"\n}\n```",
+   "at": "2026-10-06T19:34:26.870Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n220.jpg",
+   "lines": [
+    11341
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n220.jpg#11341-11341#greek-letters-v1#2": {
+   "reading": {
+    "11341": "* For τοῖς ἵνοις it is necessary to read τοῦ ἵνος;"
+   },
+   "raw": "```json\n{\n  \"1\": \"* For τοῖς ἵνοις it is necessary to read τοῦ ἵνος;\"\n}\n```",
+   "at": "2026-10-06T19:34:27.669Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n220.jpg",
+   "lines": [
+    11341
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n222.jpg#11341-11341#greek-letters-v1#1": {
+   "reading": {
+    "11341": "* For ῥων ἴτων it is necessary to read τισι; τῆς-"
+   },
+   "raw": "```json\n{\n  \"1\": \"* For ῥων ἴτων it is necessary to read τισι; τῆς-\"\n}\n```",
+   "at": "2026-10-06T19:34:34.005Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n222.jpg",
+   "lines": [
+    11341
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n222.jpg#11341-11341#greek-letters-v1#2": {
+   "reading": {
+    "11341": "* For ῥων ἴτων it is necessary to read τισι; τῆς-"
+   },
+   "raw": "```json\n{\n  \"1\": \"* For ῥων ἴτων it is necessary to read τισι; τῆς-\"\n}\n```",
+   "at": "2026-10-06T19:34:34.317Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n222.jpg",
+   "lines": [
+    11341
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n222.jpg#11341-11341#greek-letters-v1#2": {
+   "reading": {
+    "11341": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:34.681Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n222.jpg",
+   "lines": [
+    11341
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n222.jpg#11341-11341#greek-letters-v1#1": {
+   "reading": {
+    "11341": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:34.830Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n222.jpg",
+   "lines": [
+    11341
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n244.jpg#12553-12553#greek-letters-v1#1": {
+   "reading": {
+    "12553": "³ τρίτον is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"³ τρίτον is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:34:35.684Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n244.jpg",
+   "lines": [
+    12553
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n244.jpg#12553-12553#greek-letters-v1#2": {
+   "reading": {
+    "12553": "³ τρίτον is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"³ τρίτον is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:34:36.264Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n244.jpg",
+   "lines": [
+    12553
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n244.jpg#12553-12553#greek-letters-v1#1": {
+   "reading": {
+    "12553": "3 ἔργον is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"3 ἔργον is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:34:41.768Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n244.jpg",
+   "lines": [
+    12553
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n246.jpg#12553-12553#greek-letters-v1#2": {
+   "reading": {
+    "12553": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:43.850Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n246.jpg",
+   "lines": [
+    12553
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n246.jpg#12553-12553#greek-letters-v1#1": {
+   "reading": {
+    "12553": "3 τάγμα is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"3 τάγμα is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:34:43.913Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n246.jpg",
+   "lines": [
+    12553
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n244.jpg#12553-12553#greek-letters-v1#2": {
+   "reading": {
+    "12553": "³ ῥυορὸν is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"³ ῥυορὸν is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:34:43.943Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n244.jpg",
+   "lines": [
+    12553
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n246.jpg#12553-12553#greek-letters-v1#1": {
+   "reading": {
+    "12553": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:46.172Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n246.jpg",
+   "lines": [
+    12553
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n246.jpg#12553-12553#greek-letters-v1#2": {
+   "reading": {
+    "12553": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:46.185Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n246.jpg",
+   "lines": [
+    12553
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n276.jpg#14116-14116#greek-letters-v1#1": {
+   "reading": {
+    "14116": "* For αὐτὸ τὸ ἐνεργεῖν it is necessary to read αὐτῷ τῷ ἐνεργεῖν."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For αὐτὸ τὸ ἐνεργεῖν it is necessary to read αὐτῷ τῷ ἐνεργεῖν.\"\n}\n```",
+   "at": "2026-10-06T19:34:48.684Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n276.jpg",
+   "lines": [
+    14116
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n276.jpg#14116-14116#greek-letters-v1#2": {
+   "reading": {
+    "14116": "* For αὐτὸ τὸ ἐνεργεῖν it is necessary to read αὐτῷ τῷ ἐνεργεῖν."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For αὐτὸ τὸ ἐνεργεῖν it is necessary to read αὐτῷ τῷ ἐνεργεῖν.\"\n}\n```",
+   "at": "2026-10-06T19:34:50.345Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n276.jpg",
+   "lines": [
+    14116
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n276.jpg#14116-14116#greek-letters-v1#1": {
+   "reading": {
+    "14116": "' For αὐτὸ τὸ ἐμπύευ it is necessary to read αὐτὸ τὸ ἐμπύευ."
+   },
+   "raw": "```json\n{\n  \"1\": \"' For αὐτὸ τὸ ἐμπύευ it is necessary to read αὐτὸ τὸ ἐμπύευ.\"\n}\n```",
+   "at": "2026-10-06T19:34:50.968Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n276.jpg",
+   "lines": [
+    14116
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n276.jpg#14116-14116#greek-letters-v1#2": {
+   "reading": {
+    "14116": "¹ For αὐτὸ τὸ μνημονικόν it is necessary to read αὐτὸ τὸ μνημονικόν."
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ For αὐτὸ τὸ μνημονικόν it is necessary to read αὐτὸ τὸ μνημονικόν.\"\n}\n```",
+   "at": "2026-10-06T19:34:54.144Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n276.jpg",
+   "lines": [
+    14116
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n278.jpg#14116-14116#greek-letters-v1#1": {
+   "reading": {
+    "14116": "1 For αὑτοῦ τὰ πρῶτα, it is necessary to read  αὐτὰ τὰ ?."
+   },
+   "raw": "```json\n{\n  \"1\": \"1 For αὑτοῦ τὰ πρῶτα, it is necessary to read  αὐτὰ τὰ ?.\"\n}\n```",
+   "at": "2026-10-06T19:34:54.818Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n278.jpg",
+   "lines": [
+    14116
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n278.jpg#14116-14116#greek-letters-v1#1": {
+   "reading": {
+    "14116": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:55.743Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n278.jpg",
+   "lines": [
+    14116
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n278.jpg#14116-14116#greek-letters-v1#2": {
+   "reading": {
+    "14116": "1 For αὑτοῦ τὰ πρῶτα, it is necessary to read  αὐτὰ τὰ ?."
+   },
+   "raw": "```json\n{\n  \"1\": \"1 For αὑτοῦ τὰ πρῶτα, it is necessary to read  αὐτὰ τὰ ?.\"\n}\n```",
+   "at": "2026-10-06T19:34:56.363Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n278.jpg",
+   "lines": [
+    14116
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n278.jpg#14116-14116#greek-letters-v1#2": {
+   "reading": {
+    "14116": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:34:58.584Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n278.jpg",
+   "lines": [
+    14116
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n387.jpg#19456-19456#greek-letters-v1#2": {
+   "reading": {
+    "19456": "* For νοητοῦ, it is necessary to read νοητον."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For νοητοῦ, it is necessary to read νοητον.\"\n}\n```",
+   "at": "2026-10-06T19:35:01.569Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n387.jpg",
+   "lines": [
+    19456
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n387.jpg#19456-19456#greek-letters-v1#1": {
+   "reading": {
+    "19456": "* For νοσφῶν, it is necessary to read νοστόν."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For νοσφῶν, it is necessary to read νοστόν.\"\n}\n```",
+   "at": "2026-10-06T19:35:01.592Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n387.jpg",
+   "lines": [
+    19456
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n387.jpg#19456-19456#greek-letters-v1#1": {
+   "reading": {
+    "19456": "´ For νοεῖσθαι, it is necessary to read νοητῶν."
+   },
+   "raw": "```json\n{\n  \"1\": \"´ For νοεῖσθαι, it is necessary to read νοητῶν.\"\n}\n```",
+   "at": "2026-10-06T19:35:03.155Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n387.jpg",
+   "lines": [
+    19456
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n389.jpg#19456-19456#greek-letters-v1#1": {
+   "reading": {
+    "19456": "* For νόησις, it is necessary to read νόητον."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For νόησις, it is necessary to read νόητον.\"\n}\n```",
+   "at": "2026-10-06T19:35:03.606Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n389.jpg",
+   "lines": [
+    19456
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n387.jpg#19456-19456#greek-letters-v1#2": {
+   "reading": {
+    "19456": "´ For νοεῖσθαι, it is necessary to read νοητῶν."
+   },
+   "raw": "```json\n{\n  \"1\": \"´ For νοεῖσθαι, it is necessary to read νοητῶν.\"\n}\n```",
+   "at": "2026-10-06T19:35:04.332Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n387.jpg",
+   "lines": [
+    19456
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n389.jpg#19456-19456#greek-letters-v1#2": {
+   "reading": {
+    "19456": "* For νόησις, it is necessary to read νόητον."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For νόησις, it is necessary to read νόητον.\"\n}\n```",
+   "at": "2026-10-06T19:35:05.431Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n389.jpg",
+   "lines": [
+    19456
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n389.jpg#19456-19456#greek-letters-v1#1": {
+   "reading": {
+    "19456": "* For νοήσεως, it is necessary to read νοήτον."
+   },
+   "raw": "```json\n{\n  \"1\": \"* For νοήσεως, it is necessary to read νοήτον.\"\n}\n```",
+   "at": "2026-10-06T19:35:07.812Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n389.jpg",
+   "lines": [
+    19456
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n435.jpg#21826-21826#greek-letters-v1#1": {
+   "reading": {
+    "21826": "after καθάπερ (οἶμαι) καὶ ὁ σύμπας οὗτος κόσμος, it is requisite to supply the words εἰς τοὺς ἐγκοσμίους θεοὺς ἀνήρτηται, οἱ."
+   },
+   "raw": "```json\n{\n  \"1\": \"after καθάπερ (οἶμαι) καὶ ὁ σύμπας οὗτος κόσμος, it is requisite to supply the words εἰς τοὺς ἐγκοσμίους θεοὺς ἀνήρτηται, οἱ.\"\n}\n```",
+   "at": "2026-10-06T19:35:09.899Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n435.jpg",
+   "lines": [
+    21826
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n435.jpg#21826-21826#greek-letters-v1#2": {
+   "reading": {
+    "21826": "after καθάπερ (οἶμαι) καὶ ὁ σύμπας οὗτος κόσμος, it is requisite to supply the words εἰς τοὺς ἐγκοσμίους θεοὺς ἀνήρτηται, οἱ."
+   },
+   "raw": "```json\n{\n  \"1\": \"after καθάπερ (οἶμαι) καὶ ὁ σύμπας οὗτος κόσμος, it is requisite to supply the words εἰς τοὺς ἐγκοσμίους θεοὺς ἀνήρτηται, οἱ.\"\n}\n```",
+   "at": "2026-10-06T19:35:09.927Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n435.jpg",
+   "lines": [
+    21826
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n389.jpg#19456-19456#greek-letters-v1#2": {
+   "reading": {
+    "19456": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:35:09.940Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n389.jpg",
+   "lines": [
+    19456
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n435.jpg#21826-21826#greek-letters-v1#1": {
+   "reading": {
+    "21826": "after καθοτι (ὡς) καὶ ὁ σύνθες αὐτον κοσμος, it is requisite to supply the words us τοῦs ἐγϰοσμίοus λόγos ἀργύρται, εἱ."
+   },
+   "raw": "```json\n{\n  \"1\": \"after καθοτι (ὡς) καὶ ὁ σύνθες αὐτον κοσμος, it is requisite to supply the words us τοῦs ἐγϰοσμίοus λόγos ἀργύρται, εἱ.\"\n}\n```",
+   "at": "2026-10-06T19:35:12.396Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n435.jpg",
+   "lines": [
+    21826
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v1-n435.jpg#21826-21826#greek-letters-v1#2": {
+   "reading": {
+    "21826": "* There is evidently something wanting in the original in this part; and as it appears to me after κάθαρα (ἀμα) καὶ ὸ συγκὰς αὐτοί κόσμος, it is requisite to supply the words τοὺς ἐγκοσμίους λέως ἀργύρται, κι."
+   },
+   "raw": "```json\n{\n  \"1\": \"* There is evidently something wanting in the original in this part; and as it appears to me after κάθαρα (ἀμα) καὶ ὸ συγκὰς αὐτοί κόσμος, it is requisite to supply the words τοὺς ἐγκοσμίους λέως ἀργύρται, κι.\"\n}\n```",
+   "at": "2026-10-06T19:35:14.813Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n435.jpg",
+   "lines": [
+    21826
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n437.jpg#21826-21826#greek-letters-v1#2": {
+   "reading": {
+    "21826": "For πανα, it is necessary to read παντα."
+   },
+   "raw": "```json\n{\n  \"1\": \"For πανα, it is necessary to read παντα.\"\n}\n```",
+   "at": "2026-10-06T19:35:15.364Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n437.jpg",
+   "lines": [
+    21826
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v1-n437.jpg#21826-21826#greek-letters-v1#1": {
+   "reading": {
+    "21826": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:35:17.687Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v1-n437.jpg",
+   "lines": [
+    21826
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n513.jpg#25551-25551#greek-letters-v1#1": {
+   "reading": {
+    "25551": "• For ἀριστα, I read ἀριστην."
+   },
+   "raw": "```json\n{\n  \"1\": \"• For ἀριστα, I read ἀριστην.\"\n}\n```",
+   "at": "2026-10-06T19:35:18.017Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n513.jpg",
+   "lines": [
+    25551
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n513.jpg#25551-25551#greek-letters-v1#1": {
+   "reading": {
+    "25551": "' For ἀρίστα, I read ἀγιστον."
+   },
+   "raw": "```json\n{\n  \"1\": \"' For ἀρίστα, I read ἀγιστον.\"\n}\n```",
+   "at": "2026-10-06T19:35:20.710Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n513.jpg",
+   "lines": [
+    25551
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n513.jpg#25551-25551#greek-letters-v1#2": {
+   "reading": {
+    "25551": "' For αριστα, I read αριστη."
+   },
+   "raw": "```json\n{\n  \"1\": \"' For αριστα, I read αριστη.\"\n}\n```",
+   "at": "2026-10-06T19:35:22.522Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n513.jpg",
+   "lines": [
+    25551
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n513.jpg#25551-25551#greek-letters-v1#2": {
+   "reading": {
+    "25551": "• For ἀριστα, I read ἀριστην."
+   },
+   "raw": "```json\n{\n  \"1\": \"• For ἀριστα, I read ἀριστην.\"\n}\n```",
+   "at": "2026-10-06T19:35:23.979Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n513.jpg",
+   "lines": [
+    25551
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n515.jpg#25551-25551#greek-letters-v1#1": {
+   "reading": {
+    "25551": "' For κατα εαυτο, it is necessary to read κατα τουτον"
+   },
+   "raw": "```json\n{\n  \"1\": \"' For κατα εαυτο, it is necessary to read κατα τουτον\"\n}\n```",
+   "at": "2026-10-06T19:35:27.604Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n515.jpg",
+   "lines": [
+    25551
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n515.jpg#25551-25551#greek-letters-v1#2": {
+   "reading": {
+    "25551": "' For κατα συντο, it is necessary to read κατα ταυτον"
+   },
+   "raw": "```json\n{\n  \"1\": \"' For κατα συντο, it is necessary to read κατα ταυτον\"\n}\n```",
+   "at": "2026-10-06T19:35:29.484Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n515.jpg",
+   "lines": [
+    25551
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n515.jpg#25551-25551#greek-letters-v1#1": {
+   "reading": {
+    "25551": "• For κατα τοῦτο, it is necessary to read κατα ταὐτόν."
+   },
+   "raw": "```json\n{\n  \"1\": \"• For κατα τοῦτο, it is necessary to read κατα ταὐτόν.\"\n}\n```",
+   "at": "2026-10-06T19:35:29.798Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n515.jpg",
+   "lines": [
+    25551
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n515.jpg#25551-25551#greek-letters-v1#2": {
+   "reading": {
+    "25551": "• For κατα τοῦτο, it is necessary to read κατα ταὐτόν."
+   },
+   "raw": "```json\n{\n  \"1\": \"• For κατα τοῦτο, it is necessary to read κατα ταὐτόν.\"\n}\n```",
+   "at": "2026-10-06T19:35:32.816Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n515.jpg",
+   "lines": [
+    25551
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n676.jpg#33844-33844#greek-letters-v1#1": {
+   "reading": {
+    "33844": "1 Instead of σχύματος here, it is necessary to read οχύματος."
+   },
+   "raw": "```json\n{\n  \"1\": \"1 Instead of σχύματος here, it is necessary to read οχύματος.\"\n}\n```",
+   "at": "2026-10-06T19:35:36.259Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n676.jpg",
+   "lines": [
+    33844
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v1-n437.jpg#21826-21826#greek-letters-v1#1": {
+   "reading": {
+    "21826": "after κοσμοκρατόρεσι (οἴεται) καὶ ὁ σουμπος κόσμος, it is requisite to supply the words τοὺς ἐγκοσμίουσ."
+   },
+   "raw": "```json\n{\n  \"1\": \"after κοσμοκρατόρεσι (οἴεται) καὶ ὁ σουμπος κόσμος, it is requisite to supply the words τοὺς ἐγκοσμίουσ.\"\n}\n```",
+   "at": "2026-10-06T19:35:36.270Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n437.jpg",
+   "lines": [
+    21826
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n676.jpg#33844-33844#greek-letters-v1#1": {
+   "reading": {
+    "33844": "¹ Instead of σχήματος here, it is necessary to read ὀχήματος."
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ Instead of σχήματος here, it is necessary to read ὀχήματος.\"\n}\n```",
+   "at": "2026-10-06T19:35:36.417Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n676.jpg",
+   "lines": [
+    33844
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n676.jpg#33844-33844#greek-letters-v1#2": {
+   "reading": {
+    "33844": "¹ Instead of σχύματος here, it is necessary to read σχήματος."
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ Instead of σχύματος here, it is necessary to read σχήματος.\"\n}\n```",
+   "at": "2026-10-06T19:35:39.076Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n676.jpg",
+   "lines": [
+    33844
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n676.jpg#33844-33844#greek-letters-v1#2": {
+   "reading": {
+    "33844": "¹ Instead of σχήματος here, it is necessary to read ὀχήματος."
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ Instead of σχήματος here, it is necessary to read ὀχήματος.\"\n}\n```",
+   "at": "2026-10-06T19:35:39.637Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n676.jpg",
+   "lines": [
+    33844
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n678.jpg#33844-33844#greek-letters-v1#1": {
+   "reading": {
+    "33844": "Instead of ἀϊδίου here, it is necessary to read ἀγύρτου."
+   },
+   "raw": "```json\n{\n  \"1\": \"Instead of ἀϊδίου here, it is necessary to read ἀγύρτου.\"\n}\n```",
+   "at": "2026-10-06T19:35:41.277Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n678.jpg",
+   "lines": [
+    33844
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n678.jpg#33844-33844#greek-letters-v1#2": {
+   "reading": {
+    "33844": "Instead of ἀϊδίου here, it is necessary to read ἀγύρτου."
+   },
+   "raw": "```json\n{\n  \"1\": \"Instead of ἀϊδίου here, it is necessary to read ἀγύρτου.\"\n}\n```",
+   "at": "2026-10-06T19:35:42.009Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n678.jpg",
+   "lines": [
+    33844
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n678.jpg#33844-33844#greek-letters-v1#1": {
+   "reading": {
+    "33844": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:35:44.300Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n678.jpg",
+   "lines": [
+    33844
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n678.jpg#33844-33844#greek-letters-v1#2": {
+   "reading": {
+    "33844": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:35:46.911Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n678.jpg",
+   "lines": [
+    33844
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n690.jpg#34558-34558#greek-letters-v1#1": {
+   "reading": {
+    "34558": "¹ ἔγγονοι is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ ἔγγονοι is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:35:47.140Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n690.jpg",
+   "lines": [
+    34558
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n690.jpg#34558-34558#greek-letters-v1#1": {
+   "reading": {
+    "34558": "¹ γυγού is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ γυγού is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:35:47.868Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n690.jpg",
+   "lines": [
+    34558
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n690.jpg#34558-34558#greek-letters-v1#2": {
+   "reading": {
+    "34558": "¹ ἐγγονοι is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"¹ ἐγγονοι is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:35:48.051Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n690.jpg",
+   "lines": [
+    34558
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n690.jpg#34558-34558#greek-letters-v1#2": {
+   "reading": {
+    "34558": "eyyom is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"eyyom is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:35:49.482Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n690.jpg",
+   "lines": [
+    34558
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v1-n437.jpg#21826-21826#greek-letters-v1#2": {
+   "reading": {
+    "21826": "after κοσμοκρατόρεσι (οἴεται) καὶ ὁ σουμπος κόσμος, it is requisite to supply the words τοὺς ἐγκοσμίουσ."
+   },
+   "raw": "```json\n{\n  \"1\": \"after κοσμοκρατόρεσι (οἴεται) καὶ ὁ σουμπος κόσμος, it is requisite to supply the words τοὺς ἐγκοσμίουσ.\"\n}\n```",
+   "at": "2026-10-06T19:35:52.624Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v1-n437.jpg",
+   "lines": [
+    21826
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n692.jpg#34558-34558#greek-letters-v1#2": {
+   "reading": {
+    "34558": "1 eyyom is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"1 eyyom is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:35:53.292Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n692.jpg",
+   "lines": [
+    34558
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n692.jpg#34558-34558#greek-letters-v1#1": {
+   "reading": {
+    "34558": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:35:55.542Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n692.jpg",
+   "lines": [
+    34558
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n692.jpg#34558-34558#greek-letters-v1#1": {
+   "reading": {
+    "34558": "ἔργον is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"ἔργον is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:35:56.623Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n692.jpg",
+   "lines": [
+    34558
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n692.jpg#34558-34558#greek-letters-v1#2": {
+   "reading": {
+    "34558": "ἔργον is omitted in the original."
+   },
+   "raw": "```json\n{\n  \"1\": \"ἔργον is omitted in the original.\"\n}\n```",
+   "at": "2026-10-06T19:35:56.827Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n692.jpg",
+   "lines": [
+    34558
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n699.jpg#35004-35013#greek-letters-v1#1": {
+   "reading": {
+    "35004": "fortis, quia vincet omnem rem subtilem, omniaque solida penetrabit. Sic mundus creatus est.",
+    "35013": "must separate the earth from the fire, the subtil from the thick sweetly with great genius. It"
+   },
+   "raw": "```json\n{\n  \"1\": \"fortis, quia vincet omnem rem subtilem, omniaque solida penetrabit. Sic mundus creatus est.\",\n  \"2\": \"must separate the earth from the fire, the subtil from the thick sweetly with great genius. It\"\n}\n```",
+   "at": "2026-10-06T19:35:57.364Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n699.jpg",
+   "lines": [
+    35004,
+    35013
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n699.jpg#35004-35013#greek-letters-v1#2": {
+   "reading": {
+    "35004": "fortis, quia vincet omnem rem subtilem, omniaque solida penetrabit. Sic mundus creatus est.",
+    "35013": "must separate the earth from the fire, the subtil from the thick sweetly with great genius. It"
+   },
+   "raw": "```json\n{\n  \"1\": \"fortis, quia vincet omnem rem subtilem, omniaque solida penetrabit. Sic mundus creatus est.\",\n  \"2\": \"must separate the earth from the fire, the subtil from the thick sweetly with great genius. It\"\n}\n```",
+   "at": "2026-10-06T19:36:00.358Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n699.jpg",
+   "lines": [
+    35004,
+    35013
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n699.jpg#35004-35013#greek-letters-v1#1": {
+   "reading": {
+    "35004": "fortis, quia vincet omnem rem subtilem, omniaque solida penetrabit. Sic mundus creatus est.",
+    "35013": "must separate the earth from the fire, the subtil from the thick sweetly with great genius. It"
+   },
+   "raw": "```json\n{\n  \"1\": \"fortis, quia vincet omnem rem subtilem, omniaque solida penetrabit. Sic mundus creatus est.\",\n  \"2\": \"must separate the earth from the fire, the subtil from the thick sweetly with great genius. It\"\n}\n```",
+   "at": "2026-10-06T19:36:01.885Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n699.jpg",
+   "lines": [
+    35004,
+    35013
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n699.jpg#35004-35013#greek-letters-v1#2": {
+   "reading": {
+    "35004": "fortis, quia vincet omnem rem subtilem, omniaque solida penetrabit. Sic mundus creatus est.",
+    "35013": "must separate the earth from the fire, the subtil from the thick sweetly with great genius. It"
+   },
+   "raw": "```json\n{\n  \"1\": \"fortis, quia vincet omnem rem subtilem, omniaque solida penetrabit. Sic mundus creatus est.\",\n  \"2\": \"must separate the earth from the fire, the subtil from the thick sweetly with great genius. It\"\n}\n```",
+   "at": "2026-10-06T19:36:03.611Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n699.jpg",
+   "lines": [
+    35004,
+    35013
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n701.jpg#35004-35013#greek-letters-v1#1": {
+   "reading": {
+    "35004": "?",
+    "35013": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:36:06.744Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n701.jpg",
+   "lines": [
+    35004,
+    35013
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n701.jpg#35004-35013#greek-letters-v1#2": {
+   "reading": {
+    "35004": "?",
+    "35013": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:36:07.272Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n701.jpg",
+   "lines": [
+    35004,
+    35013
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n749.jpg#37560-37560#greek-letters-v1#1": {
+   "reading": {
+    "37560": "<< But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense "
+   },
+   "raw": "```json\n{\n  \"1\": \"<< But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense \"\n}\n```",
+   "at": "2026-10-06T19:36:07.473Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n749.jpg",
+   "lines": [
+    37560
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n701.jpg#35004-35013#greek-letters-v1#1": {
+   "reading": {
+    "35004": "?",
+    "35013": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:36:07.751Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n701.jpg",
+   "lines": [
+    35004,
+    35013
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n749.jpg#37560-37560#greek-letters-v1#2": {
+   "reading": {
+    "37560": "<< But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense "
+   },
+   "raw": "```json\n{\n  \"1\": \"<< But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense \"\n}\n```",
+   "at": "2026-10-06T19:36:09.495Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n749.jpg",
+   "lines": [
+    37560
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n701.jpg#35004-35013#greek-letters-v1#2": {
+   "reading": {
+    "35004": "?",
+    "35013": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\",\n  \"2\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:36:11.731Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n701.jpg",
+   "lines": [
+    35004,
+    35013
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n751.jpg#37560-37560#greek-letters-v1#1": {
+   "reading": {
+    "37560": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```\n\nThe text \"But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense\" does not appear on the page shown. The page displays content from Book VII of Proclus' Theology of Plato, beginning with \"have been from that which was, and will be from that which is to be hereafter.\"",
+   "at": "2026-10-06T19:36:17.329Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n751.jpg",
+   "lines": [
+    37560
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n751.jpg#37560-37560#greek-letters-v1#2": {
+   "reading": {
+    "37560": "?"
+   },
+   "raw": "```json\n{\n  \"1\": \"?\"\n}\n```",
+   "at": "2026-10-06T19:36:18.041Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n751.jpg",
+   "lines": [
+    37560
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n749.jpg#37560-37560#greek-letters-v1#2": {
+   "reading": {
+    "37560": " « But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense"
+   },
+   "raw": "```json\n{\n  \"1\": \" « But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense\"\n}\n```",
+   "at": "2026-10-06T19:36:19.319Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n749.jpg",
+   "lines": [
+    37560
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n749.jpg#37560-37560#greek-letters-v1#1": {
+   "reading": {
+    "37560": "1 << But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense"
+   },
+   "raw": "```json\n{\n  \"1\": \"1 << But we will certainly do whatsoever thing goeth forth out of our own mouth, to burn incense\"\n}\n```",
+   "at": "2026-10-06T19:36:20.047Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n749.jpg",
+   "lines": [
+    37560
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n751.jpg#37560-37560#greek-letters-v1#1": {
+   "reading": {
+    "37560": "246 ON THE THEOLOGY BOOK VII."
+   },
+   "raw": "```json\n{\n  \"1\": \"246 ON THE THEOLOGY BOOK VII.\",\n  \"2\": \"have been from that which was, and will be from that which is to be here-\",\n  \"3\": \"after. But from that which is becoming to be different, it ought neither to\",\n  \"4\": \"have been, nor to be hereafter, nor to be, but to subsist in becoming to be\",\n  \"5\": \"different, and no otherwise. It is necessary. But the older differs from\",\n  \"6\": \"the younger, and no other. Certainly. Hence, that which is becoming\",\n  \"7\": \"to be older than itself, must necessarily at the same time subsist in becoming\",\n  \"8\": \"to be younger than itself. It seems so. But likewise it ought not to\",\n  \"9\": \"subsist in becoming to be in a longer time than itself, nor yet in a shorter ;\",\n  \"10\": \"but in a time equal to itself it should subsist in becoming to be, should be,\",\n  \"11\": \"have been, and be hereafter. For these are necessary. It is necessary,\",\n  \"12\": \"therefore, as it appears, that such things as are in time, and participate\",\n  \"13\": \"an affection of this kind, should each one possess the same age with\",\n  \"14\": \"itself, and should subsist in becoming to be both older and younger than\",\n  \"15\": \"itself. It seems so. But no one of these passions belongs to the one.\",\n  \"16\": \"None. Neither, therefore, is time present with it, nor does it subsist\",\n  \"17\": \"in any time. It does not indeed according to the decisions of reason.”\",\n  \"18\": \"Plato having proceeded, says Proclus, as far as to the mundane Gods,\",\n  \"19\": \"always taking away things in a consequent order from the one, through\",\n  \"20\": \"the middle genera, or, to speak more clearly, the negations always\",\n  \"21\": \"producing things secondary, through such as are proximate to the one,\",\n  \"22\": \"from the exempt cause of wholes, he is now about to separate from the\",\n  \"23\": \"one the divine essence itself, which first participates of the Gods, and\",\n  \"24\": \"receives their progression into the world ; or, to speak more accurately,\",\n  \"25\": \"he is now about to produce this essence from the ineffable fountain of\",\n  \"26\": \"all beings. For, as every thing which has being derives its subsistence\",\n  \"27\": \"from the monad of beings, both true being, and that which is assimilated\",\n  \"28\": \"to it, which of itself indeed is not, but through its communion with true\",\n  \"29\": \"being receives an obscure representation of being ; in like manner from\",\n  \"30\": \"the one unity of every deity, the peculiarity of which, if it be lawful so\",\n  \"31\": \"to speak, is to deify all things according to a certain exempt and ineffable\",\n  \"32\": \"transcendency, every divine number subsists, or rather proceeds, and\",\n  \"33\": \"every deified order of things. The design, therefore, as we have before\",\n  \"34\": \"observed, of what is now said, is to show that the one is exempt from,\",\n  \"35\": \"and therefore produces this essence.\"\n}\n```",
+   "at": "2026-10-06T19:36:21.694Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n751.jpg",
+   "lines": [
+    37560
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n751.jpg#37560-37560#greek-letters-v1#2": {
+   "reading": {
+    "37560": "246 ON THE THEOLOGY BOOK VII."
+   },
+   "raw": "```json\n{\n  \"1\": \"246 ON THE THEOLOGY BOOK VII.\",\n  \"2\": \"have been from that which was, and will be from that which is to be here-\",\n  \"3\": \"after. But from that which is becoming to be different, it ought neither to\",\n  \"4\": \"have been, nor to be hereafter, nor to be, but to subsist in becoming to be\",\n  \"5\": \"different, and no otherwise. It is necessary. But the older differs from\",\n  \"6\": \"the younger, and no other. Certainly. Hence, that which is becoming\",\n  \"7\": \"to be older than itself, must necessarily at the same time subsist in becoming\",\n  \"8\": \"to be younger than itself. It seems so. But likewise it ought not to\",\n  \"9\": \"subsist in becoming to be in a longer time than itself, nor yet in a shorter ;\",\n  \"10\": \"but in a time equal to itself it should subsist in becoming to be, should be,\",\n  \"11\": \"have been, and be hereafter. For these are necessary. It is necessary,\",\n  \"12\": \"therefore, as it appears, that such things as are in time, and participate\",\n  \"13\": \"an affection of this kind, should each one possess the same age with\",\n  \"14\": \"itself, and should subsist in becoming to be both older and younger than\",\n  \"15\": \"itself. It seems so. But no one of these passions belongs to the one.\",\n  \"16\": \"None. Neither, therefore, is time present with it, nor does it subsist\",\n  \"17\": \"in any time. It does not indeed according to the decisions of reason.”\",\n  \"18\": \"Plato having proceeded, says Proclus, as far as to the mundane Gods,\",\n  \"19\": \"always taking away things in a consequent order from the one, through\",\n  \"20\": \"the middle genera, or, to speak more clearly, the negations always\",\n  \"21\": \"producing things secondary, through such as are proximate to the one,\",\n  \"22\": \"from the exempt cause of wholes, he is now about to separate from the\",\n  \"23\": \"one the divine essence itself, which first participates of the Gods, and\",\n  \"24\": \"receives their progression into the world ; or, to speak more accurately,\",\n  \"25\": \"he is now about to produce this essence from the ineffable fountain of\",\n  \"26\": \"all beings. For, as every thing which has being derives its subsistence\",\n  \"27\": \"from the monad of beings, both true being, and that which is assimilated\",\n  \"28\": \"to it, which of itself indeed is not, but through its communion with true\",\n  \"29\": \"being receives an obscure representation of being ; in like manner from\",\n  \"30\": \"the one unity of every deity, the peculiarity of which, if it be lawful so\",\n  \"31\": \"to speak, is to deify all things according to a certain exempt and ineffable\",\n  \"32\": \"transcendency, every divine number subsists, or rather proceeds, and\",\n  \"33\": \"every deified order of things. The design, therefore, as we have before\",\n  \"34\": \"observed, of what is now said, is to show that the one is exempt from,\",\n  \"35\": \"and therefore produces this essence.\"\n}\n```",
+   "at": "2026-10-06T19:36:22.381Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n751.jpg",
+   "lines": [
+    37560
+   ],
+   "sample": 2
+  },
+  "anthropic/claude-haiku-4-5#v2-n790.jpg#39637-39637#greek-letters-v1#1": {
+   "reading": {
+    "39637": "* Instead of καὶ διὰ τὸ μὴ λέγειν, τὸ δῆδον αἱ γινόμενος, it is necessary to read διὰ τὸ μὴ λέγειν τὸ δῆδον, αἱ γινόμενος."
+   },
+   "raw": "```json\n{\n  \"1\": \"* Instead of καὶ διὰ τὸ μὴ λέγειν, τὸ δῆδον αἱ γινόμενος, it is necessary to read διὰ τὸ μὴ λέγειν τὸ δῆδον, αἱ γινόμενος.\"\n}\n```",
+   "at": "2026-10-06T19:36:24.853Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n790.jpg",
+   "lines": [
+    39637
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n790.jpg#39637-39637#greek-letters-v1#2": {
+   "reading": {
+    "39637": "* Instead of καί δια το μη λεγειν, το αιδον αει γινομενος, it is necessary to read δια το μη λεγειν το αιδον αει γινομενος."
+   },
+   "raw": "```json\n{\n  \"1\": \"* Instead of καί δια το μη λεγειν, το αιδον αει γινομενος, it is necessary to read δια το μη λεγειν το αιδον αει γινομενος.\"\n}\n```",
+   "at": "2026-10-06T19:36:27.504Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n790.jpg",
+   "lines": [
+    39637
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n790.jpg#39637-39637#greek-letters-v1#1": {
+   "reading": {
+    "39637": "Instead of καὶ διὰ τὸ μὴ λέγειν, τὸ διδὸν ἀεὶ γιγνόμενος, it is necessary to read διὰ τὸ μὴ λήγειν τὸ"
+   },
+   "raw": "```json\n{\n  \"1\": \"Instead of καὶ διὰ τὸ μὴ λέγειν, τὸ διδὸν ἀεὶ γιγνόμενος, it is necessary to read διὰ τὸ μὴ λήγειν τὸ\"\n}\n```",
+   "at": "2026-10-06T19:36:30.107Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n790.jpg",
+   "lines": [
+    39637
+   ],
+   "sample": 1
+  },
+  "google/gemini-2.5-flash#v2-n792.jpg#39637-39637#greek-letters-v1#2": {
+   "reading": {
+    "39637": "³ For ὀρωμένης here, it is necessary to read ὁρμώμενος."
+   },
+   "raw": "```json\n{\n  \"1\": \"³ For ὀρωμένης here, it is necessary to read ὁρμώμενος.\"\n}\n```",
+   "at": "2026-10-06T19:36:32.318Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n792.jpg",
+   "lines": [
+    39637
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n790.jpg#39637-39637#greek-letters-v1#2": {
+   "reading": {
+    "39637": "Instead of καὶ διὰ τὸ μὴ λέγειν, τὸ διδὸν ἀεὶ γιγνόμενος, it is necessary to read διὰ τὸ μὴ λήγειν τὸ"
+   },
+   "raw": "```json\n{\n  \"1\": \"Instead of καὶ διὰ τὸ μὴ λέγειν, τὸ διδὸν ἀεὶ γιγνόμενος, it is necessary to read διὰ τὸ μὴ λήγειν τὸ\"\n}\n```",
+   "at": "2026-10-06T19:36:32.718Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n790.jpg",
+   "lines": [
+    39637
+   ],
+   "sample": 2
+  },
+  "google/gemini-2.5-flash#v2-n792.jpg#39637-39637#greek-letters-v1#1": {
+   "reading": {
+    "39637": "³ For ὀρωμένης here, it is necessary to read ὁρμώμενος."
+   },
+   "raw": "```json\n{\n  \"1\": \"³ For ὀρωμένης here, it is necessary to read ὁρμώμενος.\"\n}\n```",
+   "at": "2026-10-06T19:36:33.093Z",
+   "model": "google/gemini-2.5-flash",
+   "leaf": "v2-n792.jpg",
+   "lines": [
+    39637
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n792.jpg#39637-39637#greek-letters-v1#1": {
+   "reading": {
+    "39637": "1 For ὀρμέναyx here, it is necessary to read ὀρμέναυες."
+   },
+   "raw": "```json\n{\n  \"1\": \"1 For ὀρμέναyx here, it is necessary to read ὀρμέναυες.\"\n}\n```",
+   "at": "2026-10-06T19:36:34.579Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n792.jpg",
+   "lines": [
+    39637
+   ],
+   "sample": 1
+  },
+  "anthropic/claude-haiku-4-5#v2-n792.jpg#39637-39637#greek-letters-v1#2": {
+   "reading": {
+    "39637": "For ἀρμοσας here, it is necessary to read ἀρμοσανες."
+   },
+   "raw": "```json\n{\n  \"1\": \"For ἀρμοσας here, it is necessary to read ἀρμοσανες.\"\n}\n```",
+   "at": "2026-10-06T19:36:38.852Z",
+   "model": "anthropic/claude-haiku-4-5",
+   "leaf": "v2-n792.jpg",
+   "lines": [
+    39637
+   ],
+   "sample": 2
   }
  },
  "models": [
-  "Qwen/Qwen3-VL-235B-A22B-Instruct",
   "google/gemini-2.5-flash",
   "anthropic/claude-haiku-4-5"
  ]

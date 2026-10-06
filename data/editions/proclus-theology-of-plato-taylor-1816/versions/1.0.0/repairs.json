@@ -62745,36 +62745,6 @@
       ]
     },
     {
-      "id": "proclus-theology-of-plato-taylor-1816:r11682",
-      "type": "transliteration",
-      "apply": "reading",
-      "location": {
-        "find": "vofffwy, it is necessary to read vo^tov",
-        "page": null,
-        "leaf": null
-      },
-      "before": "vofffwy, it is necessary to read vo^tov",
-      "after": "νοῦς, it is necessary to read νοῦτον",
-      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"νοῦς, it is necessary to read νοῦτον\" where the transcription has \"vofffwy, it is necessary to read vo^tov\" (page image, printed page 313 = archive v1-n388). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemma-3-27b-it, Qwen/Qwen3-VL-235B-A22B-Instruct); the 2 draw(s) that read these characters were Qwen/Qwen3-VL-235B-A22B-Instruct — ONE instrument repeated, not two, so this reading rests on that model alone. (decided by the page image itself.) An echo check re-read this leaf (2026-10-06) with two further vision instruments chosen for NOT returning the transcription verbatim — google/gemini-2.5-flash and anthropic/claude-haiku-4-5 (each returned the transcription's own line in under 4% of its draws on this pass, against 20.5% for Qwen/Qwen3-VL-235B-A22B-Instruct, the instrument this rule rests on) — both returned \"?\" for this word — the answer the prompt asks for where the letters cannot be seen — so no second reading of this word exists, and it still rests on one instrument.",
-      "date": null,
-      "witness": "page image, printed page 313 = archive v1-n388",
-      "fires": 1,
-      "join": false,
-      "type_evidence": "after contains Greek script, before does not (rule 1)",
-      "review": false,
-      "evidence": [
-        {
-          "kind": "scan",
-          "leaf": 388,
-          "page": 313,
-          "file": "v1-n388.jpg",
-          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n388.jpg",
-          "exists": true,
-          "source": "archive.org"
-        }
-      ]
-    },
-    {
       "id": "proclus-theology-of-plato-taylor-1816:r11685",
       "type": "transliteration",
       "apply": "reading",
@@ -62829,6 +62799,36 @@
           "page": 143,
           "file": "v2-n648.jpg",
           "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v2-n648.jpg",
+          "exists": true,
+          "source": "archive.org"
+        }
+      ]
+    },
+    {
+      "id": "proclus-theology-of-plato-taylor-1816:r11688",
+      "type": "transliteration",
+      "apply": "reading",
+      "location": {
+        "find": "ret x«4’ tvaxnv, it is requisite to read irwnx xai’ evtociv",
+        "page": null,
+        "leaf": null
+      },
+      "before": "ret x«4’ tvaxnv, it is requisite to read irwnx xai’ evtociv",
+      "after": "τα καθ’ ἕνωσιν, it is requisite to read παντα καθ’ ἕνωσιν",
+      "rationale": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"τα καθ’ ἕνωσιν, it is requisite to read παντα καθ’ ἕνωσιν\" where the transcription has \"ret x«4’ tvaxnv, it is requisite to read irwnx xai’ evtociv\" (page image, printed page 222 = archive v1-n297). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 2 draw(s) that read these characters were google/gemini-2.5-flash, and it read them IDENTICALLY in both its draws; anthropic/claude-haiku-4-5 returned the same LETTERS in both of its draws too (\"τα καθ' ενωσιν, it is requisite to read πάντα καθ' ενωσιν\", set with straight quotes and without the breathings on ἕνωσιν, which is why the character-for-character consensus above did not count them), so the LETTERS of this reading are TWO instruments' and the breathings and quote glyphs are google/gemini-2.5-flash's alone. The cache holds four further draws of this line which are NOT evidence here: google/gemma-3-27b-it returned the transcription verbatim in both of its draws (the echo instrument, 87.4% verbatim on this item) and Qwen/Qwen3-VL-235B-A22B-Instruct read a different word in each of its two (καθ' ἑνότητα, καθ' ἑνός). (decided by the page image itself.)",
+      "date": null,
+      "witness": "page image, printed page 222 = archive v1-n297",
+      "fires": 1,
+      "join": false,
+      "type_evidence": "after contains Greek script, before does not (rule 1)",
+      "review": false,
+      "evidence": [
+        {
+          "kind": "scan",
+          "leaf": 297,
+          "page": 222,
+          "file": "v1-n297.jpg",
+          "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n297.jpg",
           "exists": true,
           "source": "archive.org"
         }

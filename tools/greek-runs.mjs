@@ -955,6 +955,15 @@ const artifact = {
   tool: 'tools/greek-runs.mjs — the GREEK the scan read as Latin lookalikes, read off the PAGE images (the leaves this edition holds), samples agreed',
   method: table.placed.join('; '),
   samples,
+  /* THE CACHE STATE THIS ARTIFACT WAS COMPUTED OVER. Every draw in the cache
+   * carries its own `at`, and the cache is APPENDED to by later passes — MEASURED,
+   * the re-run with the two non-echoing readers over the same target set added 144
+   * draws to the same models, which moves this artifact's own echo table by 88
+   * draws and its "differing lines" set by 9. So the table below is only
+   * recomputable against the cache AS OF this moment, and the cursor is recorded
+   * here rather than left to be guessed: a consumer (tools/echo-probe.mjs) takes
+   * every draw with `at <= draws_through` and nothing later. */
+  draws_through: new Date().toISOString(),
   targets: LINES_ONLY ? { file: linesFile, count: LINES_ONLY.size, lines: [...LINES_ONLY].sort((a, b) => a - b) } : null,
   vocab: vocabFile,
   runs: runs.length,

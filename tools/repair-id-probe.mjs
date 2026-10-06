@@ -18,7 +18,16 @@
  *     the other readings and those stand), so r11680/r11681/r11683/r11684/r11686
  *     are SPENT, not freed — ids are forever, so the gap is the record of the
  *     withdrawal and is asserted to be exactly those five, nowhere else and never
- *     more. Any other edition must still be gap-free;
+ *     more. A SIXTH went the same way in the re-run with the two readers that do
+ *     NOT echo (google/gemini-2.5-flash and anthropic/claude-haiku-4-5): r11682
+ *     ("vofffwy, it is necessary to read vo^tov") had been kept as resting on one
+ *     instrument because no second reader had read the passage at all; the re-run
+ *     DID get readings of that line and they were five different ones, two of them
+ *     settled (gemini νοεῖσθαι/νοητῶν and νόησις/νόητον on two different
+ *     leaves, claude νοητοῦ/νοητον, νοσφῶν/νοστόν, νοήσεως/νοήτον), none of them
+ *     the rule's νοῦς/νοῦτον, so the reading was withdrawn and the served text
+ *     reverts to the transcription's own characters. Any other edition must still
+ *     be gap-free;
  *  2. no id is reused ACROSS versions of the same edition (a new version appends;
  *     it never reuses or reorders old ids);
  *  3. `before` !== `after` for every rule that supplies a reading, and every
@@ -45,9 +54,13 @@ const TYPES = ['OCR', 'punctuation', 'transliteration', 'conjectural'];
  * gate states the withdrawal instead of accepting any gap:
  * MEASURED 2026-10-06, the echo check (tools/echo-probe.mjs) found that no second
  * vision instrument which does not return the transcription verbatim agreed with
- * these five Greek readings; the other four the check examined stand. */
+ * these five Greek readings; the other four the check examined stand. MEASURED
+ * again in the re-run with the two readers that do not echo
+ * (tools/greek-runs.mjs, LIBRARY_GREEK_MODELS=google/gemini-2.5-flash,
+ * anthropic/claude-haiku-4-5): r11682 is the sixth — the readers DID read that
+ * line, five different readings, none of them the rule's. */
 const WITHDRAWN = new Map([
-  ['proclus-theology-of-plato-taylor-1816', [11680, 11681, 11683, 11684, 11686]],
+  ['proclus-theology-of-plato-taylor-1816', [11680, 11681, 11682, 11683, 11684, 11686]],
 ]);
 
 let failures = 0;

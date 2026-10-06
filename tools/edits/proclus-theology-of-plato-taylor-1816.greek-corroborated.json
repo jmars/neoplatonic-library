@@ -1,0 +1,276 @@
+{
+ "slug": "proclus-theology-of-plato-taylor-1816",
+ "models": [
+  "google/gemini-2.5-flash",
+  "anthropic/claude-haiku-4-5"
+ ],
+ "method": "the findings BOTH non-echoing readers read: the tool char-for-char two-model consensus, OR both readers settled (>=2 of their own draws) on the same LETTERS of the line (accents and spacing excluded, which no single instrument reproduces steadily)",
+ "findings": [
+  {
+   "line": 765,
+   "leaf": "n17.jpg",
+   "leafNum": 17,
+   "page": null,
+   "run": "poou/h",
+   "find": "mem poou/h tv xanjgrtricu rwg cuwsctg",
+   "replace": "πίστει νοοῦμεν κατηρτίσθαι τοὺς αἰῶνας",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, archive n17",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 17,
+     "page": null,
+     "file": "n17.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/n17.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 3,
+   "draws": 4,
+   "agreeModels": [
+    "google/gemini-2.5-flash",
+    "anthropic/claude-haiku-4-5"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"πίστει νοοῦμεν κατηρτίσθαι τοὺς αἰῶνας\" where the transcription has \"mem poou/h tv xanjgrtricu rwg cuwsctg\" (page image, archive n17). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 3 draw(s) that read these characters were google/gemini-2.5-flash and anthropic/claude-haiku-4-5."
+  },
+  {
+   "line": 779,
+   "leaf": "n17.jpg",
+   "leafNum": 17,
+   "page": null,
+   "run": "oucovug",
+   "find": " . Since then oucovug",
+   "replace": ". Since then αἰῶνας",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, archive n17",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 17,
+     "page": null,
+     "file": "n17.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/n17.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 3,
+   "draws": 4,
+   "agreeModels": [
+    "google/gemini-2.5-flash",
+    "anthropic/claude-haiku-4-5"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \". Since then αἰῶνας\" where the transcription has \" . Since then oucovug\" (page image, archive n17). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 3 draw(s) that read these characters were google/gemini-2.5-flash and anthropic/claude-haiku-4-5."
+  },
+  {
+   "line": 1520,
+   "leaf": "n32.jpg",
+   "leafNum": 32,
+   "page": null,
+   "run": "geous",
+   "find": "geous",
+   "replace": "γένος",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, archive n32",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 32,
+     "page": null,
+     "file": "n32.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/n32.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 3,
+   "draws": 5,
+   "agreeModels": [
+    "google/gemini-2.5-flash",
+    "anthropic/claude-haiku-4-5"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"γένος\" where the transcription has \"geous\" (page image, archive n32). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 5 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 3 draw(s) that read these characters were google/gemini-2.5-flash and anthropic/claude-haiku-4-5."
+  },
+  {
+   "line": 3992,
+   "leaf": "n74.jpg",
+   "leafNum": 74,
+   "page": null,
+   "run": "avvitros",
+   "find": "avvitros . 1",
+   "replace": "σύνθετος. I",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, archive n74",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 74,
+     "page": null,
+     "file": "n74.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/n74.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 2,
+   "draws": 4,
+   "agreeModels": [
+    "anthropic/claude-haiku-4-5"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"σύνθετος. I\" where the transcription has \"avvitros . 1\" (page image, archive n74). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 2 draw(s) that read these characters were anthropic/claude-haiku-4-5 — ONE instrument repeated, not two, so this reading rests on that model alone."
+  },
+  {
+   "line": 4001,
+   "leaf": "n74.jpg",
+   "leafNum": 74,
+   "page": null,
+   "run": "mfo/ti*.",
+   "find": "mfo/ti*",
+   "replace": "ἐπιθυμία",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, archive n74",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 74,
+     "page": null,
+     "file": "n74.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/n74.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 2,
+   "draws": 4,
+   "agreeModels": [
+    "anthropic/claude-haiku-4-5"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"ἐπιθυμία\" where the transcription has \"mfo/ti*\" (page image, archive n74). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 2 draw(s) that read these characters were anthropic/claude-haiku-4-5 — ONE instrument repeated, not two, so this reading rests on that model alone."
+  },
+  {
+   "line": 4023,
+   "leaf": "n75.jpg",
+   "leafNum": 75,
+   "page": null,
+   "run": "wapfi*.",
+   "find": "wapfi*",
+   "replace": "ὑπαρξις",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, archive n75",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 75,
+     "page": null,
+     "file": "n75.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/n75.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 2,
+   "draws": 4,
+   "agreeModels": [
+    "anthropic/claude-haiku-4-5"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"ὑπαρξις\" where the transcription has \"wapfi*\" (page image, archive n75). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 2 draw(s) that read these characters were anthropic/claude-haiku-4-5 — ONE instrument repeated, not two, so this reading rests on that model alone."
+  },
+  {
+   "line": 4054,
+   "leaf": "n75.jpg",
+   "leafNum": 75,
+   "page": null,
+   "run": "pogpamxii",
+   "find": "fyamurict, is, pogpamxii nrpi$",
+   "replace": "φαντασία, is, μορφωτικὴ νόησις",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, archive n75",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 75,
+     "page": null,
+     "file": "n75.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/n75.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 3,
+   "draws": 4,
+   "agreeModels": [
+    "google/gemini-2.5-flash",
+    "anthropic/claude-haiku-4-5"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"φαντασία, is, μορφωτικὴ νόησις\" where the transcription has \"fyamurict, is, pogpamxii nrpi$\" (page image, archive n75). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 3 draw(s) that read these characters were google/gemini-2.5-flash and anthropic/claude-haiku-4-5."
+  },
+  {
+   "line": 4061,
+   "leaf": "n75.jpg",
+   "leafNum": 75,
+   "page": null,
+   "run": "Aoyo*.",
+   "find": "Aoyo*",
+   "replace": "λόγος",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, archive n75",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 75,
+     "page": null,
+     "file": "n75.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/n75.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 4,
+   "draws": 4,
+   "agreeModels": [
+    "anthropic/claude-haiku-4-5",
+    "google/gemini-2.5-flash"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"λόγος\" where the transcription has \"Aoyo*\" (page image, archive n75). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 4 draw(s) that read these characters were anthropic/claude-haiku-4-5 and google/gemini-2.5-flash."
+  },
+  {
+   "line": 15132,
+   "leaf": "v1-n297.jpg",
+   "leafNum": 297,
+   "page": 222,
+   "run": "irwnx",
+   "find": "ret x«4’ tvaxnv, it is requisite to read irwnx xai’ evtociv",
+   "replace": "τα καθ’ ἕνωσιν, it is requisite to read παντα καθ’ ἕνωσιν",
+   "class": "reading",
+   "decided_by": "page",
+   "witness": "page image, printed page 222 = archive v1-n297",
+   "evidence": [
+    {
+     "kind": "scan",
+     "leaf": 297,
+     "page": 222,
+     "file": "v1-n297.jpg",
+     "url": "/texts/proclus-theology-of-plato-taylor-1816/scans/v1-n297.jpg",
+     "exists": true,
+     "source": "archive.org"
+    }
+   ],
+   "agree": 2,
+   "draws": 4,
+   "agreeModels": [
+    "google/gemini-2.5-flash"
+   ],
+   "note": "the print sets GREEK here, which the scan read as a Latin lookalike: it reads \"τα καθ’ ἕνωσιν, it is requisite to read παντα καθ’ ἕνωσιν\" where the transcription has \"ret x«4’ tvaxnv, it is requisite to read irwnx xai’ evtociv\" (page image, printed page 222 = archive v1-n297). The transcription and the second transcription are both OCR passes over this print and flatten the Greek the same way, so neither can settle it. The leaf was drawn 4 time(s) over 2 model(s) (google/gemini-2.5-flash, anthropic/claude-haiku-4-5); the 2 draw(s) that read these characters were google/gemini-2.5-flash — ONE instrument repeated, not two, so this reading rests on that model alone."
+  }
+ ]
+}

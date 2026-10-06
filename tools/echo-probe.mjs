@@ -15,7 +15,11 @@
  *   1. The echo table in the echo-check artifact IS the cache's own numbers:
  *      every configured model's draw count, its verbatim count, and its verbatim
  *      count restricted to the lines where some model read something other than
- *      the transcription.
+ *      the transcription. THE CACHE IS APPENDED TO BY LATER PASSES, so the count
+ *      is taken over the draws that existed when the artifact was written — the
+ *      artifact's own `draws_through` cursor (`at <= draws_through`), MEASURED: a
+ *      re-run over the same target set with two of the same models added 144
+ *      draws and moved this table (776 -> 864 draws each).
  *   2. NO ECHO INSTRUMENT VOTES. A model whose verbatim share is at or above the
  *      line below (80%, the line this pass's record uses for "an echo, not a
  *      reader") must not be among the artifact's configured models — and the
@@ -28,7 +32,17 @@
  *      own letters, with diacritics and Latin homoglyphs folded, at least twice,
  *      and the instrument must itself be a non-echoing one on this pass. A rule
  *      the check left single-instrument must carry a name in no second
- *      instrument's agreeing draws.
+ *      instrument's agreeing draws. The SIXTH withdrawal (r11682) came from the
+ *      re-run with the two readers that do not echo, not from the echo check, and
+ *      is in the ledger as dropped with that reason.
+ *   4. THE RE-RUN'S OWN CLAIM, held to the same cache: the rule the re-run added
+ *      (r11688, line 15132) states that the LETTERS of its reading are TWO
+ *      instruments', and here each of those two readers — google/gemini-2.5-flash
+ *      and anthropic/claude-haiku-4-5 — must have at least two of its own draws
+ *      agreeing with those letters (folded). MEASURED: a character-for-character
+ *      consensus misses this pair (they differ in accents and quote glyphs), which
+ *      is why the claim is checked on the FOLDED letters and not on the tool's own
+ *      two-model field.
  *
  *   node tools/echo-probe.mjs            # this edition
  *
@@ -43,6 +57,9 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SLUG = 'proclus-theology-of-plato-taylor-1816';
 const CACHE = join(ROOT, 'data/editions', SLUG, 'greek-vision.json');
 const ARTIFACT = join(ROOT, 'tools/edits', `${SLUG}.greek-echo-check.json`);
+/* The re-run's artifact (the two readers that do not echo), whose added rule r11688
+ * states a two-instrument agreement this probe holds to the same cache. */
+const TWO_READER = join(ROOT, 'tools/edits', `${SLUG}.greek-two-reader.json`);
 const RULES = join(ROOT, 'data/editions', SLUG, 'versions/1.0.0', 'repairs.json');
 
 let ok = 0;
@@ -57,27 +74,47 @@ const MARKER = /^\s*(?:[*•†‡§¶%]\s*|\d{1,2}\s*[.)]?\s*|[¹²³⁴⁵⁶�
 const stripMarker = (s) => s.replace(MARKER, '').replace(/\s+/g, ' ').trim();
 const GREEK = /[\u0370-\u03ff\u1f00-\u1fff]/;
 /* The letters as an instrument may render them: case, breathings/accents, and
- * the Latin letter an instrument prints for a Greek one (λυραίoς for λυραιος). */
+ * the Latin letter an instrument prints for a Greek one (λυραίoς for λυραιος).
+ * THE GREEK SPACING MARKS COME OFF TOO: the filter below keeps the whole Greek
+ * block, and U+1FBD (koronis) / U+1FBF (psili) / U+1FEF (varia) / U+1FFD (oxia)
+ * stand INSIDE it, so a reader that renders an elision as ᾽ where another writes ’
+ * stopped matching — MEASURED on r11688, where claude-haiku-4-5's second draw
+ * (τὰ καθ᾽ ἕνωσιν) folded to a different string from its first (τὰ καθ' ἕνωσιν) and
+ * from gemini-2.5-flash's (τὰ καθ’ ἕνωσιν), all three the same letters. */
 const HOMOGLYPH = { a: 'α', b: 'β', e: 'ε', h: 'η', i: 'ι', k: 'κ', n: 'ν', o: 'ο', p: 'ρ', t: 'τ', u: 'υ', v: 'ν', w: 'ω', x: 'χ', y: 'υ', z: 'ζ', m: 'μ' };
-const fold = (s) => [...s.normalize('NFD').replace(/[\u0300-\u036f\u0345]/g, '').toLowerCase()]
+const fold = (s) => [...s.normalize('NFD').replace(/[\u0300-\u036f\u0345\u1fbd-\u1fbf\u1fef\u1ffd]/g, '').toLowerCase()]
   .map((c) => HOMOGLYPH[c] || c).filter((c) => /[a-z\u0370-\u03ff\u1f00-\u1fff]/.test(c)).join('');
 
 const cache = JSON.parse(readFileSync(CACHE, 'utf8'));
 const artifact = JSON.parse(readFileSync(ARTIFACT, 'utf8'));
+const twoReader = JSON.parse(readFileSync(TWO_READER, 'utf8'));
 const rules = JSON.parse(readFileSync(RULES, 'utf8')).rules;
 const ids = new Set(rules.map((r) => r.id.split(':r')[1]));
 
-/* ---------- 1. the echo table IS the cache's numbers ---------- */
+/* ---------- 1. the echo table IS the cache's numbers, as of the artifact ---------- */
 const isVerbatim = (l, t) => stripMarker(collapse(t)) === stripMarker(servedLine(l)) || collapse(t) === collapse(source[l - 1]);
-const draws = new Map(); // model -> [{line, text}]
-for (const rec of Object.values(cache.leaves)) {
-  if (!artifact.models.includes(rec.model)) continue;
-  if (!draws.has(rec.model)) draws.set(rec.model, []);
-  for (const [line, text] of Object.entries(rec.reading || {})) {
-    const l = Number(line);
-    if (l >= 1 && l <= source.length) draws.get(rec.model).push({ line: l, text: collapse(text) });
+/* THE CURSOR. A draw made by a LATER pass is not evidence about an earlier one,
+ * and the artifact records the cache state it was computed over; an artifact with
+ * no cursor is counted against the whole cache, which is only sound while no later
+ * pass has appended draws for its models. */
+const drawsThrough = (a) => (rec) => !(a.draws_through && rec.at && rec.at > a.draws_through);
+const drawMap = (a) => {
+  const live = drawsThrough(a);
+  const map = new Map(); // model -> [{line, text}]
+  for (const rec of Object.values(cache.leaves)) {
+    if (!a.models.includes(rec.model)) continue;
+    if (!live(rec)) continue;
+    if (!map.has(rec.model)) map.set(rec.model, []);
+    for (const [line, text] of Object.entries(rec.reading || {})) {
+      const l = Number(line);
+      if (l >= 1 && l <= source.length) map.get(rec.model).push({ line: l, text: collapse(text) });
+    }
   }
-}
+  return map;
+};
+check(!!artifact.draws_through, 'the echo-check artifact states the cache state it was computed over (draws_through)');
+check(!!twoReader.draws_through, 'the two-reader artifact states the cache state it was computed over (draws_through)');
+const draws = drawMap(artifact);
 const differing = new Set();
 for (const list of draws.values()) for (const d of list) if (d.text && d.text !== '?' && !isVerbatim(d.line, d.text)) differing.add(d.line);
 for (const model of artifact.models) {
@@ -109,7 +146,11 @@ const LEDGER = [
   { id: '11679', outcome: 'kept', by: 'google/gemini-2.5-flash' },
   { id: '11680', outcome: 'dropped' },
   { id: '11681', outcome: 'dropped' },
-  { id: '11682', outcome: 'kept', by: null },
+  /* THE SIXTH. The echo check KEPT this one because no second reader had read the
+   * passage at all; the re-run with the two readers that do not echo did read it —
+   * five different readings, two of them settled, none of them the rule's — so it
+   * was withdrawn afterwards. The ledger records the outcome and who withdrew it. */
+  { id: '11682', outcome: 'dropped', why: 'withdrawn in the re-run (the two readers DID read the line and gave five different readings, none of them this rule\u2019s)' },
   { id: '11683', outcome: 'dropped' },
   { id: '11684', outcome: 'dropped' },
   { id: '11685', outcome: 'kept', by: null },
@@ -121,7 +162,9 @@ const lineOf = (find) => { for (let i = 1; i <= source.length; i++) if (servedLi
 for (const entry of LEDGER) {
   const r = ruleOf(entry.id);
   if (entry.outcome === 'dropped') {
-    check(!r, `r${entry.id} was dropped by the echo check and must not stand in the edition's rules`);
+    check(!r, entry.why
+      ? `r${entry.id} was withdrawn and must not stand in the edition's rules — ${entry.why}`
+      : `r${entry.id} was dropped by the echo check and must not stand in the edition's rules`);
     continue;
   }
   check(!!r, `r${entry.id} was kept by the echo check and must stand in the edition's rules`);
@@ -144,6 +187,33 @@ for (const entry of LEDGER) {
   /* The kept note must state the check's outcome, not the pre-check claim alone. */
   check(/echo check/i.test(r.rationale || ''), `r${entry.id}: the rationale does not record the echo check`);
   if (entry.by) check(r.rationale.includes(entry.by), `r${entry.id}: the rationale does not name ${entry.by}, the instrument that agreed`);
+}
+
+/* ---------- 4. the re-run's own claim: r11688's letters are TWO instruments' ---------- */
+/* THE ONE FINDING THE TWO NON-ECHOING READERS CORROBORATE, and the only one whose
+ * reading the merge could fold in (the other eight stand in the front-matter region
+ * the edition preserves). Its rationale claims the LETTERS are two instruments',
+ * so both configured readers must have at least two of their own draws agreeing
+ * with those letters — folded, because the pair differs in accents and quote
+ * glyphs and the tool's own character-for-character two-model field therefore does
+ * not see them as agreeing. */
+const twoDraws = drawMap(twoReader);
+const r11688 = ruleOf('11688');
+check(!!r11688, 'the two-reader pass added r11688 — the reading BOTH non-echoing readers corroborate');
+if (r11688) {
+  const line = lineOf(r11688.location.find);
+  check(line != null, 'r11688: its find does not stand in the served transcription');
+  check(/two instruments/i.test(r11688.rationale || ''), "r11688: the rationale does not state the check's outcome (the letters are two instruments')");
+  check(/ONE instrument repeated/.test(r11688.rationale || '') === false, 'r11688: the rationale still carries the single-instrument clause');
+  if (line != null) {
+    const want = fold(r11688.after);
+    for (const model of twoReader.models) {
+      const agree = (twoDraws.get(model) || []).filter(
+        (d) => d.line === line && d.text && d.text !== '?' && !isVerbatim(d.line, d.text) && fold(d.text).includes(want),
+      );
+      check(agree.length >= 2, `r11688: the rationale names ${model} as reading these letters in both its draws, but its non-echo draws agreeing with them number ${agree.length}`);
+    }
+  }
 }
 
 console.log(`echo-probe: ${ok} OK, ${fails.length} FAIL`);
