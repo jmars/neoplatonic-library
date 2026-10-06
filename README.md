@@ -37,7 +37,8 @@ version; a correction ships as a new version and the old one keeps resolving.
 ## Routes
 
 `/` · `/texts` · `/texts/<slug>` · `/texts/<slug>/apparatus` ·
-`/texts/<slug>/v/<semver>` · `/texts/<slug>/v/<semver>/apparatus` · `/graph` ·
+`/texts/<slug>/scans` · `/texts/<slug>/v/<semver>` ·
+`/texts/<slug>/v/<semver>/apparatus` · `/graph` ·
 `/search` · `/editions` · `/about` · `/errata`.
 
 The repair log is browsed as a **leaf viewer** on its own page,

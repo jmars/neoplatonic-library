@@ -876,6 +876,34 @@ ol.errata code { font-family: var(--mono); font-size: 0.78rem; color: var(--acce
 }
 .page-contents .to-top:hover { color: var(--accent); }
 
+/* ---------- the scans index: the edition's whole run of pages, in leaf order
+ *
+ * `/texts/<slug>/scans/` is an address every edition page prints, and it served
+ * the leaf images but had no index — the directory 404'd. This is that index:
+ * one card per stored leaf, thumbnails only, so a 724-leaf edition is a page of
+ * small images rather than a page of prose. Nothing per leaf but its key and its
+ * printed page; the images are the whole size they are served at (there is no
+ * second, generated thumbnail copy in the record — the leaf IS the citable
+ * thing), so they are `loading="lazy"`: a 700-leaf page must not fetch 700 full
+ * page images to be looked at. */
+.scan-grid {
+  list-style: none; margin: var(--space-4) 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  gap: var(--space-3) var(--space-2); align-items: start;
+}
+.scan-leaf { margin: 0; display: flex; flex-direction: column; gap: 2px; align-items: center; text-align: center; }
+.scan-leaf-link {
+  display: block; line-height: 0; padding: 3px;
+  border: 1px solid var(--line); border-radius: 2px;
+}
+.scan-leaf-link:hover { border-color: var(--accent); }
+.scan-leaf-img { display: block; width: 100%; max-width: 120px; height: auto; background: var(--bg2); border: 0; }
+.scan-leaf-key { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+.scan-leaf-page { font-family: var(--sans); font-size: 10px; color: var(--dim); }
+/* A long index is a page a reader crosses with the jump bar (the shell's own
+   `.page-contents`), and the bar's targets are the volume sections. */
+.scan-grid + .scan-grid { margin-top: var(--space-4); }
+
 /* ---------- the edition page's apparatus summary ----------
  *
  * The apparatus is its own page now; this is the door to it, and it is the

@@ -67,6 +67,7 @@ import { buildShelfIndex, buildSearchPage } from './search.mjs';
 import { readGraph, buildGraphPage } from './graph.mjs';
 import { apparatusJson, LEAF_FILE } from './apparatus.mjs';
 import { buildEditionsPage, buildAboutPage, buildErrataPage, buildNotFoundPage } from './pages.mjs';
+import { scansIndexPage } from './scans.mjs';
 import { checkWorkshop, checkWorkshopAll } from './leak.mjs';
 
 const log = (msg) => console.log(`[build] ${new Date().toISOString()} ${msg}`);
@@ -305,6 +306,15 @@ for (const t of served) {
     const n = readdirSync(scansTo).filter((f) => LEAF_FILE.test(f)).length;
     scanTotal += n;
     log(`library: ${t.slug}: ${n} source leaf image(s) -> texts/${t.slug}/scans/`);
+    /* THE SCAN'S OWN INDEX, at the address every page prints (model §3.1). The
+     * directory served the images and 404'd on itself: a reader who followed
+     * `/texts/<slug>/scans/` from a provenance paragraph got nothing. The index
+     * is written HERE and not per version — the stored scan belongs to the
+     * EDITION, not to one version of its text, so `/texts/<slug>/scans/` is one
+     * address that every version's page links and no release rewrites. */
+    const scans = scansIndexPage(t);
+    written.push({ rel: scans.rel, html: writePage(scans.rel, scans.def) });
+    sitemapUrls.push(scans.url);
   }
 }
 

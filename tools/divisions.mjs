@@ -61,7 +61,7 @@
  * `tools/migrate-readings.mjs`. The BUILD reads only what this tool leaves behind.
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { collapseLine } from './reader.mjs';
@@ -532,9 +532,9 @@ for (const [key, first] of [...headsOf]) {
 /** The witness's own contents lists: "THE CHAPTERS OF BOOK I." … "CONTENTS OF THE
  * CHAPTERS OF BOOK VII.", each followed by its chapters. The counts are the
  * independent fact: a mis-read BOOK number contradicts them. */
-function witnessContents(file) {
-  if (!file || !existsSync(file)) return null;
-  const L = readFileSync(file, 'utf8').split('\n');
+function witnessContents(text) {
+  if (!text) return null;
+  const L = text.split('\n');
   const hdr = [];
   L.forEach((l, i) => {
     const m = /^\s*(?:THE CHAPTERS OF BOOK|CONTENTS OF THE CHAPTERS OF BOOK)\s+([IVXLCDMvl.]+)/i.exec(l);
@@ -557,7 +557,11 @@ function witnessContents(file) {
   }
   return books;
 }
-const witness = witnessContents(witnessFile);
+/* THE WITNESS, READ ONCE: its contents lists are what is parsed, its bytes are
+ * what the record now checksums (the notes below explain why the path is gone). */
+const witnessText =
+  witnessFile && existsSync(witnessFile) ? readFileSync(witnessFile, 'utf8') : '';
+const witness = witnessContents(witnessText);
 const wBook = new Map();
 if (witness) for (const b of witness) if (b.book != null) wBook.set(b.book, b);
 
@@ -723,8 +727,23 @@ const out = {
   },
   vision: { model: heads.model, leaves: Object.keys(heads.leaves).length, readings: readings.length, placed },
   witness: witness
-    ? { file: witnessFile, lists: witness.map((b) => ({ book: b.book, raw: b.raw, chapters: b.chapters, line: b.line })) }
-    : { file: null },
+    ? {
+        /* THE WITNESS'S OWN NAME AND ITS CHECKSUM, NEVER THE PATH IT WAS READ
+         * FROM. MEASURED: this field used to be `file` holding the ABSOLUTE HOST
+         * PATH the transcript sat at (`/home/<user>/…`), and this record is
+         * COMMITTED — the repo is public, so the path to the host's working shelf
+         * was published with it. The name of the file the contents lists were read
+         * from is the fact worth keeping, and the checksum is what makes it
+         * checkable: a reader can match it against the same bytes anywhere, while a
+         * host path is meaningful on one machine and stale everywhere else. The
+         * shape is `witnesses.json`'s own (name/shelf/sha256/bytes). */
+        name: basename(witnessFile).replace(/\.txt$/i, '').toLowerCase(),
+        shelf: basename(witnessFile),
+        sha256: sha256(witnessText),
+        bytes: Buffer.byteLength(witnessText),
+        lists: witness.map((b) => ({ book: b.book, raw: b.raw, chapters: b.chapters, line: b.line })),
+      }
+    : { name: null, shelf: null, sha256: null, bytes: null, lists: [] },
   books: booksOut,
   divisions,
   notes,

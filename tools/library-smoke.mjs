@@ -161,12 +161,16 @@ const builtPages = (slug) => {
   const out = [];
   const walk = (d) => {
     for (const e of readdirSync(d, { withFileTypes: true })) {
-      /* THE APPARATUS IS ITS OWN PAGE, NOT A TEXT PAGE. It carries the leaf
-       * viewer and no stretch of the text, so it is not a page of the edition
-       * whose paragraphs this walk counts — the text pages are the edition page
-       * and its `part-N` pages. */
+      /* THE APPARATUS AND THE SCANS INDEX ARE THEIR OWN PAGES, NOT TEXT PAGES.
+       * The apparatus carries the leaf viewer and the scans index carries the
+       * stored run's thumbnails; neither holds a stretch of the text, so neither
+       * is a page of the edition whose paragraphs this walk counts — the text
+       * pages are the edition page and its `part-N` pages. MEASURED: with only
+       * `apparatus` skipped, the scans index was counted as a text page, which
+       * multiplied the expected paragraph total by one page's worth and failed
+       * this section on all three editions. */
       if (e.isDirectory()) {
-        if (e.name === 'apparatus') continue;
+        if (e.name === 'apparatus' || e.name === 'scans') continue;
         walk(join(d, e.name));
       } else if (e.name === 'index.html') out.push(join(d, e.name));
     }

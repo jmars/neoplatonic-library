@@ -1606,7 +1606,7 @@ function repairRedirect(url) {
  * `.page-contents`), so the three regions stay reachable from anywhere on the
  * page, and it carries the back-to-top control at its end. `items` are
  * `[anchor, label]`. */
-function contents(...items) {
+export function contents(...items) {
   return (
     `<nav class="page-contents" aria-label="On this page"><div class="wrap">` +
     `<span class="pc-label">On this page</span><ol>` +

@@ -174,5 +174,117 @@ section('the built tree passes the gate the build runs');
   }
 }
 
+/* ---------- §6 no absolute host path in the committed data or the built tree ----
+ *
+ * MEASURED, and why this exists: `data/editions/<slug>/divisions.json` recorded
+ * the witness it was cross-checked against as the ABSOLUTE HOST PATH it was read
+ * from (`/home/<user>/thework/work-text/…`). The repo is public, so the path to
+ * the host's working shelf was published with the record — and nothing caught it,
+ * because the leak gate only ever ran on the SERVED tree and the file is not
+ * served. A host path in committed data is the same leak as one in a page: it
+ * names a machine and a layout that no reader has.
+ *
+ * The scope is both halves: every file under `data/` (the committed record) and
+ * everything the build emits (the served tree). OCR debris in a book's own text
+ * can contain `~/` by accident, so the test is the GATE'S OWN path pattern — the
+ * one that requires a real path after the marker — and the literal `/home/` is
+ * additionally required to be absent from every committed JSON, which is
+ * structured data and cannot contain it by accident. (false-positive control in
+ * the other direction below.) */
+section('no absolute host path in the committed data or the built tree');
+{
+  const pathRule = GATE_PATTERNS.find(([, what]) => what === 'local filesystem path');
+  check(!!pathRule, 'the gate carries its "local filesystem path" rule');
+  const walk = (dir, out = []) => {
+    if (!existsSync(dir)) return out;
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) walk(p, out);
+      else out.push(p);
+    }
+    return out;
+  };
+  const rel = (p) => p.replace(`${ROOT}/`, '');
+  /* TEXT FILES ONLY. MEASURED, and the reason: the stored leaf images hold JPEG
+   * bytes, and a JPEG stream contains `~/x` sequences by accident — the first
+   * run of this check reported 15 "host paths" in .jpg files. A binary is
+   * recognised the way the tooling recognises one, by a NUL byte: that is what
+   * makes the scan a test rather than a lottery. */
+  const textFiles = (files) =>
+    files.filter((p) => {
+      let buf;
+      try {
+        buf = readFileSync(p);
+      } catch {
+        return false;
+      }
+      return !buf.includes(0);
+    });
+  if (pathRule) {
+    const [re] = pathRule;
+    const scan = (files) => {
+      const hits = [];
+      for (const p of textFiles(files)) {
+        const m = re.exec(readFileSync(p, 'utf8'));
+        if (m) hits.push(`${rel(p)}: ${JSON.stringify(m[0])}`);
+      }
+      return hits;
+    };
+    const dataFiles = textFiles(walk(join(ROOT, 'data')));
+    const dataHits = scan(dataFiles);
+    check(
+      dataHits.length === 0,
+      `no host path in the committed record under data/ (${dataFiles.length} text file(s) scanned)` +
+        (dataHits.length ? `\n       ${dataHits.slice(0, 6).join('\n       ')}` : ''),
+    );
+    const distFiles = textFiles(walk(DIST));
+    const distHits = scan(distFiles);
+    check(
+      distHits.length === 0,
+      `no host path in the built tree (${distFiles.length} text file(s) scanned)` +
+        (distHits.length ? `\n       ${distHits.slice(0, 6).join('\n       ')}` : ''),
+    );
+
+    /* THE CHECK CAN FAIL — asserted on the exact string the record carried, so a
+     * rule that cannot be violated is not relied on. */
+    const asBefore =
+      '{"file": "/home/jaye/thework/work-text/Proclus-Taylor-Elements-Theology-and-Theology-of-Plato-1816.txt"}';
+    check(
+      re.test(asBefore),
+      `the host-path predicate FIRES on the string divisions.json used to carry (${JSON.stringify(re.exec(asBefore)?.[0])})`,
+    );
+    /* THE FALSE-POSITIVE CONTROL, in both directions. The book's own OCR debris
+     * is NOT a path (measured on the witness transcriptions, where `~/` occurs
+     * as scan noise) — but a JPEG stream's bytes DO contain sequences the rule
+     * matches (`\t~/j`), which is precisely why the scan above reads text files
+     * only. Both are asserted, so the filter cannot quietly become a way of not
+     * looking. */
+    check(
+      !re.test('} ; - - : | ~/ dollows\n') && !re.test('~/ ”* - \n'),
+      'the book’s own OCR debris (`~/ `) is NOT reported as a host path',
+    );
+    check(
+      re.test('\t~/j'),
+      'a JPEG byte sequence DOES match the rule — which is why the scan is over text files (NUL-free) only',
+    );
+  }
+  /* The literal form, in the structured half: a committed JSON that names /home/
+   * is a path whatever the pattern does with its surroundings. */
+  const jsons = textFiles(walk(join(ROOT, 'data'))).filter((p) => p.endsWith('.json'));
+  const literal = jsons.filter((p) => readFileSync(p, 'utf8').includes('/home/')).map(rel);
+  check(
+    literal.length === 0,
+    `no committed JSON under data/ contains the literal /home/ (${jsons.length} file(s) scanned)` +
+      (literal.length ? `\n       ${literal.join('\n       ')}` : ''),
+  );
+  const distLiteral = textFiles(walk(DIST))
+    .filter((p) => p.endsWith('.json') && readFileSync(p, 'utf8').includes('/home/'))
+    .map(rel);
+  check(
+    distLiteral.length === 0,
+    `no built JSON contains the literal /home/` + (distLiteral.length ? `\n       ${distLiteral.join('\n       ')}` : ''),
+  );
+}
+
 console.log(failures === 0 ? '\nleak-probe: all checks passed' : `\nleak-probe: ${failures} check(s) FAILED`);
 process.exit(failures === 0 ? 0 : 1);

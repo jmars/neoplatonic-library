@@ -154,6 +154,18 @@ for (const e of servedEditions()) {
     label: 'texts',
     slug: e.slug,
   });
+  /* THE SCAN'S OWN INDEX, at the DIRECTORY every page prints (a 404 until this
+   * route existed: `/texts/<slug>/scans/` served the leaf images and had no
+   * index of them). It is one address for the EDITION — the stored scan is not
+   * versioned — so it is listed once, not per version. */
+  ROUTES.push({
+    file: `texts/${e.slug}/scans/index.html`,
+    url: `/texts/${e.slug}/scans/`,
+    title: `The scans of ${e.title} — ${HOST}`,
+    nav: '/texts/',
+    label: 'texts',
+    slug: e.slug,
+  });
 }
 
 /* ---------- the assertions ---------- */
@@ -264,6 +276,114 @@ for (const e of servedEditions()) {
       `${e.slug}/v/${e.current_version}/: canonical is the PINNED URL`,
     );
     check(citeTextOf(ph) === meta.citation, `${e.slug}/v/${e.current_version}/: carries that version's citation`);
+  }
+}
+
+section('the scans index: every stored leaf, in its own order, at the address pages link');
+{
+  /* THE CLAIM THIS HOLDS: `/texts/<slug>/scans/` serves an INDEX OF THE STORED
+   * SCAN — one entry per leaf, each linking the leaf image itself — for every
+   * published edition. It was a 404 while the leaf images beneath it were 200, so
+   * the property is asserted at both ends: the index exists at the directory
+   * address, and what it lists IS the stored directory (counted from
+   * `data/editions/<slug>/scans/`, never from a number typed here). The leaf
+   * pattern is the probe's own reading of the stored names, so a build that
+   * dropped a leaf, invented one, or grouped two volumes as one fails here. */
+  const LEAF = /^(?:v\d+-)?n\d+\.jpg$/;
+  const volumeOf = (f) => (/^(v\d+)-/.exec(f) || ['', ''])[1];
+  const editions = servedEditions();
+  check(editions.length > 0, `read ${editions.length} served edition(s)`);
+  for (const e of editions) {
+    const dir = join(ROOT, 'data', 'editions', e.slug, 'scans');
+    const stored = existsSync(dir) ? readdirSync(dir).filter((f) => LEAF.test(f)).sort() : [];
+    check(stored.length > 0, `${e.slug}: scans/ holds ${stored.length} stored leaf image(s)`);
+    const file = join(DIST, 'texts', e.slug, 'scans', 'index.html');
+    if (!existsSync(file)) {
+      check(false, `/texts/${e.slug}/scans/: index.html exists (the directory is not a 404)`);
+      continue;
+    }
+    check(true, `/texts/${e.slug}/scans/: index.html exists (the directory is not a 404)`);
+    const html = readFileSync(file, 'utf8');
+    const cells = [...html.matchAll(/<li class="scan-leaf">[\s\S]*?<\/li>/g)].map((m) => m[0]);
+    check(cells.length === stored.length, `/texts/${e.slug}/scans/: lists every stored leaf (${cells.length} entries = ${stored.length} stored)`);
+
+    const keys = cells.map((c) => (/class="scan-leaf-key">([^<]*)</.exec(c) || [])[1]).filter(Boolean);
+    const want = stored.map((f) => f.replace(/\.jpg$/i, ''));
+    check(
+      keys.length === want.length && [...keys].sort().join('\n') === [...want].sort().join('\n'),
+      `/texts/${e.slug}/scans/: the leaf keys are the stored names, once each ` +
+        `(${keys.length} key(s); ${want.filter((w) => !keys.includes(w)).length} missing, ${keys.filter((k) => !want.includes(k)).length} invented)`,
+    );
+
+    /* EVERY ENTRY OPENS THE LEAF IT NAMES — a 200, not a link to a name nothing
+     * serves. The href is checked against the frozen tree, so a leaf the deploy
+     * would 404 on cannot pass here. */
+    const hrefs = cells.map((c) => (/<a class="scan-leaf-link" href="([^"]+)"/.exec(c) || [])[1]).filter(Boolean);
+    const unresolved = hrefs.filter((h) => !existsSync(join(DIST, h.replace(/^\//, ''))));
+    check(
+      hrefs.length === cells.length && unresolved.length === 0,
+      `/texts/${e.slug}/scans/: every entry links a shipped leaf image (${hrefs.length}/${cells.length}` +
+        (unresolved.length ? `; ${unresolved.length} unresolved, e.g. ${unresolved[0]}` : '') +
+        `)`,
+    );
+    check(
+      hrefs.every((h) => h.startsWith(`/texts/${e.slug}/scans/`)),
+      `/texts/${e.slug}/scans/: every entry links THIS edition's own scans/ address`,
+    );
+    check(
+      cells.every((c) => /loading="lazy"/.test(c)),
+      `/texts/${e.slug}/scans/: every thumbnail is loaded lazily (${cells.length} of them — the page must not fetch the whole run to be looked at)`,
+    );
+
+    /* GROUPED BY VOLUME WHERE THE WORK IS PRINTED IN MORE THAN ONE. The volume is
+     * the leaf's own prefix; one volume must be ONE group (an ungrouped page)
+     * and two must be two, because a two-volume work's stored leaf numbers run
+     * over each other. */
+    const vols = [...new Set(stored.map(volumeOf))];
+    const groups = [...html.matchAll(/<section id="vol-(\d+)">/g)].length;
+    check(
+      vols.length === 1 ? groups === 0 : groups === vols.length,
+      vols.length === 1
+        ? `/texts/${e.slug}/scans/: one volume, one group (no volume sections)`
+        : `/texts/${e.slug}/scans/: ${vols.length} volumes, ${groups} group section(s)`,
+    );
+
+    /* THE PRINTED PAGE IS THE RECORD'S, checked against the endpoints the RECORD
+     * itself verified (scan.json `verified`), not against the arithmetic the
+     * build uses — so an offset the build derived wrongly shows up as the wrong
+     * caption on the leaf the record measured at. Where no recorded endpoint
+     * exists for a leaf (Porphyry's page model is not in this shape), the
+     * assertion is that no page is claimed at all. */
+    const scanFile = join(ROOT, 'data', 'editions', e.slug, 'scan.json');
+    const pageAt = (key) => {
+      const c = cells.find((x) => x.includes(`>${key}<`));
+      const m = c && /class="scan-leaf-page">p\.(?:&nbsp;|\s)*(\d+)</.exec(c);
+      return m ? Number(m[1]) : null;
+    };
+    let verifiedChecks = 0;
+    if (existsSync(scanFile)) {
+      const s = JSON.parse(readFileSync(scanFile, 'utf8'));
+      const runs = Array.isArray(s.items) && s.items.length ? s.items : s.verified ? [s] : [];
+      for (const r of runs) {
+        const v = Array.isArray(r.verified) ? r.verified : [];
+        for (const end of v) {
+          const key = `${r.prefix ? `${r.prefix}-` : ''}n${end.archive}`;
+          if (!stored.includes(`${key}.jpg`)) continue;
+          verifiedChecks++;
+          check(
+            pageAt(key) === end.page,
+            `/texts/${e.slug}/scans/: leaf ${key} carries the page the record measured for it (p. ${end.page}; ` +
+              `got ${pageAt(key) === null ? 'none' : `p. ${pageAt(key)}`})`,
+          );
+        }
+      }
+    }
+    if (!verifiedChecks) {
+      check(
+        !/class="scan-leaf-page"/.test(html),
+        `/texts/${e.slug}/scans/: the record states no measured leaf↔page endpoint, so no printed page is claimed`,
+      );
+    }
   }
 }
 

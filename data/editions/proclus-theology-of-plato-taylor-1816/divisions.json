@@ -15,7 +15,10 @@
     "placed": 215
   },
   "witness": {
-    "file": "/home/jaye/thework/work-text/Proclus-Taylor-Elements-Theology-and-Theology-of-Plato-1816.txt",
+    "name": "proclus-taylor-elements-theology-and-theology-of-plato-1816",
+    "shelf": "Proclus-Taylor-Elements-Theology-and-Theology-of-Plato-1816.txt",
+    "sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+    "bytes": 2493500,
     "lists": [
       {
         "book": 1,
