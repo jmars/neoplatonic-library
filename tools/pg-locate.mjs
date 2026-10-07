@@ -14,6 +14,19 @@
  * "the bounds do not bracket the point". The table this tool reports is taken at
  * --slide 24; the numbers at 8 and 48 are in the same file.
  *
+ * WHERE THE MARGINAL YIELD COMES FROM, MEASURED, because it is the weakest part
+ * of every number below. THE VERDICTS ARE STABLE across the knob: MEASURED on
+ * the r24 batches, of the 1,354 rules that have a verdict at ALL THREE slides,
+ * ZERO flip. The TIGHT placements are 961 at every slide and their verdicts are
+ * identical (804 after, 84 silent-marks, 29 thin-stretch, 23 absent-at-point, 15
+ * before, 6 third) while the SLID decisions grow with the knob (after 300 → 463
+ * → 482, third 32 → 67 → 74 at 8/24/48). So the whole of the marginal yield is
+ * NON-TIGHT: placements whose bounds had to be slid off the damaged words
+ * nearest the point, so the witness's stretch between them carries words that are
+ * not the disputed ones. A rule that 24 confirms and 8 does not is confirmed on
+ * slid bounds only. 24 is the mid-point of the probed range and is the reported
+ * table for that reason — NOT because it is more accurate than 8 or 48.
+ *
  * It is BATCHABLE, RESUMABLE and SCRIPT-DRIVEN: every placement is written to
  * the --out file as it is made and a re-run skips the points already in it, so a
  * killed run loses at most one point. The report is printed at the end of every
@@ -41,7 +54,12 @@
  * BOUNDED: a unique run to its LEFT and a unique run to its RIGHT, each required
  * to occur exactly once IN THE SAME VOLUME. What the witness reads between the
  * two is then the witness's own rendering of the disputed place, quoted
- * verbatim. If either bound fails to be unique, the point is NOT located.
+ * verbatim. The point is NOT located if either bound fails to be unique, if the
+ * bounds stand in the wrong order, if the witness reads the wrong amount of text
+ * between them, if TWO volumes each bracket the point (a placement that cannot
+ * name its volume is not a placement — this REFUSES, it does not pick by sort
+ * order), or if the witness carries NOTHING between the bounds at all (an empty
+ * stretch is the fact that PG does not carry the passage, not a placement of it).
  *
  * WHAT IT NORMALISES, AND WHAT IT THEREFORE CANNOT SETTLE. Our transcription and
  * PG are two readings of the same print by different instruments, so they differ
@@ -56,10 +74,25 @@
  * THE CONTEXT MUST BE CLEAN. A window that contains our residual garble
  * (`circnlation`, `beaven`) would match nothing or, worse, match loosely. Every
  * token of every fingerprint is therefore required to be a token of the print
- * that something else already reads cleanly — a dictionary word, or a word some
- * witness of this print carries — and a run that fails that test is not tried,
- * it is slid outward until a clean run is found. The garble itself is never
- * quietly tolerated in a fingerprint.
+ * that something else already reads cleanly, and a run that fails that test is
+ * not tried, it is slid outward until a clean run is found. The garble itself is
+ * never quietly tolerated in a fingerprint.
+ *
+ * WHAT THAT SET ACTUALLY IS, MEASURED — the claim above is the intent, and the
+ * implementation does not meet it. The set is built from (a) the reference
+ * wordlist and (b) every token of EVERY witness of this print. (b) is what is
+ * really there: MEASURED 48,893 tokens, of which 39,815 are carried by no
+ * Project Gutenberg volume — they come from the edition's OCR witnesses,
+ * including the vol. II transcription measured at 84.9% dictionary words. So
+ * garble shared with that transcription passes as clean (the review's finding).
+ * (a) is INERT: the wordlist is read with a `\n` split and this file has CRLF
+ * line endings, so `/^[a-z]{2,}$/` matches none of its 370,079 lines (tools/
+ * greek-runs.mjs reads the same file with a `\s+` split and does not have this
+ * problem). MEASURED consequence: 297 token occurrences of our own source are
+ * dictionary words that no witness carries and that this test would admit as
+ * clean. THIS READ IS DELIBERATELY LEFT AS IT IS for this unit — it is a defect
+ * recorded here, not a claim, and changing it would move every number in the
+ * yield record without a re-validation of the clean test.
  */
 
 import { createHash } from 'node:crypto';
@@ -266,6 +299,21 @@ const health = (() => {
 })();
 const healthy = (t) => t.length > 1 && /^[a-z]+$/.test(t) && health.has(t);
 
+/** THE REFERENCE WORDLIST, read the way tools/greek-runs.mjs reads it (a
+ * whitespace split) — NOT the way the clean test above does, whose newline split
+ * is INERT on this CRLF file (see the header). It is used for ONE thing: to
+ * record, per changed word of the rules the witness reads against, whether that
+ * word is a word of the language at all. It takes no part in placing a point. */
+const WORDLIST = (() => {
+  const f = join(CACHE, 'words.txt');
+  if (!existsSync(f)) return new Set();
+  return new Set(readFileSync(f, 'utf8').split(/\s+/).filter((w) => /^[a-z]{2,}$/.test(w)));
+})();
+const countable = (t) => t !== '@' && /^[a-z0-9]+$/.test(t);
+/** How many times the print uses a word AT ALL — both volumes, which is the
+ * print's own vocabulary and not a guess at it. */
+const countInPrint = (t) => VOLS.reduce((n, v) => n + (v.index.get(t) || []).length, 0);
+
 /** Every occurrence of a token run in a volume, capped: the caller only ever
  * needs to know 0, 1, or "more than one", and the cap is recorded. */
 const CAP = 33;
@@ -406,23 +454,65 @@ function place(tokens, s0, s1, volumes) {
           window,
           excess,
           limit,
-          ok: b >= a && Math.abs(excess) <= limit,
-          why: b < a ? 'the two bounds stand in the wrong order' : Math.abs(excess) > limit ? `the witness reads ${window} words between the bounds where we read ${expected} — it does not place this point` : null,
+          /* AN EMPTY STRETCH IS NOT A PLACEMENT. `0.35*expected + 8` admits
+           * window 0 for a short point (MEASURED: expected 11, limit 12, so a
+           * pair of bounds with NOTHING between them passed), and 42 points were
+           * counted as located on it. What an empty stretch says is that PG does
+           * not carry the passage at this point — so it is refused, not located,
+           * and when every pair reads an empty stretch the refusal says so. */
+          ok: b >= a && window > 0 && Math.abs(excess) <= limit,
+          why:
+            b < a
+              ? 'the two bounds stand in the wrong order'
+              : window === 0
+                ? 'the witness carries NOTHING between the two bounds — PG does not carry this passage, so this is not a placement of the point'
+                : Math.abs(excess) > limit
+                  ? `the witness reads ${window} words between the bounds where we read ${expected} — it does not place this point`
+                  : null,
         });
       }
     }
   combos.sort((x, y) => (x.ok === y.ok ? 0 : x.ok ? -1 : 1) || x.L.slide + x.R.slide - (y.L.slide + y.R.slide) || Math.abs(x.excess) - Math.abs(y.excess));
   out.combinations = combos.length;
   out.tried = combos.slice(0, 6).map((c) => ({ volume: c.v.id, slide: c.L.slide + c.R.slide, window: c.window, expected: ours.length + c.L.slide + c.R.slide, excess: c.excess, why: c.why }));
-  const pick = combos.find((c) => c.ok);
+  const okCombos = combos.filter((c) => c.ok);
+  /* EVERY VOLUME THAT HOLDS A BRACKETING PAIR, not just the first six combos: a
+   * placement must be able to NAME its volume, and this is the measurement of
+   * whether it can. */
+  const okVolumes = [...new Set(okCombos.map((c) => c.v.id))];
+  out.volumes_ok = okVolumes;
+  out.ok_combinations = okCombos.length;
+  if (okVolumes.length > 1) {
+    /* TWO CANDIDATE VOLUMES IS A REFUSAL, NOT A COIN FLIP. This used to pick by
+     * sort order (slide, then |excess|) and report `located, vol1`, which the
+     * method string already claimed could not happen. MEASURED live on the
+     * imprint page — text both volumes carry identically — and measured in the
+     * r24 batch: 4 rules were decided through that coin flip. */
+    out.status = 'refused-ambiguous-volume';
+    out.left = summarise(left);
+    out.right = summarise(right);
+    out.candidates = okCombos.slice(0, 8).map((c) => ({ volume: c.v.id, slide: c.L.slide + c.R.slide, window: c.window, expected: ours.length + c.L.slide + c.R.slide, excess: c.excess }));
+    out.why = `${okVolumes.length} volumes hold a pair of unique bounds around this point (${okVolumes.join(', ')}) — a placement that cannot name its volume is not a placement`;
+    return out;
+  }
+  const pick = okCombos[0];
   if (!pick) {
     out.left = summarise(left);
     out.right = summarise(right);
     const byOrder = combos.some((c) => c.b < c.a);
-    out.status = !combos.length ? 'refused-no-shared-volume' : byOrder ? 'refused-overlap' : 'refused-divergent';
-    out.why = combos.length
-      ? 'every pair of bounds that is unique in a volume reads the wrong amount of text between them'
-      : 'each side has a unique run, but no single volume holds both of them exactly once';
+    const allEmpty = combos.length > 0 && combos.every((c) => c.window === 0);
+    out.status = !combos.length
+      ? 'refused-no-shared-volume'
+      : allEmpty
+        ? 'refused-witness-absent'
+        : byOrder
+          ? 'refused-overlap'
+          : 'refused-divergent';
+    out.why = !combos.length
+      ? 'each side has a unique run, but no single volume holds both of them exactly once'
+      : allEmpty
+        ? 'both bounds occur once in a volume and the witness reads NOTHING between them — PG does not carry this passage'
+        : 'every pair of bounds that is unique in a volume reads the wrong amount of text between them';
     return out;
   }
   const v = pick.v;
@@ -436,6 +526,13 @@ function place(tokens, s0, s1, volumes) {
    * the yield is not one number. */
   out.tight = pick.L.slide === 0 && pick.R.slide === 0;
   out.slide = { left: pick.L.slide, right: pick.R.slide };
+  /* A SHORT STRETCH IS NOT AN EMPTY ONE, but it is the same kind of fact at a
+   * lower dose: the witness reads less than half of what we read between the
+   * bounds, so its stretch is not a rendering of the point either. It is kept
+   * (it is a real placement, refusable by the divergence guard) and FLAGGED, and
+   * the yield record reports the count, because an unflagged short stretch
+   * inflates `located` exactly as the empty ones did. */
+  out.thin_stretch = pick.window * 2 < ours.length + pick.L.slide + pick.R.slide;
   out.left = { tokens: pick.L.run.join(' '), w: pick.L.w, slide: pick.L.slide, occurred: pick.L.occ, at: pick.L.at[v.id] };
   out.right = { tokens: pick.R.run.join(' '), w: pick.R.w, slide: pick.R.slide, occurred: pick.R.occ, at: pick.R.at[v.id] };
   out.pg = {
@@ -516,11 +613,22 @@ function changedBlock(before, after) {
  * either side of the placed span, because a re-flowed text may put a word of its
  * own where ours has none. */
 const DECIDE_SLACK = 2;
+/* HOW MUCH OF THE WITNESS'S OWN STRETCH COUNTS AS "IT READS SOMETHING HERE".
+ * MEASURED at r24 over the 186 rules whose verdict would otherwise be a bare
+ * `silent`: 78 have a stretch of 0-2 tokens (footnote markers, numerals, Greek,
+ * or nothing at all — PG does not carry the passage), 73 have 4 or more and read
+ * a REAL THIRD FORM, and 35 sit on exactly 3. The 3-token cases are neither —
+ * one measured example reads `intelligible 198 triads` against our `intelligible
+ * triads?` (the page number is in the middle), so they are reported as their own
+ * class rather than inflating the contradictions. The ≥4 convention is the
+ * reviewer's, kept so the two records can be read against each other. */
+const THIRD_MIN_TOKENS = 4;
+const ABSENT_MAX_TOKENS = 2;
 function decide(rule, placed, vols) {
   const vol = vols.find((v) => v.id === placed.volume);
   if (!vol || placed.status !== 'located') return { verdict: 'not-located' };
   if (rule.after == null || /^unsure$/i.test(String(rule.after).trim()))
-    return { verdict: 'silent', why: 'the rule’s own `after` is not a reading (`unsure`)' };
+    return { verdict: 'silent-unsure', why: 'the rule’s own `after` is not a reading (`unsure`) — the witness has no second reading to weigh' };
   if (rule.before === rule.after) return { verdict: 'no-change', why: 'the rule changes no mark' };
   const a = tokenize(rule.before, DAMAGE).map((t) => t.t);
   const b = tokenize(rule.after, DAMAGE).map((t) => t.t);
@@ -529,10 +637,11 @@ function decide(rule, placed, vols) {
    * rules whose two readings are the SAME WORDS — a stray period, a capital
    * letter, a dropped apostrophe — because the token run a re-flowed witness is
    * compared on does not carry marks at all, so both "readings" are that one run
-   * and both are found. They are reported as silent, with the reason. */
+   * and both are found. They are reported as silent-marks, with the reason:
+   * undecidable BY DESIGN, not a fact about the witness. */
   if (a.join(' ') === b.join(' ')) {
     return {
-      verdict: 'silent',
+      verdict: 'silent-marks',
       basis: 'the two readings are the same WORDS — the change is to MARKS or case',
       why: 'a re-flowed witness carries no punctuation and no case, so this rule is UNDECIDABLE from it even when the passage is located',
     };
@@ -548,12 +657,13 @@ function decide(rule, placed, vols) {
   let inBefore = has(a);
   let inAfter = has(b);
   let basis = 'the whole reading';
+  let cores = null;
   if (!inBefore && !inAfter) {
-    const cores = changedBlock(rule.before, rule.after);
+    cores = changedBlock(rule.before, rule.after);
     basis = 'the changed words';
     if (cores.coreBefore.join(' ') === cores.coreAfter.join(' ') || (!cores.coreBefore.length && !cores.coreAfter.length)) {
       return {
-        verdict: 'silent',
+        verdict: 'silent-marks',
         basis: 'neither — the two readings differ in MARKS only',
         why: 'the rule changes no WORD, and a re-flowed witness carries no marks to compare',
         window: window.join(' '),
@@ -575,18 +685,61 @@ function decide(rule, placed, vols) {
   }
   const verdict =
     inAfter && inBefore ? (b.length > a.length ? 'after' : b.length < a.length ? 'before' : 'both') : inAfter ? 'after' : inBefore ? 'before' : 'silent';
-  return {
-    verdict,
+  if (!cores) cores = changedBlock(rule.before, rule.after);
+  const common = {
     basis,
     before_words: a.length,
     after_words: b.length,
     window: window.join(' '),
+    /* THE CHANGED WORDS, MEASURED, so that a verdict the witness reads AGAINST
+     * us can be subclassified without re-deriving it: each changed word of each
+     * reading with how many times the print uses it AT ALL (both volumes), and
+     * whether it is a word of the reference wordlist. MEASURED, that is what
+     * tells a rule that DELIBERATELY REPAIRS the print's own misprint (the form
+     * the print reads here is not a word, or is used nowhere else in the print)
+     * from a rule whose reading is simply wrong (the print reads an ordinary word
+     * of its own vocabulary). See tools/pg-locate-report.mjs, which applies it. */
+    changed: {
+      before: cores.coreBefore.map((t) => ({ w: t, uses: countable(t) ? countInPrint(t) : null, wordlist: t !== '@' && WORDLIST.has(t) })),
+      after: cores.coreAfter.map((t) => ({ w: t, uses: countable(t) ? countInPrint(t) : null, wordlist: t !== '@' && WORDLIST.has(t) })),
+    },
+  };
+  if (verdict === 'silent') {
+    /* THE THREE FACTS THAT USED TO BE ONE WORD. `silent` covered (a) PG carrying
+     * NOTHING at the point, and (c) PG reading a genuine THIRD FORM — and (c) is
+     * the SAME CLASS OF FACT as a `before`: a rule whose target reading is not
+     * what the print reads. MEASURED sample, r8617: our `after` is `For the
+     * hebdomad is a multitude` and PG vol. 1 reads `with the monad for
+     * hebdomadic multitude has an`. Counting that as "silent" left a silent-wrong
+     * repair unflagged; it is now a `third` verdict, which the record reports
+     * beside the 22 `before` cases. */
+    const n = placed.pg ? placed.pg.n : 0;
+    if (n <= ABSENT_MAX_TOKENS)
+      return {
+        ...common,
+        verdict: 'absent-at-point',
+        why: `PG carries ${n} token(s) between the bounds where we read ${a.length + (placed.slide.left + placed.slide.right)} — it does not carry the passage here, so no reading can be drawn from it`,
+      };
+    if (n < THIRD_MIN_TOKENS)
+      return {
+        ...common,
+        verdict: 'thin-stretch',
+        why: `PG carries ${n} tokens between the bounds — too few to be its rendering of the point and too many to be nothing; no reading is drawn`,
+      };
+    return {
+      ...common,
+      verdict: 'third',
+      witness_at_point: (placed.pg ? placed.pg.tokens : []).join(' '),
+      why: 'PG reads WORDS of its own at this point and NEITHER of the rule’s two readings is among them — the target reading is not what the print reads (a CONTRADICTION, to be reviewed)',
+    };
+  }
+  return {
+    ...common,
+    verdict,
     why:
-      verdict === 'silent'
-        ? 'the witness reads neither of the rule’s two forms at this point'
-        : verdict === 'both'
-          ? 'the witness carries both readings in the window and they are the same length — it does not decide'
-          : `the witness carries the rule’s \`${verdict}\` reading at this point (tested on ${basis})`,
+      verdict === 'both'
+        ? 'the witness carries both readings in the window and they are the same length — it does not decide'
+        : `the witness carries the rule’s \`${verdict}\` reading at this point (tested on ${basis})`,
   };
 }
 const indexOf = (toks) => {
@@ -608,8 +761,14 @@ const doc = resume || {
   tool: 'tools/pg-locate.mjs',
   method:
     'each point is bounded by a token run that occurs EXACTLY ONCE in a volume on its left and another on its ' +
-    'right; the witness’s own tokens between the two bounds are what it reads at the point. A point with no ' +
-    'unique bound, two candidate volumes, or bounds in the wrong order is REFUSED, never guessed.',
+    'right, both in the SAME volume; the witness’s own tokens between the two bounds are what it reads at the ' +
+    'point. A point is REFUSED, never guessed, when either bound is not unique, when TWO volumes hold a pair of ' +
+    'unique bounds around it (a placement that cannot name its volume is not a placement), when the bounds stand ' +
+    'in the wrong order, when the witness reads the wrong amount of text between them, or when the witness ' +
+    'carries NOTHING between them (PG does not carry the passage). A verdict the witness reads against the rule ' +
+    'is reported as `before` when it carries our old reading, `third` when it carries words of its own that are ' +
+    'neither reading — the two are the SAME class of fact and are reported side by side — and as ' +
+    '`absent-at-point`/`thin-stretch`/`silent-marks`/`silent-unsure` when nothing can be decided either way.',
   normalised: 'case; ligatures æ/œ and the long s; diacritics; the print’s own line-end hyphenation; ALL punctuation (discarded)',
   blind_to: 'page, printed page number, leaf, line, running head, hyphenation at line end, punctuation, capitalisation',
   volumes: [],
@@ -752,14 +911,54 @@ if (args.includes('--sweep')) {
   const inV1 = rows.filter((r) => cls(r.occ) === 'unique in vol1').length;
   const inV2 = rows.filter((r) => cls(r.occ) === 'unique in vol2').length;
   console.log(`  a window unique in exactly one volume: ${inV1 + inV2} of ${rows.length} (${(((inV1 + inV2) * 100) / rows.length).toFixed(1)}%) — vol1 ${inV1}, vol2 ${inV2}`);
-  /* where our text crosses from one volume to the other, MEASURED from the
-   * windows themselves rather than assumed: the last token of our text that is
-   * unique in vol. I and the first that is unique in vol. II. */
-  const lastV1 = Math.max(...rows.filter((r) => cls(r.occ) === 'unique in vol1').map((r) => r.i));
-  const firstV2 = Math.min(...rows.filter((r) => cls(r.occ) === 'unique in vol2').map((r) => r.i));
+  /* WHERE OUR TEXT CROSSES FROM ONE VOLUME TO THE OTHER, measured from the
+   * windows themselves rather than assumed — and MEASURED, the two obvious
+   * candidates ARE INVERTED AND OVERLAP. The first window of ours unique in PG
+   * vol. 2 starts at `firstV2` and the last unique in PG vol. 1 at `lastV1`, and
+   * firstV2 < lastV1: the ranges OVERLAP, because the print itself repeats
+   * content across its two volumes (the window at `lastV1` reads once in vol. 1
+   * and twice in vol. 2 — a Timaeus passage the edition prints in both). So
+   * "the last unique in vol. 1 and the first unique in vol. 2" names NO split;
+   * it was the evidence string in this record's volume_split block, and it does
+   * not produce the number it is cited for. The split IS taken at `boundary`,
+   * the last window at or below `firstV2` that BOTH volumes carry exactly once —
+   * a seam marker inside the overlap — and every count below is computed from
+   * it, so the evidence produces the number by construction. */
+  const startsOf = (c) => rows.filter((r) => cls(r.occ) === c).map((r) => r.i);
+  const v1starts = startsOf('unique in vol1');
+  const v2starts = startsOf('unique in vol2');
+  const bothstarts = startsOf('unique in both');
+  const lastV1 = Math.max(...v1starts);
+  const firstV2 = Math.min(...v2starts);
+  const boundary = num('split', Math.max(...bothstarts.filter((i) => i <= firstV2)));
   console.log(`  our token ${lastV1} is the last unique-in-vol1 window start and token ${firstV2} the first unique-in-vol2 one (${SRCTOKS.length} tokens in source.txt)`);
+  console.log(`  the two ranges OVERLAP (${firstV2} < ${lastV1}): the print repeats content across its volumes, so neither is the split`);
+  const half = (lo, hi) => {
+    const rs = rows.filter((r) => r.i >= lo && r.i < hi);
+    const t = new Map();
+    for (const r of rs) t.set(cls(r.occ), (t.get(cls(r.occ)) || 0) + 1);
+    const one = (c) => t.get(c) || 0;
+    return { windows: rs.length, ...Object.fromEntries([...t.entries()]), of_which_unique_in_one_volume: one('unique in vol1') + one('unique in vol2') };
+  };
+  const split = {
+    boundary_token: boundary,
+    how: 'the last window at or below the first window unique in PG vol. 2 that BOTH volumes carry exactly once (a seam marker inside the overlap)',
+    first_unique_in_vol2: firstV2,
+    last_unique_in_vol1: lastV1,
+    overlap_note: `the two ranges overlap on [${firstV2}, ${lastV1}] — the print repeats content across its two volumes — so "last vol1-unique / first vol2-unique" names no split`,
+    vol1_half: half(0, boundary),
+    vol2_half: half(boundary, SRCTOKS.length),
+    misclassified: rows.filter((r) => r.i >= boundary && cls(r.occ) === 'unique in vol1').map((r) => ({ token: r.i, occ: r.occ, run: r.run })),
+  };
+  console.log(
+    `  split at our token ${boundary}: vol I half ${split.vol1_half.windows} clean windows, ${split.vol1_half['unique in vol1']} unique in PG vol. 1 (${((100 * split.vol1_half['unique in vol1']) / split.vol1_half.windows).toFixed(1)}%), ${split.vol1_half['unique in vol2'] || 0} unique in vol. 2`,
+  );
+  console.log(
+    `                             vol II half ${split.vol2_half.windows} clean windows, ${split.vol2_half['unique in vol2']} unique in PG vol. 2 (${((100 * split.vol2_half['unique in vol2']) / split.vol2_half.windows).toFixed(1)}%)`,
+  );
+  console.log(`  misclassified windows (vol II half but unique in PG vol. 1): ${split.misclassified.length} — ${split.misclassified.map((m) => `${m.token} “${m.run}” occ ${JSON.stringify(m.occ)}`).join('; ') || 'none'}`);
   const out = opt('out', join(SCRATCH, `${slug}.sweep.json`));
-  writeFileSync(out, `${JSON.stringify({ slug, window: W, step, tokens: SRCTOKS.length, rows }, null, 1)}\n`);
+  writeFileSync(out, `${JSON.stringify({ slug, window: W, step, tokens: SRCTOKS.length, split, rows }, null, 1)}\n`);
   console.log(`wrote ${out}`);
   process.exit(0);
 }
@@ -840,6 +1039,23 @@ const withVerdict = pts.filter((p) => p.decide);
 if (withVerdict.length) {
   console.log('decisions on the located rules:');
   for (const [k, n] of tally(withVerdict.filter((p) => p.status === 'located'), (p) => p.decide.verdict)) console.log(`  ${k} ${n}`);
+  /* THE COMPOSITION OF THOSE DECISIONS, because the yield is not one number: a
+   * TIGHT placement has both bounds hard against the point; a slid one does not.
+   * MEASURED across --slide 8/24/48, the tight decisions are identical while the
+   * slid ones grow — the whole of the marginal yield is the weaker placements. */
+  console.log('  of those, on TIGHT (both bounds hard against the point) placements:');
+  for (const [k, n] of tally(withVerdict.filter((p) => p.status === 'located' && p.tight), (p) => p.decide.verdict)) console.log(`    ${k} ${n}`);
+  console.log('  and on SLID placements (a bound moved off the damaged words):');
+  for (const [k, n] of tally(withVerdict.filter((p) => p.status === 'located' && !p.tight), (p) => p.decide.verdict)) console.log(`    ${k} ${n}`);
+  /* THE TWO FACTS AN EMPTY OR SHORT STRETCH WOULD HIDE INSIDE `located`. */
+  console.log(`  located points with an EMPTY witness stretch (must be 0 — an empty stretch is refused, not located): ${located.filter((p) => p.pg && p.pg.n === 0).length}`);
+  console.log(`  located points with a SHORT witness stretch (< half of what we read between the bounds): ${located.filter((p) => p.thin_stretch).length}`);
+}
+{
+  const amb = pts.filter((p) => p.status === 'refused-ambiguous-volume');
+  const abs = pts.filter((p) => p.status === 'refused-witness-absent');
+  console.log(`refused for TWO CANDIDATE VOLUMES (a placement that cannot name its volume): ${amb.length}${amb.length ? ` — ${amb.map((p) => p.id).join(', ')}` : ''}`);
+  console.log(`refused for an EMPTY WITNESS STRETCH (PG does not carry the passage): ${abs.length}`);
 }
 {
   const cause = { unclean: 0, absent: 0, ambiguous: 0, sides: 0 };

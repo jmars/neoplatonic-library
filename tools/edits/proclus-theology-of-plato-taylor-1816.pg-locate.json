@@ -16,94 +16,112 @@
    "bytes": 1317738
   }
  },
- "slide": "the reported table is --slide 24; --slide 8 and --slide 48 are carried beside it because the yield is a curve, not a number",
+ "method": "each point is bounded by a token run that occurs EXACTLY ONCE in a volume on its left and another on its right, both in the SAME volume; the witness’s own tokens between the two bounds are what it reads at the point. A point is REFUSED, never guessed, when either bound is not unique, when TWO volumes hold a pair of unique bounds around it (a placement that cannot name its volume is not a placement), when the bounds stand in the wrong order, when the witness reads the wrong amount of text between them, or when the witness carries NOTHING between them (PG does not carry the passage). A verdict the witness reads against the rule is reported as `before` when it carries our old reading, `third` when it carries words of its own that are neither reading — the two are the SAME class of fact and are reported side by side — and as `absent-at-point`/`thin-stretch`/`silent-marks`/`silent-unsure` when nothing can be decided either way.",
+ "slide": "The reported table is --slide 24 — the mid-point of the probed range, chosen for the table and NOT because it is more accurate than 8 or 48. THE MARGINAL YIELD ACROSS THE CURVE IS ALL NON-TIGHT, MEASURED: the tight placements are 961 at EVERY slide with identical verdicts (804 after, 84 silent-marks, 29 thin-stretch, 23 absent-at-point, 15 before, 6 third) while the slid decisions grow (after 300 → 463 → 482; third 32 → 67 → 74 at slides 8/24/48). Of the 1,354 rules that have a verdict at all three slides, zero flip. So a rule this table confirms and slide 8 does not is confirmed on SLID BOUNDS ONLY — the weakest placements — and the 237 rules slide 24 adds over slide 8 are all of that kind.",
  "what_it_CANNOT_settle": [
   "a printed page number, a leaf, a line, a running head, or a hyphenation at line end — a re-flowed witness carries none of them",
-  "PUNCTUATION and CASE, which this tool discards before comparing: MEASURED, of the 582 located punctuation rules, 477 are decided UNDECIDABLE for that reason alone and only 97 come back with a reading",
-  "our TYPOGRAPHY. A rule the witness confirms is confirmed as a READING of the same print; the witness has its own editorial normalisation and its own reading, and it is not evidence about how this edition sets a page"
+  "PUNCTUATION and CASE, which this tool discards before comparing: MEASURED, of the 578 located punctuation rules, 473 are UNDECIDABLE for that reason alone and only 101 come back with a reading",
+  "our TYPOGRAPHY. A rule the witness confirms is confirmed as a READING of the same print; the witness has its own editorial normalisation and its own reading, and it is not evidence about how this edition sets a page",
+  "WHAT THE PRINT MEANS. Where the print reads an ordinary word, the witness settles what is printed and never what was intended — see THE_TEST_USED_TO_SUBCLASSIFY."
  ],
- "batch_files": "open-r{8,24,48}.json, rules-r{8,24,48}.json, punct-r24.json, sweep.json — in /var/tmp/pg-locate, regenerable",
- "generated": "2026-10-07T17:21:15.531Z",
+ "batch_files": "open-r{8,24,48}.json, rules-r{8,24,48}.json, punct-r24.json, sweep.json — in /var/tmp/pg-locate, regenerable; this file is generated from them by tools/pg-locate-report.mjs",
+ "generated": "2026-10-07T17:54:27.003Z",
  "slide_8": {
   "open_questions": {
    "n": 272,
-   "located": 54,
+   "located": 48,
    "by_status": {
     "refused-no-anchor": 170,
-    "located": 54,
+    "located": 48,
     "refused-not-our-text": 32,
-    "refused-divergent": 9,
-    "refused-overlap": 7
+    "refused-witness-absent": 10,
+    "refused-overlap": 7,
+    "refused-divergent": 5
    },
    "by_volume": {
-    "vol1": 20,
-    "vol2": 34
+    "vol1": 19,
+    "vol2": 29
    },
-   "tight": 34
+   "tight": 32
   },
   "review_flagged_rules": {
    "n": 2238,
-   "located": 1383,
+   "located": 1357,
    "by_status": {
-    "located": 1383,
+    "located": 1357,
     "refused-no-anchor": 572,
     "refused-not-our-text": 246,
-    "refused-divergent": 26,
+    "refused-witness-absent": 26,
+    "refused-divergent": 21,
     "refused-overlap": 7,
+    "refused-ambiguous-volume": 5,
     "refused-no-shared-volume": 4
    },
    "by_volume": {
-    "vol1": 822,
-    "vol2": 561
+    "vol1": 803,
+    "vol2": 554
    },
-   "tight": 966,
+   "tight": 961,
    "by_type": {
     "OCR": {
      "n": 2092,
-     "located": 1365,
-     "vol1": 810,
-     "vol2": 555,
-     "tight": 960
+     "located": 1343,
+     "vol1": 792,
+     "vol2": 551,
+     "tight": 959
     },
     "transliteration": {
      "n": 146,
-     "located": 18,
-     "vol1": 12,
-     "vol2": 6,
-     "tight": 6
+     "located": 14,
+     "vol1": 11,
+     "vol2": 3,
+     "tight": 2
     }
    },
    "decisions": {
-    "after": 1107,
-    "silent": 258,
-    "before": 18
-   },
-   "silent_reasons": {
-    "the changed words, in the placed stretch itself": 137,
-    "the two readings are the same WORDS — the change is to MARKS or case": 116,
-    "not stated": 5
+    "after": 1104,
+    "silent-marks": 115,
+    "absent-at-point": 44,
+    "third": 38,
+    "thin-stretch": 35,
+    "before": 18,
+    "silent-unsure": 3
    },
    "decisions_by_volume": {
     "vol1": {
-     "after": 659,
-     "silent": 153,
-     "before": 10
+     "after": 656,
+     "silent-marks": 72,
+     "absent-at-point": 22,
+     "third": 20,
+     "thin-stretch": 20,
+     "before": 10,
+     "silent-unsure": 3
     },
     "vol2": {
      "after": 448,
-     "silent": 105,
+     "silent-marks": 43,
+     "absent-at-point": 22,
+     "third": 18,
+     "thin-stretch": 15,
      "before": 8
     }
    },
    "decisions_by_placement": {
     "both bounds hard against the point": {
      "after": 804,
-     "silent": 147,
-     "before": 15
+     "silent-marks": 84,
+     "thin-stretch": 29,
+     "absent-at-point": 23,
+     "before": 15,
+     "third": 6
     },
     "a bound slid off the damaged words": {
-     "after": 303,
-     "silent": 111,
+     "after": 300,
+     "third": 32,
+     "silent-marks": 31,
+     "absent-at-point": 21,
+     "thin-stretch": 6,
+     "silent-unsure": 3,
      "before": 3
     }
    }
@@ -112,85 +130,102 @@
  "slide_24": {
   "open_questions": {
    "n": 272,
-   "located": 87,
+   "located": 80,
    "by_status": {
-    "refused-divergent": 110,
-    "located": 87,
+    "located": 80,
+    "refused-divergent": 69,
+    "refused-witness-absent": 48,
     "refused-not-our-text": 32,
     "refused-no-anchor": 26,
     "refused-overlap": 16,
     "refused-no-shared-volume": 1
    },
    "by_volume": {
-    "vol1": 33,
-    "vol2": 54
+    "vol1": 32,
+    "vol2": 48
    },
-   "tight": 34
+   "tight": 32
   },
   "review_flagged_rules": {
    "n": 2238,
-   "located": 1623,
+   "located": 1594,
    "by_status": {
-    "located": 1623,
+    "located": 1594,
     "refused-not-our-text": 246,
-    "refused-divergent": 162,
     "refused-no-anchor": 153,
+    "refused-divergent": 111,
+    "refused-witness-absent": 75,
     "refused-overlap": 47,
-    "refused-no-shared-volume": 7
+    "refused-no-shared-volume": 7,
+    "refused-ambiguous-volume": 5
    },
    "by_volume": {
-    "vol1": 968,
-    "vol2": 655
+    "vol1": 947,
+    "vol2": 647
    },
-   "tight": 966,
+   "tight": 961,
    "by_type": {
     "OCR": {
      "n": 2092,
-     "located": 1598,
-     "vol1": 950,
-     "vol2": 648,
-     "tight": 960
+     "located": 1573,
+     "vol1": 930,
+     "vol2": 643,
+     "tight": 959
     },
     "transliteration": {
      "n": 146,
-     "located": 25,
-     "vol1": 18,
-     "vol2": 7,
-     "tight": 6
+     "located": 21,
+     "vol1": 17,
+     "vol2": 4,
+     "tight": 2
     }
    },
    "decisions": {
-    "after": 1270,
-    "silent": 331,
-    "before": 22
-   },
-   "silent_reasons": {
-    "the changed words, in the placed stretch itself": 186,
-    "the two readings are the same WORDS — the change is to MARKS or case": 136,
-    "not stated": 9
+    "after": 1267,
+    "silent-marks": 135,
+    "third": 73,
+    "absent-at-point": 55,
+    "thin-stretch": 35,
+    "before": 22,
+    "silent-unsure": 7
    },
    "decisions_by_volume": {
     "vol1": {
-     "after": 757,
-     "silent": 200,
-     "before": 11
+     "after": 754,
+     "silent-marks": 82,
+     "third": 43,
+     "absent-at-point": 31,
+     "thin-stretch": 20,
+     "before": 11,
+     "silent-unsure": 6
     },
     "vol2": {
      "after": 513,
-     "silent": 131,
-     "before": 11
+     "silent-marks": 53,
+     "third": 30,
+     "absent-at-point": 24,
+     "thin-stretch": 15,
+     "before": 11,
+     "silent-unsure": 1
     }
    },
    "decisions_by_placement": {
     "both bounds hard against the point": {
      "after": 804,
-     "silent": 147,
-     "before": 15
+     "silent-marks": 84,
+     "thin-stretch": 29,
+     "absent-at-point": 23,
+     "before": 15,
+     "third": 6
     },
     "a bound slid off the damaged words": {
-     "after": 466,
-     "silent": 184,
-     "before": 7
+     "after": 463,
+     "third": 67,
+     "silent-marks": 51,
+     "absent-at-point": 32,
+     "silent-unsure": 7,
+     "before": 7,
+     "thin-stretch": 6
     }
    }
   },
@@ -206,7 +241,26 @@
     "tight": true,
     "before": "The first intellectual, therefore, proceed",
     "after": "The first intellectuals, therefore, proceed",
-    "witness": "of these the first intellectual therefore proceed from the"
+    "witness_reads": "of these the first intellectual therefore proceed from the",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “intellectual” 1236× and our reading's word “intellectuals” 198×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "intellectual",
+       "uses": 1236,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "intellectuals",
+       "uses": 198,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8599",
@@ -215,7 +269,26 @@
     "tight": true,
     "before": "order and bound the variety",
     "after": "order and bounds the variety",
-    "witness": "leads into order and bound the variety of partial"
+    "witness_reads": "leads into order and bound the variety of partial",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “bound” 268× and our reading's word “bounds” 24×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "bound",
+       "uses": 268,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "bounds",
+       "uses": 24,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8611",
@@ -224,7 +297,26 @@
     "tight": true,
     "before": "these perishing corruption",
     "after": "this perishing corruption",
-    "witness": "consumed but these perishing corruption also would"
+    "witness_reads": "consumed but these perishing corruption also would",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “these” 2144× and our reading's word “this” 3318×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "these",
+       "uses": 2144,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "this",
+       "uses": 3318,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8619",
@@ -233,7 +325,26 @@
     "tight": true,
     "before": "these celestial governors",
     "after": "the celestial governors",
-    "witness": "third numbers these celestial governors of the"
+    "witness_reads": "third numbers these celestial governors of the",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “these” 2144× and our reading's word “the” 32057×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "these",
+       "uses": 2144,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "the",
+       "uses": 32057,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8627",
@@ -242,7 +353,26 @@
     "tight": true,
     "before": "through prophesy unfolds",
     "after": "through prophecy unfolds",
-    "witness": "the god through prophesy unfolds to secondary"
+    "witness_reads": "the god through prophesy unfolds to secondary",
+    "class": "print-error-emendation",
+    "signal": "R",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED: the print uses the form it reads here (“prophesy” 1×) nowhere else in its own text, while it uses our reading's word elsewhere (“prophecy” 1×)",
+    "changed_words": {
+     "before": [
+      {
+       "w": "prophesy",
+       "uses": 1,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "prophecy",
+       "uses": 1,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8628",
@@ -251,7 +381,25 @@
     "tight": false,
     "before": "posterior to, are indeed",
     "after": "posterior to the Gods, are indeed",
-    "witness": "the gods these triple genera posterior to are indeed always suspended"
+    "witness_reads": "the gods these triple genera posterior to are indeed always suspended",
+    "class": "insertion",
+    "signal": "the rule adds words",
+    "why": "insertion — the rule ADDS words and the witness reads our `before` because they are absent; there is no like-for-like reading to weigh",
+    "changed_words": {
+     "before": [],
+     "after": [
+      {
+       "w": "the",
+       "uses": 32057,
+       "wordlist": true
+      },
+      {
+       "w": "gods",
+       "uses": 2530,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8672",
@@ -260,7 +408,26 @@
     "tight": false,
     "before": "by this mean rendering",
     "after": "by this means rendering",
-    "witness": "of time by this mean rendering the world more similar to intelligible animal and in short on"
+    "witness_reads": "of time by this mean rendering the world more similar to intelligible animal and in short on",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “mean” 58× and our reading's word “means” 61×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "mean",
+       "uses": 58,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "means",
+       "uses": 61,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8683",
@@ -269,7 +436,26 @@
     "tight": true,
     "before": "though their partible",
     "after": "through their partible",
-    "witness": "the parts though their partible privation of"
+    "witness_reads": "the parts though their partible privation of",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “though” 196× and our reading's word “through” 1402×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "though",
+       "uses": 196,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "through",
+       "uses": 1402,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8906",
@@ -278,7 +464,26 @@
     "tight": false,
     "before": "has the once, for",
     "after": "has the one, for",
-    "witness": "triad therefore has the once for this is the peculiarity of the past and of"
+    "witness_reads": "triad therefore has the once for this is the peculiarity of the past and of",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “once” 114× and our reading's word “one” 3131×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "once",
+       "uses": 114,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "one",
+       "uses": 3131,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8944",
@@ -287,7 +492,26 @@
     "tight": true,
     "before": "providential case",
     "after": "providential care",
-    "witness": "of its providential case and expanded"
+    "witness_reads": "of its providential case and expanded",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “case” 181× and our reading's word “care” 40×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "case",
+       "uses": 181,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "care",
+       "uses": 40,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8995",
@@ -296,7 +520,26 @@
     "tight": false,
     "before": "merged condition",
     "after": "maimed condition",
-    "witness": "are in a merged condition since therefore"
+    "witness_reads": "are in a merged condition since therefore",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “merged” 4× and our reading's word “maimed” 0×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "merged",
+       "uses": 4,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "maimed",
+       "uses": 0,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8996",
@@ -305,7 +548,36 @@
     "tight": true,
     "before": "externally cover",
     "after": "eternally move",
-    "witness": "own motions externally cover bodies with"
+    "witness_reads": "own motions externally cover bodies with",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “externally” 40×, “cover” 1× and our reading's word “eternally” 45×, “move” 26×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "externally",
+       "uses": 40,
+       "wordlist": true
+      },
+      {
+       "w": "cover",
+       "uses": 1,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "eternally",
+       "uses": 45,
+       "wordlist": true
+      },
+      {
+       "w": "move",
+       "uses": 26,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r9015",
@@ -314,7 +586,20 @@
     "tight": false,
     "before": "Though is it not",
     "after": "Is it not",
-    "witness": "governed cities though is it not perfectly impossible that parts should be"
+    "witness_reads": "governed cities though is it not perfectly impossible that parts should be",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “though” 196× and our reading's word ",
+    "changed_words": {
+     "before": [
+      {
+       "w": "though",
+       "uses": 196,
+       "wordlist": true
+      }
+     ],
+     "after": []
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r9069",
@@ -323,7 +608,26 @@
     "tight": false,
     "before": "inferior- being",
     "after": "inferior beings",
-    "witness": "themselves but inferior being suspended from the dominion of"
+    "witness_reads": "themselves but inferior being suspended from the dominion of",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “being” 2529× and our reading's word “beings” 711×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "being",
+       "uses": 2529,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "beings",
+       "uses": 711,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r9734",
@@ -332,7 +636,26 @@
     "tight": true,
     "before": "consubsistS",
     "after": "consubsist",
-    "witness": "their essence consubsists according to"
+    "witness_reads": "their essence consubsists according to",
+    "class": "print-error-emendation",
+    "signal": "W",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED: the print's own form here (“consubsists”) is not a word of the reference wordlist, while our reading's word is",
+    "changed_words": {
+     "before": [
+      {
+       "w": "consubsists",
+       "uses": 1,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "consubsist",
+       "uses": 0,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r10120",
@@ -341,7 +664,26 @@
     "tight": true,
     "before": "to-.united",
     "after": "into united",
-    "witness": "of division to united ideas produce"
+    "witness_reads": "of division to united ideas produce",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “to” 12944× and our reading's word “into” 760×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "to",
+       "uses": 12944,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "into",
+       "uses": 760,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r10212",
@@ -350,7 +692,26 @@
     "tight": true,
     "before": "s recal t",
     "after": "s recall t",
-    "witness": "therefore let us recal to our memory"
+    "witness_reads": "therefore let us recal to our memory",
+    "class": "print-error-emendation",
+    "signal": "W",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED: the print's own form here (“recal”) is not a word of the reference wordlist, while our reading's word is",
+    "changed_words": {
+     "before": [
+      {
+       "w": "recal",
+       "uses": 1,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "recall",
+       "uses": 8,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r10277",
@@ -359,7 +720,26 @@
     "tight": false,
     "before": ", rythm a",
     "after": ", rhythm a",
-    "witness": "farther still rythm and dancing are a mystic sign"
+    "witness_reads": "farther still rythm and dancing are a mystic sign",
+    "class": "print-error-emendation",
+    "signal": "W",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED: the print's own form here (“rythm”) is not a word of the reference wordlist, while our reading's word is",
+    "changed_words": {
+     "before": [
+      {
+       "w": "rythm",
+       "uses": 4,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "rhythm",
+       "uses": 2,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r10291",
@@ -368,7 +748,26 @@
     "tight": true,
     "before": "elongated",
     "after": "alienated",
-    "witness": "downward is elongated through itself"
+    "witness_reads": "downward is elongated through itself",
+    "class": "contradiction",
+    "signal": null,
+    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “elongated” 2× and our reading's word “alienated” 0×",
+    "changed_words": {
+     "before": [
+      {
+       "w": "elongated",
+       "uses": 2,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "alienated",
+       "uses": 0,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r10469",
@@ -377,7 +776,26 @@
     "tight": true,
     "before": "Poeonian",
     "after": "Pæonian",
-    "witness": "purifying and poeonian powers of"
+    "witness_reads": "purifying and poeonian powers of",
+    "class": "print-error-emendation",
+    "signal": "W",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED: the print's own form here (“poeonian”) is not a word of the reference wordlist, while our reading's word is",
+    "changed_words": {
+     "before": [
+      {
+       "w": "poeonian",
+       "uses": 1,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "paeonian",
+       "uses": 3,
+       "wordlist": true
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r10597",
@@ -386,7 +804,20 @@
     "tight": true,
     "before": ".triadic",
     "after": "a triadic",
-    "witness": "according to triadic figure being"
+    "witness_reads": "according to triadic figure being",
+    "class": "insertion",
+    "signal": "the rule adds words",
+    "why": "insertion — the rule ADDS words and the witness reads our `before` because they are absent; there is no like-for-like reading to weigh",
+    "changed_words": {
+     "before": [],
+     "after": [
+      {
+       "w": "a",
+       "uses": 4756,
+       "wordlist": false
+      }
+     ]
+    }
    },
    {
     "id": "proclus-theology-of-plato-taylor-1816:r10931",
@@ -395,10 +826,2422 @@
     "tight": true,
     "before": "Gorgies",
     "after": "Gorgias",
-    "witness": "in the gorgies indicates there"
+    "witness_reads": "in the gorgies indicates there",
+    "class": "print-error-emendation",
+    "signal": "W",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED: the print's own form here (“gorgies”) is not a word of the reference wordlist, while our reading's word is",
+    "changed_words": {
+     "before": [
+      {
+       "w": "gorgies",
+       "uses": 1,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "gorgias",
+       "uses": 20,
+       "wordlist": false
+      }
+     ]
+    }
    }
   ],
-  "rules_the_witness_CONFIRMS": 1270,
+  "rules_the_witness_reads_a_THIRD_FORM": [
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8600",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "to introduced this dialogue",
+    "after": "to introduce into this dialogue",
+    "witness_reads": "to introduce in this dialogue a",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“introduced”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "introduced",
+       "uses": 17,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "introduce",
+       "uses": 19,
+       "wordlist": true
+      },
+      {
+       "w": "into",
+       "uses": 760,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8612",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "C(hi$e<piencedftrahscendmg",
+    "after": "supercelestial transcending",
+    "witness_reads": "principle and the one in consequence of transcending these is in a much greater degree exempt from the natures",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“c”, “hi”, “e”, “piencedftrahscendmg”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "c",
+       "uses": 31,
+       "wordlist": false
+      },
+      {
+       "w": "hi",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "e",
+       "uses": 155,
+       "wordlist": false
+      },
+      {
+       "w": "piencedftrahscendmg",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "supercelestial",
+       "uses": 89,
+       "wordlist": true
+      },
+      {
+       "w": "transcending",
+       "uses": 19,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8617",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "For hebdomad ic multitude",
+    "after": "For the hebdomad is a multitude",
+    "witness_reads": "monad for hebdomadic multitude",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“ic”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "ic",
+       "uses": 0,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "the",
+       "uses": 32057,
+       "wordlist": true
+      },
+      {
+       "w": "is",
+       "uses": 12898,
+       "wordlist": true
+      },
+      {
+       "w": "a",
+       "uses": 4756,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8633",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "the one, 1 and possesses",
+    "after": "the one, and possesses",
+    "witness_reads": "the one 203 and possesses",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“1”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8652",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "progression, * superior",
+    "after": "progression, 3 superior",
+    "witness_reads": "progression 64 superior to a",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "3",
+       "uses": 21,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8681",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "respect 1 assimilated",
+    "after": "respect assimilated",
+    "witness_reads": "forms a circular dance is in a certain respect 8 assimilated",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“1”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8708",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "primarily 1 contained",
+    "after": "primarily contained",
+    "witness_reads": "primarily 2 contained are allotted a",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“1”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8722",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "unical 1 to the male",
+    "after": "unical to the male",
+    "witness_reads": "unical 146 to the male",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“1”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8794",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "stable 1 perfection",
+    "after": "stable perfection",
+    "witness_reads": "stable 233 perfection establishing all",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“1”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8827",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "establishment * of",
+    "after": "establishment of",
+    "witness_reads": "a firm establishment 148 of",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8839",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "remitted * harmony",
+    "after": "remitted harmony",
+    "witness_reads": "a remitted 78 harmony",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8854",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "thefirst-efiective",
+    "after": "the first effective",
+    "witness_reads": "fate but the firsteffective",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“thefirstefiective”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "thefirstefiective",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "the",
+       "uses": 32057,
+       "wordlist": true
+      },
+      {
+       "w": "first",
+       "uses": 1579,
+       "wordlist": true
+      },
+      {
+       "w": "effective",
+       "uses": 53,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8923",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "beginning,Lor end",
+    "after": "beginning, nor end",
+    "witness_reads": "a beginning or end",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“lor”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "lor",
+       "uses": 0,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "nor",
+       "uses": 700,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8982",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "the one 1 indeed",
+    "after": "the one indeed",
+    "witness_reads": "the one 202 indeed",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“1”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8991",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "of the post, and",
+    "after": "of the monad, and",
+    "witness_reads": "of the past and",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“post”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "post",
+       "uses": 0,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "monad",
+       "uses": 389,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9019",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "die charioteered",
+    "after": "the charioteer",
+    "witness_reads": "the charioteers thus also the elean",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“die”, “charioteered”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "die",
+       "uses": 3,
+       "wordlist": true
+      },
+      {
+       "w": "charioteered",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "the",
+       "uses": 32057,
+       "wordlist": true
+      },
+      {
+       "w": "charioteer",
+       "uses": 11,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9046",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "the causes of k,",
+    "after": "the causes of all,",
+    "witness_reads": "the causes of it",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“k”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "k",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "all",
+       "uses": 3412,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9152",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "does not 1 call",
+    "after": "does not call",
+    "witness_reads": "does not 279 call him father and demiurgus but on the contrary in the same manner as timaeus demiurgus",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“1”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9216",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "gvmions f into",
+    "after": "gressions into",
+    "witness_reads": "progressions 29 into the worlds on this account they were called corybantes for",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“gvmions”, “f”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "gvmions",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "f",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "gressions",
+       "uses": 0,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9238",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": " t is adapted ",
+    "after": " it is adapted ",
+    "witness_reads": "a circle is adapted",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“t”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "t",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "it",
+       "uses": 6457,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9289",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "intelligible*?",
+    "after": "intelligible?",
+    "witness_reads": "participate of the first intelligibles",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9290",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "mixed 1 figure",
+    "after": "mixed figure",
+    "witness_reads": "ether which is also itself triple and the third which comprehends according to one union the orbicular the rectilinear and the mixed 250 figure",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“1”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9381",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "cause.' Hence",
+    "after": "cause.1 Hence",
+    "witness_reads": "a divine cause 184 hence",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (nothing) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [],
+     "after": [
+      {
+       "w": "1",
+       "uses": 15,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9407",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "CHAP. XLV1II.",
+    "after": "CHAP. XLVIII.",
+    "witness_reads": "it through the whole and",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“xlv1ii”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "xlv1ii",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "xlviii",
+       "uses": 3,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9446",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "perpetuat in'",
+    "after": "perpetuated in",
+    "witness_reads": "to such mundane natures as are perpetual in",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“perpetuat”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "perpetuat",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "perpetuated",
+       "uses": 0,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9459",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "&us /nuchinay",
+    "after": "as much as",
+    "witness_reads": "uniform perfection of divine selfsufficiency chapter xvi concerning these things therefore thus much may suffice",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”, “us”, “@”, “nuchinay”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "us",
+       "uses": 574,
+       "wordlist": true
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "nuchinay",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "as",
+       "uses": 4401,
+       "wordlist": true
+      },
+      {
+       "w": "much",
+       "uses": 275,
+       "wordlist": true
+      },
+      {
+       "w": "as",
+       "uses": 4401,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9780",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "» emitted i",
+    "after": "» omitted i",
+    "witness_reads": "95 and subscribe to their always generating secondary natures from",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“emitted”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "emitted",
+       "uses": 10,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "omitted",
+       "uses": 56,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9805",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "thiQprogeny",
+    "after": "this progeny",
+    "witness_reads": "mothers again however the progeny",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“thiqprogeny”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "thiqprogeny",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "this",
+       "uses": 3318,
+       "wordlist": true
+      },
+      {
+       "w": "progeny",
+       "uses": 155,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9826",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "up apparent",
+    "after": "super-apparent",
+    "witness_reads": "unapparent and divine race of intellectual gods 109",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“up”, “apparent”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "up",
+       "uses": 20,
+       "wordlist": true
+      },
+      {
+       "w": "apparent",
+       "uses": 178,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "superapparent",
+       "uses": 0,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9872",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "i. c, Vesta",
+    "after": "i. e. Vesta",
+    "witness_reads": "virtue one indeed is unical",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“c”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "c",
+       "uses": 31,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "e",
+       "uses": 155,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9992",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "BOOK VI r.",
+    "after": "BOOK VI.",
+    "witness_reads": "acutely perceive supernal light",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“r”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "r",
+       "uses": 1,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10019",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "whole * of",
+    "after": "whole of",
+    "witness_reads": "whole 155 of a",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10031",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "iptpHppit*",
+    "after": "intellective",
+    "witness_reads": "to its gnostic power it is intellect hence also",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“iptphppit”, “@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "iptphppit",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "intellective",
+       "uses": 8,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10069",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "CHAP. XXXL",
+    "after": "CHAP. XXXI",
+    "witness_reads": "demiurgus is the cause of the generation of perpetual natures for the demiurgus",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“xxxl”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "xxxl",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "xxxi",
+       "uses": 7,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10143",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "suffcbe as",
+    "after": "suffices",
+    "witness_reads": "uniform perfection of divine selfsufficiency chapter xvi concerning these things therefore thus much may suffice as",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“suffcbe”, “as”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "suffcbe",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "as",
+       "uses": 4401,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "suffices",
+       "uses": 0,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10154",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "them # the",
+    "after": "them the",
+    "witness_reads": "them 21 the beginning middles and end for the demiurgus",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10293",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "CHAR VII.",
+    "after": "CHAP. VII.",
+    "witness_reads": "which participate of it in a greater degree possess a",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“char”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "char",
+       "uses": 0,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "chap",
+       "uses": 5,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10330",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "/energies",
+    "after": "energies",
+    "witness_reads": "energizes about that place",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10336",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "O* PLATO.",
+    "after": "OF PLATO.",
+    "witness_reads": "a life under saturn",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“o”, “@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "o",
+       "uses": 13,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "of",
+       "uses": 16894,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10442",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "contended",
+    "after": "connected",
+    "witness_reads": "as having a subsistence coextended",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“contended”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "contended",
+       "uses": 0,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "connected",
+       "uses": 93,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10446",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "vTational",
+    "after": "rational",
+    "witness_reads": "irrational soul which is of a",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“vtational”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "vtational",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "rational",
+       "uses": 82,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10462",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "book \\r.",
+    "after": "BOOK IV.",
+    "witness_reads": "the intellectual triad thus therefore the",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”, “r”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "r",
+       "uses": 1,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "iv",
+       "uses": 19,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10517",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "soullife",
+    "after": "soul; life",
+    "witness_reads": "primarily established above bodies but intellect is beyond soul 170 life",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“soullife”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "soullife",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "soul",
+       "uses": 908,
+       "wordlist": true
+      },
+      {
+       "w": "life",
+       "uses": 895,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10587",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "parts Y*",
+    "after": "parts?*",
+    "witness_reads": "a thing of such a kind as to have parts",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“y”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "y",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10719",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "THEQLOQY",
+    "after": "THEOLOGY",
+    "witness_reads": "as having a subsistence coextended",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“theqloqy”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "theqloqy",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "theology",
+       "uses": 113,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10756",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "BOOK f.",
+    "after": "BOOK I.",
+    "witness_reads": "their participants and do not 124",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“f”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "f",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "i",
+       "uses": 644,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10877",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "infrorm",
+    "after": "infirm",
+    "witness_reads": "uniform perfection of divine selfsufficiency chapter xvi concerning these things therefore thus much may suffice",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“infrorm”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "infrorm",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "infirm",
+       "uses": 1,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10967",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "BOOK m",
+    "after": "BOOK III",
+    "witness_reads": "nature of the recipients",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“m”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "m",
+       "uses": 1,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "iii",
+       "uses": 17,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11088",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "soul*.",
+    "after": "soul.",
+    "witness_reads": "i may say are allotted a separate 46 life a disencumbered energy a supernatural providence and a",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11100",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "unite!",
+    "after": "united",
+    "witness_reads": "virtue one indeed is unical",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“unite”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "unite",
+       "uses": 5,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "united",
+       "uses": 255,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11406",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "Hftb",
+    "after": "that",
+    "witness_reads": "principle and the one in consequence of transcending these is in a much greater degree exempt from the natures",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“hftb”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "hftb",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "that",
+       "uses": 6734,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11425",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "indy",
+    "after": "indeed",
+    "witness_reads": "which is truly being is intelligible for intellect is intelligible according to the being which is in it but according to",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“indy”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "indy",
+       "uses": 0,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "indeed",
+       "uses": 1471,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11475",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "XV1U",
+    "after": "XVIII",
+    "witness_reads": "i may say are allotted a separate 46 life a disencumbered energy a supernatural providence and a",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“xv1u”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "xv1u",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "xviii",
+       "uses": 13,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11481",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "UOOK",
+    "after": "BOOK",
+    "witness_reads": "lost and in which i",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“uook”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "uook",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "book",
+       "uses": 73,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11482",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "raul",
+    "after": "mul",
+    "witness_reads": "a declination to multitude and motion a",
+    "class": "third-form",
+    "signal": "third",
+    "why": "third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads — MEASURED: our `before` (“raul”) is a word of the reference wordlist and the print does not read it here",
+    "changed_words": {
+     "before": [
+      {
+       "w": "raul",
+       "uses": 0,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "mul",
+       "uses": 0,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11630",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "tor the sake of concealment call the inedi",
+    "after": "for the sake of concealment call the ineffa",
+    "witness_reads": "indication and that fables for the sake of concealment call the ineffable",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“tor”, “inedi”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "tor",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "inedi",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "for",
+       "uses": 4673,
+       "wordlist": true
+      },
+      {
+       "w": "ineffa",
+       "uses": 0,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11634",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "lift on the Geology Bobk h\\",
+    "after": "236 ON THE THEOLOGY BOOK IV.",
+    "witness_reads": "all things to itself through divine intelligence for the banquet indeed manifests the divided distribution of divine nutriment but delicious food",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“lift”, “geology”, “bobk”, “h”, “@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "lift",
+       "uses": 1,
+       "wordlist": true
+      },
+      {
+       "w": "geology",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "bobk",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "h",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "236",
+       "uses": 3,
+       "wordlist": false
+      },
+      {
+       "w": "theology",
+       "uses": 113,
+       "wordlist": true
+      },
+      {
+       "w": "book",
+       "uses": 73,
+       "wordlist": true
+      },
+      {
+       "w": "iv",
+       "uses": 19,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11635",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "* • xf oye s i® omitted in",
+    "after": "time order in",
+    "witness_reads": "a most divinely inspired manner the peculiarity 192",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”, “xf”, “oye”, “s”, “i”, “omitted”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "xf",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "oye",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "s",
+       "uses": 38,
+       "wordlist": false
+      },
+      {
+       "w": "i",
+       "uses": 644,
+       "wordlist": false
+      },
+      {
+       "w": "omitted",
+       "uses": 56,
+       "wordlist": true
+      }
+     ],
+     "after": [
+      {
+       "w": "time",
+       "uses": 916,
+       "wordlist": true
+      },
+      {
+       "w": "order",
+       "uses": 1154,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11637",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "CHAP. XV. OF PLATO. * I85",
+    "after": "CHAP. XII. OF PLATO. 145",
+    "witness_reads": "the crater hence as i",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“xv”, “@”, “i85”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "xv",
+       "uses": 13,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "i85",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "xii",
+       "uses": 15,
+       "wordlist": true
+      },
+      {
+       "w": "145",
+       "uses": 4,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11649",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "to his* immutable",
+    "after": "to his ' immutable",
+    "witness_reads": "cause of this to his 291 immutable",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11652",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "not only 3 that",
+    "after": "not only' that",
+    "witness_reads": "not only 84 that",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“3”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "3",
+       "uses": 21,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11678",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "oheu",
+    "after": "che",
+    "witness_reads": "synocheus indeed comprehends these causes as multitude being himself an intelligible unity and",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“oheu”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "oheu",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "che",
+       "uses": 0,
+       "wordlist": true
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11738",
+    "type": "transliteration",
+    "volume": "vol2",
+    "tight": false,
+    "before": "Oivou f«VT» ftcAy xoffbco kajk? xou jxoi mix*",
+    "after": "Οἴνου πάντα μέλη κόσμῳ λάβε, καὶ μοι ἔνεικε",
+    "witness_reads": "as for instance orpheus i e",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“oivou”, “f”, “@”, “vt”, “@”, “ftcay”, “xoffbco”, “kajk”, “xou”, “jxoi”, “mix”, “@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "oivou",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "f",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "vt",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "ftcay",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "xoffbco",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "kajk",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "xou",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "jxoi",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "mix",
+       "uses": 1,
+       "wordlist": true
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11752",
+    "type": "transliteration",
+    "volume": "vol2",
+    "tight": false,
+    "before": "qfgiaw tAanjga xvvaov yimwv rt xcu uygoov",
+    "after": "ἠερίων ἐλατήρα κυνῶν χθονίων τε καὶ ὑγρῶν",
+    "witness_reads": "serial governors whence also the chaldean oracle says i e",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“qfgiaw”, “taanjga”, “xvvaov”, “yimwv”, “rt”, “xcu”, “uygoov”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "qfgiaw",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "taanjga",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "xvvaov",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "yimwv",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "rt",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "xcu",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "uygoov",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11763",
+    "type": "transliteration",
+    "volume": "vol1",
+    "tight": false,
+    "before": "v^ncfix xat /3«8o$) with printipali-'",
+    "after": "ὕψωμα καὶ βάθος) with principali-",
+    "witness_reads": "with principalities and powers and is one of the aeones",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“v”, “@”, “ncfix”, “xat”, “@”, “3”, “@”, “8o”, “printipali”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "v",
+       "uses": 33,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "ncfix",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "xat",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "3",
+       "uses": 21,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "8o",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "printipali",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "principali",
+       "uses": 0,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11771",
+    "type": "transliteration",
+    "volume": "vol1",
+    "tight": false,
+    "before": "Thi, h’ h d DameS b * accuratol >'",
+    "after": "Τίς ὁ δὴ Δάμασις b' ἀκριβῶς",
+    "witness_reads": "powers this however is not done by him in any one of the six books",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“thi”, “h”, “h”, “d”, “dames”, “@”, “accuratol”, “@”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "thi",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "h",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "h",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "d",
+       "uses": 8,
+       "wordlist": false
+      },
+      {
+       "w": "dames",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "accuratol",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11774",
+    "type": "transliteration",
+    "volume": "vol1",
+    "tight": false,
+    "before": "faityw it is necessary to read *f",
+    "after": "ὑποθέσεως I read ὑποστάσεως.",
+    "witness_reads": "contents of this belong to the preceding chapter 69 for it is necessary to read 70 in the greek",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“faityw”, “it”, “is”, “necessary”, “to”, “@”, “f”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "faityw",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "it",
+       "uses": 6457,
+       "wordlist": true
+      },
+      {
+       "w": "is",
+       "uses": 12898,
+       "wordlist": true
+      },
+      {
+       "w": "necessary",
+       "uses": 699,
+       "wordlist": true
+      },
+      {
+       "w": "to",
+       "uses": 12944,
+       "wordlist": true
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "f",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "i",
+       "uses": 644,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11778",
+    "type": "transliteration",
+    "volume": "vol2",
+    "tight": false,
+    "before": "<nj/xau»»v rov #«ov xai met pour",
+    "after": "σημαίνων τὸν οἷον καὶ τινα νοῦν",
+    "witness_reads": "such as and particular",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“nj”, “@”, “xau”, “@”, “v”, “rov”, “@”, “ov”, “xai”, “met”, “pour”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "nj",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "xau",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "v",
+       "uses": 33,
+       "wordlist": false
+      },
+      {
+       "w": "rov",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "@",
+       "uses": null,
+       "wordlist": false
+      },
+      {
+       "w": "ov",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "xai",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "met",
+       "uses": 1,
+       "wordlist": true
+      },
+      {
+       "w": "pour",
+       "uses": 11,
+       "wordlist": true
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11779",
+    "type": "transliteration",
+    "volume": "vol1",
+    "tight": false,
+    "before": "ouig, xgog rag xocrfLoxgarogag",
+    "after": "σιας, προς τας κοσμοκρατορας",
+    "witness_reads": "i e the seven planets augustin 17",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“ouig”, “xgog”, “rag”, “xocrfloxgarogag”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "ouig",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "xgog",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "rag",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "xocrfloxgarogag",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11783",
+    "type": "transliteration",
+    "volume": "vol1",
+    "tight": false,
+    "before": "xgog rag ag%ag, rgog rag tgov",
+    "after": "προς τας αρχας, προς τας εξου",
+    "witness_reads": "i e the seven planets augustin 17",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“xgog”, “rag”, “ag”, “ag”, “rgog”, “rag”, “tgov”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "xgog",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "rag",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "ag",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "ag",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "rgog",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "rag",
+       "uses": 0,
+       "wordlist": true
+      },
+      {
+       "w": "tgov",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11788",
+    "type": "transliteration",
+    "volume": "vol1",
+    "tight": false,
+    "before": "umgavco xa<rrig agxyg xcu",
+    "after": "ὑπερανω πασης αρχης και",
+    "witness_reads": "and in the 6th chapter and 12th",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“umgavco”, “xa”, “rrig”, “agxyg”, “xcu”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "umgavco",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "xa",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "rrig",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "agxyg",
+       "uses": 0,
+       "wordlist": false
+      },
+      {
+       "w": "xcu",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11832",
+    "type": "transliteration",
+    "volume": "vol1",
+    "tight": false,
+    "before": "an expc",
+    "after": "ἀλεξάνεμος, an expe",
+    "witness_reads": "an expeller of wind 62",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“expc”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "expc",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": [
+      {
+       "w": "expe",
+       "uses": 0,
+       "wordlist": false
+      }
+     ]
+    }
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r11837",
+    "type": "transliteration",
+    "volume": "vol1",
+    "tight": false,
+    "before": "taides",
+    "after": " ἀβίδες",
+    "witness_reads": "eternity abides is the summit of intelligibles chapter xviii",
+    "class": "third-form-on-our-own-garble",
+    "signal": "third",
+    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“taides”) is not a word of the reference wordlist",
+    "changed_words": {
+     "before": [
+      {
+       "w": "taides",
+       "uses": 0,
+       "wordlist": false
+      }
+     ],
+     "after": []
+    }
+   }
+  ],
+  "rules_the_witness_CONFIRMS": 1267,
   "example_confirmations": [
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8721",
@@ -465,87 +3308,104 @@
  "slide_48": {
   "open_questions": {
    "n": 272,
-   "located": 89,
+   "located": 82,
    "by_status": {
-    "refused-divergent": 128,
-    "located": 89,
+    "located": 82,
+    "refused-divergent": 82,
+    "refused-witness-absent": 53,
     "refused-not-our-text": 32,
     "refused-overlap": 16,
     "refused-no-anchor": 6,
     "refused-no-shared-volume": 1
    },
    "by_volume": {
-    "vol1": 33,
-    "vol2": 56
+    "vol1": 32,
+    "vol2": 50
    },
-   "tight": 34
+   "tight": 32
   },
   "review_flagged_rules": {
    "n": 2238,
-   "located": 1656,
+   "located": 1623,
    "by_status": {
-    "located": 1656,
+    "located": 1623,
     "refused-not-our-text": 246,
-    "refused-divergent": 228,
+    "refused-divergent": 168,
+    "refused-witness-absent": 84,
     "refused-overlap": 59,
     "refused-no-anchor": 44,
+    "refused-ambiguous-volume": 9,
     "refused-no-shared-volume": 5
    },
    "by_volume": {
-    "vol1": 993,
-    "vol2": 663
+    "vol1": 972,
+    "vol2": 651
    },
-   "tight": 966,
+   "tight": 961,
    "by_type": {
     "OCR": {
      "n": 2092,
-     "located": 1631,
-     "vol1": 975,
-     "vol2": 656,
-     "tight": 960
+     "located": 1602,
+     "vol1": 955,
+     "vol2": 647,
+     "tight": 959
     },
     "transliteration": {
      "n": 146,
-     "located": 25,
-     "vol1": 18,
-     "vol2": 7,
-     "tight": 6
+     "located": 21,
+     "vol1": 17,
+     "vol2": 4,
+     "tight": 2
     }
    },
    "decisions": {
-    "after": 1293,
-    "silent": 340,
+    "after": 1286,
+    "silent-marks": 137,
+    "third": 80,
+    "absent-at-point": 55,
+    "thin-stretch": 35,
     "before": 22,
+    "silent-unsure": 7,
     "both": 1
-   },
-   "silent_reasons": {
-    "the changed words, in the placed stretch itself": 193,
-    "the two readings are the same WORDS — the change is to MARKS or case": 138,
-    "not stated": 9
    },
    "decisions_by_volume": {
     "vol1": {
-     "after": 776,
-     "silent": 205,
+     "after": 773,
+     "silent-marks": 82,
+     "third": 48,
+     "absent-at-point": 31,
+     "thin-stretch": 20,
      "before": 11,
+     "silent-unsure": 6,
      "both": 1
     },
     "vol2": {
-     "after": 517,
-     "silent": 135,
-     "before": 11
+     "after": 513,
+     "silent-marks": 55,
+     "third": 32,
+     "absent-at-point": 24,
+     "thin-stretch": 15,
+     "before": 11,
+     "silent-unsure": 1
     }
    },
    "decisions_by_placement": {
     "both bounds hard against the point": {
      "after": 804,
-     "silent": 147,
-     "before": 15
+     "silent-marks": 84,
+     "thin-stretch": 29,
+     "absent-at-point": 23,
+     "before": 15,
+     "third": 6
     },
     "a bound slid off the damaged words": {
-     "after": 489,
-     "silent": 193,
+     "after": 482,
+     "third": 74,
+     "silent-marks": 53,
+     "absent-at-point": 32,
+     "silent-unsure": 7,
      "before": 7,
+     "thin-stretch": 6,
      "both": 1
     }
    }
@@ -609,22 +3469,6 @@
    "tight": true
   },
   {
-   "leaf": "v2-n548",
-   "our_text": "CHAP. Xlt.",
-   "our_tokens": "chap xlt",
-   "witness_tokens": "",
-   "volume": "vol2",
-   "tight": false
-  },
-  {
-   "leaf": "v2-n740",
-   "our_text": "rcuv fiotpyytToir xa\\oofitva>v",
-   "our_tokens": "rcuv fiotpyyttoir xa @ oofitva @ v",
-   "witness_tokens": "",
-   "volume": "vol2",
-   "tight": true
-  },
-  {
    "leaf": "v1-n159",
    "our_text": "GN THE THEOLOGY",
    "our_tokens": "gn the theology",
@@ -636,7 +3480,7 @@
    "leaf": "v1-n414",
    "our_text": "OP PLATO,",
    "our_tokens": "op plato",
-   "witness_tokens": "",
+   "witness_tokens": "intelligible",
    "volume": "vol1",
    "tight": false
   },
@@ -663,434 +3507,293 @@
    "witness_tokens": "to card",
    "volume": "vol2",
    "tight": true
+  },
+  {
+   "leaf": "v2-n749",
+   "our_text": "Digitized by v^oogle",
+   "our_tokens": "digitized by v @ oogle",
+   "witness_tokens": "a",
+   "volume": "vol2",
+   "tight": false
+  },
+  {
+   "leaf": "v2-n779",
+   "our_text": "all are not skilful (imtuwmv) and wise",
+   "our_tokens": "all are not skilful imtuwmv and wise",
+   "witness_tokens": "all are not skilful and wise the author of the verses very properly calls wise men both",
+   "volume": "vol2",
+   "tight": false
   }
  ],
+ "THE_YIELD": {
+  "at_slide": 24,
+  "review_flagged_rules": {
+   "n": 2238,
+   "located": 1594,
+   "by_volume": {
+    "vol1": 947,
+    "vol2": 647
+   },
+   "tight": 961,
+   "located_with_a_SHORT_witness_stretch": 176,
+   "located_with_an_EMPTY_witness_stretch": 0,
+   "CONFIRMS_the_rule": 1267,
+   "CONTRADICTS_the_rule": 95,
+   "of_which_the_print_reads_a_THIRD_FORM": 73,
+   "of_which_the_print_reads_our_OLD_reading": 22,
+   "by_class": {
+    "third-form-on-our-own-garble": 62,
+    "contradiction": 14,
+    "third-form": 11,
+    "print-error-emendation": 6,
+    "insertion": 2
+   },
+   "of_which_are_PRINT_ERROR_EMENDATIONS_do_not_revert": 6,
+   "of_which_are_insertions": 2,
+   "of_which_are_CONTRADICTIONS_to_be_read": 14,
+   "of_which_are_THIRD_FORM_on_a_REAL_before_reading": 11,
+   "of_which_are_THIRD_FORM_on_OUR_OWN_GARBLE_no_evidence_against_the_rule": 62,
+   "EVIDENCE_AGAINST_THE_RULE_total": 33,
+   "UNDECIDABLE_by_design_marks_or_case_only": 135,
+   "UNDECIDABLE_the_rules_own_after_is_unsure": 7,
+   "NO_READING_DRAWN_the_witness_carries_nothing": 55,
+   "NO_READING_DRAWN_the_witness_stretch_is_3_tokens": 35
+  },
+  "open_questions": {
+   "n": 272,
+   "located": 80,
+   "by_volume": {
+    "vol1": 32,
+    "vol2": 48
+   },
+   "tight": 32
+  },
+  "PUNCTUATION": {
+   "n": 786,
+   "located": 578,
+   "undecidable_marks_only": 473,
+   "with_a_reading": 101
+  }
+ },
+ "UNIT_B_MAY_ACT_ON": {
+  "may_CLEAR_the_review_flag": 1267,
+  "must_READ_before_acting": 33,
+  "of_which_PRINT_ERROR_EMENDATIONS_it_must_NOT_revert": [
+   "proclus-theology-of-plato-taylor-1816:r8627",
+   "proclus-theology-of-plato-taylor-1816:r9734",
+   "proclus-theology-of-plato-taylor-1816:r10212",
+   "proclus-theology-of-plato-taylor-1816:r10277",
+   "proclus-theology-of-plato-taylor-1816:r10469",
+   "proclus-theology-of-plato-taylor-1816:r10931"
+  ],
+  "of_which_INSERTIONS_it_must_NOT_treat_as_a_reading": [
+   "proclus-theology-of-plato-taylor-1816:r8628",
+   "proclus-theology-of-plato-taylor-1816:r10597"
+  ],
+  "of_which_CONTRADICTIONS_it_must_adjudicate": [
+   "proclus-theology-of-plato-taylor-1816:r8574",
+   "proclus-theology-of-plato-taylor-1816:r8599",
+   "proclus-theology-of-plato-taylor-1816:r8611",
+   "proclus-theology-of-plato-taylor-1816:r8619",
+   "proclus-theology-of-plato-taylor-1816:r8672",
+   "proclus-theology-of-plato-taylor-1816:r8683",
+   "proclus-theology-of-plato-taylor-1816:r8906",
+   "proclus-theology-of-plato-taylor-1816:r8944",
+   "proclus-theology-of-plato-taylor-1816:r8995",
+   "proclus-theology-of-plato-taylor-1816:r8996",
+   "proclus-theology-of-plato-taylor-1816:r9015",
+   "proclus-theology-of-plato-taylor-1816:r9069",
+   "proclus-theology-of-plato-taylor-1816:r10120",
+   "proclus-theology-of-plato-taylor-1816:r10291"
+  ],
+  "of_which_THIRD_FORM_on_a_real_before_reading": [
+   "proclus-theology-of-plato-taylor-1816:r8600",
+   "proclus-theology-of-plato-taylor-1816:r8617",
+   "proclus-theology-of-plato-taylor-1816:r8923",
+   "proclus-theology-of-plato-taylor-1816:r8991",
+   "proclus-theology-of-plato-taylor-1816:r9780",
+   "proclus-theology-of-plato-taylor-1816:r9826",
+   "proclus-theology-of-plato-taylor-1816:r10293",
+   "proclus-theology-of-plato-taylor-1816:r10442",
+   "proclus-theology-of-plato-taylor-1816:r11100",
+   "proclus-theology-of-plato-taylor-1816:r11425",
+   "proclus-theology-of-plato-taylor-1816:r11482"
+  ],
+  "NO_EVIDENCE_EITHER_WAY_third_form_on_our_own_garble": [
+   "proclus-theology-of-plato-taylor-1816:r8612",
+   "proclus-theology-of-plato-taylor-1816:r8633",
+   "proclus-theology-of-plato-taylor-1816:r8652",
+   "proclus-theology-of-plato-taylor-1816:r8681",
+   "proclus-theology-of-plato-taylor-1816:r8708",
+   "proclus-theology-of-plato-taylor-1816:r8722",
+   "proclus-theology-of-plato-taylor-1816:r8794",
+   "proclus-theology-of-plato-taylor-1816:r8827",
+   "proclus-theology-of-plato-taylor-1816:r8839",
+   "proclus-theology-of-plato-taylor-1816:r8854",
+   "proclus-theology-of-plato-taylor-1816:r8982",
+   "proclus-theology-of-plato-taylor-1816:r9019",
+   "proclus-theology-of-plato-taylor-1816:r9046",
+   "proclus-theology-of-plato-taylor-1816:r9152",
+   "proclus-theology-of-plato-taylor-1816:r9216",
+   "proclus-theology-of-plato-taylor-1816:r9238",
+   "proclus-theology-of-plato-taylor-1816:r9289",
+   "proclus-theology-of-plato-taylor-1816:r9290",
+   "proclus-theology-of-plato-taylor-1816:r9381",
+   "proclus-theology-of-plato-taylor-1816:r9407",
+   "proclus-theology-of-plato-taylor-1816:r9446",
+   "proclus-theology-of-plato-taylor-1816:r9459",
+   "proclus-theology-of-plato-taylor-1816:r9805",
+   "proclus-theology-of-plato-taylor-1816:r9872",
+   "proclus-theology-of-plato-taylor-1816:r9992",
+   "proclus-theology-of-plato-taylor-1816:r10019",
+   "proclus-theology-of-plato-taylor-1816:r10031",
+   "proclus-theology-of-plato-taylor-1816:r10069",
+   "proclus-theology-of-plato-taylor-1816:r10143",
+   "proclus-theology-of-plato-taylor-1816:r10154",
+   "proclus-theology-of-plato-taylor-1816:r10330",
+   "proclus-theology-of-plato-taylor-1816:r10336",
+   "proclus-theology-of-plato-taylor-1816:r10446",
+   "proclus-theology-of-plato-taylor-1816:r10462",
+   "proclus-theology-of-plato-taylor-1816:r10517",
+   "proclus-theology-of-plato-taylor-1816:r10587",
+   "proclus-theology-of-plato-taylor-1816:r10719",
+   "proclus-theology-of-plato-taylor-1816:r10756",
+   "proclus-theology-of-plato-taylor-1816:r10877",
+   "proclus-theology-of-plato-taylor-1816:r10967",
+   "proclus-theology-of-plato-taylor-1816:r11088",
+   "proclus-theology-of-plato-taylor-1816:r11406",
+   "proclus-theology-of-plato-taylor-1816:r11475",
+   "proclus-theology-of-plato-taylor-1816:r11481",
+   "proclus-theology-of-plato-taylor-1816:r11630",
+   "proclus-theology-of-plato-taylor-1816:r11634",
+   "proclus-theology-of-plato-taylor-1816:r11635",
+   "proclus-theology-of-plato-taylor-1816:r11637",
+   "proclus-theology-of-plato-taylor-1816:r11649",
+   "proclus-theology-of-plato-taylor-1816:r11652",
+   "proclus-theology-of-plato-taylor-1816:r11678",
+   "proclus-theology-of-plato-taylor-1816:r11738",
+   "proclus-theology-of-plato-taylor-1816:r11752",
+   "proclus-theology-of-plato-taylor-1816:r11763",
+   "proclus-theology-of-plato-taylor-1816:r11771",
+   "proclus-theology-of-plato-taylor-1816:r11774",
+   "proclus-theology-of-plato-taylor-1816:r11778",
+   "proclus-theology-of-plato-taylor-1816:r11779",
+   "proclus-theology-of-plato-taylor-1816:r11783",
+   "proclus-theology-of-plato-taylor-1816:r11788",
+   "proclus-theology-of-plato-taylor-1816:r11832",
+   "proclus-theology-of-plato-taylor-1816:r11837"
+  ],
+  "may_NOT_act_on_at_all": 876,
+  "note": "A `before` verdict says the print’s own text reads our OLD reading, and a `third` verdict says it reads words of its own that are neither reading: both are reports about what the print READS, and both were, before this revision, one word (`silent`). What differs is whether our `before` is itself a reading of the print: where it is the transcription’s garble (62 of the 73 third forms), the witness’s words at the point are no evidence at all against the rule. A `silent-marks` or `silent-unsure` verdict is UNDECIDABLE BY DESIGN. `absent-at-point` and `thin-stretch` mean no reading was drawn, not that the rule is right."
+ },
+ "THE_TEST_USED_TO_SUBCLASSIFY": {
+  "print-error-emendation (do not revert)": "the print’s OWN text at the point is at fault, measured two ways: W the form the print reads there is not a word of the reference wordlist; R the print uses that form nowhere else in its own text (≤1×) while it uses our reading’s word elsewhere.",
+  "contradiction": "the print reads an ordinary word of its own vocabulary at the point and the rule puts another word there, with no fault of the print’s own form to point at. This is an editorial judgement the witness cannot settle, and the class Unit B must read.",
+  "insertion": "the rule adds words, so the witness’s `before` reading is what the print reads without them; there is no like-for-like pair of readings to weigh.",
+  "third-form": "the print reads words of its own that are neither of the rule’s two readings AND our `before` is a word of the reference wordlist — a real reading the print does not carry here, i.e. the same class of fact as a `before`.",
+  "third-form-on-our-own-garble": "the print reads words of its own that are neither reading, but our `before` is itself the transcription’s garble, a damage mark or a numeral, so this says only that our reconstructed `after` is not a contiguous run at the point. It is NOT evidence against the rule and must not be acted on.",
+  "LIMIT": "This partition measures EVIDENCE STRENGTH, not truth. It distinguishes cases where the print itself is provably at fault. It cannot tell a deliberate correction of the print from a rule that is simply wrong where the print is not — and where the print reads an ordinary word, PG’s evidence AGAINST the rule is itself weak, because PG’s editors silently repair misprints too (MEASURED: PG carries “rythm” 4× against “rhythm” 2×, so it repairs that spelling only sometimes).",
+  "disagreement_with_the_review": "The review named r8944 (case→care) as an emendation. MEASURED, `case` is used 181× in the print’s own vocabulary and `care` 40×, so it fires neither signal and is classified a contradiction: the print reads an ordinary word here and the correction is editorial. Its other named cases (r10931 Gorgies, r10277 rythm, r10212 recal, r8627 prophesy) are all classified print-error-emendations. And the review’s own decomposition of the 186 changed-words fallback cases reproduces exactly (78 at ≤2 witness tokens, 73 at ≥4, 35 at 3).",
+  "disagreement_with_the_brief": "The brief calls the third-form class “the SAME CLASS as the 22”. MEASURED, that holds for 11 of the 73 and not for the other 62, whose `before` is garble — see `third-form-on-our-own-garble` above. The class is real and the split is real; the equivalence is not."
+ },
  "volume_split": {
-  "note": "MEASURED by the sweep, not assumed",
-  "our_tokens": 305877,
-  "boundary_token": 192675,
-  "evidence": "the last window of our text unique in PG vol. 1 and the first unique in PG vol. 2; one window in 9,510 misclassified",
-  "vol1_half_unique_in_pg_vol1": "5056 of 6016 clean 10-word windows (84.0%)",
+  "note": "MEASURED by the sweep, not assumed — and every string below is GENERATED from the sweep, so it produces the number it is cited for",
+  "our_tokens": 306199,
+  "boundary_token": 192800,
+  "how_the_boundary_is_taken": "the last window at or below the first window unique in PG vol. 2 that BOTH volumes carry exactly once (a seam marker inside the overlap)",
+  "first_unique_in_vol2": 192950,
+  "last_unique_in_vol1": 301200,
+  "overlap_note": "the two ranges overlap on [192950, 301200] — the print repeats content across its two volumes — so \"last vol1-unique / first vol2-unique\" names no split",
+  "evidence": "the split is taken at our token 192800: everything before it is 5888 clean 10-word windows of which 5519 (93.7%) are unique in PG vol. 1 and 0 in PG vol. 2, and everything from it is 3386 of which 3174 (93.7%) are unique in PG vol. 2. The FIRST window of ours unique in PG vol. 2 starts at 192950 and the LAST unique in PG vol. 1 at 301200: the two ranges OVERLAP (192950 < 301200), because the print repeats content across its two volumes, so neither is the split.",
+  "vol1_half_unique_in_pg_vol1": "5519 of 5888 clean 10-word windows (93.7%)",
   "vol1_half_unique_in_pg_vol2": "0",
-  "vol2_half_unique_in_pg_vol2": "3041 of 3494 (87.0%)"
+  "vol2_half_unique_in_pg_vol2": "3174 of 3386 (93.7%)",
+  "misclassified_windows": [
+   "198150 “extends from on high as far as to the last” occurs {\"vol1\":1,\"vol2\":2} — a passage the print repeats across its two volumes, not an artifact",
+   "231025 “be willing to dissolve that which is beautifully harmonized and” occurs {\"vol1\":1,\"vol2\":2} — a passage the print repeats across its two volumes, not an artifact",
+   "257600 “said to be the most ancient and the first of” occurs {\"vol1\":1,\"vol2\":2} — a passage the print repeats across its two volumes, not an artifact",
+   "295525 “the triple genera that are the perpetual attendants of the” occurs {\"vol1\":1,\"vol2\":2} — a passage the print repeats across its two volumes, not an artifact",
+   "301200 “in the next place let us direct our attention to” occurs {\"vol1\":1,\"vol2\":3} — a passage the print repeats across its two volumes, not an artifact"
+  ],
+  "CORRECTION_of_the_previous_evidence": "This block used to cite “the last window of our text unique in PG vol. 1 and the first unique in PG vol. 2” and record boundary_token 192675 with halves of 6016/3494. MEASURED, those two window starts are the ones above and they are INVERTED, so the phrase named no split at all; and both it and the halves came from a SUPERSEDED tokeniser (see CORRECTION_OF_THE_CEILING)."
+ },
+ "CORRECTION_OF_THE_CEILING": {
+  "what_the_previous_revision_said": "8,098 of 9,510 clean 10-word windows (85.2%) unique in exactly one volume; halves 5056/6016 (84.0%) and 3041/3494 (87.0%); 305,877 tokens in source.txt",
+  "what_it_is_now_MEASURED": "8698 of 9274 clean 10-word windows are unique in exactly one volume; 306199 tokens in source.txt",
+  "why": "The old figures came from the tokeniser of the PREVIOUS revision of tools/pg-locate.mjs, which dropped this transcription’s DAMAGE characters instead of keeping them as `@`. The same commit that replaced that tokeniser (the yield commit) did not re-run --sweep, so the ceiling and the volume split stayed on the superseded instrument. MEASURED, re-running the old tokeniser (commit 877cb60) gives 9,510/85.2%/305,877 exactly, and the current one gives the figures above. Nothing about the print changed; the instrument did.",
+  "warning_for_a_reader": "A window whose tokens are not all known words of this print is EXCLUDED from the denominator rather than counted as unlocatable, so a higher percentage here is a smaller and cleaner sample, not a better instrument: the damage-bearing windows the old count included as “in neither volume” are not counted at all now."
+ },
+ "sweep": {
+  "windows": 9274,
+  "tokens": 306199,
+  "strata": {
+   "unique in vol1": 5524,
+   "unique in vol2": 3174,
+   "in neither volume": 520,
+   "in some volume more than once": 42,
+   "unique in both volumes": 14
+  }
  },
  "proofs_the_locator_REFUSES": [
   {
-   "probe": "zorbantic plenthorium quixotical ragnarok velluminous threnody zephyrous maleficarum obfuscata gromboolian snarkishly wibbling transplendent",
+   "probe": "a passage of invented words",
    "status": "refused-no-anchor",
    "why": "neither side",
+   "volume": null,
    "left": null,
-   "right": null,
-   "attempts_left": {
-    "tried": 0,
-    "unclean": 0,
-    "absent": 0,
-    "ambiguous": 0
-   },
-   "attempts_right": {
-    "tried": 1,
-    "unclean": 1,
-    "absent": 0,
-    "ambiguous": 0
-   }
+   "right": null
   },
   {
-   "probe": "of the soul and of the good and of the one and of the many and of the same and of the other and of being and of life",
+   "probe": "a passage of real but everywhere-common words",
    "status": "refused-no-anchor",
    "why": "neither side",
+   "volume": null,
    "left": null,
-   "right": null,
-   "attempts_left": {
-    "tried": 5,
-    "unclean": 0,
-    "absent": 5,
-    "ambiguous": 0
-   },
-   "attempts_right": {
-    "tried": 6,
-    "unclean": 0,
-    "absent": 6,
-    "ambiguous": 0
-   }
+   "right": null
+  },
+  {
+   "probe": "the 1816 imprint page — the same words in BOTH volumes (the ambiguity that used to be decided by sort order)",
+   "status": "refused-ambiguous-volume",
+   "why": "2 volumes hold a pair of unique bounds around this point (vol1, vol2) — a placement that cannot name its volume is not a placement",
+   "volume": null,
+   "volumes_ok": [
+    "vol1",
+    "vol2"
+   ],
+   "left": null,
+   "right": null
   }
  ],
  "proof_the_locator_LOCATES": {
   "probe": "jupiter indeed adorns sensibles totally according to an imitation of heaven for the jupiter in the intellectual order proceeds analogous to the intellectual heaven in the royal series",
-  "span": "of heaven for the jupiter in the intellectual order",
   "status": "located",
   "volume": "vol2",
-  "ours": {
-   "n": 9,
-   "tokens": [
-    "of",
-    "heaven",
-    "for",
-    "the",
-    "jupiter",
-    "in",
-    "the",
-    "intellectual",
-    "order"
-   ],
-   "truncated": false
-  },
-  "combinations": 36,
-  "tried": [
-   {
-    "volume": "vol2",
-    "slide": 0,
-    "window": 9,
-    "expected": 9,
-    "excess": 0,
-    "why": null
-   },
-   {
-    "volume": "vol2",
-    "slide": 0,
-    "window": 9,
-    "expected": 9,
-    "excess": 0,
-    "why": null
-   },
-   {
-    "volume": "vol2",
-    "slide": 0,
-    "window": 9,
-    "expected": 9,
-    "excess": 0,
-    "why": null
-   },
-   {
-    "volume": "vol2",
-    "slide": 0,
-    "window": 9,
-    "expected": 9,
-    "excess": 0,
-    "why": null
-   },
-   {
-    "volume": "vol2",
-    "slide": 0,
-    "window": 9,
-    "expected": 9,
-    "excess": 0,
-    "why": null
-   },
-   {
-    "volume": "vol2",
-    "slide": 0,
-    "window": 9,
-    "expected": 9,
-    "excess": 0,
-    "why": null
-   }
-  ],
   "tight": true,
-  "slide": {
-   "left": 0,
-   "right": 0
-  },
-  "left": {
-   "tokens": "indeed adorns sensibles totally according to an imitation",
-   "w": 8,
-   "slide": 0,
-   "occurred": {
-    "vol1": 0,
-    "vol2": 1
-   },
-   "at": 74004
-  },
-  "right": {
-   "tokens": "proceeds analogous to the intellectual heaven in the royal series",
-   "w": 10,
-   "slide": 0,
-   "occurred": {
-    "vol1": 0,
-    "vol2": 1
-   },
-   "at": 74021
-  },
-  "pg": {
-   "n": 9,
-   "delta_tokens": 0,
-   "excess": 0,
-   "tokens": [
-    "of",
-    "heaven",
-    "for",
-    "the",
-    "jupiter",
-    "in",
-    "the",
-    "intellectual",
-    "order"
-   ],
-   "truncated": false
-  },
-  "at": 74012,
-  "quote": "indeed adorns sensibles totally according to an imitation of heaven for the jupiter in the intellectual order proceeds analogous to the intellectual heaven in the",
-  "quote_note": "the witness’s own tokens, 8 either side of the placed span — re-flowed, so the line breaks are not the print’s"
+  "witness_stretch": 9,
+  "span": "of heaven for the jupiter in the intellectual order"
  },
  "known_truths": {
   "book4_chapter6": {
    "probe": "Again therefore, if indeed the snpercelestial place is the imparticipa-\nble and occult genus of the intelligible Gods, how can we establish so\ngreat a divine multitude there, and this accompanied with separation",
-   "span": "and occult genus of the intelligible gods how can we establish",
    "status": "located",
    "volume": "vol1",
-   "ours": {
-    "n": 11,
-    "tokens": [
-     "and",
-     "occult",
-     "genus",
-     "of",
-     "the",
-     "intelligible",
-     "gods",
-     "how",
-     "can",
-     "we",
-     "establish"
-    ],
-    "truncated": false
-   },
-   "combinations": 6,
-   "tried": [
-    {
-     "volume": "vol1",
-     "slide": 8,
-     "window": 19,
-     "expected": 19,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol1",
-     "slide": 8,
-     "window": 19,
-     "expected": 19,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol1",
-     "slide": 8,
-     "window": 19,
-     "expected": 19,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol1",
-     "slide": 8,
-     "window": 19,
-     "expected": 19,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol1",
-     "slide": 9,
-     "window": 20,
-     "expected": 20,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol1",
-     "slide": 9,
-     "window": 20,
-     "expected": 20,
-     "excess": 0,
-     "why": null
-    }
-   ],
    "tight": false,
-   "slide": {
-    "left": 5,
-    "right": 3
-   },
-   "left": {
-    "tokens": "again therefore if indeed the",
-    "w": 5,
-    "slide": 5,
-    "occurred": {
-     "vol1": 1,
-     "vol2": 0
-    },
-    "at": 113502
-   },
-   "right": {
-    "tokens": "divine multitude there and this accompanied with separation",
-    "w": 8,
-    "slide": 3,
-    "occurred": {
-     "vol1": 1,
-     "vol2": 0
-    },
-    "at": 113526
-   },
-   "pg": {
-    "n": 19,
-    "delta_tokens": 8,
-    "excess": 0,
-    "tokens": [
-     "supercelestial",
-     "place",
-     "is",
-     "the",
-     "imparticipable",
-     "and",
-     "occult",
-     "genus",
-     "of",
-     "the",
-     "intelligible",
-     "gods",
-     "how",
-     "can",
-     "we",
-     "establish",
-     "so",
-     "great",
-     "a"
-    ],
-    "truncated": false
-   },
-   "at": 113507,
-   "quote": "arranged chapter vi again therefore if indeed the supercelestial place is the imparticipable and occult genus of the intelligible gods how can we establish so great a divine multitude there and this accompanied with separation",
-   "quote_note": "the witness’s own tokens, 8 either side of the placed span — re-flowed, so the line breaks are not the print’s"
+   "witness_reads": "supercelestial place is the imparticipable and occult genus of the intelligible gods how can we establish so great a"
   },
   "book7_chapter32": {
    "probe": "Jupiter indeed, adorns sensibles totally, according to an imitation of\nHeaven. For the Jupiter in the intellectual order, proceeds analogous\nto the intellectual Heaven, in the royal series. But Juno moves wholes",
-   "span": "heaven for the jupiter in the intellectual order proceeds analogous to",
    "status": "located",
    "volume": "vol2",
-   "ours": {
-    "n": 11,
-    "tokens": [
-     "heaven",
-     "for",
-     "the",
-     "jupiter",
-     "in",
-     "the",
-     "intellectual",
-     "order",
-     "proceeds",
-     "analogous",
-     "to"
-    ],
-    "truncated": false
-   },
-   "combinations": 36,
-   "tried": [
-    {
-     "volume": "vol2",
-     "slide": 0,
-     "window": 11,
-     "expected": 11,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol2",
-     "slide": 0,
-     "window": 11,
-     "expected": 11,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol2",
-     "slide": 0,
-     "window": 11,
-     "expected": 11,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol2",
-     "slide": 0,
-     "window": 11,
-     "expected": 11,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol2",
-     "slide": 0,
-     "window": 11,
-     "expected": 11,
-     "excess": 0,
-     "why": null
-    },
-    {
-     "volume": "vol2",
-     "slide": 0,
-     "window": 11,
-     "expected": 11,
-     "excess": 0,
-     "why": null
-    }
-   ],
    "tight": true,
-   "slide": {
-    "left": 0,
-    "right": 0
-   },
-   "left": {
-    "tokens": "jupiter indeed adorns sensibles totally according to an imitation of",
-    "w": 10,
-    "slide": 0,
-    "occurred": {
-     "vol1": 0,
-     "vol2": 1
-    },
-    "at": 74003
-   },
-   "right": {
-    "tokens": "the intellectual heaven in the royal series but juno moves",
-    "w": 10,
-    "slide": 0,
-    "occurred": {
-     "vol1": 0,
-     "vol2": 1
-    },
-    "at": 74024
-   },
-   "pg": {
-    "n": 11,
-    "delta_tokens": 0,
-    "excess": 0,
-    "tokens": [
-     "heaven",
-     "for",
-     "the",
-     "jupiter",
-     "in",
-     "the",
-     "intellectual",
-     "order",
-     "proceeds",
-     "analogous",
-     "to"
-    ],
-    "truncated": false
-   },
-   "at": 74013,
-   "quote": "adorns sensibles totally according to an imitation of heaven for the jupiter in the intellectual order proceeds analogous to the intellectual heaven in the royal series but",
-   "quote_note": "the witness’s own tokens, 8 either side of the placed span — re-flowed, so the line breaks are not the print’s"
+   "witness_stretch": 11,
+   "identical_to_ours": true
   }
  },
- "sweep": {
-  "windows": 9510,
-  "strata": {
-   "unique in vol1": 5057,
-   "unique in vol2": 3041,
-   "in neither volume": 1356,
-   "in some volume more than once": 43,
-   "unique in both volumes": 13
-  }
+ "PROVEN_BY_ASYMMETRY": {
+  "tool": "tools/pg-locate-selftest.mjs",
+  "how": "run the selftest against the PREVIOUS revision of the tool and against this one; the failures on the old one are the defects",
+  "previous_revision": "git show 877cb60:tools/pg-locate.mjs",
+  "measured_on_the_probes": "4 of 5 pass on the old instrument, 5 of 5 on this one — the old one places the imprint page (both volumes bracket it) as `located, vol1`",
+  "measured_on_the_r24_batch": "5 of 14 pass on the old batch, 14 of 14 on this one — the old one has 42 located points with an EMPTY witness stretch, 4 points with bracketing pairs in BOTH volumes, 331 bare `silent` verdicts and r8617 silent"
  }
 }
