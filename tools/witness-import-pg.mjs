@@ -74,7 +74,11 @@ const VOLUMES = [
     raw_bytes: 1352533,
     raw_sha256: '36d17e60316c4e5632d7bf5612faaab083ac2c30152d7f1b67e1452a602dd904',
     covers:
-      'vol. II of the 1816 print — its printed pp. 1-299+ to the work’s close, and the ONLY witness this library holds of it: Books VI-VII stand in no other copy but the source transcription, and the two further archive.org copies are vol. I only',
+      'vol. II of the 1816 print — its printed pp. 1-299+ to the work’s close. NOT the first witness of those pages: ' +
+      'this library already holds a vol. II TRANSCRIPTION (proclus-theology-of-plato-taylor-vol-2-1816, the text this ' +
+      'edition served until 2026-10-05, its own OCR at 84.9% dictionary words against the source copy’s 97.5%). It is ' +
+      'the first HUMAN-PROOFREAD witness of them, and it stands beside that transcription rather than replacing it: ' +
+      'the two further archive.org copies in this record are vol. I only, so Books VI-VII have no second SCAN',
   },
 ];
 
