@@ -31,10 +31,14 @@
  *  2. no id is reused ACROSS versions of the same edition (a new version appends;
  *     it never reuses or reorders old ids): every id a version SHARES with an
  *     earlier one must carry the SAME rule record, and the version may only ADD
- *     ids. MEASURED 2026-10-06: this check read `seen.get(id) !== v` ("the id was
- *     first seen in another version"), which is what APPENDING means — it failed on
- *     the first edition that ever had two versions and could only pass on a rule
- *     list disjoint from the older one's;
+ *     ids — asserted directly in 2b below: every id an earlier version holds is
+ *     still present in each later one, except the ids that version's own record
+ *     withdraws (a tail DROP is the failure shape this closes; MEASURED
+ *     2026-10-07: without 2b, a version holding exactly 1.0.0's 3051 rules alone
+ *     passed every check here). MEASURED 2026-10-06: this check read
+ *     `seen.get(id) !== v` ("the id was first seen in another version"), which is
+ *     what APPENDING means — it failed on the first edition that ever had two
+ *     versions and could only pass on a rule list disjoint from the older one's;
  *  3. `before` !== `after` for every rule that supplies a reading, and every
  *     `type` is one of the four (model §4.1);
  *  4. the rule COUNT is the count in the pipeline's own provenance file
@@ -149,6 +153,30 @@ for (const t of served) {
       `v${v}: every id it shares with an earlier version is the SAME rule — ${appended} id(s) appended, ${rules.length - appended} carried unchanged` +
         (rewritten.length ? `; id(s) rewritten: ${rewritten.map((r) => r.id).slice(0, 5).join(', ')}` : ''),
     );
+    /* 2b. AND THE VERSION MAY ONLY ADD IDS: every id an EARLIER version holds
+     * must still be present here, except the ids THIS version's own record
+     * withdraws (WITHDRAWN above, keyed by version — the gap is the record of
+     * the state that spent the id). MEASURED 2026-10-07: the check above looks
+     * only at the ids the later version PRESENTS, so a version holding exactly
+     * 1.0.0's 3051 rules — a tail drop, the very shape of the original
+     * incident — passed every check: a tail drop makes no gap in the sequence,
+     * rewrites nothing among the ids it still holds, and the provenance count
+     * pins only versions[0]. The subset test below is what closes that shape:
+     * it fails naming the ids that vanished. */
+    if (seen.size) {
+      const spent = new Set(WITHDRAWN.get(`${slug}@${v}`) || []);
+      const have = new Set(rules.map((r) => r.id));
+      const dropped = [...seen.keys()].filter((id) => {
+        if (have.has(id)) return false;
+        const n = Number((/:r(\d+)$/.exec(id) || [])[1]);
+        return !spent.has(n);
+      });
+      check(
+        dropped.length === 0,
+        `v${v}: every id an earlier version holds is still here (a version may only ADD ids) — ${rules.length} rule(s), ${appended} appended, ${rules.length - appended} carried` +
+          (dropped.length ? `; id(s) DROPPED: ${dropped.slice(0, 5).join(', ')}${dropped.length > 5 ? ` … (${dropped.length} in all)` : ''}` : ''),
+      );
+    }
     for (const r of rules) if (!seen.has(r.id)) seen.set(r.id, { version: v, rule: r });
 
     /* 3. the four types, before/after. */

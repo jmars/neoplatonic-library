@@ -167,10 +167,20 @@ function classify(rule, damage) {
  * name the DOI of a state that is not its own — falsifying the citation of the
  * state the old DOI names. The edition's `doi` is the CURRENT version's DOI, so it
  * is the fallback for exactly that version (the field the seed migration stores
- * it in, where no version carries one); a non-current version with no `doi` of its
- * own cites none rather than someone else's identifier. */
+ * it in, where no version carries one). And where the record would leave a
+ * citation naming NO DOI or the WRONG one, the run is REFUSED before anything is
+ * written: a DOI is a claim about a state, and the generator does not guess one. */
 if (process.argv.includes('--citations')) {
   const edsDir = join(DATA, 'editions');
+  /* VALIDATE EVERYTHING FIRST, WRITE NOTHING UNTIL IT PASSES. MEASURED
+   * 2026-10-07: with current_version moved to a version whose meta.json has no
+   * `doi` while edition.json.doi still held the PREVIOUS state's DOI, the loop
+   * below wrote that stale DOI into the new current version's citation — the
+   * exact falsification this mode exists to prevent, one forgotten manual step
+   * away. Every refusal below is therefore decided BEFORE the first write: the
+   * run exits non-zero naming the version and both values, and no file moves. */
+  const refusals = [];
+  const plan = [];
   let n = 0;
   for (const slug of await readdir(edsDir)) {
     const edPath = join(edsDir, slug, 'edition.json');
@@ -179,17 +189,84 @@ if (process.argv.includes('--citations')) {
     const doi = ed.doi || '';
     const t = { slug: ed.slug, author: ed.author, title: ed.title, translator: ed.translator };
     const se = ed.source_edition || {};
+    const vroot = join(edsDir, slug, 'versions');
+    const versions = existsSync(vroot) ? (await readdir(vroot)).sort() : [];
+    const metas = new Map();
+    for (const v of versions) {
+      const mPath = join(vroot, v, 'meta.json');
+      if (existsSync(mPath)) metas.set(v, await load(mPath));
+    }
+    /* current_version must RESOLVE: an edition naming a version that is not in
+     * versions/ would otherwise have its citation written from the edition's
+     * `doi` with no state under it at all. */
+    if (!metas.has(ed.current_version)) {
+      refusals.push(
+        `${slug}: current_version ${JSON.stringify(ed.current_version)} has no versions/${ed.current_version}/meta.json` +
+          ` (versions/ holds ${versions.join(', ') || 'nothing'}) — the edition's citation would be written from edition.json.doi ${JSON.stringify(doi)} with no version under it`,
+      );
+      continue;
+    }
+    const curMeta = metas.get(ed.current_version);
+    const curVersion = curMeta.version || ed.current_version;
+    const curDoi = typeof curMeta.doi === 'string' ? curMeta.doi.trim() : '';
+    /* (a) THE STALE-EDITION-DOI TRAP: a multi-version edition whose CURRENT
+     * version has no `doi` of its own while edition.json.doi is set — that value
+     * is by construction some OLDER state's DOI, and the fallback below would
+     * write it into the new current version's citation. The legit states pass:
+     * a single-version edition (the seed pattern, where the DOI lives at edition
+     * level), and the pre-mint window after a bump (the bump protocol clears
+     * edition.json.doi, so doi is '' exactly while the new state has nothing
+     * minted yet — docs/DOI.md). */
+    if (versions.length > 1 && !curDoi && doi) {
+      refusals.push(
+        `${slug}: the current version ${curVersion} has no "doi" of its own while edition.json.doi is ${JSON.stringify(doi)}` +
+          ` — with more than one version minted that value is an OLDER state's DOI, and citing it would name a state ${curVersion} is not.` +
+          ` Mint ${curVersion}'s own DOI and write it back (docs/DOI.md), or clear edition.json.doi if nothing is minted for it yet`,
+      );
+    }
+    /* (b) THE EDITION AND ITS CURRENT VERSION MUST AGREE: edition.json.doi IS
+     * the current version's DOI (version-probe holds the same), so any pair of
+     * differing values — one empty, or two different identifiers — is an
+     * edition advertising one state and citing another. */
+    if (curDoi && doi !== curDoi) {
+      refusals.push(
+        `${slug}: edition.json.doi ${JSON.stringify(doi)} and the current version ${curVersion}'s own meta.json.doi ${JSON.stringify(curDoi)} disagree` +
+          ` — the edition must name the state it serves; set edition.json.doi to ${JSON.stringify(curDoi)}`,
+      );
+    }
+    /* A FROZEN version of a multi-version edition is by definition a MINTED one
+     * (a frozen state is deposited under its own DOI, docs/DOI.md): a frozen
+     * version without its own `doi` would leave the loop below with a
+     * DOI-less citation, silently. */
+    if (versions.length > 1) {
+      for (const [v, meta] of metas) {
+        const version = meta.version || v;
+        if (version === ed.current_version || v === ed.current_version) continue;
+        if (!(typeof meta.doi === 'string' && meta.doi.trim())) {
+          refusals.push(
+            `${slug}: frozen version ${version} has no "doi" of its own — a frozen state of a multi-version edition is a minted one,` +
+              ` and its citation would silently carry no DOI. Set versions/${v}/meta.json "doi" (docs/DOI.md) and re-run`,
+          );
+        }
+      }
+    }
+    plan.push({ slug, edPath, ed, doi, t, se, vroot, versions, metas });
+  }
+  if (refusals.length) {
+    for (const r of refusals) console.error(`[citations] REFUSING: ${r}`);
+    console.error(`[citations] ${refusals.length} refusal(s): NOTHING written — a DOI is a claim about a state, and the generator does not guess one (docs/DOI.md)`);
+    process.exit(1);
+  }
+  for (const { slug, edPath, ed, doi, t, se, vroot, versions, metas } of plan) {
     ed.citation = citationFor(t, se, ed.current_version, doi);
     await writeFile(edPath, JSON.stringify(ed, null, 2) + '\n');
-    const vroot = join(edsDir, slug, 'versions');
-    for (const v of existsSync(vroot) ? await readdir(vroot) : []) {
-      const mPath = join(vroot, v, 'meta.json');
-      if (!existsSync(mPath)) continue;
-      const meta = await load(mPath);
+    for (const v of versions) {
+      const meta = metas.get(v);
+      if (!meta) continue;
       const version = meta.version || v;
       const versionDoi = meta.doi != null ? meta.doi : version === ed.current_version ? doi : '';
       meta.citation = citationFor(t, se, version, versionDoi);
-      await writeFile(mPath, JSON.stringify(meta, null, 2) + '\n');
+      await writeFile(join(vroot, v, 'meta.json'), JSON.stringify(meta, null, 2) + '\n');
       n++;
     }
     console.log(`citation: ${slug} -> ${ed.citation}`);

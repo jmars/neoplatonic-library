@@ -25,6 +25,10 @@
  *     v1.0.0's citation to name the DOI of a state that is not its own. The
  *     minted table below is the record those identifiers are held to, and the
  *     check FAILS if a frozen version's citation stops carrying its own DOI;
+ *  5b. a FROZEN version of a multi-version edition carries its OWN `meta.json.doi`
+ *     (a frozen state is a minted one), it DIFFERS from the current version's, and
+ *     it is the MINTED table's row for that state — a DOI-less frozen citation and
+ *     a forgotten table row both fail here instead of passing silently;
  *  6. THE MUTATION TEST (§6.2, the immutability asymmetry): a fake v1.1.0 with a
  *     CHANGED SOURCE BYTE is added in a scratch copy of the repo, the build runs
  *     there, and v1.0.0's emitted bytes must be UNCHANGED. The mutation is
@@ -183,6 +187,32 @@ for (const t of served) {
               ? ''
               : ` — the version's doi is ${JSON.stringify(meta.doi)} and its citation reads ${JSON.stringify(meta.citation)}`),
     );
+    /* 5b. A FROZEN VERSION OF A MULTI-VERSION EDITION CARRIES ITS OWN DOI — a
+     * frozen state is by definition a minted one (docs/DOI.md), so a meta.json
+     * without a `doi` of its own is a citation that has silently LOST its
+     * identifier; and the row may be missing from MINTED too, in which case the
+     * check above passes vacuously ("nothing to hold its citation to"). So the
+     * frozen version must carry a non-empty `meta.json.doi`, it must DIFFER from
+     * the current version's (two states sharing one DOI is the falsification
+     * again, wearing a different hat), and it must be the MINTED table's row for
+     * this state. MEASURED 2026-10-07: the Theology's frozen 1.0.0 carries
+     * 10.5281/zenodo.23175744 against the current 1.0.1's …23199740. */
+    if (v !== current && versions.length > 1) {
+      const currentDoi = readMeta(slug, current).doi;
+      check(
+        typeof meta.doi === 'string' && meta.doi !== '',
+        `${slug} v${v}: a FROZEN version of a multi-version edition carries its own meta.json.doi (a frozen state is a minted one; a DOI-less frozen citation is silent)` +
+          (meta.doi ? '' : ` — got ${JSON.stringify(meta.doi)}`),
+      );
+      check(
+        meta.doi !== currentDoi,
+        `${slug} v${v}: its DOI differs from the current version's (v${v} ${JSON.stringify(meta.doi)} vs v${current} ${JSON.stringify(currentDoi)}) — one DOI names one state`,
+      );
+      check(
+        MINTED.has(`${slug}@${v}`) && MINTED.get(`${slug}@${v}`) === meta.doi,
+        `${slug} v${v}: and the DOI is the MINTED table's row for this state (the record those citations are held to)`,
+      );
+    }
     if (v === current) {
       /* THE EDITION'S `doi` IS THE CURRENT VERSION'S DOI. The field names the state
        * a bare `/texts/<slug>/` serves, so an edition whose `doi` and whose current
