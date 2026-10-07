@@ -34,6 +34,52 @@
   "of_which_corrected_target": 6,
   "refused_not_acted_on": 644
  },
+ "measured": {
+  "review_flagged_rules": 2238,
+  "located": 1594,
+  "located_by_volume": {
+   "vol1": 947,
+   "vol2": 647
+  },
+  "located_tight": 961,
+  "CLEARED": 1265,
+  "cleared_tight": 804,
+  "cleared_slid_on_the_whole_reading": 461,
+  "kept_flagged_on_a_located_point": 234,
+  "evidence_against_the_rule": 95,
+  "refused_not_acted_on": 644,
+  "of_the_brief_s_95": {
+   "print_error_emendation_not_reverted": 6,
+   "insertion": 2,
+   "contradiction_the_print_carries_our_before": 14,
+   "third_form_on_a_real_before_reading": 11,
+   "third_form_on_our_own_garble": 62
+  },
+  "brief_refutations": [
+   "The brief reads the 33 as \"6 print-error emendations do not get reverted\" and the rest as contradictions or third forms to correct or withdraw. MEASURED: 14 of the 25 are rules whose target the print does not read AND whose `before` IS a reading of the print — i.e. the print carries the very form the rule changes. Whether that is a wrong guess or an emendation of the print’s own misprint is an EDITORIAL decision the witness cannot make, and this unit does not revert a print misprint into a published edition: they are recorded, with the print’s own words, and the flag stays.",
+   "The brief’s \"62 third forms that carry no evidence are not confirmations and must NOT be cleared\" is RIGHT and is done: they keep the flag and their rationale now says the witness’s words there are no evidence about the rule, because our own `before` is the transcription’s garble.",
+   "The brief says the 1,267 confirmations clear. MEASURED and decided: 1,265 clear. The two that do not are SLID placements confirmed on the CHANGED FRAGMENT alone — see placement_rule above.",
+   "Only 4 of the 80 located open questions are settled by a new rule; 2 more are already settled by rules the edition records and the witness AGREES with, and 9 the witness reads identically. The other 65 are refused with a measured reason — the brief’s \"the witness answers 80\" is true of PLACEMENT, not of settlement."
+  ]
+ },
+ "punctuation": {
+  "rules": 786,
+  "located": 578,
+  "undecidable_on_marks_or_case_alone": 473,
+  "cleared_by_this_unit": 0,
+  "why": "a re-flowed witness carries no punctuation and no case, so a rule whose two readings are the same WORDS cannot be decided from it however exactly the passage is located — the located-but-identical span is NOT evidence for the typography"
+ },
+ "open_questions": {
+  "n_located": 80,
+  "by_class": {
+   "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)": 37,
+   "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it": 9,
+   "SETTLED — the witness supplies the reading (a rule in this version)": 6,
+   "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word": 11,
+   "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)": 11,
+   "not settled — the only difference is a NUMERAL (a footnote or page number), which a re-flowed witness renumbers": 6
+  }
+ },
  "cleared": [
   {
    "id": "r8568",
@@ -32505,7 +32551,6 @@
    "why": "the print reads \"unical\"; our target guessed \"united\""
   }
  ],
- "refusals": [],
  "retired": [
   {
    "old_id": "proclus-theology-of-plato-taylor-1816:r8600",
@@ -32556,10 +32601,5 @@
    "why": "the print reads \"unical\"; our target guessed \"united\""
   }
  ],
- "how_to_rederive": [
-  "node tools/pg-locate.mjs proclus-theology-of-plato-taylor-1816 --what rules --version 1.0.3 --slide 24 --out /var/tmp/pg-locate/rules-r24.json",
-  "node tools/pg-act.mjs proclus-theology-of-plato-taylor-1816 --from-version 1.0.3 --to-version 1.0.4 --batch /var/tmp/pg-locate/rules-r24.json --write",
-  "node tools/merge.mjs proclus-theology-of-plato-taylor-1816 --from tools/edits/proclus-theology-of-plato-taylor-1816.open-findings.json --write",
-  "node tools/pg-act.mjs proclus-theology-of-plato-taylor-1816 --to-version 1.0.4 --stamp-open"
- ]
+ "refusals": []
 }

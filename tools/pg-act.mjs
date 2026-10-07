@@ -286,6 +286,8 @@ const carriedBy = (p, text) => {
 
 /* ---------- the decisions --------------------------------------------------- */
 
+/* The cleared list: one entry per rule whose flag this unit clears, with the
+ * witness's own words at the point — the record of what was acted on. */
 const cleared = [];
 const kept = [];
 const against = [];
@@ -444,10 +446,81 @@ const out = {
     'clears when the witness carries the rule’s WHOLE after-reading at the point, because a whole reading is the print’s own words in the right place while the changed fragment is 1–2 common words that locate text without witnessing a repair. ' +
     'MEASURED: the marginal yield of the slide knob is ENTIRELY non-tight, so this split is reported rather than hidden.',
   counts,
+  /* THE HEADLINE, from the batch: what was placed, what the witness reads, and the
+   * brief's own numbers where they are refuted by measurement. */
+  measured: {
+    review_flagged_rules: points.length,
+    located: points.filter((p) => p.status === 'located').length,
+    located_by_volume: { vol1: points.filter((p) => p.status === 'located' && p.volume === 'vol1').length, vol2: points.filter((p) => p.status === 'located' && p.volume === 'vol2').length },
+    located_tight: points.filter((p) => p.status === 'located' && p.tight).length,
+    CLEARED: cleared.length,
+    cleared_tight: cleared.filter((c) => c.tight).length,
+    cleared_slid_on_the_whole_reading: cleared.filter((c) => !c.tight).length,
+    kept_flagged_on_a_located_point: kept.length,
+    evidence_against_the_rule: against.length + corrected.length,
+    refused_not_acted_on: points.filter((p) => p.status !== 'located').length,
+    of_the_brief_s_95: {
+      print_error_emendation_not_reverted: against.concat(corrected).filter((a) => a.class === CLASSES.emendation).length,
+      insertion: against.concat(corrected).filter((a) => a.class === CLASSES.insertion).length,
+      contradiction_the_print_carries_our_before: against.concat(corrected).filter((a) => a.class === CLASSES.contradiction).length,
+      third_form_on_a_real_before_reading: against.concat(corrected).filter((a) => a.class === CLASSES.third).length,
+      third_form_on_our_own_garble: against.concat(corrected).filter((a) => a.class === CLASSES.thirdGarble).length,
+    },
+    brief_refutations: [
+      'The brief reads the 33 as "6 print-error emendations do not get reverted" and the rest as contradictions or third forms to correct or withdraw. MEASURED: 14 of the 25 are rules whose target the print does not read AND whose `before` IS a reading of the print — i.e. the print carries the very form the rule changes. Whether that is a wrong guess or an emendation of the print’s own misprint is an EDITORIAL decision the witness cannot make, and this unit does not revert a print misprint into a published edition: they are recorded, with the print’s own words, and the flag stays.',
+      'The brief’s "62 third forms that carry no evidence are not confirmations and must NOT be cleared" is RIGHT and is done: they keep the flag and their rationale now says the witness’s words there are no evidence about the rule, because our own `before` is the transcription’s garble.',
+      'The brief says the 1,267 confirmations clear. MEASURED and decided: 1,265 clear. The two that do not are SLID placements confirmed on the CHANGED FRAGMENT alone — see placement_rule above.',
+      'Only 4 of the 80 located open questions are settled by a new rule; 2 more are already settled by rules the edition records and the witness AGREES with, and 9 the witness reads identically. The other 65 are refused with a measured reason — the brief’s "the witness answers 80" is true of PLACEMENT, not of settlement.',
+    ],
+  },
+  /* THE PUNCTUATION SURFACE, STATED LOUDLY BECAUSE IT IS THE ONE THE WITNESS
+   * CANNOT TOUCH. A re-flowed, case-normalised, unpunctuated transcription
+   * confirms a READING and never our typography: MEASURED, of this edition's 786
+   * punctuation rules 578 have their point placed and 473 of those differ from
+   * the witness in MARKS OR CASE ALONE — undecidable BY DESIGN, not a fact about
+   * the witness. NONE of them is cleared: the review worklist this unit acts on
+   * carries none of them (they are typed `punctuation` and were never flagged), so
+   * a located-but-identical span is recorded here as undecidable and the rule is
+   * left exactly as it stands. */
+  punctuation: (() => {
+    const batch = JSON.parse(readFileSync('/var/tmp/pg-locate/punct-r24.json', 'utf8')).points;
+    const withD = batch.filter((p) => p.decide);
+    const marks = withD.filter((p) => p.decide.verdict === 'silent-marks').length;
+    return {
+      rules: batch.length,
+      located: batch.filter((p) => p.status === 'located').length,
+      undecidable_on_marks_or_case_alone: marks,
+      cleared_by_this_unit: 0,
+      why:
+        'a re-flowed witness carries no punctuation and no case, so a rule whose two readings are the same WORDS cannot be decided from it however exactly the passage is located — the located-but-identical span is NOT evidence for the typography',
+    };
+  })(),
+  /* WHAT BECAME OF THE OPEN QUESTIONS the witness places, from the outcome file
+   * this tool's own --stamp-open mode writes. */
+  open_questions: (() => {
+    const f = join(ROOT, 'tools', 'edits', `${slug}.open-outcomes.json`);
+    if (!existsSync(f)) return null;
+    const o = JSON.parse(readFileSync(f, 'utf8'));
+    return { n_located: o.n, by_class: o.by_class };
+  })(),
   cleared,
   kept,
   against,
   corrected,
+  /* THE RETIREMENT, derived the same way the write derives it: a corrected target
+   * may not be written under the id a reader cited in the previous version, so the
+   * old rule is retired (its id stays spent and is recorded as withdrawn) and the
+   * corrected rule is appended under a fresh id. The ids are allocated from the
+   * source version's own maximum, so a dry run names exactly what the write will. */
+  retired: (() => {
+    let n = Math.max(...srcRaw.rules.map((r) => Number((/:r(\d+)$/.exec(r.id) || [])[1]) || 0)) + 1;
+    return corrected.map((c) => {
+      const was = srcRaw.rules.find((r) => r.id.endsWith(`:${c.id}`));
+      const out = { old_id: was.id, new_id: `${slug}:r${String(n).padStart(4, '0')}`, find: was.location.find, was: was.after, now: c.new_after, why: c.why };
+      n += 1;
+      return out;
+    });
+  })(),
   refusals: bad,
 };
 mkdirSync(dirname(OUT), { recursive: true });
