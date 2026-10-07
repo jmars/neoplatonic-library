@@ -258,6 +258,24 @@ export function loadDivisions(slug, edition = null, version = null) {
       throw new Error(`library: ${slug}: a recorded division is not {n, line, text} — it is not one`);
     }
   }
+  // THE ANCHOR IS NOT OPTIONAL. The served id is read from the division's
+  // recorded `anchor` (so an inserted division cannot move the anchors after
+  // it); a model missing one would fall back to the ordinal — the very
+  // coupling the field exists to break — so the load refuses it, and two
+  // divisions may not claim one name.
+  const seenAnchors = new Set();
+  for (const d of model.divisions) {
+    if (typeof d.anchor !== 'string' || d.anchor === '') {
+      throw new Error(
+        `library: ${slug}: division ${d.n} records no anchor — the served id would fall back to the ` +
+          `ordinal, which is the coupling the anchor field exists to break`,
+      );
+    }
+    if (seenAnchors.has(d.anchor)) {
+      throw new Error(`library: ${slug}: two recorded divisions claim the anchor "${d.anchor}" — an anchor two divisions share is not an anchor`);
+    }
+    seenAnchors.add(d.anchor);
+  }
   return model;
 }
 export const anchorPath = (slug) => join(ANCHOR_DIR, `${slug}.json`);
@@ -2346,6 +2364,14 @@ export function extract(src, meta) {
   let curNote = null;
   let par = 0;
   let secN = 0;
+  // THE ANCHOR EACH OPENED SECTION IS SERVED UNDER, BY ITS ORDINAL. A recorded
+  // division carries its own `anchor` — the name citations hold — and the
+  // ordinal is only the walk's position, so the id a citation names is READ
+  // from the model, not derived from the count: an inserted division shifts
+  // the ordinals after it and must not move one anchor that already served.
+  // Where no model stands behind a section (the opener walk), the ordinal IS
+  // the anchor, exactly as served today.
+  const secAnchor = new Map();
   let expectedSec = 1;
   let expectedNote = 1;
   let expectedRef = 1;
@@ -2426,7 +2452,19 @@ export function extract(src, meta) {
     }
   }
 
-  const anchorOf = (block) => (block.sec ? `s${block.sec}-${block.par}` : null);
+  const anchorOf = (block) => {
+    if (!block.sec) return null;
+    // the paragraph anchor names the section's RECORDED anchor, not its
+    // ordinal. A block claiming a section no opener ever opened would derive
+    // an anchor for a section that does not exist — refused, not guessed.
+    const a = secAnchor.get(block.sec);
+    if (a == null)
+      throw new Error(
+        `library: ${entry.slug}: a ${block.kind} block claims section ${block.sec}, which no section opener ` +
+          `opened — the paragraph anchor would name a section that does not exist`,
+      );
+    return `${a}-${block.par}`;
+  };
 
   /* A BLOCK THAT CONTINUES ITS PREDECESSOR. The transcription puts a blank line
    * between blocks, and that blank line is NOT a paragraph mark: MEASURED on this
@@ -2594,10 +2632,14 @@ export function extract(src, meta) {
           }
           secN = div.n;
           expectedSec = div.n + 1;
+          // the ordinal feeds the contiguous walk; the SERVED id is the
+          // division's own recorded anchor — the name citations hold — so an
+          // inserted division shifts the ordinals after it and moves no anchor
+          secAnchor.set(div.n, div.anchor);
           push({
             t: 'sec',
             n: div.n,
-            id: `s${div.n}`,
+            id: div.anchor,
             // the division's structure, carried on the section so the contents
             // list can state it. The reader renders the titles it already knew;
             // book/chapter/label are data the document keeps and the app MAY show
@@ -2677,6 +2719,7 @@ export function extract(src, meta) {
         region = 'body';
         par = 0;
         secN = expectedSec;
+        secAnchor.set(secN, `s${secN}`);
         push({ t: 'sec', n: secN, id: `s${secN}` });
         expectedSec++;
         start('p', line, { sameParagraph: false });
@@ -2691,6 +2734,7 @@ export function extract(src, meta) {
         flush();
         par = 0;
         secN = expectedSec;
+        secAnchor.set(secN, `s${secN}`);
         push({ t: 'sec', n: secN, id: `s${secN}` });
         expectedSec++;
         start('p', line, { sameParagraph: false });
@@ -3609,7 +3653,9 @@ export function plainText(doc, entry) {
         lines.push('');
         break;
       case 'sec':
-        lines.push('', `[s${b.n}]`, '');
+        // the plain file's division marker is the SERVED anchor — the name a
+        // citation holds — not the ordinal, which an insertion may shift
+        lines.push('', `[${b.id}]`, '');
         break;
       case 'region':
         lines.push('', `[region ${b.kind}]`, '');

@@ -174,6 +174,21 @@ check(
 );
 const chapters = doc.toc.filter((x) => x.book != null).map((x) => `${x.book}.${x.chapter}`);
 check(new Set(chapters).size === chapters.length, 'no (book, chapter) pair is claimed twice');
+/* THE SERVED ANCHOR IS THE MODEL'S, NOT THE ORDINAL. The id a citation names
+ * is the division\u2019s own recorded `anchor`; the ordinal is only the walk\u2019s
+ * position (extractor: `secN = div.n`). So each served id is checked against
+ * the RECORDED name \u2014 checking it against `s${n}` would only restate the
+ * coupling an inserted division has to break \u2014 and the model may not claim
+ * one name twice. */
+const servedModel = JSON.parse(readFileSync(divisionsPath(SLUG, editionRecord(SLUG).current_version), 'utf8'));
+check(
+  new Set(servedModel.divisions.map((d) => d.anchor)).size === servedModel.divisions.length,
+  `the ${servedModel.divisions.length} recorded anchors are unique`,
+);
+check(
+  secs.every((b, i) => b.id === servedModel.divisions[i].anchor),
+  'every served section id IS its division\u2019s recorded anchor (not its ordinal)',
+);
 
 /* ---------- 3. the reader renders them ---------- */
 
@@ -836,6 +851,13 @@ for (const v of versions) {
     secs.length === model.divisions.length &&
       secs.every((b, i) => b.n === model.divisions[i].n && (b.page ?? null) === (model.divisions[i].page ?? null)),
     `v${v}: the document's ${secs.length} section(s) are built from its own model, pages included`,
+  );
+  /* the served ids are the model's recorded anchors on EVERY pinned version,
+   * and no model claims an anchor twice */
+  check(
+    new Set(model.divisions.map((d) => d.anchor)).size === model.divisions.length &&
+      secs.every((b, i) => b.id === model.divisions[i].anchor),
+    `v${v}: every served id is its division\u2019s recorded anchor, and the anchors are unique`,
   );
   const served = readFileSync(join(DIST, 'texts', SLUG, 'v', v, 't'), 'utf8');
   check(serialiseDoc(d) === served, `v${v}: the served /v/${v}/t IS this extraction`);

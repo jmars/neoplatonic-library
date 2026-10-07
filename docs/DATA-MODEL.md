@@ -370,6 +370,14 @@ Rules the model is held to:
 - **agreement with the witness is recorded per book**, and a book whose chapter
   count the witness contradicts is `witnessAgreement: "FLAGGED"` — never silently
   preferred either way.
+- **the anchor is the served id, and it is never derived.** `anchor` is the name
+  a citation holds: the section's served `id` and every paragraph anchor it
+  carries are read from this field (the recorded path in `extract`), and `n` is
+  only the contiguous walk's position — so a division inserted into the model
+  shifts the later ordinals and moves not one anchor that already served. A
+  model whose divisions record no anchor, or record the same anchor twice, is
+  refused at load (`loadDivisions`); `tools/divisions-probe.mjs` asserts the
+  served document against the model's anchors, section for section.
 
 The extractor's `opener: "recorded"` mode is what consumes it: the sections are
 the model, one for one, and the assertion the mode rests on is that they open
