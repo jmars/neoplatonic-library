@@ -112,6 +112,16 @@ const MINTED = new Map([
    * for. 1.0.0, 1.0.1 and 1.0.2 are untouched and still resolve at their own
    * DOIs. */
   ['proclus-theology-of-plato-taylor-1816@1.0.3', '10.5281/zenodo.23216282'],
+  /* MINTED 2026-10-07 as a NEW VERSION of the same record (23220511 under the
+   * concept record 23175743, versions.index 5): the first state whose RULES were
+   * changed by an OUTSIDE WITNESS — Project Gutenberg's human-proofread
+   * transcription of the same 1816 print, over the 2,238 review-flagged rules.
+   * 1.0.4's row was MISSING from this table until 1.0.5 froze it: while 1.0.4 was
+   * the current version the row was never consulted (a current version is not a
+   * frozen one), so the omission was invisible until the bump made 1.0.4 frozen
+   * and this gate asked the table for its own record. It is the latent defect the
+   * bump surfaced, not a defect the bump introduced. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.4', '10.5281/zenodo.23220511'],
 ]);
 
 section('every version is a frozen directory, served at its own URL');

@@ -97,6 +97,22 @@ const WITHDRAWN = new Map([
    * retired and the corrected rules are appended as r11843–r11848. The other 1,271
    * rules this unit touched had their READING left alone and are carried. */
   ['proclus-theology-of-plato-taylor-1816@1.0.4', [8600, 8617, 8923, 8991, 10442, 11100, 11680, 11681, 11682, 11683, 11684, 11686]],
+  /* 1.0.5 TAKES FOURTEEN RULES OUT, and for the first time some of them are
+   * withdrawn WITH NO REPLACEMENT. MEASURED 2026-10-07 (the sixth-DOI unit): at
+   * fourteen points the human-proofread witness reads the form OUR RULE CHANGES
+   * AWAY FROM — i.e. the print carries the very form the rule altered — and at
+   * every one of them the print's own form is an ordinary word of the print's own
+   * vocabulary and NEITHER misprint signal fires, so no measurement shows the print
+   * at fault. TWELVE of the rules therefore override a print our transcription
+   * already reads and are WITHDRAWN (the version serves the print's own text at
+   * those points): 8574, 8599, 8611, 8619, 8672, 8683, 8906, 8944, 8995, 8996,
+   * 9015, 10291. THREE do real work on a damaged transcription and only their
+   * TARGET was wrong, so the target is corrected to the print's own words and the
+   * old id is spent: 8961 (the print reads "as in images the"; our target dropped
+   * the "in" the transcription's damaged "m" stands for), 9069 (the print reads the
+   * participle "inferior being"; our target added a plural "s"), 10120 (the print
+   * reads "to united"; our target added "in"). The other 1.0.4 ids stay spent. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.5', [8574, 8599, 8600, 8611, 8617, 8619, 8672, 8683, 8906, 8923, 8944, 8961, 8991, 8995, 8996, 9015, 9069, 10120, 10291, 10442, 11100, 11680, 11681, 11682, 11683, 11684, 11686]],
 ]);
 
 let failures = 0;
@@ -117,6 +133,11 @@ for (const t of served) {
     .sort();
   const seen = new Map(); // id -> { version, rule } (the FIRST version that allocated it)
   const perVersion = new Map();
+  /* THE VERSION IMMEDIATELY BEFORE THIS ONE, so the review-annotation guards below
+   * can compare against the STATE THE RULE WAS LAST SEEN IN rather than against the
+   * first version that allocated it (which cannot see a flip back to an earlier
+   * state — see MUCH later). */
+  const prevOf = new Map(versions.map((v, i) => [v, i === 0 ? null : versions[i - 1]]));
 
   for (const v of versions) {
     const file = JSON.parse(readFileSync(repairsPath(slug, v), 'utf8'));
@@ -181,19 +202,62 @@ for (const t of served) {
     const RULE_FIELDS = ['id', 'type', 'apply', 'location', 'before', 'after', 'fires', 'join', 'type_evidence'];
     const reading = (r) => JSON.stringify(RULE_FIELDS.map((k) => r[k]));
     const rewritten = rules.filter((r) => seen.has(r.id) && reading(seen.get(r.id).rule) !== reading(r));
-    /* AND THE ONE ANNOTATION THAT MAY NOT GO BACKWARDS: a rule cleared from the
-     * review worklist is a human decision that has been taken; a later version may
-     * add evidence but may not re-flag it without saying why. */
-    const reflagged = rules.filter((r) => seen.has(r.id) && seen.get(r.id).rule.review === false && r.review === true);
     const appended = rules.filter((r) => !seen.has(r.id)).length;
+    /* AND THE ANNOTATIONS THAT MAY NOT MOVE IN EITHER DIRECTION WITHOUT A REASON ON
+     * THE RECORD. A rule cleared from the review worklist is a human decision that
+     * has been taken; a later version may add evidence but may not re-flag it
+     * without saying why. MEASURED 2026-10-07 (the reviewer's Call 4): this guard
+     * was ONE-WAY — it caught false→true only — and the narrowed comparison that
+     * replaced the whole-record compare does not look at `review` at all, so a rule
+     * could be silently UN-FLAGGED: a clear nobody asserted passed every check. The
+     * two directions are now one symmetric pair, and each demands the reason be on
+     * the record:
+     *
+     *   true→false (a CLEAR): the rule must have GAINED a non-empty evidence entry.
+     *     MEASURED: every clear of 1.0.4 and of 1.0.5 gains exactly one witness
+     *     entry naming the witness whose words were read; `tools/repair-id-probe.mjs`
+     *     is what refuses a clear that gains nothing.
+     *   false→true (a RE-FLAG): the rule's `evidence` or its `rationale` must have
+     *     MOVED, so the version says why it is back on the worklist. MEASURED
+     *     2026-10-07: 1.0.5 re-flags 8 rules whose clear rested on the CHANGED WORDS
+     *     alone (see tools/pg-act.mjs, `call_2_the_clearing_basis`) and each carries
+     *     both a rewritten witness entry and a REBASED rationale note.
+     *
+     * BOTH are compared against the IMMEDIATELY PRECEDING version, not against the
+     * first version that allocated the id: `seen` cannot see the flip at all when an
+     * earlier version already held the rule in the state it returns to (1.0.3 held
+     * these 8 flagged, so a `seen`-based guard is blind to their 1.0.5 re-flag). */
+    const prev = prevOf.get(v) || null;
+    const prevRules = prev === null ? null : new Map(JSON.parse(readFileSync(repairsPath(slug, prev), 'utf8')).rules.map((r) => [r.id, r]));
+    const sameArr = (a, b) => JSON.stringify(a || null) === JSON.stringify(b || null);
+    const clearedWithoutEvidence = !prevRules
+      ? []
+      : rules.filter((r) => {
+          const was = prevRules.get(r.id);
+          if (!was || !(was.review === true && r.review === false)) return false;
+          const nowEv = Array.isArray(r.evidence) ? r.evidence : [];
+          const wasEv = Array.isArray(was.evidence) ? was.evidence : [];
+          return !(nowEv.length > wasEv.length && nowEv.some((e) => e && typeof e.why === 'string' && e.why.trim()));
+        });
+    const reflagged = !prevRules
+      ? []
+      : rules.filter((r) => {
+          const was = prevRules.get(r.id);
+          if (!was || !(was.review === false && r.review === true)) return false;
+          return sameArr(r.evidence, was.evidence) && r.rationale === was.rationale;
+        });
     check(
       rewritten.length === 0,
       `v${v}: every id it shares with an earlier version is the SAME rule — ${appended} id(s) appended, ${rules.length - appended} carried unchanged` +
         (rewritten.length ? `; id(s) rewritten: ${rewritten.map((r) => r.id).slice(0, 5).join(', ')}` : ''),
     );
     check(
+      clearedWithoutEvidence.length === 0,
+      `v${v}: every rule whose review went true→false GAINED a non-empty evidence entry (${clearedWithoutEvidence.length} did not${clearedWithoutEvidence.length ? `: ${clearedWithoutEvidence.slice(0, 5).map((r) => r.id).join(', ')}` : ''})`,
+    );
+    check(
       reflagged.length === 0,
-      `v${v}: no rule a human had cleared from the review worklist is re-flagged silently (${reflagged.length}${reflagged.length ? `: ${reflagged.slice(0, 5).map((r) => r.id).join(', ')}` : ''})`,
+      `v${v}: no rule a human had cleared from the review worklist is re-flagged SILENTLY (a re-flag must move the rule’s evidence or its rationale) — ${reflagged.length} silent${reflagged.length ? `: ${reflagged.slice(0, 5).map((r) => r.id).join(', ')}` : ''}`,
     );
     /* 2b. AND THE VERSION MAY ONLY ADD IDS: every id an EARLIER version holds
      * must still be present here, except the ids THIS version's own record

@@ -22,18 +22,30 @@
  * placement: MEASURED, six slid confirmations read perfectly against the
  * witness's own bytes (r8573 `hypostasis of in* telligibles` -> `intelligibles`,
  * r8585 `intclligibles` -> `intelligibles`, r8597 `essence, fife` -> `life`).
- * So a TIGHT placement clears, and a SLID placement clears when the witness
- * carries the rule's WHOLE reading at the point rather than the changed fragment
- * alone — a fragment is one or two common words and is what locates nearby text,
- * not what witnesses a repair. A slid placement confirmed only on the changed
- * words KEEPS the flag, and so does every rule the witness reads AGAINST.
+ * THE CLEARING BASIS IS ONE TEST, THE SAME FOR A TIGHT PLACEMENT AND A SLID ONE:
+ * the witness must carry the rule's WHOLE `after` reading at the point. Until
+ * 1.0.5 a TIGHT placement ALSO cleared on the CHANGED WORDS alone, which a slid
+ * placement was rightly refused — the same rule cleared or kept according to how
+ * the point happened to sit. MEASURED, that basis certified more than the witness
+ * holds: at r8961 the witness reads `as in images the` while the rule's own
+ * `after` is `as images the`, so the clear stood on a reading the witness does not
+ * carry. A changed fragment is one or two common words and is what LOCATES nearby
+ * text; it is not what witnesses a repair. The record states, per clear, which
+ * test decided it (`basis`).
  *
  * WHAT IT REFUSES TO DO:
  *   - clear a rule whose `evidence` would then claim a page image it does not
  *     have (the entry carries no leaf: see `leafEntry` in the build);
- *   - revert a rule that deliberately corrects the PRINT's own misprint — the
- *     witness transcribes the print faithfully, so its agreement there is not
- *     evidence against the emendation;
+ *   - KEEP a rule that puts a reading the print does not carry into the edition
+ *     on the strength of a conclusion no measurement supports. Where the witness
+ *     reads our `before`, the print's own form there is MEASURED, and unless one
+ *     of the two misprint signals fires (see `classify`) the rule is not a
+ *     repaired misprint: it OVERRIDES the print. The print's own text is what the
+ *     version then serves (the rule is WITHDRAWN, its id spent), except where the
+ *     rule's own `find` carries a mark the print cannot set — there the rule does
+ *     real work and only its target was wrong, so the target is CORRECTED to the
+ *     print's own words and the old id retired (model 4.2). MEASURED on 1.0.4: 12
+ *     withdrawn, 2 corrected.
  *   - write a correction the witness's own quoted words do not carry.
  *
  *   node tools/pg-act.mjs <slug> [--batch FILE] [--from-version V] [--to-version V] [--write]
@@ -244,11 +256,47 @@ function witnessEntry(p, why) {
  * records can be read against each other. It is NOT re-derived by importing the
  * report (which reads its own hardcoded batch names): the tests are the
  * classifier's, restated here, and the counts are ASSERTED against the record's
- * own worklist below, so a drift in either is caught. */
+ * own worklist below, so a drift in either is caught.
+ *
+ * WHAT A CLASS NAME MAY CLAIM, AND WHAT IT MAY NOT. A class name is a claim about
+ * the print, and it may claim only what was MEASURED. `print-error-emendation` is
+ * the ONLY class that says the print's own form is at fault, and it requires one of
+ * two positive signals, both computed from the witness's own token stream:
+ *
+ *   W  a word of the form the print reads here is NOT a word of the reference
+ *      wordlist — the print set a nonword (Gorgies, rythm, recal, Poeonian);
+ *   R  EVERY word of that form is used at most ONCE in the print's whole
+ *      vocabulary while the rule's target is a word the print uses (prophesy 1x
+ *      against prophecy 1x) — the print set a form it uses nowhere else.
+ *
+ * Until 1.0.5 the class the third signal-less case fell into was called
+ * `contradiction` and its why-string then ASSERTED "this is an EMENDATION OF THE
+ * PRINT ... the reading left standing" — a conclusion the measurement does not
+ * entail. The measurement (the witness reads our `before`) is the DEFINITION of a
+ * `before` verdict, so it distinguished nothing, and NO TEST ASKED WHETHER THE
+ * PRINT'S FORM IS AN ERROR. That is the whole defect: the class was named after
+ * the conclusion it wanted. The class is now named after what was measured —
+ * `print-carries-our-before` — and its action follows from the rule's own `find`,
+ * not from a verdict about the print (see `printImpossibleMark`).
+ *
+ * A THIRD CANDIDATE SIGNAL WAS TRIED AND REJECTED, because a test that passes the
+ * wrong cases is not a test. `phrase-idiolect`: the rule's target PHRASE occurs in
+ * the print while the form the rule changes occurs nowhere else. MEASURED on the
+ * 14 rules of 1.0.4 the reviewer reopened, it fires for the rules the measurement
+ * REFUTES — r8906 (`the once for` 1x against `the one for` 36x), where the print
+ * sets `_the once_` in ITALICS and glosses it with the Greek (τῷ ἅπαξ, its own
+ * bytes at gutenberg-78800-vol2.txt:19967), and r8619 (`these celestial` 1x
+ * against `the celestial` 178x), a determiner the reviewer called a taste swap —
+ * and it does NOT fire for r8574/r8599/r8683/r8944, the four the reviewer called
+ * defensible (`the first intellectual` 19x against `first intellectuals` 4x;
+ * `and bound` 15x against `and bounds` 7x; `though their` 3x against `through
+ * their` 30x with `parts though` 2x against `parts through` 2x). It partitions
+ * nothing, and the numbers are in the record under `rejected_signals`.
+ */
 const CLASSES = {
   emendation: 'print-error-emendation',
   insertion: 'insertion',
-  contradiction: 'contradiction',
+  contradiction: 'print-carries-our-before',
   third: 'third-form',
   thirdGarble: 'third-form-on-our-own-garble',
 };
@@ -263,12 +311,59 @@ function classify(d) {
     return CLASSES.emendation;
   return CLASSES.contradiction;
 }
+/** The measured fact a name may not overstate, as ONE string: what the print reads
+ * at the point, how often the print uses that form anywhere in its own text, and
+ * whether either misprint signal fired. Stated identically everywhere it is
+ * written, so no consumer can drift into the old conclusion. */
+const carriesOurBefore = (d) => {
+  const before = (d.changed && d.changed.before) || [];
+  const after = (d.changed && d.changed.after) || [];
+  return (
+    `THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our \`before\` here; the print’s own form is an ordinary word of its own vocabulary ` +
+    `(${before.map((w) => `“${w.w}” ${w.uses === null ? 'not countable' : `${w.uses}×`}`).join(', ')}) against the rule’s target ` +
+    `(${after.map((w) => `“${w.w}” ${w.uses === null ? 'not countable' : `${w.uses}×`}`).join(', ') || 'nothing'}), and NEITHER misprint signal fires ` +
+    `(the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ` +
+    `ACTION FROM THE RULE’S OWN \`find\`, not from a verdict about the print: see \`printImpossibleMark\`.`
+  );
+};
+/** Whether the rule's own `find` carries a mark the print cannot set — the test
+ * that says a rule is doing REAL work on the transcription and only its TARGET was
+ * wrong (so the target is corrected, model 4.2), as against a rule that overrides
+ * a print the transcription already reads. The print sets marks BETWEEN words (a
+ * comma, a period, an apostrophe, a quotation mark); it does not set one INSIDE a
+ * word, which is what OCR damage looks like (`to-.united`, `inferior- being`). So
+ * the test strips the between-word marks from each whitespace piece and asks
+ * whether a non-letter, non-digit character is still standing. */
+const BETWEEN_WORD_MARKS = /^[,.;:!?'’"()[\]—]+|[,.;:!?'’"()[\]—]+$/g;
+const printImpossibleMark = (find) =>
+  String(find || '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .some((piece) => /[^A-Za-z0-9]/.test(piece.replace(BETWEEN_WORD_MARKS, '')));
+
 
 /* ---------- the one editorial intervention: correct the TARGET --------------
- * Six third-form cases where the witness reads a word of the print's own where
- * our rule's target was a different guess. Each correction is ASSERTED: the new
- * target's tokens must occur in the witness's own quoted stretch, so it is taken
- * from the witness and not from memory. */
+ * Cases where our rule's target is not what the print reads. Each correction is
+ * ASSERTED: the new target's tokens must occur in the witness's own quoted stretch
+ * (`carriedBy`), so it is taken from the witness and not from memory. Two shapes:
+ *
+ *   - a rule whose `find` carries a mark the print cannot set (`to-.united`,
+ *     `inferior- being`): the rule does real work on a damaged transcription and
+ *     only its TARGET was a guess, so the target is corrected to the print's own
+ *     words (r10120, r9069 — 1.0.5);
+ *   - a rule whose `after` is not what the print reads where the witness's own
+ *     quoted words show it (r8961: the witness reads `as in images the` and our
+ *     target drops `in` — the damaged `m` of `as m intages die` IS the print's
+ *     `in`) — 1.0.5, the one case of the 9 changed-words clears with a real WORD
+ *     difference rather than a mark or a page number;
+ *   - the SIX third-form cases of 1.0.4, where the witness reads a word of the
+ *     print's own where our rule's target was a different guess.
+ *
+ * The SIX of 1.0.4 were applied as NEW ids r11843-r11848 with the old ids retired;
+ * an id carries one rule forever (model 4.2), so re-running this tool over 1.0.4
+ * (where those ids are already spent and absent) SKIPS them and records the skip —
+ * it does not mint them a second time.
+ */
 const CORRECTIONS = {
   'r8600': { after: 'to introduce in this dialogue', why: 'the print reads "to introduce in this dialogue" — our target added "into", which the print does not carry' },
   'r8617': { after: 'For hebdomadic multitude', why: 'the print sets "hebdomadic" as ONE word; our target invented "the hebdomad is a"' },
@@ -276,6 +371,9 @@ const CORRECTIONS = {
   'r8991': { after: 'of the past, and', why: 'the print reads "past"; our target guessed "monad"' },
   'r10442': { after: 'coextended', why: 'the print reads "coextended"; our target corrected only as far as "connected"' },
   'r11100': { after: 'unical', why: 'the print reads "unical"; our target guessed "united"' },
+  'r10120': { after: 'to united', why: 'the print reads "to united" — our target added "in", which duplicates the "into" the print sets two words later, and the transcription’s own `find` (`to-.united`) carries a mark the print cannot set' },
+  'r9069': { after: 'inferior being', why: 'the print reads the participle "inferior being suspended"; our target added a plural "s" the print does not carry, and the transcription’s own `find` (`inferior- being`) carries a stray hyphen the print cannot set' },
+  'r8961': { after: 'as in images the', why: 'the print reads "as in images the" — our target dropped the "in" that the transcription’s damaged `m` stands for' },
 };
 const plain = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const carriedBy = (p, text) => {
@@ -292,6 +390,7 @@ const cleared = [];
 const kept = [];
 const against = [];
 const corrected = [];
+const withdrawn = [];
 const bad = [];
 
 for (const p of points) {
@@ -299,12 +398,14 @@ for (const p of points) {
   if (p.status !== 'located') continue; // refused: not acted on, the flag stands
   const d = p.decide || { verdict: 'not-decided' };
   if (d.verdict === 'after') {
+    /* ONE BASIS FOR EVERY PLACEMENT. The witness must carry the rule's WHOLE
+     * `after` reading; the changed-words fallback never clears, tight or not. */
     const whole = d.basis === 'the whole reading';
-    if (p.tight || whole) {
+    if (whole) {
       cleared.push({
         id,
         why: p.tight
-          ? 'the witness carries the rule’s `after` reading at this point, both bounds hard against it'
+          ? 'the witness carries the rule’s WHOLE `after` reading at this point, both bounds hard against it'
           : `the witness carries the rule’s WHOLE \`after\` reading at this point, not the changed fragment (a bound moved ${Math.max(p.slide.left, p.slide.right)} token(s) off the damaged words)`,
         verdict: d.verdict,
         basis: d.basis,
@@ -312,20 +413,54 @@ for (const p of points) {
         tight: p.tight,
         slide: p.slide,
         at: p.at,
+        before: p.before,
+        after: p.after,
         reads: (p.pg && p.pg.tokens) || null,
         quote: p.quote || null,
       });
-    } else {
-      kept.push({
+      continue;
+    }
+    /* The witness carries the reading CONFIRMED ON THE CHANGED WORDS ALONE, which
+     * is not the rule's assertion. Where its own words show the rule's target is
+     * the wrong reading the target is CORRECTED; otherwise the flag stands. */
+    if (CORRECTIONS[id]) {
+      const c = CORRECTIONS[id];
+      if (!carriedBy(p, c.after)) {
+        bad.push(`${id}: the correction ${JSON.stringify(c.after)} is NOT carried by the witness’s own quoted words — refused`);
+        kept.push({ id, why: 'the proposed correction failed its own witness assertion — the flag stands', verdict: d.verdict, basis: d.basis, volume: p.volume, tight: p.tight, before: p.before, after: p.after, reads: (p.pg && p.pg.tokens) || null });
+        continue;
+      }
+      corrected.push({
         id,
-        why: 'the witness confirms the reading, but the placement is SLID and the confirmation rests on the CHANGED fragment alone (1–2 common words) — the whole reading is what anchors a slid placement, so the flag stands',
+        class: 'after-on-the-changed-words',
+        action: 'correct-the-target',
+        new_after: c.after,
+        why: c.why,
         verdict: d.verdict,
         basis: d.basis,
         volume: p.volume,
         tight: p.tight,
+        before: p.before,
+        after: p.after,
         reads: (p.pg && p.pg.tokens) || null,
+        quote: p.quote || null,
       });
+      continue;
     }
+    kept.push({
+      id,
+      why:
+        'THE CONFIRMATION RESTS ON THE CHANGED WORDS ALONE: the witness carries the changed fragment inside the placed stretch, but NOT the rule’s whole `after` reading — and the whole reading is what a clear requires, on a tight placement as much as on a slid one. The flag stands',
+      verdict: d.verdict,
+      basis: d.basis,
+      class: 'changed-words-only',
+      volume: p.volume,
+      tight: p.tight,
+      before: p.before,
+      after: p.after,
+      reads: (p.pg && p.pg.tokens) || null,
+      quote: p.quote || null,
+    });
     continue;
   }
   /* EVERY OTHER LOCATED VERDICT IS EVIDENCE THE WITNESS READS AGAINST THE RULE. */
@@ -374,20 +509,31 @@ for (const p of points) {
     corrected.push({ ...entry, action: 'correct-the-target', new_after: c.after, why: c.why });
     continue;
   }
-  against.push({
-    ...entry,
-    action: 'keep',
-    why:
-      cls === CLASSES.emendation
-        ? 'PRINT-ERROR EMENDATION, NOT REVERTED: the print’s own text at the point is at fault and this rule deliberately corrects it; the witness transcribes the print faithfully, so its agreement there is not evidence against the emendation'
-        : cls === CLASSES.insertion
-          ? 'NOT A READING: the rule ADDS words, so the witness’s `before` is what the print reads without them; there is no like-for-like pair of readings to weigh'
-          : cls === CLASSES.thirdGarble
-            ? 'NO EVIDENCE EITHER WAY: the witness reads words of its own at the point and our own `before` is the transcription’s GARBLE, so the witness’s words are not evidence about this rule at all'
-            : cls === CLASSES.contradiction
-              ? 'THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept'
-              : 'THE PRINT READS A THIRD FORM: our `before` IS a reading of the print and the witness reads neither of the rule’s two readings here',
-  });
+  /* THE ACTION FOLLOWS FROM THE CLASS AND THE RULE'S OWN `find` — never from a
+   * verdict about the print. A rule the witness reads our `before` at, with no
+   * measured misprint signal, OVERRIDES the print; where its own `find` carries a
+   * mark the print cannot set it is doing real work and must be corrected instead
+   * (and a `find` with a mark but no declared correction is a REFUSAL, not a silent
+   * keep). */
+  const mark = printImpossibleMark(p.before);
+  if (cls === CLASSES.contradiction && !mark) {
+    withdrawn.push({ ...entry, action: 'withdraw', why: carriesOurBefore(d) });
+  } else {
+    against.push({
+      ...entry,
+      action: 'keep',
+      why:
+        cls === CLASSES.emendation
+          ? 'PRINT-ERROR EMENDATION, MEASURED: the print’s own form at the point is not a word of the reference wordlist, or is a form the print uses nowhere else in its own text, so the print IS at fault and this rule deliberately repairs it — the witness transcribes the print faithfully and cannot overrule the emendation'
+          : cls === CLASSES.insertion
+            ? 'NOT A READING: the rule ADDS words, so the witness’s `before` is what the print reads without them; there is no like-for-like pair of readings to weigh'
+            : cls === CLASSES.thirdGarble
+              ? 'NO EVIDENCE EITHER WAY: the witness reads words of its own at the point and our own `before` is the transcription’s GARBLE, so the witness’s words are not evidence about this rule at all'
+              : cls === CLASSES.contradiction
+                ? `${carriesOurBefore(d)} A correction to the print’s own words is DECLARED for this point in CORRECTIONS and is asserted against the witness’s quote, so this entry is a REFUSAL of that correction, not a keep.`
+                : 'THE PRINT READS A THIRD FORM: our `before` IS a reading of the print and the witness reads neither of the rule’s two readings here',
+    });
+  }
 }
 
 /* ---------- ASSERT the subdivision against the record’s own worklist -------- */
@@ -403,8 +549,11 @@ const expect = new Map([
   [CLASSES.thirdGarble, idsOf(names.NO_EVIDENCE_EITHER_WAY_third_form_on_our_own_garble)],
 ]);
 for (const [cls, want] of expect) {
+  /* THE WORKLIST IS THE SET OF RULES THE WITNESS READS AGAINST, whatever this tool
+   * does with them: `withdrawn` and `corrected` are ACTIONS on members of it, so the
+   * drift guard counts them beside `against`. */
   const got = against
-    .concat(corrected)
+    .concat(corrected, withdrawn)
     .filter((a) => a.class === cls)
     .map((a) => a.id)
     .sort();
@@ -424,8 +573,10 @@ const counts = {
   of_which_SLID_ON_THE_WHOLE_READING: cleared.filter((c) => !c.tight).length,
   KEPT_FLAGGED_on_a_located_point: kept.length,
   of_which_undecidable_marks: kept.filter((k) => k.class === 'undecidable-marks').length,
-  EVIDENCE_AGAINST: against.length + corrected.length,
+  of_which_changed_words_only: kept.filter((k) => k.class === 'changed-words-only').length,
+  EVIDENCE_AGAINST: against.length + corrected.length + withdrawn.length,
   of_which_corrected_target: corrected.length,
+  of_which_WITHDRAWN: withdrawn.length,
   refused_not_acted_on: points.filter((p) => p.status !== 'located').length,
 };
 const out = {
@@ -433,7 +584,8 @@ const out = {
   tool: 'tools/pg-act.mjs',
   what:
     'the human-proofread witness ACTED ON: the review flags it EARNS cleared with the witness recorded in the rule’s own `evidence`, ' +
-    'the rules it reads AGAINST recorded with the print’s own words, and the one editorial intervention (a corrected target) asserted against the witness’s quote',
+    'the rules it reads AGAINST recorded with the print’s own words, the rules that override the print on no measured evidence ' +
+    'WITHDRAWN, and the corrections (a target taken from the witness’s own quoted words) asserted against that quote',
   batch: {
     file: BATCH,
     derived_by: `node tools/pg-locate.mjs ${slug} --what rules --version ${FROM} --slide 24`,
@@ -442,9 +594,46 @@ const out = {
   from_version: FROM,
   to_version: TO,
   placement_rule:
-    'A TIGHT placement (both bounds hard against the point) clears. A SLID placement — a bound pushed off a damaged word, which is what the print FORCES because the print reads the corrected word there — ' +
-    'clears when the witness carries the rule’s WHOLE after-reading at the point, because a whole reading is the print’s own words in the right place while the changed fragment is 1–2 common words that locate text without witnessing a repair. ' +
-    'MEASURED: the marginal yield of the slide knob is ENTIRELY non-tight, so this split is reported rather than hidden.',
+    'ONE BASIS, THE SAME ON EVERY PLACEMENT: the witness must carry the rule’s WHOLE `after` reading at the point. The changed-words fallback — the changed fragment inside the placed stretch — NEVER clears, tight or slid, because 1–2 common words locate text without witnessing a repair. ' +
+    'MEASURED (corrected in 1.0.5): the 1.0.4 rule cleared TIGHT placements on either basis and SLID ones only on the whole reading, so 9 rules cleared on the changed words alone; their flags stand again. See `call_2_the_clearing_basis`.',
+  call_2_the_clearing_basis: {
+    what_changed:
+      'A rule is cleared only where the witness carries what the rule ASSERTS — its whole `after` reading — and the record states, per clear, which test decided it (`basis`) and what the rule asserted (`before`, `after`).',
+    measured_in_1_0_4: {
+      cleared: 1265,
+      of_which_on_the_whole_reading: 1256,
+      of_which_ON_THE_CHANGED_WORDS_ALONE: 9,
+    },
+    the_9: kept.filter((k) => k.class === 'changed-words-only').map((k) => ({ id: k.id, find_before: k.before, after: k.after, witness_reads: k.reads })),
+    the_one_with_a_real_WORD_difference:
+      'r8961 — the witness reads `as in images the` and the rule’s `after` is `as images the`, dropping the `in` that the transcription’s damaged `m` (`as m intages die`) stands for. Its target is CORRECTED (a new id, the old one spent); the other 8 differ from the witness in PG’s own inline PAGE NUMBERS or in marks, which is the witness’s apparatus and not the print’s text — the flag stands for them and the record shows the words.',
+  },
+  /* THE TEST THAT WAS REJECTED, WITH ITS NUMBERS, SO THE REJECTION IS CHECKABLE.
+   * A candidate signal that passes the cases the measurement REFUTES is not a
+   * signal; recording the numbers is what keeps the next unit from re-proposing it
+   * from the same intuition. */
+  rejected_signals: [
+    {
+      name: 'phrase-idiolect',
+      test:
+        'the rule’s target PHRASE (the changed word with one neighbouring word from the point’s own window) occurs elsewhere in the print while the form the rule changes occurs ONLY at the point',
+      why_rejected:
+        'it fires for the rules the measurement REFUTES and does not fire for the rules a reader would defend, so it partitions nothing',
+      measured: {
+        command: 'node /var/tmp/unitc/s3.mjs <id…> (token-run counts over both PG volumes)',
+        fires_for_the_REFUTED: [
+          'r8906: `the once for` 1× at the point against `the one for` 36× elsewhere — but the print sets `_the once_` in ITALICS and glosses it with the Greek τῷ ἅπαξ (gutenberg-78800-vol2.txt:9768 and :19967-19968, `the once` 3× in the print), so the form is a DEFINED TECHNICAL TERM, not a misprint',
+          'r8619: `these celestial` 1× against `the celestial` 178× — a determiner swap with no misprint shape',
+        ],
+        does_not_fire_for_the_FOUR_a_human_defended: [
+          'r8574 `the first intellectual` 19× against `first intellectuals` 4×',
+          'r8599 `and bound` 15× against `and bounds` 7×; `bound the` 6× against `bounds the` 9×',
+          'r8683 `parts though` 2× against `parts through` 2×',
+          'r8944 `providential case` 1× against `providential care` 28× — the ONE case of the 14 where this test would have agreed with a human, and it is not separable from r8906 and r8619 by the test alone',
+        ],
+      },
+    },
+  ],
   counts,
   /* THE HEADLINE, from the batch: what was placed, what the witness reads, and the
    * brief's own numbers where they are refuted by measurement. */
@@ -457,7 +646,7 @@ const out = {
     cleared_tight: cleared.filter((c) => c.tight).length,
     cleared_slid_on_the_whole_reading: cleared.filter((c) => !c.tight).length,
     kept_flagged_on_a_located_point: kept.length,
-    evidence_against_the_rule: against.length + corrected.length,
+    evidence_against_the_rule: against.length + corrected.length + withdrawn.length,
     refused_not_acted_on: points.filter((p) => p.status !== 'located').length,
     of_the_brief_s_95: {
       print_error_emendation_not_reverted: against.concat(corrected).filter((a) => a.class === CLASSES.emendation).length,
@@ -466,10 +655,24 @@ const out = {
       third_form_on_a_real_before_reading: against.concat(corrected).filter((a) => a.class === CLASSES.third).length,
       third_form_on_our_own_garble: against.concat(corrected).filter((a) => a.class === CLASSES.thirdGarble).length,
     },
+    the_14_reopened: {
+      what_the_1_0_4_record_claimed: 'that all 14 are emendations of the print’s own misprint, and that the reading is therefore left standing',
+      what_is_measured:
+        'the witness reads our `before` at all 14 (reproduced); the print’s own form is an ordinary word of the print’s OWN vocabulary at ALL 14; neither misprint signal fires at any of them',
+      the_12_WITHDRAWN: withdrawn.map((w) => ({ id: w.id, print_reads: w.before, rule_wanted: w.after })),
+      the_2_CORRECTED: corrected.filter((c) => c.class === CLASSES.contradiction).map((c) => ({ id: c.id, print_reads: c.new_after, rule_wanted: c.after, why: c.why })),
+      the_four_the_reviewer_called_defensible_and_why_no_measurement_supports_them: [
+        'r8574 `The first intellectual,` -> `intellectuals`: the print’s own form is `intellectual` (1236x of the print’s vocabulary). The print’s own sentence around it is plural (`proceed`, `their`, `themselves`) — an EDITORIAL argument from the print’s grammar, and NOT one of the two measured signals. WITHDRAWN; the edition serves the print’s own words. The argument is recorded here so a later unit can put it in an explicitly conjectural layer rather than in an OCR claim.',
+        'r8599 `bound` -> `bounds`: the print uses `bound` 268x and `and bound` 15x, and its own parallel at gutenberg-77393-vol1.txt:3754 sets `into order and bound,` WITH a comma. Editorial; WITHDRAWN.',
+        'r8683 `though` -> `through`: the print sets `through` six words earlier in the SAME sentence (`through the perfection of the recipients`) — an EDITORIAL argument, and the strongest of the four after r8944; `though their` stands 3x in the print. WITHDRAWN.',
+        'r8944 `case` -> `care`: the print sets `providential care` 28x and `providential case` EXACTLY ONCE, here. The strongest of the four — and it is exactly the shape the REJECTED phrase-idiolect test fires on at r8906 and r8619 as well, so that test cannot separate them. WITHDRAWN and recorded.',
+      ],
+      the_reviewer_s_8: 'all 8 withdrawn or corrected with the print’s own words recorded. r8906 additionally MEASURED as a DEFINED TECHNICAL TERM: the print sets `_the once_` in italics and glosses it with the Greek (gutenberg-78800-vol2.txt:9768; :19967-19968 “characterise this deity by the epithet of _the once_; (τῳ απαξ)”), so the rule was emending away the very term the sentence defines — and the unit itself corrected post->past (r11846) in that same sentence.',
+    },
     brief_refutations: [
-      'The brief reads the 33 as "6 print-error emendations do not get reverted" and the rest as contradictions or third forms to correct or withdraw. MEASURED: 14 of the 25 are rules whose target the print does not read AND whose `before` IS a reading of the print — i.e. the print carries the very form the rule changes. Whether that is a wrong guess or an emendation of the print’s own misprint is an EDITORIAL decision the witness cannot make, and this unit does not revert a print misprint into a published edition: they are recorded, with the print’s own words, and the flag stays.',
+      'REFUTATION #0, CORRECTED IN 1.0.5 BECAUSE IT OVERCLAIMED IN THE OTHER DIRECTION. It read: the 14 rules whose `before` the print reads are “emendations of the print’s own misprint”, so this unit does not revert a print misprint. THE MEASUREMENT IS TRUE AND I REPRODUCED IT (the witness reads our `before` at all 14 points); the CONCLUSION DOES NOT FOLLOW FROM IT, and the class it rested on was named after the conclusion it wanted (see the classifier note above). NO TEST ASKED WHETHER THE PRINT’S FORM IS AN ERROR, and against the two tests that do ask it NONE of the 14 fires either: every changed form is a word of the reference wordlist AND a form the print uses elsewhere in its own text (uses 114, 12944, 40+1, 58, 2529, 196, 2144, 2, 2144, 4, 1236, 268, 196, 181). So at those 14 points the print carries no MEASURED misprint: 12 of the rules override a print our transcription already reads and 2 do real work with a wrong target. A refutation that overclaims is the same sin as the claim it refutes.',
       'The brief’s "62 third forms that carry no evidence are not confirmations and must NOT be cleared" is RIGHT and is done: they keep the flag and their rationale now says the witness’s words there are no evidence about the rule, because our own `before` is the transcription’s garble.',
-      'The brief says the 1,267 confirmations clear. MEASURED and decided: 1,265 clear. The two that do not are SLID placements confirmed on the CHANGED FRAGMENT alone — see placement_rule above.',
+            'The brief says the 1,267 confirmations clear. MEASURED and decided: 1,256 clear. The 1.0.4 rule cleared a TIGHT placement on EITHER basis and a SLID one only on the whole reading, so 9 rules cleared on the CHANGED WORDS alone — a basis the slid branch already refused; their flags stand again. Of those 9, 8 differ from the witness in PG’s own inline page numbers or in marks and merely keep the flag, and 1 (r8961) is a real WORD difference whose target is corrected instead. See call_2_the_clearing_basis.',
       'Only 4 of the 80 located open questions are settled by a new rule; 2 more are already settled by rules the edition records and the witness AGREES with, and 9 the witness reads identically. The other 65 are refused with a measured reason — the brief’s "the witness answers 80" is true of PLACEMENT, not of settlement.',
     ],
   },
@@ -507,6 +710,10 @@ const out = {
   kept,
   against,
   corrected,
+  /* THE RULES THIS VERSION TAKES OUT, with the print's own words. Recorded here as
+   * the DECISION as well as in `measured.the_14_reopened`, so a dry run names them
+   * before anything is written. */
+  withdrawn,
   /* THE RETIREMENT, derived the same way the write derives it: a corrected target
    * may not be written under the id a reader cited in the previous version, so the
    * old rule is retired (its id stays spent and is recorded as withdrawn) and the
@@ -514,12 +721,17 @@ const out = {
    * source version's own maximum, so a dry run names exactly what the write will. */
   retired: (() => {
     let n = Math.max(...srcRaw.rules.map((r) => Number((/:r(\d+)$/.exec(r.id) || [])[1]) || 0)) + 1;
-    return corrected.map((c) => {
-      const was = srcRaw.rules.find((r) => r.id.endsWith(`:${c.id}`));
-      const out = { old_id: was.id, new_id: `${slug}:r${String(n).padStart(4, '0')}`, find: was.location.find, was: was.after, now: c.new_after, why: c.why };
-      n += 1;
-      return out;
-    });
+    return corrected
+      .map((c) => {
+        const was = srcRaw.rules.find((r) => r.id.endsWith(`:${c.id}`));
+        /* AN ID ALREADY SPENT IS CARRIED, NOT RE-MINTED (model 4.2): a correction
+         * applied by an earlier version is not re-derived over that version. */
+        if (!was) return { id: c.id, already_spent: true, now: c.new_after, why: 'the id is already spent — the correction is CARRIED from an earlier version' };
+        const out = { old_id: was.id, new_id: `${slug}:r${String(n).padStart(4, '0')}`, find: was.location.find, was: was.after, now: c.new_after, why: c.why };
+        n += 1;
+        return out;
+      })
+      .filter(Boolean);
   })(),
   refusals: bad,
 };
@@ -542,18 +754,65 @@ if (!existsSync(rulesFile(TO))) {
   console.error(`pg-act: ${rulesFile(TO)} does not exist — copy the version first (docs/DOI.md)`);
   process.exit(2);
 }
+const sameWitnessEntry = (e, w) => e && e.kind === 'witness' && e.witness === w.witness && e.reads === w.reads && e.volume === w.volume;
+
 const rules = srcRaw.rules.map((r) => JSON.parse(JSON.stringify(r)));
 const byId = new Map(rules.map((r) => [r.id.split(':')[1], r]));
+/* THE APPLY IS IDEMPOTENT STATE-SETTING, not an append-forever pass, because it is
+ * run over a version that may ALREADY carry part of the yield: 1.0.5 is derived from
+ * 1.0.4 (1,265 flags already cleared, six ids already spent), and a re-run must not
+ * duplicate a witness entry, must not re-mint a spent id, and must be able to
+ * UNSET a clear the fixed basis no longer earns. */
 let nClear = 0;
+let nUnclear = 0;
+let nWithdraw = 0;
 let nCorr = 0;
 let nNote = 0;
+let nSkip = 0;
 for (const c of cleared) {
   const r = byId.get(c.id);
-  if (!r) throw new Error(`pg-act: no rule ${c.id}`);
-  if (!r.review) throw new Error(`pg-act: ${c.id} is not review-flagged — the clear would claim nothing`);
+  if (!r) { nSkip++; continue; }
+  const p = points.find((x) => x.id.endsWith(`:${c.id}`));
+  const w = witnessEntry(p, c.why);
+  const have = Array.isArray(r.evidence) ? r.evidence : [];
+  if (!r.review && have.some((e) => sameWitnessEntry(e, w))) continue; // already in this state
   r.review = false;
-  r.evidence = (Array.isArray(r.evidence) ? r.evidence : []).concat([witnessEntry(points.find((p) => p.id.endsWith(`:${c.id}`)), c.why)]);
+  r.evidence = have.some((e) => sameWitnessEntry(e, w)) ? have.map((e) => (sameWitnessEntry(e, w) ? w : e)) : have.concat([w]);
   nClear++;
+}
+/* THE REBASED BASIS, APPLIED AS A STATE. A tight placement confirmed on the CHANGED
+ * WORDS alone is not a clear under the one basis; it goes BACK on the worklist, and
+ * the witness entry it carries is rewritten to say what was actually measured
+ * rather than to repeat the claim the basis no longer supports (a record that lies
+ * is worse than no record). */
+for (const k of kept.filter((x) => x.class === 'changed-words-only')) {
+  const r = byId.get(k.id);
+  if (!r) { nSkip++; continue; }
+  if (r.review) continue; // already flagged
+  const p = points.find((x) => x.id.endsWith(`:${k.id}`));
+  const w = witnessEntry(p, k.why);
+  r.review = true;
+  const have = Array.isArray(r.evidence) ? r.evidence : [];
+  r.evidence = have.map((e) => (e && e.kind === 'witness' && e.volume === k.volume ? w : e));
+  if (!r.evidence.length) r.evidence = [w];
+  r.rationale = `${String(r.rationale).replace(/\s*WITNESS \d+\.\d+\.\d+:[\s\S]*$/, '')} REBASED ${TO}: the clear this rule carried was made on the CRITICAL BASIS THE SLID BRANCH REFUSES — the CHANGED WORDS alone, not the rule’s whole \`after\` reading. Project Gutenberg’s human-proofread transcription reads ${JSON.stringify((p.pg && p.pg.tokens) || [])} at this point, and the rule asserts ${JSON.stringify(r.before)} -> ${JSON.stringify(r.after)}; the flag stands and the rule is back on the review worklist.`;
+  nUnclear++;
+}
+/* A WITHDRAWN RULE. The witness reads our `before` there, the print’s own form is an
+ * ordinary word of its own vocabulary, and NEITHER misprint signal fires, so the
+ * rule overrides a print our transcription already reads. It is REMOVED — its id
+ * spent and recorded as withdrawn in tools/repair-id-probe.mjs, exactly as r11680-
+ * r11686 are — and the version then serves the print’s own text at that point. */
+const withdrawnApplied = [];
+for (const w of withdrawn) {
+  const r = byId.get(w.id);
+  if (!r) { nSkip++; continue; }
+  const at = rules.findIndex((x) => x.id === r.id);
+  if (at < 0) throw new Error(`pg-act: ${w.id} is not in the rule list`);
+  rules.splice(at, 1);
+  byId.delete(w.id);
+  withdrawnApplied.push({ id: w.id, find: r.location.find, was: r.after, print_reads: w.before, why: w.why });
+  nWithdraw++;
 }
 /* A CORRECTED TARGET IS A NEW RULE, NOT AN EDITED ONE. Model §4.2 + tools/repair-id-probe.mjs:
  * an id carries ONE rule forever, so "the print reads what the witness says" may
@@ -562,45 +821,81 @@ for (const c of cleared) {
  * and is recorded as withdrawn, exactly as r11680–r11686 are) and the corrected
  * rule is APPENDED under a fresh id. The find is unchanged, so the rule still
  * fires; only where in the order it is applied moves, and the build's own fire
- * contract is what proves that moving it is safe. */
+ * contract is what proves that moving it is safe. A correction whose old id is
+ * ALREADY SPENT (the six of 1.0.4, re-run over 1.0.4) is SKIPPED and recorded. */
 let nextId = Math.max(...rules.map((r) => Number((/:r(\d+)$/.exec(r.id) || [])[1]) || 0)) + 1;
 const retired = [];
+const skippedAlreadySpent = [];
 for (const c of corrected) {
   const r = byId.get(c.id);
-  if (!r) throw new Error(`pg-act: no rule ${c.id}`);
+  if (!r) { skippedAlreadySpent.push({ id: c.id, already: c.new_after, why: 'the id is already spent — the correction was applied by an earlier version and is CARRIED, not re-minted (model 4.2)' }); continue; }
   const p = points.find((x) => x.id.endsWith(`:${c.id}`));
   const at = rules.findIndex((x) => x.id === r.id);
   if (at < 0) throw new Error(`pg-act: ${c.id} is not in the rule list`);
   const nid = `${slug}:r${String(nextId).padStart(4, '0')}`;
   nextId += 1;
   const fresh = JSON.parse(JSON.stringify(r));
+  /* THE OVERCLAIM MUST NOT TRAVEL WITH THE RULE. The old rationale may carry a
+   * WITNESS block an earlier version appended (1.0.4's contradiction class asserted
+   * "this is an EMENDATION OF THE PRINT"); that text asserted a conclusion the
+   * measurement does not support, so it is STRIPPED here rather than carried onto a
+   * corrected rule — a comment that lies is worse than no comment. */
+  const base = String(r.rationale).replace(/\s*WITNESS \d+\.\d+\.\d+:[\s\S]*$/, '');
   fresh.id = nid;
   fresh.after = c.new_after;
-  fresh.rationale = `${r.rationale} CORRECTED ${TO}: the print reads ${JSON.stringify(c.new_after)} here — the corrected target is taken from Project Gutenberg’s human-proofread transcription of the 1816 print (${c.volume}, its own words: ${JSON.stringify((p.pg && p.pg.tokens) || [])}), not from ours. ${c.why}.`;
+  fresh.rationale = `${base} CORRECTED ${TO}: the print reads ${JSON.stringify(c.new_after)} here — the corrected target is taken from Project Gutenberg’s human-proofread transcription of the 1816 print (${c.volume}, its own words: ${JSON.stringify((p.pg && p.pg.tokens) || [])}), not from ours. ${c.why}.`;
   fresh.review = false;
-  fresh.evidence = (Array.isArray(r.evidence) ? r.evidence : []).concat([witnessEntry(p, c.why)]);
+  /* A STALE WITNESS ENTRY MUST NOT TRAVEL WITH THE CORRECTED RULE. An entry an
+   * earlier version wrote for the same witness states the claim THAT version made
+   * (at r8961, "the witness carries the rule’s after reading, both bounds hard
+   * against it" — which the whole-reading test refutes); it is REPLACED, not
+   * stacked, so the evidence says what this version measured. */
+  const oldEv = Array.isArray(r.evidence) ? r.evidence : [];
+  const w = witnessEntry(p, c.why);
+  fresh.evidence = oldEv.some((e) => sameWitnessEntry(e, w)) ? oldEv.map((e) => (sameWitnessEntry(e, w) ? w : e)) : oldEv.concat([w]);
   rules.splice(at, 1);
   rules.push(fresh);
   retired.push({ old_id: r.id, new_id: nid, find: r.location.find, was: r.after, now: c.new_after, why: c.why });
   nCorr++;
+}
+/* THE OTHER RULES THE WITNESS READS AGAINST: annotated in their own rationale with
+ * the print's own words. AND THE OVERCLAIM ALREADY IN THE RECORD IS CORRECTED HERE,
+ * in the rules that stay: 1.0.4 appended the contradiction string to 14 rationales,
+ * all of which are now withdrawn or corrected, so nothing carrying it survives — and
+ * this pass asserts that rather than assuming it. */
+let nOverclaimStripped = 0;
+for (const r of rules) {
+  if (/EMENDATION OF THE PRINT/.test(String(r.rationale))) {
+    r.rationale = String(r.rationale).replace(/\s*THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT[^.]*\.\s*/g, ' ');
+    nOverclaimStripped++;
+  }
 }
 for (const a of against.concat(kept.filter((k) => !k.class))) {
   const r = byId.get(a.id);
   if (!r) continue;
   if (!r.review) continue;
   const p = points.find((x) => x.id.endsWith(`:${a.id}`));
-  r.rationale = `${r.rationale} WITNESS ${TO}: Project Gutenberg’s human-proofread transcription of the 1816 print reads ${JSON.stringify((p.pg && p.pg.tokens) || [])} at this point (${a.volume}${p.tight ? ', tight' : ', slid'}). ${a.why}`;
+  /* A NOTE THAT STACKS A SECOND WITNESS BLOCK ON THE FIRST IS NOISE, AND A STALE ONE
+   * IS WORSE THAN NOISE: the block an earlier version appended is REPLACED, so the
+   * rule carries ONE statement of what this version measured. */
+  const tail = String(r.rationale).replace(/\s*WITNESS \d+\.\d+\.\d+:[\s\S]*$/, '');
+  r.rationale = `${tail} WITNESS ${TO}: Project Gutenberg’s human-proofread transcription of the 1816 print reads ${JSON.stringify((p.pg && p.pg.tokens) || [])} at this point (${a.volume}${p.tight ? ', tight' : ', slid'}). ${a.why}`;
   nNote++;
 }
 writeFileSync(rulesFile(TO), `${JSON.stringify({ ...srcRaw, version: TO, rules }, null, 1)}\n`);
 for (const t of retired) console.log(`  RETIRED ${t.old_id} -> ${t.new_id}: ${JSON.stringify(t.find)} ${JSON.stringify(t.was)} -> ${JSON.stringify(t.now)}`);
-console.log(`  WROTE ${rulesFile(TO)}: ${nClear} flag(s) cleared, ${nCorr} target(s) corrected (each as a NEW id, the old id retired), ${nNote} rationale(s) annotated`);
+for (const t of withdrawnApplied) console.log(`  WITHDRAWN ${t.id}: ${JSON.stringify(t.find)} ${JSON.stringify(t.was)} -> the print reads ${JSON.stringify(t.print_reads)}`);
+console.log(`  WROTE ${rulesFile(TO)}: ${nClear} flag(s) cleared, ${nUnclear} clear(s) UNSET by the rebased basis, ${nWithdraw} rule(s) WITHDRAWN, ${nCorr} target(s) corrected (each as a NEW id, the old id retired), ${nNote} rationale(s) annotated, ${skippedAlreadySpent.length} correction(s) skipped as already spent, ${nSkip} point(s) skipped (the rule is not in this version)`);
 const rec = JSON.parse(readFileSync(OUT, 'utf8'));
 rec.retired = retired;
+rec.withdrawn = withdrawnApplied;
+rec.skipped_corrections_already_spent = skippedAlreadySpent;
 rec.how_to_rederive = [
-  `node tools/pg-locate.mjs ${slug} --what rules --version ${FROM} --slide 24 --out ${BATCH}`,
+  `node tools/pg-locate.mjs ${slug} --what rules --version 1.0.3 --slide 24 --out ${BATCH}`,
+  `cp -r data/editions/${slug}/versions/${FROM} data/editions/${slug}/versions/${TO}   # the version directory, meta.json rewritten for ${TO}`,
   `node tools/pg-act.mjs ${slug} --from-version ${FROM} --to-version ${TO} --batch ${BATCH} --write`,
-  `node tools/merge.mjs ${slug} --from tools/edits/${slug}.open-findings.json --write`,
-  `node tools/pg-act.mjs ${slug} --to-version ${TO} --stamp-open`,
+  `node tools/pg-act.mjs ${slug} --to-version ${TO} --stamp-open   # idempotent; the open-question evidence is already on the rules this version carries`,
 ];
+rec.how_to_rederive_why =
+  `The batch is derived at --version 1.0.3 because that is the state that still carries ALL 2,238 review flags: a batch derived at ${FROM} would see only the rules ${FROM} still flags and could neither re-adjudicate a rule ${FROM} cleared nor unset a clear. The pass over ${FROM} is IDEMPOTENT (it sets state, it does not append), so a re-run reproduces this version. Corrections whose old id is already spent are SKIPPED and recorded: an id carries one rule forever, so the six corrections of 1.0.4 (r11843-r11848) are CARRIED, not re-minted.`;
 writeFileSync(OUT, `${JSON.stringify(rec, null, 1)}\n`);
