@@ -215,6 +215,29 @@ out.THE_YIELD = {
     tight: loc.filter((r) => r.tight).length,
     located_with_a_SHORT_witness_stretch: loc.filter((r) => r.thin_stretch).length,
     located_with_an_EMPTY_witness_stretch: loc.filter((r) => r.pg && r.pg.n === 0).length,
+    /* SPLIT BY RULE TYPE, as the brief asks: located, and what the witness says,
+     * for each type in the review-flagged set. */
+    by_rule_type: (() => {
+      const types = [...new Set(R.map((r) => r.type))];
+      const m = {};
+      for (const t of types) {
+        const rows = R.filter((r) => r.type === t);
+        const d = rows.filter((r) => r.status === 'located' && r.decide);
+        m[t] = {
+          n: rows.length,
+          located: rows.filter((r) => r.status === 'located').length,
+          vol1: rows.filter((r) => r.volume === 'vol1').length,
+          vol2: rows.filter((r) => r.volume === 'vol2').length,
+          tight: rows.filter((r) => r.tight).length,
+          ...Object.fromEntries(tally(d, (r) => r.decide.verdict)),
+        };
+      }
+      return m;
+    })(),
+    by_volume_with_decisions: {
+      vol1: { located: loc.filter((r) => r.volume === 'vol1').length, ...Object.fromEntries(tally(loc.filter((r) => r.volume === 'vol1' && r.decide), (r) => r.decide.verdict)) },
+      vol2: { located: loc.filter((r) => r.volume === 'vol2').length, ...Object.fromEntries(tally(loc.filter((r) => r.volume === 'vol2' && r.decide), (r) => r.decide.verdict)) },
+    },
     CONFIRMS_the_rule: D.after || 0,
     CONTRADICTS_the_rule: againstLoc.length,
     of_which_the_print_reads_a_THIRD_FORM: D.third || 0,
