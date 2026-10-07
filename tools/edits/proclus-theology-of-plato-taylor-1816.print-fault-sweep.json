@@ -1,0 +1,788 @@
+{
+ "slug": "proclus-theology-of-plato-taylor-1816",
+ "tool": "tools/pg-atfault-sweep.mjs",
+ "what": "every rule (per version) whose COMMITTED TEXT claims a fault of the print, swept BY RULE PROPERTY rather than by the classifier’s class string, each claim tested for whether an at-fault verdict is on the record for it",
+ "the_claim_shapes": "/misprinted for|EMENDATION OF THE PRINT|THE PRINT IS AT FAULT/ — applied to the rule’s own text (rationale, type_evidence, every witness entry’s `why`), NOT to the class string. The three shapes are the three wordings the record has used for the claim. A bare `misprint` or `at fault` test is NOT used: MEASURED, it also matches NEGATED mentions the tool itself writes (r8627’s tie why-string says the counts “do not show the print’s form is a misprint”), reporting a rule as claiming a fault it explicitly disclaims.",
+ "the_verdict_test": "/print-error-emendation|PRINT-ERROR EMENDATION|THE PRINT IS AT FAULT/ — either wording the record has carried for the at-fault CLASS: the class string of 1.0.4/1.0.5, or 1.0.6’s own why-string. A claim shape is not a verdict, and this is the test that separates them.",
+ "the_class_string_sweep_this_corrects": "/print-error-emendation|PRINT-ERROR EMENDATION/i — the sweep the seventh-DOI unit ran. MEASURED: it matches the CLASS NAME only, so it reads 0 for 1.0.0–1.0.3, 6 for 1.0.4 and 1.0.5, and 0 for 1.0.6, where the at-fault why-string is written as `THE PRINT IS AT FAULT — MEASURED: …` and the class string no longer appears. A sweep whose count is 0 because the WORDING moved is one of the two defects this tool exists for.",
+ "per_version": [
+  {
+   "version": "1.0.0",
+   "rules": 3051,
+   "swept_by_the_class_string": {
+    "n": 0,
+    "ids": []
+   },
+   "swept_by_claim_shape": {
+    "n": 2,
+    "ids": [
+     "r8768",
+     "r9108"
+    ]
+   },
+   "claims_with_an_at_fault_VERDICT_on_the_record": {
+    "n": 0,
+    "ids": []
+   },
+   "claims_with_NO_at_fault_verdict_recorded": [
+    {
+     "id": "r8768",
+     "find": "of the Parcse rules",
+     "before": "of the Parcse rules",
+     "after": "of the Parcae rules",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    },
+    {
+     "id": "r9108",
+     "find": "with the Parcse",
+     "before": "with the Parcse",
+     "after": "with the Parcae",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "version": "1.0.1",
+   "rules": 3271,
+   "swept_by_the_class_string": {
+    "n": 0,
+    "ids": []
+   },
+   "swept_by_claim_shape": {
+    "n": 2,
+    "ids": [
+     "r8768",
+     "r9108"
+    ]
+   },
+   "claims_with_an_at_fault_VERDICT_on_the_record": {
+    "n": 0,
+    "ids": []
+   },
+   "claims_with_NO_at_fault_verdict_recorded": [
+    {
+     "id": "r8768",
+     "find": "of the Parcse rules",
+     "before": "of the Parcse rules",
+     "after": "of the Parcae rules",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    },
+    {
+     "id": "r9108",
+     "find": "with the Parcse",
+     "before": "with the Parcse",
+     "after": "with the Parcae",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "version": "1.0.2",
+   "rules": 3271,
+   "swept_by_the_class_string": {
+    "n": 0,
+    "ids": []
+   },
+   "swept_by_claim_shape": {
+    "n": 2,
+    "ids": [
+     "r8768",
+     "r9108"
+    ]
+   },
+   "claims_with_an_at_fault_VERDICT_on_the_record": {
+    "n": 0,
+    "ids": []
+   },
+   "claims_with_NO_at_fault_verdict_recorded": [
+    {
+     "id": "r8768",
+     "find": "of the Parcse rules",
+     "before": "of the Parcse rules",
+     "after": "of the Parcae rules",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    },
+    {
+     "id": "r9108",
+     "find": "with the Parcse",
+     "before": "with the Parcse",
+     "after": "with the Parcae",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "version": "1.0.3",
+   "rules": 3271,
+   "swept_by_the_class_string": {
+    "n": 0,
+    "ids": []
+   },
+   "swept_by_claim_shape": {
+    "n": 2,
+    "ids": [
+     "r8768",
+     "r9108"
+    ]
+   },
+   "claims_with_an_at_fault_VERDICT_on_the_record": {
+    "n": 0,
+    "ids": []
+   },
+   "claims_with_NO_at_fault_verdict_recorded": [
+    {
+     "id": "r8768",
+     "find": "of the Parcse rules",
+     "before": "of the Parcse rules",
+     "after": "of the Parcae rules",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    },
+    {
+     "id": "r9108",
+     "find": "with the Parcse",
+     "before": "with the Parcse",
+     "after": "with the Parcae",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "version": "1.0.4",
+   "rules": 3275,
+   "swept_by_the_class_string": {
+    "n": 6,
+    "ids": [
+     "r8627",
+     "r9734",
+     "r10212",
+     "r10277",
+     "r10469",
+     "r10931"
+    ]
+   },
+   "swept_by_claim_shape": {
+    "n": 16,
+    "ids": [
+     "r8574",
+     "r8599",
+     "r8611",
+     "r8619",
+     "r8672",
+     "r8683",
+     "r8768",
+     "r8906",
+     "r8944",
+     "r8995",
+     "r8996",
+     "r9015",
+     "r9069",
+     "r9108",
+     "r10120",
+     "r10291"
+    ]
+   },
+   "claims_with_an_at_fault_VERDICT_on_the_record": {
+    "n": 6,
+    "ids": [
+     "r8627",
+     "r9734",
+     "r10212",
+     "r10277",
+     "r10469",
+     "r10931"
+    ]
+   },
+   "claims_with_NO_at_fault_verdict_recorded": [
+    {
+     "id": "r8574",
+     "find": "The first intellectual, therefore, proceed",
+     "before": "The first intellectual, therefore, proceed",
+     "after": "The first intellectuals, therefore, proceed",
+     "committed_own_text": "Missing 's' in 'intellectuals' to agree with the plural verb 'proceed'. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"the\",\"first\",\"intellectual\",\"therefore\",\"proceed\"] at this point (vol1, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "intellectual",
+       "uses_in_the_print": 1236,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "intellectuals",
+       "target_uses_in_the_print": 198
+      }
+     ]
+    },
+    {
+     "id": "r8599",
+     "find": "order and bound the variety",
+     "before": "order and bound the variety",
+     "after": "order and bounds the variety",
+     "committed_own_text": "Verb should agree with singular subject: 'bounds', not 'bound'. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"order\",\"and\",\"bound\",\"the\",\"variety\"] at this point (vol2, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "bound",
+       "uses_in_the_print": 268,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "bounds",
+       "target_uses_in_the_print": 24
+      }
+     ]
+    },
+    {
+     "id": "r8611",
+     "find": "these perishing corruption",
+     "before": "these perishing corruption",
+     "after": "this perishing corruption",
+     "committed_own_text": "these for this. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"these\",\"perishing\",\"corruption\"] at this point (vol2, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "these",
+       "uses_in_the_print": 2144,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "this",
+       "target_uses_in_the_print": 3318
+      }
+     ]
+    },
+    {
+     "id": "r8619",
+     "find": "these celestial governors",
+     "before": "these celestial governors",
+     "after": "the celestial governors",
+     "committed_own_text": "Wrong word 'these' for 'the'. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"these\",\"celestial\",\"governors\"] at this point (vol1, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "these",
+       "uses_in_the_print": 2144,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "the",
+       "target_uses_in_the_print": 32057
+      }
+     ]
+    },
+    {
+     "id": "r8672",
+     "find": "by this mean rendering",
+     "before": "by this mean rendering",
+     "after": "by this means rendering",
+     "committed_own_text": "'mean' should be 'means'. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"by\",\"this\",\"mean\",\"rendering\",\"the\",\"world\",\"more\",\"similar\",\"to\",\"intelligible\",\"animal\",\"and\",\"in\"] at this point (vol2, slid). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "mean",
+       "uses_in_the_print": 58,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "means",
+       "target_uses_in_the_print": 61
+      }
+     ]
+    },
+    {
+     "id": "r8683",
+     "find": "though their partible",
+     "before": "though their partible",
+     "after": "through their partible",
+     "committed_own_text": "Missing r: though should be through; clean wrong word. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"though\",\"their\",\"partible\"] at this point (vol2, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "though",
+       "uses_in_the_print": 196,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "through",
+       "target_uses_in_the_print": 1402
+      }
+     ]
+    },
+    {
+     "id": "r8768",
+     "find": "of the Parcse rules",
+     "before": "of the Parcse rules",
+     "after": "of the Parcae rules",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6) ¦ the witness carries the rule’s WHOLE `after` reading at this point, not the changed fragment (a bound moved 5 token(s) off the damaged words)",
+     "flagged_for_review": false,
+     "witness_entries": 1,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    },
+    {
+     "id": "r8906",
+     "find": "has the once, for",
+     "before": "has the once, for",
+     "after": "has the one, for",
+     "committed_own_text": "'once' is a wrong English word for 'one' (class 2). (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"has\",\"the\",\"once\",\"for\",\"this\",\"is\",\"the\",\"peculiarity\",\"of\",\"the\",\"past\"] at this point (vol2, slid). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "once",
+       "uses_in_the_print": 114,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "one",
+       "target_uses_in_the_print": 3131
+      }
+     ]
+    },
+    {
+     "id": "r8944",
+     "find": "providential case",
+     "before": "providential case",
+     "after": "providential care",
+     "committed_own_text": "'case' is a wrong word (substituted letter) for 'care'. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"providential\",\"case\"] at this point (vol1, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "case",
+       "uses_in_the_print": 181,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "care",
+       "target_uses_in_the_print": 40
+      }
+     ]
+    },
+    {
+     "id": "r8995",
+     "find": "merged condition",
+     "before": "merged condition",
+     "after": "maimed condition",
+     "committed_own_text": "Wrong word 'merged' for 'maimed'; clean error. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"a\",\"merged\",\"condition\"] at this point (vol1, slid). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "merged",
+       "uses_in_the_print": 4,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "maimed",
+       "target_uses_in_the_print": 0
+      }
+     ]
+    },
+    {
+     "id": "r8996",
+     "find": "externally cover",
+     "before": "externally cover",
+     "after": "eternally move",
+     "committed_own_text": "Two substituted words: 'externally' for 'eternally' and 'cover' for 'move'; clean error. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"externally\",\"cover\"] at this point (vol1, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "externally",
+       "uses_in_the_print": 40,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "eternally",
+       "target_uses_in_the_print": 45
+      },
+      {
+       "form_the_rule_changes": "cover",
+       "uses_in_the_print": 1,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "move",
+       "target_uses_in_the_print": 26
+      }
+     ]
+    },
+    {
+     "id": "r9015",
+     "find": "Though is it not",
+     "before": "Though is it not",
+     "after": "Is it not",
+     "committed_own_text": "Extra 'Though' and wrong case make the phrase ungrammatical; clean class 2. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"though\",\"is\",\"it\",\"not\",\"perfectly\",\"impossible\",\"that\",\"parts\"] at this point (vol1, slid). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "though",
+       "uses_in_the_print": 196,
+       "in_the_reference_wordlist": true
+      }
+     ]
+    },
+    {
+     "id": "r9069",
+     "find": "inferior- being",
+     "before": "inferior- being",
+     "after": "inferior beings",
+     "committed_own_text": "Extra hyphen between 'inferior' and 'being'. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"inferior\",\"being\",\"suspended\",\"from\",\"the\"] at this point (vol2, slid). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "being",
+       "uses_in_the_print": 2529,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "beings",
+       "target_uses_in_the_print": 711
+      }
+     ]
+    },
+    {
+     "id": "r9108",
+     "find": "with the Parcse",
+     "before": "with the Parcse",
+     "after": "with the Parcae",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6) ¦ the witness carries the rule’s `after` reading at this point, both bounds hard against it",
+     "flagged_for_review": false,
+     "witness_entries": 1,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    },
+    {
+     "id": "r10120",
+     "find": "to-.united",
+     "before": "to-.united",
+     "after": "into united",
+     "committed_own_text": "Misread 'into' as 'to-.' before 'united'. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"to\",\"united\"] at this point (vol2, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "to",
+       "uses_in_the_print": 12944,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "into",
+       "target_uses_in_the_print": 760
+      }
+     ]
+    },
+    {
+     "id": "r10291",
+     "find": "elongated",
+     "before": "elongated",
+     "after": "alienated",
+     "committed_own_text": "Wrong word; context requires 'alienated' (estranged), no damage character, so class 2. (decided by the transcription's own context.) WITNESS 1.0.4: Project Gutenberg’s human-proofread transcription of the 1816 print reads [\"elongated\"] at this point (vol1, tight). THE PRINT CARRIES THE FORM THIS RULE CHANGES: the witness reads our `before` here, so this is an EMENDATION OF THE PRINT and not an OCR repair — recorded, the reading left standing, the flag kept ¦ default OCR (rule 6)",
+     "flagged_for_review": true,
+     "witness_entries": 0,
+     "witness_verdict": "before",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "elongated",
+       "uses_in_the_print": 2,
+       "in_the_reference_wordlist": true,
+       "rule_s_target": "alienated",
+       "target_uses_in_the_print": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "version": "1.0.5",
+   "rules": 3263,
+   "swept_by_the_class_string": {
+    "n": 6,
+    "ids": [
+     "r8627",
+     "r9734",
+     "r10212",
+     "r10277",
+     "r10469",
+     "r10931"
+    ]
+   },
+   "swept_by_claim_shape": {
+    "n": 2,
+    "ids": [
+     "r8768",
+     "r9108"
+    ]
+   },
+   "claims_with_an_at_fault_VERDICT_on_the_record": {
+    "n": 6,
+    "ids": [
+     "r8627",
+     "r9734",
+     "r10212",
+     "r10277",
+     "r10469",
+     "r10931"
+    ]
+   },
+   "claims_with_NO_at_fault_verdict_recorded": [
+    {
+     "id": "r8768",
+     "find": "of the Parcse rules",
+     "before": "of the Parcse rules",
+     "after": "of the Parcae rules",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6) ¦ the witness carries the rule’s WHOLE `after` reading at this point, not the changed fragment (a bound moved 5 token(s) off the damaged words)",
+     "flagged_for_review": false,
+     "witness_entries": 1,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    },
+    {
+     "id": "r9108",
+     "find": "with the Parcse",
+     "before": "with the Parcse",
+     "after": "with the Parcae",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6) ¦ the witness carries the rule’s `after` reading at this point, both bounds hard against it",
+     "flagged_for_review": false,
+     "witness_entries": 1,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "version": "1.0.6",
+   "rules": 3262,
+   "swept_by_the_class_string": {
+    "n": 0,
+    "ids": []
+   },
+   "swept_by_claim_shape": {
+    "n": 5,
+    "ids": [
+     "r8768",
+     "r9108",
+     "r10212",
+     "r10469",
+     "r10931"
+    ]
+   },
+   "claims_with_an_at_fault_VERDICT_on_the_record": {
+    "n": 3,
+    "ids": [
+     "r10212",
+     "r10469",
+     "r10931"
+    ]
+   },
+   "claims_with_NO_at_fault_verdict_recorded": [
+    {
+     "id": "r8768",
+     "find": "of the Parcse rules",
+     "before": "of the Parcse rules",
+     "after": "of the Parcae rules",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6) ¦ the witness carries the rule’s WHOLE `after` reading at this point, not the changed fragment (a bound moved 5 token(s) off the damaged words)",
+     "flagged_for_review": false,
+     "witness_entries": 1,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    },
+    {
+     "id": "r9108",
+     "find": "with the Parcse",
+     "before": "with the Parcse",
+     "after": "with the Parcae",
+     "committed_own_text": "Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6) ¦ the witness carries the rule’s `after` reading at this point, both bounds hard against it",
+     "flagged_for_review": false,
+     "witness_entries": 1,
+     "witness_verdict": "after",
+     "witness_placement": "located",
+     "measured_in_the_print": [
+      {
+       "form_the_rule_changes": "parcse",
+       "uses_in_the_print": 0,
+       "in_the_reference_wordlist": false,
+       "rule_s_target": "parcae",
+       "target_uses_in_the_print": 15
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "THE_SENTENCE_THIS_SWEEP_CORRECTS": "The seventh-DOI unit’s claim — \"every rule whose committed rationale asserts the print is at fault: 6 in 1.0.5, 6 in 1.0.4, 0 in 1.0.0–1.0.3, all 6 placed by the locator and none unplaced\" — is TRUE OF THE CLASS STRINGS and NOT of the claims. MEASURED by this sweep: r8768 and r9108 have carried \"Parcse misprinted for Parcae; clean error.\" in EVERY version since 1.0.0, they are in 1.0.6, and the class-string regex cannot see either of them in any version.",
+ "the_two_rules_and_why_they_are_HARMLESS_STATED_AS_MEASUREMENTS": [
+  "r8768: the rule changes \"of the Parcse rules\" -> \"of the Parcae rules\" (find \"of the Parcse rules\"); its committed text is \"Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6) ¦ the witness carries the rule’s WHOLE `after` reading at this point, not the changed fragment (a bound moved 5 token(s) off the damaged words)\". MEASURED in the print’s own two volumes: \"parcse\" 0× (the rule’s target \"parcae\" 15×; a word of the reference wordlist: false). The witness reads \"after\" here (placement: located) and the rule carries 1 witness entr(ies), so what the rule repairs is a form the print NEVER sets — a fault of OUR transcription — while its target is what the print reads. NO AT-FAULT VERDICT RESTS ON EITHER: neither is in the classifier’s at-fault class in any version, and this sweep is what says so.",
+  "r9108: the rule changes \"with the Parcse\" -> \"with the Parcae\" (find \"with the Parcse\"); its committed text is \"Parcse misprinted for Parcae; clean error. (decided by the transcription's own context.) ¦ default OCR (rule 6) ¦ the witness carries the rule’s `after` reading at this point, both bounds hard against it\". MEASURED in the print’s own two volumes: \"parcse\" 0× (the rule’s target \"parcae\" 15×; a word of the reference wordlist: false). The witness reads \"after\" here (placement: located) and the rule carries 1 witness entr(ies), so what the rule repairs is a form the print NEVER sets — a fault of OUR transcription — while its target is what the print reads. NO AT-FAULT VERDICT RESTS ON EITHER: neither is in the classifier’s at-fault class in any version, and this sweep is what says so."
+ ],
+ "THE_DELTA_IN_EVERY_VERSION": {
+  "ids": [
+   "r8768",
+   "r9108"
+  ],
+  "why": "the intersection of `claims_with_NO_at_fault_verdict_recorded` over all seven versions: rules whose committed text claims a fault of the print AND for which no at-fault verdict is on the record, in every version. MEASURED: r8768 and r9108, in all of them — the two the class-string sweep cannot see."
+ },
+ "the_claim_shape_that_appears_in_only_one_version": {
+  "shape": "EMENDATION OF THE PRINT",
+  "what": "MEASURED: it is 1.0.4’s at-fault wording, appended by that version to every contradiction-class rationale — 16 rules carry it in 1.0.4 and none afterwards, because the 1.0.5 unit stripped it. Those 16 are the overclaim unit C KILLED (the class that asserted an emendation of the print from a measurement that is the definition of the before-verdict), not a residual, and they are listed per version below."
+ },
+ "HOW_A_READER_SHOULD_USE_THIS": "A count under a class string is a count of the wording, not of the claim. Read `swept_by_claim_shape` against `claims_with_an_at_fault_VERDICT_on_the_record` per version and check the delta by hand: the delta is where a sweep’s SENTENCE can be wrong without any number in it changing."
+}

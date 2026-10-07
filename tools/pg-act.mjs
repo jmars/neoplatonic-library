@@ -313,6 +313,7 @@ const CLASSES = {
   insertion: 'insertion',
   contradiction: 'print-carries-our-before',
   tie: 'indeterminate-tie',
+  repeated: 'indeterminate-repeated-form',
   third: 'third-form',
   thirdGarble: 'third-form-on-our-own-garble',
 };
@@ -320,7 +321,16 @@ const CLASSES = {
  * measurements OF THE PRINT, and all three must hold; ANYTHING ELSE fails the
  * test and the rule may not claim the print is at fault. Restated here from
  * tools/pg-locate-report.mjs (the two records must agree) and asserted against
- * that record's own worklist below, so a drift in either is caught. */
+ * that record's own worklist below, so a drift in either is caught.
+ *
+ * CONDITION (3) IS PER WORD, like (1) and (2). MEASURED (review #4, the committed
+ * classifier extracted and invoked): with the max-uses comparison it used to make,
+ * a 2-for-2 swap whose SECOND target word the print uses 0× — or which is
+ * uncountable and dropped by the `uses !== null` filter — STILL FIRED, deriving
+ * the at-fault verdict from the first word alone and printing the refuting `0×`
+ * inside the verdict. Both doors are now shut: an uncountable target word refuses
+ * (`a.length !== after.length`) and every countable one must be a form the print
+ * reads MORE often than the form at the point. */
 const topUses = (ws) => Math.max(...ws.filter((w) => w.uses !== null).map((w) => w.uses), -1);
 function printIsAtFault(before, after) {
   if (!before.length || !after.length) return null;
@@ -330,12 +340,43 @@ function printIsAtFault(before, after) {
   if (!b.every((w) => !w.wordlist)) return null; // (1) not a word of the language
   if (!b.every((w) => w.uses === 1)) return null; // (2) used nowhere else in the print
   if (!a.length) return null;
-  if (!(topUses(a) > topUses(b))) return null; // (3) the print reads our target elsewhere, MORE often
+  if (a.length !== after.length) return null; // (3) a target word the print cannot set is not a form it reads
+  if (!a.every((w) => w.uses > topUses(b))) return null; // (3') EVERY word of the target is read by the print, MORE often than the form at the point
   return {
     signal: 'F',
     why:
       `THE PRINT IS AT FAULT — MEASURED: the print’s own form here (${b.map((w) => `“${w.w}”`).join(', ')}) is not a word of the reference wordlist and the print uses it NOWHERE ELSE in its own text ` +
-      `(${b.map((w) => `${w.uses}×`).join(', ')}), while it reads our target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) elsewhere and MORE often — so this rule deliberately repairs a misprint of the print, and the witness, which transcribes the print faithfully, cannot overrule it`,
+      `(${b.map((w) => `${w.uses}×`).join(', ')}), while it reads every word of our target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) elsewhere and MORE often — so this rule deliberately repairs a misprint of the print, and the witness, which transcribes the print faithfully, cannot overrule it`,
+  };
+}
+/** THE GRAY ZONE THE POSITIVE TEST LEAVES — RECORDED, NOT WITHDRAWN. The positive
+ * test minus its hapax condition (2): the print's own form at the point is NOT a
+ * word of the reference wordlist, but the print sets it MORE THAN ONCE, and the
+ * print reads every word of the rule's target MORE often than that form.
+ *
+ * MEASURED (review #4, the constructed case invoked against the committed
+ * classifier): `[recal 2×] → [recall 8×]` fell through condition (2) into
+ * `print-carries-our-before` and was WITHDRAWN — the repair was REMOVED and the
+ * edition would have served a form the print's own vocabulary shows is not a word
+ * of the language. The withdrawal is right where the rule REPLACES a form the
+ * print really uses (r10277: `rythm` 4×, the print's dominant spelling, against
+ * `rhythm` 2×); it is wrong where the print's own form is not a word at all and
+ * the target is the form the print reads more often. Neither verdict is measured
+ * there, so the flag STANDS. */
+function theRepeatedForm(before, after) {
+  if (!before.length || !after.length) return null;
+  const b = before.filter((w) => w.uses !== null);
+  const a = after.filter((w) => w.uses !== null);
+  if (b.length !== before.length) return null; // a damage token is not a form the print can set
+  if (a.length !== after.length || !a.length) return null;
+  if (b.every((w) => w.wordlist)) return null; // the print's form IS a word of the language — condition (1) does not hold
+  if (b.every((w) => w.uses === 1)) return null; // a hapax — that is the positive test's own case, handled above
+  if (!a.every((w) => w.uses > topUses(b))) return null; // the target must be what the print reads, more often
+  return {
+    signal: 'G',
+    why:
+      `INDETERMINATE BY REPETITION — MEASURED: the print’s own form here (${b.map((w) => `“${w.w}” not a word of the reference wordlist, set ${w.uses}×`).join(', ')}) is set MORE THAN ONCE in the print’s own text, so it is not the one-off slip the at-fault test requires, ` +
+      `while the print reads every word of this rule’s target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) MORE often than the form it changes away from — so the print’s own counts show NEITHER that the form it reads here is the reading NOR that it is a slip of the print, and the flag STANDS: this point is recorded for a human, and the rule is neither withdrawn nor called an emendation of the print`,
   };
 }
 /** THE TIE. The print uses the form at the point and the rule's target the SAME
@@ -360,20 +401,46 @@ function classify(d) {
   if (d.after_words > d.before_words || (!before.length && after.length)) return CLASSES.insertion;
   if (printIsAtFault(before, after)) return CLASSES.emendation;
   if (theTie(before, after)) return CLASSES.tie;
+  if (theRepeatedForm(before, after)) return CLASSES.repeated;
   return CLASSES.contradiction;
 }
+/** WHY THE POSITIVE TEST DID NOT HOLD, as the failed condition — the same shape
+ * tools/pg-locate-report.mjs's `faultWhy` reports, so the two records agree on
+ * WHICH measurement is missing rather than on the absence of a conclusion. */
+const faultWhy = (before, after) => {
+  const b = before.filter((w) => w.uses !== null);
+  const a = after.filter((w) => w.uses !== null);
+  if (b.length !== before.length) return 'the form it changes away from carries a damage token, so there is no form of the print to measure';
+  if (!b.every((w) => !w.wordlist)) return 'the print’s form is a word of the reference wordlist';
+  if (!b.every((w) => w.uses === 1)) return `the print sets the form it changes away from ${b.map((w) => `${w.uses}×`).join(', ')} in its own text — MORE THAN ONCE, which is not the one-off slip the test requires`;
+  if (!a.length) return 'the rule’s target is not a countable form';
+  if (a.length !== after.length) return 'a word of the rule’s target is not countable in the print, so the print does not read that target form';
+  if (!a.every((w) => w.uses > topUses(b)))
+    return `${a.filter((w) => !(w.uses > topUses(b))).map((w) => `“${w.w}” ${w.uses}×`).join(', ')} — a word of the rule’s target is used no more often by the print than the form it changes away from (${b.map((w) => `${w.uses}×`).join(', ')})`;
+  return 'no condition failed';
+};
 /** The measured fact a name may not overstate, as ONE string: what the print reads
- * at the point, how often the print uses that form anywhere in its own text, and
- * whether either misprint signal fired. Stated identically everywhere it is
- * written, so no consumer can drift into the old conclusion. */
+ * at the point, how often the print's own text uses that form, how often it uses
+ * the rule's target, and WHICH measurement the positive test is missing. Stated
+ * identically everywhere it is written, so no consumer can drift into the old
+ * conclusion.
+ *
+ * WHAT WAS OVER-CLAIMED HERE UNTIL THIS UNIT, MEASURED (review #4's second
+ * should-fix, the wrongly-OUT direction): the string said the print's own form "is
+ * an ordinary word of its own vocabulary" and that because the print uses it more
+ * than once "it is the print's own spelling" — an INFERENCE from a count, printed
+ * over a case (the constructed `[recal 2×] → [recall 8×]`) where the form is not a
+ * word of the language at all. The string now states the counts and the failed
+ * condition, and the case that inference was covering has its own class
+ * (`indeterminate-repeated-form`), whose action is to KEEP the flag. */
 const carriesOurBefore = (d) => {
   const before = (d.changed && d.changed.before) || [];
   const after = (d.changed && d.changed.after) || [];
   return (
-    `THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our \`before\` here; the print’s own form is an ordinary word of its own vocabulary ` +
+    `THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our \`before\` here; the print’s own text sets that form ` +
     `(${before.map((w) => `“${w.w}” ${w.uses === null ? 'not countable' : `${w.uses}×`}`).join(', ')}) against the rule’s target ` +
     `(${after.map((w) => `“${w.w}” ${w.uses === null ? 'not countable' : `${w.uses}×`}`).join(', ') || 'nothing'}), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD ` +
-    `(${before.some((w) => w.uses === null) ? 'the form it changes away from carries a damage token, so there is no form of the print to measure' : before.some((w) => w.wordlist) ? 'the print’s form is a word of the reference wordlist' : before.some((w) => w.uses > 1) ? 'the print uses that form elsewhere in its own text, so it is the print’s own spelling' : 'the print uses the rule’s target no more often than the form it changes away from'}) — so no measurement shows the print at fault. ` +
+    `(${faultWhy(before, after)}) — so no measurement shows the print’s own form to be a slip of its own text. ` +
     `ACTION FROM THE RULE’S OWN \`find\`, not from a verdict about the print: see \`printImpossibleMark\`.`
   );
 };
@@ -592,7 +659,9 @@ for (const p of points) {
               ? 'NO EVIDENCE EITHER WAY: the witness reads words of its own at the point and our own `before` is the transcription’s GARBLE, so the witness’s words are not evidence about this rule at all'
               : cls === CLASSES.tie
                 ? theTie((d.changed && d.changed.before) || [], (d.changed && d.changed.after) || []).why
-                : cls === CLASSES.contradiction
+                : cls === CLASSES.repeated
+                  ? theRepeatedForm((d.changed && d.changed.before) || [], (d.changed && d.changed.after) || []).why
+                  : cls === CLASSES.contradiction
                   ? `${carriesOurBefore(d)} A correction to the print’s own words is DECLARED for this point in CORRECTIONS and is asserted against the witness’s quote, so this entry is a REFUSAL of that correction, not a keep.`
                   : 'THE PRINT READS A THIRD FORM: our `before` IS a reading of the print and the witness reads neither of the rule’s two readings here',
     });
@@ -609,6 +678,7 @@ const expect = new Map([
   [CLASSES.insertion, idsOf(names.of_which_INSERTIONS_it_must_NOT_treat_as_a_reading)],
   [CLASSES.contradiction, idsOf(names.of_which_CONTRADICTIONS_it_must_adjudicate)],
   [CLASSES.tie, idsOf(names.of_which_are_INDETERMINATE_TIES_the_flag_stands)],
+  [CLASSES.repeated, idsOf(names.of_which_are_INDETERMINATE_REPEATED_FORMS_the_flag_stands)],
   [CLASSES.third, idsOf(names.of_which_THIRD_FORM_on_a_real_before_reading)],
   [CLASSES.thirdGarble, idsOf(names.NO_EVIDENCE_EITHER_WAY_third_form_on_our_own_garble)],
 ]);
@@ -630,6 +700,22 @@ for (const [cls, want] of expect) {
 
 /* ---------- the record ------------------------------------------------------ */
 
+/* THE CLASS LIST, THE DELTA AND THE APPLY LOG ARE DERIVED ONCE, HERE, BEFORE THE
+ * DRY/WRITE BRANCH — so the record has ONE shape whichever way it was produced.
+ * MEASURED (review #4, N4b): DRY mode wrote the committed record with a DIFFERENT
+ * SHAPE than --write (13 derived entries against 1 applied one), so a dry re-run
+ * over the committed artifact produced a 544-line diff of committed state. The
+ * from-version's own rule ids are what separates "the class" from "the delta":
+ * a rule an earlier version already took out is IN the class and NOT in the
+ * delta. */
+const srcRuleIds = new Set(srcRaw.rules.map((r) => r.id.split(':')[1]));
+const withdrawnToApply = withdrawn.filter((w) => srcRuleIds.has(w.id));
+const withdrawnCarried = withdrawn.filter((w) => !srcRuleIds.has(w.id));
+const applyPlan = withdrawnToApply.map((w) => {
+  const r = srcRaw.rules.find((x) => x.id.endsWith(`:${w.id}`));
+  return { id: w.id, find: r.location.find, was: r.after, print_reads: w.before, why: w.why };
+});
+
 const counts = {
   review_flagged_rules_considered: points.length,
   CLEARED: cleared.length,
@@ -640,8 +726,19 @@ const counts = {
   of_which_changed_words_only: kept.filter((k) => k.class === 'changed-words-only').length,
   EVIDENCE_AGAINST: against.length + corrected.length + withdrawn.length,
   of_which_INDETERMINATE_TIES_kept: against.filter((a) => a.class === CLASSES.tie).length,
+  of_which_INDETERMINATE_REPEATED_FORMS_kept: against.filter((a) => a.class === CLASSES.repeated).length,
   of_which_corrected_target: corrected.length,
+  /* THE CLASS TOTAL, AND THE DELTA, ARE DIFFERENT NUMBERS AND BOTH ARE NOW
+   * STATED. MEASURED (review #4, N4a): the record carried
+   * `of_which_WITHDRAWN: 13` beside a `withdrawn` array of ONE entry — the counts
+   * block is the BATCH's class (12 rules an earlier version had already taken out
+   * + the 1 this pass takes out), while the array was this pass's applied delta
+   * — with no key reconciling them. The class total and the split are now three
+   * keys, and `withdrawn` is the CLASS LIST in both dry and write mode with each
+   * entry saying whether this pass applied it (see `withdrawn` below). */
   of_which_WITHDRAWN: withdrawn.length,
+  of_which_WITHDRAWN_THE_DELTA_THIS_RUN_APPLIES: withdrawnToApply.length,
+  of_which_WITHDRAWN_CARRIED_from_an_earlier_version: withdrawnCarried.length,
   refused_not_acted_on: points.filter((p) => p.status !== 'located').length,
 };
 const out = {
@@ -807,8 +904,22 @@ const out = {
       what_the_1_0_4_record_claimed: 'that all 14 are emendations of the print’s own misprint, and that the reading is therefore left standing',
       what_is_measured:
         'the witness reads our `before` at all 14 (reproduced); the print’s own form is an ordinary word of the print’s OWN vocabulary at ALL 14; neither misprint signal fires at any of them',
-      the_12_WITHDRAWN: withdrawn.map((w) => ({ id: w.id, print_reads: w.before, rule_wanted: w.after })),
-      the_2_CORRECTED: corrected.filter((c) => c.class === CLASSES.contradiction).map((c) => ({ id: c.id, print_reads: c.new_after, rule_wanted: c.after, why: c.why })),
+      /* THE KEY NAMES CARRIED THEIR CONTENTS, RECONCILED. MEASURED: `the_12_WITHDRAWN` held
+       * THIRTEEN entries and `the_2_CORRECTED` THREE, because this unit's own r10277 and r9734 are
+       * members of the same two classes as the 1.0.5 unit's — the SAME unreconciled-name defect as
+       * `counts.of_which_WITHDRAWN` that review #4 found (N4a), found again here by counting the
+       * array against its name. The split is DERIVED from the source version's own rule ids, not
+       * typed, and it is the same split the `withdrawn` array carries in `applied_by_this_pass`. */
+      the_WITHDRAWN_carried_from_the_source_version: withdrawnCarried.map((w) => ({ id: w.id, print_reads: w.before, rule_wanted: w.after })),
+      the_WITHDRAWN_APPLIED_BY_THIS_UNIT: withdrawnToApply.map((w) => ({ id: w.id, print_reads: w.before, rule_wanted: w.after, why: w.why })),
+      the_CORRECTED_carried_from_the_source_version: corrected
+        .filter((c) => c.class === CLASSES.contradiction && !srcRuleIds.has(c.id))
+        .map((c) => ({ id: c.id, print_reads: c.new_after, rule_wanted: c.after })),
+      the_CORRECTED_APPLIED_BY_THIS_UNIT: corrected
+        .filter((c) => c.class === CLASSES.contradiction && srcRuleIds.has(c.id))
+        .map((c) => ({ id: c.id, print_reads: c.new_after, rule_wanted: c.after, why: c.why })),
+      what_the_1_0_4_record_got_wrong_about_the_two_keys_above:
+        'the keys were named for "the 12" and "the 2" of the 1.0.4 reopening and their arrays grew when later units added members of the same classes (13 and 3). A name is a claim: the split above is the measurement.',
       the_four_the_reviewer_called_defensible_and_why_no_measurement_supports_them: [
         'r8574 `The first intellectual,` -> `intellectuals`: the print’s own form is `intellectual` (1236x of the print’s vocabulary). The print’s own sentence around it is plural (`proceed`, `their`, `themselves`) — an EDITORIAL argument from the print’s grammar, and NOT one of the two measured signals. WITHDRAWN; the edition serves the print’s own words. The argument is recorded here so a later unit can put it in an explicitly conjectural layer rather than in an OCR claim.',
         'r8599 `bound` -> `bounds`: the print uses `bound` 268x and `and bound` 15x, and its own parallel at gutenberg-77393-vol1.txt:3754 sets `into order and bound,` WITH a comma. Editorial; WITHDRAWN.',
@@ -846,6 +957,35 @@ const out = {
         'a re-flowed witness carries no punctuation and no case, so a rule whose two readings are the same WORDS cannot be decided from it however exactly the passage is located — the located-but-identical span is NOT evidence for the typography',
     };
   })(),
+  /* THE SWEEP, BY RULE PROPERTY RATHER THAN BY THE CLASS STRING — read back here so
+   * this record carries the CORRECTED sentence and not the class-string count. The
+   * seventh-DOI unit's sweep matched `/PRINT-ERROR EMENDATION/i`, which is the
+   * CLASS NAME; MEASURED, r8768 and r9108 have claimed a misprint ("Parcse
+   * misprinted for Parcae") in every version since 1.0.0 and the class-string regex
+   * cannot see either of them. The sweep is the committed instrument
+   * `tools/pg-atfault-sweep.mjs`, and its own record is the source of every number
+   * below. */
+  print_fault_claims_swept_by_rule_property: (() => {
+    const f = join(ROOT, 'tools', 'edits', `${slug}.print-fault-sweep.json`);
+    if (!existsSync(f)) return { swept_by: 'tools/pg-atfault-sweep.mjs', record: null, note: 'not run — `node tools/pg-atfault-sweep.mjs` writes it' };
+    const s = JSON.parse(readFileSync(f, 'utf8'));
+    return {
+      swept_by: s.tool,
+      record: `tools/edits/${slug}.print-fault-sweep.json`,
+      the_claim_shapes: s.the_claim_shapes,
+      the_verdict_test: s.the_verdict_test,
+      THE_SENTENCE_THIS_SWEEP_CORRECTS: s.THE_SENTENCE_THIS_SWEEP_CORRECTS,
+      THE_DELTA_IN_EVERY_VERSION: s.THE_DELTA_IN_EVERY_VERSION,
+      the_two_rules_stated_as_measurements: s.the_two_rules_and_why_they_are_HARMLESS_STATED_AS_MEASUREMENTS,
+      per_version: s.per_version.map((p) => ({
+        version: p.version,
+        by_class_string: p.swept_by_the_class_string.n,
+        by_claim_shape: p.swept_by_claim_shape.n,
+        with_an_at_fault_verdict: p.claims_with_an_at_fault_VERDICT_on_the_record.n,
+        CLAIM_WITH_NO_AT_FAULT_VERDICT: p.claims_with_NO_at_fault_verdict_recorded.length,
+      })),
+    };
+  })(),
   /* WHAT BECAME OF THE OPEN QUESTIONS the witness places, from the outcome file
    * this tool's own --stamp-open mode writes. */
   open_questions: (() => {
@@ -858,10 +998,12 @@ const out = {
   kept,
   against,
   corrected,
-  /* THE RULES THIS VERSION TAKES OUT, with the print's own words. Recorded here as
-   * the DECISION as well as in `measured.the_14_reopened`, so a dry run names them
-   * before anything is written. */
-  withdrawn,
+  /* THE RULES THIS VERSION TAKES OUT, with the print's own words — THE WHOLE
+   * CLASS THE BATCH MEASURES, NOT THIS PASS'S DELTA, so the array and
+   * `counts.of_which_WITHDRAWN` are the same number by construction and a dry run
+   * writes the same shape as a write. Each entry says which it is. */
+  withdrawn: withdrawn.map((w) => ({ ...w, applied_by_this_pass: srcRuleIds.has(w.id) })),
+  withdrawn_applied_by_this_pass: applyPlan,
   /* THE RETIREMENT, derived the same way the write derives it: a corrected target
    * may not be written under the id a reader cited in the previous version, so the
    * old rule is retired (its id stays spent and is recorded as withdrawn) and the
@@ -883,19 +1025,30 @@ const out = {
   })(),
   refusals: bad,
 };
-mkdirSync(dirname(OUT), { recursive: true });
-writeFileSync(OUT, `${JSON.stringify(out, null, 1)}\n`);
+/* THE RECORD IS WRITTEN WHERE IT BELONGS, AND ONLY THE WRITE MODE TOUCHES THE
+ * COMMITTED ARTIFACT. MEASURED (review #4, N4b, and it bit the reviewer): this
+ * `writeFileSync` ran BEFORE the dry exit below, so a DRY run REWROTE the
+ * committed record — and with a different shape than --write (see `withdrawn`),
+ * which is what produced a 544-line diff of committed state that the reviewer had
+ * to restore by hand. A dry run now writes its record to scratch (`--out` still
+ * overrides the path for both modes) and prints where, so a reader can diff the
+ * two shapes without the tree moving. */
+const DRY_OUT = opt('out', join('/var/tmp/pg-act', `${slug}.pg-act.dry.json`));
+const DEST = write ? OUT : DRY_OUT;
+mkdirSync(dirname(DEST), { recursive: true });
+writeFileSync(DEST, `${JSON.stringify(out, null, 1)}\n`);
 console.log(`${slug}: CLEARED ${cleared.length} (tight ${counts.of_which_TIGHT}, slid-on-the-whole-reading ${counts.of_which_SLID_ON_THE_WHOLE_READING})`);
 console.log(`  KEPT FLAGGED on a located point ${kept.length} (marks-only ${counts.of_which_undecidable_marks})`);
 console.log(`  EVIDENCE AGAINST ${counts.EVIDENCE_AGAINST} — corrected target ${corrected.length}, kept ${against.length}`);
+console.log(`  WITHDRAWN ${counts.of_which_WITHDRAWN} (this run applies ${counts.of_which_WITHDRAWN_THE_DELTA_THIS_RUN_APPLIES}, ${counts.of_which_WITHDRAWN_CARRIED_from_an_earlier_version} carried from ${FROM})`);
 console.log(`  REFUSED, not acted on ${counts.refused_not_acted_on}`);
-console.log(`  wrote ${OUT}`);
+console.log(`  ${write ? 'wrote' : 'dry run: wrote the DECISION record to'} ${DEST}${write ? '' : ` (the committed record at ${OUT} was NOT touched)`}`);
 if (bad.length) for (const b of bad) console.error(`  REFUSED CORRECTION ${b}`);
 
 /* ---------- apply ----------------------------------------------------------- */
 
 if (!write) {
-  console.log('  dry run (no --write): the rules were NOT touched');
+  console.log('  dry run (no --write): the rules were NOT touched and the committed record was NOT rewritten');
   process.exit(bad.length ? 1 : 0);
 }
 if (!existsSync(rulesFile(TO))) {
@@ -1044,14 +1197,24 @@ writeFileSync(rulesFile(TO), `${JSON.stringify({ ...srcRaw, version: TO, rules }
 for (const t of retired) console.log(`  RETIRED ${t.old_id} -> ${t.new_id}: ${JSON.stringify(t.find)} ${JSON.stringify(t.was)} -> ${JSON.stringify(t.now)}`);
 for (const t of withdrawnApplied) console.log(`  WITHDRAWN ${t.id}: ${JSON.stringify(t.find)} ${JSON.stringify(t.was)} -> the print reads ${JSON.stringify(t.print_reads)}`);
 console.log(`  WROTE ${rulesFile(TO)}: ${nClear} flag(s) cleared, ${nUnclear} clear(s) UNSET by the rebased basis, ${nWithdraw} rule(s) WITHDRAWN, ${nCorr} target(s) corrected (each as a NEW id, the old id retired), ${nNote} rationale(s) annotated, ${skippedAlreadySpent.length} correction(s) skipped as already spent, ${nSkip} point(s) skipped (the rule is not in this version)`);
-const rec = JSON.parse(readFileSync(OUT, 'utf8'));
+/* THE APPLY LOG IS ASSERTED AGAINST THE PLAN DERIVED BEFORE THE DRY/WRITE BRANCH,
+ * so the record cannot claim an action the apply did not take (and vice versa):
+ * `withdrawn` is the class list in both modes, `withdrawn_applied_by_this_pass` is
+ * what this run actually took out, and the two are reconciled by
+ * `counts.of_which_WITHDRAWN_THE_DELTA_THIS_RUN_APPLIES`. */
+const planIds = applyPlan.map((a) => a.id).sort().join(',');
+const didIds = withdrawnApplied.map((a) => a.id).sort().join(',');
+if (planIds !== didIds)
+  throw new Error(`pg-act: the apply plan and the apply DISAGREE — planned [${planIds}], applied [${didIds}]`);
+const rec = out;
 rec.retired = retired;
-rec.withdrawn = withdrawnApplied;
+rec.withdrawn_applied_by_this_pass = withdrawnApplied;
 rec.skipped_corrections_already_spent = skippedAlreadySpent;
 rec.how_to_rederive = [
   `rm -f ${BATCH}   # FIRST, AND NOT OPTIONAL: pg-locate RESUMES from an existing --out file, so re-running a batch in place re-derives NOTHING (MEASURED 2026-10-07: a re-run reported 0 decide changes in all seven batches because every one of them was resumed)`,
   `node tools/pg-locate.mjs ${slug} --what rules --version 1.0.3 --slide 24 --out ${BATCH}`,
   `cp -r data/editions/${slug}/versions/${FROM} data/editions/${slug}/versions/${TO}   # the version directory, meta.json rewritten for ${TO}`,
+  `node tools/pg-act.mjs ${slug} --from-version ${FROM} --to-version ${TO} --batch ${BATCH}   # DRY FIRST: this writes its decision record to /var/tmp/pg-act/${slug}.pg-act.dry.json and touches NEITHER the rules NOR the committed record`,
   `node tools/pg-act.mjs ${slug} --from-version ${FROM} --to-version ${TO} --batch ${BATCH} --write`,
   `node tools/pg-act.mjs ${slug} --to-version ${TO} --stamp-open   # idempotent; the open-question evidence is already on the rules this version carries`,
 ];

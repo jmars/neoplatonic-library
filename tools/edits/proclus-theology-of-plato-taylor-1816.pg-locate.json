@@ -17,7 +17,7 @@
   }
  },
  "method": "each point is bounded by a token run that occurs EXACTLY ONCE in a volume on its left and another on its right, both in the SAME volume; the witness’s own tokens between the two bounds are what it reads at the point. A point is REFUSED, never guessed, when either bound is not unique, when TWO volumes hold a pair of unique bounds around it (a placement that cannot name its volume is not a placement), when the bounds stand in the wrong order, when the witness reads the wrong amount of text between them, or when the witness carries NOTHING between them (PG does not carry the passage). A verdict the witness reads against the rule is reported as `before` when it carries our old reading, `third` when it carries words of its own that are neither reading — the two are the SAME class of fact and are reported side by side — and as `absent-at-point`/`thin-stretch`/`silent-marks`/`silent-unsure` when nothing can be decided either way.",
- "slide": "The reported table is --slide 24 — the mid-point of the probed range, chosen for the table and NOT because it is more accurate than 8 or 48. THE MARGINAL YIELD ACROSS THE CURVE IS ALL NON-TIGHT, MEASURED: the tight placements are 961 at EVERY slide with identical verdicts (804 after, 84 silent-marks, 29 thin-stretch, 23 absent-at-point, 15 before, 6 third) while the slid decisions grow (after 300 → 463 → 482; third 32 → 67 → 74 at slides 8/24/48). Of the 1,354 rules that have a verdict at all three slides, zero flip. So a rule this table confirms and slide 8 does not is confirmed on SLID BOUNDS ONLY — the weakest placements — and the 237 rules slide 24 adds over slide 8 are all of that kind.",
+ "slide": "The reported table is --slide 24 — the mid-point of the probed range, chosen for the table and NOT because it is more accurate than 8 or 48. THE MARGINAL YIELD ACROSS THE CURVE IS ALL NON-TIGHT, MEASURED: the tight placements are 961 at EVERY slide with identical verdicts (804 after, 84 silent-marks, 29 thin-stretch, 23 absent-at-point, 15 before, 6 third) while the slid decisions grow (after 301 → 464 → 483; third 31 → 66 → 73 at slides 8/24/48 — RE-DERIVED 2026-10-07 by the seventh-DOI unit, which took the whole-reading test from the rule’s RAW token run to its WORD run: the tight placements and their verdicts are IDENTICAL before and after, so the curve’s shape is unchanged and only the slid `after`/`third` counts move by one per slide). Of the 1,354 rules that have a verdict at all three slides, zero flip. So a rule this table confirms and slide 8 does not is confirmed on SLID BOUNDS ONLY — the weakest placements — and the 237 rules slide 24 adds over slide 8 are all of that kind.",
  "what_it_CANNOT_settle": [
   "a printed page number, a leaf, a line, a running head, or a hyphenation at line end — a re-flowed witness carries none of them",
   "PUNCTUATION and CASE, which this tool discards before comparing: MEASURED, of the 578 located punctuation rules, 473 are UNDECIDABLE for that reason alone and only 101 come back with a reading",
@@ -25,7 +25,7 @@
   "WHAT THE PRINT MEANS. Where the print reads an ordinary word, the witness settles what is printed and never what was intended — see THE_TEST_USED_TO_SUBCLASSIFY."
  ],
  "batch_files": "open-r{8,24,48}.json, rules-r{8,24,48}.json, punct-r24.json, sweep.json — in /var/tmp/pg-locate, regenerable; this file is generated from them by tools/pg-locate-report.mjs",
- "generated": "2026-10-07T21:05:30.840Z",
+ "generated": "2026-10-07T22:26:59.426Z",
  "slide_8": {
   "open_questions": {
    "n": 272,
@@ -244,7 +244,7 @@
     "witness_reads": "of these the first intellectual therefore proceed from the",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “intellectual” 1236× and our reading's word “intellectuals” 198×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“intellectual” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “intellectual” 1236× in its own text, against the rule's target “intellectuals” 198×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“intellectual” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -272,7 +272,7 @@
     "witness_reads": "leads into order and bound the variety of partial",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “bound” 268× and our reading's word “bounds” 24×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“bound” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “bound” 268× in its own text, against the rule's target “bounds” 24×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“bound” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -300,7 +300,7 @@
     "witness_reads": "consumed but these perishing corruption also would",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “these” 2144× and our reading's word “this” 3318×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“these” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “these” 2144× in its own text, against the rule's target “this” 3318×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“these” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -328,7 +328,7 @@
     "witness_reads": "third numbers these celestial governors of the",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “these” 2144× and our reading's word “the” 32057×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“these” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “these” 2144× in its own text, against the rule's target “the” 32057×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“these” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -411,7 +411,7 @@
     "witness_reads": "of time by this mean rendering the world more similar to intelligible animal and in short on",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “mean” 58× and our reading's word “means” 61×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“mean” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “mean” 58× in its own text, against the rule's target “means” 61×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“mean” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -439,7 +439,7 @@
     "witness_reads": "the parts though their partible privation of",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “though” 196× and our reading's word “through” 1402×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“though” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “though” 196× in its own text, against the rule's target “through” 1402×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“though” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -467,7 +467,7 @@
     "witness_reads": "triad therefore has the once for this is the peculiarity of the past and of",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “once” 114× and our reading's word “one” 3131×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“once” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “once” 114× in its own text, against the rule's target “one” 3131×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“once” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -495,7 +495,7 @@
     "witness_reads": "of its providential case and expanded",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “case” 181× and our reading's word “care” 40×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“case” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “case” 181× in its own text, against the rule's target “care” 40×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“case” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -523,7 +523,7 @@
     "witness_reads": "are in a merged condition since therefore",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “merged” 4× and our reading's word “maimed” 0×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“merged” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “merged” 4× in its own text, against the rule's target “maimed” 0×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“merged” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -551,7 +551,7 @@
     "witness_reads": "own motions externally cover bodies with",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “externally” 40×, “cover” 1× and our reading's word “eternally” 45×, “move” 26×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“externally”, “cover” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “externally” 40×, “cover” 1× in its own text, against the rule's target “eternally” 45×, “move” 26×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“externally”, “cover” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -589,7 +589,7 @@
     "witness_reads": "governed cities though is it not perfectly impossible that parts should be",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “though” 196× and our reading's word , and the positive test for a fault of the print’s own form DOES NOT HOLD (“though” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “though” 196× in its own text, against the rule's target , and the positive test for a fault of the print’s own form DOES NOT HOLD (“though” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -611,7 +611,7 @@
     "witness_reads": "themselves but inferior being suspended from the dominion of",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “being” 2529× and our reading's word “beings” 711×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“being” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “being” 2529× in its own text, against the rule's target “beings” 711×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“being” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -639,7 +639,7 @@
     "witness_reads": "their essence consubsists according to",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “consubsists” 1× and our reading's word “consubsist” 0×, and the positive test for a fault of the print’s own form DOES NOT HOLD (the print uses the rule’s target (“consubsist” 0×) NO more often than the form it changes away from (1×))",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “consubsists” 1× in its own text, against the rule's target “consubsist” 0×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“consubsist” 0× — a word of the rule’s target is used no more often by the print than the form it changes away from (1×))",
     "changed_words": {
      "before": [
       {
@@ -667,7 +667,7 @@
     "witness_reads": "of division to united ideas produce",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “to” 12944× and our reading's word “into” 760×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“to” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “to” 12944× in its own text, against the rule's target “into” 760×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“to” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -695,7 +695,7 @@
     "witness_reads": "therefore let us recal to our memory",
     "class": "print-error-emendation",
     "signal": "F",
-    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED, by the positive test: the print’s own form here (“recal”) is not a word of the reference wordlist and the print uses it nowhere else in its own text (1×), while the print reads our target (“recall” 8×) elsewhere and MORE often",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED, by the positive test: the print’s own form here (“recal”) is not a word of the reference wordlist and the print uses it nowhere else in its own text (1×), while the print reads every word of our target (“recall” 8×) elsewhere and MORE often",
     "changed_words": {
      "before": [
       {
@@ -723,7 +723,7 @@
     "witness_reads": "farther still rythm and dancing are a mystic sign",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “rythm” 4× and our reading's word “rhythm” 2×, and the positive test for a fault of the print’s own form DOES NOT HOLD (the print uses the form it changes away from 4× — a form the print sets more than once is its own spelling, not a slip)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “rythm” 4× in its own text, against the rule's target “rhythm” 2×, and the positive test for a fault of the print’s own form DOES NOT HOLD (the print sets the form it changes away from 4× in its own text — MORE THAN ONCE, which is not the one-off slip the test requires (and which is a question of its own: see the repeated-form class))",
     "changed_words": {
      "before": [
       {
@@ -751,7 +751,7 @@
     "witness_reads": "downward is elongated through itself",
     "class": "contradiction",
     "signal": null,
-    "why": "contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another — MEASURED: the print uses the form it reads here “elongated” 2× and our reading's word “alienated” 0×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“elongated” is a word of the reference wordlist — the print is not setting a non-word)",
+    "why": "contradiction — the print reads its own form here and the positive test for a fault of that form does not hold — MEASURED: the print sets the form this rule changes away from “elongated” 2× in its own text, against the rule's target “alienated” 0×, and the positive test for a fault of the print’s own form DOES NOT HOLD (“elongated” is a word of the reference wordlist — the print is not setting a non-word)",
     "changed_words": {
      "before": [
       {
@@ -779,7 +779,7 @@
     "witness_reads": "purifying and poeonian powers of",
     "class": "print-error-emendation",
     "signal": "F",
-    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED, by the positive test: the print’s own form here (“poeonian”) is not a word of the reference wordlist and the print uses it nowhere else in its own text (1×), while the print reads our target (“paeonian” 3×) elsewhere and MORE often",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED, by the positive test: the print’s own form here (“poeonian”) is not a word of the reference wordlist and the print uses it nowhere else in its own text (1×), while the print reads every word of our target (“paeonian” 3×) elsewhere and MORE often",
     "changed_words": {
      "before": [
       {
@@ -829,7 +829,7 @@
     "witness_reads": "in the gorgies indicates there",
     "class": "print-error-emendation",
     "signal": "F",
-    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED, by the positive test: the print’s own form here (“gorgies”) is not a word of the reference wordlist and the print uses it nowhere else in its own text (1×), while the print reads our target (“gorgias” 20×) elsewhere and MORE often",
+    "why": "print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault — MEASURED, by the positive test: the print’s own form here (“gorgies”) is not a word of the reference wordlist and the print uses it nowhere else in its own text (1×), while the print reads every word of our target (“gorgias” 20×) elsewhere and MORE often",
     "changed_words": {
      "before": [
       {
@@ -3569,6 +3569,7 @@
    "of_which_are_insertions": 2,
    "of_which_are_CONTRADICTIONS_to_be_read": 16,
    "of_which_are_TIES_the_witness_cannot_decide": 1,
+   "of_which_are_REPEATED_FORMS_the_witness_cannot_decide": 0,
    "of_which_are_THIRD_FORM_on_a_REAL_before_reading": 11,
    "of_which_are_THIRD_FORM_on_OUR_OWN_GARBLE_no_evidence_against_the_rule": 61,
    "EVIDENCE_AGAINST_THE_RULE_total": 33,
@@ -3626,6 +3627,7 @@
   "of_which_are_INDETERMINATE_TIES_the_flag_stands": [
    "proclus-theology-of-plato-taylor-1816:r8627"
   ],
+  "of_which_are_INDETERMINATE_REPEATED_FORMS_the_flag_stands": [],
   "of_which_THIRD_FORM_on_a_real_before_reading": [
    "proclus-theology-of-plato-taylor-1816:r8600",
    "proclus-theology-of-plato-taylor-1816:r8617",
@@ -3706,9 +3708,10 @@
   "note": "A `before` verdict says the print’s own text reads our OLD reading, and a `third` verdict says it reads words of its own that are neither reading: both are reports about what the print READS, and both were, before this revision, one word (`silent`). What differs is whether our `before` is itself a reading of the print: where it is the transcription’s garble (62 of the 73 third forms), the witness’s words at the point are no evidence at all against the rule. A `silent-marks` or `silent-unsure` verdict is UNDECIDABLE BY DESIGN. `absent-at-point` and `thin-stretch` mean no reading was drawn, not that the rule is right."
  },
  "THE_TEST_USED_TO_SUBCLASSIFY": {
-  "print-error-emendation (do not revert)": "THE PRINT’S OWN TEXT AT THE POINT IS AT FAULT, and since 1.0.6 that verdict rests on a POSITIVE TEST with THREE measurements of the print, ALL of which must hold: (1) the form the print reads there is not a word of the reference wordlist; (2) the print uses that form NOWHERE ELSE in its own text (≤1× in both volumes together); (3) the rule’s target IS what the print reads elsewhere, used MORE OFTEN than the form it changes away from. WHAT THIS REPLACED, MEASURED: the two signals of 1.0.5 (W = a changed word is absent from the wordlist; R = the form is used ≤1× and the target ≥1×) licensed the verdict on r9734 (`consubsists` — a form the print really sets, merely missing from the dictionary — whose target `consubsist` the print sets 0×), on r10277 (`rythm`, the print’s DOMINANT spelling at 4× against `rhythm` 2×) and on r8627 from a 1×-vs-1× TIE. A class that says the print IS at fault may not be reachable without a positive measurement, and a tie or a minority-spelling modernisation may not license it.",
+  "print-error-emendation (do not revert)": "THE PRINT’S OWN TEXT AT THE POINT IS AT FAULT, and since 1.0.6 that verdict rests on a POSITIVE TEST with THREE measurements of the print, ALL of which must hold: (1) the form the print reads there is not a word of the reference wordlist; (2) the print uses that form NOWHERE ELSE in its own text (≤1× in both volumes together); (3) EVERY word of the rule’s target IS what the print reads elsewhere, used MORE OFTEN than the form it changes away from — PER WORD, since 1.0.7: MEASURED, a 2-for-2 swap whose second target word the print uses 0× (or which is uncountable and dropped by the `uses !== null` filter) used to fire the at-fault verdict on its first word alone while printing the refuting `0×` inside the verdict. WHAT THIS REPLACED, MEASURED: the two signals of 1.0.5 (W = a changed word is absent from the wordlist; R = the form is used ≤1× and the target ≥1×) licensed the verdict on r9734 (`consubsists` — a form the print really sets, merely missing from the dictionary — whose target `consubsist` the print sets 0×), on r10277 (`rythm`, the print’s DOMINANT spelling at 4× against `rhythm` 2×) and on r8627 from a 1×-vs-1× TIE. A class that says the print IS at fault may not be reachable without a positive measurement, and a tie or a minority-spelling modernisation may not license it.",
   "indeterminate-tie": "the print uses the form it reads at the point and the rule’s target the SAME number of times, so the witness’s own counts decide nothing. MEASURED r8627: `prophesy` 1× against `prophecy` 1×. WHAT IS DONE WITH IT: the flag STANDS (tools/pg-act.mjs keeps it). Neither the print’s own form is shown to be at fault, nor is it shown to be the reading — a 1×-vs-1× tie from a re-flowed witness settles neither.",
-  "contradiction": "the print reads an ordinary word of its own vocabulary at the point and the rule puts another word there, with no fault of the print’s own form to point at, and NEITHER misprint signal fires. WHAT IS DONE WITH IT IS NOT A KEEP: MEASURED 2026-10-07 (the 1.0.5 unit), every one of the 14 rules in this class OVERRIDES a print our transcription already reads, so the class is named after the measurement rather than after a conclusion about the print, and tools/pg-act.mjs WITHDRAWS the rule (the version serves the print’s own text) unless the rule’s own `find` carries a mark the print cannot set, in which case the target is CORRECTED to the print’s own words under a fresh id. 1.0.4 kept all 14 with a why-string that ASSERTED an emendation of the print; that assertion is corrected in tools/pg-act.mjs and in 1.0.5 (see .measured.the_14_reopened and .rejected_signals there).",
+  "indeterminate-repeated-form": "the print’s own form at the point is NOT a word of the reference wordlist, but the print sets it MORE THAN ONCE in its own text, and the print reads every word of the rule’s target MORE often than that form. WHAT IS DONE WITH IT: the flag STANDS (tools/pg-act.mjs keeps it). The at-fault verdict is not reachable, because it requires a form the print sets nowhere else — a one-off slip — and this form recurs; and the withdrawal is not reachable either, because that would serve a form the print’s own vocabulary shows is not a word of the language while the target is the form the print reads more often. MEASURED 2026-10-07 on 1.0.6: NO rule falls in this class (the case that exposed it was constructed), so the class is empty and no served reading moves. It is a class rather than silence because a rule CAN fall in it, and what happened before it existed is a defect: `[recal 2×] → [recall 8×]` was withdrawn under a why-string that concluded 'the print uses that form elsewhere in its own text, so it is the print’s own spelling' — an inference from a count, and the wrong one where the form is not a word.",
+  "contradiction": "the print sets its own form at the point (MEASURED, with the count the print’s own text gives it) and the rule puts another word there, with no fault of the print’s own form measured, and NEITHER misprint signal fires. WHAT IS DONE WITH IT IS NOT A KEEP: MEASURED 2026-10-07 (the 1.0.5 unit), every one of the 14 rules in this class OVERRIDES a print our transcription already reads, so the class is named after the measurement rather than after a conclusion about the print, and tools/pg-act.mjs WITHDRAWS the rule (the version serves the print’s own text) unless the rule’s own `find` carries a mark the print cannot set, in which case the target is CORRECTED to the print’s own words under a fresh id. 1.0.4 kept all 14 with a why-string that ASSERTED an emendation of the print; that assertion is corrected in tools/pg-act.mjs and in 1.0.5 (see .measured.the_14_reopened and .rejected_signals there).",
   "insertion": "the rule adds words, so the witness’s `before` reading is what the print reads without them; there is no like-for-like pair of readings to weigh.",
   "third-form": "the print reads words of its own that are neither of the rule’s two readings AND our `before` is a word of the reference wordlist — a real reading the print does not carry here, i.e. the same class of fact as a `before`.",
   "third-form-on-our-own-garble": "the print reads words of its own that are neither reading, but our `before` is itself the transcription’s garble, a damage mark or a numeral, so this says only that our reconstructed `after` is not a contiguous run at the point. It is NOT evidence against the rule and must not be acted on.",
