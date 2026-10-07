@@ -676,11 +676,17 @@ check(
   `the whole class is 2,960 line(s) (found ${Object.values(sourceClass).reduce((a, b) => a + b, 0)})`,
 );
 check(clause.front === 225, `the carve-out spares the 225 front-matter contents entries (found ${clause.front})`);
+/* MEASURED over the corrected model (version 1.0.2): the spared SET is the
+ * same 215 display headings, but one line's clause moved — the CHAPTER I.
+ * display heading at flat 13531 now stands immediately above division 103's
+ * own line (the division moved from flat 13551 to 13532), so the aboveDiv
+ * clause spares it where noRectoHead spared it before. aboveDiv 35 -> 36,
+ * noRectoHead 2 -> 1; the other three clauses are unchanged. */
 check(
   clause.afterProse === 155 &&
     clause.secondChap === 22 &&
-    clause.aboveDiv === 35 &&
-    clause.noRectoHead === 2 &&
+    clause.aboveDiv === 36 &&
+    clause.noRectoHead === 1 &&
     clause.nearDivAbove === 1,
   `the 215 display headings are spared by the measured clauses — afterProse ${clause.afterProse}, secondChap ${clause.secondChap}, aboveDiv ${clause.aboveDiv}, noRectoHead ${clause.noRectoHead}, nearDivAbove ${clause.nearDivAbove}`,
 );
