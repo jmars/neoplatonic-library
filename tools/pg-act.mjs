@@ -1049,11 +1049,14 @@ rec.retired = retired;
 rec.withdrawn = withdrawnApplied;
 rec.skipped_corrections_already_spent = skippedAlreadySpent;
 rec.how_to_rederive = [
+  `rm -f ${BATCH}   # FIRST, AND NOT OPTIONAL: pg-locate RESUMES from an existing --out file, so re-running a batch in place re-derives NOTHING (MEASURED 2026-10-07: a re-run reported 0 decide changes in all seven batches because every one of them was resumed)`,
   `node tools/pg-locate.mjs ${slug} --what rules --version 1.0.3 --slide 24 --out ${BATCH}`,
   `cp -r data/editions/${slug}/versions/${FROM} data/editions/${slug}/versions/${TO}   # the version directory, meta.json rewritten for ${TO}`,
   `node tools/pg-act.mjs ${slug} --from-version ${FROM} --to-version ${TO} --batch ${BATCH} --write`,
   `node tools/pg-act.mjs ${slug} --to-version ${TO} --stamp-open   # idempotent; the open-question evidence is already on the rules this version carries`,
 ];
+rec.the_whole_reading_basis_of_this_version =
+  'The decisions in this batch are the decisions of tools/pg-locate.mjs AS OF 1.0.6: the whole-reading test is tried on the exact token run first and, if that fails, on the rule’s WORD run against the witness’s own words with its numerals dropped, taken only where the rule’s change ADDS a word (the tool’s own `changedBlock` core) and the rule is not typed `punctuation` (see tools/pg-locate.mjs, `decide`). Re-deriving with an EARLIER revision of that tool reproduces the 1.0.3-1.0.5 decisions, not these: MEASURED, the revision before this one places 1,256 (not 1,264) rules on the whole reading and holds r10517 in the third-form class.';
 rec.how_to_rederive_why =
   `The batch is derived at --version 1.0.3 because that is the state that still carries ALL 2,238 review flags: a batch derived at ${FROM} would see only the rules ${FROM} still flags and could neither re-adjudicate a rule ${FROM} cleared nor unset a clear. The pass over ${FROM} is IDEMPOTENT (it sets state, it does not append), so a re-run reproduces this version. Corrections whose old id is already spent are SKIPPED and recorded: an id carries one rule forever, so the six corrections of 1.0.4 (r11843-r11848) are CARRIED, not re-minted.`;
 writeFileSync(OUT, `${JSON.stringify(rec, null, 1)}\n`);

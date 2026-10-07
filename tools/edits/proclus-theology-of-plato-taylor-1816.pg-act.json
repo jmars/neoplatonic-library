@@ -34910,10 +34910,12 @@
   }
  ],
  "how_to_rederive": [
+  "rm -f /var/tmp/pg-locate/rules-r24.json   # FIRST, AND NOT OPTIONAL: pg-locate RESUMES from an existing --out file, so re-running a batch in place re-derives NOTHING (MEASURED 2026-10-07: a re-run reported 0 decide changes in all seven batches because every one of them was resumed)",
   "node tools/pg-locate.mjs proclus-theology-of-plato-taylor-1816 --what rules --version 1.0.3 --slide 24 --out /var/tmp/pg-locate/rules-r24.json",
   "cp -r data/editions/proclus-theology-of-plato-taylor-1816/versions/1.0.5 data/editions/proclus-theology-of-plato-taylor-1816/versions/1.0.6   # the version directory, meta.json rewritten for 1.0.6",
   "node tools/pg-act.mjs proclus-theology-of-plato-taylor-1816 --from-version 1.0.5 --to-version 1.0.6 --batch /var/tmp/pg-locate/rules-r24.json --write",
   "node tools/pg-act.mjs proclus-theology-of-plato-taylor-1816 --to-version 1.0.6 --stamp-open   # idempotent; the open-question evidence is already on the rules this version carries"
  ],
+ "the_whole_reading_basis_of_this_version": "The decisions in this batch are the decisions of tools/pg-locate.mjs AS OF 1.0.6: the whole-reading test is tried on the exact token run first and, if that fails, on the rule’s WORD run against the witness’s own words with its numerals dropped, taken only where the rule’s change ADDS a word (the tool’s own `changedBlock` core) and the rule is not typed `punctuation` (see tools/pg-locate.mjs, `decide`). Re-deriving with an EARLIER revision of that tool reproduces the 1.0.3-1.0.5 decisions, not these: MEASURED, the revision before this one places 1,256 (not 1,264) rules on the whole reading and holds r10517 in the third-form class.",
  "how_to_rederive_why": "The batch is derived at --version 1.0.3 because that is the state that still carries ALL 2,238 review flags: a batch derived at 1.0.5 would see only the rules 1.0.5 still flags and could neither re-adjudicate a rule 1.0.5 cleared nor unset a clear. The pass over 1.0.5 is IDEMPOTENT (it sets state, it does not append), so a re-run reproduces this version. Corrections whose old id is already spent are SKIPPED and recorded: an id carries one rule forever, so the six corrections of 1.0.4 (r11843-r11848) are CARRIED, not re-minted."
 }
