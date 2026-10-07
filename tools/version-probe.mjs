@@ -96,6 +96,13 @@ const MINTED = new Map([
    * resolving and the new state gets its own — 1.0.0 is untouched and still
    * resolves at its own DOI. */
   ['proclus-theology-of-plato-taylor-1816@1.0.1', '10.5281/zenodo.23199740'],
+  /* MINTED 2026-10-07: a NEW VERSION of the same record (23208338 under the
+   * concept record 23175743, versions.index 3). 1.0.2 serves the SAME TEXT as
+   * 1.0.1 — not one rule changes — what changes is the section model, now
+   * version-aware, with three recorded divisions corrected from blind
+   * two-reader scan evidence. 1.0.0 and 1.0.1 are untouched and still resolve
+   * at their own DOIs. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.2', '10.5281/zenodo.23208338'],
 ]);
 
 section('every version is a frozen directory, served at its own URL');
