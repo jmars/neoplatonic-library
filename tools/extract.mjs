@@ -79,7 +79,7 @@
  *    extraction that has no model says so instead of quietly reading in txt mode.
  */
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
@@ -152,10 +152,50 @@ export const importPath = (slug) => join(LIBRARY_DIR, slug, 'import.json');
 export const derivsPath = (slug) => join(LIBRARY_DIR, slug, 'derivs.json');
 
 /** Where a text's RECORDED DIVISIONS live, if it has any (§3.2, `opener:
- * "recorded"`): `data/editions/<slug>/divisions.json`. Like `derivs.json` it is
- * derived, not hand-written, and it is refused when it was derived against other
- * bytes than the edition being extracted. */
-export const divisionsPath = (slug) => join(LIBRARY_DIR, slug, 'divisions.json');
+ * "recorded"`): `data/editions/<slug>/divisions.json`, or — for a version that
+ * holds its own model — `data/editions/<slug>/versions/<v>/divisions.json`.
+ * Like `derivs.json` it is derived, not hand-written, and it is refused when it
+ * was derived against other bytes than the edition being extracted. */
+export const editionDivisionsPath = (slug) => join(LIBRARY_DIR, slug, 'divisions.json');
+export const versionDivisionsPath = (slug, version) => join(versionDir(slug, version), 'divisions.json');
+/** How many versions an edition has on the shelf (its `versions/` directories). */
+export function versionCount(slug) {
+  const dir = join(LIBRARY_DIR, slug, 'versions');
+  if (!existsSync(dir)) return 0;
+  return readdirSync(dir, { withFileTypes: true }).filter((d) => d.isDirectory()).length;
+}
+/**
+ * THE DIVISION MODEL FILE A VERSION SERVES, resolved version-aware (§3.2).
+ *
+ * A version that holds its own `versions/<v>/divisions.json` is served THAT
+ * model — the one its DOI names — and the edition-level file is never read for
+ * it. The edition-level file is the fallback for an edition (or a version) that
+ * has none of its own, which is how a single-version edition with a recorded
+ * model keeps working.
+ *
+ * THE TRAP, and it is LOUD: for a MULTI-VERSION edition, a version with no
+ * model of its own would silently inherit the edition-level file AFTER that
+ * file has moved on — the pinned page would serve a structure its DOI does not
+ * name, the exact drift the versioning of `repairs.json` closed. So there the
+ * resolution REFUSES, naming the version and the file, instead of falling back.
+ */
+export function divisionsPath(slug, version = null) {
+  const v = versionOf(slug, version);
+  const own = v ? versionDivisionsPath(slug, v) : null;
+  if (own && existsSync(own)) return own;
+  const fallback = editionDivisionsPath(slug);
+  if (v && existsSync(fallback) && versionCount(slug) > 1) {
+    throw new Error(
+      `library: ${slug}: version ${v} of a ${versionCount(slug)}-version edition has no division model of ` +
+        `its own (${versionDivisionsPath(slug, v)} does not exist), and the edition-level ` +
+        `${fallback} is NOT a fallback for it — that file has moved on, and a pinned version ` +
+        `inheriting it would serve a structure its DOI does not name.\n` +
+        `  Freeze this version's own model: copy the model it was deposited under to ` +
+        `${versionDivisionsPath(slug, v)}.`,
+    );
+  }
+  return fallback;
+}
 
 /** The archive.org items this edition's PAGE IMAGES come from, as the edition's
  * own `scan.json` records them. An edition cut from ONE volume names it with
@@ -188,10 +228,13 @@ export function scanItemNames(slug) {
  * label, its anchor, its confidence and the leaf/head it was read from
  * (`tools/divisions.mjs` writes it). Loaded here and verified against the
  * edition's own bytes, so a model of another transcription is refused rather than
- * applied to line positions that have moved.
+ * applied to line positions that have moved. The file is resolved VERSION-AWARE
+ * (`divisionsPath`): a version holding its own `versions/<v>/divisions.json` is
+ * served that model, and a multi-version edition's version with none is refused
+ * rather than left to inherit the moved edition-level file.
  */
-export function loadDivisions(slug, edition = null) {
-  const file = divisionsPath(slug);
+export function loadDivisions(slug, edition = null, version = null) {
+  const file = divisionsPath(slug, version);
   if (!existsSync(file)) return null;
   let model;
   try {
@@ -1991,11 +2034,11 @@ export function extract(src, meta) {
    * so a division and a leaf boundary name the same coordinate. A recorded line
    * that falls on no line carrying text, or whose text is not what the model
    * recorded, is a stale model and is refused rather than opened at a guess. */
-  const divisionModel = cfg.divisionModel ? loadDivisions(entry.slug, meta.sha256) : null;
+  const divisionModel = cfg.divisionModel ? loadDivisions(entry.slug, meta.sha256, meta.version) : null;
   if (cfg.divisionModel && !divisionModel) {
     throw new Error(
       `library: ${entry.slug}: this edition's divisions are recorded (a ${JSON.stringify(String(cfg.opener))} opener) ` +
-        `and its model is missing (${divisionsPath(entry.slug)}) — the divisions were read off the scans and are not ` +
+        `and its model is missing (${divisionsPath(entry.slug, meta.version)}) — the divisions were read off the scans and are not ` +
         `recoverable from the transcription:\n  node tools/divisions.mjs ${entry.slug}`,
     );
   }

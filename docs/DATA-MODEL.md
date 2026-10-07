@@ -50,7 +50,12 @@ neoplatonic-library/
                             numerals the scan destroyed (§3.2)
         divisions.json      WHERE THE DIVISIONS STAND: one entry per division
                             (line, book, chapter, label, anchor, confidence,
-                            evidence), derived by tools/divisions.mjs (§3.2)
+                            evidence), derived by tools/divisions.mjs (§3.2).
+                            VERSIONED WITH THE EDITION: a version holding its
+                            own versions/<v>/divisions.json is served that
+                            model; the edition-level file is the fallback for
+                            a single-version edition, and is REFUSED for a
+                            version of a multi-version edition (§3.2)
         vocab-allow.txt     the words the vocabulary check allows for this text
         scans/              THE EDITION'S WHOLE SCAN, one image per leaf:
                             `nNNN.jpg` = archive leaf NNN, every leaf of the
@@ -323,7 +328,14 @@ RESTART at I in every book, and the scan wrote the numerals as `CHAP. au.`,
   derived by `tools/divisions.mjs` from `heads.json`, the item's own `_djvu.xml`
   (fingerprinted against `source.txt`, so a leaf's position is MEASURED, not
   inferred from order or from a page number), and the print's second transcription
-  as a cross-check.
+  as a cross-check. **The model is versioned with the edition**: a version that
+  holds its own `versions/<v>/divisions.json` is served THAT model — the one its
+  DOI names — and the edition-level file is the fallback for an edition (or a
+  version) that has none of its own. For a MULTI-VERSION edition the fallback is
+  REFUSED, not used: a version with no model of its own would silently inherit
+  the edition-level file after that file has moved on, and the pinned page would
+  serve a structure its DOI does not name (`divisionsPath` in `tools/extract.mjs`,
+  asserted by `tools/divisions-probe.mjs` §6).
 
 ```jsonc
 {

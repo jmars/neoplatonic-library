@@ -45,8 +45,17 @@
  *     and the pinned anchors must still match. FAILS IF the classifier
  *     stops firing, the carve-out stops sparing, a line of the book's own
  *     text is eaten, or an anchor moves.
+ *
+ *  6. THE DIVISION MODEL IS VERSION-AWARE. The edition is multi-version and the
+ *     model is versioned with it: every version holds its OWN divisions.json
+ *     (the build REFUSES the state where one does not — a pinned page must
+ *     never silently inherit the edition-level file after it has moved on),
+ *     each version's document is built from ITS file, and the two models
+ *     frozen at the same state are byte-identical to each other. FAILS IF a
+ *     version is missing its model, the extractor serves another file than the
+ *     version's own, or the frozen copies diverge.
  */
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -65,6 +74,8 @@ import {
   anchorLists,
   anchorHash,
   ANCHOR_DIR,
+  divisionsPath,
+  versionDivisionsPath,
 } from './extract.mjs';
 import { TEXTS } from './shelf.mjs';
 import { rawBlocks, joinLines, isFurnitureJunk } from './reader.mjs';
@@ -495,7 +506,10 @@ const flatOfRaw = [];
   let f = 0;
   for (let i = 0; i < raw.length; i++) flatOfRaw[i] = raw[i].trim() !== '' ? f++ : -1;
 }
-const divisions = JSON.parse(readFileSync(join(ROOT, 'data', 'editions', SLUG, 'divisions.json'), 'utf8'));
+/* The model the SERVED document is built from: resolved version-aware, so the
+ * carve-out below is recomputed from the same model the extraction read (the
+ * current version's own file, not the edition-level working copy). */
+const divisions = JSON.parse(readFileSync(divisionsPath(SLUG, editionRecord(SLUG).current_version), 'utf8'));
 const divAt = new Map();
 for (const d of divisions.divisions) divAt.set(flatOfRaw[d.line - 1], d);
 const divFlat = [...divAt.keys()].sort((a, b) => a - b);
@@ -785,6 +799,47 @@ for (const control of [
     pinned.hash === hash && JSON.stringify(pinned.sections) === JSON.stringify(lists.sections),
     `the pinned anchor manifest still matches (${lists.sections.length} sections, ${lists.pages.length} pages, hash ${hash.slice(0, 12)}…)`,
   );
+}
+
+/* ---------- 6. the division model is version-aware ---------- */
+
+section('6. the division model is version-aware (a pinned version serves its own)');
+/* The edition is multi-version and the model is versioned with it: every
+ * version holds its OWN divisions.json — the build refuses the state where one
+ * does not, because a pinned page inheriting the edition-level file after that
+ * file has moved on would serve a structure its DOI does not name — each
+ * version's document is built from ITS file, and the two models frozen at the
+ * same state are byte-identical to each other. */
+const versions = readdirSync(join(ROOT, 'data', 'editions', SLUG, 'versions'), { withFileTypes: true })
+  .filter((d) => d.isDirectory())
+  .map((d) => d.name)
+  .sort();
+check(versions.length > 1, `the edition is multi-version (${versions.join(', ')})`);
+for (const v of versions) {
+  check(existsSync(versionDivisionsPath(SLUG, v)), `v${v} holds its own division model (versions/${v}/divisions.json)`);
+}
+for (const v of versions) {
+  /* a version whose model is missing is already FAILED above; do not crash on
+   * it here — the failure list must stay complete */
+  if (!existsSync(versionDivisionsPath(SLUG, v))) continue;
+  const s = readEdition(SLUG, v);
+  const d = extract(s, { entry: t, sha256: sha256(s), version: v });
+  const model = JSON.parse(readFileSync(versionDivisionsPath(SLUG, v), 'utf8'));
+  const secs = d.blocks.filter((b) => b.t === 'sec');
+  check(
+    secs.length === model.divisions.length &&
+      secs.every((b, i) => b.n === model.divisions[i].n && (b.page ?? null) === (model.divisions[i].page ?? null)),
+    `v${v}: the document's ${secs.length} section(s) are built from its own model, pages included`,
+  );
+  const served = readFileSync(join(DIST, 'texts', SLUG, 'v', v, 't'), 'utf8');
+  check(serialiseDoc(d) === served, `v${v}: the served /v/${v}/t IS this extraction`);
+}
+/* the two models frozen at the same state are byte-identical to each other */
+{
+  const pa = versionDivisionsPath(SLUG, '1.0.0');
+  const pb = versionDivisionsPath(SLUG, '1.0.1');
+  const same = existsSync(pa) && existsSync(pb) && sha(readFileSync(pa)) === sha(readFileSync(pb));
+  check(same, `the models frozen for 1.0.0 and 1.0.1 are byte-identical (${same ? sha(readFileSync(pa)).slice(0, 12) : 'missing'}…)`);
 }
 
 console.log(`\n${fails === 0 ? 'DIVISIONS PROBE PASSED' : `${fails} CHECK(S) FAILED`}`);
