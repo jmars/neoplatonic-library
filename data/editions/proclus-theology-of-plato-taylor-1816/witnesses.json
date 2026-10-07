@@ -68,6 +68,90 @@
       "bytes": 1281618,
       "why": "the transcription this edition SERVED until 2026-10-05 (vol. II, printed pp. 1-299 to the work's close): the item 'taylor-theology-of-plato-en-t.-2-1816' is an independent scan of the same 1816 print. It is the ONLY other copy of these pages this library holds -- Books VI-VII stand in no other copy but the source -- so for that part of the work it is the only independent witness there is, MEASURED at 84.9% of its tokens being dictionary words against the source copy's 97.5%.",
       "imported": "2026-10-05"
+    },
+    {
+      "name": "gutenberg-77393-vol1",
+      "sha256": "cfda3e701288740b0852305c51679e6537960ec6ad3b8e3a3441e463f30f0f9f",
+      "bytes": 1145508,
+      "why": "the vol. 1 of 2 of the SAME 1816 print, HUMAN-PROOFREAD (Distributed Proofreaders, via Project Gutenberg eBook #77393): it covers vol. I of the 1816 print — its printed pp. 1-425, the edition’s own vol. I half (Books I-V). An independent reading of the same pages this edition transcribes — not another OCR pass — so where this edition's transcription is damaged and PG reads the place cleanly, PG settles the READING (never the typography: it is re-flowed and editorially normalised, and it carries no page, line or leaf model).",
+      "imported": "2026-10-07",
+      "source": {
+        "ebook": 77393,
+        "volume": "vol. 1 of 2",
+        "url": "https://www.gutenberg.org/cache/epub/77393/pg77393.txt",
+        "released": "2025-12-03",
+        "credit": "Karin Spence and the Online Distributed Proofreading Team at https://www.pgdp.net (This book was produced from images made available by the HathiTrust Digital Library.)",
+        "print": "London: Law and Co., 1816 — the same print this edition is edited from",
+        "fetched": {
+          "bytes": 1177047,
+          "sha256": "243e2cd63e2b162bacaba357d04ed1c340f0947273c1b53728b59dceb34789ce",
+          "note": "PG’s own bytes, as fetched. The STORED file is the trim of these bytes below, so its sha256 is not PG’s."
+        },
+        "trim": {
+          "rule": "from the *** START OF THE PROJECT GUTENBERG EBOOK … *** line through the *** END OF … *** line, both kept",
+          "trimmed_before_marker_bytes": 1657,
+          "trimmed_after_marker_bytes": 29882,
+          "head_first_line": "The Project Gutenberg eBook of The six books of Proclus, the Platonic successor, on the theology of Plato (vol. 1 of 2)",
+          "stored_bytes": 1145508,
+          "stored_sha256": "cfda3e701288740b0852305c51679e6537960ec6ad3b8e3a3441e463f30f0f9f"
+        },
+        "licence": "The 1816 print is public domain. The FILE is a Project Gutenberg eBook (PG), which is its own edition: PG releases it under the Project Gutenberg License (United States) with the header and footer carrying the terms, and this library holds it under those terms — the boilerplate is not stored, the work itself is, the PG identity of the volume (ebook number, release date, credit, url) is recorded here and PG’s own sha256 of the fetched file is recorded beside it, so the text stays traceable to the PG edition it is. The witness files are evidence, never served: the build does not read them (tools/extract.mjs reads witnesses.json for a rule’s evidence path only), and no witness text is published by this repo."
+      },
+      "form": {
+        "reflowed": true,
+        "witness_level": "word",
+        "no_model_block": "THIS RECORD HAS NO `model` BLOCK, AND THAT IS THE MEASUREMENT. Every other witness here carries one: the leaf model of an archive.org item’s own _djvu.xml (covers/leaves/pages/images), which is what places a copy’s printed page beside ours. Project Gutenberg gives a RE-FLOWED READING TEXT — the line breaks are PG’s, the pages are not marked, and there is no leaf to point at — so it has no page model to record and none is invented. This witness is WORD-LEVEL ONLY: it can say whether a passage’s WORDS are in this volume and what they are there, and it can settle a reading by fingerprinting a token run that occurs exactly once (tools/pg-locate.mjs). It canNOT witness a printed page number, a running head, a leaf, a line, or a hyphenation at line end, and it cannot settle a page/leaf question (e.g. “chap. nr.” vs “CHAP. IV.”).",
+        "tools_that_skip_it_deliberately": [
+          "tools/witness-unsure.mjs filters `witnesses` by `w.model` (the page-image route) — a witness with no leaf model has no page to fetch, so it is EXCLUDED there by name, not by accident.",
+          "tools/vision-unsure.mjs takes the FIRST witness in this file that has a file on disk as “the witness” for its corroboration test — so ORDER MATTERS, and these two are appended LAST: the witness that tool reads is unchanged by this import.",
+          "tools/vocab.mjs and tools/witness-unsure.mjs read EVERY witness’s text for the print’s own vocabulary, so these two volumes WIDEN that vocabulary (see the PROGRESS observation of 2026-10-07 in the handoff record for the measured size of the change).",
+          "tools/extract.mjs witnessPath() matches a witness by the SHELF filename a rule names — PG witnesses have none, so no existing rule’s evidence path changes.",
+          "tools/divisions.mjs reads a witness only where --witness FILE names one explicitly; it never reads this file.",
+          "tools/shelf.mjs and build/migrate.mjs read this record for its prose (name/why), not for a model."
+        ]
+      }
+    },
+    {
+      "name": "gutenberg-78800-vol2",
+      "sha256": "141b1812acc500169fdda39653b81411e7693b8497bf17e3823359ce2e5d6813",
+      "bytes": 1317738,
+      "why": "the vol. 2 of 2 of the SAME 1816 print, HUMAN-PROOFREAD (Distributed Proofreaders, via Project Gutenberg eBook #78800): it covers vol. II of the 1816 print — its printed pp. 1-299+ to the work’s close, and the ONLY witness this library holds of it: Books VI-VII stand in no other copy but the source transcription, and the two further archive.org copies are vol. I only. An independent reading of the same pages this edition transcribes — not another OCR pass — so where this edition's transcription is damaged and PG reads the place cleanly, PG settles the READING (never the typography: it is re-flowed and editorially normalised, and it carries no page, line or leaf model).",
+      "imported": "2026-10-07",
+      "source": {
+        "ebook": 78800,
+        "volume": "vol. 2 of 2",
+        "url": "https://www.gutenberg.org/cache/epub/78800/pg78800.txt",
+        "released": "2026-06-02",
+        "credit": "Karin Spence and the Online Distributed Proofreading Team at https://www.pgdp.net (This book was produced from images made available by the HathiTrust Digital Library.)",
+        "print": "London: Law and Co., 1816 — the same print this edition is edited from",
+        "fetched": {
+          "bytes": 1352533,
+          "sha256": "36d17e60316c4e5632d7bf5612faaab083ac2c30152d7f1b67e1452a602dd904",
+          "note": "PG’s own bytes, as fetched. The STORED file is the trim of these bytes below, so its sha256 is not PG’s."
+        },
+        "trim": {
+          "rule": "from the *** START OF THE PROJECT GUTENBERG EBOOK … *** line through the *** END OF … *** line, both kept",
+          "trimmed_before_marker_bytes": 1653,
+          "trimmed_after_marker_bytes": 33142,
+          "head_first_line": "The Project Gutenberg eBook of The six books of Proclus, the Platonic successor, on the theology of Plato (vol. 2 of 2)",
+          "stored_bytes": 1317738,
+          "stored_sha256": "141b1812acc500169fdda39653b81411e7693b8497bf17e3823359ce2e5d6813"
+        },
+        "licence": "The 1816 print is public domain. The FILE is a Project Gutenberg eBook (PG), which is its own edition: PG releases it under the Project Gutenberg License (United States) with the header and footer carrying the terms, and this library holds it under those terms — the boilerplate is not stored, the work itself is, the PG identity of the volume (ebook number, release date, credit, url) is recorded here and PG’s own sha256 of the fetched file is recorded beside it, so the text stays traceable to the PG edition it is. The witness files are evidence, never served: the build does not read them (tools/extract.mjs reads witnesses.json for a rule’s evidence path only), and no witness text is published by this repo."
+      },
+      "form": {
+        "reflowed": true,
+        "witness_level": "word",
+        "no_model_block": "THIS RECORD HAS NO `model` BLOCK, AND THAT IS THE MEASUREMENT. Every other witness here carries one: the leaf model of an archive.org item’s own _djvu.xml (covers/leaves/pages/images), which is what places a copy’s printed page beside ours. Project Gutenberg gives a RE-FLOWED READING TEXT — the line breaks are PG’s, the pages are not marked, and there is no leaf to point at — so it has no page model to record and none is invented. This witness is WORD-LEVEL ONLY: it can say whether a passage’s WORDS are in this volume and what they are there, and it can settle a reading by fingerprinting a token run that occurs exactly once (tools/pg-locate.mjs). It canNOT witness a printed page number, a running head, a leaf, a line, or a hyphenation at line end, and it cannot settle a page/leaf question (e.g. “chap. nr.” vs “CHAP. IV.”).",
+        "tools_that_skip_it_deliberately": [
+          "tools/witness-unsure.mjs filters `witnesses` by `w.model` (the page-image route) — a witness with no leaf model has no page to fetch, so it is EXCLUDED there by name, not by accident.",
+          "tools/vision-unsure.mjs takes the FIRST witness in this file that has a file on disk as “the witness” for its corroboration test — so ORDER MATTERS, and these two are appended LAST: the witness that tool reads is unchanged by this import.",
+          "tools/vocab.mjs and tools/witness-unsure.mjs read EVERY witness’s text for the print’s own vocabulary, so these two volumes WIDEN that vocabulary (see the PROGRESS observation of 2026-10-07 in the handoff record for the measured size of the change).",
+          "tools/extract.mjs witnessPath() matches a witness by the SHELF filename a rule names — PG witnesses have none, so no existing rule’s evidence path changes.",
+          "tools/divisions.mjs reads a witness only where --witness FILE names one explicitly; it never reads this file.",
+          "tools/shelf.mjs and build/migrate.mjs read this record for its prose (name/why), not for a model."
+        ]
+      }
     }
   ]
 }
