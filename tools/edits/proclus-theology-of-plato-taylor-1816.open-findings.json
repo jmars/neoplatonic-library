@@ -1,0 +1,199 @@
+{
+ "slug": "proclus-theology-of-plato-taylor-1816",
+ "tool": "the Project Gutenberg witnesses through tools/pg-locate.mjs; folded by tools/merge.mjs; the evidence stamped by tools/pg-act.mjs --stamp-open",
+ "what": "the OPEN QUESTIONS the human-proofread witness ANSWERS with a reading \u2014 the find is the transcription\u2019s damaged words, the replace is the print\u2019s own words as the witness reads them",
+ "batch": {
+  "file": "/var/tmp/pg-locate/open-r24.json",
+  "derived_by": "node tools/pg-locate.mjs proclus-theology-of-plato-taylor-1816 --what open --version 1.0.3 --slide 24"
+ },
+ "findings": [
+  {
+   "open_question": "open[131]",
+   "leaf": "v2-n787",
+   "volume": "vol2",
+   "tight": false,
+   "slide": {
+    "left": 14,
+    "right": 0
+   },
+   "find": "fatting into a rare partial subsistence",
+   "replace": "falling into a more partial subsistence",
+   "class": "reading",
+   "decided_by": "witness",
+   "note": "PG reads \"falling into a more partial subsistence\" where the transcription has \"fatting into a rare partial subsistence\" \u2014 two misread words, both settled by the print's own words",
+   "evidence_note": "the witness\u2019s own words at the point: [\"falling\",\"into\",\"a\",\"more\",\"partial\",\"subsistence\"]",
+   "witness_evidence": {
+    "kind": "witness",
+    "witness": "gutenberg-78800-vol2",
+    "ebook": 78800,
+    "url": "https://www.gutenberg.org/ebooks/78800",
+    "source": "Karin Spence and the Online Distributed Proofreading Team at https://www.pgdp.net (This book was produced from images made available by the HathiTrust Digital Library.)",
+    "volume": "vol2",
+    "form": "WORD-LEVEL transcription of the print, human-proofread: no page, line, running head, mark or word-space is modelled",
+    "placement": "a bound moved 14 token(s) off the damaged words (slide 14/0)",
+    "reads": "falling into a more partial subsistence",
+    "quote": "third souls are of themselves alone but through falling into a more partial subsistence are by no means comprehensive of others for",
+    "why": "the reading this rule records is the witness\u2019s own words at the point"
+   }
+  },
+  {
+   "open_question": "open[164]",
+   "leaf": "v2-n725",
+   "volume": "vol2",
+   "tight": true,
+   "slide": {
+    "left": 0,
+    "right": 0
+   },
+   "find": "the divine conception of Platoi",
+   "replace": "the divine conception of Plato",
+   "class": "reading",
+   "decided_by": "witness",
+   "note": "PG reads \"the divine conception of plato\" \u2014 the transcription's trailing i is not in the print",
+   "evidence_note": "the witness\u2019s own words at the point: [\"the\",\"divine\",\"conception\",\"of\",\"plato\",\"orpheus\"]",
+   "witness_evidence": {
+    "kind": "witness",
+    "witness": "gutenberg-78800-vol2",
+    "ebook": 78800,
+    "url": "https://www.gutenberg.org/ebooks/78800",
+    "source": "Karin Spence and the Online Distributed Proofreading Team at https://www.pgdp.net (This book was produced from images made available by the HathiTrust Digital Library.)",
+    "volume": "vol2",
+    "form": "WORD-LEVEL transcription of the print, human-proofread: no page, line, running head, mark or word-space is modelled",
+    "placement": "both bounds stand hard against the point (slide 0/0)",
+    "reads": "the divine conception of plato orpheus",
+    "quote": "the impartible in order that we may understand the divine conception of plato orpheus therefore establishes one demiurgus of every divisible fabrication",
+    "why": "the reading this rule records is the witness\u2019s own words at the point"
+   }
+  },
+  {
+   "open_question": "open[157]",
+   "leaf": "v2-n685",
+   "volume": "vol2",
+   "tight": true,
+   "slide": {
+    "left": 0,
+    "right": 0
+   },
+   "find": "but they kit generation",
+   "replace": "but they left generation",
+   "class": "reading",
+   "decided_by": "witness",
+   "note": "PG reads \"but they left generation\" where the transcription has \"kit\" \u2014 a misread of the print's \"left\"",
+   "evidence_note": "the witness\u2019s own words at the point: [\"but\",\"they\",\"left\",\"generation\",\"as\",\"being\",\"very\",\"mutable\",\"and\",\"indefinite\",\"deprived\",\"of\",\"providential\",\"inspection\"]",
+   "witness_evidence": {
+    "kind": "witness",
+    "witness": "gutenberg-78800-vol2",
+    "ebook": 78800,
+    "url": "https://www.gutenberg.org/ebooks/78800",
+    "source": "Karin Spence and the Online Distributed Proofreading Team at https://www.pgdp.net (This book was produced from images made available by the HathiTrust Digital Library.)",
+    "volume": "vol2",
+    "form": "WORD-LEVEL transcription of the print, human-proofread: no page, line, running head, mark or word-space is modelled",
+    "placement": "both bounds stand hard against the point (slide 0/0)",
+    "reads": "but they left generation as being very mutable and indefinite deprived of providential inspection",
+    "quote": "orderly motions participate of intellect and the gods but they left generation as being very mutable and indefinite deprived of providential inspection in order therefore that we might not be",
+    "why": "the reading this rule records is the witness\u2019s own words at the point"
+   }
+  },
+  {
+   "open_question": "open[5]",
+   "leaf": "v1-n354",
+   "volume": "vol1",
+   "tight": true,
+   "slide": {
+    "left": 0,
+    "right": 0
+   },
+   "find": "muaumetha",
+   "replace": "muoumetha",
+   "class": "reading",
+   "decided_by": "witness",
+   "note": "PG reads the print's transliteration of the Greek as \"muoumetha\"; the transcription's \"muaumetha\" is the form the vision pass could not settle",
+   "evidence_note": "the witness\u2019s own words at the point: [\"but\",\"we\",\"view\",\"with\",\"closed\",\"eyes\",\"i\",\"e\",\"with\",\"the\",\"pure\",\"soul\",\"itself\",\"muoumetha\",\"entire\",\"and\",\"stable\",\"appearances\"]",
+   "witness_evidence": {
+    "kind": "witness",
+    "witness": "gutenberg-77393-vol1",
+    "ebook": 77393,
+    "url": "https://www.gutenberg.org/ebooks/77393",
+    "source": "Karin Spence and the Online Distributed Proofreading Team at https://www.pgdp.net (This book was produced from images made available by the HathiTrust Digital Library.)",
+    "volume": "vol1",
+    "form": "WORD-LEVEL transcription of the print, human-proofread: no page, line, running head, mark or word-space is modelled",
+    "placement": "both bounds stand hard against the point (slide 0/0)",
+    "reads": "but we view with closed eyes i e with the pure soul itself muoumetha entire and stable appearances",
+    "quote": "initiated teleioumetha in ascending by the perfective gods but we view with closed eyes i e with the pure soul itself muoumetha entire and stable appearances through the connective gods with whom there is",
+    "why": "the reading this rule records is the witness\u2019s own words at the point"
+   }
+  },
+  {
+   "open_question": "open[233]",
+   "leaf": "v2-n802",
+   "volume": "vol2",
+   "tight": true,
+   "slide": {
+    "left": 0,
+    "right": 0
+   },
+   "find": "the sublunary region xorpof kotrnos, the world",
+   "replace": "the sublunary region kosmos, the world",
+   "class": "reading",
+   "decided_by": "witness",
+   "note": "PG reads \"the sublunary region kosmos\" where the transcription has two garbled words \"xorpof kotrnos\"",
+   "evidence_note": "the witness\u2019s own words at the point: [\"for\",\"some\",\"alone\",\"called\",\"the\",\"sublunary\",\"region\",\"kosmos\",\"the\",\"world\"]",
+   "witness_evidence": {
+    "kind": "witness",
+    "witness": "gutenberg-78800-vol2",
+    "ebook": 78800,
+    "url": "https://www.gutenberg.org/ebooks/78800",
+    "source": "Karin Spence and the Online Distributed Proofreading Team at https://www.pgdp.net (This book was produced from images made available by the HathiTrust Digital Library.)",
+    "volume": "vol2",
+    "form": "WORD-LEVEL transcription of the print, human-proofread: no page, line, running head, mark or word-space is modelled",
+    "placement": "both bounds stand hard against the point (slide 0/0)",
+    "reads": "for some alone called the sublunary region kosmos the world",
+    "quote": "were attended with much ambiguity with the ancients for some alone called the sublunary region kosmos the world and the region above it ouranos heaven but",
+    "why": "the reading this rule records is the witness\u2019s own words at the point"
+   },
+   "already_settled_by": {
+    "rule": "proclus-theology-of-plato-taylor-1816:r11656",
+    "find": "xorpof kotrn",
+    "after": "\u03ba\u03cc\u03c3\u03bc\u03bf\u03c2 kosm",
+    "effect": "the rule replaces \u00abxorpof kotrn\u00bb with \u00ab\u03ba\u03cc\u03c3\u03bc\u03bf\u03c2 kosm\u00bb, so the transcription\u2019s \u00abxorpof kotrnos\u00bb becomes \u00ab\u03ba\u03cc\u03c3\u03bc\u03bf\u03c2 kosmos\u00bb \u2014 the print\u2019s GREEK, read from the page image (leaf v2-n802)",
+    "agreement": "the witness reads \u00abkosmos\u00bb at that very leaf, so an outside human-proofread transcription of the print and this edition\u2019s own page image agree"
+   }
+  },
+  {
+   "open_question": "open[254]",
+   "leaf": "v2-n576",
+   "volume": "vol2",
+   "tight": true,
+   "slide": {
+    "left": 0,
+    "right": 0
+   },
+   "find": "always follow* the Gods",
+   "replace": "always follows* the Gods",
+   "class": "reading",
+   "decided_by": "witness",
+   "note": "PG reads \"always follows the gods\" \u2014 the print's verb carries its s, which the transcription lost",
+   "evidence_note": "the witness\u2019s own words at the point: [\"that\",\"which\",\"is\",\"willing\",\"and\",\"able\",\"always\",\"follows\",\"the\",\"gods\"]",
+   "witness_evidence": {
+    "kind": "witness",
+    "witness": "gutenberg-78800-vol2",
+    "ebook": 78800,
+    "url": "https://www.gutenberg.org/ebooks/78800",
+    "source": "Karin Spence and the Online Distributed Proofreading Team at https://www.pgdp.net (This book was produced from images made available by the HathiTrust Digital Library.)",
+    "volume": "vol2",
+    "form": "WORD-LEVEL transcription of the print, human-proofread: no page, line, running head, mark or word-space is modelled",
+    "placement": "both bounds stand hard against the point (slide 0/0)",
+    "reads": "that which is willing and able always follows the gods",
+    "quote": "as they are able for as socrates says that which is willing and able always follows the gods through these things therefore we have reminded the",
+    "why": "the reading this rule records is the witness\u2019s own words at the point"
+   },
+   "already_settled_by": {
+    "rule": "proclus-theology-of-plato-taylor-1816:r10940",
+    "find": "follow*",
+    "after": "follows",
+    "effect": "the rule replaces \u00abfollow*\u00bb with \u00abfollows\u00bb",
+    "agreement": "the witness reads \u00abalways follows the gods\u00bb, so it agrees with the rule \u2014 and that rule IS one of the 1,265 the witness cleared in this version, so its evidence already names this witness"
+   }
+  }
+ ]
+}

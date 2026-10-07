@@ -239,21 +239,35 @@ const editionHeading = (t) =>
   (t.translator ? `, tr. ${esc(t.translator)}` : '') +
   `</h3>`;
 
+/** A LEAF ENTRY IS AN ENTRY THAT NAMES A LEAF (see build/apparatus.mjs). A rule
+ * may also carry a WITNESS entry — an outside transcription of the print the
+ * reading was checked against — which has no leaf and is stated separately. */
+const isLeafEntry = (e) => e && e.leaf != null;
+
 /** The leaf a rule records, or the honest statement that it rests on none
  * (model §0.4: an empty state is stated, never omitted). */
 function evidenceNote(r) {
   const evs = Array.isArray(r.evidence) ? r.evidence : [];
-  if (!evs.length) return 'no page image is held for this reading';
+  const leaves = evs.filter(isLeafEntry);
+  const wit = evs.filter((e) => !isLeafEntry(e));
+  const w =
+    wit.length && wit.some((e) => e.witness)
+      ? '; the reading is checked against the human-proofread Project Gutenberg transcription of the same print (' +
+        [...new Set(wit.map((e) => e.witness).filter(Boolean))].join(', ') +
+        ')'
+      : '';
+  if (!leaves.length) return `no page image is held for this reading${w}`;
   return (
     'read from ' +
-    evs
+    leaves
       .map(
         (e) =>
           `archive leaf n${e.leaf}` +
           (e.page != null ? ` · printed page ${e.page}` : '') +
           (e.exists ? '' : ' (not held)'),
       )
-      .join('; ')
+      .join('; ') +
+    w
   );
 }
 
@@ -349,7 +363,7 @@ export function buildErrataPage(served) {
   const unheld = served.map((t) => {
     const rows = [];
     for (const r of repairsOf(t).rules) {
-      for (const e of Array.isArray(r.evidence) ? r.evidence : []) {
+      for (const e of (Array.isArray(r.evidence) ? r.evidence : []).filter(isLeafEntry)) {
         if (e.exists) continue;
         const id = r.id.split(':')[1];
         const cap = `archive leaf n${e.leaf}${e.page != null ? ` · printed page ${e.page}` : ''}`;

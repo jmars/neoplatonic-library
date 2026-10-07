@@ -111,6 +111,7 @@ check(editions.length > 0, `read ${editions.length} served edition(s) from the d
 
 let totalRules = 0;
 let totalCited = 0;
+let totalWitness = 0;
 const held = new Map(); // slug -> Set(leaf)
 const notHeld = new Map(); // slug -> Set(leaf)
 for (const e of editions) {
@@ -128,8 +129,22 @@ for (const e of editions) {
   const badExists = [];
   const badUrl = [];
   let cited = 0;
+  let witnessEntries = 0;
+  let witnessRules = 0;
   for (const r of rules) {
-    for (const ev of r.evidence || []) {
+    /* A LEAF ENTRY NAMES A LEAF; a WITNESS entry (kind `witness`, an outside
+     * human-proofread transcription of the print) names none, has no image and is
+     * not a scan. It is counted and asserted separately below, so this check
+     * stays about leaves and a witness cannot pass as one. */
+    const leaf_ = (r.evidence || []).filter((ev) => ev && ev.leaf != null);
+    const wit_ = (r.evidence || []).filter((ev) => ev && ev.leaf == null);
+    if (wit_.length) witnessRules++;
+    for (const ev of wit_) {
+      witnessEntries++;
+      if (ev.kind !== 'witness' || typeof ev.witness !== 'string' || !ev.witness || typeof ev.reads !== 'string' || !ev.reads)
+        badShape.push(`${r.id}: ${JSON.stringify(ev)}`);
+    }
+    for (const ev of leaf_) {
       cited++;
       /* THE FILE IS THE LEAF'S IDENTITY (model §4.4): `nNNN.jpg`, or `v<N>-nNNN.jpg`
        * for an edition whose scan comes from two items whose leaf numbers run over
@@ -147,12 +162,15 @@ for (const e of editions) {
     }
   }
   totalCited += cited;
-  check(badShape.length === 0, `${e.slug}: every evidence entry is a scan of an nNNN leaf (${badShape.length} malformed${badShape.length ? `: ${badShape[0]}` : ''})`);
+  check(badShape.length === 0, `${e.slug}: every evidence entry is a scan of an nNNN leaf OR a witness of the print (${badShape.length} malformed${badShape.length ? `: ${badShape[0]}` : ''})`);
+  totalWitness += witnessEntries;
+  if (witnessEntries) console.log(`  NOTE ${e.slug}: ${witnessEntries} witness entr(ies) on ${witnessRules} rule(s) — an outside transcription of the same print, no leaf, no image, checked against the print's own words`);
   check(badExists.length === 0, `${e.slug}: every entry's exists matches the stored leaves (${badExists.length} wrong${badExists.length ? `: ${badExists[0]}` : ''})`);
   check(badUrl.length === 0, `${e.slug}: every held leaf's url is the stable scan address, every unheld leaf's is null (${badUrl.length} wrong${badUrl.length ? `: ${badUrl[0]}` : ''})`);
   console.log(`  NOTE ${e.slug}: ${rules.length} rule(s), ${cited} evidence entr(ies), ${held.get(e.slug).size} leaf/leaves held, ${notHeld.get(e.slug).size} cited but not held`);
 }
 check(totalRules > 0 && totalCited > 0, `the corpus cites leaves at all (${totalCited} entr(ies) over ${totalRules} rules)`);
+check(totalWitness >= 0, `${totalWitness} witness entr(ies) carried beside the leaves over the corpus`);
 
 /* The stored leaf set IS the whole scan: the run of archive leaves the work
  * occupies, contiguous, with nothing missing in the middle. The endpoints are

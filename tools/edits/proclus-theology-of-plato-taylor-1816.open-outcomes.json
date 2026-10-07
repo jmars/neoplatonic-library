@@ -1,0 +1,816 @@
+{
+ "slug": "proclus-theology-of-plato-taylor-1816",
+ "tool": "tools/pg-act.mjs --stamp-open",
+ "batch": "/var/tmp/pg-locate/open-r24.json",
+ "n": 80,
+ "by_class": {
+  "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)": 37,
+  "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it": 9,
+  "SETTLED — the witness supplies the reading (a rule in this version)": 6,
+  "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word": 11,
+  "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)": 11,
+  "not settled — the only difference is a NUMERAL (a footnote or page number), which a re-flowed witness renumbers": 6
+ },
+ "outcomes": [
+  {
+   "open_question": "open[0]",
+   "leaf": "v1-n77",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 12,
+   "witness_tokens": 15,
+   "witness_reads": "a divinelyinspired mind from these he 83 who after the gods has been our leader"
+  },
+  {
+   "open_question": "open[1]",
+   "leaf": "v1-n98",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 2,
+   "witness_tokens": 9,
+   "witness_reads": "a serious undertaking and not a contest consisting in"
+  },
+  {
+   "open_question": "open[3]",
+   "leaf": "v1-n299",
+   "volume": "vol1",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 9,
+   "witness_tokens": 9,
+   "witness_reads": "and that they should uniformly connect the various progressions"
+  },
+  {
+   "open_question": "open[5]",
+   "leaf": "v1-n354",
+   "volume": "vol1",
+   "tight": true,
+   "class": "SETTLED — the witness supplies the reading (a rule in this version)",
+   "ours_windows": 18,
+   "witness_tokens": 18,
+   "witness_reads": "but we view with closed eyes i e with the pure soul itself muoumetha entire and stable appearances"
+  },
+  {
+   "open_question": "open[6]",
+   "leaf": "v1-n354",
+   "volume": "vol1",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 22,
+   "witness_tokens": 22,
+   "witness_reads": "and we become fixed in and spectators of epopteuomen the intelligible watch tower through the gods who are the collectors of wholes"
+  },
+  {
+   "open_question": "open[10]",
+   "leaf": "v1-n484",
+   "volume": "vol1",
+   "tight": true,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 6,
+   "witness_tokens": 5,
+   "witness_reads": "the core i e virgin"
+  },
+  {
+   "open_question": "open[11]",
+   "leaf": "v1-n485",
+   "volume": "vol1",
+   "tight": true,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 6,
+   "witness_tokens": 6,
+   "witness_reads": "for koron as socrates 294 says"
+  },
+  {
+   "open_question": "open[29]",
+   "leaf": "v1-n159",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 3,
+   "witness_tokens": 7,
+   "witness_reads": "10th book of the republic but i"
+  },
+  {
+   "open_question": "open[36]",
+   "leaf": "v1-n414",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 2,
+   "witness_tokens": 1,
+   "witness_reads": "intelligible"
+  },
+  {
+   "open_question": "open[38]",
+   "leaf": "v2-n523",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 2,
+   "witness_tokens": 5,
+   "witness_reads": "series under themselves to a"
+  },
+  {
+   "open_question": "open[46]",
+   "leaf": "v2-n704",
+   "volume": "vol2",
+   "tight": true,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 7,
+   "witness_tokens": 6,
+   "witness_reads": "prepare a seat for the elements"
+  },
+  {
+   "open_question": "open[47]",
+   "leaf": "v2-n705",
+   "volume": "vol2",
+   "tight": true,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 7,
+   "witness_tokens": 2,
+   "witness_reads": "to card"
+  },
+  {
+   "open_question": "open[53]",
+   "leaf": "v2-n749",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 4,
+   "witness_tokens": 1,
+   "witness_reads": "a"
+  },
+  {
+   "open_question": "open[54]",
+   "leaf": "v2-n779",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 7,
+   "witness_tokens": 17,
+   "witness_reads": "all are not skilful and wise the author of the verses very properly calls wise men both"
+  },
+  {
+   "open_question": "open[55]",
+   "leaf": "v2-n780",
+   "volume": "vol2",
+   "tight": true,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 8,
+   "witness_tokens": 6,
+   "witness_reads": "because they were prudent and learned"
+  },
+  {
+   "open_question": "open[56]",
+   "leaf": "v2-n781",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 11,
+   "witness_tokens": 11,
+   "witness_reads": "our master hermes being an archangelic monad is celebrated as a"
+  },
+  {
+   "open_question": "open[67]",
+   "leaf": "v1-n260",
+   "volume": "vol1",
+   "tight": true,
+   "class": "not settled — the only difference is a NUMERAL (a footnote or page number), which a re-flowed witness renumbers",
+   "ours_windows": 6,
+   "witness_tokens": 5,
+   "witness_reads": "paradigm and in this case"
+  },
+  {
+   "open_question": "open[68]",
+   "leaf": "v1-n260",
+   "volume": "vol1",
+   "tight": true,
+   "class": "not settled — the only difference is a NUMERAL (a footnote or page number), which a re-flowed witness renumbers",
+   "ours_windows": 6,
+   "witness_tokens": 5,
+   "witness_reads": "paradigm and in this case"
+  },
+  {
+   "open_question": "open[71]",
+   "leaf": "v1-n307",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 14,
+   "witness_tokens": 20,
+   "witness_reads": "i mean essence life and intellect they are likewise the suppliers of divine perfection 211 imitating the allperfect intelligible triad"
+  },
+  {
+   "open_question": "open[73]",
+   "leaf": "v1-n443",
+   "volume": "vol1",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 3,
+   "witness_tokens": 3,
+   "witness_reads": "timaeus but jupiter"
+  },
+  {
+   "open_question": "open[84]",
+   "leaf": "v2-n645",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 3,
+   "witness_tokens": 4,
+   "witness_reads": "and are allotted a"
+  },
+  {
+   "open_question": "open[96]",
+   "leaf": "v1-n262",
+   "volume": "vol1",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 9,
+   "witness_tokens": 9,
+   "witness_reads": "of perpetual life and intellection and measures the essences"
+  },
+  {
+   "open_question": "open[100]",
+   "leaf": "v1-n327",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 2,
+   "witness_tokens": 2,
+   "witness_reads": "intelligible is"
+  },
+  {
+   "open_question": "open[110]",
+   "leaf": "v1-n445",
+   "volume": "vol1",
+   "tight": true,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 3,
+   "witness_tokens": 1,
+   "witness_reads": "dia"
+  },
+  {
+   "open_question": "open[113]",
+   "leaf": "v1-n471",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 2,
+   "witness_tokens": 1,
+   "witness_reads": "first"
+  },
+  {
+   "open_question": "open[120]",
+   "leaf": "v2-n584",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 10,
+   "witness_tokens": 16,
+   "witness_reads": "nor suffering it besides this to fly from the divine law since therefore we give a"
+  },
+  {
+   "open_question": "open[122]",
+   "leaf": "v2-n585",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 2,
+   "witness_tokens": 4,
+   "witness_reads": "all things is coequalized"
+  },
+  {
+   "open_question": "open[123]",
+   "leaf": "v2-n648",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 1,
+   "witness_tokens": 6,
+   "witness_reads": "he is honoured as the lyrist"
+  },
+  {
+   "open_question": "open[130]",
+   "leaf": "v2-n717",
+   "volume": "vol2",
+   "tight": true,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 7,
+   "witness_tokens": 3,
+   "witness_reads": "halios and concord"
+  },
+  {
+   "open_question": "open[131]",
+   "leaf": "v2-n787",
+   "volume": "vol2",
+   "tight": false,
+   "class": "SETTLED — the witness supplies the reading (a rule in this version)",
+   "ours_windows": 6,
+   "witness_tokens": 6,
+   "witness_reads": "falling into a more partial subsistence"
+  },
+  {
+   "open_question": "open[133]",
+   "leaf": "v2-n790",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 11,
+   "witness_tokens": 26,
+   "witness_reads": "time yet its being consists in becoming to be and is in a part of time but this is the or the at a certain time"
+  },
+  {
+   "open_question": "open[134]",
+   "leaf": "v2-n788",
+   "volume": "vol2",
+   "tight": true,
+   "class": "not settled — the only difference is a NUMERAL (a footnote or page number), which a re-flowed witness renumbers",
+   "ours_windows": 5,
+   "witness_tokens": 5,
+   "witness_reads": "in himself 190 its animation"
+  },
+  {
+   "open_question": "open[143]",
+   "leaf": "v1-n422",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 2,
+   "witness_tokens": 4,
+   "witness_reads": "a pure and incorruptible"
+  },
+  {
+   "open_question": "open[144]",
+   "leaf": "v1-n423",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 2,
+   "witness_tokens": 2,
+   "witness_reads": "chapter xvi"
+  },
+  {
+   "open_question": "open[150]",
+   "leaf": "v2-n594",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 1,
+   "witness_tokens": 4,
+   "witness_reads": "book vii chapter i"
+  },
+  {
+   "open_question": "open[151]",
+   "leaf": "v2-n594",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 2,
+   "witness_tokens": 4,
+   "witness_reads": "book vii chapter i"
+  },
+  {
+   "open_question": "open[156]",
+   "leaf": "v2-n686",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 18,
+   "witness_tokens": 32,
+   "witness_reads": "gads admitting the daemoniacal genus they are ignorant of the heroic order and in short this is the greatest work of science subtilly to distinguish the media and the progressions of beings"
+  },
+  {
+   "open_question": "open[157]",
+   "leaf": "v2-n685",
+   "volume": "vol2",
+   "tight": true,
+   "class": "SETTLED — the witness supplies the reading (a rule in this version)",
+   "ours_windows": 14,
+   "witness_tokens": 14,
+   "witness_reads": "but they left generation as being very mutable and indefinite deprived of providential inspection"
+  },
+  {
+   "open_question": "open[161]",
+   "leaf": "v2-n722",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 6,
+   "witness_tokens": 9,
+   "witness_reads": "the causes of these things are lovers of sport"
+  },
+  {
+   "open_question": "open[162]",
+   "leaf": "v2-n722",
+   "volume": "vol2",
+   "tight": false,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 9,
+   "witness_tokens": 12,
+   "witness_reads": "from the last of his gifts as for instance orpheus i e"
+  },
+  {
+   "open_question": "open[163]",
+   "leaf": "v2-n723",
+   "volume": "vol2",
+   "tight": false,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 5,
+   "witness_tokens": 7,
+   "witness_reads": "signifying an intellect such as and particular"
+  },
+  {
+   "open_question": "open[164]",
+   "leaf": "v2-n725",
+   "volume": "vol2",
+   "tight": true,
+   "class": "SETTLED — the witness supplies the reading (a rule in this version)",
+   "ours_windows": 6,
+   "witness_tokens": 6,
+   "witness_reads": "the divine conception of plato orpheus"
+  },
+  {
+   "open_question": "open[165]",
+   "leaf": "v2-n722",
+   "volume": "vol2",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 4,
+   "witness_tokens": 4,
+   "witness_reads": "exhibiting relaxation but others"
+  },
+  {
+   "open_question": "open[169]",
+   "leaf": "v2-n793",
+   "volume": "vol2",
+   "tight": true,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 13,
+   "witness_tokens": 9,
+   "witness_reads": "the order of the plenitudes 193 of the world"
+  },
+  {
+   "open_question": "open[171]",
+   "leaf": "v1-n94",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 8,
+   "witness_tokens": 10,
+   "witness_reads": "95 and subscribe to their always generating secondary natures from"
+  },
+  {
+   "open_question": "open[175]",
+   "leaf": "v1-n172",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 9,
+   "witness_tokens": 10,
+   "witness_reads": "a certain same passion but every thing dissimilar a certain"
+  },
+  {
+   "open_question": "open[180]",
+   "leaf": "v1-n268",
+   "volume": "vol1",
+   "tight": false,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 4,
+   "witness_tokens": 4,
+   "witness_reads": "opinion of plato concerning"
+  },
+  {
+   "open_question": "open[182]",
+   "leaf": "v1-n331",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 4,
+   "witness_tokens": 21,
+   "witness_reads": "all things to itself through divine intelligence for the banquet indeed manifests the divided distribution of divine nutriment but delicious food"
+  },
+  {
+   "open_question": "open[183]",
+   "leaf": "v1-n331",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 3,
+   "witness_tokens": 17,
+   "witness_reads": "and the uniform perfection of divine selfsufficiency chapter xvi concerning these things therefore thus much may suffice"
+  },
+  {
+   "open_question": "open[184]",
+   "leaf": "v1-n382",
+   "volume": "vol1",
+   "tight": true,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 8,
+   "witness_tokens": 7,
+   "witness_reads": "giving form indeed to the inerratic sphere"
+  },
+  {
+   "open_question": "open[188]",
+   "leaf": "v2-n506",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 4,
+   "witness_tokens": 4,
+   "witness_reads": "a summit and subsist"
+  },
+  {
+   "open_question": "open[191]",
+   "leaf": "v2-n569",
+   "volume": "vol2",
+   "tight": true,
+   "class": "not settled — the only difference is a NUMERAL (a footnote or page number), which a re-flowed witness renumbers",
+   "ours_windows": 9,
+   "witness_tokens": 10,
+   "witness_reads": "the multitude of intelligible souls 45 to an undefiled life"
+  },
+  {
+   "open_question": "open[192]",
+   "leaf": "v2-n597",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the only difference is a NUMERAL (a footnote or page number), which a re-flowed witness renumbers",
+   "ours_windows": 35,
+   "witness_tokens": 35,
+   "witness_reads": "saturn is attributed to ceres aether to pallas and heaven is common to them all and thus much concerning the mundane gods in general the sources of their progression their orders powers and spheres 65"
+  },
+  {
+   "open_question": "open[194]",
+   "leaf": "v2-n763",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 9,
+   "witness_tokens": 7,
+   "witness_reads": "a declination to multitude and motion a"
+  },
+  {
+   "open_question": "open[196]",
+   "leaf": "v2-n800",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 5,
+   "witness_tokens": 5,
+   "witness_reads": "virtue one indeed is unical"
+  },
+  {
+   "open_question": "open[197]",
+   "leaf": "v2-n801",
+   "volume": "vol2",
+   "tight": true,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 2,
+   "witness_tokens": 1,
+   "witness_reads": "199"
+  },
+  {
+   "open_question": "open[204]",
+   "leaf": "v1-n268",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 3,
+   "witness_tokens": 3,
+   "witness_reads": "concerning their order"
+  },
+  {
+   "open_question": "open[205]",
+   "leaf": "v1-n269",
+   "volume": "vol1",
+   "tight": true,
+   "class": "not settled — the only difference is a NUMERAL (a footnote or page number), which a re-flowed witness renumbers",
+   "ours_windows": 6,
+   "witness_tokens": 6,
+   "witness_reads": "shine forth secondarily 196 after forms"
+  },
+  {
+   "open_question": "open[210]",
+   "leaf": "v1-n332",
+   "volume": "vol1",
+   "tight": false,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 6,
+   "witness_tokens": 9,
+   "witness_reads": "and the pabulum is indeed nutriment but in a"
+  },
+  {
+   "open_question": "open[220]",
+   "leaf": "v2-n600",
+   "volume": "vol2",
+   "tight": false,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 6,
+   "witness_tokens": 7,
+   "witness_reads": "the wholeness of the elements has a"
+  },
+  {
+   "open_question": "open[221]",
+   "leaf": "v2-n600",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 2,
+   "witness_tokens": 7,
+   "witness_reads": "the lives in the heavens have a"
+  },
+  {
+   "open_question": "open[222]",
+   "leaf": "v2-n662",
+   "volume": "vol2",
+   "tight": true,
+   "class": "not settled — the witness carries ≤3 tokens at the point (a footnote mark, a numeral or a Greek run it drops)",
+   "ours_windows": 4,
+   "witness_tokens": 3,
+   "witness_reads": "from to inquire"
+  },
+  {
+   "open_question": "open[223]",
+   "leaf": "v2-n662",
+   "volume": "vol2",
+   "tight": true,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 6,
+   "witness_tokens": 5,
+   "witness_reads": "from discoursing about king apollo"
+  },
+  {
+   "open_question": "open[229]",
+   "leaf": "v2-n734",
+   "volume": "vol2",
+   "tight": true,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 10,
+   "witness_tokens": 4,
+   "witness_reads": "being an omniform image"
+  },
+  {
+   "open_question": "open[231]",
+   "leaf": "v2-n767",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 10,
+   "witness_tokens": 8,
+   "witness_reads": "is a daemon according to habitude i e"
+  },
+  {
+   "open_question": "open[232]",
+   "leaf": "v2-n802",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 7,
+   "witness_tokens": 15,
+   "witness_reads": "kosmos the world and the region above it ouranos heaven but others called heaven a"
+  },
+  {
+   "open_question": "open[233]",
+   "leaf": "v2-n802",
+   "volume": "vol2",
+   "tight": true,
+   "class": "SETTLED — the witness supplies the reading (a rule in this version)",
+   "ours_windows": 11,
+   "witness_tokens": 10,
+   "witness_reads": "for some alone called the sublunary region kosmos the world"
+  },
+  {
+   "open_question": "open[234]",
+   "leaf": "v2-n803",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 4,
+   "witness_tokens": 12,
+   "witness_reads": "established by the telestic or mystic art some things are apparent 201"
+  },
+  {
+   "open_question": "open[237]",
+   "leaf": "v1-n97",
+   "volume": "vol1",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 7,
+   "witness_tokens": 7,
+   "witness_reads": "as far as contributes to our purpose"
+  },
+  {
+   "open_question": "open[244]",
+   "leaf": "v1-n316",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 8,
+   "witness_tokens": 26,
+   "witness_reads": "proximately placed above them thus also parts imitating the ascent of wholes one conjoined through middle steps of ascent with the most simple and ineffable causes"
+  },
+  {
+   "open_question": "open[246]",
+   "leaf": "v1-n390",
+   "volume": "vol1",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 5,
+   "witness_tokens": 5,
+   "witness_reads": "according to the intelligible breadth"
+  },
+  {
+   "open_question": "open[254]",
+   "leaf": "v2-n576",
+   "volume": "vol2",
+   "tight": true,
+   "class": "SETTLED — the witness supplies the reading (a rule in this version)",
+   "ours_windows": 10,
+   "witness_tokens": 10,
+   "witness_reads": "that which is willing and able always follows the gods"
+  },
+  {
+   "open_question": "open[257]",
+   "leaf": "v2-n664",
+   "volume": "vol2",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 8,
+   "witness_tokens": 8,
+   "witness_reads": "on what plato here says of these muses"
+  },
+  {
+   "open_question": "open[258]",
+   "leaf": "v2-n664",
+   "volume": "vol2",
+   "tight": true,
+   "class": "settled WITHOUT a change — the witness reads the passage exactly as the transcription has it",
+   "ours_windows": 7,
+   "witness_tokens": 7,
+   "witness_reads": "the inerratic sphere is called a dance"
+  },
+  {
+   "open_question": "open[259]",
+   "leaf": "v2-n667",
+   "volume": "vol2",
+   "tight": false,
+   "class": "SETTABLE but not settled in this version — the words differ by ≤3 tokens and the witness supplies a word",
+   "ours_windows": 7,
+   "witness_tokens": 9,
+   "witness_reads": "says that we do not sufficiently understand that a"
+  },
+  {
+   "open_question": "open[260]",
+   "leaf": "v2-n666",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 4,
+   "witness_tokens": 8,
+   "witness_reads": "at a local motion adapted to its condition"
+  },
+  {
+   "open_question": "open[261]",
+   "leaf": "v2-n665",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 2,
+   "witness_tokens": 4,
+   "witness_reads": "of the universe that"
+  },
+  {
+   "open_question": "open[262]",
+   "leaf": "v2-n773",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 3,
+   "witness_tokens": 9,
+   "witness_reads": "chapter xlv from the ms scholia also of proclus"
+  },
+  {
+   "open_question": "open[264]",
+   "leaf": "v2-n773",
+   "volume": "vol2",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 1,
+   "witness_tokens": 9,
+   "witness_reads": "chapter xlv from the ms scholia also of proclus"
+  },
+  {
+   "open_question": "open[267]",
+   "leaf": "v1-n260",
+   "volume": "vol1",
+   "tight": false,
+   "class": "not settled — the witness’s stretch is not a like-for-like pair with ours (a running head, a page-break fragment, or a Greek run the witness drops)",
+   "ours_windows": 5,
+   "witness_tokens": 5,
+   "witness_reads": "the crater hence as i"
+  }
+ ]
+}

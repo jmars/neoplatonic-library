@@ -108,9 +108,15 @@ export function apparatusData(t, version) {
    * the name is there to key on; an evidence entry with no file falls back to its
    * number, which is what every single-volume edition has always carried. */
   const leafKeyOf = (e) => (e.file ? String(e.file).replace(/\.jpg$/i, '') : String(e.leaf));
+  /* A LEAF ENTRY IS AN ENTRY THAT NAMES A LEAF. Since 2026-10-07 a rule may also
+   * carry a WITNESS entry (kind `witness`) — an outside transcription of the
+   * print this reading was checked against, which has no leaf, no page and no
+   * image. It is not a leaf: it is carried below under `witnessEvidence` and
+   * excluded here, so a witness can move none of the leaf counts. */
+  const leafEntry = (e) => e && e.leaf != null;
   const cited = new Map(); // leaf name -> { readings:Set(rule id), pages:Set }
   for (const r of rules) {
-    for (const e of Array.isArray(r.evidence) ? r.evidence : []) {
+    for (const e of (Array.isArray(r.evidence) ? r.evidence : []).filter(leafEntry)) {
       const k = leafKeyOf(e);
       if (!cited.has(k)) cited.set(k, { readings: new Set(), pages: new Set() });
       const c = cited.get(k);
@@ -156,12 +162,28 @@ export function apparatusData(t, version) {
        * `instruments` is the field that says WHICH footing, and the badge reads it. */
       review: !!r.review,
       instruments: Array.isArray(r.instruments) ? r.instruments.slice() : [],
-      evidence: (Array.isArray(r.evidence) ? r.evidence : []).map((e) => ({
+      evidence: (Array.isArray(r.evidence) ? r.evidence : []).filter((e) => e.leaf != null).map((e) => ({
         leaf: e.leaf,
         page: e.page != null ? e.page : null,
         url: e.exists ? e.url : null,
         exists: !!e.exists,
       })),
+      /* THE WITNESS A READING WAS CHECKED AGAINST, kept BESIDE the leaves rather
+       * than among them: it has no leaf, no printed page and no image, so it is
+       * not something the leaf viewer can open. It carries what the viewer needs
+       * to SAY it — which witness, at what address, what it reads at the point,
+       * and how the point was placed in it. */
+      witnessEvidence: (Array.isArray(r.evidence) ? r.evidence : [])
+        .filter((e) => e.leaf == null)
+        .map((e) => ({
+          kind: e.kind || null,
+          witness: e.witness || null,
+          volume: e.volume || null,
+          url: e.url || null,
+          reads: e.reads || null,
+          placement: e.placement || null,
+          why: e.why || null,
+        })),
     })),
   };
 }

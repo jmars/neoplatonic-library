@@ -195,12 +195,19 @@ for (const e of editions) {
   rec.forEach((r, i) => {
     const d = data.rules[i];
     if (!d) return bad.push(`r${i + 1}: missing`);
-    const wantEv = (Array.isArray(r.evidence) ? r.evidence : []).map((x) => ({
-      leaf: x.leaf,
-      page: x.page != null ? x.page : null,
-      url: x.exists ? x.url : null,
-      exists: !!x.exists,
-    }));
+    /* A LEAF ENTRY NAMES A LEAF. A rule may ALSO carry a WITNESS entry (an
+     * outside human-proofread transcription of the print, no leaf and no image):
+     * apparatusData keeps those under `witnessEvidence` and they are checked by
+     * their own assertion below, so the field-for-field comparison here is over
+     * the leaf entries. */
+    const wantEv = (Array.isArray(r.evidence) ? r.evidence : [])
+      .filter((x) => x.leaf != null)
+      .map((x) => ({
+        leaf: x.leaf,
+        page: x.page != null ? x.page : null,
+        url: x.exists ? x.url : null,
+        exists: !!x.exists,
+      }));
     const ok =
       d.id === r.id.split(':')[1] &&
       d.ref === r.id &&
@@ -217,6 +224,31 @@ for (const e of editions) {
   });
   check(bad.length === 0,
     `${rel}: every rule matches the record field for field, in order (${bad.length} differ${bad.length ? `: ${bad.slice(0, 3).join(', ')}` : ''})`);
+
+  /* THE WITNESS A READING WAS CHECKED AGAINST travels BESIDE the leaves, never
+   * among them: it has no leaf, no printed page and no image, so a leaf count
+   * that moved for it would be a lie. Both halves are asserted — every
+   * non-leaf entry is carried, and NO leaf entry is carried as a witness. */
+  const badW = [];
+  rec.forEach((r, i) => {
+    const d = data.rules[i];
+    if (!d) return;
+    const want = (Array.isArray(r.evidence) ? r.evidence : [])
+      .filter((e) => e.leaf == null)
+      .map((e) => ({
+        kind: e.kind || null,
+        witness: e.witness || null,
+        volume: e.volume || null,
+        url: e.url || null,
+        reads: e.reads || null,
+        placement: e.placement || null,
+        why: e.why || null,
+      }));
+    if (JSON.stringify(d.witnessEvidence || []) !== JSON.stringify(want)) badW.push(r.id);
+  });
+  const witnessBearing = rec.filter((r) => (r.evidence || []).some((e) => e.leaf == null)).length;
+  check(badW.length === 0,
+    `${rel}: every rule's WITNESS evidence is carried beside its leaves (${witnessBearing} rule(s) checked against an outside witness, ${badW.length} differ${badW.length ? `: ${badW.slice(0, 3).join(', ')}` : ''})`);
 
   /* every evidence url RESOLVES — the built tree holds the leaf */
   const leaves = storedLeaves(e.slug);

@@ -104,7 +104,10 @@ import { fileURLToPath } from 'node:url';
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
 const args = process.argv.slice(2);
-const slug = args.find((a) => !a.startsWith('-')) || 'proclus-theology-of-plato-taylor-1816';
+/* A flag's VALUE is not the slug: `--version 1.0.3` would otherwise read the
+ * version as the edition. Every flag this tool takes that carries a value. */
+const FLAG_VALUES = new Set(['--what', '--out', '--type', '--limit', '--slide', '--version', '--probe']);
+const slug = args.find((a, i) => !a.startsWith('-') && !FLAG_VALUES.has(args[i - 1])) || 'proclus-theology-of-plato-taylor-1816';
 const opt = (name, dflt) => {
   const i = args.indexOf(`--${name}`);
   return i >= 0 && args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : dflt;
@@ -114,6 +117,23 @@ const num = (name, dflt) => {
   return Number.isFinite(v) && v > 0 ? v : dflt;
 };
 const EDITION = join(ROOT, 'data', 'editions', slug);
+/* THE VERSION THE YIELD IS DERIVED AGAINST. A batch of verdicts is an EVIDENCE
+ * SNAPSHOT of one state of the rules: once 1.0.4 exists, re-running against the
+ * current version would drop every rule the yield cleared (they are no longer
+ * `review: true`) and the snapshot would no longer be reproducible. So the
+ * version is a knob, defaulting to the edition's current_version — the batches
+ * behind tools/edits/<slug>.pg-locate.json were taken at `--version 1.0.3`. */
+const VER = opt('version', (() => {
+  try {
+    return JSON.parse(readFileSync(join(EDITION, 'edition.json'), 'utf8')).current_version || null;
+  } catch {
+    return null;
+  }
+})());
+if (!VER) {
+  console.error(`pg-locate: ${slug}: no version to read — pass --version <semver>`);
+  process.exit(2);
+}
 const CACHE = join(process.env.XDG_CACHE_HOME || join(homedir(), '.cache'), 'neoplatonic-library');
 const SCRATCH = join('/var/tmp', 'pg-locate');
 
@@ -818,7 +838,7 @@ if (!['rules', 'open'].includes(what)) {
  * run second (the full read recorded some passages with the line’s own spacing
  * changed); anything not found in our own source is refused as `not-our-text`,
  * which is a fact about the FINDING, not about the witness. */
-const SRC = readFileSync(join(EDITION, 'versions', '1.0.3', 'source.txt'), 'utf8');
+const SRC = readFileSync(join(EDITION, 'versions', VER, 'source.txt'), 'utf8');
 /* OUR text is tokenised WITH the damage characters (see DAMAGE): a rule's
  * `before` is written in them, and dropping them makes the witness look as if
  * it carries our damaged reading. A re-flowed witness is tokenised without them:
@@ -967,7 +987,7 @@ const limit = num('limit', Infinity);
 const typeFilter = opt('type', '');
 
 if (what === 'rules') {
-  const file = join(EDITION, 'versions', '1.0.3', 'repairs.json');
+  const file = join(EDITION, 'versions', VER, 'repairs.json');
   const all = JSON.parse(readFileSync(file, 'utf8')).rules;
   const list = all.filter((r) => (args.includes('--all') ? true : r.review === true)).filter((r) => !typeFilter || r.type === typeFilter);
   let n = 0;

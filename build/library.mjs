@@ -1412,9 +1412,12 @@ function apparatusViewerHtml(t, version, base) {
   let citingUnheld = 0;
   let unheldOnly = 0;
   for (const r of data.rules) {
-    const held = r.evidence.some((e) => e.exists);
-    for (const e of r.evidence) if (!e.exists) unheld.add(e.leaf);
-    if (r.evidence.some((e) => !e.exists)) citingUnheld += 1;
+    /* A WITNESS ENTRY HAS NO LEAF (see build/apparatus.mjs): only the entries
+     * that name one can be a leaf the edition does not hold. */
+    const leaves = r.evidence.filter((e) => e.leaf != null);
+    const held = leaves.some((e) => e.exists);
+    for (const e of leaves) if (!e.exists) unheld.add(e.leaf);
+    if (leaves.some((e) => !e.exists)) citingUnheld += 1;
     if (r.evidence.length && !held) unheldOnly += 1;
   }
   const unheldNames = [...unheld]

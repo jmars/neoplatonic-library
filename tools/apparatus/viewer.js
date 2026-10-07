@@ -121,8 +121,25 @@
   /** The filmstrip/panel key of the entry a rule belongs to. The first HELD leaf
    * it was decided from wins; failing that the first leaf it cites (which is not
    * held); failing that it is a reading with no page image. */
+  /* A LEAF ENTRY NAMES A LEAF. A rule may also carry a WITNESS entry (an outside
+   * transcription of the print, no leaf, no image — apparatusData keeps those
+   * under `witnessEvidence`, and defensively they are skipped here too). */
+  function leafEntries(r) {
+    return (r.evidence || []).filter(function (e) {
+      return e && e.leaf !== null && e.leaf !== undefined;
+    });
+  }
+  function witnessNote(r) {
+    var w = r.witnessEvidence || [];
+    var names = [];
+    w.forEach(function (e) {
+      if (e.witness && names.indexOf(e.witness) < 0) names.push(e.witness);
+    });
+    return names.length ? '; checked against the human-proofread transcription ' + names.join(', ') : '';
+  }
+
   function keyOfRule(r) {
-    var evs = r.evidence || [];
+    var evs = leafEntries(r);
     for (var i = 0; i < evs.length; i += 1) if (evs[i].exists) return leafName(evs[i].url, evs[i].leaf);
     if (evs.length) return 'u' + evs[0].leaf;
     return 'none';
@@ -133,8 +150,9 @@
    * two-volume edition is not confused with the other volume's leaf of the same
    * number. */
   function evidenceNote(r) {
-    var evs = r.evidence || [];
-    if (!evs.length) return 'no page image is held for this reading';
+    var evs = leafEntries(r);
+    var w = witnessNote(r);
+    if (!evs.length) return 'no page image is held for this reading' + w;
     return (
       'read from ' +
       evs
@@ -146,7 +164,8 @@
             (e.exists ? '' : ' (not held with this edition)')
           );
         })
-        .join('; ')
+        .join('; ') +
+      w
     );
   }
 
@@ -201,7 +220,7 @@
     }, this);
     var unheld = [];
     data.rules.forEach(function (r) {
-      (r.evidence || []).forEach(function (e) {
+      leafEntries(r).forEach(function (e) {
         if (e.exists) return;
         if (
           !unheld.some(function (u) {
@@ -243,7 +262,7 @@
     data.rules.forEach(function (r) {
       this.readings.all.push(r);
       var keys = [];
-      (r.evidence || []).forEach(function (e) {
+      leafEntries(r).forEach(function (e) {
         var k = e.exists ? leafName(e.url, e.leaf) : 'u' + e.leaf;
         if (keys.indexOf(k) < 0) keys.push(k);
       });

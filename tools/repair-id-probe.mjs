@@ -87,6 +87,16 @@ const WITHDRAWN = new Map([
    * chapters in the section model; not one rule changes), so its rule list
    * carries the same six spent ids as gaps. */
   ['proclus-theology-of-plato-taylor-1816@1.0.3', [11680, 11681, 11682, 11683, 11684, 11686]],
+  /* 1.0.4 RETIRES SIX MORE, and for the first time the withdrawal is a READING
+   * change rather than a fabricated one. MEASURED 2026-10-07: Project Gutenberg's
+   * human-proofread transcription of the same 1816 print reads the print's own
+   * words at six points where these rules had GUESSED a different target (our
+   * rules were all decided "by the transcription's own context", with no witness
+   * at all). The target is corrected to the print's reading — which must not be
+   * written under the id a reader cited in 1.0.3 — so the six old rules are
+   * retired and the corrected rules are appended as r11843–r11848. The other 1,271
+   * rules this unit touched had their READING left alone and are carried. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.4', [8600, 8617, 8923, 8991, 10442, 11100, 11680, 11681, 11682, 11683, 11684, 11686]],
 ]);
 
 let failures = 0;
@@ -154,12 +164,36 @@ for (const t of served) {
      * edition. It was green because every edition had exactly ONE version. The
      * check below is the same property stated as the data can satisfy it, and it is
      * STRONGER: it compares the rules, not only their ids. */
-    const rewritten = rules.filter((r) => seen.has(r.id) && JSON.stringify(seen.get(r.id).rule) !== JSON.stringify(r));
+    /* THE COMPARISON IS OVER THE RULE, and the rule is its READING. MEASURED
+     * 2026-10-07 (the Project Gutenberg witness unit): the whole-record compare
+     * this replaces failed on 1,271 rules of 1.0.4 whose READING is untouched —
+     * they were cleared from the review worklist by a human acting on a
+     * human-proofread witness and their `evidence` now names it, which is the one
+     * thing `review` and `evidence` exist for (model §4.1: "human review over the
+     * worklist is the only thing that flips `review` to `false`"). A whole-record
+     * compare also failed `tools/migrate-evidence.mjs`, which is documented as
+     * re-runnable and rewrites the `evidence` array and nothing else. So the rule
+     * is compared on the fields that CONSTITUTE it — `find`, `after`, `before`,
+     * `type`, `apply`, `join`, `fires`, `type_evidence`, `location` — and a
+     * carried id whose READING moved under it still fails, which is the silent
+     * rewrite the rule is for. A corrected reading is a NEW id with the old one
+     * withdrawn (WITHDRAWN below), never an edit under a spent id. */
+    const RULE_FIELDS = ['id', 'type', 'apply', 'location', 'before', 'after', 'fires', 'join', 'type_evidence'];
+    const reading = (r) => JSON.stringify(RULE_FIELDS.map((k) => r[k]));
+    const rewritten = rules.filter((r) => seen.has(r.id) && reading(seen.get(r.id).rule) !== reading(r));
+    /* AND THE ONE ANNOTATION THAT MAY NOT GO BACKWARDS: a rule cleared from the
+     * review worklist is a human decision that has been taken; a later version may
+     * add evidence but may not re-flag it without saying why. */
+    const reflagged = rules.filter((r) => seen.has(r.id) && seen.get(r.id).rule.review === false && r.review === true);
     const appended = rules.filter((r) => !seen.has(r.id)).length;
     check(
       rewritten.length === 0,
       `v${v}: every id it shares with an earlier version is the SAME rule — ${appended} id(s) appended, ${rules.length - appended} carried unchanged` +
         (rewritten.length ? `; id(s) rewritten: ${rewritten.map((r) => r.id).slice(0, 5).join(', ')}` : ''),
+    );
+    check(
+      reflagged.length === 0,
+      `v${v}: no rule a human had cleared from the review worklist is re-flagged silently (${reflagged.length}${reflagged.length ? `: ${reflagged.slice(0, 5).map((r) => r.id).join(', ')}` : ''})`,
     );
     /* 2b. AND THE VERSION MAY ONLY ADD IDS: every id an EARLIER version holds
      * must still be present here, except the ids THIS version's own record
