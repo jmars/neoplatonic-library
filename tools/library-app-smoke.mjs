@@ -1067,26 +1067,47 @@ section('the running heads, the citation and the progress');
   const head = c ? `${c.author}, ` : '';
   const tail = c ? `, trans. ${c.translator} (${c.place}: ${c.publisher}, ${c.year})` : '';
   const secOf = (b) => (b.t === 'sec' ? b.n : null);
+  const secIdOf = (b) => (b.t === 'sec' ? b.id : null);
+  /* THE DECISION (version 1.0.3): the citation shows the PRINT'S book/chapter
+   * — what a reader cites — wherever the document serves the structure (the
+   * recorded-division model's contents entries carry book/chapter/label), and
+   * the section's own number where it does not (this edition, whose sections
+   * are its chapters, so the number IS the print's chapter). The expectation
+   * is derived the same way, NEVER from the raw ordinal: after an insert the
+   * ordinal is the walk's internal position and diverges from the print's
+   * numbering by design, and a recovered division's anchor is a lettered one
+   * (s69a) whose numeric prefix parses to nothing at all. */
+  const structOf = new Map(
+    (docJson.toc || []).filter((t) => t.book != null).map((t) => [t.id, t.label]),
+  );
   const pageAt = new Map();
   {
     // the printed page each paragraph anchor stands under, and the division it
     // is in — recomputed from the served document, not read off the app
     let page = null;
     let sec = null;
+    let secId = null;
     for (const b of docJson.blocks) {
       if (b.t === 'pb' && b.page != null) page = b.page;
       if (secOf(b) != null) sec = secOf(b);
+      if (secIdOf(b) != null) secId = secIdOf(b);
       // the paragraph's OWN first page: a paragraph the page turn runs through is
       // one paragraph, and the page it is ON is where it starts (the reader's rule
       // — and the page marker is inside the paragraph now)
-      if (b.at && !pageAt.has(b.at)) pageAt.set(b.at, { page, sec });
+      if (b.at && !pageAt.has(b.at)) pageAt.set(b.at, { page, sec, secId });
     }
   }
   const known = docJson.blocks.find((b) => b.at === 's4-1');
   check(!!known, `the served document materialises the paragraph anchor the citation is taken from (${!!known})`);
   const at4 = known ? pageAt.get('s4-1') : null;
+  const divisionClause =
+    at4 && structOf.has(at4.secId)
+      ? structOf.get(at4.secId)
+      : at4
+        ? `§${at4.sec}`
+        : '';
   const wantPassage = known
-    ? `${head}On the Cave of the Nymphs${tail}, §${at4.sec}, p. ${at4.page}`
+    ? `${head}On the Cave of the Nymphs${tail}, ${divisionClause}, p. ${at4.page}`
     : '';
   const gotPassage = pline ? pline.textContent.replace(/\s+/g, ' ').trim() : '';
   check(

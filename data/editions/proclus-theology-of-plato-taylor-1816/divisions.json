@@ -85,15 +85,14 @@
       "chapters": 23,
       "witness": 28,
       "witnessAgreement": "FLAGGED",
-      "witnessNote": "the witness's contents list has 28 chapter(s) (line 2734)"
+      "witnessNote": "the witness's contents list has 28 chapter(s) (line 2734); the print's body numbers 23 (I, II, III, IX-XXVIII). Taylor's own contents footnotes say why (read blind off the leaf images of the contents pages lviii/lix, n53/n54, by both non-echoing readers): on the CHAPTER IV entry (source.txt:2762-2766) — 'These four chapters are comprehended in one in my translation, as they are not marked in the Greek; and I had not divided them, when this work was sent to the press, as I have done the chapters of the other books, in which there is a similar defect in the original'; on CHAPTER VI (source.txt:2820) — 'The fifth and sixth chapters are comprehended in the second chapter in my translation'; on CHAPTER VIII (source.txt:2824) — 'The seventh and eighth chapters form the third in my translation'; on CHAPTER X (source.txt:2828) — 'And the ninth and tenth are the fourth and fifth chapters in my translation'; on CHAPTER XI (source.txt:2830) — 'This is the sixth chapter in my translation'. No heading is printed anywhere between CHAPTER III. (source.txt:12321) and CHAPTER IX. (source.txt:12540) — pages 166, 167 and 168 carry none, read blind — so chapters IV-VIII have no boundary in the print to recover: the print comprehends them in its chapters II and III."
     },
     {
       "n": 4,
       "label": "Book IV",
-      "chapters": 38,
+      "chapters": 39,
       "witness": 39,
-      "witnessAgreement": "FLAGGED",
-      "witnessNote": "the witness's contents list has 39 chapter(s) (line 2939)"
+      "witnessAgreement": "agree"
     },
     {
       "n": 5,
@@ -101,7 +100,7 @@
       "chapters": 39,
       "witness": 40,
       "witnessAgreement": "FLAGGED",
-      "witnessNote": "the witness's contents list has 40 chapter(s) (line 3197)"
+      "witnessNote": "the witness's contents list has 40 chapter(s) (line 3197); the print's body numbers 39 (I-XXXIX — vol. I ends at Book V ch. XXXIX). Taylor's own contents footnote (source.txt:3462): 'It will be found also that chapter forty is wanting.' Chapter XL is absent from the translation — no heading and no text — so there is no boundary to recover."
     },
     {
       "n": 6,
@@ -113,10 +112,9 @@
     {
       "n": 7,
       "label": "Book VII",
-      "chapters": 50,
+      "chapters": 51,
       "witness": 51,
-      "witnessAgreement": "FLAGGED",
-      "witnessNote": "the witness's contents list has 51 chapter(s) (line 3626)"
+      "witnessAgreement": "agree"
     }
   ],
   "divisions": [
@@ -1928,6 +1926,57 @@
     {
       "n": 70,
       "book": 4,
+      "chapter": 6,
+      "label": "Book IV, Chapter VI",
+      "anchor": "s69a",
+      "line": 15779,
+      "flat": 11005,
+      "text": "Again therefore, if indeed the snpercelestial place is the imparticipa-",
+      "page": 236,
+      "pageRead": 236,
+      "leaf": "v1-n311.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n311.jpg",
+        "head": "236 ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER VI.",
+        "raw": "```json\n{\n  \"head\": \"236 ON THE THEOLOGY BOOK IV..\",\n  \"heading\": \"CHAPTER VI.\",\n  \"page\": \"236\",\n  \"firstLine\": \"AGAIN therefore, if indeed the supercelestial place is the imparticipa-\",\n  \"lastLine\": \"possible that he should not also admit it to be intelligible, and to partici-\"\n}\n```",
+        "read_from": "v1-n311.jpg",
+        "readers": [
+          {
+            "model": "google_gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "blind leaf read: running head, any chapter/book heading printed in the page body, printed page number, first and last line of the main text body — no page or chapter named (/var/tmp/103-reads/read-leaf.mjs)",
+                "leaf": "v1-n311.jpg",
+                "head": "236 ON THE THEOLOGY BOOK IV..",
+                "heading": "CHAPTER VI.",
+                "page": "236",
+                "raw": "```json\n{\n  \"head\": \"236 ON THE THEOLOGY BOOK IV..\",\n  \"heading\": \"CHAPTER VI.\",\n  \"page\": \"236\",\n  \"firstLine\": \"AGAIN therefore, if indeed the supercelestial place is the imparticipa-\",\n  \"lastLine\": \"possible that he should not also admit it to be intelligible, and to partici-\"\n}\n```"
+              }
+            ]
+          },
+          {
+            "model": "anthropic_claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "blind leaf read: running head, any chapter/book heading printed in the page body, printed page number, first and last line of the main text body — no page or chapter named (/var/tmp/103-reads/read-leaf.mjs)",
+                "leaf": "v1-n311.jpg",
+                "head": "236                ON THE THEOLOGY                BOOK IV.",
+                "heading": "CHAPTER VI.",
+                "page": "236",
+                "raw": "```json\n{\n  \"head\": \"236                ON THE THEOLOGY                BOOK IV.\",\n  \"heading\": \"CHAPTER VI.\",\n  \"page\": \"236\",\n  \"firstLine\": \"AGAIN therefore, if indeed the supercelestial place is the imparticipia-\",\n  \"lastLine\": \"pate, he should not also admit it to be intelligible, and to partici-\"\n}\n```"
+              }
+            ]
+          }
+        ],
+        "note": "RECOVERED 2026-10-07 (version 1.0.3): the model had no division for Book IV chapter VI — its printed CHAPTER VI. heading (source.txt:15776) and the whole chapter sat inside the recorded chapter V section. Both non-echoing readers read leaf v1-n311.jpg blind as printed page 236, a VERSO page whose head reads '236 ON THE THEOLOGY BOOK IV.', carrying the CHAPTER VI. heading at the top of its body with the first line of text 'Again therefore, if indeed the supercelestial place is the imparticipa-' — the transcription's own line 15779, fingerprinted. The division opens on that line (the model's convention for a heading at a page top: the first prose line after the heading), so the recovered section carries the chapter's text and the printed heading stays at the end of the chapter V section, exactly where the model already leaves a page-top heading (division 35 opens the same way after CHAPTER VI.). The anchor s69a follows the division it succeeds (s69) plus a letter; no existing anchor moves."
+      }
+    },
+    {
+      "n": 71,
+      "book": 4,
       "chapter": 7,
       "label": "Book IV, Chapter VII",
       "anchor": "s70",
@@ -1948,7 +1997,7 @@
       }
     },
     {
-      "n": 71,
+      "n": 72,
       "book": 4,
       "chapter": 8,
       "label": "Book IV, Chapter VIII",
@@ -1970,7 +2019,7 @@
       }
     },
     {
-      "n": 72,
+      "n": 73,
       "book": 4,
       "chapter": 9,
       "label": "Book IV, Chapter IX",
@@ -1992,7 +2041,7 @@
       }
     },
     {
-      "n": 73,
+      "n": 74,
       "book": 4,
       "chapter": 10,
       "label": "Book IV, Chapter X",
@@ -2014,7 +2063,7 @@
       }
     },
     {
-      "n": 74,
+      "n": 75,
       "book": 4,
       "chapter": 11,
       "label": "Book IV, Chapter XI",
@@ -2036,7 +2085,7 @@
       }
     },
     {
-      "n": 75,
+      "n": 76,
       "book": 4,
       "chapter": 12,
       "label": "Book IV, Chapter XII",
@@ -2058,7 +2107,7 @@
       }
     },
     {
-      "n": 76,
+      "n": 77,
       "book": 4,
       "chapter": 13,
       "label": "Book IV, Chapter XIII",
@@ -2080,7 +2129,7 @@
       }
     },
     {
-      "n": 77,
+      "n": 78,
       "book": 4,
       "chapter": 14,
       "label": "Book IV, Chapter XIV",
@@ -2102,7 +2151,7 @@
       }
     },
     {
-      "n": 78,
+      "n": 79,
       "book": 4,
       "chapter": 15,
       "label": "Book IV, Chapter XV",
@@ -2124,7 +2173,7 @@
       }
     },
     {
-      "n": 79,
+      "n": 80,
       "book": 4,
       "chapter": 16,
       "label": "Book IV, Chapter XVI",
@@ -2146,7 +2195,7 @@
       }
     },
     {
-      "n": 80,
+      "n": 81,
       "book": 4,
       "chapter": 17,
       "label": "Book IV, Chapter XVII",
@@ -2168,7 +2217,7 @@
       }
     },
     {
-      "n": 81,
+      "n": 82,
       "book": 4,
       "chapter": 18,
       "label": "Book IV, Chapter XVIII",
@@ -2190,7 +2239,7 @@
       }
     },
     {
-      "n": 82,
+      "n": 83,
       "book": 4,
       "chapter": 19,
       "label": "Book IV, Chapter XIX",
@@ -2212,7 +2261,7 @@
       }
     },
     {
-      "n": 83,
+      "n": 84,
       "book": 4,
       "chapter": 20,
       "label": "Book IV, Chapter XX",
@@ -2234,7 +2283,7 @@
       }
     },
     {
-      "n": 84,
+      "n": 85,
       "book": 4,
       "chapter": 21,
       "label": "Book IV, Chapter XXI",
@@ -2256,7 +2305,7 @@
       }
     },
     {
-      "n": 85,
+      "n": 86,
       "book": 4,
       "chapter": 22,
       "label": "Book IV, Chapter XXII",
@@ -2278,7 +2327,7 @@
       }
     },
     {
-      "n": 86,
+      "n": 87,
       "book": 4,
       "chapter": 23,
       "label": "Book IV, Chapter XXIII",
@@ -2300,7 +2349,7 @@
       }
     },
     {
-      "n": 87,
+      "n": 88,
       "book": 4,
       "chapter": 24,
       "label": "Book IV, Chapter XXIV",
@@ -2322,7 +2371,7 @@
       }
     },
     {
-      "n": 88,
+      "n": 89,
       "book": 4,
       "chapter": 25,
       "label": "Book IV, Chapter XXV",
@@ -2344,7 +2393,7 @@
       }
     },
     {
-      "n": 89,
+      "n": 90,
       "book": 4,
       "chapter": 26,
       "label": "Book IV, Chapter XXVI",
@@ -2366,7 +2415,7 @@
       }
     },
     {
-      "n": 90,
+      "n": 91,
       "book": 4,
       "chapter": 27,
       "label": "Book IV, Chapter XXVII",
@@ -2388,7 +2437,7 @@
       }
     },
     {
-      "n": 91,
+      "n": 92,
       "book": 4,
       "chapter": 28,
       "label": "Book IV, Chapter XXVIII",
@@ -2410,7 +2459,7 @@
       }
     },
     {
-      "n": 92,
+      "n": 93,
       "book": 4,
       "chapter": 29,
       "label": "Book IV, Chapter XXIX",
@@ -2432,7 +2481,7 @@
       }
     },
     {
-      "n": 93,
+      "n": 94,
       "book": 4,
       "chapter": 30,
       "label": "Book IV, Chapter XXX",
@@ -2454,7 +2503,7 @@
       }
     },
     {
-      "n": 94,
+      "n": 95,
       "book": 4,
       "chapter": 31,
       "label": "Book IV, Chapter XXXI",
@@ -2476,7 +2525,7 @@
       }
     },
     {
-      "n": 95,
+      "n": 96,
       "book": 4,
       "chapter": 32,
       "label": "Book IV, Chapter XXXII",
@@ -2498,7 +2547,7 @@
       }
     },
     {
-      "n": 96,
+      "n": 97,
       "book": 4,
       "chapter": 33,
       "label": "Book IV, Chapter XXXIII",
@@ -2520,7 +2569,7 @@
       }
     },
     {
-      "n": 97,
+      "n": 98,
       "book": 4,
       "chapter": 34,
       "label": "Book IV, Chapter XXXIV",
@@ -2542,7 +2591,7 @@
       }
     },
     {
-      "n": 98,
+      "n": 99,
       "book": 4,
       "chapter": 35,
       "label": "Book IV, Chapter XXXV",
@@ -2564,7 +2613,7 @@
       }
     },
     {
-      "n": 99,
+      "n": 100,
       "book": 4,
       "chapter": 36,
       "label": "Book IV, Chapter XXXVI",
@@ -2586,7 +2635,7 @@
       }
     },
     {
-      "n": 100,
+      "n": 101,
       "book": 4,
       "chapter": 37,
       "label": "Book IV, Chapter XXXVII",
@@ -2608,7 +2657,7 @@
       }
     },
     {
-      "n": 101,
+      "n": 102,
       "book": 4,
       "chapter": 38,
       "label": "Book IV, Chapter XXXVIII",
@@ -2630,7 +2679,7 @@
       }
     },
     {
-      "n": 102,
+      "n": 103,
       "book": 4,
       "chapter": 39,
       "label": "Book IV, Chapter XXXIX",
@@ -2652,7 +2701,7 @@
       }
     },
     {
-      "n": 103,
+      "n": 104,
       "book": 5,
       "chapter": 1,
       "label": "Book V, Chapter I",
@@ -2825,7 +2874,7 @@
       }
     },
     {
-      "n": 104,
+      "n": 105,
       "book": 5,
       "chapter": 2,
       "label": "Book V, Chapter II",
@@ -2847,7 +2896,7 @@
       }
     },
     {
-      "n": 105,
+      "n": 106,
       "book": 5,
       "chapter": 3,
       "label": "Book V, Chapter III",
@@ -2869,7 +2918,7 @@
       }
     },
     {
-      "n": 106,
+      "n": 107,
       "book": 5,
       "chapter": 4,
       "label": "Book V, Chapter IV",
@@ -2891,7 +2940,7 @@
       }
     },
     {
-      "n": 107,
+      "n": 108,
       "book": 5,
       "chapter": 5,
       "label": "Book V, Chapter V",
@@ -2913,7 +2962,7 @@
       }
     },
     {
-      "n": 108,
+      "n": 109,
       "book": 5,
       "chapter": 6,
       "label": "Book V, Chapter VI",
@@ -2935,7 +2984,7 @@
       }
     },
     {
-      "n": 109,
+      "n": 110,
       "book": 5,
       "chapter": 7,
       "label": "Book V, Chapter VII",
@@ -2957,7 +3006,7 @@
       }
     },
     {
-      "n": 110,
+      "n": 111,
       "book": 5,
       "chapter": 8,
       "label": "Book V, Chapter VIII",
@@ -2979,7 +3028,7 @@
       }
     },
     {
-      "n": 111,
+      "n": 112,
       "book": 5,
       "chapter": 9,
       "label": "Book V, Chapter IX",
@@ -3001,7 +3050,7 @@
       }
     },
     {
-      "n": 112,
+      "n": 113,
       "book": 5,
       "chapter": 10,
       "label": "Book V, Chapter X",
@@ -3023,7 +3072,7 @@
       }
     },
     {
-      "n": 113,
+      "n": 114,
       "book": 5,
       "chapter": 11,
       "label": "Book V, Chapter XI",
@@ -3045,7 +3094,7 @@
       }
     },
     {
-      "n": 114,
+      "n": 115,
       "book": 5,
       "chapter": 12,
       "label": "Book V, Chapter XII",
@@ -3067,7 +3116,7 @@
       }
     },
     {
-      "n": 115,
+      "n": 116,
       "book": 5,
       "chapter": 13,
       "label": "Book V, Chapter XIII",
@@ -3089,7 +3138,7 @@
       }
     },
     {
-      "n": 116,
+      "n": 117,
       "book": 5,
       "chapter": 14,
       "label": "Book V, Chapter XIV",
@@ -3111,7 +3160,7 @@
       }
     },
     {
-      "n": 117,
+      "n": 118,
       "book": 5,
       "chapter": 15,
       "label": "Book V, Chapter XV",
@@ -3133,7 +3182,7 @@
       }
     },
     {
-      "n": 118,
+      "n": 119,
       "book": 5,
       "chapter": 16,
       "label": "Book V, Chapter XVI",
@@ -3155,7 +3204,7 @@
       }
     },
     {
-      "n": 119,
+      "n": 120,
       "book": 5,
       "chapter": 17,
       "label": "Book V, Chapter XVII",
@@ -3177,7 +3226,7 @@
       }
     },
     {
-      "n": 120,
+      "n": 121,
       "book": 5,
       "chapter": 18,
       "label": "Book V, Chapter XVIII",
@@ -3199,7 +3248,7 @@
       }
     },
     {
-      "n": 121,
+      "n": 122,
       "book": 5,
       "chapter": 19,
       "label": "Book V, Chapter XIX",
@@ -3221,7 +3270,7 @@
       }
     },
     {
-      "n": 122,
+      "n": 123,
       "book": 5,
       "chapter": 20,
       "label": "Book V, Chapter XX",
@@ -3243,7 +3292,7 @@
       }
     },
     {
-      "n": 123,
+      "n": 124,
       "book": 5,
       "chapter": 21,
       "label": "Book V, Chapter XXI",
@@ -3265,7 +3314,7 @@
       }
     },
     {
-      "n": 124,
+      "n": 125,
       "book": 5,
       "chapter": 22,
       "label": "Book V, Chapter XXII",
@@ -3287,7 +3336,7 @@
       }
     },
     {
-      "n": 125,
+      "n": 126,
       "book": 5,
       "chapter": 23,
       "label": "Book V, Chapter XXIII",
@@ -3309,7 +3358,7 @@
       }
     },
     {
-      "n": 126,
+      "n": 127,
       "book": 5,
       "chapter": 24,
       "label": "Book V, Chapter XXIV",
@@ -3331,7 +3380,7 @@
       }
     },
     {
-      "n": 127,
+      "n": 128,
       "book": 5,
       "chapter": 25,
       "label": "Book V, Chapter XXV",
@@ -3353,7 +3402,7 @@
       }
     },
     {
-      "n": 128,
+      "n": 129,
       "book": 5,
       "chapter": 26,
       "label": "Book V, Chapter XXVI",
@@ -3375,7 +3424,7 @@
       }
     },
     {
-      "n": 129,
+      "n": 130,
       "book": 5,
       "chapter": 27,
       "label": "Book V, Chapter XXVII",
@@ -3397,7 +3446,7 @@
       }
     },
     {
-      "n": 130,
+      "n": 131,
       "book": 5,
       "chapter": 28,
       "label": "Book V, Chapter XXVIII",
@@ -3419,7 +3468,7 @@
       }
     },
     {
-      "n": 131,
+      "n": 132,
       "book": 5,
       "chapter": 29,
       "label": "Book V, Chapter XXIX",
@@ -3441,7 +3490,7 @@
       }
     },
     {
-      "n": 132,
+      "n": 133,
       "book": 5,
       "chapter": 30,
       "label": "Book V, Chapter XXX",
@@ -3463,7 +3512,7 @@
       }
     },
     {
-      "n": 133,
+      "n": 134,
       "book": 5,
       "chapter": 31,
       "label": "Book V, Chapter XXXI",
@@ -3485,7 +3534,7 @@
       }
     },
     {
-      "n": 134,
+      "n": 135,
       "book": 5,
       "chapter": 32,
       "label": "Book V, Chapter XXXII",
@@ -3507,7 +3556,7 @@
       }
     },
     {
-      "n": 135,
+      "n": 136,
       "book": 5,
       "chapter": 33,
       "label": "Book V, Chapter XXXIII",
@@ -3529,7 +3578,7 @@
       }
     },
     {
-      "n": 136,
+      "n": 137,
       "book": 5,
       "chapter": 34,
       "label": "Book V, Chapter XXXIV",
@@ -3551,7 +3600,7 @@
       }
     },
     {
-      "n": 137,
+      "n": 138,
       "book": 5,
       "chapter": 35,
       "label": "Book V, Chapter XXXV",
@@ -3573,7 +3622,7 @@
       }
     },
     {
-      "n": 138,
+      "n": 139,
       "book": 5,
       "chapter": 36,
       "label": "Book V, Chapter XXXVI",
@@ -3595,7 +3644,7 @@
       }
     },
     {
-      "n": 139,
+      "n": 140,
       "book": 5,
       "chapter": 37,
       "label": "Book V, Chapter XXXVII",
@@ -3617,7 +3666,7 @@
       }
     },
     {
-      "n": 140,
+      "n": 141,
       "book": 5,
       "chapter": 38,
       "label": "Book V, Chapter XXXVIII",
@@ -3639,7 +3688,7 @@
       }
     },
     {
-      "n": 141,
+      "n": 142,
       "book": 5,
       "chapter": 39,
       "label": "Book V, Chapter XXXIX",
@@ -3661,7 +3710,7 @@
       }
     },
     {
-      "n": 142,
+      "n": 143,
       "book": 6,
       "chapter": 1,
       "label": "Book VI, Chapter I",
@@ -3683,7 +3732,7 @@
       }
     },
     {
-      "n": 143,
+      "n": 144,
       "book": 6,
       "chapter": 2,
       "label": "Book VI, Chapter II",
@@ -3705,7 +3754,7 @@
       }
     },
     {
-      "n": 144,
+      "n": 145,
       "book": 6,
       "chapter": 3,
       "label": "Book VI, Chapter III",
@@ -3727,7 +3776,7 @@
       }
     },
     {
-      "n": 145,
+      "n": 146,
       "book": 6,
       "chapter": 4,
       "label": "Book VI, Chapter IV",
@@ -3749,7 +3798,7 @@
       }
     },
     {
-      "n": 146,
+      "n": 147,
       "book": 6,
       "chapter": 5,
       "label": "Book VI, Chapter V",
@@ -3771,7 +3820,7 @@
       }
     },
     {
-      "n": 147,
+      "n": 148,
       "book": 6,
       "chapter": 6,
       "label": "Book VI, Chapter VI",
@@ -3793,7 +3842,7 @@
       }
     },
     {
-      "n": 148,
+      "n": 149,
       "book": 6,
       "chapter": 7,
       "label": "Book VI, Chapter VII",
@@ -3815,7 +3864,7 @@
       }
     },
     {
-      "n": 149,
+      "n": 150,
       "book": 6,
       "chapter": 8,
       "label": "Book VI, Chapter VIII",
@@ -3837,7 +3886,7 @@
       }
     },
     {
-      "n": 150,
+      "n": 151,
       "book": 6,
       "chapter": 9,
       "label": "Book VI, Chapter IX",
@@ -3859,7 +3908,7 @@
       }
     },
     {
-      "n": 151,
+      "n": 152,
       "book": 6,
       "chapter": 10,
       "label": "Book VI, Chapter X",
@@ -3881,7 +3930,7 @@
       }
     },
     {
-      "n": 152,
+      "n": 153,
       "book": 6,
       "chapter": 11,
       "label": "Book VI, Chapter XI",
@@ -3903,7 +3952,7 @@
       }
     },
     {
-      "n": 153,
+      "n": 154,
       "book": 6,
       "chapter": 12,
       "label": "Book VI, Chapter XII",
@@ -3925,7 +3974,7 @@
       }
     },
     {
-      "n": 154,
+      "n": 155,
       "book": 6,
       "chapter": 13,
       "label": "Book VI, Chapter XIII",
@@ -3947,7 +3996,7 @@
       }
     },
     {
-      "n": 155,
+      "n": 156,
       "book": 6,
       "chapter": 14,
       "label": "Book VI, Chapter XIV",
@@ -3969,7 +4018,7 @@
       }
     },
     {
-      "n": 156,
+      "n": 157,
       "book": 6,
       "chapter": 15,
       "label": "Book VI, Chapter XV",
@@ -3991,7 +4040,7 @@
       }
     },
     {
-      "n": 157,
+      "n": 158,
       "book": 6,
       "chapter": 16,
       "label": "Book VI, Chapter XVI",
@@ -4013,7 +4062,7 @@
       }
     },
     {
-      "n": 158,
+      "n": 159,
       "book": 6,
       "chapter": 17,
       "label": "Book VI, Chapter XVII",
@@ -4035,7 +4084,7 @@
       }
     },
     {
-      "n": 159,
+      "n": 160,
       "book": 6,
       "chapter": 18,
       "label": "Book VI, Chapter XVIII",
@@ -4057,7 +4106,7 @@
       }
     },
     {
-      "n": 160,
+      "n": 161,
       "book": 6,
       "chapter": 19,
       "label": "Book VI, Chapter XIX",
@@ -4079,7 +4128,7 @@
       }
     },
     {
-      "n": 161,
+      "n": 162,
       "book": 6,
       "chapter": 20,
       "label": "Book VI, Chapter XX",
@@ -4101,7 +4150,7 @@
       }
     },
     {
-      "n": 162,
+      "n": 163,
       "book": 6,
       "chapter": 21,
       "label": "Book VI, Chapter XXI",
@@ -4123,7 +4172,7 @@
       }
     },
     {
-      "n": 163,
+      "n": 164,
       "book": 6,
       "chapter": 22,
       "label": "Book VI, Chapter XXII",
@@ -4145,7 +4194,7 @@
       }
     },
     {
-      "n": 164,
+      "n": 165,
       "book": 6,
       "chapter": 23,
       "label": "Book VI, Chapter XXIII",
@@ -4167,7 +4216,7 @@
       }
     },
     {
-      "n": 165,
+      "n": 166,
       "book": 6,
       "chapter": 24,
       "label": "Book VI, Chapter XXIV",
@@ -4189,7 +4238,7 @@
       }
     },
     {
-      "n": 166,
+      "n": 167,
       "book": 7,
       "chapter": 1,
       "label": "Book VII, Chapter I",
@@ -4211,7 +4260,7 @@
       }
     },
     {
-      "n": 167,
+      "n": 168,
       "book": 7,
       "chapter": 2,
       "label": "Book VII, Chapter II",
@@ -4233,7 +4282,7 @@
       }
     },
     {
-      "n": 168,
+      "n": 169,
       "book": 7,
       "chapter": 3,
       "label": "Book VII, Chapter III",
@@ -4255,7 +4304,7 @@
       }
     },
     {
-      "n": 169,
+      "n": 170,
       "book": 7,
       "chapter": 4,
       "label": "Book VII, Chapter IV",
@@ -4277,7 +4326,7 @@
       }
     },
     {
-      "n": 170,
+      "n": 171,
       "book": 7,
       "chapter": 5,
       "label": "Book VII, Chapter V",
@@ -4299,7 +4348,7 @@
       }
     },
     {
-      "n": 171,
+      "n": 172,
       "book": 7,
       "chapter": 6,
       "label": "Book VII, Chapter VI",
@@ -4321,7 +4370,7 @@
       }
     },
     {
-      "n": 172,
+      "n": 173,
       "book": 7,
       "chapter": 7,
       "label": "Book VII, Chapter VII",
@@ -4343,7 +4392,7 @@
       }
     },
     {
-      "n": 173,
+      "n": 174,
       "book": 7,
       "chapter": 8,
       "label": "Book VII, Chapter VIII",
@@ -4365,7 +4414,7 @@
       }
     },
     {
-      "n": 174,
+      "n": 175,
       "book": 7,
       "chapter": 9,
       "label": "Book VII, Chapter IX",
@@ -4387,7 +4436,7 @@
       }
     },
     {
-      "n": 175,
+      "n": 176,
       "book": 7,
       "chapter": 10,
       "label": "Book VII, Chapter X",
@@ -4409,7 +4458,7 @@
       }
     },
     {
-      "n": 176,
+      "n": 177,
       "book": 7,
       "chapter": 11,
       "label": "Book VII, Chapter XI",
@@ -4431,7 +4480,7 @@
       }
     },
     {
-      "n": 177,
+      "n": 178,
       "book": 7,
       "chapter": 12,
       "label": "Book VII, Chapter XII",
@@ -4453,7 +4502,7 @@
       }
     },
     {
-      "n": 178,
+      "n": 179,
       "book": 7,
       "chapter": 13,
       "label": "Book VII, Chapter XIII",
@@ -4475,7 +4524,7 @@
       }
     },
     {
-      "n": 179,
+      "n": 180,
       "book": 7,
       "chapter": 14,
       "label": "Book VII, Chapter XIV",
@@ -4497,7 +4546,7 @@
       }
     },
     {
-      "n": 180,
+      "n": 181,
       "book": 7,
       "chapter": 15,
       "label": "Book VII, Chapter XV",
@@ -4519,7 +4568,7 @@
       }
     },
     {
-      "n": 181,
+      "n": 182,
       "book": 7,
       "chapter": 16,
       "label": "Book VII, Chapter XVI",
@@ -4541,7 +4590,7 @@
       }
     },
     {
-      "n": 182,
+      "n": 183,
       "book": 7,
       "chapter": 17,
       "label": "Book VII, Chapter XVII",
@@ -4563,7 +4612,7 @@
       }
     },
     {
-      "n": 183,
+      "n": 184,
       "book": 7,
       "chapter": 18,
       "label": "Book VII, Chapter XVIII",
@@ -4585,7 +4634,7 @@
       }
     },
     {
-      "n": 184,
+      "n": 185,
       "book": 7,
       "chapter": 19,
       "label": "Book VII, Chapter XIX",
@@ -4607,7 +4656,7 @@
       }
     },
     {
-      "n": 185,
+      "n": 186,
       "book": 7,
       "chapter": 20,
       "label": "Book VII, Chapter XX",
@@ -4629,7 +4678,7 @@
       }
     },
     {
-      "n": 186,
+      "n": 187,
       "book": 7,
       "chapter": 21,
       "label": "Book VII, Chapter XXI",
@@ -4651,7 +4700,7 @@
       }
     },
     {
-      "n": 187,
+      "n": 188,
       "book": 7,
       "chapter": 22,
       "label": "Book VII, Chapter XXII",
@@ -4673,7 +4722,7 @@
       }
     },
     {
-      "n": 188,
+      "n": 189,
       "book": 7,
       "chapter": 23,
       "label": "Book VII, Chapter XXIII",
@@ -4695,7 +4744,7 @@
       }
     },
     {
-      "n": 189,
+      "n": 190,
       "book": 7,
       "chapter": 24,
       "label": "Book VII, Chapter XXIV",
@@ -4717,7 +4766,7 @@
       }
     },
     {
-      "n": 190,
+      "n": 191,
       "book": 7,
       "chapter": 25,
       "label": "Book VII, Chapter XXV",
@@ -4739,7 +4788,7 @@
       }
     },
     {
-      "n": 191,
+      "n": 192,
       "book": 7,
       "chapter": 26,
       "label": "Book VII, Chapter XXVI",
@@ -4761,7 +4810,7 @@
       }
     },
     {
-      "n": 192,
+      "n": 193,
       "book": 7,
       "chapter": 27,
       "label": "Book VII, Chapter XXVII",
@@ -4783,7 +4832,7 @@
       }
     },
     {
-      "n": 193,
+      "n": 194,
       "book": 7,
       "chapter": 28,
       "label": "Book VII, Chapter XXVIII",
@@ -4805,7 +4854,7 @@
       }
     },
     {
-      "n": 194,
+      "n": 195,
       "book": 7,
       "chapter": 29,
       "label": "Book VII, Chapter XXIX",
@@ -4827,7 +4876,7 @@
       }
     },
     {
-      "n": 195,
+      "n": 196,
       "book": 7,
       "chapter": 30,
       "label": "Book VII, Chapter XXX",
@@ -4849,7 +4898,7 @@
       }
     },
     {
-      "n": 196,
+      "n": 197,
       "book": 7,
       "chapter": 31,
       "label": "Book VII, Chapter XXXI",
@@ -4871,7 +4920,58 @@
       }
     },
     {
-      "n": 197,
+      "n": 198,
+      "book": 7,
+      "chapter": 32,
+      "label": "Book VII, Chapter XXXII",
+      "anchor": "s196a",
+      "line": 35980,
+      "flat": 25296,
+      "text": "Jupiter indeed, adorns sensibles totally, according to an imitation of",
+      "page": 213,
+      "pageRead": 213,
+      "leaf": "v2-n718.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n718.jpg",
+        "head": "CHAP. XXXII. OF PLATO. 213",
+        "heading": "CHAPTER XXXII.",
+        "raw": "```json\n{\n  \"head\": \"CHAP. XXXII. OF PLATO. 213\",\n  \"heading\": \"CHAPTER XXXII.\",\n  \"page\": \"213\",\n  \"firstLine\": \"Jupiter indeed, adorns sensibles totally, according to an imitation of\",\n  \"lastLine\": \"proper, therefore, to divide the sublunary oppositely to the visible Gods,\"\n}\n```",
+        "read_from": "v2-n718.jpg",
+        "readers": [
+          {
+            "model": "google_gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "blind leaf read: running head, any chapter/book heading printed in the page body, printed page number, first and last line of the main text body — no page or chapter named (/var/tmp/103-reads/read-leaf.mjs)",
+                "leaf": "v2-n718.jpg",
+                "head": "CHAP. XXXII. OF PLATO. 213",
+                "heading": "CHAPTER XXXII.",
+                "page": "213",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XXXII. OF PLATO. 213\",\n  \"heading\": \"CHAPTER XXXII.\",\n  \"page\": \"213\",\n  \"firstLine\": \"Jupiter indeed, adorns sensibles totally, according to an imitation of\",\n  \"lastLine\": \"proper, therefore, to divide the sublunary oppositely to the visible Gods,\"\n}\n```"
+              }
+            ]
+          },
+          {
+            "model": "anthropic_claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "blind leaf read: running head, any chapter/book heading printed in the page body, printed page number, first and last line of the main text body — no page or chapter named (/var/tmp/103-reads/read-leaf.mjs)",
+                "leaf": "v2-n718.jpg",
+                "head": "CHAP. XXXII. OF PLATO. 213",
+                "heading": "CHAPTER XXXII.",
+                "page": "213",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XXXII. OF PLATO. 213\",\n  \"heading\": \"CHAPTER XXXII.\",\n  \"page\": \"213\",\n  \"firstLine\": \"In the last place, let us consider why Plato denominates the sublunary deities, \\\"such as become apparent when they please.\\\" Shall we\",\n  \"lastLine\": \"proper, therefore, to divide the sublunary oppositely to the visible Gods,\"\n}\n```"
+              }
+            ]
+          }
+        ],
+        "note": "RECOVERED 2026-10-07 (version 1.0.3): the model had no division for Book VII chapter XXXII — its printed CHAPTER XXXII. heading (source.txt:35992) and the whole chapter sat inside the recorded chapter XXXI section. Both non-echoing readers read leaf v2-n718.jpg blind as printed page 213, a RECTO page whose head reads 'CHAP. XXXII. OF PLATO. 213', carrying the CHAPTER XXXII. heading in its body after the page's opening prose ('Jupiter indeed, adorns sensibles totally...' — the tail of chapter XXXI, transcription line 35980). The division opens on that line (the model's convention for a mid-page heading: the first prose line of the page the heading is printed on, so the heading falls inside the new section — division 45 opens the same way before CHAPTER IX.), so the recovered section carries the page's opening prose, the printed heading and the chapter's text. The anchor s196a follows the division it succeeds (s196) plus a letter; no existing anchor moves."
+      }
+    },
+    {
+      "n": 199,
       "book": 7,
       "chapter": 33,
       "label": "Book VII, Chapter XXXIII",
@@ -4893,7 +4993,7 @@
       }
     },
     {
-      "n": 198,
+      "n": 200,
       "book": 7,
       "chapter": 34,
       "label": "Book VII, Chapter XXXIV",
@@ -4915,7 +5015,7 @@
       }
     },
     {
-      "n": 199,
+      "n": 201,
       "book": 7,
       "chapter": 35,
       "label": "Book VII, Chapter XXXV",
@@ -4937,7 +5037,7 @@
       }
     },
     {
-      "n": 200,
+      "n": 202,
       "book": 7,
       "chapter": 36,
       "label": "Book VII, Chapter XXXVI",
@@ -4959,7 +5059,7 @@
       }
     },
     {
-      "n": 201,
+      "n": 203,
       "book": 7,
       "chapter": 37,
       "label": "Book VII, Chapter XXXVII",
@@ -4981,7 +5081,7 @@
       }
     },
     {
-      "n": 202,
+      "n": 204,
       "book": 7,
       "chapter": 38,
       "label": "Book VII, Chapter XXXVIII",
@@ -5003,7 +5103,7 @@
       }
     },
     {
-      "n": 203,
+      "n": 205,
       "book": 7,
       "chapter": 39,
       "label": "Book VII, Chapter XXXIX",
@@ -5025,7 +5125,7 @@
       }
     },
     {
-      "n": 204,
+      "n": 206,
       "book": 7,
       "chapter": 40,
       "label": "Book VII, Chapter XL",
@@ -5047,7 +5147,7 @@
       }
     },
     {
-      "n": 205,
+      "n": 207,
       "book": 7,
       "chapter": 41,
       "label": "Book VII, Chapter XLI",
@@ -5069,7 +5169,7 @@
       }
     },
     {
-      "n": 206,
+      "n": 208,
       "book": 7,
       "chapter": 42,
       "label": "Book VII, Chapter XLII",
@@ -5091,7 +5191,7 @@
       }
     },
     {
-      "n": 207,
+      "n": 209,
       "book": 7,
       "chapter": 43,
       "label": "Book VII, Chapter XLIII",
@@ -5113,7 +5213,7 @@
       }
     },
     {
-      "n": 208,
+      "n": 210,
       "book": 7,
       "chapter": 44,
       "label": "Book VII, Chapter XLIV",
@@ -5135,7 +5235,7 @@
       }
     },
     {
-      "n": 209,
+      "n": 211,
       "book": 7,
       "chapter": 45,
       "label": "Book VII, Chapter XLV",
@@ -5157,7 +5257,7 @@
       }
     },
     {
-      "n": 210,
+      "n": 212,
       "book": 7,
       "chapter": 46,
       "label": "Book VII, Chapter XLVI",
@@ -5179,7 +5279,7 @@
       }
     },
     {
-      "n": 211,
+      "n": 213,
       "book": 7,
       "chapter": 47,
       "label": "Book VII, Chapter XLVII",
@@ -5201,7 +5301,7 @@
       }
     },
     {
-      "n": 212,
+      "n": 214,
       "book": 7,
       "chapter": 48,
       "label": "Book VII, Chapter XLVIII",
@@ -5223,7 +5323,7 @@
       }
     },
     {
-      "n": 213,
+      "n": 215,
       "book": 7,
       "chapter": 49,
       "label": "Book VII, Chapter XLIX",
@@ -5245,7 +5345,7 @@
       }
     },
     {
-      "n": 214,
+      "n": 216,
       "book": 7,
       "chapter": 50,
       "label": "Book VII, Chapter L",
@@ -5267,7 +5367,7 @@
       }
     },
     {
-      "n": 215,
+      "n": 217,
       "book": 7,
       "chapter": 51,
       "label": "Book VII, Chapter LI",
@@ -5315,6 +5415,10 @@
     "division 97 (Book 4 ch 33): the model read the printed page as 296 on v1-n370.jpg, where the item's measured offset (leaf 370 - 73) gives 297 — the offset stands, the reading is recorded.",
     "division 128 (Book 5 ch 25): the model read the printed page as 379 on v1-n453.jpg, where the item's measured offset (leaf 453 - 73) gives 380 — the offset stands, the reading is recorded.",
     "RE-ANCHORED 2026-10-05 onto the transcription the edition now serves (sha256 748e58cef109…, 40344 lines): the book and chapter numerals, the labels and the printed page each division opens on are the recorded ones, read off the scans and cross-checked against the witness; only the line positions were re-derived, by fingerprinting the chapter's own opening line from the NEW copy's text layer (the item's _djvu.xml leaf lines) into the new transcript, each run required to occur exactly once. Leaf names move to the new copy's own numbering (printed page + that volume's measured offset, from the edition's scan.json): vol. I n76-n500, vol. II n506-n804. Each division's evidence keeps the vision reading (head, heading, raw) recorded for that printed page and names the leaf the reading was taken FROM under 'read_from' (the superseded copy's leaf of the SAME printed page, whose images are no longer stored); 'leaf' is the stored page image a reader can check it on.",
-    "PAGE CORRECTIONS (3): the recorded printed page was not used where it contradicted the division's own recorded leaf by more than that copy's two-page-leaf slack — division 142 (Book VI, Chapter I): recorded none, used 1 — its own recorded leaf v2-n1.jpg minus that copy's local leaf→page offset 0; division 169 (Book VII, Chapter IV): recorded 191, used 101 — its own recorded leaf v2-n99.jpg minus that copy's local leaf→page offset -2; division 199 (Book VII, Chapter XXXV): recorded 234, used 224 — its own recorded leaf v2-n222.jpg minus that copy's local leaf→page offset -2. Each division keeps the misread folio in 'pageRead': the model now records what was read and what the division's own leaf makes the page, separately."
+    "PAGE CORRECTIONS (3): the recorded printed page was not used where it contradicted the division's own recorded leaf by more than that copy's two-page-leaf slack — division 142 (Book VI, Chapter I): recorded none, used 1 — its own recorded leaf v2-n1.jpg minus that copy's local leaf→page offset 0; division 169 (Book VII, Chapter IV): recorded 191, used 101 — its own recorded leaf v2-n99.jpg minus that copy's local leaf→page offset -2; division 199 (Book VII, Chapter XXXV): recorded 234, used 224 — its own recorded leaf v2-n222.jpg minus that copy's local leaf→page offset -2. Each division keeps the misread folio in 'pageRead': the model now records what was read and what the division's own leaf makes the page, separately.",
+    "book 3, 1.0.3: chapters IV-VIII are NOT missing from the print's text but carry no printed heading — the print runs CHAPTER III. (source.txt:12321) straight to CHAPTER IX. (source.txt:12540), verified blind on the leaf images of pages 165-169 by both non-echoing readers (pages 166-168 carry no chapter heading). Taylor's own contents footnotes (source.txt:2762-2766, 2820-2830) explain the numbering: 'These four chapters are comprehended in one in my translation, as they are not marked in the Greek; and I had not divided them, when this work was sent to the press, as I have done the chapters of the other books, in which there is a similar defect in the original' (on the CHAPTER IV entry), 'The fifth and sixth chapters are comprehended in the second chapter in my translation', 'The seventh and eighth chapters form the third in my translation', 'And the ninth and tenth are the fourth and fifth chapters in my translation', 'This is the sixth chapter in my translation'. The witness's 28 against the print's 23 closes: the five numbers the print skips (IV-VIII) are the five Greek chapters comprehended into the printed chapters II (III, IV, V, VI — 'these four chapters comprehended in one', the body carrying the contents entries III-VI under the printed CHAPTER II. heading) and III (VII, VIII), and the print reuses the number III for its third chapter: 28 - 6 + 1 = 23. The witnessAgreement FLAG stands — it records a real difference between the print and the Greek numbering — and is explained here rather than cleared.",
+    "book 4, 1.0.3: chapter VI recovered — a printed CHAPTER VI. heading at source.txt:15776 on page 236 (leaf v1-n311.jpg), read blind by both non-echoing readers, who agreed on the page, the heading and the chapter's first line. Inserted as division s69a (anchor of the division it follows plus a letter) opening at source.txt:15779; the printed heading stays at the end of the chapter V section, where the model already leaves page-top headings. The book's count is now the print's own 39 and agrees with the witness.",
+    "book 5, 1.0.3: chapter XL is wanting — Taylor's own contents footnote at source.txt:3462 reads 'It will be found also that chapter forty is wanting.' The chapter is absent from the translation (vol. I ends at Book V ch. XXXIX); there is no boundary and no text to recover. The book's count stays the print's own 39; the witnessAgreement FLAG stands and is explained in the witnessNote rather than cleared.",
+    "book 7, 1.0.3: chapter XXXII recovered — a printed CHAPTER XXXII. heading at source.txt:35992 on page 213 (leaf v2-n718.jpg), read blind by both non-echoing readers, who agreed on the page and the heading; the page opens with chapter XXXI's tail before the mid-page heading. Inserted as division s196a (anchor of the division it follows plus a letter) opening at source.txt:35980, the model's convention for a mid-page heading (the first prose line of the page the heading is printed on, as division 45 opens before CHAPTER IX.). The book's count is now the print's own 51 and agrees with the witness."
   ]
 }

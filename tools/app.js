@@ -519,11 +519,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.aK.ai === region.aV.ai)
+	if (region.aK.ai === region.aW.ai)
 	{
 		return 'on line ' + region.aK.ai;
 	}
-	return 'on lines ' + region.aK.ai + ' through ' + region.aV.ai;
+	return 'on lines ' + region.aK.ai + ' through ' + region.aW.ai;
 }
 
 
@@ -1826,9 +1826,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.bx,
-		impl.bG,
-		impl.bF,
+		impl.bz,
+		impl.bI,
+		impl.bH,
 		function() { return function() {} }
 	);
 });
@@ -2690,7 +2690,7 @@ var _VirtualDom_mapEventTuple = F2(function(func, tuple)
 var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
-		J: func(record.J),
+		K: func(record.K),
 		aL: record.aL,
 		aE: record.aE
 	}
@@ -2960,7 +2960,7 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		
 
 		var value = result.a;
-		var message = !tag ? value : tag < 3 ? value.a : value.J;
+		var message = !tag ? value : tag < 3 ? value.a : value.K;
 		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.aL;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
@@ -3914,9 +3914,9 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.bx,
-		impl.bG,
-		impl.bF,
+		impl.bz,
+		impl.bI,
+		impl.bH,
 		function(sendToApp, initialModel) {
 			var view = impl.g;
 			
@@ -3948,9 +3948,9 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.bx,
-		impl.bG,
-		impl.bF,
+		impl.bz,
+		impl.bI,
+		impl.bH,
 		function(sendToApp, initialModel) {
 			var divertHrefToApp = impl.aI && impl.aI(sendToApp)
 			var view = impl.g;
@@ -4022,8 +4022,8 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.bB;
-	var onUrlRequest = impl.bC;
+	var onUrlChange = impl.bD;
+	var onUrlRequest = impl.bE;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
@@ -4043,9 +4043,9 @@ function _Browser_application(impl)
 					var next = $elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.a9 === next.a9
-							&& curr.aZ === next.aZ
-							&& curr.a5.a === next.a5.a
+							&& curr.ba === next.ba
+							&& curr.a_ === next.a_
+							&& curr.a6.a === next.a6.a
 						)
 							? $elm$browser$Browser$Internal(next)
 							: $elm$browser$Browser$External(href)
@@ -4053,13 +4053,13 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		bx: function(flags)
+		bz: function(flags)
 		{
-			return A3(impl.bx, flags, _Browser_getUrl(), key);
+			return A3(impl.bz, flags, _Browser_getUrl(), key);
 		},
 		g: impl.g,
-		bG: impl.bG,
-		bF: impl.bF
+		bI: impl.bI,
+		bH: impl.bH
 	});
 }
 
@@ -4125,17 +4125,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { bv: 'hidden', bq: 'visibilitychange' }
+		? { bx: 'hidden', br: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { bv: 'mozHidden', bq: 'mozvisibilitychange' }
+		? { bx: 'mozHidden', br: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { bv: 'msHidden', bq: 'msvisibilitychange' }
+		? { bx: 'msHidden', br: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { bv: 'webkitHidden', bq: 'webkitvisibilitychange' }
-		: { bv: 'hidden', bq: 'visibilitychange' };
+		? { bx: 'webkitHidden', br: 'webkitvisibilitychange' }
+		: { bx: 'hidden', br: 'visibilitychange' };
 }
 
 
@@ -4216,12 +4216,12 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		be: _Browser_getScene(),
+		bf: _Browser_getScene(),
 		bk: {
 			bm: _Browser_window.pageXOffset,
 			bn: _Browser_window.pageYOffset,
 			bl: _Browser_doc.documentElement.clientWidth,
-			aY: _Browser_doc.documentElement.clientHeight
+			aZ: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4232,7 +4232,7 @@ function _Browser_getScene()
 	var elem = _Browser_doc.documentElement;
 	return {
 		bl: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-		aY: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		aZ: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4255,15 +4255,15 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			be: {
+			bf: {
 				bl: node.scrollWidth,
-				aY: node.scrollHeight
+				aZ: node.scrollHeight
 			},
 			bk: {
 				bm: node.scrollLeft,
 				bn: node.scrollTop,
 				bl: node.clientWidth,
-				aY: node.clientHeight
+				aZ: node.clientHeight
 			}
 		};
 	});
@@ -4293,18 +4293,18 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			be: _Browser_getScene(),
+			bf: _Browser_getScene(),
 			bk: {
 				bm: x,
 				bn: y,
 				bl: _Browser_doc.documentElement.clientWidth,
-				aY: _Browser_doc.documentElement.clientHeight
+				aZ: _Browser_doc.documentElement.clientHeight
 			},
-			bt: {
+			bv: {
 				bm: x + rect.left,
 				bn: y + rect.top,
 				bl: rect.width,
-				aY: rect.height
+				aZ: rect.height
 			}
 		};
 	});
@@ -4881,7 +4881,7 @@ var $elm$url$Url$Http = 0;
 var $elm$url$Url$Https = 1;
 var $elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {aX: fragment, aZ: host, a3: path, a5: port_, a9: protocol, ba: query};
+		return {aY: fragment, a_: host, a4: path, a6: port_, ba: protocol, bb: query};
 	});
 var $elm$core$String$contains = _String_contains;
 var $elm$core$String$length = _String_length;
@@ -5166,11 +5166,11 @@ var $author$project$Reader$Transcription = 1;
 var $elm$json$Json$Decode$decodeValue = _Json_run;
 var $author$project$Reader$Store$Stored = F6(
 	function (position, page, section, bookmarks, view, scale) {
-		return {I: bookmarks, Q: page, a6: position, D: scale, bE: section, g: view};
+		return {I: bookmarks, Q: page, a7: position, D: scale, bG: section, g: view};
 	});
 var $author$project$Reader$Store$Bookmark = F3(
 	function (id, label, page) {
-		return {b: id, u: label, Q: page};
+		return {a: id, r: label, Q: page};
 	});
 var $elm$json$Json$Decode$int = _Json_decodeInt;
 var $elm$json$Json$Decode$map3 = _Json_map3;
@@ -5223,7 +5223,7 @@ var $author$project$Reader$Store$decoder = A7(
 				A2($elm$json$Json$Decode$field, 'scale', $elm$json$Json$Decode$int),
 				$elm$json$Json$Decode$succeed(3)
 			])));
-var $author$project$Reader$Store$empty = {I: _List_Nil, Q: $elm$core$Maybe$Nothing, a6: $elm$core$Maybe$Nothing, D: 3, bE: $elm$core$Maybe$Nothing, g: 'reading'};
+var $author$project$Reader$Store$empty = {I: _List_Nil, Q: $elm$core$Maybe$Nothing, a7: $elm$core$Maybe$Nothing, D: 3, bG: $elm$core$Maybe$Nothing, g: 'reading'};
 var $elm$core$Result$withDefault = F2(
 	function (def, result) {
 		if (!result.$) {
@@ -5248,7 +5248,7 @@ var $author$project$Reader$Document$noIndex = $author$project$Reader$Document$Fo
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $author$project$Reader$requestDoc = _Platform_outgoingPort('requestDoc', $elm$json$Json$Encode$string);
 var $author$project$Reader$init = function (flags) {
-	var stored = $author$project$Reader$Store$decode(flags.t);
+	var stored = $author$project$Reader$Store$decode(flags.u);
 	var empty = {
 		W: $elm$core$Dict$empty,
 		H: $elm$core$Maybe$Nothing,
@@ -5256,9 +5256,9 @@ var $author$project$Reader$init = function (flags) {
 		z: flags.z,
 		Y: false,
 		af: 0,
-		M: $elm$core$Maybe$Nothing,
+		J: $elm$core$Maybe$Nothing,
 		A: false,
-		a: _List_Nil,
+		b: _List_Nil,
 		ag: false,
 		aA: flags.az,
 		O: 0,
@@ -5266,8 +5266,8 @@ var $author$project$Reader$init = function (flags) {
 		ah: '',
 		at: $elm$core$Dict$empty,
 		P: $elm$core$Dict$empty,
-		r: '',
-		s: $elm$core$Maybe$Nothing,
+		s: '',
+		t: $elm$core$Maybe$Nothing,
 		j: 0,
 		T: '',
 		f: $elm$core$Maybe$Nothing,
@@ -5276,7 +5276,7 @@ var $author$project$Reader$init = function (flags) {
 		D: stored.D,
 		E: false,
 		ak: flags.ak,
-		t: stored,
+		u: stored,
 		av: false,
 		ac: flags.ac,
 		g: (stored.g === 'transcription') ? 1 : 0
@@ -5360,10 +5360,10 @@ var $author$project$Reader$entryAnchor = function (e) {
 			return A2(
 				$elm$core$Maybe$withDefault,
 				'n' + $elm$core$String$fromInt(n.v),
-				n.b);
+				n.a);
 		case 5:
 			var pr = _v0.a;
-			var _v1 = pr.b;
+			var _v1 = pr.a;
 			if (!_v1.$) {
 				var pid = _v1.a;
 				return pid;
@@ -5414,7 +5414,7 @@ var $author$project$Reader$anchorAt = F2(
 				$elm$core$Maybe$map,
 				$author$project$Reader$entryAnchor,
 				$elm$core$List$head(
-					A2($elm$core$List$drop, ix, m.a))));
+					A2($elm$core$List$drop, ix, m.b))));
 	});
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Dict$Black = 1;
@@ -5553,7 +5553,7 @@ var $author$project$Reader$addAnchors = F3(
 				var n = _v0.a;
 				return A2(
 					put,
-					A2($elm$core$Maybe$withDefault, '', n.b),
+					A2($elm$core$Maybe$withDefault, '', n.a),
 					acc);
 			case 5:
 				var pr = _v0.a;
@@ -5582,7 +5582,7 @@ var $author$project$Reader$addAnchors = F3(
 						}),
 					A2(
 						put,
-						A2($elm$core$Maybe$withDefault, '', pr.b),
+						A2($elm$core$Maybe$withDefault, '', pr.a),
 						acc),
 					pr.S);
 			default:
@@ -5700,7 +5700,7 @@ var $author$project$Reader$pageIndex = function (entries) {
 };
 var $author$project$Reader$pageAt = F2(
 	function (m, ix) {
-		var pages = $author$project$Reader$pageIndex(m.a);
+		var pages = $author$project$Reader$pageIndex(m.b);
 		var _v0 = _Utils_Tuple2(
 			A2(
 				$elm$core$Maybe$map,
@@ -5708,7 +5708,7 @@ var $author$project$Reader$pageAt = F2(
 					return $.k;
 				},
 				$elm$core$List$head(
-					A2($elm$core$List$drop, ix, m.a))),
+					A2($elm$core$List$drop, ix, m.b))),
 			$elm$core$List$head(
 				$elm$core$List$reverse(
 					A2(
@@ -5757,7 +5757,7 @@ var $author$project$Reader$currentPage = function (m) {
 var $elm$json$Json$Decode$decodeString = _Json_runOnString;
 var $author$project$Reader$Document$Doc = F9(
 	function (slug, lang, item, pages, toc, blocks, corrections, damage, leftWords) {
-		return {aP: blocks, aR: corrections, aS: damage, k: item, a$: lang, bz: leftWords, a2: pages, ak: slug, bj: toc};
+		return {aQ: blocks, aS: corrections, aT: damage, k: item, a0: lang, bB: leftWords, a3: pages, ak: slug, aM: toc};
 	});
 var $author$project$Reader$Document$BNote = F4(
 	function (a, b, c, d) {
@@ -5868,7 +5868,7 @@ var $author$project$Reader$Document$block = A2(
 	A2($elm$json$Json$Decode$field, 't', $elm$json$Json$Decode$string));
 var $author$project$Reader$Document$Correction = F5(
 	function (find, repl, cls, note, hits) {
-		return {br: cls, ay: find, h: hits, as: note, aG: repl};
+		return {bt: cls, ay: find, h: hits, as: note, aG: repl};
 	});
 var $elm$json$Json$Decode$map5 = _Json_map5;
 var $author$project$Reader$Document$correction = A6(
@@ -5887,7 +5887,7 @@ var $author$project$Reader$Document$correction = A6(
 var $elm$json$Json$Decode$map8 = _Json_map8;
 var $author$project$Reader$Document$Page = F2(
 	function (leaf, page) {
-		return {by: leaf, Q: page};
+		return {bA: leaf, Q: page};
 	});
 var $author$project$Reader$Document$page = A3(
 	$elm$json$Json$Decode$map2,
@@ -5896,14 +5896,21 @@ var $author$project$Reader$Document$page = A3(
 		A2($elm$json$Json$Decode$field, 'leaf', $elm$json$Json$Decode$int)),
 	$elm$json$Json$Decode$maybe(
 		A2($elm$json$Json$Decode$field, 'page', $elm$json$Json$Decode$int)));
-var $author$project$Reader$Document$TocEntry = F6(
-	function (id, n, title, raw, damaged, page) {
-		return {aT: damaged, b: id, v: n, Q: page, bb: raw, an: title};
+var $author$project$Reader$Document$TocEntry = F9(
+	function (id, n, title, raw, damaged, page, book, chapter, label) {
+		return {bq: book, bs: chapter, aU: damaged, a: id, r: label, v: n, Q: page, bc: raw, an: title};
 	});
 var $elm$json$Json$Decode$bool = _Json_decodeBool;
-var $author$project$Reader$Document$tocEntry = A7(
-	$elm$json$Json$Decode$map6,
-	$author$project$Reader$Document$TocEntry,
+var $elm$json$Json$Decode$map7 = _Json_map7;
+var $author$project$Reader$Document$tocEntry = A8(
+	$elm$json$Json$Decode$map7,
+	F7(
+		function (id, n, title, raw, damaged, pg, _v0) {
+			var book = _v0.a;
+			var chapter = _v0.b;
+			var label = _v0.c;
+			return A9($author$project$Reader$Document$TocEntry, id, n, title, raw, damaged, pg, book, chapter, label);
+		}),
 	A2($elm$json$Json$Decode$field, 'id', $elm$json$Json$Decode$string),
 	A2($elm$json$Json$Decode$field, 'n', $elm$json$Json$Decode$int),
 	A2($elm$json$Json$Decode$field, 'title', $elm$json$Json$Decode$string),
@@ -5920,7 +5927,19 @@ var $author$project$Reader$Document$tocEntry = A7(
 				$elm$json$Json$Decode$succeed(false)
 			])),
 	$elm$json$Json$Decode$maybe(
-		A2($elm$json$Json$Decode$field, 'page', $elm$json$Json$Decode$int)));
+		A2($elm$json$Json$Decode$field, 'page', $elm$json$Json$Decode$int)),
+	A4(
+		$elm$json$Json$Decode$map3,
+		F3(
+			function (b, c, l) {
+				return _Utils_Tuple3(b, c, l);
+			}),
+		$elm$json$Json$Decode$maybe(
+			A2($elm$json$Json$Decode$field, 'book', $elm$json$Json$Decode$int)),
+		$elm$json$Json$Decode$maybe(
+			A2($elm$json$Json$Decode$field, 'chapter', $elm$json$Json$Decode$int)),
+		$elm$json$Json$Decode$maybe(
+			A2($elm$json$Json$Decode$field, 'label', $elm$json$Json$Decode$string))));
 var $author$project$Reader$Document$decoder = A2(
 	$elm$json$Json$Decode$andThen,
 	function (cs) {
@@ -6006,23 +6025,23 @@ var $elm$core$List$isEmpty = function (xs) {
 	}
 };
 var $author$project$Reader$Document$close = function (st) {
-	var _v0 = st.s;
+	var _v0 = st.t;
 	switch (_v0.$) {
 		case 1:
 			var id = _v0.a;
 			var parts = _v0.c;
 			return $elm$core$List$isEmpty(parts) ? _Utils_update(
 				st,
-				{s: $author$project$Reader$Document$ONone}) : _Utils_update(
+				{t: $author$project$Reader$Document$ONone}) : _Utils_update(
 				st,
 				{
-					s: $author$project$Reader$Document$ONone,
+					t: $author$project$Reader$Document$ONone,
 					C: A2(
 						$elm$core$List$cons,
 						{
 							k: $author$project$Reader$Document$FPara(
 								{
-									b: id,
+									a: id,
 									S: $elm$core$List$reverse(parts)
 								}),
 							aj: st.aj
@@ -6034,7 +6053,7 @@ var $author$project$Reader$Document$close = function (st) {
 			return _Utils_update(
 				st,
 				{
-					s: $author$project$Reader$Document$ONone,
+					t: $author$project$Reader$Document$ONone,
 					C: A2(
 						$elm$core$List$cons,
 						{
@@ -6167,7 +6186,7 @@ var $author$project$Reader$Document$nextFree = F2(
 		nextFree:
 		while (true) {
 			var candidate = function () {
-				var _v0 = st.bE;
+				var _v0 = st.bG;
 				if (!_v0.$) {
 					var sec = _v0.a;
 					return sec + ('-' + $elm$core$String$fromInt(from));
@@ -6193,7 +6212,7 @@ var $author$project$Reader$Document$openPara = F3(
 				var a = at.a;
 				return $elm$core$Maybe$Just(a);
 			} else {
-				var _v1 = st.bE;
+				var _v1 = st.bG;
 				if (!_v1.$) {
 					var sec = _v1.a;
 					return $elm$core$Maybe$Just(
@@ -6208,7 +6227,7 @@ var $author$project$Reader$Document$openPara = F3(
 			st,
 			{
 				l: false,
-				s: A3(
+				t: A3(
 					$author$project$Reader$Document$OPara,
 					id,
 					!_Utils_eq(at, $elm$core$Maybe$Nothing),
@@ -6219,7 +6238,7 @@ var $author$project$Reader$Document$openPara = F3(
 	});
 var $author$project$Reader$Document$appendOrOpen = F3(
 	function (st, part, at) {
-		var _v0 = st.s;
+		var _v0 = st.t;
 		if (_v0.$ === 1) {
 			var id = _v0.a;
 			var authOn = _v0.b;
@@ -6228,7 +6247,7 @@ var $author$project$Reader$Document$appendOrOpen = F3(
 				st,
 				{
 					l: false,
-					s: A3(
+					t: A3(
 						$author$project$Reader$Document$OPara,
 						id,
 						authOn,
@@ -6237,7 +6256,7 @@ var $author$project$Reader$Document$appendOrOpen = F3(
 				st,
 				{
 					l: false,
-					s: A3(
+					t: A3(
 						$author$project$Reader$Document$OPara,
 						id,
 						authOn,
@@ -6246,7 +6265,7 @@ var $author$project$Reader$Document$appendOrOpen = F3(
 				st,
 				{
 					l: false,
-					s: A3(
+					t: A3(
 						$author$project$Reader$Document$OPara,
 						id,
 						authOn,
@@ -6269,7 +6288,7 @@ var $author$project$Reader$Document$emit = F2(
 		return _Utils_update(
 			st,
 			{
-				s: $author$project$Reader$Document$ONone,
+				t: $author$project$Reader$Document$ONone,
 				C: A2(
 					$elm$core$List$cons,
 					{k: item, aj: st.aj},
@@ -6290,12 +6309,12 @@ var $author$project$Reader$Document$openNote = F5(
 			st,
 			{
 				l: false,
-				s: $author$project$Reader$Document$ONote(
+				t: $author$project$Reader$Document$ONote(
 					{
-						b: id,
-						a$: lang,
+						a: id,
+						a0: lang,
 						v: n,
-						bi: _List_fromArray(
+						bj: _List_fromArray(
 							[x])
 					})
 			});
@@ -6327,7 +6346,7 @@ var $author$project$Reader$Document$step = F3(
 									$elm$core$Maybe$withDefault,
 									$elm$core$Set$empty,
 									A2($elm$core$Dict$get, id, bySection)),
-								bE: $elm$core$Maybe$Just(id),
+								bG: $elm$core$Maybe$Just(id),
 								y: $elm$core$Set$empty
 							})),
 					A3($author$project$Reader$Document$FSec, n, id, pg));
@@ -6336,7 +6355,7 @@ var $author$project$Reader$Document$step = F3(
 				var how = b.b;
 				var id = b.c;
 				var raw = b.d;
-				var _v1 = st.s;
+				var _v1 = st.t;
 				if (_v1.$ === 1) {
 					var pid = _v1.a;
 					var authOn = _v1.b;
@@ -6344,7 +6363,7 @@ var $author$project$Reader$Document$step = F3(
 					return _Utils_update(
 						st,
 						{
-							s: A3(
+							t: A3(
 								$author$project$Reader$Document$OPara,
 								pid,
 								authOn,
@@ -6361,7 +6380,7 @@ var $author$project$Reader$Document$step = F3(
 				}
 			case 4:
 				var x = b.a;
-				var _v2 = st.s;
+				var _v2 = st.t;
 				if (_v2.$ === 1) {
 					var pid = _v2.a;
 					var authOn = _v2.b;
@@ -6369,7 +6388,7 @@ var $author$project$Reader$Document$step = F3(
 					return _Utils_update(
 						st,
 						{
-							s: A3(
+							t: A3(
 								$author$project$Reader$Document$OPara,
 								pid,
 								authOn,
@@ -6405,7 +6424,7 @@ var $author$project$Reader$Document$step = F3(
 				var x = b.b;
 				var at = b.c;
 				var id = b.d;
-				var _v3 = st.s;
+				var _v3 = st.t;
 				if (_v3.$ === 1) {
 					var oid = _v3.a;
 					var authOn = _v3.b;
@@ -6428,7 +6447,7 @@ var $author$project$Reader$Document$step = F3(
 						st,
 						{
 							l: true,
-							s: A3(
+							t: A3(
 								$author$project$Reader$Document$OPara,
 								nid,
 								nauth,
@@ -6449,7 +6468,7 @@ var $author$project$Reader$Document$step = F3(
 						st,
 						{
 							l: true,
-							s: A3(
+							t: A3(
 								$author$project$Reader$Document$OPara,
 								nid,
 								nauth,
@@ -6469,20 +6488,20 @@ var $author$project$Reader$Document$step = F3(
 				var x = b.b;
 				var id = b.c;
 				var lang = b.d;
-				var _v7 = st.s;
+				var _v7 = st.t;
 				if (_v7.$ === 2) {
 					var prev = _v7.a;
 					return _Utils_eq(prev.v, n) ? _Utils_update(
 						st,
 						{
 							l: false,
-							s: $author$project$Reader$Document$ONote(
+							t: $author$project$Reader$Document$ONote(
 								_Utils_update(
 									prev,
 									{
-										b: A2($author$project$Reader$Document$firstJust, prev.b, id),
-										a$: A2($author$project$Reader$Document$firstJust, prev.a$, lang),
-										bi: A2($elm$core$List$cons, x, prev.bi)
+										a: A2($author$project$Reader$Document$firstJust, prev.a, id),
+										a0: A2($author$project$Reader$Document$firstJust, prev.a0, lang),
+										bj: A2($elm$core$List$cons, x, prev.bj)
 									}))
 						}) : A5(
 						$author$project$Reader$Document$openNote,
@@ -6939,7 +6958,7 @@ var $author$project$Reader$Document$flow = function (blocks) {
 	var st = A3(
 		$elm$core$List$foldl,
 		$author$project$Reader$Document$step(labels.X),
-		{ar: $elm$core$Set$empty, l: false, s: $author$project$Reader$Document$ONone, C: _List_Nil, aj: '', bE: $elm$core$Maybe$Nothing, y: $elm$core$Set$empty},
+		{ar: $elm$core$Set$empty, l: false, t: $author$project$Reader$Document$ONone, C: _List_Nil, aj: '', bG: $elm$core$Maybe$Nothing, y: $elm$core$Set$empty},
 		blocks);
 	return $elm$core$List$reverse(
 		$author$project$Reader$Document$close(st).C);
@@ -7106,7 +7125,7 @@ var $author$project$Reader$sectionAt = F2(
 					}
 				},
 				$elm$core$List$reverse(
-					A2($elm$core$List$take, ix + 1, m.a))));
+					A2($elm$core$List$take, ix + 1, m.b))));
 	});
 var $author$project$Reader$currentSection = function (m) {
 	return A2($author$project$Reader$sectionAt, m, m.j);
@@ -7141,10 +7160,10 @@ var $author$project$Reader$Store$bookmarkEnc = function (b) {
 			[
 				_Utils_Tuple2(
 				'id',
-				$elm$json$Json$Encode$string(b.b)),
+				$elm$json$Json$Encode$string(b.a)),
 				_Utils_Tuple2(
 				'label',
-				$elm$json$Json$Encode$string(b.u)),
+				$elm$json$Json$Encode$string(b.r)),
 				_Utils_Tuple2(
 				'page',
 				A2($author$project$Reader$Store$maybe, $elm$json$Json$Encode$int, b.Q))
@@ -7165,13 +7184,13 @@ var $author$project$Reader$Store$encode = function (s) {
 			[
 				_Utils_Tuple2(
 				'position',
-				A2($author$project$Reader$Store$maybe, $elm$json$Json$Encode$string, s.a6)),
+				A2($author$project$Reader$Store$maybe, $elm$json$Json$Encode$string, s.a7)),
 				_Utils_Tuple2(
 				'page',
 				A2($author$project$Reader$Store$maybe, $elm$json$Json$Encode$int, s.Q)),
 				_Utils_Tuple2(
 				'section',
-				A2($author$project$Reader$Store$maybe, $elm$json$Json$Encode$string, s.bE)),
+				A2($author$project$Reader$Store$maybe, $elm$json$Json$Encode$string, s.bG)),
 				_Utils_Tuple2(
 				'bookmarks',
 				A2($elm$json$Json$Encode$list, $author$project$Reader$Store$bookmarkEnc, s.I)),
@@ -7194,12 +7213,12 @@ var $author$project$Reader$viewName = function (v) {
 var $author$project$Reader$persistCmd = function (m) {
 	var s = $author$project$Reader$Store$encode(
 		{
-			I: m.t.I,
+			I: m.u.I,
 			Q: $author$project$Reader$currentPage(m),
-			a6: $elm$core$Maybe$Just(
+			a7: $elm$core$Maybe$Just(
 				A2($author$project$Reader$anchorAt, m, m.j)),
 			D: m.D,
-			bE: $author$project$Reader$currentSection(m),
+			bG: $author$project$Reader$currentSection(m),
 			g: $author$project$Reader$viewName(m.g)
 		});
 	return $author$project$Reader$persist(s);
@@ -7217,14 +7236,14 @@ var $author$project$Reader$withNote = F2(
 			return A2($elm$core$Dict$member, n, m.P) ? _Utils_update(
 				m,
 				{
-					s: $elm$core$Maybe$Just(n)
+					t: $elm$core$Maybe$Just(n)
 				}) : _Utils_update(
 				m,
-				{s: $elm$core$Maybe$Nothing});
+				{t: $elm$core$Maybe$Nothing});
 		} else {
 			return _Utils_update(
 				m,
-				{s: $elm$core$Maybe$Nothing});
+				{t: $elm$core$Maybe$Nothing});
 		}
 	});
 var $author$project$Reader$goTo = F2(
@@ -7232,7 +7251,7 @@ var $author$project$Reader$goTo = F2(
 		var _v0 = A2($elm$core$Dict$get, aid, m.W);
 		if (!_v0.$) {
 			var ix = _v0.a;
-			var pinned = A2($author$project$Reader$pageAnchor, m.a, aid);
+			var pinned = A2($author$project$Reader$pageAnchor, m.b, aid);
 			var m1 = A2(
 				$author$project$Reader$withNote,
 				aid,
@@ -7252,7 +7271,7 @@ var $author$project$Reader$goTo = F2(
 			return _Utils_Tuple2(
 				_Utils_update(
 					m,
-					{r: 'Nothing here is called ' + aid}),
+					{s: 'Nothing here is called ' + aid}),
 				$elm$core$Platform$Cmd$none);
 		}
 	});
@@ -7268,7 +7287,7 @@ var $author$project$Reader$goToSilent = F2(
 					_Utils_update(
 						m,
 						{
-							H: A2($author$project$Reader$pageAnchor, m.a, aid),
+							H: A2($author$project$Reader$pageAnchor, m.b, aid),
 							j: ix
 						})),
 				$author$project$Reader$jumpTo(aid));
@@ -7276,7 +7295,7 @@ var $author$project$Reader$goToSilent = F2(
 			return _Utils_Tuple2(
 				_Utils_update(
 					m,
-					{r: 'Nothing here is called ' + aid}),
+					{s: 'Nothing here is called ' + aid}),
 				$elm$core$Platform$Cmd$none);
 		}
 	});
@@ -7289,7 +7308,7 @@ var $author$project$Reader$gotoPage = F2(
 					var pg = _v1.c;
 					return _Utils_eq(pg, n);
 				},
-				$author$project$Reader$pageIndex(m.a)));
+				$author$project$Reader$pageIndex(m.b)));
 		if (!_v0.$) {
 			var _v2 = _v0.a;
 			var aid = _v2.b;
@@ -7299,7 +7318,7 @@ var $author$project$Reader$gotoPage = F2(
 				_Utils_update(
 					m,
 					{
-						r: 'No printed page ' + ($elm$core$String$fromInt(n) + ' in this text')
+						s: 'No printed page ' + ($elm$core$String$fromInt(n) + ' in this text')
 					}),
 				$elm$core$Platform$Cmd$none);
 		}
@@ -7339,7 +7358,7 @@ var $author$project$Reader$noteLanguages = function (entries) {
 						function (l) {
 							return _Utils_Tuple2(n.v, l);
 						},
-						n.a$);
+						n.a0);
 				} else {
 					return $elm$core$Maybe$Nothing;
 				}
@@ -7357,7 +7376,7 @@ var $author$project$Reader$Document$noteTexts = function (entries) {
 					return A3(
 						$elm$core$Dict$insert,
 						n.v,
-						A2($elm$core$String$join, ' ', n.bi),
+						A2($elm$core$String$join, ' ', n.bj),
 						acc);
 				} else {
 					return acc;
@@ -7366,6 +7385,36 @@ var $author$project$Reader$Document$noteTexts = function (entries) {
 		$elm$core$Dict$empty,
 		entries);
 };
+var $elm$core$Maybe$andThen = F2(
+	function (callback, maybeValue) {
+		if (!maybeValue.$) {
+			var value = maybeValue.a;
+			return callback(value);
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	});
+var $author$project$Reader$structureLabel = F2(
+	function (m, sid) {
+		var _v0 = m.J;
+		if (_v0.$ === 1) {
+			return $elm$core$Maybe$Nothing;
+		} else {
+			var doc = _v0.a;
+			return A2(
+				$elm$core$Maybe$andThen,
+				function (t) {
+					return _Utils_eq(t.bq, $elm$core$Maybe$Nothing) ? $elm$core$Maybe$Nothing : t.r;
+				},
+				$elm$core$List$head(
+					A2(
+						$elm$core$List$filter,
+						function (t) {
+							return _Utils_eq(t.a, sid);
+						},
+						doc.aM)));
+		}
+	});
 var $author$project$Reader$positionLabel = function (m) {
 	var sec = A2(
 		$elm$core$Maybe$withDefault,
@@ -7373,7 +7422,15 @@ var $author$project$Reader$positionLabel = function (m) {
 		A2(
 			$elm$core$Maybe$map,
 			function (s) {
-				return ' · §' + A2($elm$core$String$dropLeft, 1, s);
+				return A2(
+					$elm$core$Maybe$withDefault,
+					' · §' + A2($elm$core$String$dropLeft, 1, s),
+					A2(
+						$elm$core$Maybe$map,
+						function (label) {
+							return ' · ' + label;
+						},
+						A2($author$project$Reader$structureLabel, m, s)));
 			},
 			$author$project$Reader$currentSection(m)));
 	var pg = A2(
@@ -7399,7 +7456,7 @@ var $author$project$Reader$restoreSilent = F2(
 					_Utils_update(
 						m,
 						{
-							H: A2($author$project$Reader$pageAnchor, m.a, aid),
+							H: A2($author$project$Reader$pageAnchor, m.b, aid),
 							j: ix
 						})),
 				$elm$core$Platform$Cmd$none);
@@ -7869,7 +7926,7 @@ var $author$project$Reader$shownText = F2(
 						A2($elm$core$List$map, $author$project$Reader$inlineText, pr.S));
 				case 4:
 					var n = f.a;
-					return A2($elm$core$String$join, ' ', n.bi);
+					return A2($elm$core$String$join, ' ', n.bj);
 				default:
 					return '';
 			}
@@ -7899,7 +7956,7 @@ var $author$project$Reader$search = F2(
 						$elm$core$String$toLower(
 							A2($author$project$Reader$shownText, m, e.k))) ? $elm$core$Maybe$Just(ix) : $elm$core$Maybe$Nothing) : $elm$core$Maybe$Nothing;
 				},
-				A2($elm$core$List$indexedMap, $elm$core$Tuple$pair, m.a));
+				A2($elm$core$List$indexedMap, $elm$core$Tuple$pair, m.b));
 			return _Utils_update(
 				m,
 				{O: 0, h: hits, T: q});
@@ -7923,7 +7980,7 @@ var $author$project$Reader$stepHit = F2(
 				m,
 				{O: ix, j: entryIx});
 			var _v0 = $elm$core$List$head(
-				A2($elm$core$List$drop, entryIx, m.a));
+				A2($elm$core$List$drop, entryIx, m.b));
 			if (!_v0.$) {
 				var e = _v0.a;
 				var aid = $author$project$Reader$entryAnchor(e);
@@ -7963,7 +8020,7 @@ var $author$project$Reader$stepFromFront = F2(
 	});
 var $author$project$Reader$stepPage = F2(
 	function (d, m) {
-		var pages = $author$project$Reader$pageIndex(m.a);
+		var pages = $author$project$Reader$pageIndex(m.b);
 		var _v0 = $author$project$Reader$currentPage(m);
 		if (!_v0.$) {
 			var pg = _v0.a;
@@ -7981,7 +8038,7 @@ var $author$project$Reader$stepPage = F2(
 						_Utils_update(
 							m,
 							{
-								r: (d > 0) ? 'The last printed page' : 'The first printed page of the text'
+								s: (d > 0) ? 'The last printed page' : 'The first printed page of the text'
 							}),
 						$elm$core$Platform$Cmd$none);
 				}
@@ -7998,7 +8055,7 @@ var $author$project$Reader$stepPage = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						m,
-						{r: 'The text opens after the front matter'}),
+						{s: 'The text opens after the front matter'}),
 					$elm$core$Platform$Cmd$none);
 			}
 		}
@@ -8013,11 +8070,11 @@ var $author$project$Reader$tocIds = function (m) {
 				return A2(
 					$elm$core$List$map,
 					function ($) {
-						return $.b;
+						return $.a;
 					},
-					d.bj);
+					d.aM);
 			},
-			m.M));
+			m.J));
 };
 var $author$project$Reader$stepSection = F2(
 	function (d, m) {
@@ -8046,7 +8103,7 @@ var $author$project$Reader$stepSection = F2(
 						_Utils_update(
 							m,
 							{
-								r: (d > 0) ? 'This is the last section — the notes and the end matter follow it' : 'This is the first section — the front matter is before it'
+								s: (d > 0) ? 'This is the last section — the notes and the end matter follow it' : 'This is the first section — the front matter is before it'
 							}),
 						$elm$core$Platform$Cmd$none);
 				}
@@ -8067,7 +8124,7 @@ var $author$project$Reader$stepSection = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						m,
-						{r: 'This is the front matter — the first section follows it'}),
+						{s: 'This is the front matter — the first section follows it'}),
 					$elm$core$Platform$Cmd$none);
 			}
 		}
@@ -8080,20 +8137,20 @@ var $author$project$Reader$update = F2(
 				var _v1 = A2($elm$json$Json$Decode$decodeString, $author$project$Reader$Document$decoder, raw);
 				if (!_v1.$) {
 					var doc = _v1.a;
-					var entries = $author$project$Reader$Document$flow(doc.aP);
+					var entries = $author$project$Reader$Document$flow(doc.aQ);
 					var m1 = _Utils_update(
 						m,
 						{
 							W: $author$project$Reader$buildAnchors(entries),
-							M: $elm$core$Maybe$Just(doc),
-							a: entries,
+							J: $elm$core$Maybe$Just(doc),
+							b: entries,
 							at: $author$project$Reader$noteLanguages(entries),
 							P: $author$project$Reader$Document$noteTexts(entries),
-							aa: $author$project$Reader$Document$ruleIndex(doc.aR)
+							aa: $author$project$Reader$Document$ruleIndex(doc.aS)
 						});
 					var fromHash = $author$project$Reader$hashOf(m1.aA);
 					if ($elm$core$String$isEmpty(fromHash)) {
-						var _v2 = m1.t.a6;
+						var _v2 = m1.u.a7;
 						if (!_v2.$) {
 							var aid = _v2.a;
 							return $elm$core$String$isEmpty(aid) ? _Utils_Tuple2(m1, $elm$core$Platform$Cmd$none) : A2($author$project$Reader$restoreSilent, aid, m1);
@@ -8177,7 +8234,7 @@ var $author$project$Reader$update = F2(
 					_Utils_update(
 						m,
 						{
-							s: $elm$core$Maybe$Just(n)
+							t: $elm$core$Maybe$Just(n)
 						}),
 					$elm$core$Platform$Cmd$batch(
 						_List_fromArray(
@@ -8192,7 +8249,7 @@ var $author$project$Reader$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						m,
-						{s: $elm$core$Maybe$Nothing}),
+						{t: $elm$core$Maybe$Nothing}),
 					$author$project$Reader$focusOn(
 						'r' + $elm$core$String$fromInt(n)));
 			case 14:
@@ -8206,7 +8263,7 @@ var $author$project$Reader$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						m1,
-						{s: $elm$core$Maybe$Nothing}),
+						{t: $elm$core$Maybe$Nothing}),
 					cmd);
 			case 15:
 				var open = !m.Y;
@@ -8318,14 +8375,14 @@ var $author$project$Reader$update = F2(
 			case 21:
 				var label = $author$project$Reader$positionLabel(m);
 				var bm = {
-					b: A2($author$project$Reader$anchorAt, m, m.j),
-					u: label,
+					a: A2($author$project$Reader$anchorAt, m, m.j),
+					r: label,
 					Q: $author$project$Reader$currentPage(m)
 				};
 				var m1 = _Utils_update(
 					m,
 					{
-						t: _Utils_update(
+						u: _Utils_update(
 							$author$project$Reader$st0,
 							{
 								I: A2(
@@ -8334,7 +8391,7 @@ var $author$project$Reader$update = F2(
 									A2(
 										$elm$core$List$filter,
 										function (b) {
-											return !_Utils_eq(b.b, bm.b);
+											return !_Utils_eq(b.a, bm.a);
 										},
 										$author$project$Reader$st0.I))
 							})
@@ -8342,20 +8399,20 @@ var $author$project$Reader$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						m1,
-						{r: 'Bookmarked: ' + label}),
+						{s: 'Bookmarked: ' + label}),
 					$author$project$Reader$persistCmd(m1));
 			case 22:
 				var bid = msg.a;
 				var m1 = _Utils_update(
 					m,
 					{
-						t: _Utils_update(
+						u: _Utils_update(
 							$author$project$Reader$st0,
 							{
 								I: A2(
 									$elm$core$List$filter,
 									function (b) {
-										return !_Utils_eq(b.b, bid);
+										return !_Utils_eq(b.a, bid);
 									},
 									$author$project$Reader$st0.I)
 							})
@@ -8376,7 +8433,7 @@ var $author$project$Reader$update = F2(
 				var ix = msg.a;
 				return (_Utils_eq(ix, m.j) || ((ix < 0) || (_Utils_cmp(
 					ix,
-					$elm$core$List$length(m.a)) > -1))) ? _Utils_Tuple2(m, $elm$core$Platform$Cmd$none) : _Utils_Tuple2(
+					$elm$core$List$length(m.b)) > -1))) ? _Utils_Tuple2(m, $elm$core$Platform$Cmd$none) : _Utils_Tuple2(
 					_Utils_update(
 						m,
 						{H: $elm$core$Maybe$Nothing, j: ix}),
@@ -8410,7 +8467,7 @@ var $author$project$Reader$update = F2(
 								$author$project$Reader$focusOn('rd-rules-btn')) : _Utils_Tuple2(
 								_Utils_update(
 									m,
-									{A: false, s: $elm$core$Maybe$Nothing}),
+									{A: false, t: $elm$core$Maybe$Nothing}),
 								$elm$core$Platform$Cmd$none);
 						default:
 							return _Utils_Tuple2(m, $elm$core$Platform$Cmd$none);
@@ -8477,9 +8534,9 @@ var $author$project$Reader$docRules = function (m) {
 		A2(
 			$elm$core$Maybe$map,
 			function ($) {
-				return $.aR;
+				return $.aS;
 			},
-			m.M));
+			m.J));
 };
 var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
 var $elm$html$Html$header = _VirtualDom_node('header');
@@ -8567,7 +8624,7 @@ var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$Reader$pager = function (m) {
-	var pages = $author$project$Reader$pageIndex(m.a);
+	var pages = $author$project$Reader$pageIndex(m.b);
 	var total = $elm$core$List$length(pages);
 	var here = function () {
 		var _v0 = $author$project$Reader$currentPage(m);
@@ -8943,7 +9000,7 @@ var $author$project$Reader$citationHead = function (c) {
 	return c.aw + ', ';
 };
 var $author$project$Reader$citationTail = function (c) {
-	return ', trans. ' + (c.aM + (' (' + (c.aD + (': ' + (c.aF + (', ' + (c.aN + ')')))))));
+	return ', trans. ' + (c.aN + (' (' + (c.aD + (': ' + (c.aF + (', ' + (c.aO + ')')))))));
 };
 var $elm$core$Basics$composeR = F3(
 	function (f, g, x) {
@@ -8978,7 +9035,7 @@ var $author$project$Reader$passageAnchor = F2(
 						A2(
 							$elm$core$List$take,
 							A2($elm$core$Basics$max, 0, ix + 1),
-							m.a)))));
+							m.b)))));
 	});
 var $author$project$Reader$anchorNumber = function (anchor) {
 	return A2(
@@ -9020,16 +9077,34 @@ var $author$project$Reader$sectionNumberAt = F2(
 	});
 var $author$project$Reader$sectionClause = F2(
 	function (m, ix) {
-		return (A2($author$project$Reader$sectionNumberAt, m, ix) > 0) ? (', §' + $elm$core$String$fromInt(
-			A2($author$project$Reader$sectionNumberAt, m, ix))) : '';
+		var _v0 = A2(
+			$elm$core$Maybe$andThen,
+			$author$project$Reader$structureLabel(m),
+			A2($author$project$Reader$sectionAt, m, ix));
+		if (!_v0.$) {
+			var label = _v0.a;
+			return ', ' + label;
+		} else {
+			return (A2($author$project$Reader$sectionNumberAt, m, ix) > 0) ? (', §' + $elm$core$String$fromInt(
+				A2($author$project$Reader$sectionNumberAt, m, ix))) : '';
+		}
 	});
 var $author$project$Reader$passageClause = F3(
 	function (m, ix, anchor) {
 		var _v0 = A2($elm$core$String$left, 1, anchor);
 		switch (_v0) {
 			case 's':
-				return ($author$project$Reader$anchorNumber(anchor) > 0) ? (', §' + ($elm$core$String$fromInt(
-					$author$project$Reader$anchorNumber(anchor)) + A2($author$project$Reader$pageClause, m, ix))) : A2($author$project$Reader$pageClause, m, ix);
+				var _v1 = A2(
+					$elm$core$Maybe$andThen,
+					$author$project$Reader$structureLabel(m),
+					A2($author$project$Reader$sectionAt, m, ix));
+				if (!_v1.$) {
+					var label = _v1.a;
+					return ', ' + (label + A2($author$project$Reader$pageClause, m, ix));
+				} else {
+					return ($author$project$Reader$anchorNumber(anchor) > 0) ? (', §' + ($elm$core$String$fromInt(
+						$author$project$Reader$anchorNumber(anchor)) + A2($author$project$Reader$pageClause, m, ix))) : A2($author$project$Reader$pageClause, m, ix);
+				}
 			case 'p':
 				return _Utils_ap(
 					A2($author$project$Reader$sectionClause, m, ix),
@@ -9415,7 +9490,7 @@ var $author$project$Reader$progress = function (m) {
 			var e = _v2.b;
 			return (e.aj === 'body') || (e.aj === 'notes');
 		},
-		A2($elm$core$List$indexedMap, $elm$core$Tuple$pair, m.a));
+		A2($elm$core$List$indexedMap, $elm$core$Tuple$pair, m.b));
 	var read = $elm$core$List$length(
 		A2(
 			$elm$core$List$filter,
@@ -9512,7 +9587,7 @@ var $author$project$Reader$tocLink = F2(
 					$elm$html$Html$Attributes$class(
 					_Utils_eq(
 						cur,
-						$elm$core$Maybe$Just(item.b)) ? 'rd-cur' : '')
+						$elm$core$Maybe$Just(item.a)) ? 'rd-cur' : '')
 				]),
 			_List_fromArray(
 				[
@@ -9520,16 +9595,16 @@ var $author$project$Reader$tocLink = F2(
 					$elm$html$Html$a,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$href('#' + item.b),
+							$elm$html$Html$Attributes$href('#' + item.a),
 							A2(
 							$elm$html$Html$Events$on,
 							'click',
 							$elm$json$Json$Decode$succeed(
-								$author$project$Reader$GoAnchor(item.b)))
+								$author$project$Reader$GoAnchor(item.a)))
 						]),
 					_List_fromArray(
 						[
-							$elm$html$Html$text(item.u),
+							$elm$html$Html$text(item.r),
 							function () {
 							var _v0 = item.Q;
 							if (!_v0.$) {
@@ -9571,7 +9646,7 @@ var $author$project$Reader$tocLink = F2(
 				]));
 	});
 var $author$project$Reader$tocItems = function (m) {
-	var _v0 = m.M;
+	var _v0 = m.J;
 	if (_v0.$ === 1) {
 		return _List_Nil;
 	} else {
@@ -9580,13 +9655,23 @@ var $author$project$Reader$tocItems = function (m) {
 			$elm$core$List$map,
 			function (t) {
 				return {
-					aq: t.aT ? $elm$core$Maybe$Just(t.bb) : $elm$core$Maybe$Nothing,
-					b: t.b,
-					u: $elm$core$String$fromInt(t.v) + (' · ' + (t.aT ? $author$project$Reader$damagedTitle : ((!m.g) ? t.an : t.bb))),
+					aq: t.aU ? $elm$core$Maybe$Just(t.bc) : $elm$core$Maybe$Nothing,
+					a: t.a,
+					r: _Utils_ap(
+						function () {
+							var _v2 = A2($author$project$Reader$structureLabel, m, t.a);
+							if (!_v2.$) {
+								var structure = _v2.a;
+								return structure + ' · ';
+							} else {
+								return $elm$core$String$fromInt(t.v) + ' · ';
+							}
+						}(),
+						t.aU ? $author$project$Reader$damagedTitle : ((!m.g) ? t.an : t.bc)),
 					Q: t.Q
 				};
 			},
-			doc.bj);
+			doc.aM);
 		var regions = A2(
 			$elm$core$List$filterMap,
 			function (b) {
@@ -9596,15 +9681,15 @@ var $author$project$Reader$tocItems = function (m) {
 					return $elm$core$Maybe$Just(
 						{
 							aq: $elm$core$Maybe$Nothing,
-							b: rid,
-							u: $author$project$Reader$regionLabel(kind),
+							a: rid,
+							r: $author$project$Reader$regionLabel(kind),
 							Q: $elm$core$Maybe$Nothing
 						});
 				} else {
 					return $elm$core$Maybe$Nothing;
 				}
 			},
-			doc.aP);
+			doc.aQ);
 		var cur = $author$project$Reader$currentSection(m);
 		return A2(
 			$elm$core$List$map,
@@ -9680,7 +9765,7 @@ var $author$project$Reader$contents = function (m) {
 					[
 						$elm$html$Html$text('Marks')
 					])),
-				$elm$core$List$isEmpty(m.t.I) ? A2(
+				$elm$core$List$isEmpty(m.u.I) ? A2(
 				$elm$html$Html$p,
 				_List_fromArray(
 					[
@@ -9703,7 +9788,7 @@ var $author$project$Reader$contents = function (m) {
 							_List_Nil,
 							_List_fromArray(
 								[
-									A2($author$project$Reader$linkTo, bm.b, bm.u),
+									A2($author$project$Reader$linkTo, bm.a, bm.r),
 									A2(
 									$elm$html$Html$button,
 									_List_fromArray(
@@ -9711,8 +9796,8 @@ var $author$project$Reader$contents = function (m) {
 											$elm$html$Html$Attributes$type_('button'),
 											$elm$html$Html$Attributes$class('rd-btn rd-x'),
 											$elm$html$Html$Events$onClick(
-											$author$project$Reader$BookmarkRemove(bm.b)),
-											A2($elm$html$Html$Attributes$attribute, 'aria-label', 'Remove the mark at ' + bm.u)
+											$author$project$Reader$BookmarkRemove(bm.a)),
+											A2($elm$html$Html$Attributes$attribute, 'aria-label', 'Remove the mark at ' + bm.r)
 										]),
 									_List_fromArray(
 										[
@@ -9720,7 +9805,7 @@ var $author$project$Reader$contents = function (m) {
 										]))
 								]));
 					},
-					m.t.I)),
+					m.u.I)),
 				A2(
 				$elm$html$Html$h3,
 				_List_Nil,
@@ -9756,7 +9841,7 @@ var $author$project$Reader$contents = function (m) {
 									$elm$core$String$fromInt(pg))
 								]));
 					},
-					$author$project$Reader$pageIndex(m.a)))
+					$author$project$Reader$pageIndex(m.b)))
 			]));
 };
 var $elm$core$List$any = F2(
@@ -9905,7 +9990,7 @@ var $author$project$Reader$highlight = F2(
 var $elm$html$Html$Attributes$title = $elm$html$Html$Attributes$stringProperty('title');
 var $author$project$Reader$damageSpans = F3(
 	function (doc, m, s) {
-		return ((!(!m.g)) || $elm$core$String$isEmpty(doc.aS)) ? A2($author$project$Reader$highlight, m, s) : A2(
+		return ((!(!m.g)) || $elm$core$String$isEmpty(doc.aT)) ? A2($author$project$Reader$highlight, m, s) : A2(
 			$elm$core$List$concatMap,
 			function (_v0) {
 				var isDam = _v0.a;
@@ -9925,7 +10010,7 @@ var $author$project$Reader$damageSpans = F3(
 							]))
 					]) : A2($author$project$Reader$highlight, m, chunk);
 			},
-			A2($author$project$Reader$damagePieces, doc.aS, s));
+			A2($author$project$Reader$damagePieces, doc.aT, s));
 	});
 var $elm$html$Html$h2 = _VirtualDom_node('h2');
 var $author$project$Reader$hitEntries = function (m) {
@@ -10187,6 +10272,13 @@ var $elm$core$List$member = F2(
 			xs);
 	});
 var $elm$html$Html$section = _VirtualDom_node('section');
+var $author$project$Reader$sectionTitle = F3(
+	function (m, n, sid) {
+		return A2(
+			$elm$core$Maybe$withDefault,
+			$elm$core$String$fromInt(n),
+			A2($author$project$Reader$structureLabel, m, sid));
+	});
 var $author$project$Reader$itemView = F5(
 	function (m, doc, ix, e, inRange) {
 		var txt = function (s) {
@@ -10272,7 +10364,7 @@ var $author$project$Reader$itemView = F5(
 									_List_fromArray(
 										[
 											$elm$html$Html$text(
-											$elm$core$String$fromInt(n))
+											A3($author$project$Reader$sectionTitle, m, n, sid))
 										])),
 									function () {
 									if (!pg.$) {
@@ -10330,9 +10422,9 @@ var $author$project$Reader$itemView = F5(
 				var nid = A2(
 					$elm$core$Maybe$withDefault,
 					'n' + $elm$core$String$fromInt(n.v),
-					n.b);
+					n.a);
 				var langAttr = function () {
-					var _v3 = n.a$;
+					var _v3 = n.a0;
 					if (!_v3.$) {
 						var l = _v3.a;
 						return _List_fromArray(
@@ -10351,7 +10443,7 @@ var $author$project$Reader$itemView = F5(
 							mark,
 							$elm$html$Html$Attributes$class(
 							'rd-note ' + (cls + (_Utils_eq(
-								m.s,
+								m.t,
 								$elm$core$Maybe$Just(n.v)) ? ' rd-note-open' : '')))
 						]),
 					_List_fromArray(
@@ -10380,7 +10472,7 @@ var $author$project$Reader$itemView = F5(
 								doc,
 								m,
 								txt(
-									A2($elm$core$String$join, ' ', n.bi)))),
+									A2($elm$core$String$join, ' ', n.bj)))),
 							A2(
 							$elm$html$Html$div,
 							_List_fromArray(
@@ -10398,7 +10490,7 @@ var $author$project$Reader$itemView = F5(
 			default:
 				var pr = _v0.a;
 				var pid = function () {
-					var _v4 = pr.b;
+					var _v4 = pr.a;
 					if (!_v4.$) {
 						var p = _v4.a;
 						return _List_fromArray(
@@ -10506,7 +10598,7 @@ var $author$project$Reader$notesInPrint = function (m) {
 					}
 				}),
 			_Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Set$empty),
-			m.a).b;
+			m.b).b;
 	}
 };
 var $author$project$Reader$flow = F2(
@@ -10611,7 +10703,7 @@ var $author$project$Reader$flow = F2(
 					$elm$core$List$foldl,
 					step,
 					_Utils_Tuple2($elm$core$Maybe$Nothing, _List_Nil),
-					A2($elm$core$List$indexedMap, $elm$core$Tuple$pair, m.a)).b));
+					A2($elm$core$List$indexedMap, $elm$core$Tuple$pair, m.b)).b));
 	});
 var $elm$html$Html$footer = _VirtualDom_node('footer');
 var $author$project$Reader$keyDecoder = A3(
@@ -10628,7 +10720,7 @@ var $author$project$Reader$NoteClose = function (a) {
 };
 var $elm$html$Html$strong = _VirtualDom_node('strong');
 var $author$project$Reader$popover = function (m) {
-	var _v0 = m.s;
+	var _v0 = m.t;
 	if (_v0.$ === 1) {
 		return $elm$html$Html$text('');
 	} else {
@@ -10754,7 +10846,7 @@ var $author$project$Reader$rulesPanel = F2(
 			return $elm$html$Html$text('');
 		} else {
 			var rules = $author$project$Reader$docRules(m);
-			var left = doc.bz;
+			var left = doc.bB;
 			return A2(
 				$elm$html$Html$aside,
 				_List_fromArray(
@@ -10814,7 +10906,7 @@ var $author$project$Reader$rulesPanel = F2(
 										_List_Nil,
 										_List_fromArray(
 											[
-												$elm$html$Html$text('This edition is ' + (r.u + '.'))
+												$elm$html$Html$text('This edition is ' + (r.r + '.'))
 											])),
 										$elm$html$Html$text(' ' + r.as)
 									]));
@@ -10918,7 +11010,7 @@ var $author$project$Reader$rulesPanel = F2(
 																]),
 															_List_fromArray(
 																[
-																	$elm$html$Html$text(r.br)
+																	$elm$html$Html$text(r.bt)
 																]))
 														])),
 													A2(
@@ -11053,7 +11145,7 @@ var $author$project$Reader$statusLine = function (m) {
 			]),
 		_List_fromArray(
 			[
-				$elm$html$Html$text(m.r)
+				$elm$html$Html$text(m.s)
 			]));
 };
 var $author$project$Reader$view = function (m) {
@@ -11105,7 +11197,7 @@ var $author$project$Reader$view = function (m) {
 									]))
 							]));
 				} else {
-					var _v0 = m.M;
+					var _v0 = m.J;
 					if (_v0.$ === 1) {
 						return A2(
 							$elm$html$Html$div,
@@ -11203,7 +11295,7 @@ var $author$project$Reader$view = function (m) {
 			]));
 };
 var $author$project$Reader$main = $elm$browser$Browser$element(
-	{bx: $author$project$Reader$init, bF: $author$project$Reader$subscriptions, bG: $author$project$Reader$update, g: $author$project$Reader$view});
+	{bz: $author$project$Reader$init, bH: $author$project$Reader$subscriptions, bI: $author$project$Reader$update, g: $author$project$Reader$view});
 _Platform_export({'Reader':{'init':$author$project$Reader$main(
 	A2(
 		$elm$json$Json$Decode$andThen,
@@ -11227,7 +11319,7 @@ _Platform_export({'Reader':{'init':$author$project$Reader$main(
 														$elm$json$Json$Decode$andThen,
 														function (base) {
 															return $elm$json$Json$Decode$succeed(
-																{n: base, z: citation, az: hash, _: repair, ak: slug, t: stored, ac: url});
+																{n: base, z: citation, az: hash, _: repair, ak: slug, u: stored, ac: url});
 														},
 														A2($elm$json$Json$Decode$field, 'base', $elm$json$Json$Decode$string));
 												},
@@ -11253,7 +11345,7 @@ _Platform_export({'Reader':{'init':$author$project$Reader$main(
 																								$elm$json$Json$Decode$andThen,
 																								function (author) {
 																									return $elm$json$Json$Decode$succeed(
-																										{aw: author, aD: place, aF: publisher, an: title, aM: translator, aN: year});
+																										{aw: author, aD: place, aF: publisher, an: title, aN: translator, aO: year});
 																								},
 																								A2($elm$json$Json$Decode$field, 'author', $elm$json$Json$Decode$string));
 																						},
@@ -11289,7 +11381,7 @@ _Platform_export({'Reader':{'init':$author$project$Reader$main(
 																	$elm$json$Json$Decode$andThen,
 																	function (label) {
 																		return $elm$json$Json$Decode$succeed(
-																			{u: label, as: note, bf: state});
+																			{r: label, as: note, bg: state});
 																	},
 																	A2($elm$json$Json$Decode$field, 'label', $elm$json$Json$Decode$string));
 															},

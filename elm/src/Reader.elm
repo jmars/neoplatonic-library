@@ -1031,6 +1031,37 @@ sectionAt m ix =
         |> List.head
 
 
+{-| THE PRINT'S OWN STRUCTURE FOR A SECTION, where the document serves it. The
+recorded-division editions carry each division's book, chapter and label on
+their contents entries (the label is what a citation calls the division), and
+the print's book/chapter numbering is what a reader cites — the walk's ordinal
+and the anchor's numeric prefix are internal: an inserted division shifts the
+ordinals after it and a recovered division's anchor is a lettered one (`s69a`),
+which parses to no number at all. Where the document serves no structure (an
+opener-read edition, whose sections are its chapters), this is `Nothing` and
+the callers fall back to the section's own number. -}
+structureLabel : Model -> String -> Maybe String
+structureLabel m sid =
+    case m.doc of
+        Nothing ->
+            Nothing
+
+        Just doc ->
+            doc.toc
+                |> List.filter (\t -> t.id == sid)
+                |> List.head
+                |> Maybe.andThen (\t -> if t.book == Nothing then Nothing else t.label)
+
+
+{-| The section heading's own title: the print's book/chapter where the document
+serves the structure, the section's own number where it does not (the number
+the ordinal stands for on an opener-read edition, whose sections are its
+chapters). -}
+sectionTitle : Model -> Int -> String -> String
+sectionTitle m n sid =
+    structureLabel m sid |> Maybe.withDefault (String.fromInt n)
+
+
 noteLanguages : List Entry -> Dict Int String
 noteLanguages entries =
     entries
@@ -1053,7 +1084,14 @@ positionLabel m =
             currentPage m |> Maybe.map (\n -> "p. " ++ String.fromInt n) |> Maybe.withDefault "the front matter"
 
         sec =
-            currentSection m |> Maybe.map (\s -> " · §" ++ String.dropLeft 1 s) |> Maybe.withDefault ""
+            currentSection m
+                |> Maybe.map
+                    (\s ->
+                        structureLabel m s
+                            |> Maybe.map (\label -> " · " ++ label)
+                            |> Maybe.withDefault (" · §" ++ String.dropLeft 1 s)
+                    )
+                |> Maybe.withDefault ""
     in
     pg ++ sec
 
@@ -1435,8 +1473,13 @@ tocItems m =
                         (\t ->
                             { id = t.id
                             , label =
-                                String.fromInt t.n
-                                    ++ " · "
+                                (case structureLabel m t.id of
+                                    Just structure ->
+                                        structure ++ " · "
+
+                                    Nothing ->
+                                        String.fromInt t.n ++ " · "
+                                )
                                     ++ (if t.damaged then
                                             damagedTitle
 
@@ -1711,7 +1754,7 @@ itemView m doc ix e inRange =
         FSec n sid pg ->
             section [ id sid, mark, class ("rd-sec " ++ cls) ]
                 [ h2 []
-                    [ span [ class "rd-sec-n" ] [ text (String.fromInt n) ]
+                    [ span [ class "rd-sec-n" ] [ text (sectionTitle m n sid) ]
                     , case pg of
                         Just p ->
                             span [ class "rd-sec-page", title ("This section opens on printed page " ++ String.fromInt p) ]
@@ -2248,14 +2291,21 @@ citationTail c =
 
 {-| The division clause, when the reader is inside one: a section is the stable
 citation unit of this book (what the reading itself cites by), and `0` means the
-front matter, which the volume prints no division number for. -}
+front matter, which the volume prints no division number for. Where the
+document serves the print's own structure, the clause is the print's
+book/chapter (what a reader cites); otherwise it is the section's own number. -}
 sectionClause : Model -> Int -> String
 sectionClause m ix =
-    if sectionNumberAt m ix > 0 then
-        ", §" ++ String.fromInt (sectionNumberAt m ix)
+    case sectionAt m ix |> Maybe.andThen (structureLabel m) of
+        Just label ->
+            ", " ++ label
 
-    else
-        ""
+        Nothing ->
+            if sectionNumberAt m ix > 0 then
+                ", §" ++ String.fromInt (sectionNumberAt m ix)
+
+            else
+                ""
 
 
 pageClause : Model -> Int -> String
@@ -2291,11 +2341,16 @@ passageClause : Model -> Int -> String -> String
 passageClause m ix anchor =
     case String.left 1 anchor of
         "s" ->
-            if anchorNumber anchor > 0 then
-                ", §" ++ String.fromInt (anchorNumber anchor) ++ pageClause m ix
+            case sectionAt m ix |> Maybe.andThen (structureLabel m) of
+                Just label ->
+                    ", " ++ label ++ pageClause m ix
 
-            else
-                pageClause m ix
+                Nothing ->
+                    if anchorNumber anchor > 0 then
+                        ", §" ++ String.fromInt (anchorNumber anchor) ++ pageClause m ix
+
+                    else
+                        pageClause m ix
 
         "p" ->
             sectionClause m ix ++ pageClause m ix

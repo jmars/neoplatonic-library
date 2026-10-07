@@ -81,7 +81,7 @@ type alias Page =
     gap (`damagedTitle`) and `raw` carries the words.
 -}
 type alias TocEntry =
-    { id : String, n : Int, title : String, raw : String, damaged : Bool, page : Maybe Int }
+    { id : String, n : Int, title : String, raw : String, damaged : Bool, page : Maybe Int, book : Maybe Int, chapter : Maybe Int, label : Maybe String }
 
 
 {-| One recorded repair. `hits` is MEASURED when the document is built — how many
@@ -490,7 +490,10 @@ page =
 
 tocEntry : D.Decoder TocEntry
 tocEntry =
-    D.map6 TocEntry
+    D.map7
+        (\id n title raw damaged pg ( book, chapter, label ) ->
+            TocEntry id n title raw damaged pg book chapter label
+        )
         (D.field "id" D.string)
         (D.field "n" D.int)
         (D.field "title" D.string)
@@ -499,6 +502,16 @@ tocEntry =
         (D.oneOf [ D.field "raw" D.string, D.field "title" D.string ])
         (D.oneOf [ D.field "damaged" D.bool, D.succeed False ])
         (D.maybe (D.field "page" D.int))
+        -- the STRUCTURE the division carries, where the edition records it (the
+        -- recorded-division mode): book and chapter are the print's own numbers
+        -- read off the scans, and the label is what a citation calls the
+        -- division. A document built without them (an opener-read edition)
+        -- carries none, and the app falls back to the section's own number.
+        (D.map3 (\b c l -> ( b, c, l ))
+            (D.maybe (D.field "book" D.int))
+            (D.maybe (D.field "chapter" D.int))
+            (D.maybe (D.field "label" D.string))
+        )
 
 
 correction : D.Decoder Correction
