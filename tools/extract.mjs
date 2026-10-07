@@ -407,6 +407,40 @@ function near(a, b) {
   return true;
 }
 
+/** The edit distance between two words, or Infinity when it exceeds `k` —
+ * the general form of `near`: the 1816 scans damage a head word by a letter
+ * or two, and some of this volume's words are damaged harder than others, so
+ * the shapes below say how far a token may sit from the word it spells. */
+function spelling(a, b, k) {
+  if (a === b) return 0;
+  if (Math.abs(a.length - b.length) > k) return Infinity;
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    }
+    prev = cur;
+  }
+  return prev[b.length];
+}
+
+/** Is `a` a spelling of `word` within `k` letters? (The default is one
+ * letter — the same bound as `near`.) */
+const nearK = (a, word, k = 1) => a === word || spelling(a, word, k) <= k;
+
+/** A token's letters, lowercased — the word a damaged spelling is read as. */
+const lettersOf = (t) => t.replace(/[^A-Za-z]/g, '').toLowerCase();
+
+/** A token read as a roman numeral (allowing the scan's damage: half the
+ * letters roman), or as the folio's digits. */
+const numeralToken = (t) => {
+  const a = lettersOf(t);
+  if (a === '') return false;
+  const rom = (a.match(/[ivxlcdm]/g) || []).length;
+  return rom === a.length || (a.length >= 3 && rom * 2 >= a.length) || /^\d+$/.test(a);
+};
+
 /** The per-text head-furniture CLASSIFIERS. A named key, not a function in the
  * config: the config is DATA a reviewer reads, and the classifier is measured
  * against one transcription. Each returns true for a line that is page
@@ -463,33 +497,52 @@ const FURNITURE_HEADS = {
     return true;
   },
 
-  /* The 1816 Theology of Plato's heads — the SAME press as the Elements, but
-   * this volume's heads are its own, and the scan splits every side onto two
-   * lines and damages the words, so no equality list can carry the spellings.
-   * Each half is therefore recognised by SHAPE: a line whose every token is a
-   * spelling of that half's own words, and nothing else. The signatures,
-   * measured over every line of the slice (a token is a spelling of a head
-   * word when it is within one letter of it — the scan's damage is a letter
-   * or two):
-   *   the Google watermark — 'Digitized by …' in fifty-one spellings (792
-   *     lines: t^OOQLe, boogie, L.OOQ Le, {jOoq le, the split 'Digitiz ed by',
-   *     the bare 'Digitized', and 'v Digitized by boogie' with a stray letter
-   *     glued to the front) and the 'Google' line under it (143: 'Google' and
-   *     '/Google');
-   *   the verso head's left half — 'ON THE THEOLOGY' (343 lines) in nineteen
-   *     spellings, the damage running to a wrong letter ('ON THB THEOLOGY',
-   *     'GN THE THEOLOGY', 'OH THE THEOLOGY'), a lost letter ('ON THI
-   *     THEOLOGY'), a doubled one ('ON THE THEOLOGV') or the whole right half
-   *     glued on ('ON THE THEOLOGY BOOK II.', 'ON THE THEOLOGY BOOK IV'),
-   *     or a stray punctuation token ('ON THE THEOLOGY .', 'ON TJ1E THEOLOGY
-   *     -', 'QN THE - THEOLOGY');
-   *   the recto head's right half — 'OF PLATO.' (337 lines) in twenty-eight
-   *     spellings, the damage running to a wrong first letter ('OP PLATO.',
-   *     'QF PLATO.', 'or PLATO.', '6F PLATO.', 'GF PLATO.', 'Ob\' PLAT6.'),
-   *     a damaged 'PLATO' ('OF PLATa', 'OF PLAtO.', 'OF t»LATO.', '<0F
-   *     PlAtO.'), stray punctuation ('.OF PLATO.', 'OF. PLATO.', 'OF PLATO..',
-   *     'OF PLATO*', 'OF PLATO;') or the folio glued on ('OF PLATO, .25', 'OF
-   *     PLATO. .');
+  /* The 1816 Theology of Plato's heads and feet — the SAME press as the
+   * Elements, but this volume's heads are its own, and the scan splits every
+   * side onto two lines and damages the words, so no equality list can carry
+   * the spellings. Each half is therefore recognised by SHAPE: a line whose
+   * every token is a spelling of that half's own words, and nothing else.
+   * The signatures, measured over every line of the slice (a token is a
+   * spelling of a word when it is within `k` letters of it — the scan's
+   * damage is a letter or two, and the running heads' numerals are damaged
+   * beyond reading, so their shape bounds the number and never reads it):
+   *   the Google watermark — 'Digitized by …' (800 lines) and the 'Google'
+   *     line under it (147) in every spelling the scan gives them, the damage
+   *     running to a lost or glued first letter ('igitized by', '. Digitized
+   *     by v^ooQle', 'D itized by'), a split word ('G oogle', 'Digit ized
+   *     by') or a junk token glued on ('J3i( boogie', 'D . zed by boogie',
+   *     'y Google');
+   *   the verso head's left half — 'ON THE THEOLOGY' (357 lines) in every
+   *     spelling, the damage running to a wrong letter ('ON THB THEOLOGY',
+   *     'ON TUP THEOLOGY', 'ON THE THEDLOG?'), a lost letter, a doubled one,
+   *     the whole right half glued on ('ON THE THEOLOGY BOOK II.') or the
+   *     folio glued before it ('368 ON THE THEOLOGY BOOK IV.');
+   *   the recto head's right half — 'OF PLATO.' (344 lines) in every
+   *     spelling, the damage running to a wrong first letter ('OP PLATO.',
+   *     'QF PCATQ.'), a lost space ('0FPLATO.'), a damaged 'PLATO' ('OF
+   *     PLA1XX', 'OF PJyATO.'), stray punctuation ("' OP PLATO.", "01-'
+   *     PLATO.") or the folio glued on ('OF PLATO, .25');
+   *   the recto head's left half — 'CHAP. n.' / 'CHAPTER n.' (794 lines):
+   *     the running head, the chapter opening's display heading, the
+   *     contents list's entry and the whole head glued on one line ('CHAP.
+   *     XXVI. OF PLATO. 81'), the damage running to the word itself ('NHAP.
+   *     NH.', 'eiiAP. r..', 'CH AP. VII.', 'CHAR VII.', 'CRAP. VII.') and to
+   *     the numeral, which is OCR garbage the edition's own config names
+   *     ('CHAP. au.', 'CHAP REX', 'CHAPTER VE', 'CHAP: KXVI', 'CHAPTER
+   *     Piglets');
+   *   the Introduction's and the contents pages' running heads —
+   *     'INTRODUCTION.' (41 lines) and 'CONTENTS.' (26 lines) in every
+   *     spelling, the damage running to a wrong letter ('INTBODUCTIO N.'),
+   *     a lost ending ('CONTENT.'), a split word ('I N TRODUCT10N#'), a
+   *     stray mark ('INTRODUCTION*', 'CONTENTS#') or the folio glued on
+   *     ('XVlii INTRODUCTION.');
+   *   the running foot — the bare 'Proc.' (9 lines, one with a stray letter
+   *     glued on) and the printer's signature 'Proc. Vol. n. <letter>'
+   *     (83 lines, one of them the bare foot with its period split off), the
+   *     damage running to
+   *     the word ('Proe.', 'Procl', 'Troc.'), the volume word ('Vox', 'Von',
+   *     'Voi.1.') or the signature itself ('2 A', '3 G');
+   *   the running foot's volume half — 'VOL. I.' / 'VOL. II.' (16 lines);
    *   the verso head's right half — 'BOOK n.' (342 lines) in ninety
    *     spellings, the numeral roman in the print and damaged like any other
    *     word: the damage runs to three characters of junk ('BOOK V„', 'BOOK
@@ -503,52 +556,79 @@ const FURNITURE_HEADS = {
    *   and the title's one-word lines are too short to be a head; the page-90
    *   head the print sets in full ('ON THE THEOLOGY OF PLATO.', MEASURED on the
    *   leaf — one line, identical to the title page's and so not separable by
-   *   shape); and the book opening's display heading 'BOOK n.' above 'CHAPTER
-   *   I.', which the carve-out in `extract` spares (MEASURED: seven of those,
-   *   one per book). MEASURED: 1,947 furniture lines so recognised (792 + 143
-   *   + 340 + 337 + 335), every one a standalone block standing in a page
-   *   head, zero lines of the book's own text among them. */
+   *   shape); the contents section's display heading ('CONTENTS OF THE
+   *   CHAPTERS OF BOOK n.' and its split first line 'CONTENTS'); the glossary's
+   *   own entries ('Horos.', 'Mid. ^', 'Heaven. 3'); the footnotes that begin
+   *   with a chap-like or proc-like word ('chapter forty is wanting.',
+   *   'chapter thirty-six. And instead of …', 'cap. 7.', 'Procl. in Tim. p.
+   *   296.', 'Proclus, in his usual …'); the title pages' volume statements
+   *   ('VOL. I.' under 'TWO VOLUMES.'); and the book opening's display heading
+   *   'BOOK n.' above 'CHAPTER I.', which the carve-out in `extract` spares
+   *   (MEASURED: seven of those, one per book). MEASURED: 2,960 furniture
+   *   lines so recognised (947 + 357 + 344 + 794 + 67 + 93 + 16 + 342), every
+   *   one a standalone block standing in a page head, a page foot, a chapter
+   *   opening or the contents list; the carve-out in `extract` spares the 454
+   *   of them that are the book's own text or a repair rule's target (225
+   *   contents entries, 215 chapter display headings, 7 book display
+   *   headings, 2 title-page volume statements, 1 contents display heading,
+   *   4 furniture lines a repair rule is defined over — three signatures and
+   *   one whole-head line; the 1.0.0 rule list predates the whole-head rule
+   *   and spares 453 there) and suppresses the 2,506 that are furniture,
+   *   every suppression a standalone block or a block's last line, so no
+   *   paragraph splits. */
   'theology-1816': (line) => {
-    if (/^\s*[a-z]?\s*digitiz/i.test(line)) return true;         // 'Digitized by …' (792)
-    if (/^\/?\s*(?:google|gc>9gle)\b/i.test(line)) return true;   // the line under it (143)
-    const toks = line.split(/\s+/).filter((t) => t !== '');
-    const word = (t) => t.replace(/[^A-Za-z]/g, '').toLowerCase();
-    const HEAD_WORD = ['on', 'the', 'theology'];
-    const isHeadWord = (t) => HEAD_WORD.some((w) => near(word(t), w));
+    if (isGoogleStampLine(line)) return true;   // the watermark and the line under it (947)
+    if (isChapHeadLine(line)) return true;      // the chapter running head, display heading, contents entry (794)
+    if (isIntroContentsLine(line)) return true; // 'INTRODUCTION.' / 'CONTENTS.' (67)
+    if (isProcFootLine(line)) return true;      // 'Proc.' and the printer's signatures (93)
+    if (isVolFootLine(line)) return true;       // the foot's 'VOL. I.' (16)
     /* the verso head's left half: 'ON THE THEOLOGY' — every token a spelling
-     * of one of its three words, with at most the right half 'BOOK n.' glued
-     * after it. No fourth word: the title page's 'ON THE THEOLOGY OF PLATO,'
-     * carries 'PLATO' and is the book's own title, not furniture. */
-    if (toks.length >= 2 && toks.length <= 5 && toks.some((t) => near(word(t), 'theology'))) {
-      const rest = toks.filter((t) => !isHeadWord(t));
-      const gluedBook =
-        rest.length === 0 ||
-        (rest.length === 1 && /^[^A-Za-z0-9]{1,3}$/.test(rest[0])) ||
-        (rest.length <= 2 &&
-          near(word(rest[0]), 'book') &&
-          rest.slice(1).every((t) => {
-            const numeral = t.replace(/[^A-Za-z0-9]/g, '');
-            return (
-              numeral.length >= 1 &&
-              numeral.length <= 4 &&
-              (numeral.match(/[ivxlcdm0-9]/gi) || []).length * 2 >= numeral.length
-            );
-          }));
-      if (gluedBook && toks.length - rest.length >= 2) return true;
+     * of one of its three words (within two letters), with at most the right
+     * half 'BOOK n.' glued after it and the folio glued before it. No fourth
+     * word: the title page's 'ON THE THEOLOGY OF PLATO,' carries 'PLATO' and
+     * is the book's own title, not furniture. */
+    {
+      const toks = line.trim().split(/\s+/).filter((t) => t !== '');
+      if (toks.length >= 2 && toks.length <= 6 && toks.some((t) => nearK(lettersOf(t), 'theology', 2))) {
+        let headWords = 0;
+        let isHead = true;
+        for (const t of toks) {
+          if (['on', 'the', 'theology'].some((w) => nearK(lettersOf(t), w, 2))) {
+            headWords++;
+            continue;
+          }
+          if (nearK(lettersOf(t), 'book')) continue;
+          const a = t.replace(/[^A-Za-z0-9]/g, '');
+          if (a !== '' && a.length <= 4 && numeralToken(a)) continue;
+          if (a === '') continue;
+          isHead = false;
+          break;
+        }
+        if (isHead && headWords >= 2) return true;
+      }
     }
     /* the recto head's right half: 'OF PLATO.' — the first token a spelling
-     * of 'OF', the second of 'PLATO' in the head's own capitals, with at most
-     * the folio's digits glued after it. The one text line the shape would
-     * otherwise reach, the contents' 'of Plato.', is mixed case. */
-    if (toks.length >= 2 && toks.length <= 4) {
-      const [a, b] = toks.map(word);
-      if (
-        near(a, 'of') &&
-        near(b, 'plato') &&
-        (toks[1].match(/[A-Z]/g) || []).length >= 3 &&
-        toks.slice(2).every((t) => /^[^A-Za-z\s]{1,5}$/.test(t))
-      ) {
-        return true;
+     * of 'OF' (with stray marks before it), the second of 'PLATO' in the
+     * head's own capitals (within two letters), with at most the folio's
+     * digits glued after it; or the whole half glued into one token
+     * ('0FPLATO.'). The one text line the shape would otherwise reach, the
+     * contents' 'of Plato.', is mixed case. */
+    {
+      const toks = line.trim().split(/\s+/).filter((t) => t !== '');
+      if (toks.length >= 1 && toks.length <= 4) {
+        if (nearK(lettersOf(line), 'ofplato', 2) && (line.match(/[A-Z]/g) || []).length >= 3) return true;
+        if (toks.length >= 2) {
+          const a = lettersOf(toks[0].replace(/^[^A-Za-z]+/, ''));
+          const b = lettersOf(toks[1]);
+          if (
+            nearK(a, 'of') &&
+            nearK(b, 'plato', 2) &&
+            (toks[1].match(/[A-Z]/g) || []).length >= 3 &&
+            toks.slice(2).every((t) => /^[^A-Za-z\s]{1,5}$/.test(t))
+          ) {
+            return true;
+          }
+        }
       }
     }
     /* the verso head's right half: 'BOOK n.' — the book running-head line. */
@@ -575,7 +655,189 @@ const BOOK_HEAD_LINE = /^book(?![A-Za-z])[^A-Za-z\s]{0,2}(\s*\S{1,4})?(\s\S{1,2}
  * it. The carve-out in `extract` finds it above a chapter-1 division. */
 const CHAPTER_ONE_LINE = /^chapter\s+[il1][.,;:]?$/i;
 
-/** Is this line head-FOOTER furniture, per the text's own classifier? */
+/** The Google watermark of the 1816 Theology — 'Digitized by …' and the
+ * 'Google' line under it — in every spelling the scan gives them. MEASURED
+ * over every line of the slice: 947 lines so recognised (800 watermark, 147
+ * Google), every one standing at a page top; no line of the book's text
+ * does (no prose word sits within two letters of 'digitized' or 'google').
+ * The base shapes are the word at the line's start; the stragglers are the
+ * word with its first letter lost or glued to a stray mark ('igitized by',
+ * '. Digitized by v^ooQle', 'D itized by'), the word split in two ('G
+ * oogle', 'Digit ized by'), or a junk token glued on ('J3i( boogie', 'D .
+ * zed by boogie', 'y Google'). */
+function isGoogleStampLine(line) {
+  const t = line.trim();
+  if (/^\s*[a-z]?\s*digitiz/i.test(t)) return true;
+  if (/^\/?\s*(?:google|gc>9gle)\b/i.test(t)) return true;
+  if (t.length === 0 || t.length > 32) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  const isStampWord = (w) => nearK(w, 'digitized', 2) || nearK(w, 'google', 2);
+  if (toks.some((x) => isStampWord(lettersOf(x)))) return true;
+  return toks.length >= 2 && isStampWord(lettersOf(toks[0]) + lettersOf(toks[1]));
+}
+
+/** A CHAPTER line of the 1816 Theology, by shape: 'CHAP. n.' (the recto
+ * running head's left half), 'CHAPTER n.' (the chapter opening's display
+ * heading and the contents list's entry), and the whole recto head glued on
+ * one line ('CHAP. XXVI. OF PLATO. 81'). MEASURED over every line of the
+ * slice: 794 lines so recognised (225 in the front matter, 569 in the body),
+ * every one a standalone block standing at a page head, a page foot's
+ * neighbour, a chapter opening or the contents list. The shape is the
+ * chap-word plus a bounded numeral and NEVER reads or fits the number: the
+ * numerals are OCR garbage the edition's own config names ('CHAP. au.', 'CHAP
+ * REX', 'CHAPTER VE', 'CHAP: KXVI', 'CHAPTER Piglets'), and the word itself
+ * is damaged too ('NHAP. NH.', 'eiiAP. r..', 'CH AP. VII.', 'CHAR VII.',
+ * 'CRAP. VII.', '6HAP. XXVIir.'). The lines the shape deliberately does NOT
+ * take are the book's own prose that begins with a chap-like word ('chapter
+ * forty is wanting.', 'chapter thirty-six. And instead of …') and the
+ * footnote 'cap. 7.' — both are spared by the carve-out in `extract`. */
+function isChapHeadLine(line) {
+  const t = line.trim();
+  if (t.length === 0 || t.length > 28) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  if (toks.length < 2) return false;
+  /* the chap-word, possibly split over two tokens ('CH AP. VII.') */
+  const isChapWord = (w) =>
+    w.length >= 3 && w.length <= 7 && (nearK(w, 'chap') || nearK(w, 'chapter') || /ap$/.test(w));
+  let idx = 1;
+  if (!isChapWord(lettersOf(toks[0]))) {
+    if (toks.length >= 2 && lettersOf(toks[0]).length <= 2 && isChapWord(lettersOf(toks[0]) + lettersOf(toks[1]))) {
+      idx = 2;
+    } else {
+      return false;
+    }
+  }
+  /* the numeral: a short token, capitalised or romanish or junk — never a
+   * lowercase prose word ('chapter forty is wanting.' is Taylor's footnote) */
+  if (idx >= toks.length) return false;
+  const num = toks[idx].replace(/[^A-Za-z0-9]/g, '');
+  if (num.length < 1 || num.length > 7) return false;
+  if (!(/[A-Z]/.test(toks[idx]) || num.length <= 3 || numeralToken(num))) return false;
+  /* nothing after the numeral but head words, digits and punctuation (the
+   * whole-head line 'CHAP. XXVI. OF PLATO. 81' carries the recto head's right
+   * half glued on; a display heading never does) */
+  for (let k = idx + 1; k < toks.length; k++) {
+    if (/^[a-z]{4,}/.test(toks[k]) && !numeralToken(toks[k])) return false;
+  }
+  return true;
+}
+
+/** The recto head's right half as a line of its own — 'OF PLATO.' and its
+ * damaged spellings ('OP PLATO.', '0FPLATO.', 'QF PCATQ.', 'OF PLA1XX'). Used
+ * by the carve-out in `extract` to read a page's head: a page that carries no
+ * such line carries no 'CHAP. n.' running head either. */
+function isPlatoHeadLine(line) {
+  const t = line.trim();
+  if (t.length > 12) return false;
+  if (nearK(lettersOf(t), 'ofplato', 2) && (t.match(/[A-Z]/g) || []).length >= 3) return true;
+  return t
+    .split(/\s+/)
+    .filter((x) => x !== '')
+    .some((tok) => (tok.match(/[A-Z]/g) || []).length >= 3 && nearK(lettersOf(tok), 'plato', 2));
+}
+
+/** The Introduction's running head 'INTRODUCTION.' and the contents pages'
+ * running head 'CONTENTS.', in every spelling the scan gives them. MEASURED
+ * over every line of the slice: 67 lines so recognised (41 Introduction, 26
+ * contents), every one in the front matter standing at a page top. The damage
+ * runs to a wrong letter ('INTBODUCTIO N.', 'CONTENT.'), a lost ending
+ * ('CONTENTS' with the period gone), a split word ('I N TRODUCT10N#'), a
+ * stray mark ('INTRODUCTION*', 'CONTENTS#', 'w CONTENT!.') or the folio
+ * glued on ('XVlii INTRODUCTION.'). The shape deliberately does NOT take
+ * the contents section's own display heading — 'CONTENTS OF THE CHAPTERS OF
+ * BOOK n.' and, split over lines, its bare first line 'CONTENTS' — which the
+ * carve-out in `extract` spares. */
+function isIntroContentsLine(line) {
+  const t = line.trim();
+  if (t.length === 0 || t.length > 20) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  const isWord = (w) => nearK(w, 'introduction', 2) || nearK(w, 'contents', 2);
+  if (isWord(lettersOf(t))) return true;
+  /* the word split over two tokens ('INTBODUCTIO N.', 'iNTBODy CTION.') */
+  if (toks.length >= 2) {
+    const ab = lettersOf(toks[0]) + lettersOf(toks[1]);
+    if (isWord(ab) && toks.slice(2).every((x) => x.length <= 4)) return true;
+  }
+  /* the folio glued before or after ('XVlii INTRODUCTION.', '…CTION. zix') */
+  const strip = toks.slice();
+  while (strip.length && strip[0].length <= 5 && (numeralToken(strip[0]) || /^[^A-Za-z]/.test(strip[0]))) strip.shift();
+  while (strip.length && strip[strip.length - 1].length <= 5 && (numeralToken(strip[strip.length - 1]) || /^[^A-Za-z]/.test(strip[strip.length - 1])))
+    strip.pop();
+  return strip.length > 0 && isWord(lettersOf(strip.join(' ')));
+}
+
+/** The running foot of the 1816 Theology: the bare 'Proc.' (9 lines) and the
+ * printer's signature 'Proc. Vol. n. <letter>' (84 lines) at the foot of the
+ * first page of each gathering. MEASURED over every line of the slice: 93
+ * lines so recognised, every one standing at a page foot. The damage runs to
+ * the word ('Proe.', 'Procl', 'Troc.', 'Prop.'), the volume word ('Vox',
+ * 'Von', 'Voi.1.'), the volume numeral ('1L' for 'II'), the numeral's period
+ * split off ('Proc. Vol . I. k') or the signature itself ('2 A', '3 G'). The
+ * lines the shape deliberately does NOT take are the book's own text that
+ * begins with a proc-like word ('Procl. in Tim. p. 296.', 'Proclus, in his
+ * usual …', 'PROCLUS' on the title page'). */
+function isProcFootLine(line) {
+  const t = line.trim();
+  /* the bound only keeps prose out ('Procl. in Tim. p. 296.' is 22 letters
+   * and fails the volume-word gate below anyway); the signatures run to 20
+   * characters with the scan's stray spaces in them */
+  if (t.length > 22) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  if (toks.length === 0) return false;
+  if (!nearK(lettersOf(toks[0]), 'proc')) return false;
+  if (toks.length === 1) {
+    /* the bare foot: the line's letters are the word 'Proc' and nothing
+     * else ('Proc.'), or the word with one stray letter glued on ('JProc,',
+     * 'Procl.') — a damaged word alone ('Proe.', 'froc.' in a footnote) is
+     * not taken, and neither is 'PROCLUS' on the title page */
+    const w = lettersOf(t);
+    return w === 'proc' || (w.length === 5 && w.includes('proc'));
+  }
+  let k = 1;
+  while (k < toks.length && toks[k].length <= 2 && !/[A-Za-z]{2}/.test(toks[k])) k++;
+  if (k >= toks.length) return true; // the bare foot with its period split off ('Proc .')
+  if (!nearK(lettersOf(toks[k]), 'vol', 2) || lettersOf(toks[k]).length > 4) return false;
+  k++;
+  /* the numeral's period split off onto a token of its own ('Proc. Vol . I. k') */
+  while (k < toks.length && toks[k].replace(/[^A-Za-z0-9]/g, '') === '') k++;
+  if (k >= toks.length) return true; // 'Proc. Vol. I.' with the numeral lost
+  const volnum = toks[k].replace(/[^A-Za-z0-9]/g, '');
+  if (volnum.length > 2 || !/^[ivxlcdmj123]+$/i.test(volnum)) return false;
+  k++;
+  const rest = toks.slice(k);
+  if (rest.length === 0) return true;
+  return rest.length <= 3 && rest.every((x) => x.replace(/[^A-Za-z0-9]/g, '').length <= 2);
+}
+
+/** The running foot's volume half: 'VOL. I.' / 'VOL. II.' (the line the foot
+ * 'Proc. Vol. I.' splits into when the scan reads 'Proc.' on its own line).
+ * MEASURED: the lines so recognised stand at page feet, except the title
+ * pages' own volume statements ('VOL. I.' under 'TWO VOLUMES.'), which the
+ * carve-out in `extract` spares. */
+function isVolFootLine(line) {
+  const t = line.trim();
+  if (t.length > 10) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  if (toks.length === 1) {
+    const whole = lettersOf(t);
+    return nearK(whole.slice(0, 3), 'vol') && /^[ivxlcdmj123]+$/i.test(whole.slice(3));
+  }
+  if (toks.length < 2 || toks.length > 3) return false;
+  if (!nearK(lettersOf(toks[0]), 'vol') || lettersOf(toks[0]).length > 4) return false;
+  const volnum = toks[1].replace(/[^A-Za-z0-9]/g, '');
+  if (volnum.length > 2 || !/^[ivxlcdmj123]+$/i.test(volnum)) return false;
+  if (toks.length === 3 && toks[2].replace(/[^A-Za-z0-9]/g, '').length > 2) return false;
+  return true;
+}
+
+/** A line of prose, as the carve-out in `extract` reads it: long, or short
+ * with a lowercase word in it. Page furniture is never prose, and a display
+ * heading is always followed by the chapter's first line of prose. */
+function isProseLine(line) {
+  const t = line.trim();
+  return t.length > 55 || (/[a-z]{3,}/.test(t) && /\s/.test(t) && t.length > 25);
+}
+
 /** Is this line head-FOOTER furniture, per the text's own classifier? */
 function furnitureHead(cfg, line) {
   const fn = cfg.furnitureHead ? FURNITURE_HEADS[cfg.furnitureHead] : null;
@@ -735,17 +997,25 @@ const TEXT_RULES = {
      * onto two lines and damages the words — so the halves are recognised by
      * their tokens, not by an equality list. The shapes, measured over every
      * line of the slice:
-     *   the Google watermark — 'Digitized by …' in fifty-one spellings (792
-     *     lines) and the 'Google' line under it (143);
-     *   the verso head's left half 'ON THE THEOLOGY' (343 lines) and its right
+     *   the Google watermark — 'Digitized by …' in every spelling (800 lines)
+     *     and the 'Google' line under it (147);
+     *   the verso head's left half 'ON THE THEOLOGY' (357 lines) and its right
      *     half 'BOOK n.' (342), the book running-head line;
-     *   the recto head's right half 'OF PLATO.' (337 lines) — the left half
-     *     'CHAP. n.' (300 lines, plus 10 with the whole head on one line) is the
-     *     same furniture and is NOT named here: it is reported as a finding,
-     *     not silently widened into this change;
-     *   the book opening's display heading 'BOOK n.' above 'CHAPTER I.' is
-     *     the book's own text, not furniture: the carve-out in `extract` spares
-     *     it (MEASURED: seven, one per book; the divisions open on the
+     *   the recto head's right half 'OF PLATO.' (344 lines) and its left half
+     *     'CHAP. n.' / 'CHAPTER n.' (794) — the running head, the chapter
+     *     opening's display heading, the contents list's entry and the whole
+     *     head on one line, the numerals never read, only bounded;
+     *   the Introduction's and the contents pages' running heads
+     *     'INTRODUCTION.' (41) and 'CONTENTS.' (26);
+     *   the running foot 'Proc.' and the printer's signatures 'Proc. Vol. n.
+     *     <letter>' (93), and its volume half 'VOL. I.' (16);
+     *   the chapter opening's display heading 'CHAPTER n.' and the contents
+     *     list's entries are the book's own text, not furniture: the carve-out
+     *     in `extract` spares them (MEASURED: 215 display headings, one per
+     *     recorded division, and 225 contents entries; the 354 chapter
+     *     running heads are suppressed). The book opening's display heading
+     *     'BOOK n.' above 'CHAPTER I.' is the book's own text too: the carve-out
+     *     spares it (MEASURED: seven, one per book; the divisions open on the
      *     chapter's first line of text, below the heading, so no BOOK line
      *     stands AT a division's own line). */
     furnitureHead: 'theology-1816',
@@ -1814,6 +2084,204 @@ export function extract(src, meta) {
           break;
         }
       }
+    }
+  }
+
+  /* 1c. THE CARVE-OUT FOR THE REST OF THE CLASSIFIER — the lines the shapes
+   * above take that are the BOOK'S OWN TEXT, spared from the junk set. The
+   * chapter line's shape cannot tell a running head from a display heading
+   * or a contents entry (they are the same words), so the decision is made
+   * on EVIDENCE, the line's own position:
+   *   - in the front matter, every chapter line is the contents list's own
+   *     entry (or its footnote 'cap. 7.') — the print's contents, text. The
+   *     front matter's running heads are 'INTRODUCTION.' / 'CONTENTS.' and
+   *     the foot 'Proc.', never a chapter line (MEASURED: 0 of the 225);
+   *   - in the body, a chapter line is a DISPLAY HEADING when it opens the
+   *     chapter's text: the next line, past the scan's debris, is prose, and
+   *     it stands at a chapter opening — after the page's head (the previous
+   *     chapter's tail is prose above it), or with the running head above it
+   *     in the same page head, or immediately above the division's own line,
+   *     or on a page that carries no recto head at all (a verso page has no
+   *     'CHAP. n.' running head). MEASURED: 215 display headings so spared —
+   *     one per recorded division — each followed immediately by the
+   *     chapter's first line, and each one's nearest division's recorded
+   *     evidence reading a CHAPTER heading off the scan, or the opening
+   *     verified on the leaf (the divisions the vision pass missed: 13, of
+   *     which the model itself sits late — division 11 four pages, 22 and
+   *     103 one page — and book IV chapter VI, which the print numbers but
+   *     the model does not record). The 354 running heads the shape takes
+   *     stand in page heads and are suppressed: 341 of them with a watermark
+   *     above and the recto head's 'OF PLATO.' beside them, 13 with the whole
+   *     recto head glued on the one line;
+   *   - the foot's 'VOL. I.' stands at a page foot (a watermark below it);
+   *     the title pages' own volume statements ('VOL. I.' under 'TWO
+   *     VOLUMES.') are text and are spared (MEASURED: 2, one per volume's
+   *     title page);
+   *   - the contents section's display heading, split over lines as
+   *     'CONTENTS' / 'OF' / 'THE CHAPTERS OF BOOK I.', is text and is spared
+   *     (MEASURED: 1);
+   *   - any furniture line a REPAIR RULE is defined over is spared, so the
+   *     rule keeps firing (MEASURED: 4 under the current version's rules —
+   *     three signature lines, two fused into a printer-broken word and one
+   *     served tidied, plus one whole-head line served tidied; the 1.0.0
+   *     rule list predates the whole-head rule, so 3 there; the served text
+   *     at those spots stays byte-identical to the previous build's).
+   * Guarded by the classifier key: these clauses are the 'theology-1816'
+   * classifier's companion, and the other editions' furniture is not shaped
+   * like this volume's. MEASURED over every line of the slice, under the
+   * current version's rule list: 454 lines spared (225 contents entries,
+   * 215 display headings, 7 book display headings, 2 title-page volume
+   * statements, 1 contents display heading, 4 furniture lines a repair rule
+   * is defined over; the 1.0.0 rule list predates the whole-head rule and
+   * spares 453 there), 2,506 suppressed, and no line of the book's own
+   * text among the suppressions (the title page's lines, the contents'
+   * display headings, the glossary's entries, the footnotes that begin with
+   * a chap-like or proc-like word, and 'END OF VOL. I.' are all spared or
+   * never taken). */
+  if (divisionAt && cfg.furnitureHead === 'theology-1816') {
+    const flat = sig.flat;
+    const divLines = [...divisionAt.keys()].sort((a, b) => a - b);
+    const bodyStart = divLines[0];
+    /* the next line past the scan's debris (the shape of `isFurnitureJunk`) */
+    const nextText = (i) => {
+      for (let k = i + 1; k <= Math.min(flat.length - 1, i + 2); k++) {
+        if (isFurnitureJunk(flat[k])) continue;
+        return k;
+      }
+      return -1;
+    };
+    /* a chapter line is a display heading when it opens the chapter's text */
+    const isDisplayHeading = (i) => {
+      const line = flat[i];
+      /* the whole recto head glued on one line ('CHAP. XXVI. OF PLATO. 81')
+       * is a running head: a display heading is never longer than the longest
+       * chapter number the print sets (MEASURED: headings run to 16
+       * characters, whole-head lines from 21) */
+      if (line.trim().length > 18) return false;
+      const nx = nextText(i);
+      if (nx < 0 || !isProseLine(flat[nx])) return false;
+      /* the page head above: from the page's watermark down to the first
+       * prose line — the running head and the recto head's 'OF PLATO.' live
+       * there, a display heading does not */
+      let wm = -1;
+      for (let k = i; k >= Math.max(0, i - 40); k--) {
+        if (isGoogleStampLine(flat[k])) {
+          wm = k;
+          break;
+        }
+      }
+      let proseAbove = false;
+      let platoAbove = false;
+      let chapAbove = 0;
+      if (wm >= 0) {
+        for (let k = wm + 1; k < i; k++) {
+          if (isProseLine(flat[k])) {
+            proseAbove = true;
+            break;
+          }
+          if (isPlatoHeadLine(flat[k])) platoAbove = true;
+          if (isChapHeadLine(flat[k])) chapAbove++;
+        }
+      }
+      if (proseAbove) return true; // a mid-page opening: the previous chapter's tail is above
+      if (chapAbove > 0) return true; // a page-top opening: the running head stands above
+      let distBelow = Infinity;
+      let distAbove = -1;
+      for (const at of divLines) {
+        if (at > i) {
+          distBelow = at - i;
+          break;
+        }
+      }
+      for (let k = divLines.length - 1; k >= 0; k--) {
+        if (divLines[k] <= i) {
+          distAbove = i - divLines[k];
+          break;
+        }
+      }
+      if (distBelow <= 2) return true; // immediately above the division's own line
+      if (wm >= 0 && !platoAbove) return true; // a verso page: no 'CHAP. n.' running head exists on it
+      return distAbove <= 25; // the division recorded within the page (MEASURED: the model's own late records)
+    };
+    /* the title pages' volume statements are not at a page foot */
+    const atPageFoot = (i) => {
+      for (let k = i + 1; k <= Math.min(flat.length - 1, i + 4); k++) {
+        if (isGoogleStampLine(flat[k])) return true;
+      }
+      return false;
+    };
+    /* the contents section's display heading, split over lines */
+    const isContentsDisplay = (i) => {
+      if (/[^A-Za-z]/.test(flat[i].trim())) return false;
+      for (let k = i + 1; k <= Math.min(flat.length - 1, i + 2); k++) {
+        if (/^the chapters of book/i.test(flat[k].trim())) return true;
+      }
+      return false;
+    };
+    /* A FURNITURE LINE A REPAIR RULE IS DEFINED OVER — spared, so the rule
+     * keeps firing. The rules in repairs.json are written against the SERVED
+     * text (a rule that matches nothing fails the build, checkEdits), and
+     * MEASURED four of them are defined over a furniture line kept in its
+     * block, so that the find can form at all:
+     *   - three SIGNATURES at a page foot: two FUSIONS — the printer broke a
+     *     word across the page and the signature stands inside the break
+     *     ('sub-Proc. Vol. I. S' is the word 'subjects' broken as 'sub-' +
+     *     'jects,' with the signature fused into the break, r8783;
+     *     'attri-Proc. Vol. I, 2 E' likewise, r8654) — where joinLines glues
+     *     the kept line to the fragment above; and one TIDIED signature
+     *     (the raw 'Proc , Vol. JI. Z' served tidied as 'Proc, Vol. JI. Z',
+     *     r8989) — the find is the line's tidied form, and the transcription
+     *     view serves the raw line;
+     *   - one WHOLE-HEAD line under the current version's rule list (r11642:
+     *     the raw 'CHAP, xyi. :OF.PM,TO. 137' served tidied as 'CHAP,
+     *     xyi.:OF.PM,TO. 137', the find a substring of the tidied form). The
+     *     1.0.0 rule list predates that rule, so there the line stays
+     *     suppressed and the version's document differs at this one spot.
+     * The test is the rule's own find, read against the block's served text
+     * both ways: the find must be present with the line kept, and absent
+     * both from the block without the line and from the raw line alone (a
+     * rule written over the RAW line — a bare 'Proc. Vol. II. O' — fires on
+     * the `rh` block the suppression serves, so its line stays suppressed).
+     * MEASURED: exactly these lines are spared — four under the current
+     * version's rules, three under 1.0.0's — and with them spared the served
+     * text at those spots is byte-identical to the previous build's: the
+     * rules fire as they did, nothing is re-broken. */
+    const furnitureARepairRuleNeeds = (key, i) => {
+      const [bi, li] = String(key).split(':').map(Number);
+      const block = sig.lines[bi];
+      if (!block || !Number.isInteger(li) || li < 0 || li >= block.length) return false;
+      const withLine = tidyPunctuation(joinLines(block));
+      const without = tidyPunctuation(joinLines(block.filter((_, k) => k !== li)));
+      const raw = flat[i];
+      for (const c of edits) {
+        if (withLine.includes(c.find) && !without.includes(c.find) && !raw.includes(c.find)) return true;
+      }
+      return false;
+    };
+    for (let i = 0; i < flat.length; i++) {
+      const key = sig.markerKeyAt(i);
+      if (!key || !junk.has(key)) continue;
+      const line = flat[i];
+      if (isChapHeadLine(line)) {
+        if (i < bodyStart || isDisplayHeading(i)) {
+          junk.delete(key);
+          continue;
+        }
+      } else if (isVolFootLine(line)) {
+        if (!atPageFoot(i)) {
+          junk.delete(key);
+          continue;
+        }
+      } else if (isIntroContentsLine(line)) {
+        if (isContentsDisplay(i)) {
+          junk.delete(key);
+          continue;
+        }
+      }
+      /* ANY furniture line a repair rule is defined over is spared, so the
+       * rule keeps firing (see the helper's comment) — whichever class the
+       * line belongs to, and whichever version's rule list is loaded. */
+      if (furnitureARepairRuleNeeds(key, i)) junk.delete(key);
     }
   }
 

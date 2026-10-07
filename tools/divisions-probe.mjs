@@ -30,15 +30,21 @@
  *     landed (the values below, taken from the last build of the previous unit).
  *     FAILS IF the new mode reached into a served edition.
  *
- *  5. THE SCAN FURNITURE IS OUT OF THE READING VIEW. The Theology's page
- *     furniture — the Google watermark and the line under it, the volume's own
- *     running heads ('ON THE THEOLOGY', 'BOOK n.', 'OF PLATO.') — is recomputed
- *     here from the stored edition (a second statement of the classifier, not a
- *     copy of it) and must be suppressed in the document: absent from the
- *     reading view but the seven book-opening display headings (the book's own
- *     text, spared by the carve-out), kept in the transcription, absent from
- *     /plain, and the pinned anchors must still match. FAILS IF the classifier
- *     stops firing, eats a line of the book's own text, or moves an anchor.
+ *  5. THE SCAN FURNITURE IS OUT OF THE READING VIEW. The Theology's whole
+ *     furniture class — the Google watermark and the line under it, the
+ *     chapter running heads ('CHAP. n.', 'CHAPTER n.'), the Introduction's
+ *     and the contents pages' running heads, the printer's signatures and
+ *     'VOL.' feet, and the head halves ('ON THE THEOLOGY', 'BOOK n.',
+ *     'OF PLATO.') — is recomputed here from the stored edition (a second
+ *     statement of the classifier and of its carve-out, not a copy) and must
+ *     be suppressed in the document: absent from the reading view but the
+ *     book's own text the carve-out spares (the contents entries, the
+ *     chapter and book display headings, the title pages' volume
+ *     statements, the contents display heading, and the four lines a repair
+ *     rule is defined over), kept in the transcription, absent from /plain,
+ *     and the pinned anchors must still match. FAILS IF the classifier
+ *     stops firing, the carve-out stops sparing, a line of the book's own
+ *     text is eaten, or an anchor moves.
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -46,6 +52,9 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   extract,
+  checkEdits,
+  tidyPunctuation,
+  repairsPath,
   readEdition,
   readMeta,
   serialiseDoc,
@@ -58,7 +67,7 @@ import {
   ANCHOR_DIR,
 } from './extract.mjs';
 import { TEXTS } from './shelf.mjs';
-import { rawBlocks } from './reader.mjs';
+import { rawBlocks, joinLines, isFurnitureJunk } from './reader.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'site', 'dist');
@@ -272,97 +281,302 @@ for (const slug of ['porphyry-on-the-cave-of-the-nymphs-taylor-1917', 'proclus-e
  * transcription, and the anchors did not move ---------- */
 
 section('5. the scan furniture is suppressed in the reading view and kept in the transcription');
-/* The shapes below are a SECOND statement of the `theology-1816` classifier in
- * tools/extract.mjs — recomputed here from the stored edition, not read off the
- * extractor, so a classifier that stopped firing would fail these checks. The
+/* The shapes and the carve-out below are a SECOND statement of the
+ * `theology-1816` classifier in tools/extract.mjs — recomputed here from the
+ * stored edition, not read off the extractor, so a classifier that stopped
+ * firing, or a carve-out that stopped sparing, would fail these checks. The
  * counts are MEASURED over every line of the stored transcription. */
-const near = (a, b) => {
-  if (a === b) return true;
-  if (Math.abs(a.length - b.length) > 1) return false;
-  let i = 0;
-  let j = 0;
-  let edits = 0;
-  while (i < a.length && j < b.length) {
-    if (a[i] === b[j]) {
-      i++;
-      j++;
-      continue;
+const spelling = (a, b, k) => {
+  if (a === b) return 0;
+  if (Math.abs(a.length - b.length) > k) return Infinity;
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
     }
-    if (edits++) return false;
-    if (a.length === b.length) {
-      i++;
-      j++;
-    } else if (a.length < b.length) {
-      j++;
-    } else {
-      i++;
-    }
+    prev = cur;
   }
-  return true;
+  return prev[b.length];
+};
+const nearK = (a, word, k = 1) => a === word || spelling(a, word, k) <= k;
+const lettersOf = (t) => t.replace(/[^A-Za-z]/g, '').toLowerCase();
+const numeralToken = (t) => {
+  const a = lettersOf(t);
+  if (a === '') return false;
+  const rom = (a.match(/[ivxlcdm]/g) || []).length;
+  return rom === a.length || (a.length >= 3 && rom * 2 >= a.length) || /^\d+$/.test(a);
 };
 const BOOK_HEAD_LINE = /^book(?![A-Za-z])[^A-Za-z\s]{0,2}(\s*\S{1,4})?(\s\S{1,2})?[^A-Za-z0-9\s]{0,2}$/i;
 const CHAPTER_ONE_LINE = /^chapter\s+[il1][.,;:]?$/i;
-/* The furniture class of a line: the Google watermark and the line under it,
- * the verso head's halves ('ON THE THEOLOGY', 'BOOK n.') and the recto head's
- * right half ('OF PLATO.') — `book` for the book running-head line, which the
- * carve-out may spare at a book opening. */
-const furnitureClass = (line) => {
-  if (/^\s*[a-z]?\s*digitiz/i.test(line)) return 'watermark';
-  if (/^\/?\s*(?:google|gc>9gle)\b/i.test(line)) return 'google';
-  const toks = line.split(/\s+/).filter((t) => t !== '');
-  const word = (t) => t.replace(/[^A-Za-z]/g, '').toLowerCase();
-  const isHeadWord = (t) => ['on', 'the', 'theology'].some((w) => near(word(t), w));
-  if (toks.length >= 2 && toks.length <= 5 && toks.some((t) => near(word(t), 'theology'))) {
-    const rest = toks.filter((t) => !isHeadWord(t));
-    const gluedBook =
-      rest.length === 0 ||
-      (rest.length === 1 && /^[^A-Za-z0-9]{1,3}$/.test(rest[0])) ||
-      (rest.length <= 2 &&
-        near(word(rest[0]), 'book') &&
-        rest.slice(1).every((t) => {
-          const numeral = t.replace(/[^A-Za-z0-9]/g, '');
-          return (
-            numeral.length >= 1 &&
-            numeral.length <= 4 &&
-            (numeral.match(/[ivxlcdm0-9]/gi) || []).length * 2 >= numeral.length
-          );
-        }));
-    if (gluedBook && toks.length - rest.length >= 2) return 'versoHead';
-  }
-  if (toks.length >= 2 && toks.length <= 4) {
-    const [a, b] = toks.map(word);
-    if (
-      near(a, 'of') &&
-      near(b, 'plato') &&
-      (toks[1].match(/[A-Z]/g) || []).length >= 3 &&
-      toks.slice(2).every((t) => /^[^A-Za-z\s]{1,5}$/.test(t))
-    ) {
-      return 'rectoHead';
+/* the Google watermark and the line under it (MEASURED: 947) */
+const isWatermark = (line) => {
+  const t = line.trim();
+  if (/^\s*[a-z]?\s*digitiz/i.test(t)) return true;
+  if (/^\/?\s*(?:google|gc>9gle)\b/i.test(t)) return true;
+  if (t.length === 0 || t.length > 32) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  const isStampWord = (w) => nearK(w, 'digitized', 2) || nearK(w, 'google', 2);
+  if (toks.some((x) => isStampWord(lettersOf(x)))) return true;
+  return toks.length >= 2 && isStampWord(lettersOf(toks[0]) + lettersOf(toks[1]));
+};
+/* a CHAPTER line: the running head 'CHAP. n.', the display heading and the
+ * contents entry 'CHAPTER n.', and the whole recto head glued on one line
+ * (MEASURED: 794) */
+const isChapHead = (line) => {
+  const t = line.trim();
+  if (t.length === 0 || t.length > 28) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  if (toks.length < 2) return false;
+  const isChapWord = (w) =>
+    w.length >= 3 && w.length <= 7 && (nearK(w, 'chap') || nearK(w, 'chapter') || /ap$/.test(w));
+  let idx = 1;
+  if (!isChapWord(lettersOf(toks[0]))) {
+    if (toks.length >= 2 && lettersOf(toks[0]).length <= 2 && isChapWord(lettersOf(toks[0]) + lettersOf(toks[1]))) {
+      idx = 2;
+    } else {
+      return false;
     }
   }
+  if (idx >= toks.length) return false;
+  const num = toks[idx].replace(/[^A-Za-z0-9]/g, '');
+  if (num.length < 1 || num.length > 7) return false;
+  if (!(/[A-Z]/.test(toks[idx]) || num.length <= 3 || numeralToken(num))) return false;
+  for (let k = idx + 1; k < toks.length; k++) {
+    if (/^[a-z]{4,}/.test(toks[k]) && !numeralToken(toks[k])) return false;
+  }
+  return true;
+};
+/* the Introduction's and the contents pages' running head (MEASURED: 67) */
+const isIntroContents = (line) => {
+  const t = line.trim();
+  if (t.length === 0 || t.length > 20) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  const isWord = (w) => nearK(w, 'introduction', 2) || nearK(w, 'contents', 2);
+  if (isWord(lettersOf(t))) return true;
+  if (toks.length >= 2) {
+    const ab = lettersOf(toks[0]) + lettersOf(toks[1]);
+    if (isWord(ab) && toks.slice(2).every((x) => x.length <= 4)) return true;
+  }
+  const strip = toks.slice();
+  while (strip.length && strip[0].length <= 5 && (numeralToken(strip[0]) || /^[^A-Za-z]/.test(strip[0]))) strip.shift();
+  while (strip.length && strip[strip.length - 1].length <= 5 && (numeralToken(strip[strip.length - 1]) || /^[^A-Za-z]/.test(strip[strip.length - 1])))
+    strip.pop();
+  return strip.length > 0 && isWord(lettersOf(strip.join(' ')));
+};
+/* the running foot's bare 'Proc.' and the printer's signatures (MEASURED: 93) */
+const isProcFoot = (line) => {
+  const t = line.trim();
+  if (t.length > 22) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  if (toks.length === 0) return false;
+  if (!nearK(lettersOf(toks[0]), 'proc')) return false;
+  if (toks.length === 1) {
+    const w = lettersOf(t);
+    return w === 'proc' || (w.length === 5 && w.includes('proc'));
+  }
+  let k = 1;
+  while (k < toks.length && toks[k].length <= 2 && !/[A-Za-z]{2}/.test(toks[k])) k++;
+  if (k >= toks.length) return true;
+  if (!nearK(lettersOf(toks[k]), 'vol', 2) || lettersOf(toks[k]).length > 4) return false;
+  k++;
+  /* the numeral's period split off onto a token of its own ('Proc. Vol . I. k') */
+  while (k < toks.length && toks[k].replace(/[^A-Za-z0-9]/g, '') === '') k++;
+  if (k >= toks.length) return true;
+  const volnum = toks[k].replace(/[^A-Za-z0-9]/g, '');
+  if (volnum.length > 2 || !/^[ivxlcdmj123]+$/i.test(volnum)) return false;
+  k++;
+  const rest = toks.slice(k);
+  if (rest.length === 0) return true;
+  return rest.length <= 3 && rest.every((x) => x.replace(/[^A-Za-z0-9]/g, '').length <= 2);
+};
+/* the running foot's volume half 'VOL. I.' / 'VOL. II.' (MEASURED: 16) */
+const isVolFoot = (line) => {
+  const t = line.trim();
+  if (t.length > 10) return false;
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  if (toks.length === 1) {
+    const whole = lettersOf(t);
+    return nearK(whole.slice(0, 3), 'vol') && /^[ivxlcdmj123]+$/i.test(whole.slice(3));
+  }
+  if (toks.length < 2 || toks.length > 3) return false;
+  if (!nearK(lettersOf(toks[0]), 'vol') || lettersOf(toks[0]).length > 4) return false;
+  const volnum = toks[1].replace(/[^A-Za-z0-9]/g, '');
+  if (volnum.length > 2 || !/^[ivxlcdmj123]+$/i.test(volnum)) return false;
+  if (toks.length === 3 && toks[2].replace(/[^A-Za-z0-9]/g, '').length > 2) return false;
+  return true;
+};
+/* the verso head 'ON THE THEOLOGY' (MEASURED: 357) */
+const isVersoHead = (line) => {
+  const toks = line.trim().split(/\s+/).filter((t) => t !== '');
+  if (toks.length < 2 || toks.length > 6) return false;
+  if (!toks.some((t) => nearK(lettersOf(t), 'theology', 2))) return false;
+  let headWords = 0;
+  for (const t of toks) {
+    if (['on', 'the', 'theology'].some((w) => nearK(lettersOf(t), w, 2))) {
+      headWords++;
+      continue;
+    }
+    if (nearK(lettersOf(t), 'book')) continue;
+    const a = t.replace(/[^A-Za-z0-9]/g, '');
+    if (a !== '' && a.length <= 4 && numeralToken(a)) continue;
+    if (a === '') continue;
+    return false;
+  }
+  return headWords >= 2;
+};
+/* the recto head's right half 'OF PLATO.' (MEASURED: 344) */
+const isRectoHead = (line) => {
+  const t = line.trim();
+  const toks = t.split(/\s+/).filter((x) => x !== '');
+  if (toks.length < 1 || toks.length > 4) return false;
+  if (nearK(lettersOf(t), 'ofplato', 2) && (t.match(/[A-Z]/g) || []).length >= 3) return true;
+  if (toks.length >= 2) {
+    const a = lettersOf(toks[0].replace(/^[^A-Za-z]+/, ''));
+    const b = lettersOf(toks[1]);
+    if (
+      nearK(a, 'of') &&
+      nearK(b, 'plato', 2) &&
+      (toks[1].match(/[A-Z]/g) || []).length >= 3 &&
+      toks.slice(2).every((x) => /^[^A-Za-z\s]{1,5}$/.test(x))
+    ) {
+      return true;
+    }
+  }
+  return false;
+};
+/* the recto head's right half as a line of its own — the narrower shape the
+ * carve-out reads a page's head with (a page that carries no such line has no
+ * 'CHAP. n.' running head either) */
+const isPlatoHead = (line) => {
+  const t = line.trim();
+  if (t.length > 12) return false;
+  if (nearK(lettersOf(t), 'ofplato', 2) && (t.match(/[A-Z]/g) || []).length >= 3) return true;
+  return t
+    .split(/\s+/)
+    .filter((x) => x !== '')
+    .some((tok) => (tok.match(/[A-Z]/g) || []).length >= 3 && nearK(lettersOf(tok), 'plato', 2));
+};
+/* a line of prose, as the carve-out reads it */
+const isProse = (line) => {
+  const t = line.trim();
+  return t.length > 55 || (/[a-z]{3,}/.test(t) && /\s/.test(t) && t.length > 25);
+};
+/* The furniture class of a line, in the classifier's own order. */
+const furnitureClass = (line) => {
+  if (isWatermark(line)) return 'watermark';
+  if (isChapHead(line)) return 'chap';
+  if (isIntroContents(line)) return 'intro';
+  if (isProcFoot(line)) return 'proc';
+  if (isVolFoot(line)) return 'vol';
+  if (isVersoHead(line)) return 'versoHead';
+  if (isRectoHead(line)) return 'rectoHead';
   if (line.length <= 12 && BOOK_HEAD_LINE.test(line)) return 'book';
   return null;
 };
 /* The stored transcription's own lines, in reading order, with the recorded
- * divisions' positions, so the carve-out can be recomputed here. */
-const divisions = JSON.parse(readFileSync(join(ROOT, 'data', 'editions', SLUG, 'divisions.json'), 'utf8'));
-const flatLines = rawBlocks(src).flat();
+ * divisions' positions and the block each line stands in, so the carve-out
+ * can be recomputed here. */
+const blocks = rawBlocks(src);
+const flatLines = blocks.flat();
+const flatStart = [];
+const flatBlock = [];
+{
+  let f = 0;
+  for (let bi = 0; bi < blocks.length; bi++) {
+    flatStart.push(f);
+    for (let k = 0; k < blocks[bi].length; k++) flatBlock.push(bi);
+    f += blocks[bi].length;
+  }
+}
 const flatOfRaw = [];
 {
   const raw = src.replace(/\r\n?/g, '\n').replace(/^\uFEFF/, '').split('\n');
   let f = 0;
   for (let i = 0; i < raw.length; i++) flatOfRaw[i] = raw[i].trim() !== '' ? f++ : -1;
 }
+const divisions = JSON.parse(readFileSync(join(ROOT, 'data', 'editions', SLUG, 'divisions.json'), 'utf8'));
 const divAt = new Map();
 for (const d of divisions.divisions) divAt.set(flatOfRaw[d.line - 1], d);
 const divFlat = [...divAt.keys()].sort((a, b) => a - b);
+const bodyStart = divFlat[0];
+/* the next line past the scan's debris */
+const nextText = (i) => {
+  for (let k = i + 1; k <= Math.min(flatLines.length - 1, i + 2); k++) {
+    if (isFurnitureJunk(flatLines[k])) continue;
+    return k;
+  }
+  return -1;
+};
+/* a chapter line is a display heading when it opens the chapter's text; the
+ * clause that spares it is named, so the decomposition is asserted too */
+const displayClause = (i) => {
+  const line = flatLines[i];
+  if (line.trim().length > 18) return null;
+  const nx = nextText(i);
+  if (nx < 0 || !isProse(flatLines[nx])) return null;
+  let wm = -1;
+  for (let k = i; k >= Math.max(0, i - 40); k--) {
+    if (isWatermark(flatLines[k])) {
+      wm = k;
+      break;
+    }
+  }
+  let proseAbove = false;
+  let platoAbove = false;
+  let chapAbove = 0;
+  if (wm >= 0) {
+    for (let k = wm + 1; k < i; k++) {
+      if (isProse(flatLines[k])) {
+        proseAbove = true;
+        break;
+      }
+      if (isPlatoHead(flatLines[k])) platoAbove = true;
+      if (isChapHead(flatLines[k])) chapAbove++;
+    }
+  }
+  if (proseAbove) return 'afterProse';
+  if (chapAbove > 0) return 'secondChap';
+  let distBelow = Infinity;
+  let distAbove = -1;
+  for (const at of divFlat) {
+    if (at > i) {
+      distBelow = at - i;
+      break;
+    }
+  }
+  for (let k = divFlat.length - 1; k >= 0; k--) {
+    if (divFlat[k] <= i) {
+      distAbove = i - divFlat[k];
+      break;
+    }
+  }
+  if (distBelow <= 2) return 'aboveDiv';
+  if (wm >= 0 && !platoAbove) return 'noRectoHead';
+  return distAbove <= 25 ? 'nearDivAbove' : null;
+};
+/* the title pages' volume statements are not at a page foot */
+const atPageFoot = (i) => {
+  for (let k = i + 1; k <= Math.min(flatLines.length - 1, i + 4); k++) {
+    if (isWatermark(flatLines[k])) return true;
+  }
+  return false;
+};
+/* the contents section's display heading, split over lines */
+const isContentsDisplay = (i) => {
+  if (/[^A-Za-z]/.test(flatLines[i].trim())) return false;
+  for (let k = i + 1; k <= Math.min(flatLines.length - 1, i + 2); k++) {
+    if (/^the chapters of book/i.test(flatLines[k].trim())) return true;
+  }
+  return false;
+};
 /* The book-opening display headings the carve-out spares: the BOOK line
  * standing immediately above the `CHAPTER I.` line that belongs to a
  * chapter-1 division (MEASURED: seven, one per book — the volume prints each
  * book's opening page with the display headings `BOOK n.` / `CHAPTER I.`
  * above the chapter's first line, and the verso running head
  * `ON THE THEOLOGY BOOK n.` on the same page). */
-const spared = [];
+const bookSpared = [];
 for (const at of divFlat) {
   const div = divAt.get(at);
   if (div.chapter !== 1) continue;
@@ -376,66 +590,191 @@ for (const at of divFlat) {
   if (heading < 0) continue;
   for (let k = heading - 1; k >= Math.max(0, heading - 4); k--) {
     if (flatLines[k].length <= 12 && BOOK_HEAD_LINE.test(flatLines[k])) {
-      spared.push(k);
+      bookSpared.push(k);
       break;
     }
   }
 }
-const sparedSet = new Set(spared);
-const FURNITURE = { watermark: 792, google: 143, versoHead: 343, rectoHead: 337, book: 342 };
+const bookSparedSet = new Set(bookSpared);
+/* a furniture line a repair rule is defined over: the rule's find is present
+ * in the block's served text only with the line kept (a fusion of a
+ * printer-broken word with the signature inside the break, or a line served
+ * tidied), and in neither the block without the line nor the raw line the
+ * transcription serves — so the line is spared and the rule keeps firing */
+const ruleVersion = editionRecord(SLUG).current_version;
+const repairs = JSON.parse(readFileSync(repairsPath(SLUG, ruleVersion), 'utf8'));
+const ruleFinds = repairs.rules.map((r) => (r.location && r.location.find) || '').filter((f) => f !== '');
+const ruleTargeted = (i) => {
+  const bi = flatBlock[i];
+  if (bi == null) return false;
+  const block = blocks[bi];
+  const li = i - flatStart[bi];
+  const withLine = tidyPunctuation(joinLines(block));
+  const without = tidyPunctuation(joinLines(block.filter((_, k) => k !== li)));
+  const raw = flatLines[i];
+  return ruleFinds.some((f) => withLine.includes(f) && !without.includes(f) && !raw.includes(f));
+};
+/* The carve-out, re-stated clause by clause, over every line of the slice. */
+const SOURCE = { watermark: 947, chap: 794, intro: 67, proc: 93, vol: 16, versoHead: 357, rectoHead: 344, book: 342 };
+const tally = {};
+for (const cls of Object.keys(SOURCE)) tally[cls] = { spared: 0, suppressed: 0 };
+const clause = {
+  front: 0,
+  afterProse: 0,
+  secondChap: 0,
+  aboveDiv: 0,
+  noRectoHead: 0,
+  nearDivAbove: 0,
+  bookDisplay: 0,
+  volTitle: 0,
+  contentsDisplay: 0,
+  ruleTargeted: 0,
+};
 const sourceClass = {};
-flatLines.forEach((line, i) => {
-  const cls = furnitureClass(line);
-  if (!cls) return;
+for (let i = 0; i < flatLines.length; i++) {
+  const cls = furnitureClass(flatLines[i]);
+  if (!cls) continue;
   sourceClass[cls] = (sourceClass[cls] || 0) + 1;
-  if (cls === 'book' && sparedSet.has(i)) (sourceClass.bookSpared = (sourceClass.bookSpared || 0) + 1);
-});
-for (const [cls, want] of Object.entries(FURNITURE)) {
+  let why = null;
+  if (cls === 'chap') {
+    if (i < bodyStart) why = 'front';
+    else why = displayClause(i);
+  } else if (cls === 'book') {
+    if (bookSparedSet.has(i)) why = 'bookDisplay';
+  } else if (cls === 'vol') {
+    if (!atPageFoot(i)) why = 'volTitle';
+  } else if (cls === 'intro') {
+    if (isContentsDisplay(i)) why = 'contentsDisplay';
+  }
+  if (!why && ruleTargeted(i)) why = 'ruleTargeted';
+  if (why) {
+    tally[cls].spared++;
+    clause[why]++;
+  } else {
+    tally[cls].suppressed++;
+  }
+}
+for (const [cls, want] of Object.entries(SOURCE)) {
+  check(sourceClass[cls] === want, `the stored transcription carries ${want} ${cls} line(s) (found ${sourceClass[cls] || 0})`);
+}
+check(
+  Object.values(sourceClass).reduce((a, b) => a + b, 0) === 2960,
+  `the whole class is 2,960 line(s) (found ${Object.values(sourceClass).reduce((a, b) => a + b, 0)})`,
+);
+check(clause.front === 225, `the carve-out spares the 225 front-matter contents entries (found ${clause.front})`);
+check(
+  clause.afterProse === 155 &&
+    clause.secondChap === 22 &&
+    clause.aboveDiv === 35 &&
+    clause.noRectoHead === 2 &&
+    clause.nearDivAbove === 1,
+  `the 215 display headings are spared by the measured clauses — afterProse ${clause.afterProse}, secondChap ${clause.secondChap}, aboveDiv ${clause.aboveDiv}, noRectoHead ${clause.noRectoHead}, nearDivAbove ${clause.nearDivAbove}`,
+);
+check(clause.bookDisplay === 7, `the carve-out spares the 7 book-opening display headings (found ${clause.bookDisplay})`);
+check(clause.volTitle === 2, `the carve-out spares the 2 title-page volume statements (found ${clause.volTitle})`);
+check(clause.contentsDisplay === 1, `the carve-out spares the contents display heading (found ${clause.contentsDisplay})`);
+check(clause.ruleTargeted === 4, `the carve-out spares the 4 lines a repair rule is defined over (found ${clause.ruleTargeted})`);
+const SPARED = { watermark: 0, chap: 441, intro: 1, proc: 3, vol: 2, versoHead: 0, rectoHead: 0, book: 7 };
+for (const [cls, want] of Object.entries(SPARED)) {
   check(
-    sourceClass[cls] === want,
-    `the stored transcription carries ${want} ${cls} line(s) (found ${sourceClass[cls] || 0})`,
+    tally[cls].spared === want && tally[cls].suppressed === SOURCE[cls] - want,
+    `${cls}: ${want} spared, ${SOURCE[cls] - want} suppressed (found ${tally[cls].spared}/${tally[cls].suppressed})`,
   );
 }
 check(
-  (sourceClass.bookSpared || 0) === 7,
-  `the carve-out spares exactly 7 book-opening display headings (found ${sourceClass.bookSpared || 0})`,
+  Object.values(tally).reduce((a, t) => a + t.spared, 0) === 454 &&
+    Object.values(tally).reduce((a, t) => a + t.suppressed, 0) === 2506,
+  `the carve-out spares 454 and suppresses 2,506 (found ${Object.values(tally).reduce((a, t) => a + t.spared, 0)}/${Object.values(tally).reduce((a, t) => a + t.suppressed, 0)})`,
 );
-/* The reading view: no furniture class survives as text but the display
- * headings — the seven `BOOK n.` lines are the book's own headings, and every
- * other furniture line is suppressed. */
+/* The reading view: every suppressed line is out of it, served `rh` in the
+ * transcription; every spared line is in it — and the four lines a repair
+ * rule is defined over are in it too, fused where the printer broke a word
+ * across the page, so the rule keeps firing. */
 const docClass = { p: {}, rh: {} };
 for (const b of doc.blocks) {
   if (typeof b.x !== 'string') continue;
   const cls = furnitureClass(b.x.trim());
   if (!cls) continue;
-  const tally = b.t === 'rh' ? docClass.rh : docClass.p;
-  tally[cls] = (tally[cls] || 0) + 1;
+  const t2 = b.t === 'rh' ? docClass.rh : docClass.p;
+  t2[cls] = (t2[cls] || 0) + 1;
 }
-const pFurniture = Object.values(docClass.p).reduce((a, b) => a + b, 0);
+/* The spared lines as the reading view serves them: the three spared
+ * signatures are fused into prose blocks (asserted by their strings just
+ * below), and the whole-head line a repair rule is defined over is served
+ * tidied — 'CHAP, xyi.:OF.PM,TO. 137', where the tidying glues the numeral
+ * token, so its served form is no longer chap-shaped (asserted by its exact
+ * string just below too). */
+const P_SERVED = { watermark: 0, chap: 440, intro: 1, proc: 0, vol: 2, versoHead: 0, rectoHead: 0, book: 7 };
+for (const cls of Object.keys(SOURCE)) {
+  const pWant = P_SERVED[cls];
+  check(
+    (docClass.rh[cls] || 0) === SOURCE[cls] - SPARED[cls],
+    `${cls}: all ${SOURCE[cls] - SPARED[cls]} suppressed line(s) are kept in the transcription as rh (found ${docClass.rh[cls] || 0})`,
+  );
+  check((docClass.p[cls] || 0) === pWant, `${cls}: the reading view carries ${pWant} (found ${docClass.p[cls] || 0})`);
+}
+const shapeTally = {};
+for (const b of doc.blocks) shapeTally[b.t] = (shapeTally[b.t] || 0) + 1;
 check(
-  pFurniture === 7 && (docClass.p.book || 0) === 7,
-  `the reading view carries no furniture but the 7 display headings (found ${pFurniture}: ${JSON.stringify(docClass.p)})`,
+  shapeTally.p === 3193 && shapeTally.rh === 2695 && shapeTally.sec === 215 && shapeTally.verse === 9,
+  `the document's shape: 3,193 p, 2,695 rh, 215 sections, 9 verse (found ${shapeTally.p}/${shapeTally.rh}/${shapeTally.sec}/${shapeTally.verse})`,
 );
-const rhFurniture = Object.values(docClass.rh).reduce((a, b) => a + b, 0);
+const readingText = doc.blocks
+  .filter((b) => b.t !== 'rh' && typeof b.x === 'string')
+  .map((b) => b.x)
+  .join('\n');
+for (const needle of ['sub-Proc. Vol. I. S', 'attri-Proc. Vol. I, 2 E', 'Proc, Vol. JI. Z']) {
+  check(readingText.includes(needle), `the reading view keeps the fused signature '${needle}' so its repair rule fires`);
+}
 check(
-  rhFurniture === 792 + 143 + 343 + 337 + 335,
-  `the transcription keeps all 1,950 furniture lines as suppressed blocks (found ${rhFurniture}: ${JSON.stringify(docClass.rh)})`,
+  doc.blocks.some((b) => b.t !== 'rh' && b.x === 'CHAP, xyi.:OF.PM,TO. 137'),
+  'the reading view keeps the whole-head line a repair rule is defined over, served tidied',
 );
+{
+  let err = null;
+  try {
+    checkEdits(doc);
+  } catch (e) {
+    err = e;
+  }
+  check(!err, `every repair rule fires in the served text${err ? ` — ${String(err.message).split('\n')[0]}` : ''}`);
+}
+/* The negative controls: lines the shapes must never take — the book's own
+ * text that looks like furniture. Each must still be in the reading view. */
+for (const control of [
+  'END OF VOL. I.',
+  'Horos.',
+  'Mid. ^',
+  'Heaven. 3',
+  'chapter forty is wanting.',
+  'cap. 7.',
+  'Procl. in Tim. p. 296.',
+  'ON THE THEOLOGY OF PLATO.',
+  'ON THE THEOLOGY OF PLATO,',
+  'of Plato.',
+]) {
+  check(readingText.includes(control), `the book's own text '${control}' is still in the reading view`);
+}
 /* The served files: the built /t is this extraction, so the checks above are
  * checks of what is served; and /plain — which skips the suppressed blocks,
- * exactly as the Elements' does — carries none of the watermark or head
- * classes at all. */
+ * exactly as the Elements' does — carries none of the suppressed classes,
+ * only the spared lines that are the book's own text. */
 {
   const servedT = readFileSync(join(DIST, 'texts', SLUG, 't'), 'utf8');
   check(serialiseDoc(doc) === servedT, 'the served /t IS this extraction (the reading-view checks apply to it)');
   const servedPlain = readFileSync(join(DIST, 'texts', SLUG, 'plain'), 'utf8');
-  const plainFurniture = servedPlain
-    .split('\n')
-    .filter((l) => ['watermark', 'google', 'versoHead', 'rectoHead'].includes(furnitureClass(l.trim())));
-  check(
-    plainFurniture.length === 0,
-    `/plain carries no watermark or head line (the suppressed blocks are skipped there; found ${plainFurniture.length})`,
-  );
+  const plainClass = {};
+  for (const l of servedPlain.split('\n')) {
+    const cls = furnitureClass(l.trim());
+    if (cls) plainClass[cls] = (plainClass[cls] || 0) + 1;
+  }
+  const PLAIN = { watermark: 0, chap: 440, intro: 1, proc: 0, vol: 2, versoHead: 0, rectoHead: 0, book: 7 };
+  for (const [cls, want] of Object.entries(PLAIN)) {
+    check(
+      (plainClass[cls] || 0) === want,
+      `/plain carries ${want} ${cls} line(s) — spared text, no suppressed line (found ${plainClass[cls] || 0})`,
+    );
+  }
 }
 /* The anchors did not move: the pinned manifest is this document's anchor list. */
 {
