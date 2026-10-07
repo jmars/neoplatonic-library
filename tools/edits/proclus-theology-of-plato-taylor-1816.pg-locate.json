@@ -1,0 +1,1096 @@
+{
+ "slug": "proclus-theology-of-plato-taylor-1816",
+ "tool": "tools/pg-locate.mjs",
+ "what": "the measured yield of the Project Gutenberg witnesses over this edition’s open questions and review-flagged rules, and the proofs that the locator refuses",
+ "witnesses": {
+  "vol1": {
+   "ebook": 77393,
+   "name": "gutenberg-77393-vol1",
+   "sha256": "cfda3e701288740b0852305c51679e6537960ec6ad3b8e3a3441e463f30f0f9f",
+   "bytes": 1145508
+  },
+  "vol2": {
+   "ebook": 78800,
+   "name": "gutenberg-78800-vol2",
+   "sha256": "141b1812acc500169fdda39653b81411e7693b8497bf17e3823359ce2e5d6813",
+   "bytes": 1317738
+  }
+ },
+ "slide": "the reported table is --slide 24; --slide 8 and --slide 48 are carried beside it because the yield is a curve, not a number",
+ "what_it_CANNOT_settle": [
+  "a printed page number, a leaf, a line, a running head, or a hyphenation at line end — a re-flowed witness carries none of them",
+  "PUNCTUATION and CASE, which this tool discards before comparing: MEASURED, of the 582 located punctuation rules, 477 are decided UNDECIDABLE for that reason alone and only 97 come back with a reading",
+  "our TYPOGRAPHY. A rule the witness confirms is confirmed as a READING of the same print; the witness has its own editorial normalisation and its own reading, and it is not evidence about how this edition sets a page"
+ ],
+ "batch_files": "open-r{8,24,48}.json, rules-r{8,24,48}.json, punct-r24.json, sweep.json — in /var/tmp/pg-locate, regenerable",
+ "generated": "2026-10-07T17:21:15.531Z",
+ "slide_8": {
+  "open_questions": {
+   "n": 272,
+   "located": 54,
+   "by_status": {
+    "refused-no-anchor": 170,
+    "located": 54,
+    "refused-not-our-text": 32,
+    "refused-divergent": 9,
+    "refused-overlap": 7
+   },
+   "by_volume": {
+    "vol1": 20,
+    "vol2": 34
+   },
+   "tight": 34
+  },
+  "review_flagged_rules": {
+   "n": 2238,
+   "located": 1383,
+   "by_status": {
+    "located": 1383,
+    "refused-no-anchor": 572,
+    "refused-not-our-text": 246,
+    "refused-divergent": 26,
+    "refused-overlap": 7,
+    "refused-no-shared-volume": 4
+   },
+   "by_volume": {
+    "vol1": 822,
+    "vol2": 561
+   },
+   "tight": 966,
+   "by_type": {
+    "OCR": {
+     "n": 2092,
+     "located": 1365,
+     "vol1": 810,
+     "vol2": 555,
+     "tight": 960
+    },
+    "transliteration": {
+     "n": 146,
+     "located": 18,
+     "vol1": 12,
+     "vol2": 6,
+     "tight": 6
+    }
+   },
+   "decisions": {
+    "after": 1107,
+    "silent": 258,
+    "before": 18
+   },
+   "silent_reasons": {
+    "the changed words, in the placed stretch itself": 137,
+    "the two readings are the same WORDS — the change is to MARKS or case": 116,
+    "not stated": 5
+   },
+   "decisions_by_volume": {
+    "vol1": {
+     "after": 659,
+     "silent": 153,
+     "before": 10
+    },
+    "vol2": {
+     "after": 448,
+     "silent": 105,
+     "before": 8
+    }
+   },
+   "decisions_by_placement": {
+    "both bounds hard against the point": {
+     "after": 804,
+     "silent": 147,
+     "before": 15
+    },
+    "a bound slid off the damaged words": {
+     "after": 303,
+     "silent": 111,
+     "before": 3
+    }
+   }
+  }
+ },
+ "slide_24": {
+  "open_questions": {
+   "n": 272,
+   "located": 87,
+   "by_status": {
+    "refused-divergent": 110,
+    "located": 87,
+    "refused-not-our-text": 32,
+    "refused-no-anchor": 26,
+    "refused-overlap": 16,
+    "refused-no-shared-volume": 1
+   },
+   "by_volume": {
+    "vol1": 33,
+    "vol2": 54
+   },
+   "tight": 34
+  },
+  "review_flagged_rules": {
+   "n": 2238,
+   "located": 1623,
+   "by_status": {
+    "located": 1623,
+    "refused-not-our-text": 246,
+    "refused-divergent": 162,
+    "refused-no-anchor": 153,
+    "refused-overlap": 47,
+    "refused-no-shared-volume": 7
+   },
+   "by_volume": {
+    "vol1": 968,
+    "vol2": 655
+   },
+   "tight": 966,
+   "by_type": {
+    "OCR": {
+     "n": 2092,
+     "located": 1598,
+     "vol1": 950,
+     "vol2": 648,
+     "tight": 960
+    },
+    "transliteration": {
+     "n": 146,
+     "located": 25,
+     "vol1": 18,
+     "vol2": 7,
+     "tight": 6
+    }
+   },
+   "decisions": {
+    "after": 1270,
+    "silent": 331,
+    "before": 22
+   },
+   "silent_reasons": {
+    "the changed words, in the placed stretch itself": 186,
+    "the two readings are the same WORDS — the change is to MARKS or case": 136,
+    "not stated": 9
+   },
+   "decisions_by_volume": {
+    "vol1": {
+     "after": 757,
+     "silent": 200,
+     "before": 11
+    },
+    "vol2": {
+     "after": 513,
+     "silent": 131,
+     "before": 11
+    }
+   },
+   "decisions_by_placement": {
+    "both bounds hard against the point": {
+     "after": 804,
+     "silent": 147,
+     "before": 15
+    },
+    "a bound slid off the damaged words": {
+     "after": 466,
+     "silent": 184,
+     "before": 7
+    }
+   }
+  },
+  "refusals_not_our_own_text": {
+   "too short a fragment for the tokeniser to place": 243,
+   "not in our source at all": 3
+  },
+  "rules_the_witness_reads_AGAINST": [
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8574",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "The first intellectual, therefore, proceed",
+    "after": "The first intellectuals, therefore, proceed",
+    "witness": "of these the first intellectual therefore proceed from the"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8599",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "order and bound the variety",
+    "after": "order and bounds the variety",
+    "witness": "leads into order and bound the variety of partial"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8611",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "these perishing corruption",
+    "after": "this perishing corruption",
+    "witness": "consumed but these perishing corruption also would"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8619",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "these celestial governors",
+    "after": "the celestial governors",
+    "witness": "third numbers these celestial governors of the"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8627",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "through prophesy unfolds",
+    "after": "through prophecy unfolds",
+    "witness": "the god through prophesy unfolds to secondary"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8628",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "posterior to, are indeed",
+    "after": "posterior to the Gods, are indeed",
+    "witness": "the gods these triple genera posterior to are indeed always suspended"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8672",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "by this mean rendering",
+    "after": "by this means rendering",
+    "witness": "of time by this mean rendering the world more similar to intelligible animal and in short on"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8683",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "though their partible",
+    "after": "through their partible",
+    "witness": "the parts though their partible privation of"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8906",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "has the once, for",
+    "after": "has the one, for",
+    "witness": "triad therefore has the once for this is the peculiarity of the past and of"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8944",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "providential case",
+    "after": "providential care",
+    "witness": "of its providential case and expanded"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8995",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "merged condition",
+    "after": "maimed condition",
+    "witness": "are in a merged condition since therefore"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8996",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "externally cover",
+    "after": "eternally move",
+    "witness": "own motions externally cover bodies with"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9015",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": "Though is it not",
+    "after": "Is it not",
+    "witness": "governed cities though is it not perfectly impossible that parts should be"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9069",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": false,
+    "before": "inferior- being",
+    "after": "inferior beings",
+    "witness": "themselves but inferior being suspended from the dominion of"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9734",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "consubsistS",
+    "after": "consubsist",
+    "witness": "their essence consubsists according to"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10120",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "to-.united",
+    "after": "into united",
+    "witness": "of division to united ideas produce"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10212",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "s recal t",
+    "after": "s recall t",
+    "witness": "therefore let us recal to our memory"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10277",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": false,
+    "before": ", rythm a",
+    "after": ", rhythm a",
+    "witness": "farther still rythm and dancing are a mystic sign"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10291",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "elongated",
+    "after": "alienated",
+    "witness": "downward is elongated through itself"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10469",
+    "type": "OCR",
+    "volume": "vol2",
+    "tight": true,
+    "before": "Poeonian",
+    "after": "Pæonian",
+    "witness": "purifying and poeonian powers of"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10597",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": ".triadic",
+    "after": "a triadic",
+    "witness": "according to triadic figure being"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r10931",
+    "type": "OCR",
+    "volume": "vol1",
+    "tight": true,
+    "before": "Gorgies",
+    "after": "Gorgias",
+    "witness": "in the gorgies indicates there"
+   }
+  ],
+  "rules_the_witness_CONFIRMS": 1270,
+  "example_confirmations": [
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8721",
+    "before": "jnanifestfabrication",
+    "after": "manifest fabrication",
+    "witness": "their own manifest fabrication being filled"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r8895",
+    "before": "connumeratingfthe",
+    "after": "connumerating the",
+    "witness": "these things connumerating the first god with secondary natures plato"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9017",
+    "before": "orimpartieipable",
+    "after": "or imparticipable",
+    "witness": "by essence or imparticipable if therefore"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9075",
+    "before": "iraparticipable",
+    "after": "imparticipable",
+    "witness": "which is imparticipable and divine"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9106",
+    "before": "uncircumscribcd",
+    "after": "uncircumscribed",
+    "witness": "of the uncircumscribed transcendency of"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9149",
+    "before": "sppjsrcelestial",
+    "after": "supercelestial",
+    "witness": "of the supercelestial place into"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9182",
+    "before": "isdntelligible",
+    "after": "is intelligible",
+    "witness": "ultimately and is intelligible and eternal"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9204",
+    "before": "intelligiblfes",
+    "after": "intelligibles",
+    "witness": "beautiful of intelligibles is prior"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9206",
+    "before": "impartipipable",
+    "after": "imparticipable",
+    "witness": "after this imparticipable ineffable and"
+   },
+   {
+    "id": "proclus-theology-of-plato-taylor-1816:r9212",
+    "before": "supencelestial",
+    "after": "supercelestial",
+    "witness": "therefore plato unfolds the supercelestial place affirmatively indeed"
+   }
+  ]
+ },
+ "slide_48": {
+  "open_questions": {
+   "n": 272,
+   "located": 89,
+   "by_status": {
+    "refused-divergent": 128,
+    "located": 89,
+    "refused-not-our-text": 32,
+    "refused-overlap": 16,
+    "refused-no-anchor": 6,
+    "refused-no-shared-volume": 1
+   },
+   "by_volume": {
+    "vol1": 33,
+    "vol2": 56
+   },
+   "tight": 34
+  },
+  "review_flagged_rules": {
+   "n": 2238,
+   "located": 1656,
+   "by_status": {
+    "located": 1656,
+    "refused-not-our-text": 246,
+    "refused-divergent": 228,
+    "refused-overlap": 59,
+    "refused-no-anchor": 44,
+    "refused-no-shared-volume": 5
+   },
+   "by_volume": {
+    "vol1": 993,
+    "vol2": 663
+   },
+   "tight": 966,
+   "by_type": {
+    "OCR": {
+     "n": 2092,
+     "located": 1631,
+     "vol1": 975,
+     "vol2": 656,
+     "tight": 960
+    },
+    "transliteration": {
+     "n": 146,
+     "located": 25,
+     "vol1": 18,
+     "vol2": 7,
+     "tight": 6
+    }
+   },
+   "decisions": {
+    "after": 1293,
+    "silent": 340,
+    "before": 22,
+    "both": 1
+   },
+   "silent_reasons": {
+    "the changed words, in the placed stretch itself": 193,
+    "the two readings are the same WORDS — the change is to MARKS or case": 138,
+    "not stated": 9
+   },
+   "decisions_by_volume": {
+    "vol1": {
+     "after": 776,
+     "silent": 205,
+     "before": 11,
+     "both": 1
+    },
+    "vol2": {
+     "after": 517,
+     "silent": 135,
+     "before": 11
+    }
+   },
+   "decisions_by_placement": {
+    "both bounds hard against the point": {
+     "after": 804,
+     "silent": 147,
+     "before": 15
+    },
+    "a bound slid off the damaged words": {
+     "after": 489,
+     "silent": 193,
+     "before": 7,
+     "both": 1
+    }
+   }
+  }
+ },
+ "open_questions_the_witness_answers": [
+  {
+   "leaf": "v1-n77",
+   "our_text": "From these, he 1 who, after the gods, has been our leader",
+   "our_tokens": "from these he 1 who after the gods has been our leader",
+   "witness_tokens": "a divinelyinspired mind from these he 83 who after the gods has been our leader",
+   "volume": "vol1",
+   "tight": false
+  },
+  {
+   "leaf": "v1-n98",
+   "our_text": "OF: PLATO;",
+   "our_tokens": "of plato",
+   "witness_tokens": "a serious undertaking and not a contest consisting in",
+   "volume": "vol1",
+   "tight": false
+  },
+  {
+   "leaf": "v1-n299",
+   "our_text": "and that they should uniformly * connect the various progressions",
+   "our_tokens": "and that they should uniformly @ connect the various progressions",
+   "witness_tokens": "and that they should uniformly connect the various progressions",
+   "volume": "vol1",
+   "tight": true
+  },
+  {
+   "leaf": "v1-n354",
+   "our_text": "But we view with closed eyes [i. e. with the pure soul itself, muaumetha] entire and stable appearances",
+   "our_tokens": "but we view with closed eyes i e with the pure soul itself muaumetha entire and stable appearances",
+   "witness_tokens": "but we view with closed eyes i e with the pure soul itself muoumetha entire and stable appearances",
+   "volume": "vol1",
+   "tight": true
+  },
+  {
+   "leaf": "v1-n354",
+   "our_text": "And we become fixed in, and spectators of [ epopteuomen ] the intelligible watch tower, through the Gods who are the collectors of wholes.",
+   "our_tokens": "and we become fixed in and spectators of epopteuomen the intelligible watch tower through the gods who are the collectors of wholes",
+   "witness_tokens": "and we become fixed in and spectators of epopteuomen the intelligible watch tower through the gods who are the collectors of wholes",
+   "volume": "vol1",
+   "tight": true
+  },
+  {
+   "leaf": "v1-n484",
+   "our_text": "The core (*°w) i.e. virgin",
+   "our_tokens": "the core @ w i e virgin",
+   "witness_tokens": "the core i e virgin",
+   "volume": "vol1",
+   "tight": true
+  },
+  {
+   "leaf": "v1-n485",
+   "our_text": "For koron (roxogov) as Socrates * says",
+   "our_tokens": "for koron roxogov as socrates @ says",
+   "witness_tokens": "for koron as socrates 294 says",
+   "volume": "vol1",
+   "tight": true
+  },
+  {
+   "leaf": "v2-n548",
+   "our_text": "CHAP. Xlt.",
+   "our_tokens": "chap xlt",
+   "witness_tokens": "",
+   "volume": "vol2",
+   "tight": false
+  },
+  {
+   "leaf": "v2-n740",
+   "our_text": "rcuv fiotpyytToir xa\\oofitva>v",
+   "our_tokens": "rcuv fiotpyyttoir xa @ oofitva @ v",
+   "witness_tokens": "",
+   "volume": "vol2",
+   "tight": true
+  },
+  {
+   "leaf": "v1-n159",
+   "our_text": "GN THE THEOLOGY",
+   "our_tokens": "gn the theology",
+   "witness_tokens": "10th book of the republic but i",
+   "volume": "vol1",
+   "tight": false
+  },
+  {
+   "leaf": "v1-n414",
+   "our_text": "OP PLATO,",
+   "our_tokens": "op plato",
+   "witness_tokens": "",
+   "volume": "vol1",
+   "tight": false
+  },
+  {
+   "leaf": "v2-n523",
+   "our_text": "Digitized t",
+   "our_tokens": "digitized t",
+   "witness_tokens": "series under themselves to a",
+   "volume": "vol2",
+   "tight": false
+  },
+  {
+   "leaf": "v2-n704",
+   "our_text": "prepare a seat for the elements. x",
+   "our_tokens": "prepare a seat for the elements x",
+   "witness_tokens": "prepare a seat for the elements",
+   "volume": "vol2",
+   "tight": true
+  },
+  {
+   "leaf": "v2-n705",
+   "our_text": "(to ^atvuv xat xtpxt^tiv) to card",
+   "our_tokens": "to @ atvuv xat xtpxt @ tiv to card",
+   "witness_tokens": "to card",
+   "volume": "vol2",
+   "tight": true
+  }
+ ],
+ "volume_split": {
+  "note": "MEASURED by the sweep, not assumed",
+  "our_tokens": 305877,
+  "boundary_token": 192675,
+  "evidence": "the last window of our text unique in PG vol. 1 and the first unique in PG vol. 2; one window in 9,510 misclassified",
+  "vol1_half_unique_in_pg_vol1": "5056 of 6016 clean 10-word windows (84.0%)",
+  "vol1_half_unique_in_pg_vol2": "0",
+  "vol2_half_unique_in_pg_vol2": "3041 of 3494 (87.0%)"
+ },
+ "proofs_the_locator_REFUSES": [
+  {
+   "probe": "zorbantic plenthorium quixotical ragnarok velluminous threnody zephyrous maleficarum obfuscata gromboolian snarkishly wibbling transplendent",
+   "status": "refused-no-anchor",
+   "why": "neither side",
+   "left": null,
+   "right": null,
+   "attempts_left": {
+    "tried": 0,
+    "unclean": 0,
+    "absent": 0,
+    "ambiguous": 0
+   },
+   "attempts_right": {
+    "tried": 1,
+    "unclean": 1,
+    "absent": 0,
+    "ambiguous": 0
+   }
+  },
+  {
+   "probe": "of the soul and of the good and of the one and of the many and of the same and of the other and of being and of life",
+   "status": "refused-no-anchor",
+   "why": "neither side",
+   "left": null,
+   "right": null,
+   "attempts_left": {
+    "tried": 5,
+    "unclean": 0,
+    "absent": 5,
+    "ambiguous": 0
+   },
+   "attempts_right": {
+    "tried": 6,
+    "unclean": 0,
+    "absent": 6,
+    "ambiguous": 0
+   }
+  }
+ ],
+ "proof_the_locator_LOCATES": {
+  "probe": "jupiter indeed adorns sensibles totally according to an imitation of heaven for the jupiter in the intellectual order proceeds analogous to the intellectual heaven in the royal series",
+  "span": "of heaven for the jupiter in the intellectual order",
+  "status": "located",
+  "volume": "vol2",
+  "ours": {
+   "n": 9,
+   "tokens": [
+    "of",
+    "heaven",
+    "for",
+    "the",
+    "jupiter",
+    "in",
+    "the",
+    "intellectual",
+    "order"
+   ],
+   "truncated": false
+  },
+  "combinations": 36,
+  "tried": [
+   {
+    "volume": "vol2",
+    "slide": 0,
+    "window": 9,
+    "expected": 9,
+    "excess": 0,
+    "why": null
+   },
+   {
+    "volume": "vol2",
+    "slide": 0,
+    "window": 9,
+    "expected": 9,
+    "excess": 0,
+    "why": null
+   },
+   {
+    "volume": "vol2",
+    "slide": 0,
+    "window": 9,
+    "expected": 9,
+    "excess": 0,
+    "why": null
+   },
+   {
+    "volume": "vol2",
+    "slide": 0,
+    "window": 9,
+    "expected": 9,
+    "excess": 0,
+    "why": null
+   },
+   {
+    "volume": "vol2",
+    "slide": 0,
+    "window": 9,
+    "expected": 9,
+    "excess": 0,
+    "why": null
+   },
+   {
+    "volume": "vol2",
+    "slide": 0,
+    "window": 9,
+    "expected": 9,
+    "excess": 0,
+    "why": null
+   }
+  ],
+  "tight": true,
+  "slide": {
+   "left": 0,
+   "right": 0
+  },
+  "left": {
+   "tokens": "indeed adorns sensibles totally according to an imitation",
+   "w": 8,
+   "slide": 0,
+   "occurred": {
+    "vol1": 0,
+    "vol2": 1
+   },
+   "at": 74004
+  },
+  "right": {
+   "tokens": "proceeds analogous to the intellectual heaven in the royal series",
+   "w": 10,
+   "slide": 0,
+   "occurred": {
+    "vol1": 0,
+    "vol2": 1
+   },
+   "at": 74021
+  },
+  "pg": {
+   "n": 9,
+   "delta_tokens": 0,
+   "excess": 0,
+   "tokens": [
+    "of",
+    "heaven",
+    "for",
+    "the",
+    "jupiter",
+    "in",
+    "the",
+    "intellectual",
+    "order"
+   ],
+   "truncated": false
+  },
+  "at": 74012,
+  "quote": "indeed adorns sensibles totally according to an imitation of heaven for the jupiter in the intellectual order proceeds analogous to the intellectual heaven in the",
+  "quote_note": "the witness’s own tokens, 8 either side of the placed span — re-flowed, so the line breaks are not the print’s"
+ },
+ "known_truths": {
+  "book4_chapter6": {
+   "probe": "Again therefore, if indeed the snpercelestial place is the imparticipa-\nble and occult genus of the intelligible Gods, how can we establish so\ngreat a divine multitude there, and this accompanied with separation",
+   "span": "and occult genus of the intelligible gods how can we establish",
+   "status": "located",
+   "volume": "vol1",
+   "ours": {
+    "n": 11,
+    "tokens": [
+     "and",
+     "occult",
+     "genus",
+     "of",
+     "the",
+     "intelligible",
+     "gods",
+     "how",
+     "can",
+     "we",
+     "establish"
+    ],
+    "truncated": false
+   },
+   "combinations": 6,
+   "tried": [
+    {
+     "volume": "vol1",
+     "slide": 8,
+     "window": 19,
+     "expected": 19,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol1",
+     "slide": 8,
+     "window": 19,
+     "expected": 19,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol1",
+     "slide": 8,
+     "window": 19,
+     "expected": 19,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol1",
+     "slide": 8,
+     "window": 19,
+     "expected": 19,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol1",
+     "slide": 9,
+     "window": 20,
+     "expected": 20,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol1",
+     "slide": 9,
+     "window": 20,
+     "expected": 20,
+     "excess": 0,
+     "why": null
+    }
+   ],
+   "tight": false,
+   "slide": {
+    "left": 5,
+    "right": 3
+   },
+   "left": {
+    "tokens": "again therefore if indeed the",
+    "w": 5,
+    "slide": 5,
+    "occurred": {
+     "vol1": 1,
+     "vol2": 0
+    },
+    "at": 113502
+   },
+   "right": {
+    "tokens": "divine multitude there and this accompanied with separation",
+    "w": 8,
+    "slide": 3,
+    "occurred": {
+     "vol1": 1,
+     "vol2": 0
+    },
+    "at": 113526
+   },
+   "pg": {
+    "n": 19,
+    "delta_tokens": 8,
+    "excess": 0,
+    "tokens": [
+     "supercelestial",
+     "place",
+     "is",
+     "the",
+     "imparticipable",
+     "and",
+     "occult",
+     "genus",
+     "of",
+     "the",
+     "intelligible",
+     "gods",
+     "how",
+     "can",
+     "we",
+     "establish",
+     "so",
+     "great",
+     "a"
+    ],
+    "truncated": false
+   },
+   "at": 113507,
+   "quote": "arranged chapter vi again therefore if indeed the supercelestial place is the imparticipable and occult genus of the intelligible gods how can we establish so great a divine multitude there and this accompanied with separation",
+   "quote_note": "the witness’s own tokens, 8 either side of the placed span — re-flowed, so the line breaks are not the print’s"
+  },
+  "book7_chapter32": {
+   "probe": "Jupiter indeed, adorns sensibles totally, according to an imitation of\nHeaven. For the Jupiter in the intellectual order, proceeds analogous\nto the intellectual Heaven, in the royal series. But Juno moves wholes",
+   "span": "heaven for the jupiter in the intellectual order proceeds analogous to",
+   "status": "located",
+   "volume": "vol2",
+   "ours": {
+    "n": 11,
+    "tokens": [
+     "heaven",
+     "for",
+     "the",
+     "jupiter",
+     "in",
+     "the",
+     "intellectual",
+     "order",
+     "proceeds",
+     "analogous",
+     "to"
+    ],
+    "truncated": false
+   },
+   "combinations": 36,
+   "tried": [
+    {
+     "volume": "vol2",
+     "slide": 0,
+     "window": 11,
+     "expected": 11,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol2",
+     "slide": 0,
+     "window": 11,
+     "expected": 11,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol2",
+     "slide": 0,
+     "window": 11,
+     "expected": 11,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol2",
+     "slide": 0,
+     "window": 11,
+     "expected": 11,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol2",
+     "slide": 0,
+     "window": 11,
+     "expected": 11,
+     "excess": 0,
+     "why": null
+    },
+    {
+     "volume": "vol2",
+     "slide": 0,
+     "window": 11,
+     "expected": 11,
+     "excess": 0,
+     "why": null
+    }
+   ],
+   "tight": true,
+   "slide": {
+    "left": 0,
+    "right": 0
+   },
+   "left": {
+    "tokens": "jupiter indeed adorns sensibles totally according to an imitation of",
+    "w": 10,
+    "slide": 0,
+    "occurred": {
+     "vol1": 0,
+     "vol2": 1
+    },
+    "at": 74003
+   },
+   "right": {
+    "tokens": "the intellectual heaven in the royal series but juno moves",
+    "w": 10,
+    "slide": 0,
+    "occurred": {
+     "vol1": 0,
+     "vol2": 1
+    },
+    "at": 74024
+   },
+   "pg": {
+    "n": 11,
+    "delta_tokens": 0,
+    "excess": 0,
+    "tokens": [
+     "heaven",
+     "for",
+     "the",
+     "jupiter",
+     "in",
+     "the",
+     "intellectual",
+     "order",
+     "proceeds",
+     "analogous",
+     "to"
+    ],
+    "truncated": false
+   },
+   "at": 74013,
+   "quote": "adorns sensibles totally according to an imitation of heaven for the jupiter in the intellectual order proceeds analogous to the intellectual heaven in the royal series but",
+   "quote_note": "the witness’s own tokens, 8 either side of the placed span — re-flowed, so the line breaks are not the print’s"
+  }
+ },
+ "sweep": {
+  "windows": 9510,
+  "strata": {
+   "unique in vol1": 5057,
+   "unique in vol2": 3041,
+   "in neither volume": 1356,
+   "in some volume more than once": 43,
+   "unique in both volumes": 13
+  }
+ }
+}

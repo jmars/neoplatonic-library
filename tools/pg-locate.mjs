@@ -3,9 +3,16 @@
  * tools/pg-locate.mjs — place a passage of OUR text inside a RE-FLOWED witness,
  * and say what that witness reads at the disputed point. Or refuse.
  *
- *     node tools/pg-locate.mjs <slug> --what rules|open --out FILE [--type T] [--limit N] [--slide N]
+ *     node tools/pg-locate.mjs <slug> --what rules|open --out FILE [--type T] [--all] [--limit N] [--slide N]
  *     node tools/pg-locate.mjs <slug> --probe "TEXT"            an ad-hoc passage
  *     node tools/pg-locate.mjs <slug> --sweep [--window N --step N]
+ *
+ * `--slide N` is HOW FAR a bound may be slid off the damaged words nearest the
+ * point before the point is given up on. It is a knob, not a constant, because it
+ * is a trade: MEASURED over the 272 open questions, located is 54 at --slide 8,
+ * 87 at 24 and 89 at 48, while the refusals move from "no bound within reach" to
+ * "the bounds do not bracket the point". The table this tool reports is taken at
+ * --slide 24; the numbers at 8 and 48 are in the same file.
  *
  * It is BATCHABLE, RESUMABLE and SCRIPT-DRIVEN: every placement is written to
  * the --out file as it is made and a re-run skips the points already in it, so a
@@ -92,6 +99,28 @@ const LIGATURES = new Map([
  * (what PG and our OCR both use for the print's dash) separate; two or more
  * hyphens in a row are PG's own em dash and separate too. */
 const HYPHEN = new Set(['-', '\u2010', '\u2011']); // hyphen, hyphen, non-breaking hyphen
+/** THE LINE-END HYPHEN IS NOT ALWAYS A HYPHEN. MEASURED on this edition's own
+ * source.txt: the transcription writes the print's line-end hyphen as `¬`
+ * (U+00AC, NOT SIGN) — 2,120 of them, and EVERY one of the 2,120 is the last
+ * non-space character on its line, so the glyph has no other job here. The same
+ * measurement over the 2,629 line ends that break before a lowercase word gives
+ * `¬` 2,119 times, `-` 241, and `*` 162 — and `*` is this transcription's DAMAGE
+ * character, a missing letter, not a hyphen, so it is deliberately NOT a joiner:
+ * joining on it would weld two words that the print keeps apart. The rare
+ * stragglers (`]`, `^`, `«`) are left alone for the same reason. */
+const LINE_JOIN = new Set([...HYPHEN, '\u00ac']);
+/** THE TRANSCRIPTION'S DAMAGE CHARACTERS, taken from the edition's OWN recorded
+ * set (`versions/1.0.3/base.json` `damage`: ^ _ ~ * / £ > \ | # ™ ± » « } { &),
+ * MEASURED by this library, not guessed here. They stand for a LETTER THE SCAN
+ * LOST. A rule's `before` is written in them — `& whole`, `.triadic`, `&
+ * suspended` — so a tokeniser that simply drops them reads `before` as a
+ * SUBSET of `after`, and then "is our old reading at this point in the witness?"
+ * answers yes for the commonest word in the difference and the witness is
+ * recorded as supporting a reading it never carried. They are therefore kept, as
+ * one `@` token per run of them: `@` can never occur in a re-flowed witness, so
+ * a rule that RESOLVES damage can only ever be confirmed by the witness reading
+ * our `after`, which is what it means. */
+const DAMAGE = new Set('^_~*/\u00a3>\\|#\u2122\u00b1\u00bb\u00ab}{&');
 const isAlnum = (c) => (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
 
 /** Fold a text to the alphabet the comparison runs on, and keep, for every
@@ -122,13 +151,20 @@ function fold(raw) {
  * letters/digits that a joiner hyphen (or a hyphen at END OF LINE, which is the
  * print's own hyphenation and the reason PG and our transcription disagree about
  * spaces) carries on across the fold. */
-function tokenize(raw) {
+function tokenize(raw, damage = null) {
   const { s, at } = fold(raw);
   const toks = [];
   const n = s.length;
   let i = 0;
   while (i < n) {
     if (!isAlnum(s[i])) {
+      if (damage && damage.has(s[i])) {
+        let k = i + 1;
+        while (k < n && damage.has(s[k])) k += 1;
+        toks.push({ t: '@', a: at[i], b: at[k - 1] + 1 });
+        i = k;
+        continue;
+      }
       i += 1;
       continue;
     }
@@ -139,10 +175,12 @@ function tokenize(raw) {
         j += 1;
         continue;
       }
-      if (!HYPHEN.has(s[j])) break;
+      if (!LINE_JOIN.has(s[j])) break;
       let k = j;
       while (k < n && HYPHEN.has(s[k])) k += 1;
       if (k - j >= 2) break; // the print's dash, not a joiner
+      // the mark here may be `¬`, which the loop above does not consume: step over it
+      if (k === j) k = j + 1;
       if (k < n && isAlnum(s[k])) {
         j = k;
         continue;
@@ -232,6 +270,7 @@ const healthy = (t) => t.length > 1 && /^[a-z]+$/.test(t) && health.has(t);
  * needs to know 0, 1, or "more than one", and the cap is recorded. */
 const CAP = 33;
 function occurrences(vol, run) {
+  if (!run.length) return [];
   let pivot = 0;
   let best = null;
   for (let i = 0; i < run.length; i += 1) {
@@ -380,10 +419,10 @@ function place(tokens, s0, s1, volumes) {
     out.left = summarise(left);
     out.right = summarise(right);
     const byOrder = combos.some((c) => c.b < c.a);
-    out.status = byOrder ? 'refused-overlap' : 'refused-divergent';
+    out.status = !combos.length ? 'refused-no-shared-volume' : byOrder ? 'refused-overlap' : 'refused-divergent';
     out.why = combos.length
       ? 'every pair of bounds that is unique in a volume reads the wrong amount of text between them'
-      : 'no volume holds both bounds exactly once';
+      : 'each side has a unique run, but no single volume holds both of them exactly once';
     return out;
   }
   const v = pick.v;
@@ -423,107 +462,131 @@ function summarise(f) {
 
 /** The tokens a rule CHANGES, as against the words around it. `before` and
  * `after` cover the same stretch of text; the changed block is what the rule is
- * about, and the context is not. Aligned by longest common subsequence, because
- * the two are not always the same length (a rule may insert or drop a word). */
+ * about, and the words around it are not. Aligned by longest common subsequence,
+ * because the two are not always the same length — a rule may insert or drop a
+ * word, and then one side's changed block is legitimately EMPTY (`& whole` ->
+ * `a whole` removes nothing). An empty side is a measurement, not a failure, and
+ * it is left empty rather than refilled with the whole reading. */
 function changedBlock(before, after) {
-  const a = tokenize(before).map((t) => t.t);
-  const b = tokenize(after).map((t) => t.t);
+  const a = tokenize(before, DAMAGE).map((t) => t.t);
+  const b = tokenize(after, DAMAGE).map((t) => t.t);
   const n = a.length;
   const m = b.length;
   const dp = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
   for (let i = n - 1; i >= 0; i -= 1)
     for (let j = m - 1; j >= 0; j -= 1)
       dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+  const coreBefore = [];
+  const coreAfter = [];
   let i = 0;
   let j = 0;
-  let first = null;
-  let last = null;
   while (i < n && j < m) {
     if (a[i] === b[j]) {
       i += 1;
       j += 1;
-      continue;
-    }
-    const del = dp[i + 1][j];
-    const ins = dp[i][j + 1];
-    if (!first) first = { i, j };
-    if (ins >= del) {
+    } else if (dp[i][j + 1] >= dp[i + 1][j]) {
+      coreAfter.push(b[j]);
       j += 1;
-      last = { i: i, j: j };
     } else {
+      coreBefore.push(a[i]);
       i += 1;
-      last = { i, j };
     }
   }
-  if (!first && (i < n || j < m)) first = { i, j };
-  return { a, b, first, end: { i: n, j: m } };
+  while (i < n) coreBefore.push(a[i++]);
+  while (j < m) coreAfter.push(b[j++]);
+  return { a, b, coreBefore, coreAfter };
 }
 
 /** Whether the witness at the placed point carries the rule's `after` reading,
- * its `before` reading, both, or neither. The search runs over the witness's own
- * tokens with a small slack either side of the placed span, because a re-flowed
- * text may put a word of its own where ours has none. */
-function decide(rule, placed, vols, slack = 3) {
+ * its `before` reading, both, or neither.
+ *
+ * THE TEST IS NOT "IS THE CHANGED WORD THERE". It was, and it was WRONG in two
+ * separate ways, both MEASURED on this edition's 2,238 review-flagged rules. (1)
+ * `before` is written in the transcription's damage characters, so dropping them
+ * left `before` a SUBSET of `after` — `& whole` read as `whole` — and the witness
+ * was recorded as supporting our damaged reading for 22 rules at once. (2) When a
+ * rule INSERTS a word, `before` is a token-subsequence of `after` and any witness
+ * carrying the inserted reading carries the old one too, so "both" or the wrong
+ * one came back; the test therefore asks which WHOLE reading the witness carries,
+ * and where both are present prefers the LONGER, which can only be present if the
+ * witness really has the extra words. Only if neither whole reading is there does
+ * it fall back to the changed words, and it says which test decided.
+ *
+ * The search runs over the witness's own tokens with a slack of DECIDE_SLACK
+ * either side of the placed span, because a re-flowed text may put a word of its
+ * own where ours has none. */
+const DECIDE_SLACK = 2;
+function decide(rule, placed, vols) {
   const vol = vols.find((v) => v.id === placed.volume);
   if (!vol || placed.status !== 'located') return { verdict: 'not-located' };
-  if (rule.after == null || /^unsure$/i.test(rule.after.trim())) return { verdict: 'silent', why: 'the rule’s own `after` is not a reading (`unsure`)' };
-  if (rule.before === rule.after) return { verdict: 'no-change', why: 'the rule changes no word' };
-  const { a, b, first } = changedBlock(rule.before, rule.after);
-  if (!first) {
-    const from = Math.max(0, placed.at - slack);
-    const to = Math.min(vol.tokens.length, placed.at + (placed.pg ? placed.pg.n : 0) + slack);
-    return { verdict: 'silent', why: 'the rule’s two readings differ in punctuation only, which a re-flowed witness does not carry', window: vol.tokens.slice(from, to).join(' ') };
+  if (rule.after == null || /^unsure$/i.test(String(rule.after).trim()))
+    return { verdict: 'silent', why: 'the rule’s own `after` is not a reading (`unsure`)' };
+  if (rule.before === rule.after) return { verdict: 'no-change', why: 'the rule changes no mark' };
+  const a = tokenize(rule.before, DAMAGE).map((t) => t.t);
+  const b = tokenize(rule.after, DAMAGE).map((t) => t.t);
+  /* A MARK-ONLY RULE CANNOT BE DECIDED HERE, and calling it "both" would hide
+   * that. MEASURED: 122 of the rules this tool called "both" at slide 24 were
+   * rules whose two readings are the SAME WORDS — a stray period, a capital
+   * letter, a dropped apostrophe — because the token run a re-flowed witness is
+   * compared on does not carry marks at all, so both "readings" are that one run
+   * and both are found. They are reported as silent, with the reason. */
+  if (a.join(' ') === b.join(' ')) {
+    return {
+      verdict: 'silent',
+      basis: 'the two readings are the same WORDS — the change is to MARKS or case',
+      why: 'a re-flowed witness carries no punctuation and no case, so this rule is UNDECIDABLE from it even when the passage is located',
+    };
   }
-  const coreBefore = [];
-  const coreAfter = [];
-  {
-    // walk the same edit script again, collecting the changed runs on both sides
-    const n = a.length;
-    const m = b.length;
-    const dp = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
-    for (let i = n - 1; i >= 0; i -= 1)
-      for (let j = m - 1; j >= 0; j -= 1)
-        dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
-    let i = 0;
-    let j = 0;
-    while (i < n && j < m) {
-      if (a[i] === b[j]) {
-        i += 1;
-        j += 1;
-      } else if (dp[i][j + 1] >= dp[i + 1][j]) {
-        coreAfter.push(b[j]);
-        j += 1;
-      } else {
-        coreBefore.push(a[i]);
-        i += 1;
-      }
-    }
-    while (i < n) coreBefore.push(a[i++]);
-    while (j < m) coreAfter.push(b[j++]);
-  }
-  if (!coreBefore.length || !coreAfter.length) {
-    coreBefore.push(...a);
-    coreAfter.push(...b);
-  }
-  const from = Math.max(0, placed.at - slack);
-  const to = Math.min(vol.tokens.length, placed.at + (placed.pg ? placed.pg.n : 0) + slack);
+  /* THE WINDOW IS THE WHOLE PLACED STRETCH, plus a slack of the few words the
+   * two transcriptions differ by at the edges. It is bounded by the divergence
+   * guard, so it cannot be absurdly large. */
+  const from = Math.max(0, placed.at - DECIDE_SLACK);
+  const to = Math.min(vol.tokens.length, placed.at + (placed.pg ? placed.pg.n : 0) + DECIDE_SLACK);
   const window = vol.tokens.slice(from, to);
-  const has = (run) => occurrences({ tokens: window, index: indexOf(window) }, run).length > 0;
-  const inBefore = has(coreBefore);
-  const inAfter = has(coreAfter);
+  const win = { tokens: window, index: indexOf(window) };
+  const has = (run) => run.length > 0 && occurrences(win, run).length > 0;
+  let inBefore = has(a);
+  let inAfter = has(b);
+  let basis = 'the whole reading';
+  if (!inBefore && !inAfter) {
+    const cores = changedBlock(rule.before, rule.after);
+    basis = 'the changed words';
+    if (cores.coreBefore.join(' ') === cores.coreAfter.join(' ') || (!cores.coreBefore.length && !cores.coreAfter.length)) {
+      return {
+        verdict: 'silent',
+        basis: 'neither — the two readings differ in MARKS only',
+        why: 'the rule changes no WORD, and a re-flowed witness carries no marks to compare',
+        window: window.join(' '),
+      };
+    }
+    /* THE FALLBACK IS POSITIONAL: the changed words are looked for in the placed
+     * stretch ITSELF, with no slack. A single-word core — which is what a rule
+     * that resolves a damage character to a letter has — is one of the commonest
+     * words in the language, and MEASURED, testing it anywhere in a window padded
+     * by the slack confirms `& whole` -> `a whole` at a place where the witness
+     * reads `the whole`. Inside the placed stretch it has to be the word AT the
+     * point. The stretch is bounded by the divergence guard, so it stays short. */
+    const exact = vol.tokens.slice(placed.at, placed.at + (placed.pg ? placed.pg.n : 0));
+    const exactWin = { tokens: exact, index: indexOf(exact) };
+    const inExact = (run) => run.length > 0 && occurrences(exactWin, run).length > 0;
+    inBefore = inExact(cores.coreBefore);
+    inAfter = inExact(cores.coreAfter);
+    basis = 'the changed words, in the placed stretch itself';
+  }
   const verdict =
-    inAfter && !inBefore ? 'after' : inBefore && !inAfter ? 'before' : inAfter && inBefore ? 'both' : 'silent';
+    inAfter && inBefore ? (b.length > a.length ? 'after' : b.length < a.length ? 'before' : 'both') : inAfter ? 'after' : inBefore ? 'before' : 'silent';
   return {
     verdict,
-    core_before: coreBefore.slice(0, 12),
-    core_after: coreAfter.slice(0, 12),
+    basis,
+    before_words: a.length,
+    after_words: b.length,
     window: window.join(' '),
     why:
       verdict === 'silent'
         ? 'the witness reads neither of the rule’s two forms at this point'
         : verdict === 'both'
-          ? 'the witness carries both forms in the window — it does not decide'
-          : `the witness reads the rule’s \`${verdict}\` form at this point`,
+          ? 'the witness carries both readings in the window and they are the same length — it does not decide'
+          : `the witness carries the rule’s \`${verdict}\` reading at this point (tested on ${basis})`,
   };
 }
 const indexOf = (toks) => {
@@ -571,7 +634,7 @@ const what = opt('what', args.includes('--probe') ? 'probe' : 'rules');
 
 if (args.includes('--probe')) {
   const text = opt('probe', '');
-  const toks = tokenize(text);
+  const toks = tokenize(text, DAMAGE);
   if (toks.length < 12) {
     console.error('pg-locate: --probe needs a passage of at least 12 words');
     process.exit(2);
@@ -597,37 +660,49 @@ if (!['rules', 'open'].includes(what)) {
  * changed); anything not found in our own source is refused as `not-our-text`,
  * which is a fact about the FINDING, not about the witness. */
 const SRC = readFileSync(join(EDITION, 'versions', '1.0.3', 'source.txt'), 'utf8');
-const SRCTOK = tokenize(SRC);
+/* OUR text is tokenised WITH the damage characters (see DAMAGE): a rule's
+ * `before` is written in them, and dropping them makes the witness look as if
+ * it carries our damaged reading. A re-flowed witness is tokenised without them:
+ * it has no damage characters, and `@` is what our side alone can utter. */
+const SRCTOK = tokenize(SRC, DAMAGE);
 const SRCTOKS = SRCTOK.map((t) => t.t);
 const SRCINDEX = indexOf(SRCTOKS);
 function spanOf(text) {
-  if (!text || !text.trim()) return null;
+  if (!text || !text.trim()) return { none: 'the recorded text is empty' };
   const i = SRC.indexOf(text);
   if (i >= 0 && SRC.indexOf(text, i + 1) < 0) return { start: i, end: i + text.length, how: 'exact substring (unique in source.txt)' };
-  const want = tokenize(text).map((t) => t.t);
-  if (want.length < 3) return null;
+  const want = tokenize(text, DAMAGE).map((t) => t.t);
+  if (want.length < 2) return { none: `the recorded text is ${want.length} word(s) — too short a fragment for the tokeniser to place in our own source` };
   const hits = occurrences({ tokens: SRCTOKS, index: SRCINDEX }, want);
-  if (hits.length !== 1) return null;
+  if (hits.length !== 1) {
+    return {
+      none:
+        hits.length === 0
+          ? `the recorded text (${want.length} words) is NOT in source.txt at all`
+          : `the recorded text occurs ${hits.length >= CAP ? `${CAP}+` : hits.length} times in our OWN source.txt — a match that is not unique is not a match`,
+    };
+  }
   const s0 = hits[0];
   return { s0, s1: s0 + want.length, how: `token run, unique in source.txt (${want.length} tokens)` };
 }
 function pointFrom(text, id, meta) {
   const span = spanOf(text);
-  if (!span) {
-    /* NOT IN OUR SOURCE. It happens, and it is a fact about the FINDING, not
-     * about the witness: the full read recorded some passages from the REPAIRED
-     * reading (`Rut` -> `But`, a rule's own work), which is not the bytes of
-     * source.txt. The passage is still our text, and it can still be placed by
-     * its OWN ends — the bounds then sit inside the passage instead of beside
-     * it, and the witness's stretch between them is its reading of the middle of
-     * the passage. Which of the two placements was used is recorded. */
-    const toks = tokenize(text);
+  if (span.none) {
+    /* NOT PLACEABLE IN OUR OWN SOURCE. It happens, and it is a fact about the
+     * FINDING, not about the witness: the full read recorded some passages from
+     * the REPAIRED reading (`Rut` -> `But`, a rule's own work), which is not the
+     * bytes of source.txt, and a rule's `find` may be a fragment that occurs on
+     * more than one line of our own text. Such a passage can still be placed by
+     * its OWN ends — the bounds then sit inside the passage instead of beside it,
+     * and the witness's stretch between them is its reading of the middle of the
+     * passage. Which placement was used is recorded. */
+    const toks = tokenize(text, DAMAGE);
     if (toks.length < 15) {
-      return { id, ...meta, status: 'refused-not-our-text', why: 'the recorded text is not in versions/1.0.3/source.txt (it is the repaired reading), and it is too short to bound by its own ends' };
+      return { id, ...meta, status: 'refused-not-our-text', why: `${span.none}, and it is too short to bound by its own ends` };
     }
     const s0 = Math.floor(toks.length / 3);
     const s1 = Math.floor((2 * toks.length) / 3);
-    return { id, ...meta, ...place(toks, s0, s1, VOLS), found: 'passage-only: NOT in source.txt (the full read’s own text), bounded by its own ends' };
+    return { id, ...meta, ...place(toks, s0, s1, VOLS), found: `passage-only: ${span.none}; bounded by its own ends instead` };
   }
   let s0;
   let s1;
