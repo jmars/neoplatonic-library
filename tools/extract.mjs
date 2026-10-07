@@ -476,11 +476,13 @@ const FURNITURE_HEADS = {
    *     the bare 'Digitized', and 'v Digitized by boogie' with a stray letter
    *     glued to the front) and the 'Google' line under it (143: 'Google' and
    *     '/Google');
-   *   the verso head's left half — 'ON THE THEOLOGY' (340 lines) in sixteen
+   *   the verso head's left half — 'ON THE THEOLOGY' (343 lines) in nineteen
    *     spellings, the damage running to a wrong letter ('ON THB THEOLOGY',
    *     'GN THE THEOLOGY', 'OH THE THEOLOGY'), a lost letter ('ON THI
    *     THEOLOGY'), a doubled one ('ON THE THEOLOGV') or the whole right half
-   *     glued on ('ON THE THEOLOGY BOOK II.', 'ON THE THEOLOGY BOOK IV');
+   *     glued on ('ON THE THEOLOGY BOOK II.', 'ON THE THEOLOGY BOOK IV'),
+   *     or a stray punctuation token ('ON THE THEOLOGY .', 'ON TJ1E THEOLOGY
+   *     -', 'QN THE - THEOLOGY');
    *   the recto head's right half — 'OF PLATO.' (337 lines) in twenty-eight
    *     spellings, the damage running to a wrong first letter ('OP PLATO.',
    *     'QF PLATO.', 'or PLATO.', '6F PLATO.', 'GF PLATO.', 'Ob\' PLAT6.'),
@@ -521,6 +523,7 @@ const FURNITURE_HEADS = {
       const rest = toks.filter((t) => !isHeadWord(t));
       const gluedBook =
         rest.length === 0 ||
+        (rest.length === 1 && /^[^A-Za-z0-9]{1,3}$/.test(rest[0])) ||
         (rest.length <= 2 &&
           near(word(rest[0]), 'book') &&
           rest.slice(1).every((t) => {
@@ -734,7 +737,7 @@ const TEXT_RULES = {
      * line of the slice:
      *   the Google watermark — 'Digitized by …' in fifty-one spellings (792
      *     lines) and the 'Google' line under it (143);
-     *   the verso head's left half 'ON THE THEOLOGY' (340 lines) and its right
+     *   the verso head's left half 'ON THE THEOLOGY' (343 lines) and its right
      *     half 'BOOK n.' (342), the book running-head line;
      *   the recto head's right half 'OF PLATO.' (337 lines) — the left half
      *     'CHAP. n.' (300 lines, plus 10 with the whole head on one line) is the

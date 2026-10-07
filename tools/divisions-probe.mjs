@@ -316,6 +316,7 @@ const furnitureClass = (line) => {
     const rest = toks.filter((t) => !isHeadWord(t));
     const gluedBook =
       rest.length === 0 ||
+      (rest.length === 1 && /^[^A-Za-z0-9]{1,3}$/.test(rest[0])) ||
       (rest.length <= 2 &&
         near(word(rest[0]), 'book') &&
         rest.slice(1).every((t) => {
@@ -381,7 +382,7 @@ for (const at of divFlat) {
   }
 }
 const sparedSet = new Set(spared);
-const FURNITURE = { watermark: 792, google: 143, versoHead: 340, rectoHead: 337, book: 342 };
+const FURNITURE = { watermark: 792, google: 143, versoHead: 343, rectoHead: 337, book: 342 };
 const sourceClass = {};
 flatLines.forEach((line, i) => {
   const cls = furnitureClass(line);
@@ -417,8 +418,8 @@ check(
 );
 const rhFurniture = Object.values(docClass.rh).reduce((a, b) => a + b, 0);
 check(
-  rhFurniture === 792 + 143 + 340 + 337 + 335,
-  `the transcription keeps all 1,947 furniture lines as suppressed blocks (found ${rhFurniture}: ${JSON.stringify(docClass.rh)})`,
+  rhFurniture === 792 + 143 + 343 + 337 + 335,
+  `the transcription keeps all 1,950 furniture lines as suppressed blocks (found ${rhFurniture}: ${JSON.stringify(docClass.rh)})`,
 );
 /* The served files: the built /t is this extraction, so the checks above are
  * checks of what is served; and /plain — which skips the suppressed blocks,
