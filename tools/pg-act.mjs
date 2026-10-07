@@ -1008,31 +1008,59 @@ const out = {
    * may not be written under the id a reader cited in the previous version, so the
    * old rule is retired (its id stays spent and is recorded as withdrawn) and the
    * corrected rule is appended under a fresh id. The ids are allocated from the
-   * source version's own maximum, so a dry run names exactly what the write will. */
+   * source version's own maximum, so a dry run names exactly what the write will.
+   * AN ALREADY-SPENT CORRECTION IS NOT IN THIS ARRAY — it is CARRIED, not retired,
+   * and it is recorded under `skipped_corrections_already_spent` (MEASURED: the
+   * prediction used to carry a marker entry for those, which made the predicted
+   * array a different shape from the applied one; the write now ASSERTS the two
+   * agree, and that assertion is what caught it). */
   retired: (() => {
     let n = Math.max(...srcRaw.rules.map((r) => Number((/:r(\d+)$/.exec(r.id) || [])[1]) || 0)) + 1;
     return corrected
+      .filter((c) => srcRuleIds.has(c.id))
       .map((c) => {
         const was = srcRaw.rules.find((r) => r.id.endsWith(`:${c.id}`));
-        /* AN ID ALREADY SPENT IS CARRIED, NOT RE-MINTED (model 4.2): a correction
-         * applied by an earlier version is not re-derived over that version. */
-        if (!was) return { id: c.id, already_spent: true, now: c.new_after, why: 'the id is already spent — the correction is CARRIED from an earlier version' };
         const out = { old_id: was.id, new_id: `${slug}:r${String(n).padStart(4, '0')}`, find: was.location.find, was: was.after, now: c.new_after, why: c.why };
         n += 1;
         return out;
-      })
-      .filter(Boolean);
+      });
   })(),
+  /* THE CORRECTIONS AN EARLIER VERSION ALREADY APPLIED, PREDICTED HERE SO THAT THE
+   * RECORD HAS ONE SHAPE IN BOTH MODES — the write asserts the prediction against
+   * what it did (see the apply section). */
+  skipped_corrections_already_spent: corrected
+    .filter((c) => !srcRuleIds.has(c.id))
+    .map((c) => ({
+      id: c.id,
+      already: c.new_after,
+      why: 'the id is already spent — the correction was applied by an earlier version and is CARRIED, not re-minted (model 4.2)',
+    })),
   refusals: bad,
 };
+/* HOW TO RE-DERIVE THIS RECORD — in the record itself, and IDENTICAL IN BOTH MODES,
+ * because the record is the decision and the modes differ only in whether the RULES
+ * are written. MEASURED 2026-10-07: the shape used to differ (dry mode carried
+ * neither the retirement, nor the skipped corrections, nor these instructions), so
+ * the two paths produced different artifacts from the same run. */
+out.how_to_rederive = [
+  `rm -f ${BATCH}   # FIRST, AND NOT OPTIONAL: pg-locate RESUMES from an existing --out file, so re-running a batch in place re-derives NOTHING (MEASURED 2026-10-07: a re-run reported 0 decide changes in all seven batches because every one of them was resumed)`,
+  `node tools/pg-locate.mjs ${slug} --what rules --version 1.0.3 --slide 24 --out ${BATCH}`,
+  `cp -r data/editions/${slug}/versions/${FROM} data/editions/${slug}/versions/${TO}   # the version directory, meta.json rewritten for ${TO}`,
+  `node tools/pg-act.mjs ${slug} --from-version ${FROM} --to-version ${TO} --batch ${BATCH}   # DRY: writes this record to /var/tmp/pg-act/${slug}.pg-act.dry.json and touches NEITHER the rules NOR the committed record`,
+  `node tools/pg-act.mjs ${slug} --from-version ${FROM} --to-version ${TO} --batch ${BATCH} --write`,
+  `node tools/pg-act.mjs ${slug} --to-version ${TO} --stamp-open   # idempotent; the open-question evidence is already on the rules this version carries`,
+];
+out.the_whole_reading_basis_of_this_version =
+  `The decisions in this batch are the decisions of tools/pg-locate.mjs AS OF ${TO}: the whole-reading test is tried on the exact token run first and, if that fails, on the rule’s WORD run against the witness’s own words with its numerals dropped, taken only where the rule’s change ADDS a word (the tool’s own \`changedBlock\` core) and the rule is not typed \`punctuation\` (see tools/pg-locate.mjs, \`decide\`). Re-deriving with an EARLIER revision of that tool reproduces the 1.0.3-1.0.5 decisions, not these.`;
+out.how_to_rederive_why =
+  `The batch is derived at --version 1.0.3 because that is the state that still carries ALL 2,238 review flags: a batch derived at ${FROM} would see only the rules ${FROM} still flags and could neither re-adjudicate a rule ${FROM} cleared nor unset a clear. The pass over ${FROM} is IDEMPOTENT IN ITS DECISIONS (it sets state, it does not append), so a re-run reproduces this record and this version's rules — with ONE measured caveat: the NOTE TEXT the tool writes into a rationale (\`WITNESS ${TO}: …\`) follows the tool's current revision, so a later revision of tools/pg-act.mjs writing over a version frozen here would restate those notes. That is why a FROZEN version must not be re-derived in place, and why this record can be refreshed without it: \`--out <the committed record>\` in DRY mode writes this same record shape and touches no rules. Corrections whose old id is already spent are SKIPPED and recorded: an id carries one rule forever.`;
 /* THE RECORD IS WRITTEN WHERE IT BELONGS, AND ONLY THE WRITE MODE TOUCHES THE
- * COMMITTED ARTIFACT. MEASURED (review #4, N4b, and it bit the reviewer): this
- * `writeFileSync` ran BEFORE the dry exit below, so a DRY run REWROTE the
- * committed record — and with a different shape than --write (see `withdrawn`),
- * which is what produced a 544-line diff of committed state that the reviewer had
- * to restore by hand. A dry run now writes its record to scratch (`--out` still
- * overrides the path for both modes) and prints where, so a reader can diff the
- * two shapes without the tree moving. */
+ * VERSION'S RULES. MEASURED (review #4, N4b, and it bit the reviewer): this
+ * `writeFileSync` used to run BEFORE the dry exit, so a DRY run REWROTE the
+ * committed record — and with a different shape than --write, which is what
+ * produced a 544-line diff of committed state that the reviewer restored by hand.
+ * The default DRY path is scratch; `--out` still overrides it, which is the
+ * supported way to refresh the record of a version whose rules are frozen. */
 const DRY_OUT = opt('out', join('/var/tmp/pg-act', `${slug}.pg-act.dry.json`));
 const DEST = write ? OUT : DRY_OUT;
 mkdirSync(dirname(DEST), { recursive: true });
@@ -1042,13 +1070,18 @@ console.log(`  KEPT FLAGGED on a located point ${kept.length} (marks-only ${coun
 console.log(`  EVIDENCE AGAINST ${counts.EVIDENCE_AGAINST} — corrected target ${corrected.length}, kept ${against.length}`);
 console.log(`  WITHDRAWN ${counts.of_which_WITHDRAWN} (this run applies ${counts.of_which_WITHDRAWN_THE_DELTA_THIS_RUN_APPLIES}, ${counts.of_which_WITHDRAWN_CARRIED_from_an_earlier_version} carried from ${FROM})`);
 console.log(`  REFUSED, not acted on ${counts.refused_not_acted_on}`);
-console.log(`  ${write ? 'wrote' : 'dry run: wrote the DECISION record to'} ${DEST}${write ? '' : ` (the committed record at ${OUT} was NOT touched)`}`);
+const DEST_IS_THE_COMMITTED_RECORD = DEST === OUT;
+console.log(
+  write
+    ? `  wrote ${DEST} and the version’s rules`
+    : `  DRY RUN (no --write): wrote the DECISION record to ${DEST}${DEST_IS_THE_COMMITTED_RECORD ? ' — the COMMITTED record, asked for with --out' : ''}; ${DEST_IS_THE_COMMITTED_RECORD ? '' : `the committed record at ${OUT} was NOT touched; `}the version’s RULES were NOT touched`,
+);
 if (bad.length) for (const b of bad) console.error(`  REFUSED CORRECTION ${b}`);
 
 /* ---------- apply ----------------------------------------------------------- */
 
 if (!write) {
-  console.log('  dry run (no --write): the rules were NOT touched and the committed record was NOT rewritten');
+  console.log('  dry run (no --write): the rules were NOT touched; the record above is the only thing written');
   process.exit(bad.length ? 1 : 0);
 }
 if (!existsSync(rulesFile(TO))) {
@@ -1206,20 +1239,13 @@ const planIds = applyPlan.map((a) => a.id).sort().join(',');
 const didIds = withdrawnApplied.map((a) => a.id).sort().join(',');
 if (planIds !== didIds)
   throw new Error(`pg-act: the apply plan and the apply DISAGREE — planned [${planIds}], applied [${didIds}]`);
+/* THE PREDICTED RECORD IS ASSERTED AGAINST WHAT THE APPLY DID, so the committed
+ * artifact cannot claim an action the apply did not take — and, because both modes
+ * emit the SAME record object, a dry run and a write run of the same batch differ
+ * in nothing but whether the RULES were written. */
+const ids = (a) => a.map((x) => x.id).sort().join(',');
+if (ids(applyPlan) !== ids(withdrawnApplied)) throw new Error(`pg-act: the apply plan and the apply DISAGREE on the withdrawals — planned [${ids(applyPlan)}], applied [${ids(withdrawnApplied)}]`);
+if (JSON.stringify(retired) !== JSON.stringify(out.retired)) throw new Error('pg-act: the retirement the apply made differs from the one the record predicted');
+if (JSON.stringify(skippedAlreadySpent) !== JSON.stringify(out.skipped_corrections_already_spent)) throw new Error('pg-act: the corrections the apply skipped differ from the ones the record predicted');
 const rec = out;
-rec.retired = retired;
-rec.withdrawn_applied_by_this_pass = withdrawnApplied;
-rec.skipped_corrections_already_spent = skippedAlreadySpent;
-rec.how_to_rederive = [
-  `rm -f ${BATCH}   # FIRST, AND NOT OPTIONAL: pg-locate RESUMES from an existing --out file, so re-running a batch in place re-derives NOTHING (MEASURED 2026-10-07: a re-run reported 0 decide changes in all seven batches because every one of them was resumed)`,
-  `node tools/pg-locate.mjs ${slug} --what rules --version 1.0.3 --slide 24 --out ${BATCH}`,
-  `cp -r data/editions/${slug}/versions/${FROM} data/editions/${slug}/versions/${TO}   # the version directory, meta.json rewritten for ${TO}`,
-  `node tools/pg-act.mjs ${slug} --from-version ${FROM} --to-version ${TO} --batch ${BATCH}   # DRY FIRST: this writes its decision record to /var/tmp/pg-act/${slug}.pg-act.dry.json and touches NEITHER the rules NOR the committed record`,
-  `node tools/pg-act.mjs ${slug} --from-version ${FROM} --to-version ${TO} --batch ${BATCH} --write`,
-  `node tools/pg-act.mjs ${slug} --to-version ${TO} --stamp-open   # idempotent; the open-question evidence is already on the rules this version carries`,
-];
-rec.the_whole_reading_basis_of_this_version =
-  'The decisions in this batch are the decisions of tools/pg-locate.mjs AS OF 1.0.6: the whole-reading test is tried on the exact token run first and, if that fails, on the rule’s WORD run against the witness’s own words with its numerals dropped, taken only where the rule’s change ADDS a word (the tool’s own `changedBlock` core) and the rule is not typed `punctuation` (see tools/pg-locate.mjs, `decide`). Re-deriving with an EARLIER revision of that tool reproduces the 1.0.3-1.0.5 decisions, not these: MEASURED, the revision before this one places 1,256 (not 1,264) rules on the whole reading and holds r10517 in the third-form class.';
-rec.how_to_rederive_why =
-  `The batch is derived at --version 1.0.3 because that is the state that still carries ALL 2,238 review flags: a batch derived at ${FROM} would see only the rules ${FROM} still flags and could neither re-adjudicate a rule ${FROM} cleared nor unset a clear. The pass over ${FROM} is IDEMPOTENT (it sets state, it does not append), so a re-run reproduces this version. Corrections whose old id is already spent are SKIPPED and recorded: an id carries one rule forever, so the six corrections of 1.0.4 (r11843-r11848) are CARRIED, not re-minted.`;
 writeFileSync(OUT, `${JSON.stringify(rec, null, 1)}\n`);
