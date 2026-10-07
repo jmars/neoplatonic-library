@@ -4,7 +4,7 @@
  "what": "the human-proofread witness ACTED ON: the review flags it EARNS cleared with the witness recorded in the rule’s own `evidence`, the rules it reads AGAINST recorded with the print’s own words, the rules that override the print on no measured evidence WITHDRAWN, and the corrections (a target taken from the witness’s own quoted words) asserted against that quote",
  "batch": {
   "file": "/var/tmp/pg-locate/rules-r24.json",
-  "derived_by": "node tools/pg-locate.mjs proclus-theology-of-plato-taylor-1816 --what rules --version 1.0.4 --slide 24",
+  "derived_by": "node tools/pg-locate.mjs proclus-theology-of-plato-taylor-1816 --what rules --version 1.0.3 --slide 24",
   "witnesses": {
    "vol1": {
     "ebook": 77393,
@@ -20,8 +20,8 @@
    }
   }
  },
- "from_version": "1.0.4",
- "to_version": "1.0.5",
+ "from_version": "1.0.3",
+ "to_version": "1.0.4",
  "placement_rule": "ONE BASIS, THE SAME ON EVERY PLACEMENT: the witness must carry the rule’s WHOLE `after` reading at the point. The changed-words fallback — the changed fragment inside the placed stretch — NEVER clears, tight or slid, because 1–2 common words locate text without witnessing a repair. MEASURED (corrected in 1.0.5): the 1.0.4 rule cleared TIGHT placements on either basis and SLID ones only on the whole reading, so 9 rules cleared on the changed words alone; their flags stand again. See `call_2_the_clearing_basis`.",
  "call_2_the_clearing_basis": {
   "what_changed": "A rule is cleared only where the witness carries what the rule ASSERTS — its whole `after` reading — and the record states, per clear, which test decided it (`basis`) and what the rule asserted (`before`, `after`).",
@@ -182,8 +182,9 @@
   "of_which_undecidable_marks": 135,
   "of_which_changed_words_only": 10,
   "EVIDENCE_AGAINST": 96,
-  "of_which_corrected_target": 9,
-  "of_which_WITHDRAWN": 12,
+  "of_which_INDETERMINATE_TIES_kept": 1,
+  "of_which_corrected_target": 10,
+  "of_which_WITHDRAWN": 13,
   "refused_not_acted_on": 644
  },
  "measured": {
@@ -201,9 +202,9 @@
   "evidence_against_the_rule": 96,
   "refused_not_acted_on": 644,
   "of_the_brief_s_95": {
-   "print_error_emendation_not_reverted": 6,
+   "print_error_emendation_not_reverted": 3,
    "insertion": 2,
-   "contradiction_the_print_carries_our_before": 2,
+   "contradiction_the_print_carries_our_before": 3,
    "third_form_on_a_real_before_reading": 11,
    "third_form_on_our_own_garble": 62
   },
@@ -267,6 +268,11 @@
      "rule_wanted": "Is it not"
     },
     {
+     "id": "r10277",
+     "print_reads": ", rythm a",
+     "rule_wanted": ", rhythm a"
+    },
+    {
      "id": "r10291",
      "print_reads": "elongated",
      "rule_wanted": "alienated"
@@ -278,6 +284,12 @@
      "print_reads": "inferior being",
      "rule_wanted": "inferior beings",
      "why": "the print reads the participle \"inferior being suspended\"; our target added a plural \"s\" the print does not carry, and the transcription’s own `find` (`inferior- being`) carries a stray hyphen the print cannot set"
+    },
+    {
+     "id": "r9734",
+     "print_reads": "consubsists",
+     "rule_wanted": "consubsist",
+     "why": "the print reads \"consubsists\" (1x; and its own `consubsistent` 32x) — our target \"consubsist\" occurs 0x in the print’s whole vocabulary, and the transcription’s `consubsistS` is the print’s own word with its final `s` mis-cased"
     },
     {
      "id": "r10120",
@@ -31331,7 +31343,7 @@
   },
   {
    "id": "r8627",
-   "class": "print-error-emendation",
+   "class": "indeterminate-tie",
    "verdict": "before",
    "basis": "the whole reading",
    "volume": "vol2",
@@ -31361,7 +31373,7 @@
     ]
    },
    "action": "keep",
-   "why": "PRINT-ERROR EMENDATION, MEASURED: the print’s own form at the point is not a word of the reference wordlist, or is a form the print uses nowhere else in its own text, so the print IS at fault and this rule deliberately repairs it — the witness transcribes the print faithfully and cannot overrule the emendation"
+   "why": "INDETERMINATE BY TIE — MEASURED: the print uses the form it reads here (“prophesy” 1×) and this rule’s target (“prophecy” 1×) the SAME number of times, so the witness’s own counts decide NOTHING: they do not show the print’s form is a misprint and they do not show it is the reading. A 1×-vs-1× tie from a re-flowed witness licenses no verdict in either direction, so the flag STANDS and the point is left for a human"
   },
   {
    "id": "r8628",
@@ -32192,38 +32204,6 @@
    "why": "NO EVIDENCE EITHER WAY: the witness reads words of its own at the point and our own `before` is the transcription’s GARBLE, so the witness’s words are not evidence about this rule at all"
   },
   {
-   "id": "r9734",
-   "class": "print-error-emendation",
-   "verdict": "before",
-   "basis": "the whole reading",
-   "volume": "vol2",
-   "tight": true,
-   "before": "consubsistS",
-   "after": "consubsist",
-   "reads": [
-    "consubsists"
-   ],
-   "quote": "the beginning middle and end of their essence consubsists according to the one it is not proper",
-   "changed": {
-    "before": [
-     {
-      "w": "consubsists",
-      "uses": 1,
-      "wordlist": false
-     }
-    ],
-    "after": [
-     {
-      "w": "consubsist",
-      "uses": 0,
-      "wordlist": true
-     }
-    ]
-   },
-   "action": "keep",
-   "why": "PRINT-ERROR EMENDATION, MEASURED: the print’s own form at the point is not a word of the reference wordlist, or is a form the print uses nowhere else in its own text, so the print IS at fault and this rule deliberately repairs it — the witness transcribes the print faithfully and cannot overrule the emendation"
-  },
-  {
    "id": "r9780",
    "class": "third-form",
    "verdict": "third",
@@ -32651,43 +32631,7 @@
     ]
    },
    "action": "keep",
-   "why": "PRINT-ERROR EMENDATION, MEASURED: the print’s own form at the point is not a word of the reference wordlist, or is a form the print uses nowhere else in its own text, so the print IS at fault and this rule deliberately repairs it — the witness transcribes the print faithfully and cannot overrule the emendation"
-  },
-  {
-   "id": "r10277",
-   "class": "print-error-emendation",
-   "verdict": "before",
-   "basis": "the changed words, in the placed stretch itself",
-   "volume": "vol1",
-   "tight": false,
-   "before": ", rythm a",
-   "after": ", rhythm a",
-   "reads": [
-    "rythm",
-    "and",
-    "dancing",
-    "are",
-    "a"
-   ],
-   "quote": "furnished with every kind of arms farther still rythm and dancing are a mystic sign of this deity because the curetes",
-   "changed": {
-    "before": [
-     {
-      "w": "rythm",
-      "uses": 4,
-      "wordlist": false
-     }
-    ],
-    "after": [
-     {
-      "w": "rhythm",
-      "uses": 2,
-      "wordlist": true
-     }
-    ]
-   },
-   "action": "keep",
-   "why": "PRINT-ERROR EMENDATION, MEASURED: the print’s own form at the point is not a word of the reference wordlist, or is a form the print uses nowhere else in its own text, so the print IS at fault and this rule deliberately repairs it — the witness transcribes the print faithfully and cannot overrule the emendation"
+   "why": "THE PRINT IS AT FAULT — MEASURED: the print’s own form here (“recal”) is not a word of the reference wordlist and the print uses it NOWHERE ELSE in its own text (1×), while it reads our target (“recall” 8×) elsewhere and MORE often — so this rule deliberately repairs a misprint of the print, and the witness, which transcribes the print faithfully, cannot overrule it"
   },
   {
    "id": "r10293",
@@ -32908,7 +32852,7 @@
     ]
    },
    "action": "keep",
-   "why": "PRINT-ERROR EMENDATION, MEASURED: the print’s own form at the point is not a word of the reference wordlist, or is a form the print uses nowhere else in its own text, so the print IS at fault and this rule deliberately repairs it — the witness transcribes the print faithfully and cannot overrule the emendation"
+   "why": "THE PRINT IS AT FAULT — MEASURED: the print’s own form here (“poeonian”) is not a word of the reference wordlist and the print uses it NOWHERE ELSE in its own text (1×), while it reads our target (“paeonian” 3×) elsewhere and MORE often — so this rule deliberately repairs a misprint of the print, and the witness, which transcribes the print faithfully, cannot overrule it"
   },
   {
    "id": "r10517",
@@ -33167,7 +33111,7 @@
     ]
    },
    "action": "keep",
-   "why": "PRINT-ERROR EMENDATION, MEASURED: the print’s own form at the point is not a word of the reference wordlist, or is a form the print uses nowhere else in its own text, so the print IS at fault and this rule deliberately repairs it — the witness transcribes the print faithfully and cannot overrule the emendation"
+   "why": "THE PRINT IS AT FAULT — MEASURED: the print’s own form here (“gorgies”) is not a word of the reference wordlist and the print uses it NOWHERE ELSE in its own text (1×), while it reads our target (“gorgias” 20×) elsewhere and MORE often — so this rule deliberately repairs a misprint of the print, and the witness, which transcribes the print faithfully, cannot overrule it"
   },
   {
    "id": "r10967",
@@ -34753,6 +34697,39 @@
    "why": "the print reads the participle \"inferior being suspended\"; our target added a plural \"s\" the print does not carry, and the transcription’s own `find` (`inferior- being`) carries a stray hyphen the print cannot set"
   },
   {
+   "id": "r9734",
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol2",
+   "tight": true,
+   "before": "consubsistS",
+   "after": "consubsist",
+   "reads": [
+    "consubsists"
+   ],
+   "quote": "the beginning middle and end of their essence consubsists according to the one it is not proper",
+   "changed": {
+    "before": [
+     {
+      "w": "consubsists",
+      "uses": 1,
+      "wordlist": false
+     }
+    ],
+    "after": [
+     {
+      "w": "consubsist",
+      "uses": 0,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "correct-the-target",
+   "new_after": "consubsists",
+   "why": "the print reads \"consubsists\" (1x; and its own `consubsistent` 32x) — our target \"consubsist\" occurs 0x in the print’s whole vocabulary, and the transcription’s `consubsistS` is the print’s own word with its final `s` mis-cased"
+  },
+  {
    "id": "r10120",
    "class": "print-carries-our-before",
    "verdict": "before",
@@ -34864,153 +34841,557 @@
  "withdrawn": [
   {
    "id": "r8574",
-   "find": "The first intellectual, therefore, proceed",
-   "was": "The first intellectuals, therefore, proceed",
-   "print_reads": "The first intellectual, therefore, proceed",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“intellectual” 1236×) against the rule’s target (“intellectuals” 198×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol1",
+   "tight": true,
+   "before": "The first intellectual, therefore, proceed",
+   "after": "The first intellectuals, therefore, proceed",
+   "reads": [
+    "the",
+    "first",
+    "intellectual",
+    "therefore",
+    "proceed"
+   ],
+   "quote": "according to participation in the last of these the first intellectual therefore proceed from the intelligible gods multiplying indeed their union",
+   "changed": {
+    "before": [
+     {
+      "w": "intellectual",
+      "uses": 1236,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "intellectuals",
+      "uses": 198,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“intellectual” 1236×) against the rule’s target (“intellectuals” 198×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8599",
-   "find": "order and bound the variety",
-   "was": "order and bounds the variety",
-   "print_reads": "order and bound the variety",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“bound” 268×) against the rule’s target (“bounds” 24×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol2",
+   "tight": true,
+   "before": "order and bound the variety",
+   "after": "order and bounds the variety",
+   "reads": [
+    "order",
+    "and",
+    "bound",
+    "the",
+    "variety"
+   ],
+   "quote": "but the former together with pluto leads into order and bound the variety of partial natures and is the leader of",
+   "changed": {
+    "before": [
+     {
+      "w": "bound",
+      "uses": 268,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "bounds",
+      "uses": 24,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“bound” 268×) against the rule’s target (“bounds” 24×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8611",
-   "find": "these perishing corruption",
-   "was": "this perishing corruption",
-   "print_reads": "these perishing corruption",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“these” 2144×) against the rule’s target (“this” 3318×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol2",
+   "tight": true,
+   "before": "these perishing corruption",
+   "after": "this perishing corruption",
+   "reads": [
+    "these",
+    "perishing",
+    "corruption"
+   ],
+   "quote": "of finite things and these being consumed but these perishing corruption also would stop all things being destroyed hence",
+   "changed": {
+    "before": [
+     {
+      "w": "these",
+      "uses": 2144,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "this",
+      "uses": 3318,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“these” 2144×) against the rule’s target (“this” 3318×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8619",
-   "find": "these celestial governors",
-   "was": "the celestial governors",
-   "print_reads": "these celestial governors",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“these” 2144×) against the rule’s target (“the” 32057×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol1",
+   "tight": true,
+   "before": "these celestial governors",
+   "after": "the celestial governors",
+   "reads": [
+    "these",
+    "celestial",
+    "governors"
+   ],
+   "quote": "world but it constitutes as the third numbers these celestial governors of the perpetual circulations and who convolve all",
+   "changed": {
+    "before": [
+     {
+      "w": "these",
+      "uses": 2144,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "the",
+      "uses": 32057,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“these” 2144×) against the rule’s target (“the” 32057×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8672",
-   "find": "by this mean rendering",
-   "was": "by this means rendering",
-   "print_reads": "by this mean rendering",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“mean” 58×) against the rule’s target (“means” 61×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol2",
+   "tight": false,
+   "before": "by this mean rendering",
+   "after": "by this means rendering",
+   "reads": [
+    "by",
+    "this",
+    "mean",
+    "rendering",
+    "the",
+    "world",
+    "more",
+    "similar",
+    "to",
+    "intelligible",
+    "animal",
+    "and",
+    "in"
+   ],
+   "quote": "imparts to the world the order of time by this mean rendering the world more similar to intelligible animal and in short on account of the similitude of the",
+   "changed": {
+    "before": [
+     {
+      "w": "mean",
+      "uses": 58,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "means",
+      "uses": 61,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“mean” 58×) against the rule’s target (“means” 61×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8683",
-   "find": "though their partible",
-   "was": "through their partible",
-   "print_reads": "though their partible",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“though” 196×) against the rule’s target (“through” 1402×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol2",
+   "tight": true,
+   "before": "though their partible",
+   "after": "through their partible",
+   "reads": [
+    "though",
+    "their",
+    "partible"
+   ],
+   "quote": "things received may be noxious to the parts though their partible privation of symmetry in the motion of the",
+   "changed": {
+    "before": [
+     {
+      "w": "though",
+      "uses": 196,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "through",
+      "uses": 1402,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“though” 196×) against the rule’s target (“through” 1402×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8906",
-   "find": "has the once, for",
-   "was": "has the one, for",
-   "print_reads": "has the once, for",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“once” 114×) against the rule’s target (“one” 3131×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol2",
+   "tight": false,
+   "before": "has the once, for",
+   "after": "has the one, for",
+   "reads": [
+    "has",
+    "the",
+    "once",
+    "for",
+    "this",
+    "is",
+    "the",
+    "peculiarity",
+    "of",
+    "the",
+    "past"
+   ],
+   "quote": "gods the whole of the first triad therefore has the once for this is the peculiarity of the past and of completion but it is divided into",
+   "changed": {
+    "before": [
+     {
+      "w": "once",
+      "uses": 114,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "one",
+      "uses": 3131,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“once” 114×) against the rule’s target (“one” 3131×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8944",
-   "find": "providential case",
-   "was": "providential care",
-   "print_reads": "providential case",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“case” 181×) against the rule’s target (“care” 40×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol1",
+   "tight": true,
+   "before": "providential case",
+   "after": "providential care",
+   "reads": [
+    "providential",
+    "case"
+   ],
+   "quote": "allperfect with respect to the subjects of its providential case and expanded above all partial production chapter xxxv",
+   "changed": {
+    "before": [
+     {
+      "w": "case",
+      "uses": 181,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "care",
+      "uses": 40,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“case” 181×) against the rule’s target (“care” 40×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8995",
-   "find": "merged condition",
-   "was": "maimed condition",
-   "print_reads": "merged condition",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“merged” 4×) against the rule’s target (“maimed” 0×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol1",
+   "tight": false,
+   "before": "merged condition",
+   "after": "maimed condition",
+   "reads": [
+    "a",
+    "merged",
+    "condition"
+   ],
+   "quote": "that have broken their wings and are in a merged condition since therefore passions of this kind belong to",
+   "changed": {
+    "before": [
+     {
+      "w": "merged",
+      "uses": 4,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "maimed",
+      "uses": 0,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“merged” 4×) against the rule’s target (“maimed” 0×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r8996",
-   "find": "externally cover",
-   "was": "eternally move",
-   "print_reads": "externally cover",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“externally” 40×, “cover” 1×) against the rule’s target (“eternally” 45×, “move” 26×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol1",
+   "tight": true,
+   "before": "externally cover",
+   "after": "eternally move",
+   "reads": [
+    "externally",
+    "cover"
+   ],
+   "quote": "thing in the heavens by their own motions externally cover bodies with their motions and living their own",
+   "changed": {
+    "before": [
+     {
+      "w": "externally",
+      "uses": 40,
+      "wordlist": true
+     },
+     {
+      "w": "cover",
+      "uses": 1,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "eternally",
+      "uses": 45,
+      "wordlist": true
+     },
+     {
+      "w": "move",
+      "uses": 26,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“externally” 40×, “cover” 1×) against the rule’s target (“eternally” 45×, “move” 26×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r9015",
-   "find": "Though is it not",
-   "was": "Is it not",
-   "print_reads": "Though is it not",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“though” 196×) against the rule’s target (nothing), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol1",
+   "tight": false,
+   "before": "Though is it not",
+   "after": "Is it not",
+   "reads": [
+    "though",
+    "is",
+    "it",
+    "not",
+    "perfectly",
+    "impossible",
+    "that",
+    "parts"
+   ],
+   "quote": "that discord which exists in badly governed cities though is it not perfectly impossible that parts should be governed according to nature in a",
+   "changed": {
+    "before": [
+     {
+      "w": "though",
+      "uses": 196,
+      "wordlist": true
+     }
+    ],
+    "after": []
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“though” 196×) against the rule’s target (nothing), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+  },
+  {
+   "id": "r10277",
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the changed words, in the placed stretch itself",
+   "volume": "vol1",
+   "tight": false,
+   "before": ", rythm a",
+   "after": ", rhythm a",
+   "reads": [
+    "rythm",
+    "and",
+    "dancing",
+    "are",
+    "a"
+   ],
+   "quote": "furnished with every kind of arms farther still rythm and dancing are a mystic sign of this deity because the curetes",
+   "changed": {
+    "before": [
+     {
+      "w": "rythm",
+      "uses": 4,
+      "wordlist": false
+     }
+    ],
+    "after": [
+     {
+      "w": "rhythm",
+      "uses": 2,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“rythm” 4×) against the rule’s target (“rhythm” 2×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print uses that form elsewhere in its own text, so it is the print’s own spelling) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   },
   {
    "id": "r10291",
-   "find": "elongated",
-   "was": "alienated",
-   "print_reads": "elongated",
-   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“elongated” 2×) against the rule’s target (“alienated” 0×), and NEITHER misprint signal fires (the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
+   "class": "print-carries-our-before",
+   "verdict": "before",
+   "basis": "the whole reading",
+   "volume": "vol1",
+   "tight": true,
+   "before": "elongated",
+   "after": "alienated",
+   "reads": [
+    "elongated"
+   ],
+   "quote": "which departs from it and gravitates downward is elongated through itself thus also the gods indeed are",
+   "changed": {
+    "before": [
+     {
+      "w": "elongated",
+      "uses": 2,
+      "wordlist": true
+     }
+    ],
+    "after": [
+     {
+      "w": "alienated",
+      "uses": 0,
+      "wordlist": true
+     }
+    ]
+   },
+   "action": "withdraw",
+   "why": "THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our `before` here; the print’s own form is an ordinary word of its own vocabulary (“elongated” 2×) against the rule’s target (“alienated” 0×), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD (the print’s form is a word of the reference wordlist) — so no measurement shows the print at fault. ACTION FROM THE RULE’S OWN `find`, not from a verdict about the print: see `printImpossibleMark`."
   }
  ],
  "retired": [
   {
+   "old_id": "proclus-theology-of-plato-taylor-1816:r8600",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11843",
+   "find": "to introduced this dialogue",
+   "was": "to introduce into this dialogue",
+   "now": "to introduce in this dialogue",
+   "why": "the print reads \"to introduce in this dialogue\" — our target added \"into\", which the print does not carry"
+  },
+  {
+   "old_id": "proclus-theology-of-plato-taylor-1816:r8617",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11844",
+   "find": "For hebdomad ic multitude",
+   "was": "For the hebdomad is a multitude",
+   "now": "For hebdomadic multitude",
+   "why": "the print sets \"hebdomadic\" as ONE word; our target invented \"the hebdomad is a\""
+  },
+  {
+   "old_id": "proclus-theology-of-plato-taylor-1816:r8923",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11845",
+   "find": "beginning,Lor end",
+   "was": "beginning, nor end",
+   "now": "beginning, or end",
+   "why": "the print reads \"or\"; our target guessed \"nor\""
+  },
+  {
    "old_id": "proclus-theology-of-plato-taylor-1816:r8961",
-   "new_id": "proclus-theology-of-plato-taylor-1816:r11853",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11846",
    "find": "as m intages die",
    "was": "as images the",
    "now": "as in images the",
    "why": "the print reads \"as in images the\" — our target dropped the \"in\" that the transcription’s damaged `m` stands for"
   },
   {
+   "old_id": "proclus-theology-of-plato-taylor-1816:r8991",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11847",
+   "find": "of the post, and",
+   "was": "of the monad, and",
+   "now": "of the past, and",
+   "why": "the print reads \"past\"; our target guessed \"monad\""
+  },
+  {
    "old_id": "proclus-theology-of-plato-taylor-1816:r9069",
-   "new_id": "proclus-theology-of-plato-taylor-1816:r11854",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11848",
    "find": "inferior- being",
    "was": "inferior beings",
    "now": "inferior being",
    "why": "the print reads the participle \"inferior being suspended\"; our target added a plural \"s\" the print does not carry, and the transcription’s own `find` (`inferior- being`) carries a stray hyphen the print cannot set"
   },
   {
+   "old_id": "proclus-theology-of-plato-taylor-1816:r9734",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11849",
+   "find": "consubsistS",
+   "was": "consubsist",
+   "now": "consubsists",
+   "why": "the print reads \"consubsists\" (1x; and its own `consubsistent` 32x) — our target \"consubsist\" occurs 0x in the print’s whole vocabulary, and the transcription’s `consubsistS` is the print’s own word with its final `s` mis-cased"
+  },
+  {
    "old_id": "proclus-theology-of-plato-taylor-1816:r10120",
-   "new_id": "proclus-theology-of-plato-taylor-1816:r11855",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11850",
    "find": "to-.united",
    "was": "into united",
    "now": "to united",
    "why": "the print reads \"to united\" — our target added \"in\", which duplicates the \"into\" the print sets two words later, and the transcription’s own `find` (`to-.united`) carries a mark the print cannot set"
+  },
+  {
+   "old_id": "proclus-theology-of-plato-taylor-1816:r10442",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11851",
+   "find": "contended",
+   "was": "connected",
+   "now": "coextended",
+   "why": "the print reads \"coextended\"; our target corrected only as far as \"connected\""
+  },
+  {
+   "old_id": "proclus-theology-of-plato-taylor-1816:r11100",
+   "new_id": "proclus-theology-of-plato-taylor-1816:r11852",
+   "find": "unite!",
+   "was": "united",
+   "now": "unical",
+   "why": "the print reads \"unical\"; our target guessed \"united\""
   }
  ],
- "refusals": [],
- "skipped_corrections_already_spent": [
-  {
-   "id": "r8600",
-   "already": "to introduce in this dialogue",
-   "why": "the id is already spent — the correction was applied by an earlier version and is CARRIED, not re-minted (model 4.2)"
-  },
-  {
-   "id": "r8617",
-   "already": "For hebdomadic multitude",
-   "why": "the id is already spent — the correction was applied by an earlier version and is CARRIED, not re-minted (model 4.2)"
-  },
-  {
-   "id": "r8923",
-   "already": "beginning, or end",
-   "why": "the id is already spent — the correction was applied by an earlier version and is CARRIED, not re-minted (model 4.2)"
-  },
-  {
-   "id": "r8991",
-   "already": "of the past, and",
-   "why": "the id is already spent — the correction was applied by an earlier version and is CARRIED, not re-minted (model 4.2)"
-  },
-  {
-   "id": "r10442",
-   "already": "coextended",
-   "why": "the id is already spent — the correction was applied by an earlier version and is CARRIED, not re-minted (model 4.2)"
-  },
-  {
-   "id": "r11100",
-   "already": "unical",
-   "why": "the id is already spent — the correction was applied by an earlier version and is CARRIED, not re-minted (model 4.2)"
-  }
- ],
- "how_to_rederive": [
-  "node tools/pg-locate.mjs proclus-theology-of-plato-taylor-1816 --what rules --version 1.0.3 --slide 24 --out /var/tmp/pg-locate/rules-r24.json",
-  "cp -r data/editions/proclus-theology-of-plato-taylor-1816/versions/1.0.4 data/editions/proclus-theology-of-plato-taylor-1816/versions/1.0.5   # the version directory, meta.json rewritten for 1.0.5",
-  "node tools/pg-act.mjs proclus-theology-of-plato-taylor-1816 --from-version 1.0.4 --to-version 1.0.5 --batch /var/tmp/pg-locate/rules-r24.json --write",
-  "node tools/pg-act.mjs proclus-theology-of-plato-taylor-1816 --to-version 1.0.5 --stamp-open   # idempotent; the open-question evidence is already on the rules this version carries"
- ],
- "how_to_rederive_why": "The batch is derived at --version 1.0.3 because that is the state that still carries ALL 2,238 review flags: a batch derived at 1.0.4 would see only the rules 1.0.4 still flags and could neither re-adjudicate a rule 1.0.4 cleared nor unset a clear. The pass over 1.0.4 is IDEMPOTENT (it sets state, it does not append), so a re-run reproduces this version. Corrections whose old id is already spent are SKIPPED and recorded: an id carries one rule forever, so the six corrections of 1.0.4 (r11843-r11848) are CARRIED, not re-minted."
+ "refusals": []
 }

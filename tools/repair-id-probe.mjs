@@ -230,6 +230,35 @@ for (const t of served) {
     const prev = prevOf.get(v) || null;
     const prevRules = prev === null ? null : new Map(JSON.parse(readFileSync(repairsPath(slug, prev), 'utf8')).rules.map((r) => [r.id, r]));
     const sameArr = (a, b) => JSON.stringify(a || null) === JSON.stringify(b || null);
+    /* WHAT "THE REASON IS ON THE RECORD" MEANS, made checkable. MEASURED
+     * 2026-10-07 (the seventh-DOI unit, on a /var/tmp fixture that is a full copy
+     * of tools+data): the guard below failed correctly in both directions but was
+     * VACUOUSLY SATISFIABLE IN THREE WAYS, and each of the three is closed by the
+     * definitions here rather than by a longer sentence:
+     *
+     *   (a) a CLEAR whose GAINED evidence entry carried NO `why` passed, because
+     *       `nowEv.some(e => e.why)` was satisfied by an OLD entry's why. The
+     *       justification must be the GAINED entry's OWN: `gained` is the entries
+     *       this version ADDED (compared by value), and every one of them must
+     *       carry a non-empty `why`.
+     *   (b) a RE-FLAG with a ONE-SPACE rationale tweak passed, because any
+     *       difference counted as movement. A re-flag must say WHY it is back on
+     *       the worklist, so its rationale must have GROWN and must carry a stated
+     *       marker naming the re-flag — the library's convention is `REBASED`
+     *       (the 8 of 1.0.5 all carry `REBASED 1.0.5:`), and a marker naming the
+     *       re-flagging version is accepted beside it.
+     *   (c) a RE-FLAG that DELETED all evidence passed, because `sameArr` was
+     *       false and "moved" counted DESTRUCTION as movement. Evidence may MOVE
+     *       but may not SHRINK.
+     *
+     * A clear or a re-flag that cannot satisfy these is a change nobody asserted,
+     * which is the thing the guard exists to refuse. */
+    const whyOf = (e) => (e && typeof e.why === 'string' ? e.why.trim() : '');
+    const gainedEntries = (nowEv, wasEv) =>
+      (Array.isArray(nowEv) ? nowEv : []).filter((e) => !(Array.isArray(wasEv) ? wasEv : []).some((w) => JSON.stringify(w) === JSON.stringify(e)));
+    const RE_FLAG_MARKER = /\b(REBASED|RE-FLAGGED|REOPENED)\b/;
+    const namesTheVersion = (t) =>
+      new RegExp(`(^|[^0-9.])${v.replace(/\./g, '\\.')}([^0-9.]|$)`).test(String(t || ''));
     const clearedWithoutEvidence = !prevRules
       ? []
       : rules.filter((r) => {
@@ -237,14 +266,22 @@ for (const t of served) {
           if (!was || !(was.review === true && r.review === false)) return false;
           const nowEv = Array.isArray(r.evidence) ? r.evidence : [];
           const wasEv = Array.isArray(was.evidence) ? was.evidence : [];
-          return !(nowEv.length > wasEv.length && nowEv.some((e) => e && typeof e.why === 'string' && e.why.trim()));
+          const gained = gainedEntries(nowEv, wasEv);
+          return !(nowEv.length > wasEv.length && gained.length > 0 && gained.every((e) => whyOf(e) !== ''));
         });
     const reflagged = !prevRules
       ? []
       : rules.filter((r) => {
           const was = prevRules.get(r.id);
           if (!was || !(was.review === false && r.review === true)) return false;
-          return sameArr(r.evidence, was.evidence) && r.rationale === was.rationale;
+          const nowEv = Array.isArray(r.evidence) ? r.evidence : [];
+          const wasEv = Array.isArray(was.evidence) ? was.evidence : [];
+          const notShrunk = nowEv.length >= wasEv.length;
+          const moved = !sameArr(r.evidence, was.evidence);
+          const rationaleGrew =
+            String(r.rationale).length > String(was.rationale).length &&
+            (RE_FLAG_MARKER.test(String(r.rationale)) || namesTheVersion(r.rationale));
+          return !(notShrunk && moved && rationaleGrew);
         });
     check(
       rewritten.length === 0,

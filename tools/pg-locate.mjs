@@ -674,8 +674,52 @@ function decide(rule, placed, vols) {
   const window = vol.tokens.slice(from, to);
   const win = { tokens: window, index: indexOf(window) };
   const has = (run) => run.length > 0 && occurrences(win, run).length > 0;
+  /* THE WHOLE-READING TEST RUNS ON WORDS, AND ON WORDS ONLY. The `after` reading
+   * is what this edition SERVES, and it carries two things that are not words and
+   * that this witness's own record says it does not model ("no page, line, running
+   * head, mark or word-space is modelled", witnesses.json): this transcription's
+   * own damage/apparatus token (`@` — a footnote asterisk or an undischarged
+   * damage character) and a printed PAGE NUMBER (ours, or PG's own inline one —
+   * and PG's can fall INSIDE our run, splitting it). Requiring the witness to
+   * carry either is requiring evidence the tool itself declares the witness cannot
+   * give, and MEASURED 2026-10-07 it is what held SEVEN honest repairs on the
+   * review worklist: at r8576, r8594, r8998, r9122, r9270, r9542 and r10219 the
+   * witness carries EVERY WORD of the rule's `after` and differs only in a `*`
+   * and/or a page number.
+   *
+   * THE `before` SIDE IS DELIBERATELY NOT TREATED THE SAME WAY, and the asymmetry
+   * is the fix this tool already carries: `@` in a rule's `before` is what
+   * distinguishes our DAMAGED reading from the clean one, so dropping it there
+   * would read `& whole` as `whole` and record the witness as supporting our
+   * damaged reading — the defect this token was introduced for (see the DAMAGE
+   * note above). The `before` run is therefore compared exactly as written.
+   *
+   * THE VERDICT LOGIC IS UNCHANGED: the presence tests below decide WHAT the
+   * witness carries, and the length comparison that picks between two readings
+   * still uses the readings' own token counts.
+   *
+   * AND THE FILTERED MATCH APPLIES ONLY WHERE THE RULE'S OWN CHANGE PUTS A WORD
+   * INTO THE TARGET. MEASURED 2026-10-07 on a first cut of this fix that compared
+   * the two readings' word RUNS instead: 9 rules flipped, and one of the two
+   * beyond the seven honest clears was r10587 (`parts Y*` -> `parts?*`, our own
+   * damaged `Y` resolved to a QUESTION MARK) whose two word runs differ only
+   * because our damage is a letter — a match on `parts` would have certified a
+   * PUNCTUATION repair the witness cannot settle. The guard is therefore taken
+   * from the tool's OWN definition of what a rule changes (`changedBlock`, the
+   * same core the changed-words fallback uses): the filtered match needs the
+   * change to ADD at least one word to the reading (`coreAfter` with a letter in
+   * it). At r10587, r8633, r8652, r8686, r10019, r10326 and r11652 the change adds
+   * no word — it resolves a damage mark or a numeral — so the exact-run test
+   * alone decides them, exactly as before. */
+  const isWord = (t) => /[a-z]/.test(t);
+  const bWords = b.filter(isWord);
+  const cores0 = changedBlock(rule.before, rule.after);
+  const changeAddsAWord = (cores0.coreAfter || []).some(isWord);
+  const wordWindow = window.filter(isWord);
+  const winWords = { tokens: wordWindow, index: indexOf(wordWindow) };
   let inBefore = has(a);
   let inAfter = has(b);
+  if (!inAfter && changeAddsAWord && bWords.length > 0 && occurrences(winWords, bWords).length > 0) inAfter = true;
   let basis = 'the whole reading';
   let cores = null;
   if (!inBefore && !inAfter) {

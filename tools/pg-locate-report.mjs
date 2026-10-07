@@ -83,9 +83,76 @@ const CLASSES = {
   EMENDATION: 'print-error-emendation — DO NOT REVERT: the print’s own text at the point is at fault',
   INSERTION: 'insertion — the rule ADDS words and the witness reads our `before` because they are absent; there is no like-for-like reading to weigh',
   CONTRADICTION: 'contradiction — the print reads an ordinary word of its own vocabulary here and the rule puts another',
+  TIE: 'indeterminate-tie — the print’s own form and the rule’s target are each used the SAME number of times in the print, so the witness’s own counts decide nothing about which is the print’s text',
   THIRD: 'third-form — the print reads words of its own that are neither of the rule’s two readings, and our `before` IS a reading of the print: the rule’s target is not what the print reads',
   THIRD_GARBLE: 'third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point',
 };
+/* ---------- THE POSITIVE TEST FOR `THE PRINT IS AT FAULT` -------------------
+ * A class that says the print IS at fault must rest on a POSITIVE measurement of
+ * the print, and 1.0.5's two signals did not: W asked only whether a changed
+ * word is absent from the REFERENCE WORDLIST, and R asked only whether the print
+ * uses the form rarely — so W licensed the verdict on r9734 (`consubsists`, a
+ * form the print really sets, merely missing from the dictionary) and on r10277
+ * (`rythm`, the print's DOMINANT spelling), and R licensed it on r8627 from a
+ * 1×-vs-1× TIE. MEASURED 2026-10-07 (the seventh-DOI unit): a tie and a
+ * minority-spelling modernisation decided the print was at fault in a
+ * DOI-minted edition. All three conditions below are measurements OF THE PRINT,
+ * and all three must hold:
+ *
+ *   (1) the print’s own form at the point is NOT a word of the reference
+ *       wordlist — it is not a word of the language the print is written in;
+ *   (2) that form occurs AT MOST ONCE in the print’s whole vocabulary (both
+ *       volumes) — i.e. only here. A form the print sets four times is the
+ *       print’s ORTHOGRAPHY, not a slip;
+ *   (3) the rule’s target IS what the print reads ELSEWHERE, and the print uses
+ *       it MORE OFTEN than the form it changes away from. A target the print
+ *       never sets is this edition’s invention; a target the print sets exactly
+ *       as often as the form at the point is a TIE, and a tie decides nothing.
+ *
+ * MEASURED on 1.0.5’s six: it licenses r10212 (`recal` 1× → `recall` 8×), r10469
+ * (`poeonian` 1× → `pæonian` 3×) and r10931 (`gorgies` 1× → `gorgias` 20×); it
+ * REFUSES r8627 (1×-vs-1× tie), r10277 (`rythm` 4× — the print’s own spelling)
+ * and r9734 (target `consubsist` 0×).
+ *
+ * WHAT IT CANNOT DECIDE, stated so nobody reads it as more: it is a test of the
+ * print’s own habit, not of the editor’s intention. A print that sets a wrong
+ * form twice, or a corrector who is right against a print that never sets the
+ * right form at all, is outside it — and outside it is recorded, not guessed. */
+const topUses = (ws) => Math.max(...ws.filter((w) => w.uses !== null).map((w) => w.uses), -1);
+function printIsAtFault(before, after) {
+  if (!before.length || !after.length) return null;
+  const b = before.filter((w) => w.uses !== null);
+  const a = after.filter((w) => w.uses !== null);
+  if (b.length !== before.length) return null; // a damage token is not a form the print can set
+  if (!b.every((w) => !w.wordlist)) return null; // (1) not a word of the language
+  if (!b.every((w) => w.uses === 1)) return null; // (2) used nowhere else in the print
+  if (!a.length) return null;
+  if (!(topUses(a) > topUses(b))) return null; // (3) the print reads our target elsewhere, MORE often
+  return {
+    signal: 'F',
+    conditions: [
+      `the print’s own form here (${b.map((w) => `“${w.w}”`).join(', ')}) is not a word of the reference wordlist`,
+      `the print uses it NOWHERE ELSE in its own text (${b.map((w) => `${w.uses}×`).join(', ')})`,
+      `while it reads our target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) elsewhere, MORE often`,
+    ],
+    why: `the print’s own form here (${b.map((w) => `“${w.w}”`).join(', ')}) is not a word of the reference wordlist and the print uses it nowhere else in its own text (${b.map((w) => `${w.uses}×`).join(', ')}), while the print reads our target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) elsewhere and MORE often`,
+  };
+}
+/** THE TIE: a rule that falls through the positive test only because the print
+ * uses the form it changes away from and the rule’s target the SAME number of
+ * times. MEASURED r8627: `prophesy` 1× against `prophecy` 1×. What is measured
+ * is stated; the verdict is NOT drawn, so the rule neither is cleared nor may
+ * claim the print at fault. */
+function theTie(before, after) {
+  const b = before.filter((w) => w.uses !== null);
+  const a = after.filter((w) => w.uses !== null);
+  if (!b.length || !a.length || b.length !== before.length) return null;
+  if (!(topUses(a) === topUses(b) && topUses(b) >= 1)) return null;
+  return {
+    signal: 'T',
+    why: `the print uses the form it reads here (${b.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) and the rule’s target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) the SAME number of times — a tie distinguishes nothing about which is the print’s own text`,
+  };
+}
 function classify(d) {
   const before = (d.changed && d.changed.before) || [];
   const after = (d.changed && d.changed.after) || [];
@@ -106,25 +173,44 @@ function classify(d) {
    * reading" is trivially satisfiable by the words around the insertion. */
   if (d.after_words > d.before_words || (!before.length && after.length))
     return { class: 'insertion', signal: 'the rule adds words', why: CLASSES.INSERTION };
-  const nonword = before.filter((w) => !w.wordlist);
-  if (nonword.length)
+  const fault = printIsAtFault(before, after);
+  if (fault)
     return {
       class: 'print-error-emendation',
-      signal: 'W',
-      why: `${CLASSES.EMENDATION} — MEASURED: the print's own form here (${nonword.map((w) => `“${w.w}”`).join(', ')}) is not a word of the reference wordlist, while our reading's word is`,
+      signal: fault.signal,
+      conditions: fault.conditions,
+      why: `${CLASSES.EMENDATION} — MEASURED, by the positive test: ${fault.why}`,
     };
-  const rare = before.length && before.every((w) => w.uses !== null && w.uses <= 1) && after.some((w) => w.uses !== null && w.uses >= 1);
-  if (rare)
+  const tie = theTie(before, after);
+  if (tie)
     return {
-      class: 'print-error-emendation',
-      signal: 'R',
-      why: `${CLASSES.EMENDATION} — MEASURED: the print uses the form it reads here (${before.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) nowhere else in its own text, while it uses our reading's word elsewhere (${after.map((w) => `“${w.w}” ${w.uses}×`).join(', ')})`,
+      class: 'indeterminate-tie',
+      signal: tie.signal,
+      why: `${CLASSES.TIE} — MEASURED: ${tie.why}. The flag STANDS: the print’s own form is not shown to be at fault and the witness cannot show it is not`,
     };
   return {
     class: 'contradiction',
     signal: null,
-    why: `${CLASSES.CONTRADICTION} — MEASURED: the print uses the form it reads here ${before.map((w) => `“${w.w}” ${w.uses}×`).join(', ')} and our reading's word ${after.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}`,
+    why: `${CLASSES.CONTRADICTION} — MEASURED: the print uses the form it reads here ${before.map((w) => `“${w.w}” ${w.uses}×`).join(', ')} and our reading's word ${after.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}, and the positive test for a fault of the print’s own form DOES NOT HOLD (${faultWhy(before, after)})`,
   };
+}
+/** WHY the positive test did not hold, as the failed condition — so a rule the
+ * witness reads our `before` at records WHICH measurement is missing rather than
+ * the absence of a conclusion. */
+function faultWhy(before, after) {
+  const b = before.filter((w) => w.uses !== null);
+  const a = after.filter((w) => w.uses !== null);
+  if (b.length !== before.length) return 'the reading it changes carries a damage token, so there is no form of the print to measure at all';
+  if (!b.every((w) => !w.wordlist))
+    return `${b.filter((w) => w.wordlist).map((w) => `“${w.w}”`).join(', ')} is a word of the reference wordlist — the print is not setting a non-word`;
+  if (!b.every((w) => w.uses === 1))
+    return `the print uses the form it changes away from ${b.map((w) => `${w.uses}×`).join(', ')} — a form the print sets more than once is its own spelling, not a slip`;
+  if (!a.length) return 'the rule’s target is not a countable form';
+  if (!(topUses(a) > topUses(b)))
+    return topUses(a) === topUses(b)
+      ? `the print uses the rule’s target exactly as often as the form it changes away from (${topUses(b)}× against ${topUses(a)}×) — a TIE, which decides nothing`
+      : `the print uses the rule’s target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) NO more often than the form it changes away from (${b.map((w) => `${w.uses}×`).join(', ')})`;
+  return 'no condition failed';
 }
 const against = (r) => {
   const c = classify(r.decide);
@@ -184,6 +270,7 @@ const conflicts = byClass('contradiction');
 const insertions = byClass('insertion');
 const thirdReal = byClass('third-form');
 const thirdGarble = byClass('third-form-on-our-own-garble');
+const ties = byClass('indeterminate-tie');
 
 out.slide_24.refusals_not_our_own_text = obj(
   R.filter((r) => r.status === 'refused-not-our-text'),
@@ -250,9 +337,10 @@ out.THE_YIELD = {
     of_which_are_PRINT_ERROR_EMENDATIONS_do_not_revert: emendations.length,
     of_which_are_insertions: insertions.length,
     of_which_are_CONTRADICTIONS_to_be_read: conflicts.length,
+    of_which_are_TIES_the_witness_cannot_decide: ties.length,
     of_which_are_THIRD_FORM_on_a_REAL_before_reading: thirdReal.length,
     of_which_are_THIRD_FORM_on_OUR_OWN_GARBLE_no_evidence_against_the_rule: thirdGarble.length,
-    EVIDENCE_AGAINST_THE_RULE_total: emendations.length + insertions.length + conflicts.length + thirdReal.length,
+    EVIDENCE_AGAINST_THE_RULE_total: emendations.length + insertions.length + conflicts.length + thirdReal.length + ties.length,
     UNDECIDABLE_by_design_marks_or_case_only: D['silent-marks'] || 0,
     UNDECIDABLE_the_rules_own_after_is_unsure: D['silent-unsure'] || 0,
     NO_READING_DRAWN_the_witness_carries_nothing: D['absent-at-point'] || 0,
@@ -280,6 +368,7 @@ out.UNIT_B_MAY_ACT_ON = {
   of_which_PRINT_ERROR_EMENDATIONS_it_must_NOT_revert: emendations.map((a) => a.id),
   of_which_INSERTIONS_it_must_NOT_treat_as_a_reading: insertions.map((a) => a.id),
   of_which_CONTRADICTIONS_it_must_adjudicate: conflicts.map((a) => a.id),
+  of_which_are_INDETERMINATE_TIES_the_flag_stands: ties.map((a) => a.id),
   of_which_THIRD_FORM_on_a_real_before_reading: thirdReal.map((a) => a.id),
   NO_EVIDENCE_EITHER_WAY_third_form_on_our_own_garble: thirdGarble.map((a) => a.id),
   may_NOT_act_on_at_all: R.length - (D.after || 0) - againstLoc.length,
@@ -287,14 +376,15 @@ out.UNIT_B_MAY_ACT_ON = {
     'A `before` verdict says the print’s own text reads our OLD reading, and a `third` verdict says it reads words of its own that are neither reading: both are reports about what the print READS, and both were, before this revision, one word (`silent`). What differs is whether our `before` is itself a reading of the print: where it is the transcription’s garble (62 of the 73 third forms), the witness’s words at the point are no evidence at all against the rule. A `silent-marks` or `silent-unsure` verdict is UNDECIDABLE BY DESIGN. `absent-at-point` and `thin-stretch` mean no reading was drawn, not that the rule is right.',
 };
 out.THE_TEST_USED_TO_SUBCLASSIFY = {
-  'print-error-emendation (do not revert)': 'the print’s OWN text at the point is at fault, measured two ways: W the form the print reads there is not a word of the reference wordlist; R the print uses that form nowhere else in its own text (≤1×) while it uses our reading’s word elsewhere.',
+  'print-error-emendation (do not revert)': 'THE PRINT’S OWN TEXT AT THE POINT IS AT FAULT, and since 1.0.6 that verdict rests on a POSITIVE TEST with THREE measurements of the print, ALL of which must hold: (1) the form the print reads there is not a word of the reference wordlist; (2) the print uses that form NOWHERE ELSE in its own text (≤1× in both volumes together); (3) the rule’s target IS what the print reads elsewhere, used MORE OFTEN than the form it changes away from. WHAT THIS REPLACED, MEASURED: the two signals of 1.0.5 (W = a changed word is absent from the wordlist; R = the form is used ≤1× and the target ≥1×) licensed the verdict on r9734 (`consubsists` — a form the print really sets, merely missing from the dictionary — whose target `consubsist` the print sets 0×), on r10277 (`rythm`, the print’s DOMINANT spelling at 4× against `rhythm` 2×) and on r8627 from a 1×-vs-1× TIE. A class that says the print IS at fault may not be reachable without a positive measurement, and a tie or a minority-spelling modernisation may not license it.',
+  'indeterminate-tie': 'the print uses the form it reads at the point and the rule’s target the SAME number of times, so the witness’s own counts decide nothing. MEASURED r8627: `prophesy` 1× against `prophecy` 1×. WHAT IS DONE WITH IT: the flag STANDS (tools/pg-act.mjs keeps it). Neither the print’s own form is shown to be at fault, nor is it shown to be the reading — a 1×-vs-1× tie from a re-flowed witness settles neither.',
   contradiction: 'the print reads an ordinary word of its own vocabulary at the point and the rule puts another word there, with no fault of the print’s own form to point at, and NEITHER misprint signal fires. WHAT IS DONE WITH IT IS NOT A KEEP: MEASURED 2026-10-07 (the 1.0.5 unit), every one of the 14 rules in this class OVERRIDES a print our transcription already reads, so the class is named after the measurement rather than after a conclusion about the print, and tools/pg-act.mjs WITHDRAWS the rule (the version serves the print’s own text) unless the rule’s own \`find\` carries a mark the print cannot set, in which case the target is CORRECTED to the print’s own words under a fresh id. 1.0.4 kept all 14 with a why-string that ASSERTED an emendation of the print; that assertion is corrected in tools/pg-act.mjs and in 1.0.5 (see .measured.the_14_reopened and .rejected_signals there).',
 
   insertion: 'the rule adds words, so the witness’s `before` reading is what the print reads without them; there is no like-for-like pair of readings to weigh.',
   'third-form': 'the print reads words of its own that are neither of the rule’s two readings AND our `before` is a word of the reference wordlist — a real reading the print does not carry here, i.e. the same class of fact as a `before`.',
   'third-form-on-our-own-garble': 'the print reads words of its own that are neither reading, but our `before` is itself the transcription’s garble, a damage mark or a numeral, so this says only that our reconstructed `after` is not a contiguous run at the point. It is NOT evidence against the rule and must not be acted on.',
   LIMIT: 'This partition measures EVIDENCE STRENGTH, not truth. It distinguishes cases where the print itself is provably at fault. It cannot tell a deliberate correction of the print from a rule that is simply wrong where the print is not — and where the print reads an ordinary word, PG’s evidence AGAINST the rule is itself weak, because PG’s editors silently repair misprints too (MEASURED: PG carries “rythm” 4× against “rhythm” 2×, so it repairs that spelling only sometimes).',
-  disagreement_with_the_review: 'The review named r8944 (case→care) as an emendation. MEASURED, `case` is used 181× in the print’s own vocabulary and `care` 40×, so it fires neither signal and is classified a contradiction: the print reads an ordinary word here and the correction is editorial. Its other named cases (r10931 Gorgies, r10277 rythm, r10212 recal, r8627 prophesy) are all classified print-error-emendations. And the review’s own decomposition of the 186 changed-words fallback cases reproduces exactly (78 at ≤2 witness tokens, 73 at ≥4, 35 at 3).',
+  disagreement_with_the_review: 'The review named r8944 (case→care) as an emendation. MEASURED, `case` is used 181× in the print’s own vocabulary and `care` 40×, so the positive test does not hold and it is classified a contradiction: the print reads an ordinary word here and the correction is editorial. OF ITS OTHER NAMED CASES, MEASURED 2026-10-07: only r10931 (Gorgies 1× nonword → Gorgias 20×) and r10212 (recal 1× nonword → recall 8×) still reach print-error-emendation; r10277 (rythm 4×) is the print’s own dominant spelling and is a contradiction (withdrawn), and r8627 (prophesy 1× vs prophecy 1×) is an indeterminate tie whose flag stands. And the review’s own decomposition of the 186 changed-words fallback cases reproduces exactly (78 at ≤2 witness tokens, 73 at ≥4, 35 at 3).',
   disagreement_with_the_brief: 'The brief calls the third-form class “the SAME CLASS as the 22”. MEASURED, that holds for 11 of the 73 and not for the other 62, whose `before` is garble — see `third-form-on-our-own-garble` above. The class is real and the split is real; the equivalence is not.',
 };
 

@@ -260,14 +260,29 @@ function witnessEntry(p, why) {
  *
  * WHAT A CLASS NAME MAY CLAIM, AND WHAT IT MAY NOT. A class name is a claim about
  * the print, and it may claim only what was MEASURED. `print-error-emendation` is
- * the ONLY class that says the print's own form is at fault, and it requires one of
- * two positive signals, both computed from the witness's own token stream:
+ * the ONLY class that says the print's own form is at fault, and since 1.0.6 it
+ * requires a POSITIVE TEST of the print — THREE measurements, ALL of which must
+ * hold (see `printIsAtFault`):
  *
- *   W  a word of the form the print reads here is NOT a word of the reference
- *      wordlist — the print set a nonword (Gorgies, rythm, recal, Poeonian);
- *   R  EVERY word of that form is used at most ONCE in the print's whole
- *      vocabulary while the rule's target is a word the print uses (prophesy 1x
- *      against prophecy 1x) — the print set a form it uses nowhere else.
+ *   (1) the form the print reads here is NOT a word of the reference wordlist;
+ *   (2) the print uses that form NOWHERE ELSE in its own text (<=1x in both
+ *       volumes together) — a form it sets four times is its own ORTHOGRAPHY;
+ *   (3) the rule's target IS what the print reads ELSEWHERE, used MORE OFTEN
+ *       than the form it changes away from.
+ *
+ * WHAT THIS REPLACED, MEASURED 2026-10-07 (the seventh-DOI unit), and why a
+ * "signal" is not a test: 1.0.5's two signals were W (a changed word is absent
+ * from the reference wordlist) and R (the form is used <=1x while the target is
+ * used >=1x). W licensed the at-fault verdict on r9734 (the print sets
+ * `consubsists` once, a real form merely missing from the dictionary, and the
+ * rule's target `consubsist` occurs 0x in the print's whole vocabulary) and on
+ * r10277 (`rythm`, the print's DOMINANT spelling: 4x + rythms 1x against rhythm
+ * 2x + rhythms 1x). R licensed it on r8627 from a 1x-vs-1x TIE (prophesy 1x,
+ * prophecy 1x). A tie and a minority-spelling modernisation decided that the
+ * PRINT was at fault in a DOI-minted edition. The verdict is now unreachable
+ * without a positive measurement, and the TIE has its own class
+ * (`indeterminate-tie`) whose action is to KEEP the flag: what it records is
+ * that the witness's own counts decide nothing.
  *
  * Until 1.0.5 the class the third signal-less case fell into was called
  * `contradiction` and its why-string then ASSERTED "this is an EMENDATION OF THE
@@ -283,7 +298,7 @@ function witnessEntry(p, why) {
  * wrong cases is not a test. `phrase-idiolect`: the rule's target PHRASE occurs in
  * the print while the form the rule changes occurs nowhere else. MEASURED on the
  * 14 rules of 1.0.4 the reviewer reopened, it fires for the rules the measurement
- * REFUTES — r8906 (`the once for` 1x against `the one for` 36x), where the print
+ * REFUTES — r8906 (`the once for` 1x against `the one for` 62x over both PG volumes — 36x in vol. I and 26x in vol. II; the 1.0.4 record's `36x` was the vol. I count alone, recorded under a heading that said 'both volumes'), where the print
  * sets `_the once_` in ITALICS and glosses it with the Greek (τῷ ἅπαξ, its own
  * bytes at gutenberg-78800-vol2.txt:19967), and r8619 (`these celestial` 1x
  * against `the celestial` 178x), a determiner the reviewer called a taste swap —
@@ -297,18 +312,54 @@ const CLASSES = {
   emendation: 'print-error-emendation',
   insertion: 'insertion',
   contradiction: 'print-carries-our-before',
+  tie: 'indeterminate-tie',
   third: 'third-form',
   thirdGarble: 'third-form-on-our-own-garble',
 };
+/** THE POSITIVE TEST FOR `THE PRINT IS AT FAULT`. All three conditions are
+ * measurements OF THE PRINT, and all three must hold; ANYTHING ELSE fails the
+ * test and the rule may not claim the print is at fault. Restated here from
+ * tools/pg-locate-report.mjs (the two records must agree) and asserted against
+ * that record's own worklist below, so a drift in either is caught. */
+const topUses = (ws) => Math.max(...ws.filter((w) => w.uses !== null).map((w) => w.uses), -1);
+function printIsAtFault(before, after) {
+  if (!before.length || !after.length) return null;
+  const b = before.filter((w) => w.uses !== null);
+  const a = after.filter((w) => w.uses !== null);
+  if (b.length !== before.length) return null; // a damage token is not a form the print can set
+  if (!b.every((w) => !w.wordlist)) return null; // (1) not a word of the language
+  if (!b.every((w) => w.uses === 1)) return null; // (2) used nowhere else in the print
+  if (!a.length) return null;
+  if (!(topUses(a) > topUses(b))) return null; // (3) the print reads our target elsewhere, MORE often
+  return {
+    signal: 'F',
+    why:
+      `THE PRINT IS AT FAULT — MEASURED: the print’s own form here (${b.map((w) => `“${w.w}”`).join(', ')}) is not a word of the reference wordlist and the print uses it NOWHERE ELSE in its own text ` +
+      `(${b.map((w) => `${w.uses}×`).join(', ')}), while it reads our target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) elsewhere and MORE often — so this rule deliberately repairs a misprint of the print, and the witness, which transcribes the print faithfully, cannot overrule it`,
+  };
+}
+/** THE TIE. The print uses the form at the point and the rule's target the SAME
+ * number of times, so neither the print's habit nor a fault of its own form is
+ * measured. The flag STANDS: this is a case for a human, not for a verdict. */
+function theTie(before, after) {
+  const b = before.filter((w) => w.uses !== null);
+  const a = after.filter((w) => w.uses !== null);
+  if (!b.length || !a.length || b.length !== before.length) return null;
+  if (!(topUses(a) === topUses(b) && topUses(b) >= 1)) return null;
+  return {
+    signal: 'T',
+    why:
+      `INDETERMINATE BY TIE — MEASURED: the print uses the form it reads here (${b.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) and this rule’s target (${a.map((w) => `“${w.w}” ${w.uses}×`).join(', ')}) the SAME number of times, so the witness’s own counts decide NOTHING: they do not show the print’s form is a misprint and they do not show it is the reading. A 1×-vs-1× tie from a re-flowed witness licenses no verdict in either direction, so the flag STANDS and the point is left for a human`,
+  };
+}
 function classify(d) {
   const before = (d.changed && d.changed.before) || [];
   const after = (d.changed && d.changed.after) || [];
   const beforeIsAReading = before.length > 0 && before.every((w) => w.wordlist);
   if (d.verdict === 'third') return beforeIsAReading ? CLASSES.third : CLASSES.thirdGarble;
   if (d.after_words > d.before_words || (!before.length && after.length)) return CLASSES.insertion;
-  if (before.some((w) => !w.wordlist)) return CLASSES.emendation;
-  if (before.length && before.every((w) => w.uses !== null && w.uses <= 1) && after.some((w) => w.uses !== null && w.uses >= 1))
-    return CLASSES.emendation;
+  if (printIsAtFault(before, after)) return CLASSES.emendation;
+  if (theTie(before, after)) return CLASSES.tie;
   return CLASSES.contradiction;
 }
 /** The measured fact a name may not overstate, as ONE string: what the print reads
@@ -321,8 +372,8 @@ const carriesOurBefore = (d) => {
   return (
     `THE PRINT CARRIES THE FORM THIS RULE CHANGES — MEASURED: the witness reads our \`before\` here; the print’s own form is an ordinary word of its own vocabulary ` +
     `(${before.map((w) => `“${w.w}” ${w.uses === null ? 'not countable' : `${w.uses}×`}`).join(', ')}) against the rule’s target ` +
-    `(${after.map((w) => `“${w.w}” ${w.uses === null ? 'not countable' : `${w.uses}×`}`).join(', ') || 'nothing'}), and NEITHER misprint signal fires ` +
-    `(the form is a word of the reference wordlist and the print uses it elsewhere) — so no measurement shows the print at fault. ` +
+    `(${after.map((w) => `“${w.w}” ${w.uses === null ? 'not countable' : `${w.uses}×`}`).join(', ') || 'nothing'}), and the POSITIVE TEST FOR A FAULT OF THE PRINT’S OWN FORM DOES NOT HOLD ` +
+    `(${before.some((w) => w.uses === null) ? 'the form it changes away from carries a damage token, so there is no form of the print to measure' : before.some((w) => w.wordlist) ? 'the print’s form is a word of the reference wordlist' : before.some((w) => w.uses > 1) ? 'the print uses that form elsewhere in its own text, so it is the print’s own spelling' : 'the print uses the rule’s target no more often than the form it changes away from'}) — so no measurement shows the print at fault. ` +
     `ACTION FROM THE RULE’S OWN \`find\`, not from a verdict about the print: see \`printImpossibleMark\`.`
   );
 };
@@ -374,6 +425,16 @@ const CORRECTIONS = {
   'r10120': { after: 'to united', why: 'the print reads "to united" — our target added "in", which duplicates the "into" the print sets two words later, and the transcription’s own `find` (`to-.united`) carries a mark the print cannot set' },
   'r9069': { after: 'inferior being', why: 'the print reads the participle "inferior being suspended"; our target added a plural "s" the print does not carry, and the transcription’s own `find` (`inferior- being`) carries a stray hyphen the print cannot set' },
   'r8961': { after: 'as in images the', why: 'the print reads "as in images the" — our target dropped the "in" that the transcription’s damaged `m` stands for' },
+  /* r9734 (1.0.6). THE TARGET WAS THE ONE FORM THE PRINT NEVER SETS. MEASURED on
+   * the print's own two volumes: the print reads `consubsists` at this point
+   * (1x), `consubsistent` 32x — its own coinage — and the rule's target
+   * `consubsist` NOWHERE AT ALL (0x). The transcription's own `find`
+   * (`consubsistS`) is the print's word with its final `s` mis-cased, so the rule
+   * does real work on the transcription and only its TARGET was wrong; the
+   * target is corrected to the print's own form and the old id is spent (model
+   * 4.2). So the served reading is the print's word, not the transcription's
+   * case damage and not the rule's invented singular. */
+  'r9734': { after: 'consubsists', why: 'the print reads "consubsists" (1x; and its own `consubsistent` 32x) — our target "consubsist" occurs 0x in the print’s whole vocabulary, and the transcription’s `consubsistS` is the print’s own word with its final `s` mis-cased' },
 };
 const plain = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const carriedBy = (p, text) => {
@@ -524,14 +585,16 @@ for (const p of points) {
       action: 'keep',
       why:
         cls === CLASSES.emendation
-          ? 'PRINT-ERROR EMENDATION, MEASURED: the print’s own form at the point is not a word of the reference wordlist, or is a form the print uses nowhere else in its own text, so the print IS at fault and this rule deliberately repairs it — the witness transcribes the print faithfully and cannot overrule the emendation'
+          ? printIsAtFault((d.changed && d.changed.before) || [], (d.changed && d.changed.after) || []).why
           : cls === CLASSES.insertion
             ? 'NOT A READING: the rule ADDS words, so the witness’s `before` is what the print reads without them; there is no like-for-like pair of readings to weigh'
             : cls === CLASSES.thirdGarble
               ? 'NO EVIDENCE EITHER WAY: the witness reads words of its own at the point and our own `before` is the transcription’s GARBLE, so the witness’s words are not evidence about this rule at all'
-              : cls === CLASSES.contradiction
-                ? `${carriesOurBefore(d)} A correction to the print’s own words is DECLARED for this point in CORRECTIONS and is asserted against the witness’s quote, so this entry is a REFUSAL of that correction, not a keep.`
-                : 'THE PRINT READS A THIRD FORM: our `before` IS a reading of the print and the witness reads neither of the rule’s two readings here',
+              : cls === CLASSES.tie
+                ? theTie((d.changed && d.changed.before) || [], (d.changed && d.changed.after) || []).why
+                : cls === CLASSES.contradiction
+                  ? `${carriesOurBefore(d)} A correction to the print’s own words is DECLARED for this point in CORRECTIONS and is asserted against the witness’s quote, so this entry is a REFUSAL of that correction, not a keep.`
+                  : 'THE PRINT READS A THIRD FORM: our `before` IS a reading of the print and the witness reads neither of the rule’s two readings here',
     });
   }
 }
@@ -545,6 +608,7 @@ const expect = new Map([
   [CLASSES.emendation, idsOf(names.of_which_PRINT_ERROR_EMENDATIONS_it_must_NOT_revert)],
   [CLASSES.insertion, idsOf(names.of_which_INSERTIONS_it_must_NOT_treat_as_a_reading)],
   [CLASSES.contradiction, idsOf(names.of_which_CONTRADICTIONS_it_must_adjudicate)],
+  [CLASSES.tie, idsOf(names.of_which_are_INDETERMINATE_TIES_the_flag_stands)],
   [CLASSES.third, idsOf(names.of_which_THIRD_FORM_on_a_real_before_reading)],
   [CLASSES.thirdGarble, idsOf(names.NO_EVIDENCE_EITHER_WAY_third_form_on_our_own_garble)],
 ]);
@@ -575,6 +639,7 @@ const counts = {
   of_which_undecidable_marks: kept.filter((k) => k.class === 'undecidable-marks').length,
   of_which_changed_words_only: kept.filter((k) => k.class === 'changed-words-only').length,
   EVIDENCE_AGAINST: against.length + corrected.length + withdrawn.length,
+  of_which_INDETERMINATE_TIES_kept: against.filter((a) => a.class === CLASSES.tie).length,
   of_which_corrected_target: corrected.length,
   of_which_WITHDRAWN: withdrawn.length,
   refused_not_acted_on: points.filter((p) => p.status !== 'located').length,
@@ -604,9 +669,62 @@ const out = {
       of_which_on_the_whole_reading: 1256,
       of_which_ON_THE_CHANGED_WORDS_ALONE: 9,
     },
-    the_9: kept.filter((k) => k.class === 'changed-words-only').map((k) => ({ id: k.id, find_before: k.before, after: k.after, witness_reads: k.reads })),
+    /* THE CLASS IS THE BATCH'S, NOT THE CLEAR HISTORY'S, AND THAT IS WHY IT IS
+     * TEN AND NOT NINE. MEASURED 2026-10-07: `basis` is a property of the
+     * PLACEMENT, so every rule whose point the locator placed on the changed
+     * words alone is in this class whether or not 1.0.4 had cleared it. 1.0.4
+     * cleared 9 rules on that basis (the 8 re-flagged here + r8961, corrected
+     * instead); r9270 and r11692 carry the same basis in the batch but were
+     * ALREADY `review: true` in 1.0.4 (slid placements, never cleared), so they
+     * never appeared in a clear history to be re-flagged. The class therefore
+     * holds 10, and the key states the count it actually has. */
+    the_10_this_class_holds_and_where_the_numbers_come_from: {
+      class_members: 10,
+      cleared_on_this_basis_by_1_0_4: 9,
+      of_which_RE_FLAGGED_by_1_0_5: ['r8576', 'r8594', 'r8998', 'r9122', 'r9542', 'r10219', 'r10558', 'r11093'],
+      of_which_CORRECTED_by_1_0_5: ['r8961'],
+      already_flagged_in_1_0_4_never_cleared: ['r9270', 'r11692'],
+    },
+    the_10: kept.filter((k) => k.class === 'changed-words-only').map((k) => ({ id: k.id, find_before: k.before, after: k.after, witness_reads: k.reads })),
+    /* WHAT ACTUALLY DIFFERS AT EACH OF THE 10 — MEASURED, per rule, because
+     * 1.0.5's record said the other 8 "differ from the witness in PG's own inline
+     * PAGE NUMBERS or in marks" and that is FALSE for two of them and incomplete
+     * for a third. The review found this (its Should-Fix 3); the measurement
+     * below is a replay of its own token comparison over the batch's recorded
+     * witness tokens:
+     *
+     *   - SEVEN carry the rule's WHOLE reading as WORDS and differ only in the
+     *     witness's own apparatus: our footnote asterisk (*) and/or a printed PAGE
+     *     NUMBER, which is the witness's, ours, or both (r8576 `1` against PG's
+     *     `212`; r8594 `being,*` against `being 188`; r8998 ` imparticipable*`;
+     *     r9122 `desert,*` against `desert 221`; r9270 `sensibles*,` against
+     *     `sensibles 213`; r9542 `invariable*`; r10219 `All souls` against
+     *     `all 268 souls` — there the witness's page number falls INSIDE our run).
+     *   - TWO differ by a PAGE-BREAK WORD FRAGMENT, which is not a number and not
+     *     a mark: the transcription broke a word at the line end and kept the
+     *     break, so the rule begins MID-WORD. r10558's `after` is `d has a` where
+     *     the witness reads `and has a` — our `d` is the tail of `and`
+     *     (source.txt: "...solid, and lias a \nboundary..."); r11093's `after` is
+     *     `t is e` where the witness reads `it is evidently` — our `t` and `e` are
+     *     the head of `it` and the head of `evidently` (source.txt: "...it js
+     *     evidently necessary..."). Their flags are RIGHT (the rule's own `after`
+     *     is not the print's whole reading) and the real fix is WIDER than this
+     *     unit: the rule must be re-joined to whole words (`and lias a` ->
+     *     `and has a`; `it js evidently` -> `it is evidently`) under a NEW id,
+     *     which is a CHANGED READING and therefore a new rule — and the batch this
+     *     pass acts on is a snapshot of 1.0.3's rules, which does not contain such
+     *     a rule at all. Recorded as a separate job with its own measured numbers
+     *     rather than papered over.
+     *   - ONE (r11692) differs by a Greek/transliteration run the witness does not
+     *     carry at all (our `after` opens `IANOIA, διάνοια,` and the witness reads
+     *     `dianoia, from whence dianoetic...`). */
+    what_actually_differs_at_each_of_the_10: {
+      every_word_carried_apparatus_only: ['r8576', 'r8594', 'r8998', 'r9122', 'r9270', 'r9542', 'r10219'],
+      page_break_word_fragments: ['r10558', 'r11093'],
+      a_transliteration_run_the_witness_does_not_carry: ['r11692'],
+    },
     the_one_with_a_real_WORD_difference:
-      'r8961 — the witness reads `as in images the` and the rule’s `after` is `as images the`, dropping the `in` that the transcription’s damaged `m` (`as m intages die`) stands for. Its target is CORRECTED (a new id, the old one spent); the other 8 differ from the witness in PG’s own inline PAGE NUMBERS or in marks, which is the witness’s apparatus and not the print’s text — the flag stands for them and the record shows the words.',
+      'r8961 — the witness reads `as in images the` and the rule’s `after` is `as images the`, dropping the `in` that the transcription’s damaged `m` (`as m intages die`) stands for. Its target is CORRECTED (a new id, the old one spent). The other rules of the class are decomposed above, measured: SEVEN differ from the witness only in the witness’s own apparatus (our footnote asterisk and/or a printed page number — the witness carries every WORD of the rule’s `after`), TWO differ by a PAGE-BREAK WORD FRAGMENT (r10558, r11093 — the 1.0.5 record called these page numbers or marks and that was false), and one (r11692) is a transliteration run. The flag stands for all of them and the record shows the words.',
   },
   /* THE TEST THAT WAS REJECTED, WITH ITS NUMBERS, SO THE REJECTION IS CHECKABLE.
    * A candidate signal that passes the cases the measurement REFUTES is not a
@@ -620,9 +738,11 @@ const out = {
       why_rejected:
         'it fires for the rules the measurement REFUTES and does not fire for the rules a reader would defend, so it partitions nothing',
       measured: {
-        command: 'node /var/tmp/unitc/s3.mjs <id…> (token-run counts over both PG volumes)',
+        command: 'node /var/tmp/unitc/s3.mjs <id…> (token-run counts over both PG volumes; RE-MEASURED 2026-10-07 with the same tokeniser on the cached volume streams — see `vol_scope_corrected`)',
+        vol_scope_corrected:
+          'MEASURED 2026-10-07: the count recorded by 1.0.5 for `the one for` — 36× — is the VOL. I count alone (vol. I 36, vol. II 26), printed under a heading that said the counts were over both volumes. Over both it is 62×. The conclusion is unaffected (the form is still one the print sets in bulk while `the once for` occurs once, in vol. II) but the number as recorded was wrong and is corrected here rather than left standing.',
         fires_for_the_REFUTED: [
-          'r8906: `the once for` 1× at the point against `the one for` 36× elsewhere — but the print sets `_the once_` in ITALICS and glosses it with the Greek τῷ ἅπαξ (gutenberg-78800-vol2.txt:9768 and :19967-19968, `the once` 3× in the print), so the form is a DEFINED TECHNICAL TERM, not a misprint',
+          'r8906: `the once for` 1× at the point against `the one for` 62× over both volumes (36× vol. I, 26× vol. II — the figure 36× recorded in 1.0.5 was the vol. I count alone) — but the print sets `_the once_` in ITALICS and glosses it with the Greek τῷ ἅπαξ (gutenberg-78800-vol2.txt:9768 and :19967-19968, `the once` 3× in the print), so the form is a DEFINED TECHNICAL TERM, not a misprint',
           'r8619: `these celestial` 1× against `the celestial` 178× — a determiner swap with no misprint shape',
         ],
         does_not_fire_for_the_FOUR_a_human_defended: [
