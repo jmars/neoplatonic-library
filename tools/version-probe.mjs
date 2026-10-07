@@ -103,6 +103,15 @@ const MINTED = new Map([
    * two-reader scan evidence. 1.0.0 and 1.0.1 are untouched and still resolve
    * at their own DOIs. */
   ['proclus-theology-of-plato-taylor-1816@1.0.2', '10.5281/zenodo.23208338'],
+  /* MINTED 2026-10-07: a NEW VERSION of the same record (23216282 under the
+   * concept record 23175743, versions.index 4). 1.0.3 serves the SAME TEXT as
+   * 1.0.2 — not one rule changes — what changes is the section model, which
+   * recovers two printed chapters the earlier models had merged away (Book IV
+   * ch VI, anchor s69a; Book VII ch XXXII, anchor s196a) from blind
+   * two-reader scan evidence, and records the six the print gives no boundary
+   * for. 1.0.0, 1.0.1 and 1.0.2 are untouched and still resolve at their own
+   * DOIs. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.3', '10.5281/zenodo.23216282'],
 ]);
 
 section('every version is a frozen directory, served at its own URL');
