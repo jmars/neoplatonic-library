@@ -130,6 +130,21 @@ const MINTED = new Map([
    * every placement. 1.0.0-1.0.4 are untouched and still resolve at their own
    * DOIs. */
   ['proclus-theology-of-plato-taylor-1816@1.0.5', '10.5281/zenodo.23221444'],
+  /* MINTED 2026-10-07 as a NEW VERSION of the same record (23223680 under the
+   * concept record 23175743, versions.index 7). 1.0.6 serves the SAME TRANSCRIPTION
+   * and the SAME SECTION MODEL as 1.0.5 and closes the at-fault path: the class
+   * that says the print's own text is at fault now requires a POSITIVE test of the
+   * print (its own form is not a word, it uses it nowhere else, and the rule's
+   * target is what the print reads elsewhere, MORE often), so the two readings
+   * 1.0.5 served that the print does not carry are gone — r9734's target is
+   * CORRECTED to the print's `consubsists` (a new id, the old one retired) and
+   * r10277 is WITHDRAWN so the edition serves the print's own `rythm` — while a
+   * 1x-vs-1x TIE keeps its flag. THE ROW IS ADDED HERE AS THE VERSION FREEZES, and
+   * that is deliberate: 1.0.4's row was missing and stayed invisible only while
+   * 1.0.4 was current, because a CURRENT version is not checked against this
+   * table. Adding the row at the moment of the freeze is what keeps that latent
+   * gap from recurring. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.6', '10.5281/zenodo.23223680'],
 ]);
 
 section('every version is a frozen directory, served at its own URL');
