@@ -346,20 +346,171 @@
       "chapter": 11,
       "label": "Book I, Chapter XI",
       "anchor": "s11",
-      "line": 5801,
-      "flat": 3795,
-      "text": "ascribe some of the conclusions to it, but not others ? For it is impossible",
-      "page": 35,
-      "pageRead": 35,
-      "leaf": "v1-n110.jpg",
+      "line": 5618,
+      "flat": 3667,
+      "text": "Again, therefore, let us discuss this affair in another way, and view",
+      "page": 31,
+      "pageRead": 31,
+      "leaf": "v1-n106.jpg",
       "how": "opening",
-      "confidence": "medium",
+      "confidence": "high",
       "evidence": {
-        "leaf": "v1-n110.jpg",
-        "head": "CHAP. XI. OF PLATO. 35",
-        "heading": "",
-        "raw": "{\"head\":\"CHAP. XI. OF PLATO. 35\",\"heading\":\"\",\"page\":\"35\"}",
-        "read_from": "v1-n108.jpg"
+        "leaf": "v1-n106.jpg.jpg",
+        "head": "CHAP. XI. OF PLATO.",
+        "heading": "CHAPTER XI.",
+        "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [\n    \"CHAPTER XI.\"\n  ],\n  \"page\": \"31\"\n}\n```\n",
+        "read_from": "v1-n106.jpg.jpg",
+        "readers": [
+          {
+            "model": "google/gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n106.jpg",
+                "head": "CHAP. XI. OF PLATO.",
+                "heading": "CHAPTER XI.",
+                "page": "31",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"heading\": \"CHAPTER XI.\",\n  \"page\": \"31\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n106.jpg",
+                "head": "CHAP. XI. OF PLATO.",
+                "heading": "CHAPTER XI.",
+                "page": "31",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [\n    \"CHAPTER XI.\"\n  ],\n  \"page\": \"31\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "model": "anthropic/claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n106.jpg",
+                "head": "CHAP. XI. OF PLATO.",
+                "heading": "CHAPTER XI.",
+                "page": "31",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"heading\": \"CHAPTER XI.\",\n  \"page\": \"31\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n106.jpg",
+                "head": "CHAP. XI. OF PLATO.",
+                "heading": "CHAPTER XI.",
+                "page": "81",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [\"CHAPTER XI.\"],\n  \"page\": \"81\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "recorded_leaf": {
+          "leaf": "v1-n110.jpg",
+          "head": "CHAP. XI. OF PLATO.",
+          "heading": "",
+          "page": "35",
+          "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"35\"\n}\n```\n",
+          "readers": [
+            {
+              "model": "google/gemini-2.5-flash",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n110.jpg",
+                  "head": "CHAP. XI. OF PLATO. 35",
+                  "heading": "",
+                  "page": "35",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO. 35\",\n  \"heading\": \"\",\n  \"page\": \"35\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n110.jpg",
+                  "head": "CHAP. XI. OF PLATO.",
+                  "heading": "",
+                  "page": "35",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"35\"\n}\n```\n"
+                }
+              ]
+            },
+            {
+              "model": "anthropic/claude-haiku-4-5",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n110.jpg",
+                  "head": "CHAP. XI. OF PLATO.",
+                  "heading": "",
+                  "page": "35",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"heading\": \"CHAP. XI.\",\n  \"page\": \"35\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n110.jpg",
+                  "head": "CHAP. XI.                           OF PLATO.",
+                  "heading": "",
+                  "page": "35",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XI.                           OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"35\"\n}\n```\n"
+                }
+              ]
+            }
+          ],
+          "note": "the leaf the division was recorded on before this correction: no chapter heading is printed in its body — the chapter was already under way there"
+        },
+        "bracket": [
+          {
+            "leaf": "v1-n104.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "29",
+                "raw": "```json\n{\n  \"head\": \"CHAP. X.                          OF PLATO.\",\n  \"heading\": \"\",\n  \"page\": \"29\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "29",
+                "raw": "```json\n{\n  \"head\": \"CHAP. X. OF PLATO. 29\",\n  \"heading\": \"CHAP. X.\",\n  \"page\": \"29\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n105.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "30",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                   BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"30\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "90",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                                BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"90\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n107.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "32",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"32\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "32",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                                BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"32\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "previous": {
+          "leaf": "v1-n110.jpg",
+          "head": "CHAP. XI. OF PLATO. 35",
+          "heading": "",
+          "raw": "{\"head\":\"CHAP. XI. OF PLATO. 35\",\"heading\":\"\",\"page\":\"35\"}",
+          "read_from": "v1-n108.jpg"
+        },
+        "note": "CORRECTED 2026-10-07 (version 1.0.2): the recorded opening stood FOUR pages late. Both non-echoing readers (google/gemini-2.5-flash, anthropic/claude-haiku-4-5) read the CHAPTER XI. heading printed in the body of leaf v1-n106.jpg, whose printed page is 31 — the folio is damaged (the transcription carries it as 'SI'), and the leaves bracketing it read 29, 30 and 32. The leaf the division was recorded on (v1-n110.jpg, printed page 35) carries NO chapter heading: the chapter was already under way there. The division now opens on the chapter's first line of prose, line 5618 (flat 3667), read off the same transcription the model was derived against."
       }
     },
     {
@@ -588,20 +739,156 @@
       "chapter": 22,
       "label": "Book I, Chapter XXII",
       "anchor": "s22",
-      "line": 7743,
-      "flat": 5192,
-      "text": "For such is apparent beauty. Nor let him suppose it to be such as is in¬",
-      "page": 73,
-      "pageRead": 73,
-      "leaf": "v1-n148.jpg",
+      "line": 7715,
+      "flat": 5179,
+      "text": "But in the PhilebuS, Plato delivers to us the three most principal ele¬",
+      "page": 72,
+      "pageRead": 72,
+      "leaf": "v1-n147.jpg",
       "how": "opening",
-      "confidence": "medium",
+      "confidence": "high",
       "evidence": {
-        "leaf": "v1-n148.jpg",
-        "head": "CHAP. XXII. OF PLATO.",
-        "heading": "",
-        "raw": "{\"head\":\"CHAP. XXII. OF PLATO.\",\"heading\":\"\",\"page\":\"73\"}",
-        "read_from": "v1-n146.jpg"
+        "leaf": "v1-n147.jpg.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+        "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"headings\": [\n    \"CHAPTER XXI.\",\n    \"CHAPTER XXII.\"\n  ],\n  \"page\": \"72\"\n}\n```\n",
+        "read_from": "v1-n147.jpg.jpg",
+        "readers": [
+          {
+            "model": "google/gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n147.jpg",
+                "head": "72 ON THE THEOLOGY BOOK I.",
+                "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+                "page": "72",
+                "raw": "```json\n{\n  \"head\": \"72 ON THE THEOLOGY BOOK I.\",\n  \"heading\": \"CHAPTER XXI.\",\n  \"page\": \"72\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n147.jpg",
+                "head": "ON THE THEOLOGY BOOK I.",
+                "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+                "page": "72",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"headings\": [\n    \"CHAPTER XXI.\",\n    \"CHAPTER XXII.\"\n  ],\n  \"page\": \"72\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "model": "anthropic/claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n147.jpg",
+                "head": "ON THE THEOLOGY BOOK I.",
+                "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+                "page": "72",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"heading\": \"CHAPTER XXI.\",\n  \"page\": \"72\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n147.jpg",
+                "head": "ON THE THEOLOGY BOOK I.",
+                "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+                "page": "72",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"headings\": [\"CHAPTER XXI.\", \"CHAPTER XXII.\"],\n  \"page\": \"72\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "recorded_leaf": {
+          "leaf": "v1-n148.jpg",
+          "head": "CHAP. XXII. OF PLATO.",
+          "heading": "",
+          "page": "73",
+          "raw": "```json\n{\n  \"head\": \"CHAP. XXII. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"73\"\n}\n```\n",
+          "readers": [
+            {
+              "model": "google/gemini-2.5-flash",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n148.jpg",
+                  "head": "CHAP. XXII. OF PLATO. 73",
+                  "heading": "",
+                  "page": "73",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XXII. OF PLATO. 73\",\n  \"heading\": \"\",\n  \"page\": \"73\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n148.jpg",
+                  "head": "CHAP. XXII. OF PLATO.",
+                  "heading": "",
+                  "page": "73",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XXII. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"73\"\n}\n```\n"
+                }
+              ]
+            },
+            {
+              "model": "anthropic/claude-haiku-4-5",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n148.jpg",
+                  "head": "CHAP. XXII.                OF PLATO.                73",
+                  "heading": "",
+                  "page": "73",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XXII.                OF PLATO.                73\",\n  \"heading\": \"CHAP. XXII.\",\n  \"page\": \"73\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n148.jpg",
+                  "head": "CHAP. XXII. OF PLATO.",
+                  "heading": "",
+                  "page": "73",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XXII. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"73\"\n}\n```\n"
+                }
+              ]
+            }
+          ],
+          "note": "the leaf the division was recorded on before this correction: no chapter heading is printed in its body — the chapter was already under way there"
+        },
+        "bracket": [
+          {
+            "leaf": "v1-n145.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "70",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I\",\n  \"heading\": \"\",\n  \"page\": \"70\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "70",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"70\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n146.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "71",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XX. OF PLATO. 71\",\n  \"heading\": \"\",\n  \"page\": \"71\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "71",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XX. OF PLATO.\",\n  \"heading\": \"CHAP. XX.\",\n  \"page\": \"71\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "previous": {
+          "leaf": "v1-n148.jpg",
+          "head": "CHAP. XXII. OF PLATO.",
+          "heading": "",
+          "raw": "{\"head\":\"CHAP. XXII. OF PLATO.\",\"heading\":\"\",\"page\":\"73\"}",
+          "read_from": "v1-n146.jpg"
+        },
+        "note": "CORRECTED 2026-10-07 (version 1.0.2): the recorded opening stood ONE page late. Both non-echoing readers read leaf v1-n147.jpg as printed page 72 and read the CHAPTER XXII. heading printed in its body, after the CHAPTER XXI. heading on the same page (two chapters open on page 72); the leaves bracketing it read 71 and 73. The leaf the division was recorded on (v1-n148.jpg, printed page 73) carries NO chapter heading, only the running head 'CHAP. XXII. OF PLATO.' — the chapter was already under way there. The division now opens on the chapter's first line of prose, line 7715 (flat 5179)."
       }
     },
     {
@@ -2370,20 +2657,171 @@
       "chapter": 1,
       "label": "Book V, Chapter I",
       "anchor": "s103",
-      "line": 19376,
-      "flat": 13551,
-      "text": "with intellect, nor as with those which are alone divided from intellect'",
-      "page": 311,
-      "pageRead": 311,
-      "leaf": "v1-n386.jpg",
+      "line": 19345,
+      "flat": 13532,
+      "text": "In the next place, let us survey another order of Gods, which is called",
+      "page": 310,
+      "pageRead": 310,
+      "leaf": "v1-n385.jpg",
       "how": "opening",
-      "confidence": "medium",
+      "confidence": "high",
       "evidence": {
-        "leaf": "v1-n386.jpg",
-        "head": "CHAP. I. OF PLATO. 311",
-        "heading": "",
-        "raw": "{\"head\":\"CHAP. I. OF PLATO. 311\",\"heading\":\"\",\"page\":\"311\"}",
-        "read_from": "v1-n384.jpg"
+        "leaf": "v1-n385.jpg.jpg",
+        "head": "$10 ON THE THEOLOGY BOOK V.",
+        "heading": "BOOK V.\nCHAPTER I.",
+        "raw": "```json\n{\n  \"head\": \"$10 ON THE THEOLOGY BOOK V.\",\n  \"headings\": [\n    \"BOOK V.\",\n    \"CHAPTER I.\"\n  ],\n  \"page\": \"$10\"\n}\n```\n",
+        "read_from": "v1-n385.jpg.jpg",
+        "readers": [
+          {
+            "model": "google/gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n385.jpg",
+                "head": "ON THE THEOLOGY BOOK V.",
+                "heading": "BOOK V.\nCHAPTER I.",
+                "page": "$10",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK V.\",\n  \"heading\": \"CHAPTER I.\",\n  \"page\": \"$10\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n385.jpg",
+                "head": "$10 ON THE THEOLOGY BOOK V.",
+                "heading": "BOOK V.\nCHAPTER I.",
+                "page": "$10",
+                "raw": "```json\n{\n  \"head\": \"$10 ON THE THEOLOGY BOOK V.\",\n  \"headings\": [\n    \"BOOK V.\",\n    \"CHAPTER I.\"\n  ],\n  \"page\": \"$10\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "model": "anthropic/claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n385.jpg",
+                "head": "ON THE THEOLOGY                                    BOOK V.",
+                "heading": "BOOK V.\nCHAPTER I.",
+                "page": "310",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                                    BOOK V.\",\n  \"heading\": \"BOOK V.\\n\\nCHAPTER I.\",\n  \"page\": \"310\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n385.jpg",
+                "head": "ON THE THEOLOGY BOOK V.",
+                "heading": "BOOK V.\nCHAPTER I.",
+                "page": "310",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK V.\",\n  \"headings\": [\"BOOK V.\", \"CHAPTER I.\"],\n  \"page\": \"310\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "recorded_leaf": {
+          "leaf": "v1-n386.jpg",
+          "head": "СПАР. Г..             OF PLATO.",
+          "heading": "",
+          "page": "311",
+          "raw": "```json\n{\n  \"head\": \"СПАР. Г..             OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"311\"\n}\n```\n",
+          "readers": [
+            {
+              "model": "google/gemini-2.5-flash",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n386.jpg",
+                  "head": "CHAP. I.               OF PLATO.",
+                  "heading": "",
+                  "page": "311",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. I.               OF PLATO.\",\n  \"heading\": \"\",\n  \"page\": \"311\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n386.jpg",
+                  "head": "СПАР. Г..             OF PLATO.",
+                  "heading": "",
+                  "page": "311",
+                  "raw": "```json\n{\n  \"head\": \"СПАР. Г..             OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"311\"\n}\n```\n"
+                }
+              ]
+            },
+            {
+              "model": "anthropic/claude-haiku-4-5",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n386.jpg",
+                  "head": "CHAP. I. OF PLATO.",
+                  "heading": "",
+                  "page": "311",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. I. OF PLATO.\",\n  \"heading\": \"CHAP. I.\",\n  \"page\": \"311\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n386.jpg",
+                  "head": "CHAP. I. OF PLATO.",
+                  "heading": "",
+                  "page": "311",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. I. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"311\"\n}\n```\n"
+                }
+              ]
+            }
+          ],
+          "note": "the leaf the division was recorded on before this correction: no chapter heading is printed in its body — the chapter was already under way there"
+        },
+        "bracket": [
+          {
+            "leaf": "v1-n383.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "308",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK IV.\",\n  \"heading\": \"\",\n  \"page\": \"308\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "308",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK IV.\",\n  \"heading\": \"\",\n  \"page\": \"308\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n384.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "309",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XXXIX. OF PLATO. 309\",\n  \"heading\": \"\",\n  \"page\": \"309\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "309",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XXXIX.                    OF PLATO.\",\n  \"heading\": \"CHAP. XXXIX.\",\n  \"page\": \"309\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n387.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "312",
+                "raw": "```json\n{\n  \"head\": \"312                  ON THE THEOLOGY                             BOOK V.\",\n  \"heading\": \"\",\n  \"page\": \"312\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "312",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                                BOOK V.\",\n  \"heading\": \"\",\n  \"page\": \"312\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "previous": {
+          "leaf": "v1-n386.jpg",
+          "head": "CHAP. I. OF PLATO. 311",
+          "heading": "",
+          "raw": "{\"head\":\"CHAP. I. OF PLATO. 311\",\"heading\":\"\",\"page\":\"311\"}",
+          "read_from": "v1-n384.jpg"
+        },
+        "note": "CORRECTED 2026-10-07 (version 1.0.2): the recorded opening stood ONE page late. Both non-echoing readers read leaf v1-n385.jpg as printed page 310 — a VERSO page, its head reading 'ON THE THEOLOGY BOOK V.' — carrying the BOOK V. and CHAPTER I. headings in its body; the folio is damaged (the transcription carries it as 'S10'; one reader returned the same damaged glyphs as '$10', the other read 310, and the leaves bracketing it read 309 and 311). The leaf the division was recorded on (v1-n386.jpg, printed page 311) carries NO chapter heading. The division now opens on the chapter's first line of prose, line 19345 (flat 13532)."
       }
     },
     {
