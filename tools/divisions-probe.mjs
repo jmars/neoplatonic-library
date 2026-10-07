@@ -29,13 +29,36 @@
  *     byte for byte against the hashes MEASURED BEFORE the recorded-division mode
  *     landed (the values below, taken from the last build of the previous unit).
  *     FAILS IF the new mode reached into a served edition.
+ *
+ *  5. THE SCAN FURNITURE IS OUT OF THE READING VIEW. The Theology's page
+ *     furniture — the Google watermark and the line under it, the volume's own
+ *     running heads ('ON THE THEOLOGY', 'BOOK n.', 'OF PLATO.') — is recomputed
+ *     here from the stored edition (a second statement of the classifier, not a
+ *     copy of it) and must be suppressed in the document: absent from the
+ *     reading view but the seven book-opening display headings (the book's own
+ *     text, spared by the carve-out), kept in the transcription, absent from
+ *     /plain, and the pinned anchors must still match. FAILS IF the classifier
+ *     stops firing, eats a line of the book's own text, or moves an anchor.
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { extract, readEdition, readMeta, serialiseDoc, plainText, sha256, editionRecord, counts } from './extract.mjs';
+import {
+  extract,
+  readEdition,
+  readMeta,
+  serialiseDoc,
+  plainText,
+  sha256,
+  editionRecord,
+  counts,
+  anchorLists,
+  anchorHash,
+  ANCHOR_DIR,
+} from './extract.mjs';
 import { TEXTS } from './shelf.mjs';
+import { rawBlocks } from './reader.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'site', 'dist');
@@ -242,6 +265,186 @@ for (const slug of ['porphyry-on-the-cave-of-the-nymphs-taylor-1917', 'proclus-e
   const servedPlain = readFileSync(join(DIST, 'texts', slug, 'plain'), 'utf8');
   check(serialiseDoc(d) === served, `${slug}: the extraction still IS the served /t`);
   check(plainText(d, e) === servedPlain, `${slug}: the extraction still IS the served /plain`);
+}
+
+
+/* ---------- 5. the scan furniture is out of the reading view, kept in the
+ * transcription, and the anchors did not move ---------- */
+
+section('5. the scan furniture is suppressed in the reading view and kept in the transcription');
+/* The shapes below are a SECOND statement of the `theology-1816` classifier in
+ * tools/extract.mjs — recomputed here from the stored edition, not read off the
+ * extractor, so a classifier that stopped firing would fail these checks. The
+ * counts are MEASURED over every line of the stored transcription. */
+const near = (a, b) => {
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 1) return false;
+  let i = 0;
+  let j = 0;
+  let edits = 0;
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) {
+      i++;
+      j++;
+      continue;
+    }
+    if (edits++) return false;
+    if (a.length === b.length) {
+      i++;
+      j++;
+    } else if (a.length < b.length) {
+      j++;
+    } else {
+      i++;
+    }
+  }
+  return true;
+};
+const BOOK_HEAD_LINE = /^book(?![A-Za-z])[^A-Za-z\s]{0,2}(\s*\S{1,4})?(\s\S{1,2})?[^A-Za-z0-9\s]{0,2}$/i;
+const CHAPTER_ONE_LINE = /^chapter\s+[il1][.,;:]?$/i;
+/* The furniture class of a line: the Google watermark and the line under it,
+ * the verso head's halves ('ON THE THEOLOGY', 'BOOK n.') and the recto head's
+ * right half ('OF PLATO.') — `book` for the book running-head line, which the
+ * carve-out may spare at a book opening. */
+const furnitureClass = (line) => {
+  if (/^\s*[a-z]?\s*digitiz/i.test(line)) return 'watermark';
+  if (/^\/?\s*(?:google|gc>9gle)\b/i.test(line)) return 'google';
+  const toks = line.split(/\s+/).filter((t) => t !== '');
+  const word = (t) => t.replace(/[^A-Za-z]/g, '').toLowerCase();
+  const isHeadWord = (t) => ['on', 'the', 'theology'].some((w) => near(word(t), w));
+  if (toks.length >= 2 && toks.length <= 5 && toks.some((t) => near(word(t), 'theology'))) {
+    const rest = toks.filter((t) => !isHeadWord(t));
+    const gluedBook =
+      rest.length === 0 ||
+      (rest.length <= 2 &&
+        near(word(rest[0]), 'book') &&
+        rest.slice(1).every((t) => {
+          const numeral = t.replace(/[^A-Za-z0-9]/g, '');
+          return (
+            numeral.length >= 1 &&
+            numeral.length <= 4 &&
+            (numeral.match(/[ivxlcdm0-9]/gi) || []).length * 2 >= numeral.length
+          );
+        }));
+    if (gluedBook && toks.length - rest.length >= 2) return 'versoHead';
+  }
+  if (toks.length >= 2 && toks.length <= 4) {
+    const [a, b] = toks.map(word);
+    if (
+      near(a, 'of') &&
+      near(b, 'plato') &&
+      (toks[1].match(/[A-Z]/g) || []).length >= 3 &&
+      toks.slice(2).every((t) => /^[^A-Za-z\s]{1,5}$/.test(t))
+    ) {
+      return 'rectoHead';
+    }
+  }
+  if (line.length <= 12 && BOOK_HEAD_LINE.test(line)) return 'book';
+  return null;
+};
+/* The stored transcription's own lines, in reading order, with the recorded
+ * divisions' positions, so the carve-out can be recomputed here. */
+const divisions = JSON.parse(readFileSync(join(ROOT, 'data', 'editions', SLUG, 'divisions.json'), 'utf8'));
+const flatLines = rawBlocks(src).flat();
+const flatOfRaw = [];
+{
+  const raw = src.replace(/\r\n?/g, '\n').replace(/^\uFEFF/, '').split('\n');
+  let f = 0;
+  for (let i = 0; i < raw.length; i++) flatOfRaw[i] = raw[i].trim() !== '' ? f++ : -1;
+}
+const divAt = new Map();
+for (const d of divisions.divisions) divAt.set(flatOfRaw[d.line - 1], d);
+const divFlat = [...divAt.keys()].sort((a, b) => a - b);
+/* The book-opening display headings the carve-out spares: the BOOK line
+ * standing immediately above the `CHAPTER I.` line that belongs to a
+ * chapter-1 division (MEASURED: seven, one per book — the volume prints each
+ * book's opening page with the display headings `BOOK n.` / `CHAPTER I.`
+ * above the chapter's first line, and the verso running head
+ * `ON THE THEOLOGY BOOK n.` on the same page). */
+const spared = [];
+for (const at of divFlat) {
+  const div = divAt.get(at);
+  if (div.chapter !== 1) continue;
+  let heading = -1;
+  for (let k = at - 1; k >= Math.max(0, at - 40); k--) {
+    if (CHAPTER_ONE_LINE.test(flatLines[k])) {
+      heading = k;
+      break;
+    }
+  }
+  if (heading < 0) continue;
+  for (let k = heading - 1; k >= Math.max(0, heading - 4); k--) {
+    if (flatLines[k].length <= 12 && BOOK_HEAD_LINE.test(flatLines[k])) {
+      spared.push(k);
+      break;
+    }
+  }
+}
+const sparedSet = new Set(spared);
+const FURNITURE = { watermark: 792, google: 143, versoHead: 340, rectoHead: 337, book: 342 };
+const sourceClass = {};
+flatLines.forEach((line, i) => {
+  const cls = furnitureClass(line);
+  if (!cls) return;
+  sourceClass[cls] = (sourceClass[cls] || 0) + 1;
+  if (cls === 'book' && sparedSet.has(i)) (sourceClass.bookSpared = (sourceClass.bookSpared || 0) + 1);
+});
+for (const [cls, want] of Object.entries(FURNITURE)) {
+  check(
+    sourceClass[cls] === want,
+    `the stored transcription carries ${want} ${cls} line(s) (found ${sourceClass[cls] || 0})`,
+  );
+}
+check(
+  (sourceClass.bookSpared || 0) === 7,
+  `the carve-out spares exactly 7 book-opening display headings (found ${sourceClass.bookSpared || 0})`,
+);
+/* The reading view: no furniture class survives as text but the display
+ * headings — the seven `BOOK n.` lines are the book's own headings, and every
+ * other furniture line is suppressed. */
+const docClass = { p: {}, rh: {} };
+for (const b of doc.blocks) {
+  if (typeof b.x !== 'string') continue;
+  const cls = furnitureClass(b.x.trim());
+  if (!cls) continue;
+  const tally = b.t === 'rh' ? docClass.rh : docClass.p;
+  tally[cls] = (tally[cls] || 0) + 1;
+}
+const pFurniture = Object.values(docClass.p).reduce((a, b) => a + b, 0);
+check(
+  pFurniture === 7 && (docClass.p.book || 0) === 7,
+  `the reading view carries no furniture but the 7 display headings (found ${pFurniture}: ${JSON.stringify(docClass.p)})`,
+);
+const rhFurniture = Object.values(docClass.rh).reduce((a, b) => a + b, 0);
+check(
+  rhFurniture === 792 + 143 + 340 + 337 + 335,
+  `the transcription keeps all 1,947 furniture lines as suppressed blocks (found ${rhFurniture}: ${JSON.stringify(docClass.rh)})`,
+);
+/* The served files: the built /t is this extraction, so the checks above are
+ * checks of what is served; and /plain — which skips the suppressed blocks,
+ * exactly as the Elements' does — carries none of the watermark or head
+ * classes at all. */
+{
+  const servedT = readFileSync(join(DIST, 'texts', SLUG, 't'), 'utf8');
+  check(serialiseDoc(doc) === servedT, 'the served /t IS this extraction (the reading-view checks apply to it)');
+  const servedPlain = readFileSync(join(DIST, 'texts', SLUG, 'plain'), 'utf8');
+  const plainFurniture = servedPlain
+    .split('\n')
+    .filter((l) => ['watermark', 'google', 'versoHead', 'rectoHead'].includes(furnitureClass(l.trim())));
+  check(
+    plainFurniture.length === 0,
+    `/plain carries no watermark or head line (the suppressed blocks are skipped there; found ${plainFurniture.length})`,
+  );
+}
+/* The anchors did not move: the pinned manifest is this document's anchor list. */
+{
+  const lists = anchorLists(doc);
+  const hash = anchorHash(lists);
+  const pinned = JSON.parse(readFileSync(join(ANCHOR_DIR, `${SLUG}.json`), 'utf8'));
+  check(
+    pinned.hash === hash && JSON.stringify(pinned.sections) === JSON.stringify(lists.sections),
+    `the pinned anchor manifest still matches (${lists.sections.length} sections, ${lists.pages.length} pages, hash ${hash.slice(0, 12)}…)`,
+  );
 }
 
 console.log(`\n${fails === 0 ? 'DIVISIONS PROBE PASSED' : `${fails} CHECK(S) FAILED`}`);

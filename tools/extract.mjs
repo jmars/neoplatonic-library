@@ -377,6 +377,36 @@ function readRoman(token) {
   return n;
 }
 
+/** Whether a token is a spelling of a head word: the word itself, or the word
+ * with one letter substituted, inserted or deleted — the damage the 1816
+ * scans leave on a head token is a letter or two ('OK' for 'ON', 'THB' for
+ * 'THE', 'PLATa' for 'PLATO', 'plata' for 'plato'), and the shapes the head
+ * classifiers test are built on it. */
+function near(a, b) {
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 1) return false;
+  let i = 0;
+  let j = 0;
+  let edits = 0;
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) {
+      i++;
+      j++;
+      continue;
+    }
+    if (edits++) return false;
+    if (a.length === b.length) {
+      i++;
+      j++;
+    } else if (a.length < b.length) {
+      j++;
+    } else {
+      i++;
+    }
+  }
+  return true;
+}
+
 /** The per-text head-furniture CLASSIFIERS. A named key, not a function in the
  * config: the config is DATA a reviewer reads, and the classifier is measured
  * against one transcription. Each returns true for a line that is page
@@ -432,8 +462,117 @@ const FURNITURE_HEADS = {
     }
     return true;
   },
+
+  /* The 1816 Theology of Plato's heads — the SAME press as the Elements, but
+   * this volume's heads are its own, and the scan splits every side onto two
+   * lines and damages the words, so no equality list can carry the spellings.
+   * Each half is therefore recognised by SHAPE: a line whose every token is a
+   * spelling of that half's own words, and nothing else. The signatures,
+   * measured over every line of the slice (a token is a spelling of a head
+   * word when it is within one letter of it — the scan's damage is a letter
+   * or two):
+   *   the Google watermark — 'Digitized by …' in fifty-one spellings (792
+   *     lines: t^OOQLe, boogie, L.OOQ Le, {jOoq le, the split 'Digitiz ed by',
+   *     the bare 'Digitized', and 'v Digitized by boogie' with a stray letter
+   *     glued to the front) and the 'Google' line under it (143: 'Google' and
+   *     '/Google');
+   *   the verso head's left half — 'ON THE THEOLOGY' (340 lines) in sixteen
+   *     spellings, the damage running to a wrong letter ('ON THB THEOLOGY',
+   *     'GN THE THEOLOGY', 'OH THE THEOLOGY'), a lost letter ('ON THI
+   *     THEOLOGY'), a doubled one ('ON THE THEOLOGV') or the whole right half
+   *     glued on ('ON THE THEOLOGY BOOK II.', 'ON THE THEOLOGY BOOK IV');
+   *   the recto head's right half — 'OF PLATO.' (337 lines) in twenty-eight
+   *     spellings, the damage running to a wrong first letter ('OP PLATO.',
+   *     'QF PLATO.', 'or PLATO.', '6F PLATO.', 'GF PLATO.', 'Ob\' PLAT6.'),
+   *     a damaged 'PLATO' ('OF PLATa', 'OF PLAtO.', 'OF t»LATO.', '<0F
+   *     PlAtO.'), stray punctuation ('.OF PLATO.', 'OF. PLATO.', 'OF PLATO..',
+   *     'OF PLATO*', 'OF PLATO;') or the folio glued on ('OF PLATO, .25', 'OF
+   *     PLATO. .');
+   *   the verso head's right half — 'BOOK n.' (342 lines) in ninety
+   *     spellings, the numeral roman in the print and damaged like any other
+   *     word: the damage runs to three characters of junk ('BOOK V„', 'BOOK
+   *     V1L', 'BOOK TIL', 'BOOK Y.') and even to the space itself ('BOOK!.'
+   *     and 'BOOK'll.' for 'BOOK I.'), so the shape is the word plus a short
+   *     run of non-space junk, capped at twelve characters;
+   *   what the shapes deliberately do NOT take: the title page's own lines
+   *   ('ON THE THEOLOGY OF PLATO,', 'THE', 'ON', 'OF', 'Plato.', 'of Plato.',
+   *   'theology of Plato.') — the head halves carry no 'PLATO' where the title
+   *   has it, the contents' mixed-case 'of Plato.' is not the head's capitals,
+   *   and the title's one-word lines are too short to be a head; the page-90
+   *   head the print sets in full ('ON THE THEOLOGY OF PLATO.', MEASURED on the
+   *   leaf — one line, identical to the title page's and so not separable by
+   *   shape); and the book opening's display heading 'BOOK n.' above 'CHAPTER
+   *   I.', which the carve-out in `extract` spares (MEASURED: seven of those,
+   *   one per book). MEASURED: 1,947 furniture lines so recognised (792 + 143
+   *   + 340 + 337 + 335), every one a standalone block standing in a page
+   *   head, zero lines of the book's own text among them. */
+  'theology-1816': (line) => {
+    if (/^\s*[a-z]?\s*digitiz/i.test(line)) return true;         // 'Digitized by …' (792)
+    if (/^\/?\s*(?:google|gc>9gle)\b/i.test(line)) return true;   // the line under it (143)
+    const toks = line.split(/\s+/).filter((t) => t !== '');
+    const word = (t) => t.replace(/[^A-Za-z]/g, '').toLowerCase();
+    const HEAD_WORD = ['on', 'the', 'theology'];
+    const isHeadWord = (t) => HEAD_WORD.some((w) => near(word(t), w));
+    /* the verso head's left half: 'ON THE THEOLOGY' — every token a spelling
+     * of one of its three words, with at most the right half 'BOOK n.' glued
+     * after it. No fourth word: the title page's 'ON THE THEOLOGY OF PLATO,'
+     * carries 'PLATO' and is the book's own title, not furniture. */
+    if (toks.length >= 2 && toks.length <= 5 && toks.some((t) => near(word(t), 'theology'))) {
+      const rest = toks.filter((t) => !isHeadWord(t));
+      const gluedBook =
+        rest.length === 0 ||
+        (rest.length <= 2 &&
+          near(word(rest[0]), 'book') &&
+          rest.slice(1).every((t) => {
+            const numeral = t.replace(/[^A-Za-z0-9]/g, '');
+            return (
+              numeral.length >= 1 &&
+              numeral.length <= 4 &&
+              (numeral.match(/[ivxlcdm0-9]/gi) || []).length * 2 >= numeral.length
+            );
+          }));
+      if (gluedBook && toks.length - rest.length >= 2) return true;
+    }
+    /* the recto head's right half: 'OF PLATO.' — the first token a spelling
+     * of 'OF', the second of 'PLATO' in the head's own capitals, with at most
+     * the folio's digits glued after it. The one text line the shape would
+     * otherwise reach, the contents' 'of Plato.', is mixed case. */
+    if (toks.length >= 2 && toks.length <= 4) {
+      const [a, b] = toks.map(word);
+      if (
+        near(a, 'of') &&
+        near(b, 'plato') &&
+        (toks[1].match(/[A-Z]/g) || []).length >= 3 &&
+        toks.slice(2).every((t) => /^[^A-Za-z\s]{1,5}$/.test(t))
+      ) {
+        return true;
+      }
+    }
+    /* the verso head's right half: 'BOOK n.' — the book running-head line. */
+    if (line.length <= 12 && BOOK_HEAD_LINE.test(line)) return true;
+    return false;
+  },
 };
 
+/** A book running-head line of the 1816 Theology: 'BOOK n.', the numeral roman
+ * in the print and damaged like any other word the scan touches — MEASURED,
+ * the damage runs to three characters of junk ('BOOK V„', 'BOOK V1L', 'BOOK
+ * TIL', 'BOOK Y.') and even to the space itself ('BOOK!.', 'BOOK'll.'), so the
+ * shape is the word followed by a short run of non-space junk, capped at
+ * twelve characters by the classifier. MEASURED over every line of the slice:
+ * the only lines that match are the 342 running-head lines, every one a
+ * standalone block standing in a page head; no line of the book's text does
+ * (the two text lines that begin with the word are sentences, and the
+ * anchored shape cannot reach them). The shape is shared with the carve-out
+ * in `extract`, which spares the book opening's display heading. */
+const BOOK_HEAD_LINE = /^book(?![A-Za-z])[^A-Za-z\s]{0,2}(\s*\S{1,4})?(\s\S{1,2})?[^A-Za-z0-9\s]{0,2}$/i;
+
+/** The chapter-I display heading that opens a book of the 1816 Theology: the
+ * transcription spells the numeral 'I', or '1' or 'l' where the scan damaged
+ * it. The carve-out in `extract` finds it above a chapter-1 division. */
+const CHAPTER_ONE_LINE = /^chapter\s+[il1][.,;:]?$/i;
+
+/** Is this line head-FOOTER furniture, per the text's own classifier? */
 /** Is this line head-FOOTER furniture, per the text's own classifier? */
 function furnitureHead(cfg, line) {
   const fn = cfg.furnitureHead ? FURNITURE_HEADS[cfg.furnitureHead] : null;
@@ -586,6 +725,27 @@ const TEXT_RULES = {
     // No head is read from the transcription: the heads are the very lines whose
     // numbers the scan destroyed, and the page model of this edition rests on the
     // recorded divisions and on whatever folios survive, not on a head phrase.
+    /* THE PAGE FURNITURE, by shape (see `furnitureHead`, which applies the
+     * classifier this names). This volume's heads are its own: the verso head
+     * is 'ON THE THEOLOGY' with 'BOOK n.' beside it, the recto head is
+     * 'CHAP. n.' with 'OF PLATO.' beside it, and the scan splits every side
+     * onto two lines and damages the words — so the halves are recognised by
+     * their tokens, not by an equality list. The shapes, measured over every
+     * line of the slice:
+     *   the Google watermark — 'Digitized by …' in fifty-one spellings (792
+     *     lines) and the 'Google' line under it (143);
+     *   the verso head's left half 'ON THE THEOLOGY' (340 lines) and its right
+     *     half 'BOOK n.' (342), the book running-head line;
+     *   the recto head's right half 'OF PLATO.' (337 lines) — the left half
+     *     'CHAP. n.' (300 lines, plus 10 with the whole head on one line) is the
+     *     same furniture and is NOT named here: it is reported as a finding,
+     *     not silently widened into this change;
+     *   the book opening's display heading 'BOOK n.' above 'CHAPTER I.' is
+     *     the book's own text, not furniture: the carve-out in `extract` spares
+     *     it (MEASURED: seven, one per book; the divisions open on the
+     *     chapter's first line of text, below the heading, so no BOOK line
+     *     stands AT a division's own line). */
+    furnitureHead: 'theology-1816',
   },
 };
 
@@ -1619,6 +1779,40 @@ export function extract(src, meta) {
   /* 1. The library's stamp is not text (plan §4.5): recorded, then dropped. */
   const sig = pageSignals(src, entry);
   const { lines, markers, junk, dropped } = sig;
+
+  /* 1b. THE BOOK-OPENING HEADINGS, CARVED OUT OF THE JUNK. The volume prints
+   * each book's opening page with the display headings `BOOK n.` and
+   * `CHAPTER I.` above the chapter's first line, and the verso running head
+   * `ON THE THEOLOGY BOOK n.` on the same page — so a book opening can carry
+   * the BOOK shape twice: once as the running head (furniture) and once as the
+   * book's own heading (text). MEASURED on the scans (the vision pass reads
+   * the book-opening leaves' headings as `BOOK n.` above `CHAPTER I.`), the
+   * display heading is the BOOK line standing immediately above the
+   * `CHAPTER I.` line that belongs to a chapter-1 division; it is spared. A
+   * BOOK line standing AT a division's own line would be a heading too, and
+   * MEASURED none does: the divisions open on the chapter's first line of
+   * text, below the heading. Seven display headings are spared (one per
+   * book); the other 256 BOOK lines are running heads the classifier takes. */
+  if (divisionAt) {
+    for (const [index, div] of divisionAt) {
+      if (div.chapter !== 1) continue;
+      let heading = -1;
+      for (let k = index - 1; k >= Math.max(0, index - 40); k--) {
+        if (CHAPTER_ONE_LINE.test(sig.flat[k])) {
+          heading = k;
+          break;
+        }
+      }
+      if (heading < 0) continue;
+      for (let k = heading - 1; k >= Math.max(0, heading - 4); k--) {
+        if (sig.flat[k].length <= 12 && BOOK_HEAD_LINE.test(sig.flat[k])) {
+          const key = sig.markerKeyAt(k);
+          if (key) junk.delete(key);
+          break;
+        }
+      }
+    }
+  }
 
   /* 2. Page furniture, consumed before anything is read as a heading (§4.2).
    * `reconcile` has already given every marker the page the TRANSCRIPTION's own
