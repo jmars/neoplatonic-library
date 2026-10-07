@@ -659,33 +659,60 @@ const out = {
   from_version: FROM,
   to_version: TO,
   placement_rule:
-    'ONE BASIS, THE SAME ON EVERY PLACEMENT: the witness must carry the rule’s WHOLE `after` reading at the point. The changed-words fallback — the changed fragment inside the placed stretch — NEVER clears, tight or slid, because 1–2 common words locate text without witnessing a repair. ' +
+    'ONE BASIS, THE SAME ON EVERY PLACEMENT: the witness must carry the rule’s WHOLE `after` reading at the point — compared, since 1.0.6, on the reading’s WORDS (see `whole_reading_basis_decision`). The changed-words fallback — the changed fragment inside the placed stretch — NEVER clears, tight or slid, because 1–2 common words locate text without witnessing a repair. ' +
     'MEASURED (corrected in 1.0.5): the 1.0.4 rule cleared TIGHT placements on either basis and SLID ones only on the whole reading, so 9 rules cleared on the changed words alone; their flags stand again. See `call_2_the_clearing_basis`.',
+  /* THE BASIS DECISION THE REVIEW ASKED FOR, MADE AND STATED. */
+  whole_reading_basis_decision: {
+    the_finding: 'the whole-reading test required the witness to carry the rule’s `after` TOKEN RUN AS WRITTEN, which includes two things the witness’s own record says it does not model ("WORD-LEVEL transcription of the print, human-proofread: no page, line, running head, mark or word-space is modelled", witnesses.json) — this transcription’s own damage/apparatus token `@` (a footnote asterisk, or an undischarged damage character) and a printed PAGE NUMBER, ours or PG’s inline one (which can fall INSIDE our run and split it).',
+    decision:
+      'THE BASIS WAS WRONG AND IS FIXED. A test that requires the witness to carry what the tool itself declares the witness cannot carry measures OUR apparatus, not the print — the same shape as a residual the size of the scan step. Since 1.0.6 the whole-reading test is tried twice: first on the exact token run (unchanged), then, only if that fails, on the rule’s WORD run against the witness’s own words with its numerals dropped. The exact test is still tried first, so the filtered one can only ADD confirmations.',
+    the_three_guards_that_keep_this_from_over_clearing: [
+      'the filtered match is taken ONLY where the rule’s change ADDS A WORD to the reading (the tool’s own `changedBlock` core). MEASURED on a first cut without it: 48 rules flipped, including r8652 (`progression, * superior` -> `progression, 3 superior`, a damage MARK for a page NUMERAL, where the witness reads `64`) — the words agree and the numeral does not, so a word-level match would have certified a numeral the print does not carry.',
+      'a SECOND cut guarded on the two readings’ word RUNS instead, and still flipped r10587 (`parts Y*` -> `parts?*`, our own damaged `Y` resolved to a QUESTION MARK) — the runs differ only because our damage is a letter.',
+      'and a rule typed `punctuation` is excluded: at r8832 (`[in the Cratylus3,` -> `[in the Cratylus]3,`) the word runs differ only because the transcription GLAZED the footnote numeral onto the word, and a word-level match would report the witness as confirming a BRACKET the tool’s own doctrine says it can never settle.',
+    ],
+    THE_BEFORE_SIDE_IS_DELIBERATELY_UNCHANGED:
+      '`@` in a rule’s `before` is what distinguishes our DAMAGED reading from the clean one; dropping it there would read `& whole` as `whole` and record the witness as supporting our damaged reading — the defect that token was introduced for (MEASURED in 1.0.3: 22 rules at once). The `before` run is compared exactly as written.',
+    measured_effect: {
+      command: 'node tools/pg-locate.mjs <slug> --what rules --version 1.0.3 --slide {8,24,48} --out … and --what rules --type punctuation --all --slide 24',
+      decide_changes: 8,
+      of_which: ['r8576', 'r8594', 'r8998', 'r9122', 'r9270', 'r9542', 'r10219 — after, on the changed words, now confirmed by the whole reading — and r10517 (`soullife` -> `soul; life`, which the witness reads as two words: `beyond soul 170 life`) moves out of the third-form class and CONFIRMS'],
+      placement_status_changes: 0,
+      punctuation_surface_changes: 0,
+      slide_curve: 'tight placements and their verdicts are IDENTICAL at every slide before and after; the slid after/third counts move by exactly one per slide (301/464/483 and 31/66/73)',
+      served_text_changes: 'NONE — the change moves `review` flags and evidence only; no verdict became `before` that was not, and no rule newly reaches the withdraw branch',
+    },
+  },
   call_2_the_clearing_basis: {
     what_changed:
-      'A rule is cleared only where the witness carries what the rule ASSERTS — its whole `after` reading — and the record states, per clear, which test decided it (`basis`) and what the rule asserted (`before`, `after`).',
+      'A rule is cleared only where the witness carries what the rule ASSERTS — its whole `after` reading — compared, since 1.0.6, on the reading’s WORDS (see `whole_reading_basis_decision`: the exact token run is tried first and the word run second, so the fix can only ADD confirmations), and the record states, per clear, which test decided it (`basis`) and what the rule asserted (`before`, `after`).',
     measured_in_1_0_4: {
       cleared: 1265,
       of_which_on_the_whole_reading: 1256,
       of_which_ON_THE_CHANGED_WORDS_ALONE: 9,
     },
-    /* THE CLASS IS THE BATCH'S, NOT THE CLEAR HISTORY'S, AND THAT IS WHY IT IS
-     * TEN AND NOT NINE. MEASURED 2026-10-07: `basis` is a property of the
-     * PLACEMENT, so every rule whose point the locator placed on the changed
-     * words alone is in this class whether or not 1.0.4 had cleared it. 1.0.4
-     * cleared 9 rules on that basis (the 8 re-flagged here + r8961, corrected
-     * instead); r9270 and r11692 carry the same basis in the batch but were
-     * ALREADY `review: true` in 1.0.4 (slid placements, never cleared), so they
-     * never appeared in a clear history to be re-flagged. The class therefore
-     * holds 10, and the key states the count it actually has. */
-    the_10_this_class_holds_and_where_the_numbers_come_from: {
-      class_members: 10,
+    /* THE CLASS IS THE BATCH'S, NOT THE CLEAR HISTORY'S, WHICH IS WHY ITS SIZE IS
+     * NOT THE SIZE OF ANY CLEAR HISTORY. MEASURED 2026-10-07: `basis` is a
+     * property of the PLACEMENT, so every rule whose point the locator placed on
+     * the changed words alone is in this class whether or not an earlier version
+     * had cleared it. 1.0.5's class held TEN, and the review measured that against
+     * the 9 of 1.0.4's clear history: 1.0.4 cleared 9 rules on that basis (the 8
+     * re-flagged by 1.0.5 + r8961, corrected instead), and r9270 and r11692 carry
+     * the same basis in the batch but were ALREADY `review: true` in 1.0.4 (slid
+     * placements, never cleared), so they never appeared in a clear history to be
+     * re-flagged. 1.0.6's whole-reading fix then CONFIRMED SEVEN of the ten
+     * (r8576 r8594 r8998 r9122 r9270 r9542 r10219), so the class holds THREE
+     * today and the historical decomposition is kept beside it, because those
+     * seven are exactly the rules whose review reason this unit had to correct. */
+    the_class_TODAY: kept.filter((k) => k.class === 'changed-words-only').map((k) => ({ id: k.id, find_before: k.before, after: k.after, witness_reads: k.reads })),
+    the_class_in_1_0_5_held_TEN_and_where_those_numbers_come_from: {
+      class_members_in_1_0_5: 10,
       cleared_on_this_basis_by_1_0_4: 9,
       of_which_RE_FLAGGED_by_1_0_5: ['r8576', 'r8594', 'r8998', 'r9122', 'r9542', 'r10219', 'r10558', 'r11093'],
       of_which_CORRECTED_by_1_0_5: ['r8961'],
       already_flagged_in_1_0_4_never_cleared: ['r9270', 'r11692'],
+      of_which_CONFIRMED_by_1_0_6_s_whole_reading_fix: ['r8576', 'r8594', 'r8998', 'r9122', 'r9270', 'r9542', 'r10219'],
     },
-    the_10: kept.filter((k) => k.class === 'changed-words-only').map((k) => ({ id: k.id, find_before: k.before, after: k.after, witness_reads: k.reads })),
     /* WHAT ACTUALLY DIFFERS AT EACH OF THE 10 — MEASURED, per rule, because
      * 1.0.5's record said the other 8 "differ from the witness in PG's own inline
      * PAGE NUMBERS or in marks" and that is FALSE for two of them and incomplete
@@ -693,7 +720,8 @@ const out = {
      * below is a replay of its own token comparison over the batch's recorded
      * witness tokens:
      *
-     *   - SEVEN carry the rule's WHOLE reading as WORDS and differ only in the
+     *   - SEVEN carry the rule's WHOLE reading as WORDS (and are the seven 1.0.6
+     *     CONFIRMS, so this difference was the instrument's, not the rule's) and differ only in the
      *     witness's own apparatus: our footnote asterisk (*) and/or a printed PAGE
      *     NUMBER, which is the witness's, ours, or both (r8576 `1` against PG's
      *     `212`; r8594 `being,*` against `being 188`; r8998 ` imparticipable*`;
@@ -718,7 +746,7 @@ const out = {
      *   - ONE (r11692) differs by a Greek/transliteration run the witness does not
      *     carry at all (our `after` opens `IANOIA, διάνοια,` and the witness reads
      *     `dianoia, from whence dianoetic...`). */
-    what_actually_differs_at_each_of_the_10: {
+    what_actually_differs_at_each_of_THOSE_TEN: {
       every_word_carried_apparatus_only: ['r8576', 'r8594', 'r8998', 'r9122', 'r9270', 'r9542', 'r10219'],
       page_break_word_fragments: ['r10558', 'r11093'],
       a_transliteration_run_the_witness_does_not_carry: ['r11692'],
@@ -898,6 +926,16 @@ for (const c of cleared) {
   if (!r.review && have.some((e) => sameWitnessEntry(e, w))) continue; // already in this state
   r.review = false;
   r.evidence = have.some((e) => sameWitnessEntry(e, w)) ? have.map((e) => (sameWitnessEntry(e, w) ? w : e)) : have.concat([w]);
+  /* AND THE RATIONALE MUST NOT STILL SAY THE FLAG STANDS. A rule this pass CLEARS
+   * may be one whose own note was written by the previous version to say why the
+   * flag was UP (`REBASED 1.0.5: … the flag stands and the rule is back on the
+   * review worklist`) — MEASURED 2026-10-07: the whole-reading fix cleared 8 rules
+   * of which 8 carried such a note, and a rule whose rationale contradicts its own
+   * `review` is worse than no note. The superseded tail is REPLACED (the same
+   * shape the `against` annotation writes), so every rule this version clears
+   * carries ONE statement of what this version measured. */
+  const tail = String(r.rationale).replace(/\s*(WITNESS|REBASED) \d+\.\d+\.\d+:[\s\S]*$/, '');
+  r.rationale = `${tail} WITNESS ${TO}: Project Gutenberg’s human-proofread transcription of the 1816 print reads ${JSON.stringify((p.pg && p.pg.tokens) || [])} at this point (${c.volume}${p.tight ? ', tight' : ', slid'}). ${c.why}`;
   nClear++;
 }
 /* THE REBASED BASIS, APPLIED AS A STATE. A tight placement confirmed on the CHANGED

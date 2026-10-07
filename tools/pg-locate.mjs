@@ -708,13 +708,19 @@ function decide(rule, placed, vols) {
    * from the tool's OWN definition of what a rule changes (`changedBlock`, the
    * same core the changed-words fallback uses): the filtered match needs the
    * change to ADD at least one word to the reading (`coreAfter` with a letter in
-   * it). At r10587, r8633, r8652, r8686, r10019, r10326 and r11652 the change adds
-   * no word — it resolves a damage mark or a numeral — so the exact-run test
-   * alone decides them, exactly as before. */
+   * it), AND the rule must not be typed `punctuation`. At r10587, r8633, r8652,
+   * r8686, r10019, r10326 and r11652 the change adds no word — it resolves a
+   * damage mark or a numeral — so the exact-run test alone decides them, exactly
+   * as before. And MEASURED, the type guard is needed too: at r8832 (typed
+   * `punctuation`, `[in the Cratylus3,` -> `[in the Cratylus]3,`) the two word runs
+   * differ only because the transcription GLAZED the footnote numeral onto the
+   * word, and a word-level match on `in the cratylus` would have reported the
+   * witness as confirming a BRACKET the tool's own doctrine says it can never
+   * settle. */
   const isWord = (t) => /[a-z]/.test(t);
   const bWords = b.filter(isWord);
   const cores0 = changedBlock(rule.before, rule.after);
-  const changeAddsAWord = (cores0.coreAfter || []).some(isWord);
+  const changeAddsAWord = rule.type !== 'punctuation' && (cores0.coreAfter || []).some(isWord);
   const wordWindow = window.filter(isWord);
   const winWords = { tokens: wordWindow, index: indexOf(wordWindow) };
   let inBefore = has(a);

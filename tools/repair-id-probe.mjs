@@ -113,6 +113,20 @@ const WITHDRAWN = new Map([
    * participle "inferior being"; our target added a plural "s"), 10120 (the print
    * reads "to united"; our target added "in"). The other 1.0.4 ids stay spent. */
   ['proclus-theology-of-plato-taylor-1816@1.0.5', [8574, 8599, 8600, 8611, 8617, 8619, 8672, 8683, 8906, 8923, 8944, 8961, 8991, 8995, 8996, 9015, 9069, 10120, 10291, 10442, 11100, 11680, 11681, 11682, 11683, 11684, 11686]],
+  /* 1.0.6 TAKES TWO MORE OUT, and for the first time one of them is a rule whose
+   * TARGET the print never sets. MEASURED 2026-10-07 (the seventh-DOI unit):
+   * r9734 mapped `consubsistS` to `consubsist` — a form the print uses ZERO TIMES
+   * in its whole vocabulary — while the print reads `consubsists` (1x, and its own
+   * `consubsistent` 32x); the transcription's `consubsistS` is that word with its
+   * final `s` mis-cased, so the rule does real work on the transcription and only
+   * its TARGET was wrong. The target is corrected to the print's own words and the
+   * old id is spent: r9734 -> r11856 ("consubsistS" -> "consubsists"). r10277
+   * (` , rythm a` -> `, rhythm a`) is WITHDRAWN WITH NO REPLACEMENT: `rythm` is
+   * the print's DOMINANT spelling (4x + rythms 1x against rhythm 2x + rhythms
+   * 1x), so the rule was modernising the print's own orthography, not repairing a
+   * misprint. Both were licensed by the old at-fault signals — a dictionary miss
+   * and a rare form — which no longer reach that verdict at all. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.6', [8574, 8599, 8600, 8611, 8617, 8619, 8672, 8683, 8906, 8923, 8944, 8961, 8991, 8995, 8996, 9015, 9069, 9734, 10120, 10277, 10291, 10442, 11100, 11680, 11681, 11682, 11683, 11684, 11686]],
 ]);
 
 let failures = 0;
@@ -238,9 +252,17 @@ for (const t of served) {
      *
      *   (a) a CLEAR whose GAINED evidence entry carried NO `why` passed, because
      *       `nowEv.some(e => e.why)` was satisfied by an OLD entry's why. The
-     *       justification must be the GAINED entry's OWN: `gained` is the entries
-     *       this version ADDED (compared by value), and every one of them must
-     *       carry a non-empty `why`.
+     *       justification must be the MOVED entry's OWN: `gained` is the entries
+     *       this version added or REWROTE (compared by value), and every one of
+     *       them must carry a non-empty `why`. The test is on the MOVED entries,
+     *       not on the array's length: MEASURED 2026-10-07, the eight rules 1.0.6
+     *       clears from a 1.0.5 RE-FLAG carry a witness entry whose `reads` and
+     *       volume are unchanged and whose `why` is REWRITTEN (`the flag stands and
+     *       the rule is back on the review worklist` becomes `the witness carries
+     *       the rule's WHOLE after reading`), so the array does not grow and a
+     *       length test would refuse a clear that IS asserted — while the vacuous
+     *       clear appends an entry that says nothing, which the moved-entry test
+     *       still refuses. Evidence may MOVE but may not SHRINK.
      *   (b) a RE-FLAG with a ONE-SPACE rationale tweak passed, because any
      *       difference counted as movement. A re-flag must say WHY it is back on
      *       the worklist, so its rationale must have GROWN and must carry a stated
@@ -267,7 +289,7 @@ for (const t of served) {
           const nowEv = Array.isArray(r.evidence) ? r.evidence : [];
           const wasEv = Array.isArray(was.evidence) ? was.evidence : [];
           const gained = gainedEntries(nowEv, wasEv);
-          return !(nowEv.length > wasEv.length && gained.length > 0 && gained.every((e) => whyOf(e) !== ''));
+          return !(nowEv.length >= wasEv.length && !sameArr(r.evidence, was.evidence) && gained.length > 0 && gained.every((e) => whyOf(e) !== ''));
         });
     const reflagged = !prevRules
       ? []

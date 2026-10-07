@@ -25,7 +25,7 @@
   "WHAT THE PRINT MEANS. Where the print reads an ordinary word, the witness settles what is printed and never what was intended — see THE_TEST_USED_TO_SUBCLASSIFY."
  ],
  "batch_files": "open-r{8,24,48}.json, rules-r{8,24,48}.json, punct-r24.json, sweep.json — in /var/tmp/pg-locate, regenerable; this file is generated from them by tools/pg-locate-report.mjs",
- "generated": "2026-10-07T20:51:38.809Z",
+ "generated": "2026-10-07T21:05:30.840Z",
  "slide_8": {
   "open_questions": {
    "n": 272,
@@ -79,21 +79,21 @@
     }
    },
    "decisions": {
-    "after": 1104,
+    "after": 1105,
     "silent-marks": 115,
     "absent-at-point": 44,
-    "third": 38,
+    "third": 37,
     "thin-stretch": 35,
     "before": 18,
     "silent-unsure": 3
    },
    "decisions_by_volume": {
     "vol1": {
-     "after": 656,
+     "after": 657,
      "silent-marks": 72,
      "absent-at-point": 22,
-     "third": 20,
      "thin-stretch": 20,
+     "third": 19,
      "before": 10,
      "silent-unsure": 3
     },
@@ -116,8 +116,8 @@
      "third": 6
     },
     "a bound slid off the damaged words": {
-     "after": 300,
-     "third": 32,
+     "after": 301,
+     "third": 31,
      "silent-marks": 31,
      "absent-at-point": 21,
      "thin-stretch": 6,
@@ -181,9 +181,9 @@
     }
    },
    "decisions": {
-    "after": 1267,
+    "after": 1268,
     "silent-marks": 135,
-    "third": 73,
+    "third": 72,
     "absent-at-point": 55,
     "thin-stretch": 35,
     "before": 22,
@@ -191,9 +191,9 @@
    },
    "decisions_by_volume": {
     "vol1": {
-     "after": 754,
+     "after": 755,
      "silent-marks": 82,
-     "third": 43,
+     "third": 42,
      "absent-at-point": 31,
      "thin-stretch": 20,
      "before": 11,
@@ -219,8 +219,8 @@
      "third": 6
     },
     "a bound slid off the damaged words": {
-     "after": 463,
-     "third": 67,
+     "after": 464,
+     "third": 66,
      "silent-marks": 51,
      "absent-at-point": 32,
      "silent-unsure": 7,
@@ -2045,39 +2045,6 @@
     }
    },
    {
-    "id": "proclus-theology-of-plato-taylor-1816:r10517",
-    "type": "OCR",
-    "volume": "vol1",
-    "tight": false,
-    "before": "soullife",
-    "after": "soul; life",
-    "witness_reads": "primarily established above bodies but intellect is beyond soul 170 life",
-    "class": "third-form-on-our-own-garble",
-    "signal": "third",
-    "why": "third-form, but our own `before` is not a reading (garble, a damage mark or a numeral), so this is NOT evidence against the rule — it says only that our reconstructed `after` is not a contiguous run at the point — MEASURED: our `before` (“soullife”) is not a word of the reference wordlist",
-    "changed_words": {
-     "before": [
-      {
-       "w": "soullife",
-       "uses": 0,
-       "wordlist": false
-      }
-     ],
-     "after": [
-      {
-       "w": "soul",
-       "uses": 908,
-       "wordlist": true
-      },
-      {
-       "w": "life",
-       "uses": 895,
-       "wordlist": true
-      }
-     ]
-    }
-   },
-   {
     "id": "proclus-theology-of-plato-taylor-1816:r10587",
     "type": "OCR",
     "volume": "vol1",
@@ -3241,7 +3208,7 @@
     }
    }
   ],
-  "rules_the_witness_CONFIRMS": 1267,
+  "rules_the_witness_CONFIRMS": 1268,
   "example_confirmations": [
    {
     "id": "proclus-theology-of-plato-taylor-1816:r8721",
@@ -3359,9 +3326,9 @@
     }
    },
    "decisions": {
-    "after": 1286,
+    "after": 1287,
     "silent-marks": 137,
-    "third": 80,
+    "third": 79,
     "absent-at-point": 55,
     "thin-stretch": 35,
     "before": 22,
@@ -3370,9 +3337,9 @@
    },
    "decisions_by_volume": {
     "vol1": {
-     "after": 773,
+     "after": 774,
      "silent-marks": 82,
-     "third": 48,
+     "third": 47,
      "absent-at-point": 31,
      "thin-stretch": 20,
      "before": 11,
@@ -3399,8 +3366,8 @@
      "third": 6
     },
     "a bound slid off the damaged words": {
-     "after": 482,
-     "third": 74,
+     "after": 483,
+     "third": 73,
      "silent-marks": 53,
      "absent-at-point": 32,
      "silent-unsure": 7,
@@ -3544,9 +3511,9 @@
      "vol1": 930,
      "vol2": 643,
      "tight": 959,
-     "after": 1260,
+     "after": 1261,
      "silent-marks": 135,
-     "third": 62,
+     "third": 61,
      "absent-at-point": 53,
      "thin-stretch": 34,
      "before": 22,
@@ -3567,9 +3534,9 @@
    "by_volume_with_decisions": {
     "vol1": {
      "located": 947,
-     "after": 754,
+     "after": 755,
      "silent-marks": 82,
-     "third": 43,
+     "third": 42,
      "absent-at-point": 31,
      "thin-stretch": 20,
      "before": 11,
@@ -3586,12 +3553,12 @@
      "silent-unsure": 1
     }
    },
-   "CONFIRMS_the_rule": 1267,
-   "CONTRADICTS_the_rule": 95,
-   "of_which_the_print_reads_a_THIRD_FORM": 73,
+   "CONFIRMS_the_rule": 1268,
+   "CONTRADICTS_the_rule": 94,
+   "of_which_the_print_reads_a_THIRD_FORM": 72,
    "of_which_the_print_reads_our_OLD_reading": 22,
    "by_class": {
-    "third-form-on-our-own-garble": 62,
+    "third-form-on-our-own-garble": 61,
     "contradiction": 16,
     "third-form": 11,
     "print-error-emendation": 3,
@@ -3603,7 +3570,7 @@
    "of_which_are_CONTRADICTIONS_to_be_read": 16,
    "of_which_are_TIES_the_witness_cannot_decide": 1,
    "of_which_are_THIRD_FORM_on_a_REAL_before_reading": 11,
-   "of_which_are_THIRD_FORM_on_OUR_OWN_GARBLE_no_evidence_against_the_rule": 62,
+   "of_which_are_THIRD_FORM_on_OUR_OWN_GARBLE_no_evidence_against_the_rule": 61,
    "EVIDENCE_AGAINST_THE_RULE_total": 33,
    "UNDECIDABLE_by_design_marks_or_case_only": 135,
    "UNDECIDABLE_the_rules_own_after_is_unsure": 7,
@@ -3627,7 +3594,7 @@
   }
  },
  "UNIT_B_MAY_ACT_ON": {
-  "may_CLEAR_the_review_flag": 1267,
+  "may_CLEAR_the_review_flag": 1268,
   "must_READ_before_acting": 32,
   "of_which_PRINT_ERROR_EMENDATIONS_it_must_NOT_revert": [
    "proclus-theology-of-plato-taylor-1816:r10212",
@@ -3707,7 +3674,6 @@
    "proclus-theology-of-plato-taylor-1816:r10336",
    "proclus-theology-of-plato-taylor-1816:r10446",
    "proclus-theology-of-plato-taylor-1816:r10462",
-   "proclus-theology-of-plato-taylor-1816:r10517",
    "proclus-theology-of-plato-taylor-1816:r10587",
    "proclus-theology-of-plato-taylor-1816:r10719",
    "proclus-theology-of-plato-taylor-1816:r10756",
