@@ -29,7 +29,12 @@
  *     reverts to the transcription's own characters. Any other edition must still
  *     be gap-free;
  *  2. no id is reused ACROSS versions of the same edition (a new version appends;
- *     it never reuses or reorders old ids);
+ *     it never reuses or reorders old ids): every id a version SHARES with an
+ *     earlier one must carry the SAME rule record, and the version may only ADD
+ *     ids. MEASURED 2026-10-06: this check read `seen.get(id) !== v` ("the id was
+ *     first seen in another version"), which is what APPENDING means — it failed on
+ *     the first edition that ever had two versions and could only pass on a rule
+ *     list disjoint from the older one's;
  *  3. `before` !== `after` for every rule that supplies a reading, and every
  *     `type` is one of the four (model §4.1);
  *  4. the rule COUNT is the count in the pipeline's own provenance file
@@ -58,9 +63,18 @@ const TYPES = ['OCR', 'punctuation', 'transliteration', 'conjectural'];
  * again in the re-run with the two readers that do not echo
  * (tools/greek-runs.mjs, LIBRARY_GREEK_MODELS=google/gemini-2.5-flash,
  * anthropic/claude-haiku-4-5): r11682 is the sixth — the readers DID read that
- * line, five different readings, none of them the rule's. */
+ * line, five different readings, none of them the rule's.
+ *
+ * KEYED BY VERSION, because a gap is the record of the state that SPENT the id, and
+ * only that state. MEASURED 2026-10-06: these six were all allocated and withdrawn
+ * AFTER the deposit of 1.0.0, whose rule list ends at r11616 with no gap at all —
+ * so v1.0.0 is expected gap-free and v1.0.1 is expected to carry exactly these six.
+ * Holding every version to the same gap set would fail the frozen state for a
+ * withdrawal that happened later and never touched it; it is the same expectation,
+ * stated per state. A version with an unrecorded gap still fails. */
 const WITHDRAWN = new Map([
-  ['proclus-theology-of-plato-taylor-1816', [11680, 11681, 11682, 11683, 11684, 11686]],
+  ['proclus-theology-of-plato-taylor-1816@1.0.0', []],
+  ['proclus-theology-of-plato-taylor-1816@1.0.1', [11680, 11681, 11682, 11683, 11684, 11686]],
 ]);
 
 let failures = 0;
@@ -79,7 +93,7 @@ for (const t of served) {
     .filter((d) => d.isDirectory())
     .map((d) => d.name)
     .sort();
-  const seen = new Map(); // id -> version
+  const seen = new Map(); // id -> { version, rule } (the FIRST version that allocated it)
   const perVersion = new Map();
 
   for (const v of versions) {
@@ -102,7 +116,7 @@ for (const t of served) {
       const present = new Set(nums);
       for (let n = floor + 1; n <= nums[nums.length - 1]; n++) if (!present.has(n)) gaps.push(n);
     }
-    const expected = WITHDRAWN.get(slug) || [];
+    const expected = WITHDRAWN.get(`${slug}@${v}`) || [];
     check(
       grammar.length === 0 && ascending && gaps.join(',') === expected.join(',') && !badFloor,
       `v${v}: every id is ${slug}:rNNNN and they ASCEND in rule order, gap-free except the ${expected.length} id(s) this repo records as withdrawn` +
@@ -115,10 +129,27 @@ for (const t of served) {
       `v${v}: every id is unique within the version (${rules.length})`,
     );
 
-    /* 2. no reuse ACROSS versions. */
-    const reused = rules.filter((r) => seen.has(r.id) && seen.get(r.id) !== v);
-    check(reused.length === 0, `v${v}: no id is reused from another version${reused.length ? `: ${reused.map((r) => r.id).slice(0, 5).join(', ')}` : ''}`);
-    for (const r of rules) if (!seen.has(r.id)) seen.set(r.id, v);
+    /* 2. no id is REUSED across versions, and no id is silently REWRITTEN. Model
+     * §4.2: ids are forever, and a new version APPENDS — it never reuses or
+     * reorders an old id, and the older version's own directory is untouched. So
+     * for every id this version shares with an earlier one the rule must be THE
+     * SAME RECORD: an id kept with its reading changed under it is the silent
+     * rewrite the rule forbids. MEASURED 2026-10-06: before this, the check tested
+     * `seen.get(id) !== v` — "the id was first seen in another version" — which is
+     * what APPENDING means, so it FAILED on the Theology of Plato's 1.0.1 (3271
+     * rules, 3051 of them 1.0.0's own) and could only have passed on a version whose
+     * rule list is DISJOINT from the older one's, which is not a version of this
+     * edition. It was green because every edition had exactly ONE version. The
+     * check below is the same property stated as the data can satisfy it, and it is
+     * STRONGER: it compares the rules, not only their ids. */
+    const rewritten = rules.filter((r) => seen.has(r.id) && JSON.stringify(seen.get(r.id).rule) !== JSON.stringify(r));
+    const appended = rules.filter((r) => !seen.has(r.id)).length;
+    check(
+      rewritten.length === 0,
+      `v${v}: every id it shares with an earlier version is the SAME rule — ${appended} id(s) appended, ${rules.length - appended} carried unchanged` +
+        (rewritten.length ? `; id(s) rewritten: ${rewritten.map((r) => r.id).slice(0, 5).join(', ')}` : ''),
+    );
+    for (const r of rules) if (!seen.has(r.id)) seen.set(r.id, { version: v, rule: r });
 
     /* 3. the four types, before/after. */
     const badType = rules.filter((r) => !TYPES.includes(r.type));

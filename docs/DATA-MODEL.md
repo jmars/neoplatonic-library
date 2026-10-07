@@ -153,7 +153,9 @@ Every field is required unless marked *optional*; absent values are `null`/`""`/
 
   "citation": "Proclus, The Elements of Theology, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.0. https://neoplatonic-library.org/texts/proclus-elements-of-theology-taylor-1816/",
 
-  "doi": "",                       // Zenodo DOI when minted; EMPTY until then
+  "doi": "",                       // the DOI of the CURRENT version's state; EMPTY
+                                   // until that state is deposited (it names no
+                                   // other version's state — see §3.1)
 
   "cat": ["proclus-elements-of-theology"],  // catalogue work ids this edition IS
 
@@ -198,7 +200,8 @@ string. Both copies (`edition.json.citation` and
 `versions/<v>/meta.json.citation`) are regenerated from the one generator
 (`build/migrate.mjs` `citationFor`) by `node build/migrate.mjs --citations`,
 which writes nothing else; an empty `doi` yields the pre-DOI string, byte for
-byte.
+byte. Each version's copy cites THAT version's own `doi` where it records one
+(§3.1) — a citation of v1.0.0 must never name the identifier of a later state.
 
 The identifier is **rendered as a link** wherever the string is shown, while the
 rendered TEXT stays the stored string character for character: the DOI run
@@ -246,7 +249,9 @@ retained server-side); the size cost — ≈59M for the two editions (MEASURED
 
 - `current_version` is semver (`1.0.0`). Any change to `source.txt` or
   `repairs.json` **must** bump the version and write a new `versions/<semver>/`.
-  The old directory is never edited or deleted.
+  The old directory is never edited or deleted. A new version **appends**: the
+  older version's rules are carried unchanged, and an id that was allocated stays
+  the same rule forever (`tools/repair-id-probe.mjs` holds both ends).
 - `versions/<semver>/meta.json`:
 
 ```jsonc
@@ -256,9 +261,27 @@ retained server-side); the size cost — ≈59M for the two editions (MEASURED
   "note": "first published",
   "source_sha256": "94979092…",
   "supersedes": null,
-  "citation": "…the exact citation string for THIS version…"
+  "citation": "…the exact citation string for THIS version…",
+  "doi": "10.5281/zenodo.…"   // optional; THIS version's own DOI
 }
 ```
+
+- **`doi`, and why a version carries its own.** A DOI fixes a **state**, not a
+  text (`docs/DOI.md`): the identifier deposited with `versions/1.0.0/` names the
+  rules and transcription of 1.0.0 and of nothing else. So each version records the
+  DOI minted for ITS state, and `build/migrate.mjs --citations` derives every
+  citation from that version's own `doi` — falling back to the edition's `doi` (the
+  current version's) ONLY for the version the edition calls current, which is where
+  the seed migration stores the one DOI a single-version edition has. The fields
+  therefore agree by construction: **`edition.json.doi` is the current version's
+  DOI**, and a frozen version's citation can never be rewritten to name a later
+  state's identifier. MEASURED 2026-10-06: the generator derived EVERY version's
+  citation from the edition's single `doi`, so minting the Theology of Plato's 1.0.1
+  DOI rewrote 1.0.0's citation to cite the new one — the citation of a state 1.0.0
+  is not. `tools/version-probe.mjs` now fails on that tree (it holds every version's
+  citation to the DOI that state was minted under), and this is a documented,
+  reversible step: mint, set the version's `doi`, set `edition.json.doi` when it is
+  the current one, re-run `--citations`, rebuild.
 
 - URLs: `/texts/<slug>/` → current; `/texts/<slug>/v/<semver>/` → pinned;
   `/texts/<slug>/v/<semver>/plain` → plain-text export of that version.

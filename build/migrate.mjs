@@ -158,7 +158,17 @@ function classify(rule, damage) {
  * below (hoisted) and the DOI already stored in `edition.json`, writing no other
  * field: no ids, no source bytes, no repairs, no readings. It reads ONLY this
  * repo's data/ — the blog is not consulted.
- * Run: node build/migrate.mjs --citations */
+ * Run: node build/migrate.mjs --citations
+ *
+ * A FROZEN VERSION CITES THE DOI OF ITS OWN STATE. `meta.json.doi` is that
+ * version's own DOI, and it WINS over the edition's: a DOI fixes a state, not a
+ * text (docs/DOI.md), so once a second version is minted, deriving every
+ * version's citation from the EDITION's `doi` would rewrite v1.0.0's citation to
+ * name the DOI of a state that is not its own — falsifying the citation of the
+ * state the old DOI names. The edition's `doi` is the CURRENT version's DOI, so it
+ * is the fallback for exactly that version (the field the seed migration stores
+ * it in, where no version carries one); a non-current version with no `doi` of its
+ * own cites none rather than someone else's identifier. */
 if (process.argv.includes('--citations')) {
   const edsDir = join(DATA, 'editions');
   let n = 0;
@@ -176,7 +186,9 @@ if (process.argv.includes('--citations')) {
       const mPath = join(vroot, v, 'meta.json');
       if (!existsSync(mPath)) continue;
       const meta = await load(mPath);
-      meta.citation = citationFor(t, se, meta.version || v, doi);
+      const version = meta.version || v;
+      const versionDoi = meta.doi != null ? meta.doi : version === ed.current_version ? doi : '';
+      meta.citation = citationFor(t, se, version, versionDoi);
       await writeFile(mPath, JSON.stringify(meta, null, 2) + '\n');
       n++;
     }

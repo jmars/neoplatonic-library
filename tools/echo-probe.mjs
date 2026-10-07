@@ -60,13 +60,22 @@ const ARTIFACT = join(ROOT, 'tools/edits', `${SLUG}.greek-echo-check.json`);
 /* The re-run's artifact (the two readers that do not echo), whose added rule r11688
  * states a two-instrument agreement this probe holds to the same cache. */
 const TWO_READER = join(ROOT, 'tools/edits', `${SLUG}.greek-two-reader.json`);
-const RULES = join(ROOT, 'data/editions', SLUG, 'versions/1.0.0', 'repairs.json');
+/* WHICH VERSION'S RULES THIS PROBE HOLDS TO THE CACHE: the edition's CURRENT one,
+ * read from `edition.json`, never a version number typed here. MEASURED
+ * 2026-10-06: this read `versions/1.0.0` literally, which was the edition's ONLY
+ * version when it was written; the 1.0.1 bump then made `versions/1.0.0` the
+ * FROZEN deposited state (the 3051 rules the old DOI names), so the probe held the
+ * echo-check cache to a rule list that predates the Greek pass and reported eight
+ * failures — the probe's address, not the data. The decisions it asserts are the
+ * ones the SERVED edition carries, which is `current_version`. */
+const VERSION = JSON.parse(readFileSync(join(ROOT, 'data/editions', SLUG, 'edition.json'), 'utf8')).current_version;
+const RULES = join(ROOT, 'data/editions', SLUG, 'versions', VERSION, 'repairs.json');
 
 let ok = 0;
 const fails = [];
 const check = (cond, msg) => { if (cond) { ok++; } else { fails.push(msg); } };
 
-const source = readFileSync(join(ROOT, 'data/editions', SLUG, 'versions/1.0.0/source.txt'), 'utf8')
+const source = readFileSync(join(ROOT, 'data/editions', SLUG, 'versions', VERSION, 'source.txt'), 'utf8')
   .replace(/\r\n?/g, '\n').replace(/^\uFEFF/, '').split('\n');
 const collapse = (s) => s.replace(/\s+/g, ' ').trim();
 const servedLine = (l) => tidyPunctuation(collapse(source[l - 1]));
@@ -336,7 +345,7 @@ if (classed) {
    * fails HERE — and the probe reports that as a FAIL rather than a stack trace. */
   let doc = null;
   try {
-    doc = extract(src, { entry: TEXTS.find((t) => t.slug === SLUG), sha256: sha256(src), version: '1.0.0' });
+    doc = extract(src, { entry: TEXTS.find((t) => t.slug === SLUG), sha256: sha256(src), version: VERSION });
   } catch (e) {
     check(false, `the served document extracts under the front-matter policy (${String(e.message).split('\n')[0].slice(0, 120)})`);
   }

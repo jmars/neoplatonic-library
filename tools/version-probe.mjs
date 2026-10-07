@@ -18,6 +18,13 @@
  *  5. the pinned page carries the version's OWN citation string from meta.json
  *     (a citation to v1.0.0 must keep naming v1.0.0), and a pinned page that is
  *     not current says so and points at the current one;
+ *  5a. THE DOI A VERSION'S CITATION CARRIES IS THAT VERSION'S OWN, and every
+ *     version this repo has MINTED a DOI for still carries it — a DOI fixes a
+ *     state, not a text (docs/DOI.md), so a generator that derives every
+ *     version's citation from the edition's current `doi` would silently rewrite
+ *     v1.0.0's citation to name the DOI of a state that is not its own. The
+ *     minted table below is the record those identifiers are held to, and the
+ *     check FAILS if a frozen version's citation stops carrying its own DOI;
  *  6. THE MUTATION TEST (§6.2, the immutability asymmetry): a fake v1.1.0 with a
  *     CHANGED SOURCE BYTE is added in a scratch copy of the repo, the build runs
  *     there, and v1.0.0's emitted bytes must be UNCHANGED. The mutation is
@@ -66,6 +73,21 @@ const versionsOf = (slug) =>
     .map((e) => e.name)
     .sort();
 const currentOf = (slug) => JSON.parse(readFileSync(join(LIBRARY_DIR, slug, 'edition.json'), 'utf8')).current_version;
+
+/* THE DOIs THIS REPO HAS MINTED, one per VERSION — the identifier of the STATE,
+ * not of the text (docs/DOI.md: a DOI fixes a state, not a text). Named here
+ * rather than derived so the gate states the record instead of accepting whatever
+ * the data happens to hold: an identifier that silently stops being cited by the
+ * state it names is a citation that resolves to the wrong thing. MEASURED
+ * 2026-10-06: 23175744 was minted at tip 7674ce8 over 3051 rules, and that version
+ * was then edited IN PLACE four times under the same number — 3271 rules under the
+ * DOI of a 3051-rule deposit — which is why 1.0.1 exists and why 1.0.0 now holds
+ * the deposited state again. Keyed `<slug>@<semver>`. */
+const MINTED = new Map([
+  ['proclus-elements-of-theology-taylor-1816@1.0.0', '10.5281/zenodo.23148818'],
+  ['porphyry-on-the-cave-of-the-nymphs-taylor-1917@1.0.0', '10.5281/zenodo.23148820'],
+  ['proclus-theology-of-plato-taylor-1816@1.0.0', '10.5281/zenodo.23175744'],
+]);
 
 section('every version is a frozen directory, served at its own URL');
 for (const t of served) {
@@ -123,19 +145,50 @@ for (const t of served) {
     /* AND the DOI in that string is a LINK — its text the identifier itself, so
      * the rendered text above is unchanged, and it resolves. FAILS ON THE
      * PRE-FIX MARKUP, where the identifier rendered as plain text: the anchor is
-     * then absent. A record that mints NO DOI must render no link (an empty one
-     * would be a citation the page cannot honour). */
-    const doi = entry.doi || '';
+     * then absent. A version that mints NO DOI must render no link (an empty one
+     * would be a citation the page cannot honour). WHICH DOI IS THE VERSION'S OWN
+     * is the generator's own rule (build/migrate.mjs `--citations`): `meta.json.doi`
+     * where the version records one, and the edition's `doi` ONLY for the version
+     * the edition calls current — a frozen version must never cite the DOI of a
+     * state that is not its own. */
+    const doi = meta.doi != null ? meta.doi : v === current ? entry.doi || '' : '';
     const anchor = /<a class="cite-doi" href="([^"]+)">([\s\S]*?)<\/a>/.exec(page);
     check(
       doi
         ? !!anchor && anchor[1] === `https://doi.org/${doi}` && anchor[2].replace(/<[^>]+>/g, '') === doi
         : !anchor,
       `${slug} v${v}: the citation's DOI ${
-        doi ? `is a link to https://doi.org/${doi}, its text the DOI itself` : 'is absent (the record mints none) and no empty link is rendered'
+        doi ? `is a link to https://doi.org/${doi}, its text the DOI itself` : 'is absent (this version mints none) and no empty link is rendered'
       }` +
         (doi && anchor ? ` (got href ${JSON.stringify(anchor[1])}, text ${JSON.stringify(anchor[2].replace(/<[^>]+>/g, ''))})` : ''),
     );
+    /* THE MINTED DOI OF THIS STATE IS STILL THE ONE ITS CITATION CARRIES. The
+     * table is the record (docs/DOI.md); the citation is what a reader copies. A
+     * generator that re-derives a frozen version's citation from the edition's
+     * current `doi` — MEASURED: build/migrate.mjs:179 did exactly that before
+     * 2026-10-06 — rewrites v1.0.0's citation to name the NEW DOI, which is a
+     * citation of a state v1.0.0 is not. FAILS on that tree. */
+    const minted = MINTED.get(`${slug}@${v}`);
+    check(
+      minted === undefined || (meta.citation.includes(`DOI: ${minted}.`) && doi === minted),
+      minted === undefined
+        ? `${slug} v${v}: no DOI minted for this state yet (nothing to hold its citation to)`
+        : `${slug} v${v}: the citation still carries the DOI THIS STATE was minted under, ${minted}` +
+            (meta.citation.includes(`DOI: ${minted}.`) && doi === minted
+              ? ''
+              : ` — the version's doi is ${JSON.stringify(meta.doi)} and its citation reads ${JSON.stringify(meta.citation)}`),
+    );
+    if (v === current) {
+      /* THE EDITION'S `doi` IS THE CURRENT VERSION'S DOI. The field names the state
+       * a bare `/texts/<slug>/` serves, so an edition whose `doi` and whose current
+       * version's `doi` disagree is an edition advertising one state and serving
+       * another. Holds for the seed editions too, where the DOI is stored at the
+       * edition level only (the current version is the only version they have). */
+      check(
+        (rec.doi || '') === doi,
+        `${slug}: edition.json.doi is the CURRENT version's DOI (edition ${JSON.stringify(rec.doi || '')}, v${v} ${JSON.stringify(doi)})`,
+      );
+    }
     if (v !== current) {
       check(
         page.includes(`Version ${v} — pinned`) && page.includes(current),
