@@ -87,6 +87,11 @@ const MINTED = new Map([
   ['proclus-elements-of-theology-taylor-1816@1.0.0', '10.5281/zenodo.23148818'],
   ['porphyry-on-the-cave-of-the-nymphs-taylor-1917@1.0.0', '10.5281/zenodo.23148820'],
   ['proclus-theology-of-plato-taylor-1816@1.0.0', '10.5281/zenodo.23175744'],
+  /* MINTED 2026-10-07: a NEW VERSION of the same record (23199740 under the
+   * concept record 23175743, versions.index 2), so the concept DOI keeps
+   * resolving and the new state gets its own — 1.0.0 is untouched and still
+   * resolves at its own DOI. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.1', '10.5281/zenodo.23199740'],
 ]);
 
 section('every version is a frozen directory, served at its own URL');
