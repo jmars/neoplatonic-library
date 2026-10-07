@@ -12,8 +12,9 @@
  *     divisions taken from `data/editions/<slug>/divisions.json`. FAILS IF the
  *     model is missing, stale, or does not open exactly 1…N in document order.
  *
- *  2. THE DIVISIONS ARE THE STRUCTURE. 223 chapters in 7 books; every section
- *     carries its book and chapter and label; every anchor `s1`…`s223` exists
+ *  2. THE DIVISIONS ARE THE STRUCTURE. 217 divisions in 7 books (the witness's
+ *     contents lists name 223); every section carries its book and chapter and
+ *     label; every anchor `s1`…`s215` plus the recovered `s69a`/`s196a` exists
  *     once; the books' chapter counts are the print's own, and the witness's
  *     agreement is recorded per book. FAILS IF a division lost its book, if an
  *     anchor repeats, or if a book's count silently stops matching the witness.
@@ -85,12 +86,16 @@ const DIST = join(ROOT, 'site', 'dist');
 const SLUG = 'proclus-theology-of-plato-taylor-1816';
 /* THE COUNT IS THE MODEL'S OWN, not the witness's contents lists' 223. MEASURED:
  * the print's OWN numbering slips — its Book III runs `CHAPTER III.` then
- * `CHAPTER IX.` with no heading between (verified on the leaf images: pages 166
- * and 168 carry none, and page 167's content, which the second transcription
- * carries in full, carries none either), and its vol. I ends at Book V ch. XXXIX.
- * So the body's chapters are 215 and the witness's contents lists (which number
- * Book III 1…28) over-count. The probe expects what the scans support. */
-const EXPECTED = { divisions: 215, books: 7 };
+ * `CHAPTER IX.` with no heading between (verified blind on the leaf images by
+ * both non-echoing readers: pages 166, 167 and 168 carry no chapter heading,
+ * only running heads), and its vol. I ends at Book V ch. XXXIX (Taylor's own
+ * contents footnote: "chapter forty is wanting"). So the witness's contents
+ * lists (which number Book III 1…28 and Book V 1…40) over-count those two
+ * books, and the model's 215 was two short of the print's own 217: Book IV
+ * chapter VI and Book VII chapter XXXII are printed and were recovered in 1.0.3
+ * from blind two-reader scan evidence (anchors s69a and s196a). The probe
+ * expects what the scans support. */
+const EXPECTED = { divisions: 217, books: 7 };
 
 /* The published editions' served files, hashed BEFORE this unit's change (the
  * build of 2026-10-05 that the previous unit left green). They are the control:
@@ -151,8 +156,8 @@ section('2. every division carries its book, chapter, label and anchor');
 const secs = doc.blocks.filter((b) => b.t === 'sec');
 check(secs.length === EXPECTED.divisions, `${secs.length} section block(s) in the document`);
 check(
-  secs.every((b, i) => b.n === i + 1 && b.id === `s${i + 1}`),
-  'the sections run 1…N in document order, each with its own anchor',
+  secs.every((b, i) => b.n === i + 1),
+  'the sections run 1…N in document order (the ordinal is the walk position, never the served id)',
 );
 check(new Set(secs.map((b) => b.id)).size === secs.length, 'no anchor is claimed twice');
 check(
@@ -216,8 +221,8 @@ const bodyInner = shell.slice(shell.indexOf('<body>') + 6, shell.lastIndexOf('</
 const docText = serialiseDoc(doc);
 
 /** Boot the page the way a browser does: parse it, run its scripts in order. */
-async function boot(docJson) {
-  const w = new Window({ url: `http://localhost/texts/${SLUG}/` });
+async function boot(docJson, hash = '') {
+  const w = new Window({ url: `http://localhost/texts/${SLUG}/${hash}` });
   const names = [
     'window', 'document', 'navigator', 'location', 'history', 'customElements', 'performance',
     'requestAnimationFrame', 'cancelAnimationFrame', 'localStorage', 'sessionStorage',
@@ -263,19 +268,63 @@ check(!!app && app.innerHTML.length > 1000, 'the app boots on the extracted docu
 const toc = app && app.querySelector('.rd-toc');
 check(!!toc, 'the contents list is rendered');
 /* The contents list also links the section headings back to the top of the list,
- * so only the DIVISION links are counted: each is `#s<n>`. */
-const links = toc ? [...toc.querySelectorAll('a')].filter((a) => /^#s\d+$/.test(a.getAttribute('href') || '')) : [];
+ * so only the DIVISION links are counted: each is `#s<n>` — or, for a division
+ * recovered between two recorded ones, `#s<n><letter>` (s69a, s196a in 1.0.3:
+ * the anchor of the division it follows plus a letter, so no existing anchor
+ * moves). */
+const links = toc ? [...toc.querySelectorAll('a')].filter((a) => /^#s\d+[a-z]?$/.test(a.getAttribute('href') || '')) : [];
 check(links.length === EXPECTED.divisions, `one contents entry per division (${links.length})`);
 const hrefs = new Set(links.map((a) => (a.getAttribute('href') || '').replace(/^#/, '')));
 check(hrefs.size === EXPECTED.divisions, 'every contents entry points at its own anchor');
 check(
   secs.every((b) => w.document.getElementById(b.id) != null),
-  'every division the document anchors is an element the app rendered (s1…s215 resolve)',
+  'every division the document anchors is an element the app rendered (s1…s215 plus s69a, s196a resolve)',
 );
 check(
   w.document.getElementById('s215') != null && w.document.getElementById('s150') != null,
   'including a division deep in Book VI and the last division of the work',
 );
+/* THE CITATION SHOWS THE PRINT'S BOOK/CHAPTER (the 1.0.3 decision, asserted on
+ * the recovered division itself). A passage inside the recovered Book IV,
+ * Chapter VI cites the print's own structure, served on the contents entry —
+ * not the walk's ordinal (70, which the insert shifted for the sections after
+ * it) and not the anchor's numeric prefix (s69a parses to none, so the old
+ * anchor-number clause would have dropped the division from the citation
+ * entirely). The same holds one section later: the print's chapter VII, not
+ * the shifted ordinal 71 nor the anchor number 70. The shell's edition line is
+ * the stand-in shell's; the clause and the page are this edition's. */
+const settle = async () => {
+  for (let i = 0; i < 8; i += 1) await new Promise((r) => setTimeout(r, 12));
+};
+const citeAt = async (hash) => {
+  const ctx = await boot(docText, hash);
+  const btn = [...ctx.document.querySelectorAll('#reader-app .rd-bar-right button')].find(
+    (b) => b.textContent.trim() === 'cite',
+  );
+  if (btn) btn.click();
+  await settle();
+  const pline = ctx.document.querySelector('#reader-app [data-cite="passage"]');
+  return pline ? pline.textContent.replace(/\s+/g, ' ').trim() : '';
+};
+{
+  const got = await citeAt('#s69a-1');
+  /* the page clause is NOT asserted: this edition's folios are mangled (4 of
+   * 652 page markers carry a readable number), so the app's marker-based page
+   * clause is the pre-existing behaviour — the recorded printed page rides on
+   * the SECTION (s69a carries p. 236), not on the paragraph markers. The
+   * decision under test is the division clause. */
+  check(
+    /Book IV, Chapter VI/.test(got) && !/§/.test(got),
+    `a passage in the recovered chapter VI cites the print's own structure, not the ordinal or the anchor prefix (${JSON.stringify(got)})`,
+  );
+}
+{
+  const got = await citeAt('#s70-1');
+  check(
+    /Book IV, Chapter VII/.test(got) && !/§/.test(got),
+    `a passage after the insert cites the print's chapter (VII), not the shifted ordinal (${JSON.stringify(got)})`,
+  );
+}
 
 /* ---------- 4. the published editions do not move ---------- */
 
@@ -691,17 +740,22 @@ check(
   `the whole class is 2,960 line(s) (found ${Object.values(sourceClass).reduce((a, b) => a + b, 0)})`,
 );
 check(clause.front === 225, `the carve-out spares the 225 front-matter contents entries (found ${clause.front})`);
-/* MEASURED over the corrected model (version 1.0.2): the spared SET is the
- * same 215 display headings, but one line's clause moved — the CHAPTER I.
- * display heading at flat 13531 now stands immediately above division 103's
- * own line (the division moved from flat 13551 to 13532), so the aboveDiv
- * clause spares it where noRectoHead spared it before. aboveDiv 35 -> 36,
- * noRectoHead 2 -> 1; the other three clauses are unchanged. */
+/* MEASURED over the recovered model (version 1.0.3): the spared SET is still
+ * the same 215 display headings — the two recovered divisions add no heading,
+ * the CHAPTER VI. and CHAPTER XXXII. display headings were already printed and
+ * already spared — but one line's clause moved. The CHAPTER VI. display
+ * heading (flat 11004, a verso page with no prose and no recto head above it)
+ * stood under noRectoHead before the recovery, because the next division below
+ * it was 36 flats away; the recovered division s69a opens at flat 11005, one
+ * line under the heading, so the aboveDiv clause spares it now. aboveDiv
+ * 36 -> 37, noRectoHead 1 -> 0; the other three clauses are unchanged, and the
+ * CHAPTER XXXII. heading stays afterProse (the page 213 opening prose stands
+ * above it, and proseAbove is read before distBelow). */
 check(
   clause.afterProse === 155 &&
     clause.secondChap === 22 &&
-    clause.aboveDiv === 36 &&
-    clause.noRectoHead === 1 &&
+    clause.aboveDiv === 37 &&
+    clause.noRectoHead === 0 &&
     clause.nearDivAbove === 1,
   `the 215 display headings are spared by the measured clauses — afterProse ${clause.afterProse}, secondChap ${clause.secondChap}, aboveDiv ${clause.aboveDiv}, noRectoHead ${clause.noRectoHead}, nearDivAbove ${clause.nearDivAbove}`,
 );
@@ -751,8 +805,8 @@ for (const cls of Object.keys(SOURCE)) {
 const shapeTally = {};
 for (const b of doc.blocks) shapeTally[b.t] = (shapeTally[b.t] || 0) + 1;
 check(
-  shapeTally.p === 3193 && shapeTally.rh === 2695 && shapeTally.sec === 215 && shapeTally.verse === 9,
-  `the document's shape: 3,193 p, 2,695 rh, 215 sections, 9 verse (found ${shapeTally.p}/${shapeTally.rh}/${shapeTally.sec}/${shapeTally.verse})`,
+  shapeTally.p === 3193 && shapeTally.rh === 2695 && shapeTally.sec === 217 && shapeTally.verse === 9,
+  `the document's shape: 3,193 p, 2,695 rh, 217 sections, 9 verse (found ${shapeTally.p}/${shapeTally.rh}/${shapeTally.sec}/${shapeTally.verse})`,
 );
 const readingText = doc.blocks
   .filter((b) => b.t !== 'rh' && typeof b.x === 'string')
@@ -811,14 +865,22 @@ for (const control of [
     );
   }
 }
-/* The anchors did not move: the pinned manifest is this document's anchor list. */
+/* The anchors did not move: the pinned manifest is this document's anchor list.
+ * The manifest is resolved the way build.mjs pinAnchors resolves it — the
+ * current version's OWN per-version manifest when it exists (a 1.0.3 bump
+ * gives the new state its own pin: the recovered divisions add s69a and s196a
+ * to the sections list, so the current document's manifest is NOT the
+ * primary's), the primary otherwise. */
 {
   const lists = anchorLists(doc);
   const hash = anchorHash(lists);
-  const pinned = JSON.parse(readFileSync(join(ANCHOR_DIR, `${SLUG}.json`), 'utf8'));
+  const current = editionRecord(SLUG).current_version;
+  const perVersion = join(ANCHOR_DIR, `${SLUG}@${current}.json`);
+  const pinFile = existsSync(perVersion) ? perVersion : join(ANCHOR_DIR, `${SLUG}.json`);
+  const pinned = JSON.parse(readFileSync(pinFile, 'utf8'));
   check(
     pinned.hash === hash && JSON.stringify(pinned.sections) === JSON.stringify(lists.sections),
-    `the pinned anchor manifest still matches (${lists.sections.length} sections, ${lists.pages.length} pages, hash ${hash.slice(0, 12)}…)`,
+    `the pinned anchor manifest still matches (${lists.sections.length} sections, ${lists.pages.length} pages, hash ${hash.slice(0, 12)}…, pinned at ${pinFile.replace(`${ROOT}/`, '')})`,
   );
 }
 

@@ -83,6 +83,10 @@ const WITHDRAWN = new Map([
    * not the text), so its rule list carries the same six spent ids as gaps —
    * the withdrawal record travels with the rules it was spent against. */
   ['proclus-theology-of-plato-taylor-1816@1.0.2', [11680, 11681, 11682, 11683, 11684, 11686]],
+  /* 1.0.3 carries 1.0.2's rules UNCHANGED (the bump recovers two printed
+   * chapters in the section model; not one rule changes), so its rule list
+   * carries the same six spent ids as gaps. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.3', [11680, 11681, 11682, 11683, 11684, 11686]],
 ]);
 
 let failures = 0;
