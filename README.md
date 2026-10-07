@@ -59,7 +59,8 @@ node build/build.mjs        # → site/dist/
 The build needs only Node — no pandoc, no framework. Verify with the probes in
 `tools/` (`apparatus-probe`, `route-probe`, `search-probe`, `scan-probe`,
 `leak-probe`, `exports-probe`, `version-probe`, `repair-id-probe`,
-`standalone-probe`, `library-smoke`, `library-extract-smoke`, `library-app-smoke`).
+`standalone-probe`, `heads-probe`, `library-smoke`, `library-extract-smoke`,
+`library-app-smoke`).
 
 ## Adding a text
 

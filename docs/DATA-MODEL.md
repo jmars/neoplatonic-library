@@ -313,16 +313,52 @@ RESTART at I in every book, and the scan wrote the numerals as `CHAP. au.`,
 - `heads.json` — **WHAT THE PAGES SAY.** One reading per stored leaf, taken by the
   vision model from the page image (`tools/vision-heads.mjs`): the running head
   verbatim, any chapter/book heading printed in the body verbatim, and the printed
-  page number where one is printed. It is a plain cache — a leaf already read is
-  never re-asked — and it is the primary evidence, because the model can SEE the
-  numeral the scan's OCR destroyed.
+  page number where one is printed. The prompt is BLIND — it names no expected
+  page, chapter, or book, because a reader fed the answer it is checking will echo
+  it — and it is the primary evidence, because the model can SEE the numeral the
+  scan's OCR destroyed. It is a resumable cache — a leaf already read is never
+  re-asked — **and it is pinned to the image set it was read against**: the file
+  records an `imageSet` identity (a sha256 over the stored scans' `name:byteSize`
+  lines, sorted), the prompt `id`/`sha256` its readings were taken under, and the
+  run's bounds; the tool REFUSES (exit 3, naming both identities) to reuse or
+  append to a cache whose recorded identity does not match the scans on disk, or
+  that records no identity at all, and `--supersede <path outside the repo>`
+  retires such a cache and starts fresh. The refusal is the point: the edition was
+  re-sourced once (2026-10-05/06) and its leaf set changed, and a resumable cache
+  would otherwise have kept every reading whose leaf NAME still collided while all
+  423 of those images had different bytes. `tools/heads-probe.mjs` asserts the
+  committed file against the scans on disk (identity + exact leaf-set equality)
+  so a stale cache fails a gate instead of riding a deposit.
 
 ```jsonc
-{ "slug": "…", "model": "deepseek-v4-flash-vision-exp", "leaves": {
-  "v1-n100.jpg": { "page": "97", "head": "CHAP. X.  OF PLATO.",
-                   "heading": "CHAPTER X.", "raw": "{…}", "bytes": 538813,
-                   "at": "2026-10-05T…", "model": "…" } } }
+{ "slug": "…", "model": "google/gemini-2.5-flash",
+  "imageSet": { "digest": "sha256:04811d53…", "leaves": 800 },
+  "prompt":   { "id": "heads-blind-v1", "sha256": "sha256:…" },
+  "reader":   "single vision pass by the model below; readings are per-leaf evidence, not corroborated",
+  "takenAt": "2026-10-07T…", "finishedAt": "2026-10-07T…",
+  "leaves": {
+  "v1-n100.jpg": { "page": "25", "head": "…", "heading": "…", "raw": "{…}",
+                   "bytes": 538813, "at": "2026-10-07T…", "model": "google/gemini-2.5-flash" } } }
 ```
+
+> **CORRECTION (2026-10-07; supersedes the readings described above it on one
+> point).** Every published deposit of this edition — 1.0.0, 1.0.1, 1.0.2 and
+> 1.0.3 — carries a STALE `heads.json`, and the Zenodo records are immutable, so
+> that copy cannot be corrected in place. It was read 2026-10-05 by
+> `deepseek-v4-flash-vision-exp` against the PRE-re-source image set, and it is
+> wrong three ways MEASURED against the scans the edition now holds: 299 of its
+> 722 leaf keys are no longer on disk; 377 of the 800 stored scans have no
+> reading; and all 423 keys that still collide were read from different image
+> bytes (377 of its vol.-I readings imply a leaf→page offset of 73 where the
+> edition's `scan.json` measures 75 — its `v1-n242` entry in fact describes
+> `v1-n244`). Its reader is also disqualified: the library later MEASURED
+> `deepseek-v4-flash-vision-exp` returning EMPTY on many of these very pages. The
+> divisions DO NOT inherit the defect — `divisions.json` was derived from fresh
+> blind two-reader leaf reads, and its recorded divisions stand. The file was
+> regenerated from empty against the current scans (identity-pinned, probe-
+> asserted) and the old copy is preserved OUTSIDE the repository at
+> `/var/tmp/heads-regen/heads.stale-2026-10-05.json`. Do not trust a `heads.json`
+> in a published deposit for anything but history.
 
 - `divisions.json` — **WHERE THEY STAND IN THE TEXT.** One entry per division,
   derived by `tools/divisions.mjs` from `heads.json`, the item's own `_djvu.xml`

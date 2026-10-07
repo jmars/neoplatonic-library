@@ -22,8 +22,25 @@
  * model's answer verbatim, so a parser bug can be re-run against the readings
  * without another vision pass.
  *
+ * THE STALENESS GUARD. The file records an `imageSet` identity — a sha256 over
+ * the stored scans' `name:byteSize` lines, sorted — and the tool REFUSES (exit 3,
+ * naming both identities) to reuse or append to a cache whose recorded identity
+ * does not match the scans on disk, or that records no identity at all (a cache
+ * from before the guard cannot prove which image set it was read against). The
+ * edition was re-sourced once (2026-10-05/06) and its leaf set changed; a
+ * resumable cache would have kept the readings whose leaf NAMES still collided
+ * while every one of those images had different bytes — 423 of 423 colliding
+ * readings in the superseded copy did. `--supersede <path>` retires a refused
+ * cache by MOVING it to `<path>` (outside the repo — a copy left beside the
+ * edition would ride the next deposit) and starting fresh; anything else, move
+ * the file yourself and re-run.
+ *
  * USAGE
  *   node tools/vision-heads.mjs <slug> [--limit N] [--concurrency N]
+ *                                   [--out <path>] [--supersede <path>]
+ *
+ * `--out` writes a cache elsewhere than `heads.json` (a second reader's
+ * cross-check sample must not clobber the primary cache).
  *
  * The endpoint and the model come from LIBRARY_HEADS_URL / LIBRARY_HEADS_MODEL. The
  * DEFAULT is the DeepInfra VL proxy (10.0.0.1:8322), whose models read this print's
@@ -33,8 +50,9 @@
  * there. No key is sent — the proxy injects it. See the `vision` skill. Everything
  * sent is treated as leaving the machine.
  */
-import { readFileSync, writeFileSync, renameSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname, extname } from 'node:path';
+import { readFileSync, writeFileSync, renameSync, existsSync, readdirSync, statSync, copyFileSync, unlinkSync } from 'node:fs';
+import { join, dirname, extname, resolve } from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -63,32 +81,116 @@ const PROMPT =
   '  "page": the printed page number if one is printed, as a string, or "" if none.\n' +
   'Answer with the JSON object only, no prose.';
 
+const PROMPT_ID = 'heads-blind-v1';
+/* The prompt is BLIND by construction: it names no expected page, chapter, or
+ * book — an LLM fed the answer it is checking will echo it (MEASURED across this
+ * library's reader trials; verbatim-echo rates ran 3.6%–87.4% by model). The id
+ * and the hash below pin the exact text a cache's readings were taken under. */
+
 const argv = process.argv.slice(2);
 const slug = argv.find((a) => !a.startsWith('--'));
 const opt = (name, dflt) => {
   const i = argv.indexOf(`--${name}`);
   return i >= 0 && argv[i + 1] ? Number(argv[i + 1]) : dflt;
 };
+const strOpt = (name) => {
+  const i = argv.indexOf(`--${name}`);
+  return i >= 0 && argv[i + 1] ? argv[i + 1] : null;
+};
 if (!slug) {
-  console.error('usage: node tools/vision-heads.mjs <slug> [--limit N] [--concurrency N]');
+  console.error('usage: node tools/vision-heads.mjs <slug> [--limit N] [--concurrency N] [--out <path>] [--supersede <path>]');
   process.exit(2);
 }
 const limit = opt('limit', Infinity);
 const concurrency = opt('concurrency', 6);
+const supersedeTo = strOpt('supersede');
 
 const editionDir = join(ROOT, 'data', 'editions', slug);
 const scanDir = join(editionDir, 'scans');
-const outPath = join(editionDir, 'heads.json');
+const outPath = strOpt('out') ? resolve(strOpt('out')) : join(editionDir, 'heads.json');
 if (!existsSync(scanDir)) throw new Error(`no scans for ${slug} at ${scanDir}`);
 
-const leaves = readdirSync(scanDir)
+/* The image-set identity, over the scans that EXIST on disk now — every one of
+ * them, not just the `--limit` slice this run asks: a cache appended under a
+ * limit must still be pinned to the whole set the edition holds. */
+const allScans = readdirSync(scanDir)
   .filter((f) => /\.(?:jpe?g|png|webp)$/i.test(f))
-  .sort()
-  .slice(0, limit);
+  .sort();
+const imageSet = {
+  digest:
+    'sha256:' +
+    createHash('sha256')
+      .update(allScans.map((f) => `${f}:${statSync(join(scanDir, f)).size}`).join('\n'))
+      .digest('hex'),
+  leaves: allScans.length,
+};
+
+const leaves = allScans.slice(0, limit);
 
 /** The cache, read once and rewritten (atomically) after every leaf. A leaf in
- * here is never asked again — that is the whole point of the file. */
-const cache = existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : { slug, model: MODEL, leaves: {} };
+ * here is never asked again — that is the whole point of the file. THE REFUSAL
+ * is what keeps that resumability honest: a cache that cannot prove it was read
+ * against the scans now on disk is never appended to, because appending would
+ * mix one image set with another under colliding leaf names. */
+function refuse(why) {
+  console.error(`REFUSED: ${outPath}: ${why}`);
+  console.error(`  scans on disk : ${imageSet.digest} (${imageSet.leaves} leaves)`);
+  process.exit(3);
+}
+const moveAside = (from, to) => {
+  const dest = resolve(to);
+  const repo = resolve(ROOT);
+  if (dest.startsWith(repo)) {
+    console.error(`REFUSED: --supersede ${to}: the superseded copy must move OUTSIDE the repo (${repo}), not beside the edition`);
+    process.exit(2);
+  }
+  try {
+    renameSync(from, dest);
+  } catch {
+    /* cross-device: /var/tmp is usually another filesystem from the repo */
+    copyFileSync(from, dest);
+    unlinkSync(from);
+  }
+};
+let cache;
+if (existsSync(outPath)) {
+  const prior = JSON.parse(readFileSync(outPath, 'utf8'));
+  if (!prior.imageSet || !prior.imageSet.digest) {
+    if (supersedeTo) {
+      moveAside(outPath, supersedeTo);
+      console.log(`superseded (recorded no image-set identity) -> ${resolve(supersedeTo)}`);
+      cache = null;
+    } else {
+      refuse('it records NO image-set identity — it cannot prove which scans its readings were taken against (taken before the guard?)');
+    }
+  } else if (prior.imageSet.digest !== imageSet.digest) {
+    if (supersedeTo) {
+      moveAside(outPath, supersedeTo);
+      console.log(`superseded (recorded identity does not match the scans on disk) -> ${resolve(supersedeTo)}`);
+      cache = null;
+    } else {
+      console.error(`REFUSED: ${outPath}: its recorded image set does not match the scans on disk — appending would mix two image sets under colliding leaf names`);
+      console.error(`  recorded      : ${prior.imageSet.digest} (${prior.imageSet.leaves} leaves)`);
+      console.error(`  scans on disk : ${imageSet.digest} (${imageSet.leaves} leaves)`);
+      console.error('  the edition was probably re-sourced. Retire the cache with --supersede <path outside the repo> and re-run.');
+      process.exit(3);
+    }
+  } else {
+    cache = prior;
+  }
+}
+if (!cache) cache = {
+  slug,
+  model: MODEL,
+  imageSet,
+  prompt: { id: PROMPT_ID, sha256: 'sha256:' + createHash('sha256').update(PROMPT).digest('hex') },
+  // ONE INSTRUMENT, said plainly: every reading in a run is one model's single
+  // pass. A second reader's agreement is a SAMPLE, never corroboration of the
+  // whole; the file names the reader so no single pass can pose as one.
+  reader: 'single vision pass by the model below; readings are per-leaf evidence, not corroborated',
+  takenAt: new Date().toISOString(),
+  leaves: {},
+};
 if (!cache.leaves) cache.leaves = {};
 
 const write = () => {
@@ -186,6 +288,7 @@ console.log(
 let done = 0;
 let failed = 0;
 let next = 0;
+const failures = [];
 async function worker() {
   while (next < todo.length) {
     const leaf = todo[next++];
@@ -194,6 +297,7 @@ async function worker() {
     if (rec.error) {
       failed++;
       console.log(`${leaf} FAILED: ${rec.error}`);
+      failures.push({ leaf, error: rec.error });
     } else {
       cache.leaves[leaf] = rec;
       write();
@@ -205,5 +309,17 @@ async function worker() {
   }
 }
 await Promise.all(Array.from({ length: Math.min(concurrency, todo.length) }, worker));
+if (done - failed > 0) {
+  /* This run added readings: the file's `model` names the reader of THIS pass
+   * (each record still carries its own), and `finishedAt` bounds the run. */
+  cache.model = MODEL;
+  cache.finishedAt = new Date().toISOString();
+  if (failures.length) cache.unread = failures.map((f) => f.leaf);
+  else delete cache.unread;
+}
 write();
 console.log(`${slug}: ${done - failed} read, ${failed} failed; cache at ${outPath}`);
+if (failures.length) {
+  console.log(`UNREAD (${failures.length}): ${failures.map((f) => f.leaf).join(', ')}`);
+  process.exit(1);
+}
