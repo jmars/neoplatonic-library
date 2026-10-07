@@ -122,6 +122,14 @@ const MINTED = new Map([
    * and this gate asked the table for its own record. It is the latent defect the
    * bump surfaced, not a defect the bump introduced. */
   ['proclus-theology-of-plato-taylor-1816@1.0.4', '10.5281/zenodo.23220511'],
+  /* MINTED 2026-10-07 as a NEW VERSION of the same record (23221444 under the
+   * concept record 23175743, versions.index 6). 1.0.5 serves the SAME TRANSCRIPTION
+   * and the SAME SECTION MODEL as 1.0.4 and CORRECTS ITS RULES: the fourteen whose
+   * target the human-proofread witness does not read (twelve withdrawn, three
+   * corrected under new ids) and the clearing basis, which is now one test for
+   * every placement. 1.0.0-1.0.4 are untouched and still resolve at their own
+   * DOIs. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.5', '10.5281/zenodo.23221444'],
 ]);
 
 section('every version is a frozen directory, served at its own URL');
