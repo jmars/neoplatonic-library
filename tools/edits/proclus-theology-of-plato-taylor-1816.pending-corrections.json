@@ -1,0 +1,3826 @@
+{
+ "slug": "proclus-theology-of-plato-taylor-1816",
+ "what_this_is": "H4 — THE PENDING ADJUDICATION of the vol. II rules the HathiTrust/second-scan work of this unit touched. HOLD BACK BY USER DECISION.",
+ "policy": "HELD BACK FROM A VERSION BUMP BY USER DECISION (2026-10-08). No versions/1.0.13 was created, edition.json current_version and doi were not touched, nothing was minted, and repairs.json is UNTOUCHED — the served edition does not move. Corrections accumulate and are applied in ONE version bump plus DOI at the repair milestone.",
+ "measured": {
+  "targets_worked": 40,
+  "target_definition": "every vol. II rule whose reading is Greek (type transliteration), still review-flagged, resting on exactly ONE instrument (all 40 rest on google/gemini-2.5-flash)",
+  "verdict_counts": {
+   "confirmed": 0,
+   "contradicted": 0,
+   "undecidable": 40
+  },
+  "readings_taken": 138,
+  "pages_fetched_from_hathitrust": 3,
+  "corrections_proposed": 0,
+  "hathitrust_pages": [
+   {
+    "printed_page": 18,
+    "seq": 30
+   },
+   {
+    "printed_page": 82,
+    "seq": 92
+   },
+   {
+    "printed_page": 227,
+    "seq": 237
+   }
+  ],
+  "why_nothing_is_resolved": "Three draws of ONE reader on ONE image (the second scan's native band of printed p.227, whose print sets \"ορουω and θειω\"), same prompt, disagreed with each other — \"ὀρούας θείας\" / \"σπουδην και θεσιν\" / \"ὀρούας θείων\" — at confidence \"high\" every time, and not one matched the print, which a different prompt on the same image had returned exactly. A single draw is therefore not a reading here, and this library's rule (two instruments must agree where a reading is at stake; a tie or a single reader licenses nothing) earns no verdict. Separately, the HathiTrust render is too coarse for the class: on printed pp. 82 and 227 BOTH readers recovered ZERO Greek from its crops.",
+  "gates": "node tools/gates.mjs -> 23/23 passed by exit code, surface acknowledged (run after this change)"
+ },
+ "readers_called": [
+  "Qwen/Qwen3-VL-235B-A22B-Instruct",
+  "google/gemini-2.5-flash"
+ ],
+ "reader_dropped_and_why": "anthropic/claude-haiku-4-5, this library's second measured non-echoing reader, was NOT used: on the second scan's own p.227 it said the image was too poor and described a non-existent repeating Greek watermark, and tools/repair-id-probe.mjs already records it fabricating a reading on leaf n22.",
+ "fuller_record": "tools/edits/proclus-theology-of-plato-taylor-1816.second-scan-vol2.json — the route, the map, the crop and its three-page proof, the measured resolution, the two routes compared head to head, and the terms-of-service rule",
+ "provenance_rule": "NO THIRD-PARTY PAGE IMAGE IS HELD IN THIS REPOSITORY. What is held is the READINGS (text) with their provenance — the item, the leaf, the printed page, the crop, the reader, the date — exactly as this edition holds the Project Gutenberg volumes as witness TEXT.",
+ "date": "2026-10-08",
+ "targets": [
+  {
+   "rule_id": "r11695",
+   "rule_after": "καὶ τὴς ἀπειρία* ἤτοι φάσεως ἢ ἀποφάσεως, οὐκ ἔστιν εἰ μὴ ὅταν μῖξιν ἔλαβε τὴγ ἀπὸ ἀμφοῖν τὼγ",
+   "rule_before": "xcn t^s ** ijxfj $c$i)A^Kfv, cijAi 8* ryo> /tAtcnj rc ftwit citouta fwnj r’ aftigan rcov",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 195,
+    "printed_page": 185,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 186,
+    "printed_page": 185
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 186,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 186,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 186,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 186,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11699",
+   "rule_after": "ὡς τῇ δῆλον ἐκ θεογονίας. For ἀλλὰ ὁ Φιλκυς, therefore, I read ἀλλὰ ὁ Ὠκεανός·",
+   "rule_before": "u>$ wri SijXov ex 6eoyovia$. For aXXa o fogxu$, therefore, I read aXXa o Jlxeavp$\\",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 215,
+    "printed_page": 205,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 203,
+    "printed_page": 205
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection",
+       "greek": "και τοι γε οτι ο"
+      },
+      {
+       "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+       "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+      },
+      {
+       "english": "τον ουρανιον ολυμπον, κρατει βροντηλεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την",
+       "greek": "τον ουρανιον ολυμπον, κρατει βροντηλεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+      },
+      {
+       "english": "μεσην· ναινι γαρ αυτον εν τοις θεοποιοις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,",
+       "greek": "μεσην· ναινι γαρ αυτον εν τοις θεοποιοις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,"
+      },
+      {
+       "english": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.",
+       "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον."
+      },
+      {
+       "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+       "greek": "μετ'αυτου"
+      },
+      {
+       "english": "For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντφ.",
+       "greek": "Θαυμαντα, Θαυμαντος; ποντον, ποντφ."
+      },
+      {
+       "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιος αλλα ο",
+       "greek": "ου γαρ εστιν ο φορνυς ουρανιος αλλα ο"
+      },
+      {
+       "english": "φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+       "greek": "φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection\",\n      \"greek\": \"και τοι γε οτι ο\"\n    },\n    {\n      \"english\": \"of the Orphic remains, I shall give the original for the sake of the learned reader.\",\n      \"greek\": \"κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν\"\n    },\n    {\n      \"english\": \"τον ουρανιον ολυμπον, κρατει βροντηλεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\",\n      \"greek\": \"τον ουρανιον ολυμπον, κρατει βροντηλεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\"\n    },\n    {\n      \"english\": \"μεσην· ναινι γαρ αυτον εν τοις θεοποιοις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,\",\n      \"greek\": \"μεσην· ναινι γαρ αυτον εν τοις θεοποιοις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,\"\n    },\n    {\n      \"english\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.\",\n      \"greek\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.\"\n    },\n    {\n      \"english\": \"For μετ'αυτου, it is necessary to read μετ'αυτης.\",\n      \"greek\": \"μετ'αυτου\"\n    },\n    {\n      \"english\": \"For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντφ.\",\n      \"greek\": \"Θαυμαντα, Θαυμαντος; ποντον, ποντφ.\"\n    },\n    {\n      \"english\": \"The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιος αλλα ο\",\n      \"greek\": \"ου γαρ εστιν ο φορνυς ουρανιος αλλα ο\"\n    },\n    {\n      \"english\": \"φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,\",\n      \"greek\": \"φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "of the Orphic remains, I shall give the original for the sake of the learned reader. και του για στι ο",
+       "greek": "και του για στι ο"
+      },
+      {
+       "english": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν",
+       "greek": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν"
+      },
+      {
+       "english": "τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την",
+       "greek": "τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την"
+      },
+      {
+       "english": "μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον έχει περίσπειν ουρανον,",
+       "greek": "μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον εχει περίσπειν ουρανον,"
+      },
+      {
+       "english": "αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και έχει τεταγμένον.",
+       "greek": "αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και εχει τεταγμένον."
+      },
+      {
+       "english": "* For μετ'αυτου, it is necessary to read μετ'αυτης.",
+       "greek": "μετ'αυτου, μετ'αυτης."
+      },
+      {
+       "english": "• For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντῳ.",
+       "greek": "Θαυμαντα, θαυμαντος; ποντον, ποντῳ."
+      },
+      {
+       "english": "* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο",
+       "greek": "ου γαρ έστιν ο φορους ουρανίδης αλλα ο"
+      },
+      {
+       "english": "φορούς, ως εστι δήλον εκ της θεογονίας. For άλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,",
+       "greek": "φορούς, ως εστι δήλον εκ της θεογονίας. αλλα ο φόρους, αλλα ο Ωκεανος;"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"of the Orphic remains, I shall give the original for the sake of the learned reader. και του για στι ο\",\n      \"greek\": \"και του για στι ο\"\n    },\n    {\n      \"english\": \"κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν\",\n      \"greek\": \"κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν\"\n    },\n    {\n      \"english\": \"τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την\",\n      \"greek\": \"τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την\"\n    },\n    {\n      \"english\": \"μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον έχει περίσπειν ουρανον,\",\n      \"greek\": \"μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον εχει περίσπειν ουρανον,\"\n    },\n    {\n      \"english\": \"αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και έχει τεταγμένον.\",\n      \"greek\": \"αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και εχει τεταγμένον.\"\n    },\n    {\n      \"english\": \"* For μετ'αυτου, it is necessary to read μετ'αυτης.\",\n      \"greek\": \"μετ'αυτου, μετ'αυτης.\"\n    },\n    {\n      \"english\": \"• For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντῳ.\",\n      \"greek\": \"Θαυμαντα, θαυμαντος; ποντον, ποντῳ.\"\n    },\n    {\n      \"english\": \"* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο\",\n      \"greek\": \"ου γαρ έστιν ο φορους ουρανίδης αλλα ο\"\n    },\n    {\n      \"english\": \"φορούς, ως εστι δήλον εκ της θεογονίας. For άλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,\",\n      \"greek\": \"φορούς, ως εστι δήλον εκ της θεογονίας. αλλα ο φόρους, αλλα ο Ωκεανος;\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11701",
+   "rule_after": "βουλῆς, I read ὑπερβολῆς. For the mundane Gods are in no part of the Timæ",
+   "rule_before": "mt* iSouXijf, I read>rr«/3oX>if. For die mundane Gods are in no part of the Tima",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 134,
+    "printed_page": 124,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 122,
+    "printed_page": 124
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 122,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 122,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For μετα βούλης, I read μεταβούλης. For the mundane Gods are in no part of the Timæus",
+       "greek": "μετα βούλης, μεταβούλης."
+      },
+      {
+       "english": "represented as consulting about the fabrication of things.",
+       "greek": ""
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For μετα βούλης, I read μεταβούλης. For the mundane Gods are in no part of the Timæus\",\n      \"greek\": \"μετα βούλης, μεταβούλης.\"\n    },\n    {\n      \"english\": \"represented as consulting about the fabrication of things.\",\n      \"greek\": \"\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 122,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 122,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "· ",
+       "greek": "μετα"
+      },
+      {
+       "english": " βουλῆς, 1 real μεταβολης. For the mundane Gods are in no part of the Timæus",
+       "greek": ""
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"· \",\n      \"greek\": \"μετα\"\n    },\n    {\n      \"english\": \" βουλῆς, 1 real μεταβολης. For the mundane Gods are in no part of the Timæus\",\n      \"greek\": \"\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11706",
+   "rule_after": "θαυμάζοντα, it is requisite to read θαυμαστὸν; and for ἐνομομον, ἔνονον",
+   "rule_before": "&av(jL*vra, it is requisite to read Oav/iavro$; and for wovrov, tvovtco",
+   "verdict": "contested (two readers agreed on a reading of the page, but it is not the rule's own printed line)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 215,
+    "printed_page": 205,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 203,
+    "printed_page": 205
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": "μεταυτουμεταυτης",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "similarity_to_rule_after": 0.286,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection",
+       "greek": "και τοι γε οτι ο"
+      },
+      {
+       "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+       "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+      },
+      {
+       "english": "τον ουρανιον ολυμπον, κρατει βρονταδεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την",
+       "greek": "τον ουρανιον ολυμπον, κρατει βρονταδεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+      },
+      {
+       "english": "μεσην· ναιον γαρ αυτον εν τοις θεατροις μειθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,",
+       "greek": "μεσην· ναιον γαρ αυτον εν τοις θεατροις μειθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,"
+      },
+      {
+       "english": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμενον.",
+       "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμενον."
+      },
+      {
+       "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+       "greek": "μετ'αυτου, μετ'αυτης."
+      },
+      {
+       "english": "For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντω.",
+       "greek": "Θαυμαντα, Θαυμαντος; ποντον, ποντω."
+      },
+      {
+       "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο",
+       "greek": "ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο"
+      },
+      {
+       "english": "φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+       "greek": "φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;"
+      }
+     ],
+     "confidence": "medium",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection\",\n      \"greek\": \"και τοι γε οτι ο\"\n    },\n    {\n      \"english\": \"of the Orphic remains, I shall give the original for the sake of the learned reader.\",\n      \"greek\": \"κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν\"\n    },\n    {\n      \"english\": \"τον ουρανιον ολυμπον, κρατει βρονταδεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\",\n      \"greek\": \"τον ουρανιον ολυμπον, κρατει βρονταδεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\"\n    },\n    {\n      \"english\": \"μεσην· ναιον γαρ αυτον εν τοις θεατροις μειθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,\",\n      \"greek\": \"μεσην· ναιον γαρ αυτον εν τοις θεατροις μειθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,\"\n    },\n    {\n      \"english\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμενον.\",\n      \"greek\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμενον.\"\n    },\n    {\n      \"english\": \"For μετ'αυτου, it is necessary to read μετ'αυτης.\",\n      \"greek\": \"μετ'αυτου, μετ'αυτης.\"\n    },\n    {\n      \"english\": \"For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντω.\",\n      \"greek\": \"Θαυμαντα, Θαυμαντος; ποντον, ποντω.\"\n    },\n    {\n      \"english\": \"The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο\",\n      \"greek\": \"ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο\"\n    },\n    {\n      \"english\": \"φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,\",\n      \"greek\": \"φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;\"\n    }\n  ],\n  \"confidence\": \"medium\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection",
+       "greek": "και τοι γε οτι ο"
+      },
+      {
+       "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+       "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+      },
+      {
+       "english": "τον ουρανιον ολυμπον, κρατει βρονταλετα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την",
+       "greek": "τον ουρανιον ολυμπον, κρατει βρονταλετα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+      },
+      {
+       "english": "μεσην· ναινιν γαρ αυτον εν τοις θεοποιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περιεπειν ουρανον,",
+       "greek": "μεσην· ναινιν γαρ αυτον εν τοις θεοποιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περιεπειν ουρανον,"
+      },
+      {
+       "english": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.",
+       "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον."
+      },
+      {
+       "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+       "greek": "μετ'αυτου, μετ'αυτης."
+      },
+      {
+       "english": "For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντη.",
+       "greek": "Θαυμαντα, Θαυμαντος; ποντον, ποντη."
+      },
+      {
+       "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο",
+       "greek": "ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο"
+      },
+      {
+       "english": "φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+       "greek": "φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection\",\n      \"greek\": \"και τοι γε οτι ο\"\n    },\n    {\n      \"english\": \"of the Orphic remains, I shall give the original for the sake of the learned reader.\",\n      \"greek\": \"κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν\"\n    },\n    {\n      \"english\": \"τον ουρανιον ολυμπον, κρατει βρονταλετα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\",\n      \"greek\": \"τον ουρανιον ολυμπον, κρατει βρονταλετα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\"\n    },\n    {\n      \"english\": \"μεσην· ναινιν γαρ αυτον εν τοις θεοποιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περιεπειν ουρανον,\",\n      \"greek\": \"μεσην· ναινιν γαρ αυτον εν τοις θεοποιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περιεπειν ουρανον,\"\n    },\n    {\n      \"english\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.\",\n      \"greek\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.\"\n    },\n    {\n      \"english\": \"For μετ'αυτου, it is necessary to read μετ'αυτης.\",\n      \"greek\": \"μετ'αυτου, μετ'αυτης.\"\n    },\n    {\n      \"english\": \"For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντη.\",\n      \"greek\": \"Θαυμαντα, Θαυμαντος; ποντον, ποντη.\"\n    },\n    {\n      \"english\": \"The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο\",\n      \"greek\": \"ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο\"\n    },\n    {\n      \"english\": \"φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,\",\n      \"greek\": \"φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "of the Orphic remains, I shall give the original for the sake of the learned reader. ",
+       "greek": "και του γαρ εστιν ο"
+      },
+      {
+       "english": "* ",
+       "greek": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρονον αυτον καταλαμβάνειν"
+      },
+      {
+       "english": "",
+       "greek": "τον ουράνιον ολύμπου, κάκει θρονισθεντα, βασίλευειν των τιτάνων τον δε ωκεανόν την ληξιν απάσαν την"
+      },
+      {
+       "english": "",
+       "greek": "μέσην ναιειν γαρ αυτον εν τοις θεσπέσιοις μείθροις τοις μετα τον ελόμπον, και τον εχει περισπειν ουρανον,"
+      },
+      {
+       "english": "",
+       "greek": "αλλά ου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπεσοντα του ολύμπου, και εχει τεταγμένον."
+      },
+      {
+       "english": "* For , it is necessary to read .",
+       "greek": null
+      },
+      {
+       "english": "* For , it is requisite to read ; and for , .",
+       "greek": null
+      },
+      {
+       "english": "* The original here is evidently erroneous; for it is, ου γαρ εστιν ο ουρανίδης αλλα ο",
+       "greek": "μετ’αυτου μετ’αυτης"
+      },
+      {
+       "english": "σερκύς, ως εστι δήλον εκ της θεογονίας. For αλλα o , therefore, I read αλλα ο ; Ocean,",
+       "greek": "Θαυμαντα Θαυμαντος ποντον ποντῳ"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"of the Orphic remains, I shall give the original for the sake of the learned reader. \",\n      \"greek\": \"και του γαρ εστιν ο\"\n    },\n    {\n      \"english\": \"* \",\n      \"greek\": \"κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρονον αυτον καταλαμβάνειν\"\n    },\n    {\n      \"english\": \"\",\n      \"greek\": \"τον ουράνιον ολύμπου, κάκει θρονισθεντα, βασίλευειν των τιτάνων τον δε ωκεανόν την ληξιν απάσαν την\"\n    },\n    {\n      \"english\": \"\",\n      \"greek\": \"μέσην ναιειν γαρ αυτον εν τοις θεσπέσιοις μείθροις τοις μετα τον ελόμπον, και τον εχει περισπειν ουρανον,\"\n    },\n    {\n      \"english\": \"\",\n      \"greek\": \"αλλά ου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπεσοντα του ολύμπου, και εχει τεταγμένον.\"\n    },\n    {\n      \"english\": \"* For , it is necessary to read .\"\n    },\n    {\n      \"english\": \"* For , it is requisite to read ; and for , .\"\n    },\n    {\n      \"english\": \"* The original here is evidently erroneous; for it is, ου γαρ εστιν ο ουρανίδης αλλα ο\",\n      \"greek\": \"μετ’αυτου μετ’αυτης\"\n    },\n    {\n      \"english\": \"σερκύς, ως εστι δήλον εκ της θεογονίας. For αλλα o , therefore, I read αλλα ο ; Ocean,\",\n      \"greek\": \"Θαυμαντα Θαυμαντος ποντον ποντῳ\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+       "greek": "και του γαρ εστι ο"
+      },
+      {
+       "english": "",
+       "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+      },
+      {
+       "english": "",
+       "greek": "τον ουρανιον ολυμπον, κακει θρονισθεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+      },
+      {
+       "english": "",
+       "greek": "μεσαην καιειν γαρ αυτον εν τοις θεσπεσιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περισπειν ουρανον,"
+      },
+      {
+       "english": "",
+       "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμένον."
+      },
+      {
+       "english": "Procl. in Tim. p. 296.",
+       "greek": ""
+      },
+      {
+       "english": "For, it is necessary to read.",
+       "greek": "μετ'αυτουμετ'αυτης"
+      },
+      {
+       "english": "For, it is requisite to read; and for.",
+       "greek": "Θαυμανταθαυμαντοςποντονποντῳ"
+      },
+      {
+       "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορκυς ουρανιδης αλλα ο φερκυς, ως εστι δηλον εκ της θεογονιας. For, therefore, I read ο Ωκεανος; Ocean, according to the Theogony of Hesiod, being the progeny of Heaven and Earth.",
+       "greek": "αλλα ο φορκυςαλλα"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"of the Orphic remains, I shall give the original for the sake of the learned reader.\",\n      \"greek\": \"και του γαρ εστι ο\"\n    },\n    {\n      \"english\": \"\",\n      \"greek\": \"κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν\"\n    },\n    {\n      \"english\": \"\",\n      \"greek\": \"τον ουρανιον ολυμπον, κακει θρονισθεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\"\n    },\n    {\n      \"english\": \"\",\n      \"greek\": \"μεσαην καιειν γαρ αυτον εν τοις θεσπεσιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περισπειν ουρανον,\"\n    },\n    {\n      \"english\": \"\",\n      \"greek\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμένον.\"\n    },\n    {\n      \"english\": \"Procl. in Tim. p. 296.\",\n      \"greek\": \"\"\n    },\n    {\n      \"english\": \"For, it is necessary to read.\",\n      \"greek\": \"μετ'αυτουμετ'αυτης\"\n    },\n    {\n      \"english\": \"For, it is requisite to read; and for.\",\n      \"greek\": \"Θαυμανταθαυμαντοςποντονποντῳ\"\n    },\n    {\n      \"english\": \"The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορκυς ουρανιδης αλλα ο φερκυς, ως εστι δηλον εκ της θεογονιας. For, therefore, I read ο Ωκεανος; Ocean, according to the Theogony of Hesiod, being the progeny of Heaven and Earth.\",\n      \"greek\": \"αλλα ο φορκυςαλλα\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11715",
+   "rule_after": "Νοητογ ἐστὶ τὸ μὲν πατρικὸν ἀφιέναι τὴγ πρόσχυσιν· ὃς ἔχει τήν τε τῶν ἑαυτοῦ ὄντων.",
+   "rule_before": "nfo yog rot uMa irgocXiow* ns <p xeu rip r«ftv «auri \\$ 9",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 195,
+    "printed_page": 185,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 186,
+    "printed_page": 185
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 186,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 186,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 186,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 186,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11717",
+   "rule_after": "4 For τοῖς παραγωγοῖς, it is necessary to read τοῖς παρόντοις",
+   "rule_before": "For Tot wagayoyra, it is necessary to read rot nctpovrou",
+   "verdict": "contested (two readers agreed on a reading of the page, but it is not the rule's own printed line)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 92,
+    "printed_page": 82,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 80,
+    "printed_page": 82
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": "τοδεμελλον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "similarity_to_rule_after": 0.216,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 80,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "In the original to be μελλον is omitted.",
+       "greek": "τὸ δὲ μέλλον"
+      },
+      {
+       "english": "For τα παραγοντα, it is necessary to read τα παροντα.",
+       "greek": "τὰ παράγοντα, τὰ παρόντα."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"In the original to be μελλον is omitted.\",\n      \"greek\": \"τὸ δὲ μέλλον\"\n    },\n    {\n      \"english\": \"For τα παραγοντα, it is necessary to read τα παροντα.\",\n      \"greek\": \"τὰ παράγοντα, τὰ παρόντα.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 80,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "In the original is omitted.",
+       "greek": "το δε μελλον"
+      },
+      {
+       "english": ", it is necessary to read .",
+       "greek": "Εοτ τὰ παραγοντa τα παροντa"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"In the original is omitted.\",\n      \"greek\": \"το δε μελλον\"\n    },\n    {\n      \"english\": \", it is necessary to read .\",\n      \"greek\": \"Εοτ τὰ παραγοντa τα παροντa\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11718",
+   "rule_after": "ytix* is erroneously printed in the original for ἐξαίρετοί",
+   "rule_before": "vtik* is erroneously printed in the original for fxamxot",
+   "verdict": "contested (two readers agreed on a reading of the page, but it is not the rule's own printed line)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 184,
+    "printed_page": 174,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 179,
+    "printed_page": 174
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": "θειον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "similarity_to_rule_after": 0.429,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 179,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 179,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "It is necessary here to supply the word θειον.",
+       "greek": "θειον."
+      },
+      {
+       "english": "It is requisite to read κατ' εκεινον, instead of κατ' εκεινην.",
+       "greek": "κατ' εκεινον, κατ' εκεινην."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"It is necessary here to supply the word θειον.\",\n      \"greek\": \"θειον.\"\n    },\n    {\n      \"english\": \"It is requisite to read κατ' εκεινον, instead of κατ' εκεινην.\",\n      \"greek\": \"κατ' εκεινον, κατ' εκεινην.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 179,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 179,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "It is necessary here to supply the word",
+       "greek": "θείον"
+      },
+      {
+       "english": "* It is requisite to read instead of",
+       "greek": "κατ' ἐκεῖνον, κατ' ἐκείνης."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"It is necessary here to supply the word\",\n      \"greek\": \"θείον\"\n    },\n    {\n      \"english\": \"* It is requisite to read instead of\",\n      \"greek\": \"κατ' ἐκεῖνον, κατ' ἐκείνης.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11720",
+   "rule_after": "τοῦ κατώτῳ, it is necessary to read ἐκ τῷ κατώτῳ",
+   "rule_before": "tov xctr^ov, it is necessary to read u* tq tw xcxr/*«■/",
+   "verdict": "contested (two readers agreed on a reading of the page, but it is not the rule's own printed line)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 75,
+    "printed_page": 65,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 63,
+    "printed_page": 65
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": "περιτονκοσμονυπερτονκοσμον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "similarity_to_rule_after": 0.178,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 63,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For χωριον, it is necessary to read χωριστον.",
+       "greek": "χωριον, χωριστον."
+      },
+      {
+       "english": "Instead of περι τον κοσμον, it is necessary to read υπερ τον κοσμον.",
+       "greek": "περι τον κοσμον, υπερ τον κοσμον."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For χωριον, it is necessary to read χωριστον.\",\n      \"greek\": \"χωριον, χωριστον.\"\n    },\n    {\n      \"english\": \"Instead of περι τον κοσμον, it is necessary to read υπερ τον κοσμον.\",\n      \"greek\": \"περι τον κοσμον, υπερ τον κοσμον.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 63,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "• For it is necessary to read .",
+       "greek": "χωρικόνχωριστὸν"
+      },
+      {
+       "english": "* Instead of it is necessary to read .",
+       "greek": "περὶτὸνκόσμονὑπὲρτὸνκόσμον"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"• For it is necessary to read .\",\n      \"greek\": \"χωρικόνχωριστὸν\"\n    },\n    {\n      \"english\": \"* Instead of it is necessary to read .\",\n      \"greek\": \"περὶτὸνκόσμονὑπὲρτὸνκόσμον\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11722",
+   "rule_after": "καὶ γὰρ οὐρανίαν καὶ τὴν Σελήνην Ὀρφεύς τρωγῴγοιῶν",
+   "rule_before": "xai yag ovgaviav xai njv (TfArjvTjv OgQsvs Tgwqyogtwiy",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 205,
+    "printed_page": 195,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 199,
+    "printed_page": 195
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 199,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 199,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 199,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 199,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11728",
+   "rule_after": "διακρινον, it is necessary to read διατεινον.",
+   "rule_before": "xttTct twro> it is necessary to read xara t««tok*",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 22,
+    "printed_page": 10,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 13,
+    "printed_page": 10
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 13,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 13,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "Again, it follows in addition to what has been said, that we should",
+       "greek": "ΑΘΑΙΝ,"
+      },
+      {
+       "english": "separate all the assimilative powers, properly arrange them, and survey",
+       "greek": ""
+      },
+      {
+       "english": "them proceeding about the one essence of the Gods. Plato, therefore,",
+       "greek": ""
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"Again, it follows in addition to what has been said, that we should\",\n      \"greek\": \"ΑΘΑΙΝ,\"\n    },\n    {\n      \"english\": \"separate all the assimilative powers, properly arrange them, and survey\",\n      \"greek\": \"\"\n    },\n    {\n      \"english\": \"them proceeding about the one essence of the Gods. Plato, therefore,\",\n      \"greek\": \"\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 13,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 13,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11729",
+   "rule_after": "Instead of διὰ τήνων ἐγκοσμίων, it is necessary to read διὰ τι τῶν ἐγκόσμιον",
+   "rule_before": "For T*A<Mrar«, 1) is necessary to read T»Xn#njr«",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 137,
+    "printed_page": 127,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 125,
+    "printed_page": 127
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 125,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 125,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For τελειοτατα, it is necessary to read τελειοτητα.",
+       "greek": "τελειοτατα,τελειοτητα."
+      },
+      {
+       "english": "For τα θειοτα, it is necessary to read τα θειοτατα.",
+       "greek": "ταθειοτα,ταθειοτατα."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For τελειοτατα, it is necessary to read τελειοτητα.\",\n      \"greek\": \"τελειοτατα,τελειοτητα.\"\n    },\n    {\n      \"english\": \"For τα θειοτα, it is necessary to read τα θειοτατα.\",\n      \"greek\": \"ταθειοτα,ταθειοτατα.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 125,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "adorned with all of divine and mortal animals. For if all",
+       "greek": "τὰ πλήθη"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"adorned with all of divine and mortal animals. For if all\",\n      \"greek\": \"τὰ πλήθη\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 125,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "• For ",
+       "greek": "τελειότατα"
+      },
+      {
+       "english": " For ",
+       "greek": "τα θειότα"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"• For \",\n      \"greek\": \"τελειότατα\",\n      \"english_after_greek\": \", it is necessary to read \",\n      \"greek_after_english\": \"τελειότητα\",\n      \"english_final\": \".\"\n    },\n    {\n      \"english\": \" For \",\n      \"greek\": \"τα θειότα\",\n      \"english_after_greek\": \", it is necessary to read \",\n      \"greek_after_english\": \"τα θεώτατα\",\n      \"english_final\": \".\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11734",
+   "rule_after": "φῦρ αὐτῶν, it is necessary to read φῦρ αὐτῇς",
+   "rule_before": "fur avrov, it is necessary to read pur avrri $.",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 215,
+    "printed_page": 205,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 203,
+    "printed_page": 205
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+       "greek": "μετ'αυτου,μετ'αυτης."
+      },
+      {
+       "english": "For θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντρ.",
+       "greek": "θαυμαντα,θαυμαντος;ποντον,ποντρ."
+      },
+      {
+       "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιος αλλα ο",
+       "greek": "ου γαρ εστιν ο φορνυς ουρανιος αλλα ο"
+      },
+      {
+       "english": "φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+       "greek": "φορνυς,ως εστι δηλον εκ της θεογονιας.αλλα ο φορνυς,αλλα ο Ωκεανος;"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For μετ'αυτου, it is necessary to read μετ'αυτης.\",\n      \"greek\": \"μετ'αυτου,μετ'αυτης.\"\n    },\n    {\n      \"english\": \"For θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντρ.\",\n      \"greek\": \"θαυμαντα,θαυμαντος;ποντον,ποντρ.\"\n    },\n    {\n      \"english\": \"The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιος αλλα ο\",\n      \"greek\": \"ου γαρ εστιν ο φορνυς ουρανιος αλλα ο\"\n    },\n    {\n      \"english\": \"φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,\",\n      \"greek\": \"φορνυς,ως εστι δηλον εκ της θεογονιας.αλλα ο φορνυς,αλλα ο Ωκεανος;\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection",
+       "greek": "και τοι γε οτι ο"
+      },
+      {
+       "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+       "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+      },
+      {
+       "english": "του ουρανιου ολυμπου, κρατει βροντολεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την",
+       "greek": "του ουρανιου ολυμπου, κρατει βροντολεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+      },
+      {
+       "english": "μεσην· ναιον γαρ αυτον εν τοις θεατροις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,",
+       "greek": "μεσην· ναιον γαρ αυτον εν τοις θεατροις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,"
+      },
+      {
+       "english": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.",
+       "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον."
+      },
+      {
+       "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+       "greek": "μετ'αυτου, μετ'αυτης."
+      },
+      {
+       "english": "For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντφ.",
+       "greek": "Θαυμαντα, θαυμαντος; ποντον, ποντφ."
+      },
+      {
+       "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορκυς ουρανιος αλλα ο",
+       "greek": "ου γαρ εστιν ο φορκυς ουρανιος αλλα ο"
+      },
+      {
+       "english": "φορκυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορκυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+       "greek": "φορκυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορκυς, αλλα ο Ωκεανος;"
+      }
+     ],
+     "confidence": "medium",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection\",\n      \"greek\": \"και τοι γε οτι ο\"\n    },\n    {\n      \"english\": \"of the Orphic remains, I shall give the original for the sake of the learned reader.\",\n      \"greek\": \"κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν\"\n    },\n    {\n      \"english\": \"του ουρανιου ολυμπου, κρατει βροντολεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\",\n      \"greek\": \"του ουρανιου ολυμπου, κρατει βροντολεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την\"\n    },\n    {\n      \"english\": \"μεσην· ναιον γαρ αυτον εν τοις θεατροις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,\",\n      \"greek\": \"μεσην· ναιον γαρ αυτον εν τοις θεατροις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,\"\n    },\n    {\n      \"english\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.\",\n      \"greek\": \"αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.\"\n    },\n    {\n      \"english\": \"For μετ'αυτου, it is necessary to read μετ'αυτης.\",\n      \"greek\": \"μετ'αυτου, μετ'αυτης.\"\n    },\n    {\n      \"english\": \"For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντφ.\",\n      \"greek\": \"Θαυμαντα, θαυμαντος; ποντον, ποντφ.\"\n    },\n    {\n      \"english\": \"The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορκυς ουρανιος αλλα ο\",\n      \"greek\": \"ου γαρ εστιν ο φορκυς ουρανιος αλλα ο\"\n    },\n    {\n      \"english\": \"φορκυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορκυς, therefore, I read αλλα ο Ωκεανος; Ocean,\",\n      \"greek\": \"φορκυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορκυς, αλλα ο Ωκεανος;\"\n    }\n  ],\n  \"confidence\": \"medium\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "* For , it is necessary to read .",
+       "greek": "μετ'αυτου,μετ'αυτης."
+      },
+      {
+       "english": "• For , it is requisite to read ; and for , .",
+       "greek": "Θαυμαντα,Θαυμαντος;ποντον,ποντιῳ."
+      },
+      {
+       "english": "* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο",
+       "greek": "ουγαρἔστινοφορουςουρανίδηςαλλαο"
+      },
+      {
+       "english": "σέρχύς, ως έστι δήλον εκ της θεογονίας. For αλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,",
+       "greek": "σέρχυς,ωςἔστιδῆλονεκτηςθεογονίας.αλλαοφόρους,αλλαοΩκεανος;"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"* For , it is necessary to read .\",\n      \"greek\": \"μετ'αυτου,μετ'αυτης.\"\n    },\n    {\n      \"english\": \"• For , it is requisite to read ; and for , .\",\n      \"greek\": \"Θαυμαντα,Θαυμαντος;ποντον,ποντιῳ.\"\n    },\n    {\n      \"english\": \"* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο\",\n      \"greek\": \"ουγαρἔστινοφορουςουρανίδηςαλλαο\"\n    },\n    {\n      \"english\": \"σέρχύς, ως έστι δήλον εκ της θεογονίας. For αλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,\",\n      \"greek\": \"σέρχυς,ωςἔστιδῆλονεκτηςθεογονίας.αλλαοφόρους,αλλαοΩκεανος;\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 203,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "of the Orphic remains, I shall give the original for the sake of the learned reader. και του για στι ο",
+       "greek": "και του για στι ο"
+      },
+      {
+       "english": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν",
+       "greek": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν"
+      },
+      {
+       "english": "τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την",
+       "greek": "τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την"
+      },
+      {
+       "english": "μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον έχει περίσπειν ουρανον,",
+       "greek": "μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον εχει περίσπειν ουρανον,"
+      },
+      {
+       "english": "αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και έχει τεταγμένον.",
+       "greek": "αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και εχει τεταγμένον."
+      },
+      {
+       "english": "* For μετ'αυτου, it is necessary to read μετ'αυτης.",
+       "greek": "μετ'αυτου, μετ'αυτης."
+      },
+      {
+       "english": "• For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντῳ.",
+       "greek": "Θαυμαντα, θαυμαντος; ποντον, ποντῳ."
+      },
+      {
+       "english": "* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο",
+       "greek": "ου γαρ έστιν ο φορους ουρανίδης αλλα ο"
+      },
+      {
+       "english": "φορούς, ως εστι δήλον εκ της θεογονίας. For άλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,",
+       "greek": "φορούς, ως εστι δήλον εκ της θεογονίας. αλλα ο φόρους, αλλα ο Ωκεανος;"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"of the Orphic remains, I shall give the original for the sake of the learned reader. και του για στι ο\",\n      \"greek\": \"και του για στι ο\"\n    },\n    {\n      \"english\": \"κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν\",\n      \"greek\": \"κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν\"\n    },\n    {\n      \"english\": \"τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την\",\n      \"greek\": \"τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την\"\n    },\n    {\n      \"english\": \"μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον έχει περίσπειν ουρανον,\",\n      \"greek\": \"μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον εχει περίσπειν ουρανον,\"\n    },\n    {\n      \"english\": \"αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και έχει τεταγμένον.\",\n      \"greek\": \"αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και εχει τεταγμένον.\"\n    },\n    {\n      \"english\": \"* For μετ'αυτου, it is necessary to read μετ'αυτης.\",\n      \"greek\": \"μετ'αυτου, μετ'αυτης.\"\n    },\n    {\n      \"english\": \"• For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντῳ.\",\n      \"greek\": \"Θαυμαντα, θαυμαντος; ποντον, ποντῳ.\"\n    },\n    {\n      \"english\": \"* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο\",\n      \"greek\": \"ου γαρ έστιν ο φορους ουρανίδης αλλα ο\"\n    },\n    {\n      \"english\": \"φορούς, ως εστι δήλον εκ της θεογονίας. For άλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,\",\n      \"greek\": \"φορούς, ως εστι δήλον εκ της θεογονίας. αλλα ο φόρους, αλλα ο Ωκεανος;\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11737",
+   "rule_after": "nu ολιγῆς, it is necessary to read τῆς ὅλης",
+   "rule_before": "■nu oAijf, it is necessary to read tpij oAo»*",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 33,
+    "printed_page": 21,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 27,
+    "printed_page": 21
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 27,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "from which (αφ'ου), but from Jupiter according to the by which, ωφ'ου.",
+       "greek": "αφ'ου), ωφ'ου."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"from which (αφ'ου), but from Jupiter according to the by which, ωφ'ου.\",\n      \"greek\": \"αφ'ου), ωφ'ου.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 27,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "αφ'ου signifies an occult, but υφ'ου, a manifest progression.",
+       "greek": "αφ'ου?υφ'ου"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"αφ'ου signifies an occult, but υφ'ου, a manifest progression.\",\n      \"greek\": \"αφ'ου?υφ'ου\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 27,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "from which (, but from Jupiter according to the by which, .",
+       "greek": "ἀφου,ὦφίου"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"from which (, but from Jupiter according to the by which, .\",\n      \"greek\": \"ἀφου,ὦφίου\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 27,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "* signifies an occult, but , a manifest progression.",
+       "greek": "αφ'ουυφ'ου"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"* signifies an occult, but , a manifest progression.\",\n      \"greek\": \"αφ'ουυφ'ου\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11738",
+   "rule_after": "Οἴνου πάντα μέλη κόσμῳ λάβε, καὶ μοι ἔνεικε",
+   "rule_before": "Oivou f«VT» ftcAy xoffbco kajk? xou jxoi mix*",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 227,
+    "printed_page": 217,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 215,
+    "printed_page": 217
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 215,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "produce γλυκυθυμια sweetness of sensation; every where purifying our",
+       "greek": "γλυκυθυμια"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"produce γλυκυθυμια sweetness of sensation; every where purifying our\",\n      \"greek\": \"γλυκυθυμια\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 215,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "certainly his first and middle energies will be thus called, as well as his last; so that Socrates now looking to this calls the God",
+       "greek": "διδαννορος,"
+      },
+      {
+       "english": "For the word",
+       "greek": "οἰον"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"certainly his first and middle energies will be thus called, as well as his last; so that Socrates now looking to this calls the God\",\n      \"greek\": \"διδαννορος,\"\n    },\n    {\n      \"english\": \"For the word\",\n      \"greek\": \"οἰον\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 215,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "produce sweetness of sensation ; every where purifying our",
+       "greek": "γλυκυθυμια"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"produce sweetness of sensation ; every where purifying our\",\n      \"greek\": \"γλυκυθυμια\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 215,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "last; so that Socrates now looking to this calls the God ",
+       "greek": "διδοίνυσος"
+      },
+      {
+       "english": "partial intellect, is in common presented to our view. For the word ",
+       "greek": "ΔΙΟΥ"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"last; so that Socrates now looking to this calls the God \",\n      \"greek\": \"διδοίνυσος\"\n    },\n    {\n      \"english\": \"partial intellect, is in common presented to our view. For the word \",\n      \"greek\": \"ΔΙΟΥ\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11743",
+   "rule_after": "περὶ οὔρων, it is necessary to read περὶ κάμπης",
+   "rule_before": "wtgi ourov, it is necessary to read mgi camp",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 67,
+    "printed_page": 57,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 57,
+    "printed_page": 57
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 57,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 57,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 57,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 57,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11744",
+   "rule_after": "μὲν φύσιν, it is necessary to read τοῦτον φύσει",
+   "rule_before": "mtw $wiy, it is necessary to read tutrm fwjy",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 128,
+    "printed_page": 118,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 117,
+    "printed_page": 118
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 117,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 117,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11745",
+   "rule_after": "πρὸς erroneously prints instead of μόνον",
+   "rule_before": "hu e r ro ne o u sly ptv*s instead of jmvov",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 132,
+    "printed_page": 122,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 130,
+    "printed_page": 122
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 130,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 130,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For εξ ου σωματος, it is necessary to read εξω σωματος.",
+       "greek": "εξ ου σωματος, εξω σωματος."
+      },
+      {
+       "english": "For λυπης, it is requisite to read λοιπης.",
+       "greek": "λυπης, λοιπης."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For εξ ου σωματος, it is necessary to read εξω σωματος.\",\n      \"greek\": \"εξ ου σωματος, εξω σωματος.\"\n    },\n    {\n      \"english\": \"For λυπης, it is requisite to read λοιπης.\",\n      \"greek\": \"λυπης, λοιπης.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 130,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 130,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "¹ For , it is necessary to read .",
+       "greek": "εξ ου σώματος, έξω σώματος"
+      },
+      {
+       "english": "² For , it is requisite to read .",
+       "greek": "λύπης λοιπής"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"¹ For , it is necessary to read .\",\n      \"greek\": \"εξ ου σώματος, έξω σώματος\"\n    },\n    {\n      \"english\": \"² For , it is requisite to read .\",\n      \"greek\": \"λύπης λοιπής\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11746",
+   "rule_after": "Τειδίαν, it is necessary to read τρισάειφ",
+   "rule_before": "T£ioSi)y, it is necessary to read rpteiSaif",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 207,
+    "printed_page": 197,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 195,
+    "printed_page": 197
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 195,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For τριάδων, it is necessary to read τριάδας.",
+       "greek": "τριάδων,τριάδας."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For τριάδων, it is necessary to read τριάδας.\",\n      \"greek\": \"τριάδων,τριάδας.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 195,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For τριάδων, it is necessary to read τριάδας.",
+       "greek": "τριάδων,τριάδας."
+      },
+      {
+       "english": "For νοερῶν, read νοητῶν.",
+       "greek": "νοερῶν,νοητῶν."
+      },
+      {
+       "english": "For αποριαν, read απειρίαν.",
+       "greek": "αποριαν,απειρίαν."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For τριάδων, it is necessary to read τριάδας.\",\n      \"greek\": \"τριάδων,τριάδας.\"\n    },\n    {\n      \"english\": \"For νοερῶν, read νοητῶν.\",\n      \"greek\": \"νοερῶν,νοητῶν.\"\n    },\n    {\n      \"english\": \"For αποριαν, read απειρίαν.\",\n      \"greek\": \"αποριαν,απειρίαν.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 195,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For , it is necessary to read .",
+       "greek": "τριαδηντριαδαις"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"For , it is necessary to read .\",\n      \"greek\": \"τριαδηντριαδαις\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 195,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For , it is necessary to read .",
+       "greek": "τριάδην, τριαδαις."
+      },
+      {
+       "english": "* For , read",
+       "greek": "χοιρων, νοητων"
+      },
+      {
+       "english": "* For , read .",
+       "greek": "απόριαν, απειρίαν."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"For , it is necessary to read .\",\n      \"greek\": \"τριάδην, τριαδαις.\"\n    },\n    {\n      \"english\": \"* For , read\",\n      \"greek\": \"χοιρων, νοητων\"\n    },\n    {\n      \"english\": \"* For , read .\",\n      \"greek\": \"απόριαν, απειρίαν.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11751",
+   "rule_after": "περιόδους, it is necessary to read προόδους",
+   "rule_before": "x*gi***> >t >* necessary to read x»girror",
+   "verdict": "contested (two readers agreed on a reading of the page, but it is not the rule's own printed line)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 75,
+    "printed_page": 65,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 63,
+    "printed_page": 65
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": "περιτονκοσμονυπερτονκοσμον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "similarity_to_rule_after": 0.558,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 63,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For χωρικον, it is necessary to read χωριστον.",
+       "greek": "χωρικον, χωριστον."
+      },
+      {
+       "english": "Instead of περι τον κοσμον, it is necessary to read υπερ τον κοσμον.",
+       "greek": "περι τον κοσμον, υπερ τον κοσμον."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For χωρικον, it is necessary to read χωριστον.\",\n      \"greek\": \"χωρικον, χωριστον.\"\n    },\n    {\n      \"english\": \"Instead of περι τον κοσμον, it is necessary to read υπερ τον κοσμον.\",\n      \"greek\": \"περι τον κοσμον, υπερ τον κοσμον.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 63,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For χωριον, it is necessary to read χωριστον.",
+       "greek": "χωριον, χωριστον."
+      },
+      {
+       "english": "Instead of περι τον κοσμον, it is necessary to read υπερ του κοσμου.",
+       "greek": "περι τον κοσμον, υπερ του κοσμου."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For χωριον, it is necessary to read χωριστον.\",\n      \"greek\": \"χωριον, χωριστον.\"\n    },\n    {\n      \"english\": \"Instead of περι τον κοσμον, it is necessary to read υπερ του κοσμου.\",\n      \"greek\": \"περι τον κοσμον, υπερ του κοσμου.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 63,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "• For ",
+       "greek": "χωρικόν"
+      },
+      {
+       "english": " it is necessary to read ",
+       "greek": "χωριστον"
+      },
+      {
+       "english": "* Instead of ",
+       "greek": "περι τον κόσμον"
+      },
+      {
+       "english": " it is necessary to read ",
+       "greek": "υπερ τον κόσμον"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"• For \",\n      \"greek\": \"χωρικόν\"\n    },\n    {\n      \"english\": \" it is necessary to read \",\n      \"greek\": \"χωριστον\"\n    },\n    {\n      \"english\": \"* Instead of \",\n      \"greek\": \"περι τον κόσμον\"\n    },\n    {\n      \"english\": \" it is necessary to read \",\n      \"greek\": \"υπερ τον κόσμον\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 63,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "• For it is necessary to read .",
+       "greek": "χωρικόνχωριστὸν"
+      },
+      {
+       "english": "* Instead of it is necessary to read .",
+       "greek": "περὶτὸνκόσμονὑπὲρτὸνκόσμον"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"• For it is necessary to read .\",\n      \"greek\": \"χωρικόνχωριστὸν\"\n    },\n    {\n      \"english\": \"* Instead of it is necessary to read .\",\n      \"greek\": \"περὶτὸνκόσμονὑπὲρτὸνκόσμον\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11752",
+   "rule_after": "ἠερίων ἐλατήρα κυνῶν χθονίων τε καὶ ὑγρῶν",
+   "rule_before": "qfgiaw tAanjga xvvaov yimwv rt xcu uygoov",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 281,
+    "printed_page": 271,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 268,
+    "printed_page": 271
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 268,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 268,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 268,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 268,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\"lines\": [], \"confidence\": \"high\"}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11754",
+   "rule_after": "στρατῷ, it is necessary to read προσώτῳ",
+   "rule_before": "fftpaftw, it is necessary to read wpo«tw",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 154,
+    "printed_page": 144,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 142,
+    "printed_page": 144
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 142,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For μεγιστον, it is necessary to read πρεσβον.",
+       "greek": "μεγιστον,πρεσβον."
+      },
+      {
+       "english": "For γνωριζειν, it is necessary to read οριζει.",
+       "greek": "γνωριζειν,οριζει."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For μεγιστον, it is necessary to read πρεσβον.\",\n      \"greek\": \"μεγιστον,πρεσβον.\"\n    },\n    {\n      \"english\": \"For γνωριζειν, it is necessary to read οριζει.\",\n      \"greek\": \"γνωριζειν,οριζει.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 142,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "* For , it is necessary to read .",
+       "greek": "περίοδονπροοδον"
+      },
+      {
+       "english": "* For , it is necessary to read .",
+       "greek": "γνωρίζεινορίζει"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"* For , it is necessary to read .\",\n      \"greek\": \"περίοδονπροοδον\"\n    },\n    {\n      \"english\": \"* For , it is necessary to read .\",\n      \"greek\": \"γνωρίζεινορίζει\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11760",
+   "rule_after": "εἶπε it is necessary to read «*' ἐντῶν",
+   "rule_before": "ette it is necessary to read «*' *vtwv",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 45,
+    "printed_page": 33,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 27,
+    "printed_page": 33
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 27,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "αφ'ου signifies an occult, but υφ'ου, a manifest progression.",
+       "greek": "αφ'ου?υφ'ου"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"αφ'ου signifies an occult, but υφ'ου, a manifest progression.\",\n      \"greek\": \"αφ'ου?υφ'ου\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 27,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "* signifies an occult, but , a manifest progression.",
+       "greek": "ἀφ'οὗ ὑφ'οὗ"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"* signifies an occult, but , a manifest progression.\",\n      \"greek\": \"ἀφ'οὗ ὑφ'οὗ\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11761",
+   "rule_after": "συνέκτεινατο, it is necessary to read συνετεκταίνετο.",
+   "rule_before": "epm/uvos here, it is necessary to read",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 297,
+    "printed_page": 287,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 285,
+    "printed_page": 287
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 285,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For ορθομερεσ here, it is necessary to read ορθομερεστερον.",
+       "greek": "ορθομερεσορθομερεστερον"
+      }
+     ],
+     "confidence": "medium",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For ορθομερεσ here, it is necessary to read ορθομερεστερον.\",\n      \"greek\": \"ορθομερεσορθομερεστερον\"\n    }\n  ],\n  \"confidence\": \"medium\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 285,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For ὁρμητικός here, it is necessary to read ὁρμητικότερος.",
+       "greek": "ὁρμητικός?ορμητικότερος."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For ὁρμητικός here, it is necessary to read ὁρμητικότερος.\",\n      \"greek\": \"ὁρμητικός?ορμητικότερος.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 285,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "* For here, it is necessary to read .",
+       "greek": "ορώμενοςὁρμώμενος"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"* For here, it is necessary to read .\",\n      \"greek\": \"ορώμενοςὁρμώμενος\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 285,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "* For  here, it is necessary to read .",
+       "greek": "ορωμενος ορμωμενος"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"* For  here, it is necessary to read .\",\n      \"greek\": \"ορωμενος ορμωμενος\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11765",
+   "rule_after": "τῆς ἀκλινῶς, it is necessary to read τιι",
+   "rule_before": "r»i$ «Am$, it is necessary to read nn",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 33,
+    "printed_page": 21,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 27,
+    "printed_page": 21
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 27,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "αφ'ου signifies an occult, but υφ'ου, a manifest progression.",
+       "greek": "αφ'ου?υφ'ου"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"αφ'ου signifies an occult, but υφ'ου, a manifest progression.\",\n      \"greek\": \"αφ'ου?υφ'ου\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 27,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "* signifies an occult, but , a manifest progression.",
+       "greek": "ἀφ'οὗ ὑφ'οὗ"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"* signifies an occult, but , a manifest progression.\",\n      \"greek\": \"ἀφ'οὗ ὑφ'οὗ\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11766",
+   "rule_after": "κακὸν, is necessary to read τὸ κοινόν",
+   "rule_before": "««x«rov, k » necessary to read t^waty",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 72,
+    "printed_page": 62,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 59,
+    "printed_page": 62
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 59,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 59,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 59,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 59,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11767",
+   "rule_after": "In the original it is παραπετα instead of παραπετάσματα",
+   "rule_before": "itgooiovs is omitted in the original",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 222,
+    "printed_page": 212,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 209,
+    "printed_page": 212
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 209,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "quod inscripsit τα θεολογουμενα της αειδυντιας.",
+       "greek": "τα θεολογουμενα της αειδυντιας."
+      },
+      {
+       "english": "² For εισι, it is requisite to read προεισι.",
+       "greek": "εισι, προεισι."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"quod inscripsit τα θεολογουμενα της αειδυντιας.\",\n      \"greek\": \"τα θεολογουμενα της αειδυντιας.\"\n    },\n    {\n      \"english\": \"² For εισι, it is requisite to read προεισι.\",\n      \"greek\": \"εισι, προεισι.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 209,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "and revolve within it. On this account likewise, it was called by them Halios, (παρα το αλιζεις)",
+       "greek": "παρα το αλιζεις"
+      },
+      {
+       "english": "quod inscripsit τα θεολογουμενα της αριθμητικής.",
+       "greek": "τα θεολογουμενα της αριθμητικής."
+      },
+      {
+       "english": "* For εισι, it is requisite to read προεισι.",
+       "greek": "εισι, προεισι."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"and revolve within it. On this account likewise, it was called by them Halios, (παρα το αλιζεις)\",\n      \"greek\": \"παρα το αλιζεις\"\n    },\n    {\n      \"english\": \"quod inscripsit τα θεολογουμενα της αριθμητικής.\",\n      \"greek\": \"τα θεολογουμενα της αριθμητικής.\"\n    },\n    {\n      \"english\": \"* For εισι, it is requisite to read προεισι.\",\n      \"greek\": \"εισι, προεισι.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11768",
+   "rule_after": "Καθάπερ instead of καταπηγνυνται",
+   "rule_before": "Ka.ga.xeTa instead of xagarna^fuiiTa",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 223,
+    "printed_page": 213,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 218,
+    "printed_page": 213
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 218,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 218,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 218,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\"lines\":[],\"confidence\":\"high\"}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 218,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11773",
+   "rule_after": "γονίμου, it is necessary to read μονίμου",
+   "rule_before": "it is necessary to read *£>ign}Tai",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 42,
+    "printed_page": 30,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 30,
+    "printed_page": 30
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 30,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For εξηγηται, it is necessary to read εξηγειται.",
+       "greek": "εξηγηταιεξηγειται"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For εξηγηται, it is necessary to read εξηγειται.\",\n      \"greek\": \"εξηγηταιεξηγειται\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 30,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "* For , it is necessary to read .",
+       "greek": "εξήρηται, ἐξήρτηται."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"* For , it is necessary to read .\",\n      \"greek\": \"εξήρηται, ἐξήρτηται.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11775",
+   "rule_after": "ἰδρυαν, it is necessary to read ἰδρυσιν.",
+   "rule_before": "T«y>i£ia* it is necessary to read",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 144,
+    "printed_page": 134,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 130,
+    "printed_page": 134
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 130,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For εξ ου σωματος, it is necessary to read εξω σωματος.",
+       "greek": "εξ ου σωματος, εξω σωματος."
+      },
+      {
+       "english": "For λυπης, it is requisite to read λοιπης.",
+       "greek": "λυπης, λοιπης."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For εξ ου σωματος, it is necessary to read εξω σωματος.\",\n      \"greek\": \"εξ ου σωματος, εξω σωματος.\"\n    },\n    {\n      \"english\": \"For λυπης, it is requisite to read λοιπης.\",\n      \"greek\": \"λυπης, λοιπης.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 130,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "¹ For , it is necessary to read .",
+       "greek": "εξ ου σώματος, έξω σώματος"
+      },
+      {
+       "english": "² For , it is requisite to read .",
+       "greek": "λύπης λοιπής"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"¹ For , it is necessary to read .\",\n      \"greek\": \"εξ ου σώματος, έξω σώματος\"\n    },\n    {\n      \"english\": \"² For , it is requisite to read .\",\n      \"greek\": \"λύπης λοιπής\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11776",
+   "rule_after": "οὐ γὰρ καρπὸν ἔτεκον ἥλιος ῥητὸς",
+   "rule_before": "ov gym xaprov erexov ijAio* rymro",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 179,
+    "printed_page": 169,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 167,
+    "printed_page": 169
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 167,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 167,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "The original is,",
+       "greek": "οὐ γὰρ καλὸν ἐπεινὸν ἡλίας ἐγένετο."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"The original is,\",\n      \"greek\": \"οὐ γὰρ καλὸν ἐπεινὸν ἡλίας ἐγένετο.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 167,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 167,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "Commentary of Proclus. The original is, ",
+       "greek": "ον εγω καρπον στέκον ήλιος εγένετο."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"Commentary of Proclus. The original is, \",\n      \"greek\": \"ον εγω καρπον στέκον ήλιος εγένετο.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11778",
+   "rule_after": "σημαίνων τὸν οἷον καὶ τινα νοῦν",
+   "rule_before": "<nj/xau»»v rov #«ov xai met pour",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 228,
+    "printed_page": 218,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 216,
+    "printed_page": 218
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 216,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 216,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 216,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "on this account theologists call both this God and all his fabrications ",
+       "greek": "οἶνος"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"on this account theologists call both this God and all his fabrications \",\n      \"greek\": \"οἶνος\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 216,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\"lines\": [], \"confidence\": \"high\"}",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11797",
+   "rule_after": "καλλίμορφον ἀγαθὸν",
+   "rule_before": "xa/A/Mg<pov ayax/ta",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 238,
+    "printed_page": 228,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 225,
+    "printed_page": 228
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 225,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "Orithya, also, may be said to be a soul' aspiring after things above, from opoua and 02100, according to the Attic custom of adding a letter at",
+       "greek": "ὀρούσα?θεῖν"
+      },
+      {
+       "english": "the end of a word, which letter is here an ω. Such a soul, therefore, is",
+       "greek": "ω"
+      }
+     ],
+     "confidence": "medium",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"Orithya, also, may be said to be a soul' aspiring after things above, from opoua and 02100, according to the Attic custom of adding a letter at\",\n      \"greek\": \"ὀρούσα?θεῖν\"\n    },\n    {\n      \"english\": \"the end of a word, which letter is here an ω. Such a soul, therefore, is\",\n      \"greek\": \"ω\"\n    }\n  ],\n  \"confidence\": \"medium\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 225,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 225,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "from ",
+       "greek": "ορούσ"
+      },
+      {
+       "english": " and ",
+       "greek": "θεῷ"
+      },
+      {
+       "english": ", according to the Attic custom of adding a letter at",
+       "greek": null
+      },
+      {
+       "english": "the end of a word, which letter is here an ",
+       "greek": "ῶ"
+      },
+      {
+       "english": ". Such a soul, therefore, is",
+       "greek": null
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"from \",\n      \"greek\": \"ορούσ\"\n    },\n    {\n      \"english\": \" and \",\n      \"greek\": \"θεῷ\"\n    },\n    {\n      \"english\": \", according to the Attic custom of adding a letter at\"\n    },\n    {\n      \"english\": \"the end of a word, which letter is here an \",\n      \"greek\": \"ῶ\"\n    },\n    {\n      \"english\": \". Such a soul, therefore, is\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 225,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\"lines\": [], \"confidence\": \"high\"}",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11800",
+   "rule_after": "φρονοῦσι, ἀκίνητοι",
+   "rule_before": "upovoovmw, axnrtp'",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 49,
+    "printed_page": 37,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 37,
+    "printed_page": 37
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 37,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 37,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "It appears to me that after καὶ αἱ ζητήσεις in the original, there are wanting the words τῶν",
+       "greek": "καὶ αἱ ζητήσεις τῶν"
+      },
+      {
+       "english": "προνοουντων, ωσπερ.",
+       "greek": "προνοουντων, ωσπερ."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"It appears to me that after καὶ αἱ ζητήσεις in the original, there are wanting the words τῶν\",\n      \"greek\": \"καὶ αἱ ζητήσεις τῶν\"\n    },\n    {\n      \"english\": \"προνοουντων, ωσπερ.\",\n      \"greek\": \"προνοουντων, ωσπερ.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 37,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\"lines\":[],\"confidence\":\"high\"}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 37,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "' It appears to me that after in the original, there are wanting the words",
+       "greek": "καὶ ζητήσεις τῶν"
+      },
+      {
+       "english": "",
+       "greek": "προνοούντων, ὥσπερ."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"' It appears to me that after in the original, there are wanting the words\",\n      \"greek\": \"καὶ ζητήσεις τῶν\"\n    },\n    {\n      \"english\": \"\",\n      \"greek\": \"προνοούντων, ὥσπερ.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11820",
+   "rule_after": "ἑξῆς ἥμισυ is",
+   "rule_before": "ecS*v»T»s i»",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 139,
+    "printed_page": 129,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 122,
+    "printed_page": 129
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 122,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 122,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "For μετα βούλης, I read μεταβούλης. For the mundane Gods are in no part of the Timæus",
+       "greek": "μετα βούλης,μεταβούλης."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"For μετα βούλης, I read μεταβούλης. For the mundane Gods are in no part of the Timæus\",\n      \"greek\": \"μετα βούλης,μεταβούλης.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 122,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 122,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "· ",
+       "greek": "μετα"
+      },
+      {
+       "english": " βουλῆς, 1 real μεταβολης. For the mundane Gods are in no part of the Timæus",
+       "greek": ""
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"· \",\n      \"greek\": \"μετα\"\n    },\n    {\n      \"english\": \" βουλῆς, 1 real μεταβολης. For the mundane Gods are in no part of the Timæus\",\n      \"greek\": \"\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11824",
+   "rule_after": "δὲ ἀμελεῖ οὖν",
+   "rule_before": "Se /uwAA ov",
+   "verdict": "contested (two readers agreed on a reading of the page, but it is not the rule's own printed line)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 92,
+    "printed_page": 82,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 80,
+    "printed_page": 82
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": "τοδεμελλον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "similarity_to_rule_after": 0.667,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 80,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "In the original to be μελλον is omitted.",
+       "greek": "τὸ δὲ μέλλον"
+      },
+      {
+       "english": "For τα παραγοντα, it is necessary to read τα παροντα.",
+       "greek": "τὰ παράγοντα, τὰ παρόντα."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"In the original to be μελλον is omitted.\",\n      \"greek\": \"τὸ δὲ μέλλον\"\n    },\n    {\n      \"english\": \"For τα παραγοντα, it is necessary to read τα παροντα.\",\n      \"greek\": \"τὰ παράγοντα, τὰ παρόντα.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 80,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "In the original is omitted.",
+       "greek": "το δε μελλον"
+      },
+      {
+       "english": ", it is necessary to read .",
+       "greek": "Εοτ τὰ παραγοντa τα παροντa"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"In the original is omitted.\",\n      \"greek\": \"το δε μελλον\"\n    },\n    {\n      \"english\": \", it is necessary to read .\",\n      \"greek\": \"Εοτ τὰ παραγοντa τα παροντa\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11825",
+   "rule_after": "τραπ-ενου",
+   "rule_before": "rtrajj-tvov",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 182,
+    "printed_page": 172,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 170,
+    "printed_page": 172
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 170,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "The word",
+       "greek": "ἐπεκμενον"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"The word\",\n      \"greek\": \"ἐπεκμενον\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 170,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "The word τεταμενον also,",
+       "greek": "τεταμενον"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"The word τεταμενον also,\",\n      \"greek\": \"τεταμενον\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 170,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "possessing an immutable and unwearied energy. The word also,",
+       "greek": "τεταμένων"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"possessing an immutable and unwearied energy. The word also,\",\n      \"greek\": \"τεταμένων\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 170,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "possessing an immutable and unwearied energy. The word also,",
+       "greek": "τεταμένων"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"possessing an immutable and unwearied energy. The word also,\",\n      \"greek\": \"τεταμένων\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11826",
+   "rule_after": "ead ὥσπερ",
+   "rule_before": "aad W/tusv",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 246,
+    "printed_page": 236,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 241,
+    "printed_page": 236
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 241,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 241,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11828",
+   "rule_after": "καὶ αὐτοὶ",
+   "rule_before": "xeu Auroi",
+   "verdict": "undecidable",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 128,
+    "printed_page": 118,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 117,
+    "printed_page": 118
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 117,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 117,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 117,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 117,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11839",
+   "rule_after": "οὔτεον",
+   "rule_before": "o/tuov",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 63,
+    "printed_page": 53,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 51,
+    "printed_page": 53
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 51,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 51,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "It is necessary here to supply the word",
+       "greek": "ομοιον."
+      },
+      {
+       "english": "For εαυτω, it is necessary to read",
+       "greek": "εαυτο."
+      },
+      {
+       "english": "For υλικης, it is necessary to read",
+       "greek": "ολικης."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"It is necessary here to supply the word\",\n      \"greek\": \"ομοιον.\"\n    },\n    {\n      \"english\": \"For εαυτω, it is necessary to read\",\n      \"greek\": \"εαυτο.\"\n    },\n    {\n      \"english\": \"For υλικης, it is necessary to read\",\n      \"greek\": \"ολικης.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 51,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 51,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "It is necessary here to supply the word",
+       "greek": "ὁμοίου."
+      },
+      {
+       "english": "¹ For , it is necessary to read .",
+       "greek": "σαυτῷ,σαυτό."
+      },
+      {
+       "english": "¹ For , it is necessary to read .",
+       "greek": "ὐλικῆς,ὁλικῆς."
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"It is necessary here to supply the word\",\n      \"greek\": \"ὁμοίου.\"\n    },\n    {\n      \"english\": \"¹ For , it is necessary to read .\",\n      \"greek\": \"σαυτῷ,σαυτό.\"\n    },\n    {\n      \"english\": \"¹ For , it is necessary to read .\",\n      \"greek\": \"ὐλικῆς,ὁλικῆς.\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    }
+   ]
+  },
+  {
+   "rule_id": "r11898",
+   "rule_after": "ὀρούω and θείω",
+   "rule_before": "opoum and d«<»",
+   "verdict": "undecidable (draws seen, no two readers agreed on a reading)",
+   "my_verdict_word": "undecidable",
+   "hathitrust": {
+    "htid": "mdp.39015073686092",
+    "sequence": 237,
+    "printed_page": 227,
+    "fetched_for_this_rule": "no — fetched only where a decision needed it (printed pp. 18, 82, 227)"
+   },
+   "second_scan": {
+    "item": "taylor-theology-of-plato-en-t.-2-1816",
+    "leaf": 225,
+    "printed_page": 227
+   },
+   "instruments_that_read_it": [
+    "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "google/gemini-2.5-flash"
+   ],
+   "agreed_reading": null,
+   "agreed_by": null,
+   "similarity_to_rule_after": null,
+   "correction": null,
+   "readings": [
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 225,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "from opovas and Oeia, according to the Attic custom of adding a letter at",
+       "greek": "ὀρούας θείας"
+      },
+      {
+       "english": "the end of a word, which letter is here an ω. Such a soul, therefore, is",
+       "greek": "ω"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [\n    {\n      \"english\": \"from opovas and Oeia, according to the Attic custom of adding a letter at\",\n      \"greek\": \"ὀρούας θείας\"\n    },\n    {\n      \"english\": \"the end of a word, which letter is here an ω. Such a soul, therefore, is\",\n      \"greek\": \"ω\"\n    }\n  ],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 225,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\n  \"lines\": [],\n  \"confidence\": \"high\"\n}",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 225,
+     "image": "the rule's own printed line, cropped at the scan's native resolution, located from the leaf's own _djvu.xml word boxes",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [
+      {
+       "english": "from and , according to the Attic custom of adding a letter at",
+       "greek": "ὅρουἔω"
+      },
+      {
+       "english": "the end of a word, which letter is here an . Such a soul, therefore, is",
+       "greek": "ω"
+      }
+     ],
+     "confidence": "high",
+     "raw_answer": "```json\n{\n  \"lines\": [\n    {\n      \"english\": \"from and , according to the Attic custom of adding a letter at\",\n      \"greek\": \"ὅρουἔω\"\n    },\n    {\n      \"english\": \"the end of a word, which letter is here an . Such a soul, therefore, is\",\n      \"greek\": \"ω\"\n    }\n  ],\n  \"confidence\": \"high\"\n}\n```",
+     "error": null
+    },
+    {
+     "instrument": "google/gemini-2.5-flash",
+     "instrument_kind": "a blind read of a page image, by an independent VL model",
+     "source": "the SECOND SCAN of the 1816 vol. II (archive.org item taylor-theology-of-plato-en-t.-2-1816, a DIFFERENT PHYSICAL COPY from the one this edition is transcribed from)",
+     "leaf": 225,
+     "image": "the page's footnote zone at native resolution",
+     "printed_page_reported_by_reader": null,
+     "page_corroborated": false,
+     "greek_lines": [],
+     "confidence": "high",
+     "raw_answer": "{\"lines\": [], \"confidence\": \"high\"}",
+     "error": null
+    }
+   ]
+  }
+ ]
+}
