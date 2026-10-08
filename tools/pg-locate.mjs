@@ -32,6 +32,27 @@
  * killed run loses at most one point. The report is printed at the end of every
  * run, including one that had nothing left to do.
  *
+ * GREEK IS IN THE TOKEN STREAM AND ITS FOOTPRINT IS MEASURED HERE. The token
+ * predicate was ASCII `a-z0-9` until 2026-10-08 (see the `isAlnum` note below),
+ * and the witness of this edition carries Greek, so the witness test for a
+ * transliteration rule was decided on the ENGLISH AROUND THE GREEK. HOW THE
+ * FOOTPRINT WAS MEASURED, so that it can be re-measured rather than believed:
+ * take the tool from the revision before the fix into a MIRROR TREE that a
+ * `data -> <repo>/data` symlink points at (ROOT comes from the tool's own path, so
+ * a copy loose in /var/tmp cannot find the edition), then run BOTH tools over the
+ * SAME batch — the pass's own batch is the one tools/edits/<slug>.pg-act.json
+ * names in `batch.file` and its `how_to_rederive` fixes the state at
+ * `--version 1.0.3` — as `--what rules --version 1.0.3 --slide 24 --out <new
+ * file>`, deleting the --out file first (pg-locate RESUMES, so re-running in place
+ * re-derives nothing), and diff `decide.verdict` (or `status` where there is no
+ * decide) per point id. MEASURED 2026-10-08: 2,238 points, the control run
+ * reproduces the recorded batch EXACTLY (0 differences in 2,238 decide blocks),
+ * and the corrected instrument moves 18 of them — 17 transliteration and 1 OCR.
+ * Of the 1,264 rules the Greek-blind pass CLEARED, 3 move and all 3 come back
+ * CONTRADICTED; the fix ALSO clears 4 transliteration rules the pass had read
+ * against, and places 8 points the Greek-blind stream could not anchor at all.
+ * The counting and the per-rule list are in the handoff record, not here.
+ *
  * WHY THIS TOOL EXISTS, AND WHY IT IS NOT tools/witness-unsure.mjs. That tool
  * places a passage by PAGE: it reads a copy's own `_djvu.xml`, takes the copy's
  * printed page, and puts its lines beside ours. A witness with no page model —
@@ -174,7 +195,30 @@ const LINE_JOIN = new Set([...HYPHEN, '\u00ac']);
  * a rule that RESOLVES damage can only ever be confirmed by the witness reading
  * our `after`, which is what it means. */
 const DAMAGE = new Set('^_~*/\u00a3>\\|#\u2122\u00b1\u00bb\u00ab}{&');
-const isAlnum = (c) => (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+
+/** WHAT A TOKEN IS, AND THE DEFECT THIS REPLACES. This predicate was ASCII
+ * `a-z0-9`, and BOTH the transcription and the witness set GREEK — the witness
+ * is a human-proofread word-level transcription of the same 1816 print and
+ * carries 7,661 (vol. 1) and 10,837 (vol. 2) Greek codepoints, MEASURED. Under
+ * the ASCII predicate every Greek character was DROPPED FROM THE TOKEN STREAM,
+ * so a rule whose `after` is Greek was compared on the ENGLISH AROUND THE GREEK
+ * and "the witness carries the rule's whole `after` reading" was decided by a
+ * test that could not see the reading. MEASURED on this edition's own committed
+ * rules at 1.0.8: 396 of 3,255 rules carry a character that survives the fold and
+ * is not ASCII — 200 transliteration, 107 OCR, 89 punctuation — and the Greek
+ * letters are 3,933 of the 4,401 such characters.
+ *
+ * A LETTER IN ANY SCRIPT IS A LETTER. `\p{L}` is taken, plus ASCII digits as
+ * before. A non-ASCII NUMERAL is deliberately NOT a token, and the asymmetry with
+ * the ASCII digits is deliberate too: MEASURED, exactly ONE such character stands
+ * in any rule of this edition — the superscript `¹` that ends r11896's `after` —
+ * and our `¹` against the witness's own `[24]` is the class of mismatch the
+ * whole-reading test's word fallback exists for (the witness's record declares it
+ * models no page or footnote mark). Making it a token would invent a mismatch
+ * where the print sets a mark, which is the failure the `@`/page-number note in
+ * `decide()` was written to stop. */
+const NON_ASCII_LETTER = /\p{L}/u;
+const isAlnum = (c) => (c <= '\u007f' ? (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') : NON_ASCII_LETTER.test(c));
 
 /** Fold a text to the alphabet the comparison runs on, and keep, for every
  * folded character, the index of the RAW character it came from — so a span in
@@ -251,7 +295,12 @@ function tokenize(raw, damage = null) {
       }
       break;
     }
-    toks.push({ t: s.slice(start, j).replace(/[^a-z0-9]/g, ''), a: at[start], b: at[j - 1] + 1 });
+    /* THE TOKEN'S TEXT IS THE SAME ALPHABET `isAlnum` DEFINES, and this line was
+     * the second half of the same ASCII-only assumption: it stripped every
+     * non-`a-z0-9` character out of the slice, so even with a Unicode predicate
+     * above, a Greek run would have come back as an EMPTY token. What it is for
+     * is dropping the JOINER characters (`-`, `¬`) the loop above consumed. */
+    toks.push({ t: s.slice(start, j).replace(/[^\p{L}0-9]/gu, ''), a: at[start], b: at[j - 1] + 1 });
     i = j;
   }
   return toks;
@@ -274,10 +323,27 @@ if (!VOLS.length) {
 
 /** The token stream of a volume is 2.5 MB of string work, so it is CACHED under
  * the record's own sha256 of the stored file: a witness that changes has another
- * key and the cache cannot go stale behind it. */
+ * key and the cache cannot go stale behind it.
+ *
+ * THE TOKENISER IS PART OF THE KEY, and it was not: the key named the witness's
+ * sha256 alone, so the ASCII tokeniser's cached streams would have been served to
+ * the Unicode tokeniser unchanged and the WITNESS half of the fix would have
+ * measured as something WORSE than a no-op. MEASURED 2026-10-08 by putting the
+ * old stream back under the new key and re-running: 7 rules move and EVERY ONE of
+ * them moves `after` -> `third` (a CONTRADICTION), where the complete instrument
+ * moves 18 and contradicts only 4 of them. The reason is that a rule's own
+ * `before`/`after` are tokenised on every run and are NOT cached, so a stale
+ * witness stream gives the tool a Greek-aware rule side against a Greek-blind
+ * witness and manufactures contradictions that the witness's own Greek refutes
+ * (r11705, r11709 and r11719 come back to `after` the moment the stream is
+ * re-tokenised). The two files are the evidence: the ASCII-keyed stream for
+ * vol. 1 held 0 Greek tokens and the re-tokenised stream holds 1,515. This is the
+ * same discipline tools/greek-runs.mjs applies to a reading under a prompt: a
+ * cached answer is only usable under the instrument that produced it. */
+const TOKENISER_ID = 'unicode-letters-v2';
 function volumeTokens(vol) {
   mkdirSync(SCRATCH, { recursive: true });
-  const key = join(SCRATCH, `${slug}-${vol.rec.sha256.slice(0, 12)}-${vol.id}.tokens.json`);
+  const key = join(SCRATCH, `${slug}-${vol.rec.sha256.slice(0, 12)}-${vol.id}.${TOKENISER_ID}.tokens.json`);
   if (existsSync(key)) return JSON.parse(readFileSync(key, 'utf8'));
   const toks = tokenize(readFileSync(vol.file, 'utf8')).map((t) => t.t);
   writeFileSync(key, JSON.stringify(toks));
@@ -329,7 +395,12 @@ const WORDLIST = (() => {
   if (!existsSync(f)) return new Set();
   return new Set(readFileSync(f, 'utf8').split(/\s+/).filter((w) => /^[a-z]{2,}$/.test(w)));
 })();
-const countable = (t) => t !== '@' && /^[a-z0-9]+$/.test(t);
+/** Whether the print can be ASKED how often it uses this token at all. The
+ * restriction to letters-and-digits is kept, and the SCRIPT is not restricted any
+ * more: a Greek word is a word of this print and its count is a fact about the
+ * print, so the ASCII `a-z0-9` test here was the third face of the same
+ * assumption. `@` is our own damage token and is ours alone. */
+const countable = (t) => t !== '@' && /^[\p{L}0-9]+$/u.test(t);
 /** How many times the print uses a word AT ALL — both volumes, which is the
  * print's own vocabulary and not a guess at it. */
 const countInPrint = (t) => VOLS.reduce((n, v) => n + (v.index.get(t) || []).length, 0);
@@ -717,7 +788,14 @@ function decide(rule, placed, vols) {
    * word, and a word-level match on `in the cratylus` would have reported the
    * witness as confirming a BRACKET the tool's own doctrine says it can never
    * settle. */
-  const isWord = (t) => /[a-z]/.test(t);
+  /* AND A WORD IS A WORD IN ANY SCRIPT. This predicate is what makes `bWords`
+   * the reading's words and `changeAddsAWord` the rule's own statement that the
+   * change ADDS a word — both of which were decided on Latin letters alone while
+   * a transliteration rule's whole `after` is Greek, so the word-level fallback
+   * could never fire for the rules the Greek-blind tokeniser had already
+   * mis-decided. MEASURED after the fix: the filtered match is what lets the
+   * witness's OWN Greek confirm the reading it was always able to confirm. */
+  const isWord = (t) => /\p{L}/u.test(t);
   const bWords = b.filter(isWord);
   const cores0 = changedBlock(rule.before, rule.after);
   const changeAddsAWord = rule.type !== 'punctuation' && (cores0.coreAfter || []).some(isWord);

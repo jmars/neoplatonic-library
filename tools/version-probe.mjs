@@ -173,6 +173,21 @@ const MINTED = new Map([
    * ADDED HERE AS THE VERSION FREEZES, deliberately: a missing row stays invisible
    * only while the version is current, and that has bitten this chain once (1.0.4). */
   ['proclus-theology-of-plato-taylor-1816@1.0.8', '10.5281/zenodo.23237798'],
+  /* MINTED 2026-10-08 as a NEW VERSION of the same record (23239393 under the concept
+   * record 23175743, versions.index 10). 1.0.9 serves the SAME TRANSCRIPTION, the SAME
+   * SECTION MODEL and the SAME ANCHORS as 1.0.8 (this version's pinned anchor manifest
+   * is byte-identical to 1.0.8's), and it carries TWO changes. (1) ONE READING IS
+   * CORRECTED: r11842 served the fabricated Greek "πραξις" where the print sets
+   * "αρχαι" — the print's OWN GLOSS on the same line reads "Principalities, or rulers",
+   * and a blind read of the plate returns "αρχαι" — so the reading is corrected under
+   * the fresh id r11899 and r11842 is withdrawn. (2) TWENTY RULES have their EVIDENCE
+   * LEAF corrected (plus r11899, whose 1.0.8 ancestor cited n22 for a passage printed
+   * on n21): the leaf table began each front-matter page at a line inside the PREVIOUS
+   * page's tail, so every rule standing in that tail was cited one leaf too high.
+   * NOT ONE OF THOSE TWENTY RULES' READINGS CHANGES. THE ROW IS ADDED HERE AS THE
+   * VERSION FREEZES, deliberately: a missing row stays invisible only while the
+   * version is current, and that has bitten this chain once (1.0.4). */
+  ['proclus-theology-of-plato-taylor-1816@1.0.9', '10.5281/zenodo.23239393'],
   /* MINTED 2026-10-08: the OTHER TWO EDITIONS' FIRST VERSION BUMP, each as a NEW
    * VERSION of its own record — the fold gate's unscoped multi-fire rules
    * adjudicated on measurement and licensed `scope: "all"` at 1.0.1. NOT ONE BYTE

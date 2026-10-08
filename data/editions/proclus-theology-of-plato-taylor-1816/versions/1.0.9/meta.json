@@ -1,0 +1,9 @@
+{
+  "version": "1.0.9",
+  "date": "2026-10-08",
+  "note": "BUMPED to 1.0.9 from 1.0.8. THE TRANSCRIPTION, THE SECTION MODEL AND THE ANCHORS ARE UNCHANGED: source.txt is byte-identical to 1.0.8's (sha256 748e58cef10981193585a101fcf67951cc3a37577eaf756f08399e343e1dd8bf), and divisions.json and base.json are carried unchanged. TWO THINGS MOVE. (1) THE EVIDENCE LEAF of 20 transliteration rules (and the fresh id r11899 carries the 21st) is corrected, because the leaf table that named them began each page at a line inside the PREVIOUS page's tail: MEASURED by reading every plate those rules cite BLIND (123 page transcriptions, no candidate text shown) and locating each page's own first printed line in our source.txt, 20 rules stand before their cited page's own first body line and are therefore on the page before it. Only the leaf is moved — NOT ONE READING of those rules changes. Two further rules (r11895, r11897) had the old leaf left in their own PROSE while their record already carried the corrected one; the prose is corrected. (2) ONE READING IS CORRECTED: r11842 served the fabricated Greek “πραξις” where the print sets “αρχαι”, so it is WITHDRAWN and the corrected reading is appended as the fresh id r11899 (ids are forever; a correction is a new id, never an edit beneath a spent one). That is the only rule whose served text changes in this version, and it changes by one word. NOT ONE FIND CHANGES.",
+  "source_sha256": "748e58cef10981193585a101fcf67951cc3a37577eaf756f08399e343e1dd8bf",
+  "supersedes": "1.0.8",
+  "citation": "Proclus, On the Theology of Plato, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.9. DOI: 10.5281/zenodo.23239393. https://neoplatonic-library.org/texts/proclus-theology-of-plato-taylor-1816/",
+  "doi": "10.5281/zenodo.23239393"
+}

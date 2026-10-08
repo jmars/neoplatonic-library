@@ -104,6 +104,43 @@ function probe(text) {
   );
 }
 
+/* 6-7. GREEK IS PART OF THE TOKEN STREAM — the defect the ASCII predicate hid,
+ * and BOTH of its halves. The predicate was `a-z0-9`, so every Greek character was
+ * dropped, and this print sets Greek in the transcription's own reading and, more
+ * to the point, ITS WITNESS SETS GREEK TOO (the human-proofread PG transcription
+ * of the same 1816 print carries 7,661 Greek codepoints in vol. 1 and 10,837 in
+ * vol. 2). The two probes below are the two halves:
+ *
+ *   6. a passage that ITSELF carries Greek must yield Greek tokens (ours);
+ *   7. a passage of our own Greek-FREE text whose witness stretch is Greek must
+ *      come back with the witness's Greek tokens (pg).
+ *
+ * MEASURED asymmetry, which is the point of the pair: on the revision before the
+ * fix (`git show <rev>:tools/pg-locate.mjs` into a mirror tree — ROOT is derived
+ * from the tool's OWN path, so a copy outside the repository cannot find
+ * `data/editions/`) BOTH probes read 0 Greek tokens; on the corrected tool they
+ * read 2 and 9, and both passages still LOCATE in vol. 1, so what moved is the
+ * token stream and not the placement. */
+const GREEK_TOKEN = /[\u0370-\u03ff\u1f00-\u1fff]/;
+const greekIn = (xs) => (xs || []).filter((t) => GREEK_TOKEN.test(t)).length;
+{
+  const r = probe('in the vestibule of the good ; (ἐπὶ μὲν τοῖς τοῦ ἀγαθοῦ νῦν ἤδη προθύροις ἐφεστάναι) and Dionysius says of his first order that it is as it were arranged in the vestibules of deity and beauty also are shown by Proclus');
+  check(
+    'a passage that CARRIES Greek yields Greek tokens of our own (the predicate was ASCII a-z0-9)',
+    r.json && greekIn(r.json.ours && r.json.ours.tokens) >= 2,
+    `status ${r.json && r.json.status}, ${r.json ? greekIn(r.json.ours && r.json.ours.tokens) : '?'} Greek token(s) in our own span (must be >= 2)`,
+  );
+}
+{
+  const r = probe('and beauty, which characterize this triad, are said by Plato in the Philebus to subsist in the vestibule of the good ; (exi /mv to*$ rou ayxiov vt/v ij&ij xgoivpois tpwraveui) and Dionysius says 1 of his first order that it is as it were arranged in the vestibules of deity');
+  const pg = r.json && r.json.pg && r.json.pg.tokens;
+  check(
+    'the witness\'s OWN Greek reaches the comparison (PG sets Greek at this point; the old stream held none)',
+    r.json && r.json.status === 'located' && greekIn(pg) >= 8,
+    `status ${r.json && r.json.status}, volume ${r.json && r.json.volume}, ${greekIn(pg)} Greek token(s) in the witness stretch (must be >= 8)`,
+  );
+}
+
 /* ---------- whole-run invariants -------------------------------------------- */
 
 const BATCH = opt('batch', '');
