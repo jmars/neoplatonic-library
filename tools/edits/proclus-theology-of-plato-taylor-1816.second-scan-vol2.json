@@ -1,0 +1,2667 @@
+{
+ "slug": "proclus-theology-of-plato-taylor-1816",
+ "unit": "H4 — the second scan of vol. II, targeted, as a witness",
+ "what_this_is": "THE READINGS TAKEN FROM A SECOND PHYSICAL COPY OF VOL. II, with their provenance. NO PAGE IMAGE OF ANY THIRD-PARTY SCAN IS HELD OR COMMITTED — only these texts, exactly as the edition holds the Project Gutenberg volumes as witness TEXT.",
+ "witnesses_used": [
+  {
+   "name": "HathiTrust mdp.39015073686092",
+   "what": "a complete copy of vol. II of the 1816 print, digitised by Google for the University of Michigan",
+   "rights": "HathiTrust rightsCode pd, \"Full view\"; catalogue record 002240527",
+   "route": "r.jina.ai screenshot of the babel viewer -> 302 signed Google Storage PNG (1280x1280); the direct image, plaintext and PDF endpoints are 403 and a plain curl of the viewer meets Cloudflare",
+   "route_defects": [
+    "the first capture is often the viewer's loading placeholder and r.jina.ai CACHES BY URL, so that placeholder is served forever for that page: MEASURED, seq 237 (printed p.227) returned the placeholder 8/8 times until an ignored query parameter busted the cache",
+    "the cookie modal covers the foot of every page in a fresh browser context, so the last one or two printed lines are not available at all"
+   ],
+   "page_map_measured": {
+    "source": "the viewer's own page list, via jina read: \"#<seq> (p.<page>)\", 558 entries, seq 13..570",
+    "rule": "printed page = seq - 12 for seq 13..61 (printed pp. 1..49); printed page = seq - 10 for seq 62..570",
+    "note": "there is a THREE-PAGE jump at seq 62. A single constant seq-12 is right for the first 49 pages only."
+   },
+   "resolution_measured": {
+    "crop_box": [
+     360,
+     120,
+     1195,
+     1008
+    ],
+    "page_area_px": "835 x 888",
+    "text_block_px": "~690 wide",
+    "px_per_printed_line": 24.3,
+    "this_edition_own_scan": "1391 x 1755, ~39 px per printed line",
+    "ratio": "0.62x linear, 0.38x area against the edition's own scans; 0.18x area against the second scan's native 4792 x 6275"
+   },
+   "crop_proof": "MEASURED on three pages (printed 18, 226, 227): with this box the page's own ink inside the crop has margins of at least 77 px left, 72 px right and 96 px top on all three, so no printed line is cut at those edges; the BOTTOM is the exception and is the cookie modal, not a tuning error",
+   "terms_of_service_rule": "ONE PAGE PER DECISION (only the pages a decision needs are fetched); requests are paced (>= 4 s apart); every request carries an identifying User-Agent; NO HathiTrust PAGE IMAGE IS WRITTEN INTO THIS REPOSITORY — what is held is the READINGS, as below."
+  },
+  {
+   "name": "taylor-theology-of-plato-en-t.-2-1816",
+   "what": "an INDEPENDENT scan of the same 1816 vol. II, whose OCR text this edition SERVED until 2026-10-05",
+   "held_as": "data/editions/<slug>/witnesses/proclus-theology-of-plato-taylor-vol-2-1816.txt (sha256 d1cc777a38d95b6ad0b71fd714964394aa8f187dd7678f771f77a18acf52d0ff, verified byte-identical in this unit)",
+   "its_page_images": "native 4792 x 6275 (3.4x the linear resolution of this edition's own stored scans), fetched from archive.org one page at a time by leaf for the pages a decision needed",
+   "the_defect_this_unit_found": "that witness record carries NO model block, so NO page-based measurement has ever used it: tools/witness-unsure.mjs selects copies by w.model (only the two vol-I copies have one) and tools/pg-locate.mjs uses only the re-flowed Gutenberg volumes. MEASURED: zero of the 22 committed tools/edits/<slug>.*.json artifacts cite it, and the H2b-ii artifact ocr-copy-verdicts.json records counts.placed_in_vol_I=470 of 809 flagged OCR rules — that measurement was scoped to vol. I."
+  }
+ ],
+ "targets_worked": {
+  "definition": "every vol. II rule whose reading is GREEK (type transliteration), is still review-flagged, and rests on exactly ONE instrument (MEASURED: 40 rules, all of them `google/gemini-2.5-flash`) — the class a second scan of the same print is uniquely able to corroborate or refute",
+  "count": 40,
+  "pages": [
+   10,
+   21,
+   30,
+   33,
+   37,
+   53,
+   57,
+   62,
+   65,
+   82,
+   118,
+   122,
+   124,
+   127,
+   129,
+   134,
+   144,
+   169,
+   172,
+   174,
+   185,
+   195,
+   197,
+   205,
+   212,
+   213,
+   217,
+   218,
+   227,
+   228,
+   236,
+   271,
+   287
+  ],
+  "method": "the printed page is placed in the second scan by the page's OWN content (rare-word match against the leaf's own OCR, searched in a window around the page number), the leaf is fetched at NATIVE resolution, the rule's own printed line is located from the leaf's OWN word boxes anchored on the rule's English, and that band (and the page's footnote zone) is read BLIND by two readers. The candidate reading is never shown to a reader."
+ },
+ "the_instrument_measurement_that_decides_this_unit": {
+  "test": "THREE draws of ONE reader (Qwen/Qwen3-VL-235B-A22B-Instruct) on ONE image — the second scan's native-resolution band of printed p.227, the page whose print sets \"ορουω and θειω\" — with ONE prompt, run back to back",
+  "draws": [
+   "\"ὀρούας θείας\"",
+   "\"σπουδην και θεσιν\" (a reading of a DIFFERENT printed line, quoted by the reader as \"Orithya, also, may be said...\")",
+   "\"ὀρούας θείων\""
+  ],
+  "result": "THE THREE DRAWS DISAGREE WITH EACH OTHER and not one of them is the print's own reading — at confidence \"high\" every time. A different prompt on the SAME image had earlier returned the print's reading exactly (\"ορουω θειω\").",
+  "consequence": "a single draw of these readers is NOT a reading on this print's small Greek. Under this library's own rule (two instruments must agree where a reading is at stake; a tie or a single reader licenses nothing), that is enough to refuse every verdict below — and it is the reason this unit changes no reading."
+ },
+ "the_two_routes_compared_head_to_head": {
+  "pages": "printed p.82 and printed p.227, both fetched BOTH ways and read by BOTH readers with the same prompt",
+  "second_scan_native": "p.227: the print's Greek recovered (\"ορουω θειω\" on one prompt; the three-draw probe above shows the instability). p.82: both readers agreed on the page's footnote Greek, e.g. \"τα παραγοντα, τα παραοντα\" unaccented as printed",
+  "hathitrust_render": "p.82 AND p.227: BOTH readers returned ZERO Greek lines (the running head was read correctly, so the image itself was legible — the Greek is not recoverable at this resolution). The crop IS known to contain p.227's Greek line: this unit read it there with its own eyes.",
+  "conclusion": "the HathiTrust route cannot settle the class it was aimed at. Its honest role is what is left: a third observation, at a resolution that decides Latin words and ordinary punctuation, and nothing finer."
+ },
+ "verdicts": [
+  {
+   "id": "r11695",
+   "page": 185,
+   "rule_after_greek": "καιτηςαπειριαητοιφασεωςηαποφασεωςουκεστινειμηοτανμιξινελαβετηγαποαμφοιντωγ",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11699",
+   "page": 205,
+   "rule_after_greek": "ωςτηδηλονεκθεογονιαςαλλαοφιλκυςαλλαοωκεανος",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 18
+  },
+  {
+   "id": "r11701",
+   "page": 124,
+   "rule_after_greek": "βουληςυπερβολης",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 2
+  },
+  {
+   "id": "r11706",
+   "page": 205,
+   "rule_after_greek": "θαυμαζονταθαυμαστονενομομονενονον",
+   "verdict": "CONTESTED",
+   "agreed_reading": "μεταυτουμεταυτης",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "why": "see above",
+   "draws_seen": 33
+  },
+  {
+   "id": "r11715",
+   "page": 185,
+   "rule_after_greek": "νοητογεστιτομενπατρικοναφιεναιτηγπροσχυσινοςεχειτηντετωνεαυτουοντων",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11717",
+   "page": 82,
+   "rule_after_greek": "τοιςπαραγωγοιςτοιςπαροντοις",
+   "verdict": "CONTESTED",
+   "agreed_reading": "τοδεμελλον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "why": "see above",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11718",
+   "page": 174,
+   "rule_after_greek": "εξαιρετοι",
+   "verdict": "CONTESTED",
+   "agreed_reading": "θειον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "why": "see above",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11720",
+   "page": 65,
+   "rule_after_greek": "τουκατωτωεκτωκατωτω",
+   "verdict": "CONTESTED",
+   "agreed_reading": "περιτονκοσμονυπερτονκοσμον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "why": "see above",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11722",
+   "page": 195,
+   "rule_after_greek": "καιγαρουρανιανκαιτηνσεληνηνορφευςτρωγωγοιων",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11728",
+   "page": 10,
+   "rule_after_greek": "διακρινονδιατεινον",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 1
+  },
+  {
+   "id": "r11729",
+   "page": 127,
+   "rule_after_greek": "διατηνωνεγκοσμιωνδιατιτωνεγκοσμιον",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 5
+  },
+  {
+   "id": "r11734",
+   "page": 205,
+   "rule_after_greek": "φυραυτωνφυραυτης",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 26
+  },
+  {
+   "id": "r11737",
+   "page": 21,
+   "rule_after_greek": "ολιγηςτηςολης",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11738",
+   "page": 217,
+   "rule_after_greek": "οινουπανταμεληκοσμωλαβεκαιμοιενεικε",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 6
+  },
+  {
+   "id": "r11743",
+   "page": 57,
+   "rule_after_greek": "περιουρωνπερικαμπης",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11744",
+   "page": 118,
+   "rule_after_greek": "μενφυσιντουτονφυσει",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11745",
+   "page": 122,
+   "rule_after_greek": "προςμονον",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11746",
+   "page": 197,
+   "rule_after_greek": "τειδιαντρισαειφ",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 8
+  },
+  {
+   "id": "r11751",
+   "page": 65,
+   "rule_after_greek": "περιοδουςπροοδους",
+   "verdict": "partial",
+   "agreed_reading": "περιτονκοσμονυπερτονκοσμον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "why": "see above",
+   "draws_seen": 10
+  },
+  {
+   "id": "r11752",
+   "page": 271,
+   "rule_after_greek": "ηεριωνελατηρακυνωνχθονιωντεκαιυγρων",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11754",
+   "page": 144,
+   "rule_after_greek": "στρατωπροσωτω",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11760",
+   "page": 33,
+   "rule_after_greek": "ειπεεντων",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 2
+  },
+  {
+   "id": "r11761",
+   "page": 287,
+   "rule_after_greek": "συνεκτεινατοσυνετεκταινετο",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11765",
+   "page": 21,
+   "rule_after_greek": "τηςακλινωςτιι",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 2
+  },
+  {
+   "id": "r11766",
+   "page": 62,
+   "rule_after_greek": "κακοντοκοινον",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11767",
+   "page": 212,
+   "rule_after_greek": "παραπεταπαραπετασματα",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 5
+  },
+  {
+   "id": "r11768",
+   "page": 213,
+   "rule_after_greek": "καθαπερκαταπηγνυνται",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11773",
+   "page": 30,
+   "rule_after_greek": "γονιμουμονιμου",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 2
+  },
+  {
+   "id": "r11775",
+   "page": 134,
+   "rule_after_greek": "ιδρυανιδρυσιν",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11776",
+   "page": 169,
+   "rule_after_greek": "ουγαρκαρπονετεκονηλιοςρητος",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 2
+  },
+  {
+   "id": "r11778",
+   "page": 218,
+   "rule_after_greek": "σημαινωντονοιονκαιτινανουν",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 1
+  },
+  {
+   "id": "r11797",
+   "page": 228,
+   "rule_after_greek": "καλλιμορφοναγαθον",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 5
+  },
+  {
+   "id": "r11800",
+   "page": 37,
+   "rule_after_greek": "φρονουσιακινητοι",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11820",
+   "page": 129,
+   "rule_after_greek": "εξηςημισυ",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 2
+  },
+  {
+   "id": "r11824",
+   "page": 82,
+   "rule_after_greek": "δεαμελειουν",
+   "verdict": "partial",
+   "agreed_reading": "τοδεμελλον",
+   "agreed_by": [
+    "Qwen3-VL-235B-A22B-Instruct",
+    "gemini-2.5-flash"
+   ],
+   "why": "see above",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11825",
+   "page": 172,
+   "rule_after_greek": "τραπενου",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 4
+  },
+  {
+   "id": "r11826",
+   "page": 236,
+   "rule_after_greek": "ωσπερ",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11828",
+   "page": 118,
+   "rule_after_greek": "καιαυτοι",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 0
+  },
+  {
+   "id": "r11839",
+   "page": 53,
+   "rule_after_greek": "ουτεον",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 6
+  },
+  {
+   "id": "r11898",
+   "page": 227,
+   "rule_after_greek": "ορουωθειω",
+   "verdict": "no-agreed-reading",
+   "agreed_reading": null,
+   "agreed_by": null,
+   "why": "an agreed reading, but not of the rule's own printed line",
+   "draws_seen": 4
+  }
+ ],
+ "verdict_counts": {
+  "no-agreed-reading": 34,
+  "CONTESTED": 4,
+  "partial": 2
+ },
+ "outcome": "NO READING CHANGES. No flag is cleared and no rule is corrected: not one of the 40 targets reached an AGREED reading of its own printed line that carries the rule's `after`, and a contest between instruments licenses nothing. The version is therefore NOT bumped and no DOI is minted — nothing served moves, and this file is the only content change.",
+ "readings": {
+  "r11695": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 186,
+    "img_bytes": 1162049,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 186,
+    "img_bytes": 1411213,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 186,
+    "img_bytes": 1162049,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 186,
+    "img_bytes": 1411213,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11699": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 203,
+    "img_bytes": 2280861,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 203,
+    "img_bytes": 1400338,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection",
+      "greek": "και τοι γε οτι ο"
+     },
+     {
+      "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+      "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+     },
+     {
+      "english": "τον ουρανιον ολυμπον, κρατει βροντηλεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την",
+      "greek": "τον ουρανιον ολυμπον, κρατει βροντηλεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+     },
+     {
+      "english": "μεσην· ναινι γαρ αυτον εν τοις θεοποιοις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,",
+      "greek": "μεσην· ναινι γαρ αυτον εν τοις θεοποιοις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,"
+     },
+     {
+      "english": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.",
+      "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον."
+     },
+     {
+      "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+      "greek": "μετ'αυτου"
+     },
+     {
+      "english": "For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντφ.",
+      "greek": "Θαυμαντα, Θαυμαντος; ποντον, ποντφ."
+     },
+     {
+      "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιος αλλα ο",
+      "greek": "ου γαρ εστιν ο φορνυς ουρανιος αλλα ο"
+     },
+     {
+      "english": "φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+      "greek": "φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 203,
+    "img_bytes": 2280861,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 203,
+    "img_bytes": 1400338,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "of the Orphic remains, I shall give the original for the sake of the learned reader. και του για στι ο",
+      "greek": "και του για στι ο"
+     },
+     {
+      "english": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν",
+      "greek": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν"
+     },
+     {
+      "english": "τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την",
+      "greek": "τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την"
+     },
+     {
+      "english": "μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον έχει περίσπειν ουρανον,",
+      "greek": "μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον εχει περίσπειν ουρανον,"
+     },
+     {
+      "english": "αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και έχει τεταγμένον.",
+      "greek": "αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και εχει τεταγμένον."
+     },
+     {
+      "english": "* For μετ'αυτου, it is necessary to read μετ'αυτης.",
+      "greek": "μετ'αυτου, μετ'αυτης."
+     },
+     {
+      "english": "• For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντῳ.",
+      "greek": "Θαυμαντα, θαυμαντος; ποντον, ποντῳ."
+     },
+     {
+      "english": "* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο",
+      "greek": "ου γαρ έστιν ο φορους ουρανίδης αλλα ο"
+     },
+     {
+      "english": "φορούς, ως εστι δήλον εκ της θεογονίας. For άλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,",
+      "greek": "φορούς, ως εστι δήλον εκ της θεογονίας. αλλα ο φόρους, αλλα ο Ωκεανος;"
+     }
+    ]
+   }
+  ],
+  "r11701": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 122,
+    "img_bytes": 602661,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 122,
+    "img_bytes": 1444290,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For μετα βούλης, I read μεταβούλης. For the mundane Gods are in no part of the Timæus",
+      "greek": "μετα βούλης, μεταβούλης."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 122,
+    "img_bytes": 602661,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 122,
+    "img_bytes": 1444290,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "· ",
+      "greek": "μετα"
+     }
+    ]
+   }
+  ],
+  "r11706": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 203,
+    "img_bytes": 1484467,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection",
+      "greek": "και τοι γε οτι ο"
+     },
+     {
+      "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+      "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+     },
+     {
+      "english": "τον ουρανιον ολυμπον, κρατει βρονταδεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την",
+      "greek": "τον ουρανιον ολυμπον, κρατει βρονταδεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+     },
+     {
+      "english": "μεσην· ναιον γαρ αυτον εν τοις θεατροις μειθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,",
+      "greek": "μεσην· ναιον γαρ αυτον εν τοις θεατροις μειθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,"
+     },
+     {
+      "english": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμενον.",
+      "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμενον."
+     },
+     {
+      "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+      "greek": "μετ'αυτου, μετ'αυτης."
+     },
+     {
+      "english": "For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντω.",
+      "greek": "Θαυμαντα, Θαυμαντος; ποντον, ποντω."
+     },
+     {
+      "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο",
+      "greek": "ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο"
+     },
+     {
+      "english": "φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+      "greek": "φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;"
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 203,
+    "img_bytes": 1400338,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection",
+      "greek": "και τοι γε οτι ο"
+     },
+     {
+      "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+      "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+     },
+     {
+      "english": "τον ουρανιον ολυμπον, κρατει βρονταλετα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την",
+      "greek": "τον ουρανιον ολυμπον, κρατει βρονταλετα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+     },
+     {
+      "english": "μεσην· ναινιν γαρ αυτον εν τοις θεοποιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περιεπειν ουρανον,",
+      "greek": "μεσην· ναινιν γαρ αυτον εν τοις θεοποιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περιεπειν ουρανον,"
+     },
+     {
+      "english": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.",
+      "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον."
+     },
+     {
+      "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+      "greek": "μετ'αυτου, μετ'αυτης."
+     },
+     {
+      "english": "For Θαυμαντα, it is requisite to read Θαυμαντος; and for ποντον, ποντη.",
+      "greek": "Θαυμαντα, Θαυμαντος; ποντον, ποντη."
+     },
+     {
+      "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο",
+      "greek": "ου γαρ εστιν ο φορνυς ουρανιδης αλλα ο"
+     },
+     {
+      "english": "φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+      "greek": "φορνυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορνυς, αλλα ο Ωκεανος;"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 203,
+    "img_bytes": 1484467,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "of the Orphic remains, I shall give the original for the sake of the learned reader. ",
+      "greek": "και του γαρ εστιν ο"
+     },
+     {
+      "english": "* ",
+      "greek": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρονον αυτον καταλαμβάνειν"
+     },
+     {
+      "english": "",
+      "greek": "τον ουράνιον ολύμπου, κάκει θρονισθεντα, βασίλευειν των τιτάνων τον δε ωκεανόν την ληξιν απάσαν την"
+     },
+     {
+      "english": "",
+      "greek": "μέσην ναιειν γαρ αυτον εν τοις θεσπέσιοις μείθροις τοις μετα τον ελόμπον, και τον εχει περισπειν ουρανον,"
+     },
+     {
+      "english": "",
+      "greek": "αλλά ου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπεσοντα του ολύμπου, και εχει τεταγμένον."
+     },
+     {
+      "english": "* The original here is evidently erroneous; for it is, ου γαρ εστιν ο ουρανίδης αλλα ο",
+      "greek": "μετ’αυτου μετ’αυτης"
+     },
+     {
+      "english": "σερκύς, ως εστι δήλον εκ της θεογονίας. For αλλα o , therefore, I read αλλα ο ; Ocean,",
+      "greek": "Θαυμαντα Θαυμαντος ποντον ποντῳ"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 203,
+    "img_bytes": 1400338,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+      "greek": "και του γαρ εστι ο"
+     },
+     {
+      "english": "",
+      "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+     },
+     {
+      "english": "",
+      "greek": "τον ουρανιον ολυμπον, κακει θρονισθεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+     },
+     {
+      "english": "",
+      "greek": "μεσαην καιειν γαρ αυτον εν τοις θεσπεσιοις μειθροις τοις μετα τον ολυμπον, και τον εκει περισπειν ουρανον,"
+     },
+     {
+      "english": "",
+      "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεσοντα του ολυμπου, και εκει τεταγμένον."
+     },
+     {
+      "english": "For, it is necessary to read.",
+      "greek": "μετ'αυτουμετ'αυτης"
+     },
+     {
+      "english": "For, it is requisite to read; and for.",
+      "greek": "Θαυμανταθαυμαντοςποντονποντῳ"
+     },
+     {
+      "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορκυς ουρανιδης αλλα ο φερκυς, ως εστι δηλον εκ της θεογονιας. For, therefore, I read ο Ωκεανος; Ocean, according to the Theogony of Hesiod, being the progeny of Heaven and Earth.",
+      "greek": "αλλα ο φορκυςαλλα"
+     }
+    ]
+   }
+  ],
+  "r11715": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 186,
+    "img_bytes": 1162049,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 186,
+    "img_bytes": 1411213,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 186,
+    "img_bytes": 1162049,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 186,
+    "img_bytes": 1411213,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11717": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 80,
+    "img_bytes": 1380646,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "In the original to be μελλον is omitted.",
+      "greek": "τὸ δὲ μέλλον"
+     },
+     {
+      "english": "For τα παραγοντα, it is necessary to read τα παροντα.",
+      "greek": "τὰ παράγοντα, τὰ παρόντα."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 80,
+    "img_bytes": 1380646,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "In the original is omitted.",
+      "greek": "το δε μελλον"
+     },
+     {
+      "english": ", it is necessary to read .",
+      "greek": "Εοτ τὰ παραγοντa τα παροντa"
+     }
+    ]
+   }
+  ],
+  "r11718": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 179,
+    "img_bytes": 420460,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 179,
+    "img_bytes": 1355352,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "It is necessary here to supply the word θειον.",
+      "greek": "θειον."
+     },
+     {
+      "english": "It is requisite to read κατ' εκεινον, instead of κατ' εκεινην.",
+      "greek": "κατ' εκεινον, κατ' εκεινην."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 179,
+    "img_bytes": 420460,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 179,
+    "img_bytes": 1355352,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "It is necessary here to supply the word",
+      "greek": "θείον"
+     },
+     {
+      "english": "* It is requisite to read instead of",
+      "greek": "κατ' ἐκεῖνον, κατ' ἐκείνης."
+     }
+    ]
+   }
+  ],
+  "r11720": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 63,
+    "img_bytes": 1396939,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For χωριον, it is necessary to read χωριστον.",
+      "greek": "χωριον, χωριστον."
+     },
+     {
+      "english": "Instead of περι τον κοσμον, it is necessary to read υπερ τον κοσμον.",
+      "greek": "περι τον κοσμον, υπερ τον κοσμον."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 63,
+    "img_bytes": 1396939,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "• For it is necessary to read .",
+      "greek": "χωρικόνχωριστὸν"
+     },
+     {
+      "english": "* Instead of it is necessary to read .",
+      "greek": "περὶτὸνκόσμονὑπὲρτὸνκόσμον"
+     }
+    ]
+   }
+  ],
+  "r11722": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 199,
+    "img_bytes": 446153,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 199,
+    "img_bytes": 1375212,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 199,
+    "img_bytes": 446153,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 199,
+    "img_bytes": 1375212,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11728": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 13,
+    "img_bytes": 458699,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 13,
+    "img_bytes": 1030718,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "Again, it follows in addition to what has been said, that we should",
+      "greek": "ΑΘΑΙΝ,"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 13,
+    "img_bytes": 458699,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 13,
+    "img_bytes": 1030718,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11729": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 125,
+    "img_bytes": 488597,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 125,
+    "img_bytes": 1406323,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For τελειοτατα, it is necessary to read τελειοτητα.",
+      "greek": "τελειοτατα,τελειοτητα."
+     },
+     {
+      "english": "For τα θειοτα, it is necessary to read τα θειοτατα.",
+      "greek": "ταθειοτα,ταθειοτατα."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 125,
+    "img_bytes": 488597,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "adorned with all of divine and mortal animals. For if all",
+      "greek": "τὰ πλήθη"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 125,
+    "img_bytes": 1406323,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "• For ",
+      "greek": "τελειότατα"
+     },
+     {
+      "english": " For ",
+      "greek": "τα θειότα"
+     }
+    ]
+   }
+  ],
+  "r11734": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 203,
+    "img_bytes": 447210,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+      "greek": "μετ'αυτου,μετ'αυτης."
+     },
+     {
+      "english": "For θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντρ.",
+      "greek": "θαυμαντα,θαυμαντος;ποντον,ποντρ."
+     },
+     {
+      "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορνυς ουρανιος αλλα ο",
+      "greek": "ου γαρ εστιν ο φορνυς ουρανιος αλλα ο"
+     },
+     {
+      "english": "φορνυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορνυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+      "greek": "φορνυς,ως εστι δηλον εκ της θεογονιας.αλλα ο φορνυς,αλλα ο Ωκεανος;"
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 203,
+    "img_bytes": 1400338,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "As this is a remarkably curious Orphic fragment, and is not to be found in Gesner's collection",
+      "greek": "και τοι γε οτι ο"
+     },
+     {
+      "english": "of the Orphic remains, I shall give the original for the sake of the learned reader.",
+      "greek": "κρονος υπερτερος εστι του ωκεανου, δεδηλωκεν ο θεολογος παλιν λεγων· τον μεν κρονον αυτον καταλαμβανειν"
+     },
+     {
+      "english": "του ουρανιου ολυμπου, κρατει βροντολεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την",
+      "greek": "του ουρανιου ολυμπου, κρατει βροντολεντα, βασιλευειν των τιτανων τον δε ωκεανον την ληξιν απασαν την"
+     },
+     {
+      "english": "μεσην· ναιον γαρ αυτον εν τοις θεατροις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,",
+      "greek": "μεσην· ναιον γαρ αυτον εν τοις θεατροις μεθροις τοις μετα τον ολυμπον, και τον εκει περιπατειν ουρανον,"
+     },
+     {
+      "english": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον.",
+      "greek": "αλλ'ου τον ακροτατον, ως δε φησιν ο μυθος, τον εμπεποντα του ολυμπου, και εκει τεταγμενον."
+     },
+     {
+      "english": "For μετ'αυτου, it is necessary to read μετ'αυτης.",
+      "greek": "μετ'αυτου, μετ'αυτης."
+     },
+     {
+      "english": "For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντφ.",
+      "greek": "Θαυμαντα, θαυμαντος; ποντον, ποντφ."
+     },
+     {
+      "english": "The original here is evidently erroneous; for it is, ου γαρ εστιν ο φορκυς ουρανιος αλλα ο",
+      "greek": "ου γαρ εστιν ο φορκυς ουρανιος αλλα ο"
+     },
+     {
+      "english": "φορκυς, ως εστι δηλον εκ της θεογονιας. For αλλα ο φορκυς, therefore, I read αλλα ο Ωκεανος; Ocean,",
+      "greek": "φορκυς, ως εστι δηλον εκ της θεογονιας. αλλα ο φορκυς, αλλα ο Ωκεανος;"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 203,
+    "img_bytes": 447210,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "* For , it is necessary to read .",
+      "greek": "μετ'αυτου,μετ'αυτης."
+     },
+     {
+      "english": "• For , it is requisite to read ; and for , .",
+      "greek": "Θαυμαντα,Θαυμαντος;ποντον,ποντιῳ."
+     },
+     {
+      "english": "* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο",
+      "greek": "ουγαρἔστινοφορουςουρανίδηςαλλαο"
+     },
+     {
+      "english": "σέρχύς, ως έστι δήλον εκ της θεογονίας. For αλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,",
+      "greek": "σέρχυς,ωςἔστιδῆλονεκτηςθεογονίας.αλλαοφόρους,αλλαοΩκεανος;"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 203,
+    "img_bytes": 1400338,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "of the Orphic remains, I shall give the original for the sake of the learned reader. και του για στι ο",
+      "greek": "και του για στι ο"
+     },
+     {
+      "english": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν",
+      "greek": "κρόνος υπερτερός εστι του ωκεανού, δεδηλωκεν ο θεολόγος παλιν λέγων· τον μεν κρινον αυτόν καταλαμβαντιν"
+     },
+     {
+      "english": "τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την",
+      "greek": "τον ουράνιον ολυμπον, κάκει θρονισθεντα, βασιλεύειν των τιτάνων τον δε ωκεανον την ληξιν άπάσαν την"
+     },
+     {
+      "english": "μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον έχει περίσπειν ουρανον,",
+      "greek": "μέσην καιειν γαρ αυτον εν τους θεσπέσιοις μείθρους τους μετα τον ελυμπον, και τον εχει περίσπειν ουρανον,"
+     },
+     {
+      "english": "αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και έχει τεταγμένον.",
+      "greek": "αλλίου τον ακροτατον, ως δε φησιν ὁ μύθος, τον εμπέσοντα του ολύμπου, και εχει τεταγμένον."
+     },
+     {
+      "english": "* For μετ'αυτου, it is necessary to read μετ'αυτης.",
+      "greek": "μετ'αυτου, μετ'αυτης."
+     },
+     {
+      "english": "• For Θαυμαντα, it is requisite to read θαυμαντος; and for ποντον, ποντῳ.",
+      "greek": "Θαυμαντα, θαυμαντος; ποντον, ποντῳ."
+     },
+     {
+      "english": "* The original here is evidently erroneous; for it is, ου γαρ έστιν ο φορους ουρανίδης αλλα ο",
+      "greek": "ου γαρ έστιν ο φορους ουρανίδης αλλα ο"
+     },
+     {
+      "english": "φορούς, ως εστι δήλον εκ της θεογονίας. For άλλα ο φόρους, therefore, I read αλλα ο Ωκεανος; Ocean,",
+      "greek": "φορούς, ως εστι δήλον εκ της θεογονίας. αλλα ο φόρους, αλλα ο Ωκεανος;"
+     }
+    ]
+   }
+  ],
+  "r11737": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 27,
+    "img_bytes": 1434133,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "from which (αφ'ου), but from Jupiter according to the by which, ωφ'ου.",
+      "greek": "αφ'ου), ωφ'ου."
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 27,
+    "img_bytes": 1391075,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "αφ'ου signifies an occult, but υφ'ου, a manifest progression.",
+      "greek": "αφ'ου?υφ'ου"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 27,
+    "img_bytes": 1434133,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "from which (, but from Jupiter according to the by which, .",
+      "greek": "ἀφου,ὦφίου"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 27,
+    "img_bytes": 1391075,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "* signifies an occult, but , a manifest progression.",
+      "greek": "αφ'ουυφ'ου"
+     }
+    ]
+   }
+  ],
+  "r11738": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 215,
+    "img_bytes": 1622590,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "produce γλυκυθυμια sweetness of sensation; every where purifying our",
+      "greek": "γλυκυθυμια"
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 215,
+    "img_bytes": 1409887,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "certainly his first and middle energies will be thus called, as well as his last; so that Socrates now looking to this calls the God",
+      "greek": "διδαννορος,"
+     },
+     {
+      "english": "For the word",
+      "greek": "οἰον"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 215,
+    "img_bytes": 1622590,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "produce sweetness of sensation ; every where purifying our",
+      "greek": "γλυκυθυμια"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 215,
+    "img_bytes": 1409887,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "last; so that Socrates now looking to this calls the God ",
+      "greek": "διδοίνυσος"
+     },
+     {
+      "english": "partial intellect, is in common presented to our view. For the word ",
+      "greek": "ΔΙΟΥ"
+     }
+    ]
+   }
+  ],
+  "r11743": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 57,
+    "img_bytes": 920558,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 57,
+    "img_bytes": 1435435,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 57,
+    "img_bytes": 920558,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 57,
+    "img_bytes": 1435435,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11744": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 117,
+    "img_bytes": 1412016,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 117,
+    "img_bytes": 1412016,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11745": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 130,
+    "img_bytes": 2780325,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 130,
+    "img_bytes": 1410124,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For εξ ου σωματος, it is necessary to read εξω σωματος.",
+      "greek": "εξ ου σωματος, εξω σωματος."
+     },
+     {
+      "english": "For λυπης, it is requisite to read λοιπης.",
+      "greek": "λυπης, λοιπης."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 130,
+    "img_bytes": 2780325,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 130,
+    "img_bytes": 1410124,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "¹ For , it is necessary to read .",
+      "greek": "εξ ου σώματος, έξω σώματος"
+     },
+     {
+      "english": "² For , it is requisite to read .",
+      "greek": "λύπης λοιπής"
+     }
+    ]
+   }
+  ],
+  "r11746": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 195,
+    "img_bytes": 564073,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For τριάδων, it is necessary to read τριάδας.",
+      "greek": "τριάδων,τριάδας."
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 195,
+    "img_bytes": 1327036,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For τριάδων, it is necessary to read τριάδας.",
+      "greek": "τριάδων,τριάδας."
+     },
+     {
+      "english": "For νοερῶν, read νοητῶν.",
+      "greek": "νοερῶν,νοητῶν."
+     },
+     {
+      "english": "For αποριαν, read απειρίαν.",
+      "greek": "αποριαν,απειρίαν."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 195,
+    "img_bytes": 564073,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For , it is necessary to read .",
+      "greek": "τριαδηντριαδαις"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 195,
+    "img_bytes": 1327036,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For , it is necessary to read .",
+      "greek": "τριάδην, τριαδαις."
+     },
+     {
+      "english": "* For , read",
+      "greek": "χοιρων, νοητων"
+     },
+     {
+      "english": "* For , read .",
+      "greek": "απόριαν, απειρίαν."
+     }
+    ]
+   }
+  ],
+  "r11751": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 63,
+    "img_bytes": 928196,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For χωρικον, it is necessary to read χωριστον.",
+      "greek": "χωρικον, χωριστον."
+     },
+     {
+      "english": "Instead of περι τον κοσμον, it is necessary to read υπερ τον κοσμον.",
+      "greek": "περι τον κοσμον, υπερ τον κοσμον."
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 63,
+    "img_bytes": 1396939,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For χωριον, it is necessary to read χωριστον.",
+      "greek": "χωριον, χωριστον."
+     },
+     {
+      "english": "Instead of περι τον κοσμον, it is necessary to read υπερ του κοσμου.",
+      "greek": "περι τον κοσμον, υπερ του κοσμου."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 63,
+    "img_bytes": 928196,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "• For ",
+      "greek": "χωρικόν"
+     },
+     {
+      "english": " it is necessary to read ",
+      "greek": "χωριστον"
+     },
+     {
+      "english": "* Instead of ",
+      "greek": "περι τον κόσμον"
+     },
+     {
+      "english": " it is necessary to read ",
+      "greek": "υπερ τον κόσμον"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 63,
+    "img_bytes": 1396939,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "• For it is necessary to read .",
+      "greek": "χωρικόνχωριστὸν"
+     },
+     {
+      "english": "* Instead of it is necessary to read .",
+      "greek": "περὶτὸνκόσμονὑπὲρτὸνκόσμον"
+     }
+    ]
+   }
+  ],
+  "r11752": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 268,
+    "img_bytes": 901438,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 268,
+    "img_bytes": 1358049,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 268,
+    "img_bytes": 901438,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 268,
+    "img_bytes": 1358049,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11754": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 142,
+    "img_bytes": 1369441,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For μεγιστον, it is necessary to read πρεσβον.",
+      "greek": "μεγιστον,πρεσβον."
+     },
+     {
+      "english": "For γνωριζειν, it is necessary to read οριζει.",
+      "greek": "γνωριζειν,οριζει."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 142,
+    "img_bytes": 1369441,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "* For , it is necessary to read .",
+      "greek": "περίοδονπροοδον"
+     },
+     {
+      "english": "* For , it is necessary to read .",
+      "greek": "γνωρίζεινορίζει"
+     }
+    ]
+   }
+  ],
+  "r11760": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 27,
+    "img_bytes": 1391075,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "αφ'ου signifies an occult, but υφ'ου, a manifest progression.",
+      "greek": "αφ'ου?υφ'ου"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 27,
+    "img_bytes": 1391075,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "* signifies an occult, but , a manifest progression.",
+      "greek": "ἀφ'οὗ ὑφ'οὗ"
+     }
+    ]
+   }
+  ],
+  "r11761": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 285,
+    "img_bytes": 632762,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For ορθομερεσ here, it is necessary to read ορθομερεστερον.",
+      "greek": "ορθομερεσορθομερεστερον"
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 285,
+    "img_bytes": 1388736,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For ὁρμητικός here, it is necessary to read ὁρμητικότερος.",
+      "greek": "ὁρμητικός?ορμητικότερος."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 285,
+    "img_bytes": 632762,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "* For here, it is necessary to read .",
+      "greek": "ορώμενοςὁρμώμενος"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 285,
+    "img_bytes": 1388736,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "* For  here, it is necessary to read .",
+      "greek": "ορωμενος ορμωμενος"
+     }
+    ]
+   }
+  ],
+  "r11765": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 27,
+    "img_bytes": 1391075,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "αφ'ου signifies an occult, but υφ'ου, a manifest progression.",
+      "greek": "αφ'ου?υφ'ου"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 27,
+    "img_bytes": 1391075,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "* signifies an occult, but , a manifest progression.",
+      "greek": "ἀφ'οὗ ὑφ'οὗ"
+     }
+    ]
+   }
+  ],
+  "r11766": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 59,
+    "img_bytes": 928858,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 59,
+    "img_bytes": 1378085,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 59,
+    "img_bytes": 928858,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 59,
+    "img_bytes": 1378085,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11767": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 209,
+    "img_bytes": 1439165,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "quod inscripsit τα θεολογουμενα της αειδυντιας.",
+      "greek": "τα θεολογουμενα της αειδυντιας."
+     },
+     {
+      "english": "² For εισι, it is requisite to read προεισι.",
+      "greek": "εισι, προεισι."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 209,
+    "img_bytes": 1439165,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "and revolve within it. On this account likewise, it was called by them Halios, (παρα το αλιζεις)",
+      "greek": "παρα το αλιζεις"
+     },
+     {
+      "english": "quod inscripsit τα θεολογουμενα της αριθμητικής.",
+      "greek": "τα θεολογουμενα της αριθμητικής."
+     },
+     {
+      "english": "* For εισι, it is requisite to read προεισι.",
+      "greek": "εισι, προεισι."
+     }
+    ]
+   }
+  ],
+  "r11768": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 218,
+    "img_bytes": 484186,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 218,
+    "img_bytes": 1397404,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 218,
+    "img_bytes": 484186,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 218,
+    "img_bytes": 1397404,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11773": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 30,
+    "img_bytes": 1375639,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For εξηγηται, it is necessary to read εξηγειται.",
+      "greek": "εξηγηταιεξηγειται"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 30,
+    "img_bytes": 1375639,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "* For , it is necessary to read .",
+      "greek": "εξήρηται, ἐξήρτηται."
+     }
+    ]
+   }
+  ],
+  "r11775": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 130,
+    "img_bytes": 1410124,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For εξ ου σωματος, it is necessary to read εξω σωματος.",
+      "greek": "εξ ου σωματος, εξω σωματος."
+     },
+     {
+      "english": "For λυπης, it is requisite to read λοιπης.",
+      "greek": "λυπης, λοιπης."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 130,
+    "img_bytes": 1410124,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "¹ For , it is necessary to read .",
+      "greek": "εξ ου σώματος, έξω σώματος"
+     },
+     {
+      "english": "² For , it is requisite to read .",
+      "greek": "λύπης λοιπής"
+     }
+    ]
+   }
+  ],
+  "r11776": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 167,
+    "img_bytes": 939055,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 167,
+    "img_bytes": 1427593,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "The original is,",
+      "greek": "οὐ γὰρ καλὸν ἐπεινὸν ἡλίας ἐγένετο."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 167,
+    "img_bytes": 939055,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 167,
+    "img_bytes": 1427593,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "Commentary of Proclus. The original is, ",
+      "greek": "ον εγω καρπον στέκον ήλιος εγένετο."
+     }
+    ]
+   }
+  ],
+  "r11778": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 216,
+    "img_bytes": 1545713,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 216,
+    "img_bytes": 1417135,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 216,
+    "img_bytes": 1545713,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "on this account theologists call both this God and all his fabrications ",
+      "greek": "οἶνος"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 216,
+    "img_bytes": 1417135,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11797": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 225,
+    "img_bytes": 780980,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "Orithya, also, may be said to be a soul' aspiring after things above, from opoua and 02100, according to the Attic custom of adding a letter at",
+      "greek": "ὀρούσα?θεῖν"
+     },
+     {
+      "english": "the end of a word, which letter is here an ω. Such a soul, therefore, is",
+      "greek": "ω"
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 225,
+    "img_bytes": 1371927,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 225,
+    "img_bytes": 780980,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "from ",
+      "greek": "ορούσ"
+     },
+     {
+      "english": " and ",
+      "greek": "θεῷ"
+     },
+     {
+      "english": "the end of a word, which letter is here an ",
+      "greek": "ῶ"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 225,
+    "img_bytes": 1371927,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11800": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 37,
+    "img_bytes": 441132,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 37,
+    "img_bytes": 1322379,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "It appears to me that after καὶ αἱ ζητήσεις in the original, there are wanting the words τῶν",
+      "greek": "καὶ αἱ ζητήσεις τῶν"
+     },
+     {
+      "english": "προνοουντων, ωσπερ.",
+      "greek": "προνοουντων, ωσπερ."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 37,
+    "img_bytes": 441132,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 37,
+    "img_bytes": 1322379,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "' It appears to me that after in the original, there are wanting the words",
+      "greek": "καὶ ζητήσεις τῶν"
+     },
+     {
+      "english": "",
+      "greek": "προνοούντων, ὥσπερ."
+     }
+    ]
+   }
+  ],
+  "r11820": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 122,
+    "img_bytes": 581799,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 122,
+    "img_bytes": 1444290,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "For μετα βούλης, I read μεταβούλης. For the mundane Gods are in no part of the Timæus",
+      "greek": "μετα βούλης,μεταβούλης."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 122,
+    "img_bytes": 581799,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 122,
+    "img_bytes": 1444290,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "· ",
+      "greek": "μετα"
+     }
+    ]
+   }
+  ],
+  "r11824": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 80,
+    "img_bytes": 1380646,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "In the original to be μελλον is omitted.",
+      "greek": "τὸ δὲ μέλλον"
+     },
+     {
+      "english": "For τα παραγοντα, it is necessary to read τα παροντα.",
+      "greek": "τὰ παράγοντα, τὰ παρόντα."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 80,
+    "img_bytes": 1380646,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "In the original is omitted.",
+      "greek": "το δε μελλον"
+     },
+     {
+      "english": ", it is necessary to read .",
+      "greek": "Εοτ τὰ παραγοντa τα παροντa"
+     }
+    ]
+   }
+  ],
+  "r11825": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 170,
+    "img_bytes": 1341146,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "The word",
+      "greek": "ἐπεκμενον"
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 170,
+    "img_bytes": 1415278,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "The word τεταμενον also,",
+      "greek": "τεταμενον"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 170,
+    "img_bytes": 1341146,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "possessing an immutable and unwearied energy. The word also,",
+      "greek": "τεταμένων"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 170,
+    "img_bytes": 1415278,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "possessing an immutable and unwearied energy. The word also,",
+      "greek": "τεταμένων"
+     }
+    ]
+   }
+  ],
+  "r11826": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 241,
+    "img_bytes": 1378936,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 241,
+    "img_bytes": 1378936,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11828": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 117,
+    "img_bytes": 1093337,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 117,
+    "img_bytes": 1412016,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 117,
+    "img_bytes": 1093337,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 117,
+    "img_bytes": 1412016,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ],
+  "r11839": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 51,
+    "img_bytes": 1284242,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 51,
+    "img_bytes": 1373174,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "It is necessary here to supply the word",
+      "greek": "ομοιον."
+     },
+     {
+      "english": "For εαυτω, it is necessary to read",
+      "greek": "εαυτο."
+     },
+     {
+      "english": "For υλικης, it is necessary to read",
+      "greek": "ολικης."
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 51,
+    "img_bytes": 1284242,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 51,
+    "img_bytes": 1373174,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "It is necessary here to supply the word",
+      "greek": "ὁμοίου."
+     },
+     {
+      "english": "¹ For , it is necessary to read .",
+      "greek": "σαυτῷ,σαυτό."
+     },
+     {
+      "english": "¹ For , it is necessary to read .",
+      "greek": "ὐλικῆς,ὁλικῆς."
+     }
+    ]
+   }
+  ],
+  "r11898": [
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "band",
+    "leaf": 225,
+    "img_bytes": 2357357,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "from opovas and Oeia, according to the Attic custom of adding a letter at",
+      "greek": "ὀρούας θείας"
+     },
+     {
+      "english": "the end of a word, which letter is here an ω. Such a soul, therefore, is",
+      "greek": "ω"
+     }
+    ]
+   },
+   {
+    "reader": "Qwen/Qwen3-VL-235B-A22B-Instruct",
+    "image": "foot",
+    "leaf": 225,
+    "img_bytes": 1371927,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "band",
+    "leaf": 225,
+    "img_bytes": 2357357,
+    "error": null,
+    "page_reported": null,
+    "lines": [
+     {
+      "english": "from and , according to the Attic custom of adding a letter at",
+      "greek": "ὅρουἔω"
+     },
+     {
+      "english": "the end of a word, which letter is here an . Such a soul, therefore, is",
+      "greek": "ω"
+     }
+    ]
+   },
+   {
+    "reader": "google/gemini-2.5-flash",
+    "image": "foot",
+    "leaf": 225,
+    "img_bytes": 1371927,
+    "error": null,
+    "page_reported": null,
+    "lines": []
+   }
+  ]
+ },
+ "date": "2026-10-08",
+ "readers_called": [
+  "Qwen/Qwen3-VL-235B-A22B-Instruct",
+  "google/gemini-2.5-flash"
+ ],
+ "reader_dropped_and_why": "anthropic/claude-haiku-4-5 is this library's second measured non-echoing reader and it was NOT used: on the second scan's own p.227 it answered that the image quality was too poor and described a non-existent repeating Greek watermark, and tools/repair-id-probe.mjs already records it fabricating a reading on leaf n22. MEASURED again here; its draw is counted nowhere."
+}
