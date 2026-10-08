@@ -208,6 +208,25 @@ const MINTED = new Map([
    * HERE AS THE VERSION FREEZES, deliberately: a missing row stays invisible only while
    * the version is current, and that has bitten this chain once (1.0.4). */
   ['proclus-theology-of-plato-taylor-1816@1.0.10', '10.5281/zenodo.23242773'],
+  /* MINTED 2026-10-08 as a NEW VERSION of the same record (23242773 under the concept
+   * record 23175743, versions.index 12). 1.0.11 serves the SAME TRANSCRIPTION, the SAME
+   * SECTION MODEL and the SAME ANCHORS as 1.0.10 (the pinned anchor manifest is
+   * byte-identical, so NOT ONE CITATION ANCHOR MOVES), and it carries TWO changes.
+   * (1) 112 RULES' EVIDENCE LEAF IS RE-CITED, because the leaf table the rules were given
+   * began each printed page inside the PREVIOUS page's tail. The true leaf is the scanned
+   * item's own per-leaf text layer, of which this edition's transcription IS the first
+   * 28,444 non-empty lines in order (MEASURED: 28,444 of 28,444 equal). NOT ONE OF THOSE
+   * RULES' READINGS CHANGES. Seven rules 1.0.9 moved the other way - r11789 and the six
+   * n12 rules - are moved back, and the artifact that says so (the previous unit's own
+   * leafmatch.json, whose GREEK probe returns CITED-WINS on the original leaf for all
+   * eight) is committed in tools/edits/. (2) TEN READINGS ARE CORRECTED, each withdrawn
+   * and its corrected reading appended as r11902-r11911: SEVEN served the reading of a
+   * DIFFERENT PRINTED LINE than their `find` fires on (the Synesius hymn's verses were
+   * served PERMUTED, and one running head carried the head of a page 42 leaves away),
+   * and THREE misread the line they do fire on. THE ROW IS ADDED HERE AS THE VERSION
+   * FREEZES, deliberately: a missing row stays invisible only while the version is
+   * current, and that has bitten this chain once (1.0.4). */
+  ['proclus-theology-of-plato-taylor-1816@1.0.11', '10.5281/zenodo.23244971'],
   /* MINTED 2026-10-08: the OTHER TWO EDITIONS' FIRST VERSION BUMP, each as a NEW
    * VERSION of its own record — the fold gate's unscoped multi-fire rules
    * adjudicated on measurement and licensed `scope: "all"` at 1.0.1. NOT ONE BYTE

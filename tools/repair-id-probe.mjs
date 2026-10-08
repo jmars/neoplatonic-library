@@ -212,6 +212,19 @@ const WITHDRAWN = new Map([
    * have their REVIEW FLAG cleared on a witness and 9 have a witness recorded with
    * the flag kept, neither of which changes any id's standing. */
   ['proclus-theology-of-plato-taylor-1816@1.0.10', [8566, 8567, 8570, 8574, 8575, 8593, 8599, 8600, 8611, 8617, 8619, 8653, 8654, 8672, 8683, 8685, 8687, 8720, 8729, 8730, 8736, 8741, 8756, 8785, 8837, 8852, 8906, 8915, 8923, 8942, 8944, 8961, 8967, 8991, 8995, 8996, 9002, 9015, 9069, 9550, 9707, 9734, 9794, 9908, 9926, 10003, 10004, 10067, 10120, 10198, 10277, 10291, 10442, 10571, 10738, 10812, 10838, 10934, 11022, 11059, 11094, 11100, 11387, 11426, 11472, 11507, 11563, 11652, 11680, 11681, 11682, 11683, 11684, 11686, 11693, 11705, 11707, 11812, 11842, 11866, 11874]],
+  /* 1.0.11 SPENDS TEN MORE IDS, and for the first time the withdrawal is a PAIRING error.
+   * MEASURED (the H2b-iii unit): SEVEN rules served the reading of a DIFFERENT PRINTED LINE
+   * than the one their `find` fires on - r11806, r11807, r11795 served the first three verse
+   * lines of printed page xvii over page xvi's last three, r11816 and r11798 the NEXT verse
+   * line's Greek, r11821 the page's first verse line over its eleventh, and r11642 the running
+   * head of printed page 145 over printed page 187's own head - and THREE misread the line
+   * they do fire on (r11698, r11713, r11714). Each is decided on instruments independent of
+   * the rule (a blind full-page transcription of the plate, the human-proofread Project
+   * Gutenberg transcription of the same print, the two other scans of vol. I, and the
+   * letter-for-letter correspondence with the rule's own garble), each corrected reading is
+   * appended as r11902-r11911, and each old id is spent, never reused. The other 3,245 ids
+   * are carried unchanged; 112 rules' EVIDENCE LEAF is re-cited with no reading change. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.11', [8566, 8567, 8570, 8574, 8575, 8593, 8599, 8600, 8611, 8617, 8619, 8653, 8654, 8672, 8683, 8685, 8687, 8720, 8729, 8730, 8736, 8741, 8756, 8785, 8837, 8852, 8906, 8915, 8923, 8942, 8944, 8961, 8967, 8991, 8995, 8996, 9002, 9015, 9069, 9550, 9707, 9734, 9794, 9908, 9926, 10003, 10004, 10067, 10120, 10198, 10277, 10291, 10442, 10571, 10738, 10812, 10838, 10934, 11022, 11059, 11094, 11100, 11387, 11426, 11472, 11507, 11563, 11642, 11652, 11680, 11681, 11682, 11683, 11684, 11686, 11693, 11698, 11705, 11707, 11713, 11714, 11795, 11798, 11806, 11807, 11812, 11816, 11821, 11842, 11866, 11874]],
 ]);
 
 let failures = 0;
