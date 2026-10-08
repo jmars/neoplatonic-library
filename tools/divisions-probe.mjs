@@ -100,11 +100,22 @@ const EXPECTED = { divisions: 217, books: 7 };
 /* The published editions' served files, hashed BEFORE this unit's change (the
  * build of 2026-10-05 that the previous unit left green). They are the control:
  * the recorded-division mode is switched on per edition, and a served edition
- * must be untouched by it. */
+ * must be untouched by it.
+ *
+ * RE-PINNED 2026-10-08 for the 1.0.1 bump of the other two editions (the fold
+ * gate's eight unscoped multi-fire rules adjudicated and licensed `scope`). BOTH
+ * `/t` hashes moved and BOTH `/plain` hashes did NOT, and that is the whole of the
+ * change: the served `/t` carries `corrections[].note`, which IS the rule's
+ * rationale, and the eight licensed rules gained the licence note there (v1.0.7
+ * of the Theology of Plato did the same to its own freed rules). The reading view
+ * is not touched — the licence changes no `find` and no `after` — and the
+ * difference was walked node by node against a build of the pre-change tree: the
+ * ONLY values that differ anywhere in either document are those eight `note`
+ * strings (Cave corrections[11,12,13,14,15,16,132], Elements corrections[23]). */
 const BASELINE = {
-  'porphyry-on-the-cave-of-the-nymphs-taylor-1917/t': '95eb5de94c76ee5441781a8b81528b2b5665173e3f7d4164b4ace37fcfc01311',
+  'porphyry-on-the-cave-of-the-nymphs-taylor-1917/t': '7ff86f181811f0d39047df16fd201a93537457cbbb8cac462a19540754f785ac',
   'porphyry-on-the-cave-of-the-nymphs-taylor-1917/plain': '640157a8295ab9febb0c5a2b2353b761d1e50aef7646777ffb861736f2671af3',
-  'proclus-elements-of-theology-taylor-1816/t': 'd4405672021f86d8926565c865c77f81d1a5d21db528d0aaac5cb9ea8e14002a',
+  'proclus-elements-of-theology-taylor-1816/t': '968c4081904a3cb8d7fc3be6c623b7629cd80df18c9d2224529da7f48f01bebd',
   'proclus-elements-of-theology-taylor-1816/plain': 'b19df5120b30477bd0bcf9488697267dcf938af93accc720ab59032863d37e13',
 };
 

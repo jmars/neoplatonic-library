@@ -124,13 +124,13 @@ const SENTINELS = ['unsure'];
 /* ---------- 6. the states this gate finds unresolved, and what is done with each ---------- */
 
 /** THE PRE-FIX RECORD — the corruption this instrument exists to see, kept as
- * its own asymmetry proof. `proclus-theology-of-plato-taylor-1816@1.0.6` is
- * FROZEN (a state under its own DOI), so its rule list cannot change: every run
- * of this gate re-derives the same defect and asserts it is still visible. A gate
- * that cannot be shown to fail on a known-bad state is a gate nobody should trust
- * — and this state is the one that twelve green gates walked past. The assertion
- * is that the count MATCHES and the named rules are among them; if this row ever
- * passes with no unscoped rule, the instrument has stopped seeing. */
+ * its own asymmetry proof. Every state named here is FROZEN (a state under its
+ * own DOI), so its rule list cannot change: every run of this gate re-derives the
+ * same defect and asserts it is still visible. A gate that cannot be shown to fail
+ * on a known-bad state is a gate nobody should trust — and the Theology's 1.0.6 is
+ * the state twelve green gates walked past. The assertion is that the count
+ * MATCHES and the named rules are among them; if a row ever passes with no
+ * unscoped rule, the instrument has stopped seeing. */
 const PRE_FIX = new Map([
   [
     'proclus-theology-of-plato-taylor-1816@1.0.6',
@@ -141,23 +141,33 @@ const PRE_FIX = new Map([
       note: 'the served reading view reads supermundaneessential, supermundanemundane and about unsure God in this state',
     },
   ],
-]);
-
-/** THE STATES REPORTED AND NOT FIXED HERE. Each of the other two editions is
- * served under its own version and its own DOI: changing its rules is a separate
- * version and a separate deposit, which is a decision this gate does not make.
- * The count is PINNED, so a silent increase fails here instead of shipping — and
- * MEASURED, every one of them is the same class as the Theology's (a garble or a
- * mis-spaced word: `imparticipate`, `cold ness`, `Capri corn`, `Phcedrus`), i.e.
- * a repair that belongs at every occurrence and simply has no `scope` field yet. */
-const NOT_FIXED_HERE = new Map([
+  /* THE OTHER TWO EDITIONS' OWN PRE-FIX STATES, FIXED AT 1.0.1. This gate found
+   * the same class in them and PINNED it as "reported, not fixed — a separate
+   * version and a separate deposit are a separate decision". The decision was
+   * taken, the eight rules were adjudicated ON MEASUREMENT (the print sets each
+   * rule's own reading at every one of its sites, and sets the find form nowhere)
+   * and licensed `scope: "all"` at 1.0.1. Each state is FROZEN under its own DOI,
+   * so it stays here as the asymmetry proof: the run must still SEE the defect on
+   * these rows, and the current versions must fail the SAME assertion if they ever
+   * return to it. NOT ONE BYTE OF THE SERVED TEXT CHANGED between 1.0.0 and 1.0.1
+   * in either edition — the multiplicity was unlicensed, not wrong. */
   [
     'proclus-elements-of-theology-taylor-1816@1.0.0',
-    { unscoped: 1, note: 'reported: a separate version and DOI are a separate decision' },
+    {
+      unscoped: 1,
+      mustInclude: ['r0024'],
+      sentinel: 0,
+      note: 'r0024 (imparticipate -> imparticipable) is licensed "all" at 1.0.1, on the print: Gutenberg 78800 reads imparticipate 0x and imparticipable 84x, and blind two-reader page reads of both sites read the print\'s own imparticipable',
+    },
   ],
   [
     'porphyry-on-the-cave-of-the-nymphs-taylor-1917@1.0.0',
-    { unscoped: 7, note: 'reported: a separate version and DOI are a separate decision' },
+    {
+      unscoped: 7,
+      mustInclude: ['r0012', 'r0013', 'r0014', 'r0015', 'r0016', 'r0017', 'r0133'],
+      sentinel: 0,
+      note: 'all seven are licensed "all" at 1.0.1, each on its own sites read off the page images (two non-echoing readers, blind): four lost-hyphen line joins and three OCR misreads of the AE ligature',
+    },
   ],
 ]);
 
@@ -240,17 +250,23 @@ function foldOne(rules, s) {
 
 const served = TEXTS.filter(isPublished);
 
-/** The current version of every edition that has one, plus the pinned pre-fix
- * record (a frozen state, so its row is a fact and not a snapshot). */
+/** The current version of every edition that has one, plus every PRE_FIX row
+ * (each a frozen state, so its row is a fact and not a snapshot). A row whose
+ * version the edition currently IS is skipped — the current version is asserted
+ * against the scope rule itself, and that is the assertion the frozen row proves
+ * is reachable. */
 function rows() {
   const out = [];
   for (const t of served) {
     const v = versionOf(t.slug);
     if (!v) continue;
     out.push({ entry: t, version: v, current: true });
-    const key = `${t.slug}@1.0.6`;
-    if (v !== '1.0.6' && PRE_FIX.has(key) && existsSync(join(ROOT, 'data', 'editions', ...key.split('@')[0].split('/'), 'versions', '1.0.6'))) {
-      out.push({ entry: t, version: '1.0.6', current: false });
+    for (const key of PRE_FIX.keys()) {
+      const [slug, frozen] = key.split('@');
+      if (slug !== t.slug || frozen === v) continue;
+      if (existsSync(join(ROOT, 'data', 'editions', slug, 'versions', frozen))) {
+        out.push({ entry: t, version: frozen, current: false });
+      }
     }
   }
   return out;
@@ -309,8 +325,11 @@ for (const row of rows()) {
     else unscoped.push(i);
   }
   const names = unscoped.map(idOf);
-  const preFix = PRE_FIX.get(key);
-  const pinned = NOT_FIXED_HERE.get(key);
+  /* A PRE_FIX row is a FROZEN state's own record. The assertion that a state
+   * which has NOT been fixed is red belongs to the CURRENT version, which never
+   * takes this branch: if an edition's current version IS a pre-fix state (the
+   * fail-proof run), the row below fails the same assertion it always did. */
+  const preFix = current ? undefined : PRE_FIX.get(key);
   if (preFix) {
     /* THE INSTRUMENT'S OWN ASYMMETRY PROOF: this frozen state is the corruption
      * the scope assertion exists to catch, and it must still be visible. */
@@ -322,11 +341,6 @@ for (const row of rows()) {
         ` (pinned ${preFix.unscoped}; ${preFix.note})`,
     );
     console.log(`         the same code path FAILS a current version with this result — that is the assertion below, on the version that fixes it.`);
-  } else if (pinned) {
-    check(
-      unscoped.length === pinned.unscoped,
-      `the reading view's unscoped multi-fire rules: ${unscoped.length} (pinned ${pinned.unscoped} — ${pinned.note})`,
-    );
   } else {
     check(
       unscoped.length === 0,

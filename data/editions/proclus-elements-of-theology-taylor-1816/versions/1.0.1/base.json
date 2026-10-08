@@ -1,0 +1,272 @@
+{
+  "policy": "substitute-if-known-else-leave",
+  "version": 1,
+  "states": "A character of the damage set standing in a word is DAMAGE: a letter or a mark was lost there. The reading view shows the RECORDED READING for that word where this edition records one, and otherwise the word AS THE TRANSCRIPTION HAS IT, damage and all. No rule removes a damage character and says nothing: a rule either records the print's word (a `reading` rule) or records that the reading is not determinable and leaves it (`review` with action \"leave\"). The damage stays visible until a reading is recorded.",
+  "rule": "substitute-if-known-else-leave",
+  "damage": [
+    "^",
+    "_",
+    "~",
+    "*",
+    "/",
+    "£",
+    ">",
+    "\\",
+    "|",
+    "#",
+    "™",
+    "±",
+    "»",
+    "«",
+    "}",
+    "{",
+    "&"
+  ],
+  "damageMeasured": {
+    "method": "MEASURED on this edition's served transcription: every character standing inside a whitespace token that contains a letter, after stripping the token's edge punctuation (the extractor's own census). A character that occurs there and that a 1917 print cannot set inside a word is DAMAGE; one the print does set (a full stop in an abbreviation, an apostrophe in a contraction, a comma, a dash) is PRINT PUNCTUATION and is excluded.",
+    "source": "content/library/porphyry-on-the-cave-of-the-nymphs-taylor-1917/source.txt",
+    "sha256": "5b565a958fca3e9ca5127ae9bc8439a448bfd6c0ea7a6d6cae7cc568207e7a49",
+    "insideTokens": {
+      "'": {
+        "count": 26,
+        "words": [
+          "Naiades'",
+          "t'immortals",
+          "consign'd",
+          "Thp_anrt'p'rii'c"
+        ]
+      },
+      ">": {
+        "count": 7,
+        "words": [
+          "hf>",
+          "j>fjyhich",
+          "Bo/>a",
+          "svnhr>i"
+        ]
+      },
+      "_": {
+        "count": 55,
+        "words": [
+          "in_d^scfi5mga",
+          "_the",
+          "Thp_anrt'p'rii'c",
+          "obscurity_o£"
+        ]
+      },
+      "^": {
+        "count": 56,
+        "words": [
+          "in_d^scfi5mga",
+          "^jnerely",
+          "v^ry",
+          "jQhe^ajricients"
+        ]
+      },
+      ";": {
+        "count": 3,
+        "words": [
+          "nhgriirit;ifif::J",
+          "earth~;f",
+          "sj;ipj>lies"
+        ]
+      },
+      ":": {
+        "count": 3,
+        "words": [
+          "nhgriirit;ifif::J",
+          "thl^narration~PwhetheT'T:Be"
+        ]
+      },
+      "\"": {
+        "count": 7,
+        "words": [
+          "i\"Hpfdt",
+          "-1i\"^lHi.n*-iL",
+          "fias~\"a",
+          "t^\"f^li^rva.J"
+        ]
+      },
+      ".": {
+        "count": 32,
+        "words": [
+          "i.e",
+          "«ffma±es.^",
+          "plants./",
+          "air.^"
+        ]
+      },
+      "/": {
+        "count": 9,
+        "words": [
+          "an/l",
+          "/Thus",
+          "plants./",
+          "were/the"
+        ]
+      },
+      "£": {
+        "count": 8,
+        "words": [
+          "obscurity_o£",
+          "c^tSdJfcUUMitb£a'y",
+          "gatps-o£",
+          "Blesrjn£3"
+        ]
+      },
+      "»": {
+        "count": 1,
+        "words": [
+          "the_cavern»"
+        ]
+      },
+      ",": {
+        "count": 3,
+        "words": [
+          "Persians,^",
+          "n.^Tb,eologists",
+          "the^,rnnjfrtures"
+        ]
+      },
+      "}": {
+        "count": 1,
+        "words": [
+          "rites}"
+        ]
+      },
+      "*": {
+        "count": 10,
+        "words": [
+          "t*16",
+          "cavern*",
+          "-1i\"^lHi.n*-iL",
+          "T**5"
+        ]
+      },
+      "«": {
+        "count": 2,
+        "words": [
+          "«ffma±es.^",
+          "/For_tJl«*"
+        ]
+      },
+      "±": {
+        "count": 1,
+        "words": [
+          "«ffma±es.^"
+        ]
+      },
+      "~": {
+        "count": 15,
+        "words": [
+          "be~assumed",
+          "aguatic~nymipEsi",
+          "J~a",
+          "to~~FRp"
+        ]
+      },
+      ")": {
+        "count": 3,
+        "words": [
+          "symbolsj)f",
+          "onej)fJ5F",
+          "j)f_a.Jakl£"
+        ]
+      },
+      "\\": {
+        "count": 3,
+        "words": [
+          "p\\irple",
+          "\\he",
+          "\\fQ'f\"rHin"
+        ]
+      },
+      "?": {
+        "count": 1,
+        "words": [
+          "combs_?__"
+        ]
+      },
+      "§": {
+        "count": 2,
+        "words": [
+          "jjy_bejg§l_who",
+          "jt_i§_a_symbol"
+        ]
+      },
+      "{": {
+        "count": 1,
+        "words": [
+          "{into"
+        ]
+      },
+      "#": {
+        "count": 1,
+        "words": [
+          "#ip"
+        ]
+      },
+      "—": {
+        "count": 3,
+        "words": [
+          "eyej^whefe—",
+          "Proserpine.\"—",
+          "Heaven.—"
+        ]
+      },
+      "|": {
+        "count": 1,
+        "words": [
+          "is^ever-flpjLinsh|ng"
+        ]
+      },
+      "(": {
+        "count": 2,
+        "words": [
+          "this~caye_(aswe^jiave__",
+          "nn(li>"
+        ]
+      },
+      "™": {
+        "count": 1,
+        "words": [
+          "p™*\"**-^"
+        ]
+      },
+      "&": {
+        "count": 1,
+        "words": [
+          "&THE"
+        ]
+      }
+    },
+    "excludedAsPrintPunctuation": {
+      "'": 26,
+      ";": 3,
+      ":": 3,
+      "\"": 7,
+      ".": 32,
+      ",": 3,
+      ")": 3,
+      "?": 1,
+      "§": 2,
+      "—": 3,
+      "(": 2
+    },
+    "setNotObservedHere": [],
+    "note": "Excluded, with the count measured inside a letter-bearing token: {\"'\":26,\";\":3,\":\":3,\"\\\"\":7,\".\":32,\",\":3,\")\":3,\"?\":1,\"§\":2,\"—\":3,\"(\":2}. The excluded set is why the damage set is DERIVED rather than copied from the previous census: marking a printed apostrophe or full stop as damage would be a false claim in the reading view."
+  },
+  "classes": {
+    "opener": "a division number the transcription mangled, where the print has a reading",
+    "digit": "a printed number or a note marker read through an OCR digit confusion",
+    "reading": "the print's word for a damaged run, recorded from this edition's own context or from the parallel edition; the reading view shows it and the transcription is never edited",
+    "review": "a passage whose harm is real but whose correct reading cannot be determined from the source: recorded with action \"leave\", so its damage stays visible"
+  },
+  "order": [
+    "opener",
+    "digit",
+    "reading",
+    "review"
+  ],
+  "readingRule": "A `reading` rule carries the print's word in `replace`. A `review` rule carries action \"leave\" and no replace: it records the decision, and the policy keeps the damage visible. A damaged word with NO rule is left visible by the same policy — absence is a leave."
+}

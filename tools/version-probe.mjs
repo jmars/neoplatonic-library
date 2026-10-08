@@ -160,6 +160,15 @@ const MINTED = new Map([
    * only while the version is current, because a CURRENT version is not checked
    * against this table, and that has bitten this chain once (1.0.4). */
   ['proclus-theology-of-plato-taylor-1816@1.0.7', '10.5281/zenodo.23228446'],
+  /* MINTED 2026-10-08: the OTHER TWO EDITIONS' FIRST VERSION BUMP, each as a NEW
+   * VERSION of its own record — the fold gate's unscoped multi-fire rules
+   * adjudicated on measurement and licensed `scope: "all"` at 1.0.1. NOT ONE BYTE
+   * OF THE SERVED TEXT CHANGES in either edition: what changes is the SCOPE RECORD
+   * (the eight rules gain the licence and the measurement that decides it) and the
+   * served `/t`'s own `note` strings, which ARE the rationale. 1.0.0 of each is
+   * untouched and still resolves at its own DOI. */
+  ['proclus-elements-of-theology-taylor-1816@1.0.1', '10.5281/zenodo.23236056'],
+  ['porphyry-on-the-cave-of-the-nymphs-taylor-1917@1.0.1', '10.5281/zenodo.23236119'],
 ]);
 
 section('every version is a frozen directory, served at its own URL');

@@ -16,14 +16,14 @@
     "whole_sha256": null,
     "note": "No extract block is recorded in the blog's import.json: the served transcription was imported from the shelf file 'Porphyry-On-the-Cave-of-the-Nymphs-Taylor-1917.txt' (78,072 bytes, imported 2026-10-02). No whole-file sha256 for the archive item is recorded anywhere in the blog data. Witnesses held beside the transcription: porphyry-select-works-taylor-1823 (Taylor's Select Works of Porphyry (1823) carries the same translation of the same treatise — the parallel that decides a reading where its own text is clean.) The model has no dedicated field for this record; its evidence is quoted per rule in repairs.json (rationale/witness)."
   },
-  "current_version": "1.0.0",
+  "current_version": "1.0.1",
   "licence": {
     "text": "public-domain",
     "editorial": "CC-BY-4.0",
     "statement": "The transcriptions are public-domain works. The editorial work — repairs, page models, apparatus, notes — is released under CC BY 4.0."
   },
-  "citation": "Porphyry, On the Cave of the Nymphs, trans. Thomas Taylor (London: John M. Watkins, 1917). The Neoplatonic Library, version 1.0.0. DOI: 10.5281/zenodo.23148820. https://neoplatonic-library.org/texts/porphyry-on-the-cave-of-the-nymphs-taylor-1917/",
-  "doi": "10.5281/zenodo.23148820",
+  "citation": "Porphyry, On the Cave of the Nymphs, trans. Thomas Taylor (London: John M. Watkins, 1917). The Neoplatonic Library, version 1.0.1. DOI: 10.5281/zenodo.23236119. https://neoplatonic-library.org/texts/porphyry-on-the-cave-of-the-nymphs-taylor-1917/",
+  "doi": "10.5281/zenodo.23236119",
   "cat": [],
   "readings": [
     "porphyry-cave-of-the-nymphs"
