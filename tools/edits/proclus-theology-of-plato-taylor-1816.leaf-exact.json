@@ -2598,5 +2598,6 @@
    "oldPage": 2,
    "how": "exact"
   }
- ]
+ ],
+ "the_measured_remainder": "RE-RUN AFTER THE CHANGE, with the SAME locator that produced the worklist (tools/extract.mjs's own tidyPunctuation applied to both sides, the served blocks' normalisation): of the 203 rules citing an evidence leaf, 202 now cite the leaf their own `find` stands on, NONE is wrong, and ONE could not be placed at all. THE ONE IS r11831, and it is left UNCORRECTED DELIBERATELY, with its measurement stated: its `find` is ' geous ' — a find the Greek pass WIDENED with its own spaces to isolate one site (the word 'advantageous' elsewhere in the edition contains 'geous' but not ' geous ') — and the locator used here reads the transcription's LINES, where the block domain's whitespace is the thing that isolates the site. Placed in the BLOCK domain instead, the find stands in exactly ONE block, and that block's text is source line 1520, which is on archive leaf n31; the rule cites n32. So r11831 IS one leaf too high by the same measurement, and it is not corrected here because THE DEPOSIT WAS ALREADY MINTED (10.5281/zenodo.23244971, whose tarball carries this version's rules as they stand): a version's record and the tarball the DOI names must not diverge, so the correction belongs to the next version, and it is named here so it cannot be lost."
 }
