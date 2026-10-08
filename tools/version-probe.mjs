@@ -145,6 +145,21 @@ const MINTED = new Map([
    * table. Adding the row at the moment of the freeze is what keeps that latent
    * gap from recurring. */
   ['proclus-theology-of-plato-taylor-1816@1.0.6', '10.5281/zenodo.23223680'],
+  /* MINTED 2026-10-08 as a NEW VERSION of the same record (23228446 under the
+   * concept record 23175743, versions.index 8). 1.0.7 serves the SAME TRANSCRIPTION
+   * and the SAME SECTION MODEL as 1.0.6 and fixes WHAT THE READING VIEW SERVES: the
+   * reader applies every rule to every inline run it renders, and nothing had
+   * asserted a rule's SCOPE, so 135 rules rewrote text that was not theirs — the
+   * served reading view read `supermundaneessential`, `supermundanemundane` and
+   * `about unsure God`. Each of the 135 is now licensed (`scope: "all"`, 117), flagged
+   * as a finding (`scope: "flagged"`, 8), scoped to the one site it was written for by
+   * extending the find (5), or withdrawn (5); and the 31 rules that recorded "no
+   * reading is recorded" by serving the English word `unsure` now carry this
+   * edition's own damage character, which the reading view already marks. THE ROW IS
+   * ADDED HERE AS THE VERSION FREEZES, deliberately: a missing row stays invisible
+   * only while the version is current, because a CURRENT version is not checked
+   * against this table, and that has bitten this chain once (1.0.4). */
+  ['proclus-theology-of-plato-taylor-1816@1.0.7', '10.5281/zenodo.23228446'],
 ]);
 
 section('every version is a frozen directory, served at its own URL');
