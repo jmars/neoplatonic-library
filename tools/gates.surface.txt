@@ -1,0 +1,23 @@
+build	node build/build.mjs
+build	node tools/build-reader.mjs
+gate	node tools/apparatus-probe.mjs
+gate	node tools/divisions-probe.mjs
+gate	node tools/echo-probe.mjs
+gate	node tools/exports-probe.mjs
+gate	node tools/fold-probe.mjs
+gate	node tools/fullread.mjs --self-test
+gate	node tools/heads-probe.mjs
+gate	node tools/leak-probe.mjs
+gate	node tools/library-app-smoke.mjs
+gate	node tools/library-extract-smoke.mjs
+gate	node tools/library-smoke.mjs
+gate	node tools/merge.mjs --self-test
+gate	node tools/pg-locate-selftest.mjs
+gate	node tools/repair-id-probe.mjs
+gate	node tools/repair.mjs --self-test
+gate	node tools/route-probe.mjs
+gate	node tools/scan-probe.mjs
+gate	node tools/search-probe.mjs
+gate	node tools/standalone-probe.mjs
+gate	node tools/version-probe.mjs
+gate	node tools/vocab.mjs --self-test
