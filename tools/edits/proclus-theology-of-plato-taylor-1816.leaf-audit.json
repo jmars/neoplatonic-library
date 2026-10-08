@@ -1,0 +1,1415 @@
+{
+ "slug": "proclus-theology-of-plato-taylor-1816",
+ "tool": "blind page reads (audit-page-v1) + our source.txt",
+ "what": "the evidence behind 1.0.9: (a) the blind re-read of the four readings 1.0.8 re-issued, (b) the page-boundary measurement that corrects 21 evidence leaves, (c) the measured-but-uncorrected worklist",
+ "prompt": "no candidate text of any kind is shown to the reader; the page is transcribed whole",
+ "readers": [
+  "google/gemini-2.5-flash",
+  "google/gemini-2.5-pro",
+  "Qwen/Qwen3-VL-235B-A22B-Instruct",
+  "anthropic/claude-haiku-4-5",
+  "mistral-large-4 (this unit, by direct read of the plates)"
+ ],
+ "raw": "the raw answers are not committed: they are reproducible from the leaf files with the prompt above",
+ "four_readings": {
+  "r11895": {
+   "after": "δευτέρας τιμάς, the second honours next to the Gods, as Celsus calls those τὰς προσηκούσας τιμάς",
+   "evidence_leaf": 22,
+   "verdict": "CONFIRMED",
+   "who_read_it": [],
+   "leaf": "n22",
+   "printed_page": "xxvii",
+   "read_by": {
+    "mistral-large-4 (this unit)": "we give δευτέρας τιμᾶς, the second honours next to the Gods, as Celsus calls those τὰς προσηκούσας τιμάς the dué honours",
+    "google/gemini-2.5-flash": "we give δευτέρας τιμὰς, the second honours next to the Gods, as Celsus calls those τὰς προσηκούσας τιμὰς the due",
+    "google/gemini-2.5-pro": "δευτέρας τιμάς ... τῆς προσηκούσας τιμάς (τῆς for τὰς)",
+    "anthropic/claude-haiku-4-5": "UNUSABLE — it fabricated both the English and the Greek (“…those τοι συγγενειαι τυγαι the dues”)",
+    "human-proofread PG witness (gutenberg-77393-vol1)": "the second honours next to the gods as celsus calls those the due honours that belong to the lower daemons"
+   }
+  },
+  "r11896": {
+   "after": "ἐπὶ μὲν τοῖς τοῦ ἀγαθοῦ νῦν ἤδη προθύροις ἐφεστάναι) and Dionysius says ¹",
+   "evidence_leaf": 21,
+   "verdict": "CONFIRMED",
+   "who_read_it": [],
+   "leaf": "n21",
+   "printed_page": "xxvi",
+   "read_by": {
+    "mistral-large-4 (this unit)": "(επι μεν τοις του αγαθου νυν ηδη προθυροις εφεσταναι) and Dionysius says",
+    "google/gemini-2.5-flash": "(επι μεν τοις του αγαθου νυν ηδη προθύροις εφεσταναι)",
+    "google/gemini-2.5-pro": "ἐπὶ μὲν τοῖς τοῦ ἀγαθοῦ νῦν ἤδη προθύροις ἐφεστάναι) — εφεστάναι with NO combining circumflex",
+    "Qwen/Qwen3-VL-235B-A22B-Instruct": "προδυροις for προθυροις (θ read as δ)",
+    "human-proofread PG witness (gutenberg-77393-vol1)": "(επι μεν τοις του αγαθου νυν ηδη προθυροις εφεσταναι) and Dionysius says"
+   }
+  },
+  "r11897": {
+   "after": "æones of the Valentinians were νοῦς, βύθος, σιγή, ἀλήθεια, σοφία",
+   "evidence_leaf": 17,
+   "verdict": "CONFIRMED",
+   "who_read_it": [],
+   "leaf": "n17",
+   "printed_page": "xxii",
+   "read_by": {
+    "mistral-large-4 (this unit)": "I farther add, that among these æones of the Valentinians were νους, βυθος, σιγη, αληθεια, σοφια,",
+    "google/gemini-2.5-flash": "νούς, βύθος, σιγή, ἀλήθεια, σοφία,",
+    "google/gemini-2.5-pro": "νοῦς, βύθος, σιγὴ, ἀλήθεια, σοφία,",
+    "Qwen/Qwen3-VL-235B-A22B-Instruct": "νους, βυθος, σιγη, αληθεια, σοφια,",
+    "human-proofread PG witness (gutenberg-77393-vol1)": "among these _æones_ of the Valentinians were νους, βυθος, σιγη, αληθεια, σοφια, i.e. _intellect, a profundity, silence, truth, and wisdom_"
+   }
+  },
+  "r11898": {
+   "after": "ὀρούω and θείω",
+   "evidence_leaf": 732,
+   "verdict": "CONFIRMED",
+   "who_read_it": [],
+   "leaf": "v2-n732",
+   "printed_page": "227",
+   "read_by": {
+    "mistral-large-4 (this unit)": "from ὀρούω and θείω, according to the Attic custom of adding a letter at the end of a word, which letter is here an ω",
+    "google/gemini-2.5-flash": "from ὀροῦ and θειοῦ",
+    "google/gemini-2.5-pro": "from ορουειν and θυειν",
+    "Qwen/Qwen3-VL-235B-A22B-Instruct": "from ὀρούω and θεῖν",
+    "human-proofread PG witness (gutenberg-78800-vol2)": "from ορουω and θειω, according to the Attic custom of adding a letter at the end of a word, which letter is here an ω"
+   }
+  }
+ },
+ "page_boundaries_measured": {
+  "n0.jpg": {
+   "first_source_line": 10,
+   "last_source_line_measured_from_the_page": 68
+  },
+  "n8.jpg": {
+   "first_source_line": 305,
+   "last_source_line_measured_from_the_page": 338
+  },
+  "n11.jpg": {
+   "first_source_line": 441,
+   "last_source_line_measured_from_the_page": 450
+  },
+  "n12.jpg": {
+   "first_source_line": 514,
+   "last_source_line_measured_from_the_page": 539
+  },
+  "n13.jpg": {
+   "first_source_line": 131,
+   "last_source_line_measured_from_the_page": 591
+  },
+  "n17.jpg": {
+   "first_source_line": 763,
+   "last_source_line_measured_from_the_page": 796
+  },
+  "n18.jpg": {
+   "first_source_line": 808,
+   "last_source_line_measured_from_the_page": 847
+  },
+  "n19.jpg": {
+   "first_source_line": 863,
+   "last_source_line_measured_from_the_page": 899
+  },
+  "n20.jpg": {
+   "first_source_line": 912,
+   "last_source_line_measured_from_the_page": 940
+  },
+  "n21.jpg": {
+   "first_source_line": 965,
+   "last_source_line_measured_from_the_page": 997
+  },
+  "n22.jpg": {
+   "first_source_line": 1019,
+   "last_source_line_measured_from_the_page": 1059
+  },
+  "n25.jpg": {
+   "first_source_line": 1171,
+   "last_source_line_measured_from_the_page": 1204
+  },
+  "n29.jpg": {
+   "first_source_line": 1383,
+   "last_source_line_measured_from_the_page": 1426
+  },
+  "n30.jpg": {
+   "first_source_line": 1439,
+   "last_source_line_measured_from_the_page": 1473
+  },
+  "n32.jpg": {
+   "first_source_line": 1533,
+   "last_source_line_measured_from_the_page": 1564
+  },
+  "n34.jpg": {
+   "first_source_line": 1630,
+   "last_source_line_measured_from_the_page": 1668
+  },
+  "n42.jpg": {
+   "first_source_line": 2043,
+   "last_source_line_measured_from_the_page": 2080
+  },
+  "n45.jpg": {
+   "first_source_line": 2211,
+   "last_source_line_measured_from_the_page": 2263
+  },
+  "n47.jpg": {
+   "first_source_line": 2386,
+   "last_source_line_measured_from_the_page": 2415
+  },
+  "n52.jpg": {
+   "first_source_line": 2662,
+   "last_source_line_measured_from_the_page": 2705
+  },
+  "n55.jpg": {
+   "first_source_line": 2845,
+   "last_source_line_measured_from_the_page": 2891
+  },
+  "n74.jpg": {
+   "first_source_line": 3987,
+   "last_source_line_measured_from_the_page": 4024
+  },
+  "n75.jpg": {
+   "first_source_line": 4033,
+   "last_source_line_measured_from_the_page": 4068
+  },
+  "v1-n81.jpg": {
+   "first_source_line": 4330,
+   "last_source_line_measured_from_the_page": 4363
+  },
+  "v1-n99.jpg": {
+   "first_source_line": 5242,
+   "last_source_line_measured_from_the_page": 5275
+  },
+  "v1-n106.jpg": {
+   "first_source_line": 5592,
+   "last_source_line_measured_from_the_page": 5623
+  },
+  "v1-n115.jpg": {
+   "first_source_line": 6056,
+   "last_source_line_measured_from_the_page": 6087
+  },
+  "v1-n121.jpg": {
+   "first_source_line": 6382,
+   "last_source_line_measured_from_the_page": 6418
+  },
+  "v1-n123.jpg": {
+   "first_source_line": 5167,
+   "last_source_line_measured_from_the_page": 6515
+  },
+  "v1-n125.jpg": {
+   "first_source_line": 6594,
+   "last_source_line_measured_from_the_page": 6627
+  },
+  "v1-n135.jpg": {
+   "first_source_line": 583,
+   "last_source_line_measured_from_the_page": 7125
+  },
+  "v1-n136.jpg": {
+   "first_source_line": 7145,
+   "last_source_line_measured_from_the_page": 7179
+  },
+  "v1-n144.jpg": {
+   "first_source_line": 7549,
+   "last_source_line_measured_from_the_page": 7580
+  },
+  "v1-n179.jpg": {
+   "first_source_line": 9284,
+   "last_source_line_measured_from_the_page": 9317
+  },
+  "v1-n191.jpg": {
+   "first_source_line": 5511,
+   "last_source_line_measured_from_the_page": 9920
+  },
+  "v1-n204.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 10553
+  },
+  "v1-n210.jpg": {
+   "first_source_line": 10820,
+   "last_source_line_measured_from_the_page": 10851
+  },
+  "v1-n211.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 10901
+  },
+  "v1-n227.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 11666
+  },
+  "v1-n233.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 11984
+  },
+  "v1-n238.jpg": {
+   "first_source_line": 12210,
+   "last_source_line_measured_from_the_page": 12245
+  },
+  "v1-n242.jpg": {
+   "first_source_line": 12410,
+   "last_source_line_measured_from_the_page": 12441
+  },
+  "v1-n244.jpg": {
+   "first_source_line": 12519,
+   "last_source_line_measured_from_the_page": 12546
+  },
+  "v1-n250.jpg": {
+   "first_source_line": 12815,
+   "last_source_line_measured_from_the_page": 12849
+  },
+  "v1-n258.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 13228
+  },
+  "v1-n263.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 13465
+  },
+  "v1-n267.jpg": {
+   "first_source_line": 13638,
+   "last_source_line_measured_from_the_page": 13672
+  },
+  "v1-n270.jpg": {
+   "first_source_line": 13790,
+   "last_source_line_measured_from_the_page": 13823
+  },
+  "v1-n275.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 14063
+  },
+  "v1-n283.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 14461
+  },
+  "v1-n289.jpg": {
+   "first_source_line": 14725,
+   "last_source_line_measured_from_the_page": 14761
+  },
+  "v1-n295.jpg": {
+   "first_source_line": 15026,
+   "last_source_line_measured_from_the_page": 15056
+  },
+  "v1-n297.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 15133
+  },
+  "v1-n324.jpg": {
+   "first_source_line": 4359,
+   "last_source_line_measured_from_the_page": 16440
+  },
+  "v1-n328.jpg": {
+   "first_source_line": 16598,
+   "last_source_line_measured_from_the_page": 16642
+  },
+  "v1-n329.jpg": {
+   "first_source_line": 16662,
+   "last_source_line_measured_from_the_page": 16690
+  },
+  "v1-n347.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 17562
+  },
+  "v1-n362.jpg": {
+   "first_source_line": 18250,
+   "last_source_line_measured_from_the_page": 18282
+  },
+  "v1-n368.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 18574
+  },
+  "v1-n371.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 18718
+  },
+  "v1-n374.jpg": {
+   "first_source_line": 18837,
+   "last_source_line_measured_from_the_page": 18872
+  },
+  "v1-n387.jpg": {
+   "first_source_line": 19431,
+   "last_source_line_measured_from_the_page": 19453
+  },
+  "v1-n405.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 20343
+  },
+  "v1-n429.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 21531
+  },
+  "v1-n435.jpg": {
+   "first_source_line": 21792,
+   "last_source_line_measured_from_the_page": 21825
+  },
+  "v1-n441.jpg": {
+   "first_source_line": 22087,
+   "last_source_line_measured_from_the_page": 22121
+  },
+  "v1-n456.jpg": {
+   "first_source_line": 22838,
+   "last_source_line_measured_from_the_page": 22874
+  },
+  "v1-n459.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 23016
+  },
+  "v1-n467.jpg": {
+   "first_source_line": 23374,
+   "last_source_line_measured_from_the_page": 23408
+  },
+  "v1-n477.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 23909
+  },
+  "v1-n479.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 24004
+  },
+  "v1-n491.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 24590
+  },
+  "v1-n494.jpg": {
+   "first_source_line": 1578,
+   "last_source_line_measured_from_the_page": 24735
+  },
+  "v2-n513.jpg": {
+   "first_source_line": 25522,
+   "last_source_line_measured_from_the_page": 25549
+  },
+  "v2-n516.jpg": {
+   "first_source_line": 25673,
+   "last_source_line_measured_from_the_page": 25705
+  },
+  "v2-n527.jpg": {
+   "first_source_line": 26210,
+   "last_source_line_measured_from_the_page": 26238
+  },
+  "v2-n536.jpg": {
+   "first_source_line": 26657,
+   "last_source_line_measured_from_the_page": 26688
+  },
+  "v2-n539.jpg": {
+   "first_source_line": 26818,
+   "last_source_line_measured_from_the_page": 26853
+  },
+  "v2-n543.jpg": {
+   "first_source_line": 27019,
+   "last_source_line_measured_from_the_page": 27053
+  },
+  "v2-n559.jpg": {
+   "first_source_line": 27835,
+   "last_source_line_measured_from_the_page": 27867
+  },
+  "v2-n563.jpg": {
+   "first_source_line": 28036,
+   "last_source_line_measured_from_the_page": 28071
+  },
+  "v2-n568.jpg": {
+   "first_source_line": 28292,
+   "last_source_line_measured_from_the_page": 28328
+  },
+  "v2-n571.jpg": {
+   "first_source_line": 28448,
+   "last_source_line_measured_from_the_page": 28480
+  },
+  "v2-n588.jpg": {
+   "first_source_line": 29313,
+   "last_source_line_measured_from_the_page": 29347
+  },
+  "v2-n624.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 31161
+  },
+  "v2-n628.jpg": {
+   "first_source_line": 31337,
+   "last_source_line_measured_from_the_page": 31371
+  },
+  "v2-n630.jpg": {
+   "first_source_line": 31437,
+   "last_source_line_measured_from_the_page": 31469
+  },
+  "v2-n633.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 31621
+  },
+  "v2-n635.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 31725
+  },
+  "v2-n640.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 31981
+  },
+  "v2-n648.jpg": {
+   "first_source_line": 32364,
+   "last_source_line_measured_from_the_page": 32400
+  },
+  "v2-n650.jpg": {
+   "first_source_line": 32472,
+   "last_source_line_measured_from_the_page": 32506
+  },
+  "v2-n657.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 32875
+  },
+  "v2-n659.jpg": {
+   "first_source_line": 32948,
+   "last_source_line_measured_from_the_page": 32982
+  },
+  "v2-n661.jpg": {
+   "first_source_line": 33055,
+   "last_source_line_measured_from_the_page": 33081
+  },
+  "v2-n675.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 33792
+  },
+  "v2-n678.jpg": {
+   "first_source_line": 33912,
+   "last_source_line_measured_from_the_page": 33947
+  },
+  "v2-n680.jpg": {
+   "first_source_line": 806,
+   "last_source_line_measured_from_the_page": 34053
+  },
+  "v2-n689.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 34508
+  },
+  "v2-n691.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 34610
+  },
+  "v2-n701.jpg": {
+   "first_source_line": 35084,
+   "last_source_line_measured_from_the_page": 35112
+  },
+  "v2-n703.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 35219
+  },
+  "v2-n705.jpg": {
+   "first_source_line": 35292,
+   "last_source_line_measured_from_the_page": 35327
+  },
+  "v2-n709.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 35536
+  },
+  "v2-n711.jpg": {
+   "first_source_line": 35612,
+   "last_source_line_measured_from_the_page": 35642
+  },
+  "v2-n712.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 35700
+  },
+  "v2-n713.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 35750
+  },
+  "v2-n718.jpg": {
+   "first_source_line": 35980,
+   "last_source_line_measured_from_the_page": 36009
+  },
+  "v2-n719.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 36061
+  },
+  "v2-n721.jpg": {
+   "first_source_line": 36127,
+   "last_source_line_measured_from_the_page": 36156
+  },
+  "v2-n722.jpg": {
+   "first_source_line": 36174,
+   "last_source_line_measured_from_the_page": 36208
+  },
+  "v2-n723.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 36260
+  },
+  "v2-n732.jpg": {
+   "first_source_line": 36677,
+   "last_source_line_measured_from_the_page": 36712
+  },
+  "v2-n734.jpg": {
+   "first_source_line": 3172,
+   "last_source_line_measured_from_the_page": 36811
+  },
+  "v2-n740.jpg": {
+   "first_source_line": 2356,
+   "last_source_line_measured_from_the_page": 37118
+  },
+  "v2-n742.jpg": {
+   "first_source_line": 1530,
+   "last_source_line_measured_from_the_page": 37221
+  },
+  "v2-n773.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 38775
+  },
+  "v2-n774.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 38824
+  },
+  "v2-n776.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 38926
+  },
+  "v2-n780.jpg": {
+   "first_source_line": 39096,
+   "last_source_line_measured_from_the_page": 39129
+  },
+  "v2-n793.jpg": {
+   "first_source_line": 8,
+   "last_source_line_measured_from_the_page": 39784
+  },
+  "v2-n802.jpg": {
+   "first_source_line": 40210,
+   "last_source_line_measured_from_the_page": 40243
+  },
+  "v2-n804.jpg": {
+   "first_source_line": 40319,
+   "last_source_line_measured_from_the_page": 40337
+  }
+ },
+ "evidence_leaf_audit": {
+  "rules_examined": 189,
+  "verdict_counts": {
+   "MIS-LEAFED-CANDIDATE-GAP": 67,
+   "MIS-LEAFED-NO-PREV": 8,
+   "CORRECT": 57,
+   "cited-leaf-not-sane": 42,
+   "MIS-LEAFED": 15
+  },
+  "mis_leafed_corrected": [
+   {
+    "rule": "r11690",
+    "line": 999,
+    "cited": "n22.jpg",
+    "true": "n21.jpg",
+    "evidence": "line 999 stands after n21.jpg's own last line 997 and before n22.jpg's own first body line 1019"
+   },
+   {
+    "rule": "r11694",
+    "line": 1001,
+    "cited": "n22.jpg",
+    "true": "n21.jpg",
+    "evidence": "line 1001 stands after n21.jpg's own last line 997 and before n22.jpg's own first body line 1019"
+   },
+   {
+    "rule": "r11698",
+    "line": 16642,
+    "cited": "v1-n329.jpg",
+    "true": "v1-n494.jpg",
+    "evidence": "line 16642 < v1-n329.jpg's own first body line 16662"
+   },
+   {
+    "rule": "r11713",
+    "line": 1421,
+    "cited": "n30.jpg",
+    "true": "n29.jpg",
+    "evidence": "line 1421 < n30.jpg's own first body line 1439"
+   },
+   {
+    "rule": "r11714",
+    "line": 1416,
+    "cited": "n30.jpg",
+    "true": "n29.jpg",
+    "evidence": "line 1416 < n30.jpg's own first body line 1439"
+   },
+   {
+    "rule": "r11721",
+    "line": 7129,
+    "cited": "v1-n136.jpg",
+    "true": "v1-n135.jpg",
+    "evidence": "line 7129 stands after v1-n135.jpg's own last line 7125 and before v1-n136.jpg's own first body line 7145"
+   },
+   {
+    "rule": "r11739",
+    "line": 946,
+    "cited": "n21.jpg",
+    "true": "n20.jpg",
+    "evidence": "line 946 stands after n20.jpg's own last line 940 and before n21.jpg's own first body line 965"
+   },
+   {
+    "rule": "r11789",
+    "line": 861,
+    "cited": "n19.jpg",
+    "true": "n18.jpg",
+    "evidence": "line 861 stands after n18.jpg's own last line 847 and before n19.jpg's own first body line 863"
+   },
+   {
+    "rule": "r11795",
+    "line": 481,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 481 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11798",
+    "line": 504,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 504 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11801",
+    "line": 507,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 507 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11806",
+    "line": 478,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 478 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11807",
+    "line": 479,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 479 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11809",
+    "line": 506,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 506 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11813",
+    "line": 512,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 512 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11816",
+    "line": 502,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 502 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11819",
+    "line": 16643,
+    "cited": "v1-n329.jpg",
+    "true": "v1-n328.jpg",
+    "evidence": "line 16643 stands after v1-n328.jpg's own last line 16642 and before v1-n329.jpg's own first body line 16662"
+   },
+   {
+    "rule": "r11821",
+    "line": 510,
+    "cited": "n12.jpg",
+    "true": "n11.jpg",
+    "evidence": "line 510 stands after n11.jpg's own last line 450 and before n12.jpg's own first body line 514"
+   },
+   {
+    "rule": "r11838",
+    "line": 4023,
+    "cited": "n75.jpg",
+    "true": "n74.jpg",
+    "evidence": "line 4023 < n75.jpg's own first body line 4033"
+   },
+   {
+    "rule": "r11840",
+    "line": 4011,
+    "cited": "n75.jpg",
+    "true": "n74.jpg",
+    "evidence": "line 4011 < n75.jpg's own first body line 4033"
+   },
+   {
+    "rule": "r11842",
+    "line": 993,
+    "cited": "n22.jpg",
+    "true": "n21.jpg",
+    "evidence": "line 993 < n22.jpg's own first body line 1019"
+   }
+  ],
+  "mis_leafed_not_corrected": [
+   {
+    "rule": "r11689",
+    "line": 292,
+    "cited": "n8.jpg",
+    "note": "gap: previous audited leaf is n0.jpg, not n7"
+   },
+   {
+    "rule": "r11827",
+    "line": 1155,
+    "cited": "n25.jpg",
+    "note": "gap: previous audited leaf is n22.jpg, not n24"
+   },
+   {
+    "rule": "r11696",
+    "line": 1354,
+    "cited": "n29.jpg",
+    "note": "gap: previous audited leaf is n25.jpg, not n28"
+   },
+   {
+    "rule": "r11786",
+    "line": 1366,
+    "cited": "n29.jpg",
+    "note": "gap: previous audited leaf is n25.jpg, not n28"
+   },
+   {
+    "rule": "r11723",
+    "line": 1368,
+    "cited": "n29.jpg",
+    "note": "gap: previous audited leaf is n25.jpg, not n28"
+   },
+   {
+    "rule": "r11831",
+    "line": 1520,
+    "cited": "n32.jpg",
+    "note": "gap: previous audited leaf is n30.jpg, not n31"
+   },
+   {
+    "rule": "r11700",
+    "line": 1613,
+    "cited": "n34.jpg",
+    "note": "gap: previous audited leaf is n32.jpg, not n33"
+   },
+   {
+    "rule": "r11832",
+    "line": 2193,
+    "cited": "n45.jpg",
+    "note": "gap: previous audited leaf is n42.jpg, not n44"
+   },
+   {
+    "rule": "r11771",
+    "line": 2372,
+    "cited": "n47.jpg",
+    "note": "gap: previous audited leaf is n45.jpg, not n46"
+   },
+   {
+    "rule": "r11769",
+    "line": 2373,
+    "cited": "n47.jpg",
+    "note": "gap: previous audited leaf is n45.jpg, not n46"
+   },
+   {
+    "rule": "r11774",
+    "line": 2645,
+    "cited": "n52.jpg",
+    "note": "gap: previous audited leaf is n47.jpg, not n51"
+   },
+   {
+    "rule": "r11619",
+    "line": 4311,
+    "cited": "v1-n81.jpg",
+    "true": "v1-n494.jpg",
+    "evidence": "line 4311 < v1-n81.jpg's own first body line 4330",
+    "note": "the page windows place this rule on a page before its cited one, but no AUDITED page’s window contains it, so the true leaf could not be determined here and the leaf is LEFT UNCHANGED"
+   },
+   {
+    "rule": "r11740",
+    "line": 5227,
+    "cited": "v1-n99.jpg",
+    "note": "gap: previous audited leaf is v1-n81.jpg, not n98"
+   },
+   {
+    "rule": "r11781",
+    "line": 5576,
+    "cited": "v1-n106.jpg",
+    "note": "gap: previous audited leaf is v1-n99.jpg, not n105"
+   },
+   {
+    "rule": "r11726",
+    "line": 6039,
+    "cited": "v1-n115.jpg",
+    "note": "gap: previous audited leaf is v1-n106.jpg, not n114"
+   },
+   {
+    "rule": "r11659",
+    "line": 6362,
+    "cited": "v1-n121.jpg",
+    "note": "gap: previous audited leaf is v1-n115.jpg, not n120"
+   },
+   {
+    "rule": "r11725",
+    "line": 6364,
+    "cited": "v1-n121.jpg",
+    "note": "gap: previous audited leaf is v1-n115.jpg, not n120"
+   },
+   {
+    "rule": "r11802",
+    "line": 6572,
+    "cited": "v1-n125.jpg",
+    "note": "gap: previous audited leaf is v1-n123.jpg, not n124"
+   },
+   {
+    "rule": "r11621",
+    "line": 7530,
+    "cited": "v1-n144.jpg",
+    "note": "gap: previous audited leaf is v1-n136.jpg, not n143"
+   },
+   {
+    "rule": "r11822",
+    "line": 9268,
+    "cited": "v1-n179.jpg",
+    "note": "gap: previous audited leaf is v1-n144.jpg, not n178"
+   },
+   {
+    "rule": "r11772",
+    "line": 10800,
+    "cited": "v1-n210.jpg",
+    "note": "gap: previous audited leaf is v1-n191.jpg, not n209"
+   },
+   {
+    "rule": "r11742",
+    "line": 12192,
+    "cited": "v1-n238.jpg",
+    "note": "gap: previous audited leaf is v1-n210.jpg, not n237"
+   },
+   {
+    "rule": "r11641",
+    "line": 12194,
+    "cited": "v1-n238.jpg",
+    "note": "gap: previous audited leaf is v1-n210.jpg, not n237"
+   },
+   {
+    "rule": "r11747",
+    "line": 12395,
+    "cited": "v1-n242.jpg",
+    "note": "gap: previous audited leaf is v1-n238.jpg, not n241"
+   },
+   {
+    "rule": "r11675",
+    "line": 12499,
+    "cited": "v1-n244.jpg",
+    "note": "gap: previous audited leaf is v1-n242.jpg, not n243"
+   },
+   {
+    "rule": "r11617",
+    "line": 12796,
+    "cited": "v1-n250.jpg",
+    "note": "gap: previous audited leaf is v1-n244.jpg, not n249"
+   },
+   {
+    "rule": "r11835",
+    "line": 13616,
+    "cited": "v1-n267.jpg",
+    "note": "gap: previous audited leaf is v1-n250.jpg, not n266"
+   },
+   {
+    "rule": "r11697",
+    "line": 13620,
+    "cited": "v1-n267.jpg",
+    "note": "gap: previous audited leaf is v1-n250.jpg, not n266"
+   },
+   {
+    "rule": "r11757",
+    "line": 13774,
+    "cited": "v1-n270.jpg",
+    "note": "gap: previous audited leaf is v1-n267.jpg, not n269"
+   },
+   {
+    "rule": "r11777",
+    "line": 14708,
+    "cited": "v1-n289.jpg",
+    "note": "gap: previous audited leaf is v1-n270.jpg, not n288"
+   },
+   {
+    "rule": "r11764",
+    "line": 15010,
+    "cited": "v1-n295.jpg",
+    "note": "gap: previous audited leaf is v1-n289.jpg, not n294"
+   },
+   {
+    "rule": "r11836",
+    "line": 16583,
+    "cited": "v1-n328.jpg",
+    "note": "gap: previous audited leaf is v1-n324.jpg, not n327"
+   },
+   {
+    "rule": "r11796",
+    "line": 18231,
+    "cited": "v1-n362.jpg",
+    "note": "gap: previous audited leaf is v1-n329.jpg, not n361"
+   },
+   {
+    "rule": "r11787",
+    "line": 18818,
+    "cited": "v1-n374.jpg",
+    "note": "gap: previous audited leaf is v1-n362.jpg, not n373"
+   },
+   {
+    "rule": "r11758",
+    "line": 19410,
+    "cited": "v1-n387.jpg",
+    "note": "gap: previous audited leaf is v1-n374.jpg, not n386"
+   },
+   {
+    "rule": "r11623",
+    "line": 19412,
+    "cited": "v1-n387.jpg",
+    "note": "gap: previous audited leaf is v1-n374.jpg, not n386"
+   },
+   {
+    "rule": "r11829",
+    "line": 21776,
+    "cited": "v1-n435.jpg",
+    "note": "gap: previous audited leaf is v1-n387.jpg, not n434"
+   },
+   {
+    "rule": "r11735",
+    "line": 22067,
+    "cited": "v1-n441.jpg",
+    "note": "gap: previous audited leaf is v1-n435.jpg, not n440"
+   },
+   {
+    "rule": "r11624",
+    "line": 22071,
+    "cited": "v1-n441.jpg",
+    "note": "gap: previous audited leaf is v1-n435.jpg, not n440"
+   },
+   {
+    "rule": "r11732",
+    "line": 22821,
+    "cited": "v1-n456.jpg",
+    "note": "gap: previous audited leaf is v1-n441.jpg, not n455"
+   },
+   {
+    "rule": "r11628",
+    "line": 23358,
+    "cited": "v1-n467.jpg",
+    "note": "gap: previous audited leaf is v1-n456.jpg, not n466"
+   },
+   {
+    "rule": "r11685",
+    "line": 25506,
+    "cited": "v2-n513.jpg",
+    "true": "v2-n793.jpg",
+    "evidence": "line 25506 < v2-n513.jpg's own first body line 25522",
+    "note": "the page windows place this rule on a page before its cited one, but no AUDITED page’s window contains it, so the true leaf could not be determined here and the leaf is LEFT UNCHANGED"
+   },
+   {
+    "rule": "r11728",
+    "line": 25654,
+    "cited": "v2-n516.jpg",
+    "note": "gap: previous audited leaf is v2-n513.jpg, not n515"
+   },
+   {
+    "rule": "r11737",
+    "line": 26199,
+    "cited": "v2-n527.jpg",
+    "note": "gap: previous audited leaf is v2-n516.jpg, not n526"
+   },
+   {
+    "rule": "r11765",
+    "line": 26201,
+    "cited": "v2-n527.jpg",
+    "note": "gap: previous audited leaf is v2-n516.jpg, not n526"
+   },
+   {
+    "rule": "r11773",
+    "line": 26638,
+    "cited": "v2-n536.jpg",
+    "note": "gap: previous audited leaf is v2-n527.jpg, not n535"
+   },
+   {
+    "rule": "r11760",
+    "line": 26800,
+    "cited": "v2-n539.jpg",
+    "note": "gap: previous audited leaf is v2-n536.jpg, not n538"
+   },
+   {
+    "rule": "r11800",
+    "line": 27003,
+    "cited": "v2-n543.jpg",
+    "note": "gap: previous audited leaf is v2-n539.jpg, not n542"
+   },
+   {
+    "rule": "r11839",
+    "line": 27814,
+    "cited": "v2-n559.jpg",
+    "note": "gap: previous audited leaf is v2-n543.jpg, not n558"
+   },
+   {
+    "rule": "r11743",
+    "line": 28011,
+    "cited": "v2-n563.jpg",
+    "note": "gap: previous audited leaf is v2-n559.jpg, not n562"
+   },
+   {
+    "rule": "r11766",
+    "line": 28274,
+    "cited": "v2-n568.jpg",
+    "note": "gap: previous audited leaf is v2-n563.jpg, not n567"
+   },
+   {
+    "rule": "r11751",
+    "line": 28428,
+    "cited": "v2-n571.jpg",
+    "note": "gap: previous audited leaf is v2-n568.jpg, not n570"
+   },
+   {
+    "rule": "r11720",
+    "line": 28430,
+    "cited": "v2-n571.jpg",
+    "note": "gap: previous audited leaf is v2-n568.jpg, not n570"
+   },
+   {
+    "rule": "r11824",
+    "line": 29292,
+    "cited": "v2-n588.jpg",
+    "note": "gap: previous audited leaf is v2-n571.jpg, not n587"
+   },
+   {
+    "rule": "r11717",
+    "line": 29294,
+    "cited": "v2-n588.jpg",
+    "note": "gap: previous audited leaf is v2-n571.jpg, not n587"
+   },
+   {
+    "rule": "r11745",
+    "line": 31321,
+    "cited": "v2-n628.jpg",
+    "note": "gap: previous audited leaf is v2-n588.jpg, not n627"
+   },
+   {
+    "rule": "r11701",
+    "line": 31420,
+    "cited": "v2-n630.jpg",
+    "note": "gap: previous audited leaf is v2-n628.jpg, not n629"
+   },
+   {
+    "rule": "r11754",
+    "line": 32451,
+    "cited": "v2-n650.jpg",
+    "note": "gap: previous audited leaf is v2-n648.jpg, not n649"
+   },
+   {
+    "rule": "r11626",
+    "line": 32928,
+    "cited": "v2-n659.jpg",
+    "note": "gap: previous audited leaf is v2-n650.jpg, not n658"
+   },
+   {
+    "rule": "r11631",
+    "line": 32930,
+    "cited": "v2-n659.jpg",
+    "note": "gap: previous audited leaf is v2-n650.jpg, not n658"
+   },
+   {
+    "rule": "r11627",
+    "line": 33032,
+    "cited": "v2-n661.jpg",
+    "note": "gap: previous audited leaf is v2-n659.jpg, not n660"
+   },
+   {
+    "rule": "r11724",
+    "line": 33034,
+    "cited": "v2-n661.jpg",
+    "note": "gap: previous audited leaf is v2-n659.jpg, not n660"
+   },
+   {
+    "rule": "r11825",
+    "line": 33892,
+    "cited": "v2-n678.jpg",
+    "note": "gap: previous audited leaf is v2-n661.jpg, not n677"
+   },
+   {
+    "rule": "r11722",
+    "line": 35067,
+    "cited": "v2-n701.jpg",
+    "note": "gap: previous audited leaf is v2-n680.jpg, not n700"
+   },
+   {
+    "rule": "r11734",
+    "line": 35589,
+    "cited": "v2-n711.jpg",
+    "note": "gap: previous audited leaf is v2-n705.jpg, not n710"
+   },
+   {
+    "rule": "r11706",
+    "line": 35591,
+    "cited": "v2-n711.jpg",
+    "note": "gap: previous audited leaf is v2-n705.jpg, not n710"
+   },
+   {
+    "rule": "r11699",
+    "line": 35595,
+    "cited": "v2-n711.jpg",
+    "note": "gap: previous audited leaf is v2-n705.jpg, not n710"
+   },
+   {
+    "rule": "r11767",
+    "line": 35961,
+    "cited": "v2-n718.jpg",
+    "note": "gap: previous audited leaf is v2-n711.jpg, not n717"
+   },
+   {
+    "rule": "r11618",
+    "line": 40298,
+    "cited": "v2-n804.jpg",
+    "note": "gap: previous audited leaf is v2-n802.jpg, not n803"
+   }
+  ],
+  "unmeasured": [
+   {
+    "rule": "r11625",
+    "line": 38798,
+    "cited": "v2-n774.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11632",
+    "line": 21479,
+    "cited": "v1-n429.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11639",
+    "line": 35646,
+    "cited": "v2-n712.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11643",
+    "line": 34459,
+    "cited": "v2-n689.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11645",
+    "line": 39752,
+    "cited": "v2-n793.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11647",
+    "line": 38761,
+    "cited": "v2-n773.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11657",
+    "line": 10851,
+    "cited": "v1-n211.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11663",
+    "line": 14048,
+    "cited": "v1-n275.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11667",
+    "line": 35734,
+    "cited": "v2-n713.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11674",
+    "line": 35486,
+    "cited": "v2-n709.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11679",
+    "line": 32849,
+    "cited": "v2-n657.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11688",
+    "line": 15132,
+    "cited": "v1-n297.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11695",
+    "line": 34563,
+    "cited": "v2-n691.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11702",
+    "line": 18671,
+    "cited": "v1-n371.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11703",
+    "line": 18673,
+    "cited": "v1-n371.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11708",
+    "line": 13183,
+    "cited": "v1-n258.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11712",
+    "line": 20294,
+    "cited": "v1-n405.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11715",
+    "line": 34562,
+    "cited": "v2-n691.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11716",
+    "line": 24538,
+    "cited": "v1-n491.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11729",
+    "line": 31571,
+    "cited": "v2-n633.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11731",
+    "line": 11932,
+    "cited": "v1-n233.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11733",
+    "line": 22970,
+    "cited": "v1-n459.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11741",
+    "line": 11615,
+    "cited": "v1-n227.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11744",
+    "line": 31113,
+    "cited": "v2-n624.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11746",
+    "line": 35165,
+    "cited": "v2-n703.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11748",
+    "line": 14417,
+    "cited": "v1-n283.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11749",
+    "line": 23857,
+    "cited": "v1-n477.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11750",
+    "line": 24539,
+    "cited": "v1-n491.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11752",
+    "line": 38894,
+    "cited": "v2-n776.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11753",
+    "line": 17517,
+    "cited": "v1-n347.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11756",
+    "line": 10507,
+    "cited": "v1-n204.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11761",
+    "line": 39736,
+    "cited": "v2-n793.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11768",
+    "line": 36011,
+    "cited": "v2-n719.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11775",
+    "line": 31928,
+    "cited": "v2-n640.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11776",
+    "line": 33745,
+    "cited": "v2-n675.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11778",
+    "line": 36230,
+    "cited": "v2-n723.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11784",
+    "line": 13415,
+    "cited": "v1-n263.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11815",
+    "line": 18533,
+    "cited": "v1-n368.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11820",
+    "line": 31676,
+    "cited": "v2-n635.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11823",
+    "line": 23954,
+    "cited": "v1-n479.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11828",
+    "line": 31111,
+    "cited": "v2-n624.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   },
+   {
+    "rule": "r11834",
+    "line": 13186,
+    "cited": "v1-n258.jpg",
+    "why": "the cited leaf’s own first line could not be measured — its running head is an index entry, which the rare-word placement matched into the source’s index instead of the leaf"
+   }
+  ],
+  "corrected_elsewhere": {
+   "r11842": "withdrawn and re-issued as r11899 with evidence leaf n21",
+   "r11895": "prose leaf corrected n23->n22",
+   "r11897": "prose leaf corrected n18->n17"
+  },
+  "counts": {
+   "corrected": 21,
+   "standing_before_the_cited_page_but_uncorrected": 69,
+   "unmeasured": 42,
+   "correct": 57,
+   "examined": 189
+  }
+ }
+}
