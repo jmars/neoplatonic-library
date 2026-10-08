@@ -160,6 +160,19 @@ const MINTED = new Map([
    * only while the version is current, because a CURRENT version is not checked
    * against this table, and that has bitten this chain once (1.0.4). */
   ['proclus-theology-of-plato-taylor-1816@1.0.7', '10.5281/zenodo.23228446'],
+  /* MINTED 2026-10-08 as a NEW VERSION of the same record (23237798 under the concept
+   * record 23175743, versions.index 9). 1.0.8 serves the SAME TRANSCRIPTION, the SAME
+   * SECTION MODEL and the SAME ANCHORS as 1.0.7, and it corrects SIX `transliteration`
+   * rules whose review flag the 1.0.4 witness pass had cleared: the class the edition
+   * measures calls each of them ONE INSTRUMENT'S READING, which is exactly what
+   * `review` exists to mark, and `tools/echo-probe.mjs` had been RED at 1.0.4-1.0.7
+   * (68 OK, 1 FAIL, naming r11693) over them. Four readings are CORRECTED — their ids
+   * withdrawn and the corrected rules appended as r11895-r11898, because a corrected
+   * reading is a new id, never an edit beneath a spent one — and two are UPHELD on a
+   * blind read of their own page and re-flagged with the read recorded. THE ROW IS
+   * ADDED HERE AS THE VERSION FREEZES, deliberately: a missing row stays invisible
+   * only while the version is current, and that has bitten this chain once (1.0.4). */
+  ['proclus-theology-of-plato-taylor-1816@1.0.8', '10.5281/zenodo.23237798'],
   /* MINTED 2026-10-08: the OTHER TWO EDITIONS' FIRST VERSION BUMP, each as a NEW
    * VERSION of its own record — the fold gate's unscoped multi-fire rules
    * adjudicated on measurement and licensed `scope: "all"` at 1.0.1. NOT ONE BYTE
