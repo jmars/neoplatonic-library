@@ -224,7 +224,27 @@ const WITHDRAWN = new Map([
    * letter-for-letter correspondence with the rule's own garble), each corrected reading is
    * appended as r11902-r11911, and each old id is spent, never reused. The other 3,245 ids
    * are carried unchanged; 112 rules' EVIDENCE LEAF is re-cited with no reading change. */
-  ['proclus-theology-of-plato-taylor-1816@1.0.11', [8566, 8567, 8570, 8574, 8575, 8593, 8599, 8600, 8611, 8617, 8619, 8653, 8654, 8672, 8683, 8685, 8687, 8720, 8729, 8730, 8736, 8741, 8756, 8785, 8837, 8852, 8906, 8915, 8923, 8942, 8944, 8961, 8967, 8991, 8995, 8996, 9002, 9015, 9069, 9550, 9707, 9734, 9794, 9908, 9926, 10003, 10004, 10067, 10120, 10198, 10277, 10291, 10442, 10571, 10738, 10812, 10838, 10934, 11022, 11059, 11094, 11100, 11387, 11426, 11472, 11507, 11563, 11642, 11652, 11680, 11681, 11682, 11683, 11684, 11686, 11693, 11698, 11705, 11707, 11713, 11714, 11795, 11798, 11806, 11807, 11812, 11816, 11821, 11842, 11866, 11874]],
+    /* 1.0.12 SPENDS ONE MORE ID, and it is a MARK rather than a pairing: r11904 served
+   * "οἱ παρὰ κλεινοὺς" with an ACUTE on the ultima, and that mark has NO INSTRUMENT in
+   * the record - the rule names no witness for it, and the unit that wrote it recorded
+   * that its own plate draw was truncated before the word. MEASURED on the plate at the
+   * item's own 4x resolution (archive.org page/n11_w3000.jpg): google/gemini-2.5-flash
+   * returns the GRAVE in 3 of 4 independent draws (the fourth reads no marks) and
+   * Qwen/Qwen3-VL-235B-A22B in 2 of 2, the 955 review's two draws of the stored leaf
+   * returned the grave on both, the print's convention graves a final acute before a
+   * following word, and the received text of Synesius Hymn 3 prints the grave. The
+   * corrected reading is appended as r11912 and the old id is spent, never reused. NO
+   * OTHER ID IS SPENT, and none is added: the four verse lines of printed page xvii that
+   * 1.0.11 left in no rule were re-measured on the plate for this version and are NOT
+   * served, because they stand in the preserved front-matter region, which admits only
+   * rules the CLASSED Greek pass read (tools/echo-probe.mjs), and MEASURED the pass's own
+   * draw cache holds NO draw at the three source lines that carry them (500, 501, 505 -
+   * it read the line BELOW each line it was asked about, the very permutation 1.0.11
+   * uncovered). The other 3,249 ids are carried unchanged; r11831's EVIDENCE LEAF is
+   * re-cited (n32 -> n31, placed by SUBSTRING because its find is widened with its own
+   * leading space) with no reading change. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.12', [8566, 8567, 8570, 8574, 8575, 8593, 8599, 8600, 8611, 8617, 8619, 8653, 8654, 8672, 8683, 8685, 8687, 8720, 8729, 8730, 8736, 8741, 8756, 8785, 8837, 8852, 8906, 8915, 8923, 8942, 8944, 8961, 8967, 8991, 8995, 8996, 9002, 9015, 9069, 9550, 9707, 9734, 9794, 9908, 9926, 10003, 10004, 10067, 10120, 10198, 10277, 10291, 10442, 10571, 10738, 10812, 10838, 10934, 11022, 11059, 11094, 11100, 11387, 11426, 11472, 11507, 11563, 11642, 11652, 11680, 11681, 11682, 11683, 11684, 11686, 11693, 11698, 11705, 11707, 11713, 11714, 11795, 11798, 11806, 11807, 11812, 11816, 11821, 11842, 11866, 11874, 11904]],
+['proclus-theology-of-plato-taylor-1816@1.0.11', [8566, 8567, 8570, 8574, 8575, 8593, 8599, 8600, 8611, 8617, 8619, 8653, 8654, 8672, 8683, 8685, 8687, 8720, 8729, 8730, 8736, 8741, 8756, 8785, 8837, 8852, 8906, 8915, 8923, 8942, 8944, 8961, 8967, 8991, 8995, 8996, 9002, 9015, 9069, 9550, 9707, 9734, 9794, 9908, 9926, 10003, 10004, 10067, 10120, 10198, 10277, 10291, 10442, 10571, 10738, 10812, 10838, 10934, 11022, 11059, 11094, 11100, 11387, 11426, 11472, 11507, 11563, 11642, 11652, 11680, 11681, 11682, 11683, 11684, 11686, 11693, 11698, 11705, 11707, 11713, 11714, 11795, 11798, 11806, 11807, 11812, 11816, 11821, 11842, 11866, 11874]],
 ]);
 
 let failures = 0;

@@ -54,14 +54,14 @@
     ],
     "note": "ONE archive item, TWO printed volumes of the work -- re-sourced 2026-10-05. Taylor's 1816 edition divides the work over two volumes (vol. I printed pp. 1-425 to Book V ch. XXXIX; vol. II printed pp. 1-299, Books VI-VII to the work's close), and BOTH are bound in one scanned item, `thomastaylor`, so the scans are that one item's own leaves over the two runs of pages the work occupies in it: v1-n76.jpg .. v1-n500.jpg and v2-n506.jpg .. v2-n804.jpg. The stored leaf file names carry the VOLUME prefix because the two runs are the two halves of one work whose pages restart at 1 in vol. II, and because a rule's evidence file/url is written the same way; the ITEM is the same for both, and `items[]` says so. The item's next work begins at n805 (the Elements of Theology, printed pp. 301-441 -- its own edition in this library, cut from this same item at n806-n946), so the leaves after n804 belong to another work. The measured leaf arithmetic, verified at both ends of each run, is in the edition's scan.json, which this record summarises. The FRONT MATTER of vol. I is recorded as its own entry with NO offset and no printed-page range: archive leaves n0-n75 carry the title page, Taylor's Introduction and its glossary, and the only page numbers on them are ROMAN (leaf 74 reads 'Ixxix', leaf 75 'Ixxx'), so the page model computes no printed page for them -- see scan.json. Those leaves are held because the transcription opens on them and 339 of the finder's Greek runs stand there."
   },
-  "current_version": "1.0.11",
+  "current_version": "1.0.12",
   "licence": {
     "text": "public-domain",
     "editorial": "CC-BY-4.0",
     "statement": "The transcriptions are public-domain works. The editorial work — repairs, page models, apparatus, notes — is released under CC BY 4.0."
   },
-  "citation": "Proclus, On the Theology of Plato, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.11. DOI: 10.5281/zenodo.23244971. https://neoplatonic-library.org/texts/proclus-theology-of-plato-taylor-1816/",
-  "doi": "10.5281/zenodo.23244971",
+  "citation": "Proclus, On the Theology of Plato, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.12. https://neoplatonic-library.org/texts/proclus-theology-of-plato-taylor-1816/",
+  "doi": "",
   "cat": [
     "proclus-theology-of-plato"
   ],
