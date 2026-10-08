@@ -250,12 +250,23 @@ function evidenceNote(r) {
   const evs = Array.isArray(r.evidence) ? r.evidence : [];
   const leaves = evs.filter(isLeafEntry);
   const wit = evs.filter((e) => !isLeafEntry(e));
-  const w =
-    wit.length && wit.some((e) => e.witness)
-      ? '; the reading is checked against the human-proofread Project Gutenberg transcription of the same print (' +
-        [...new Set(wit.map((e) => e.witness).filter(Boolean))].join(', ') +
-        ')'
-      : '';
+  /* A WITNESS ENTRY IS NOT ALWAYS THE GUTENBERG TRANSCRIPTION. Since 1.0.10 a
+   * reading may be checked against the TWO OTHER SCANS of the same print the
+   * library ingested, whose own page model keeps PUNCTUATION AND CASE (the
+   * re-flowed Gutenberg text keeps neither, which is why the marks-and-case class
+   * went undecided until those scans were read). The sentence is composed from
+   * what the entries actually name: the Gutenberg transcription is named as such,
+   * and the other scans are named as scans. A hardcoded sentence that called every
+   * witness "the human-proofread Project Gutenberg transcription" would be a
+   * false statement on the page. */
+  const isPg = (e) => e.ebook != null || /gutenberg/i.test(String(e.witness || ''));
+  const pgWit = wit.filter(isPg);
+  const scanWit = wit.filter((e) => !isPg(e));
+  const names = (xs) => [...new Set(xs.map((e) => e.witness).filter(Boolean))].join(', ');
+  const said = [];
+  if (pgWit.length) said.push('the human-proofread Project Gutenberg transcription of the same print (' + names(pgWit) + ')');
+  if (scanWit.length) said.push('the other scans of the same print, whose own page text keeps punctuation and case (' + names(scanWit) + ')');
+  const w = said.length ? '; the reading is checked against ' + said.join(' and ') : '';
   if (!leaves.length) return `no page image is held for this reading${w}`;
   return (
     'read from ' +

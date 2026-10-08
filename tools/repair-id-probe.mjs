@@ -195,6 +195,23 @@ const WITHDRAWN = new Map([
    * corrected, which is not a rule change at all, and r11895/r11897 only have the
    * old leaf removed from their own prose.) */
   ['proclus-theology-of-plato-taylor-1816@1.0.9', [8566, 8567, 8570, 8574, 8575, 8593, 8599, 8600, 8611, 8617, 8619, 8654, 8672, 8683, 8685, 8687, 8720, 8729, 8730, 8736, 8741, 8756, 8785, 8837, 8852, 8906, 8915, 8923, 8942, 8944, 8961, 8967, 8991, 8995, 8996, 9002, 9015, 9069, 9550, 9707, 9734, 9794, 9908, 9926, 10003, 10004, 10067, 10120, 10198, 10277, 10291, 10442, 10571, 10738, 10812, 10838, 10934, 11022, 11059, 11094, 11100, 11387, 11426, 11472, 11507, 11563, 11680, 11681, 11682, 11683, 11684, 11686, 11693, 11705, 11707, 11812, 11842, 11866, 11874]],
+  /* 1.0.10 TAKES TWO RULES OUT, and for the first time in this chain a WITHDRAWAL
+   * is made on the ground that the `after` reading is not the print's at all.
+   * MEASURED 2026-10-08 (the eleventh-DOI unit, H2b-ii): r8653 served "that which
+   * is delicious food," where the plate sets a GREEK WORD and then the bracketed
+   * gloss [delicious food] — the rule DELETED the print's Greek word and put
+   * English filler in its place, which is nowhere in the print (the human-proofread
+   * Gutenberg transcription of the same print reads "but θοινη [delicious food]
+   * the united conversion of", and two BLIND reads of the plate agree on that
+   * shape). r11652 served "not only' that" — a dangling apostrophe — where the
+   * plate sets "not only" and a SUPERSCRIPT FOOTNOTE MARKER: the blind read returns
+   * "not only³ that we should" and the page's own footnote "³ The word μονον is
+   * omitted in the original", and the human-proofread witness reads "not only that".
+   * Both readings are corrected under fresh ids (r11900, r11901) and both old ids
+   * are spent, never reused. The other 3,253 ids are carried unchanged; 83 rules
+   * have their REVIEW FLAG cleared on a witness and 9 have a witness recorded with
+   * the flag kept, neither of which changes any id's standing. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.10', [8566, 8567, 8570, 8574, 8575, 8593, 8599, 8600, 8611, 8617, 8619, 8653, 8654, 8672, 8683, 8685, 8687, 8720, 8729, 8730, 8736, 8741, 8756, 8785, 8837, 8852, 8906, 8915, 8923, 8942, 8944, 8961, 8967, 8991, 8995, 8996, 9002, 9015, 9069, 9550, 9707, 9734, 9794, 9908, 9926, 10003, 10004, 10067, 10120, 10198, 10277, 10291, 10442, 10571, 10738, 10812, 10838, 10934, 11022, 11059, 11094, 11100, 11387, 11426, 11472, 11507, 11563, 11652, 11680, 11681, 11682, 11683, 11684, 11686, 11693, 11705, 11707, 11812, 11842, 11866, 11874]],
 ]);
 
 let failures = 0;
@@ -212,7 +229,11 @@ for (const t of served) {
   const versions = readdirSync(join(versionDir(slug, '1.0.0'), '..'), { withFileTypes: true })
     .filter((d) => d.isDirectory())
     .map((d) => d.name)
-    .sort();
+    /* SEMVER, not lexicographic: a plain .sort() puts "1.0.10" between "1.0.1"
+     * and "1.0.2", so every guard that compares a version with the one BEFORE it
+     * would compare 1.0.2 with 1.0.10 and report the ids 1.0.4 adds as DROPPED.
+     * MEASURED 2026-10-08, on the tree that first carried a two-digit minor. */
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
   const seen = new Map(); // id -> { version, rule } (the FIRST version that allocated it)
   const perVersion = new Map();
   /* THE VERSION IMMEDIATELY BEFORE THIS ONE, so the review-annotation guards below

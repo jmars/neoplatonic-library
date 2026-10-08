@@ -175,7 +175,10 @@ for (const t of served) {
   const versions = readdirSync(join(LIBRARY_DIR, t.slug, 'versions'), { withFileTypes: true })
     .filter((d) => d.isDirectory())
     .map((d) => d.name)
-    .sort();
+    /* SEMVER, not lexicographic: a plain .sort() would list "1.0.10" between
+     * "1.0.1" and "1.0.2" — wrong for a reader and wrong for any guard that
+     * compares a version with the one before it. */
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
   if (versions.length === 0) throw new Error(`library: ${t.slug}: no versions/ directory — an edition must have one`);
   const current = t.currentVersion;
   if (!current || !versions.includes(current)) {

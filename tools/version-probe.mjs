@@ -75,7 +75,8 @@ const versionsOf = (slug) =>
   readdirSync(join(LIBRARY_DIR, slug, 'versions'), { withFileTypes: true })
     .filter((e) => e.isDirectory())
     .map((e) => e.name)
-    .sort();
+    /* SEMVER, not lexicographic — see tools/repair-id-probe.mjs. */
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 const currentOf = (slug) => JSON.parse(readFileSync(join(LIBRARY_DIR, slug, 'edition.json'), 'utf8')).current_version;
 
 /* THE DOIs THIS REPO HAS MINTED, one per VERSION — the identifier of the STATE,
@@ -188,6 +189,25 @@ const MINTED = new Map([
    * VERSION FREEZES, deliberately: a missing row stays invisible only while the
    * version is current, and that has bitten this chain once (1.0.4). */
   ['proclus-theology-of-plato-taylor-1816@1.0.9', '10.5281/zenodo.23239393'],
+  /* MINTED 2026-10-08 as a NEW VERSION of the same record (23242773 under the concept
+   * record 23175743, versions.index 11). 1.0.10 serves the SAME TRANSCRIPTION, the SAME
+   * SECTION MODEL and the SAME ANCHORS as 1.0.9 (the pinned anchor manifest is
+   * byte-identical, so NOT ONE CITATION ANCHOR MOVES), and it carries THREE changes.
+   * (1) TWO READINGS ARE CORRECTED, both of them the class the 955 review opened on:
+   * r8653 served "that which is delicious food," where the plate sets a GREEK WORD and
+   * then the bracketed gloss [delicious food] — the rule deleted the print's Greek word
+   * and put English filler in its place — and r11652 served a dangling apostrophe where
+   * the plate sets "not only" and a SUPERSCRIPT FOOTNOTE MARKER. Both are withdrawn and
+   * their corrected readings appended as r11900 and r11901. (2) 83 REVIEW FLAGS ARE
+   * CLEARED, each on a witness that carries the rule's WHOLE `after` reading at the
+   * point: 73 on the two other scans of the same 1816 print (whose own _djvu.xml keeps
+   * PUNCTUATION AND CASE — the instrument the re-flowed witness lacks) and 10 on a scan
+   * together with the human-proofread transcription. (3) NINE RULES carry the two scans'
+   * own reading in their `witness` with the flag KEPT: the print carries the form the
+   * rule changes, so the rule is an emendation of the print's own form. THE ROW IS ADDED
+   * HERE AS THE VERSION FREEZES, deliberately: a missing row stays invisible only while
+   * the version is current, and that has bitten this chain once (1.0.4). */
+  ['proclus-theology-of-plato-taylor-1816@1.0.10', '10.5281/zenodo.23242773'],
   /* MINTED 2026-10-08: the OTHER TWO EDITIONS' FIRST VERSION BUMP, each as a NEW
    * VERSION of its own record — the fold gate's unscoped multi-fire rules
    * adjudicated on measurement and licensed `scope: "all"` at 1.0.1. NOT ONE BYTE
