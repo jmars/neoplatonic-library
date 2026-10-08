@@ -1,0 +1,5424 @@
+{
+  "slug": "proclus-theology-of-plato-taylor-1816",
+  "method": "the chapter and book numerals are read off the PAGE IMAGES themselves, one reading per leaf (its running head, its chapter heading, its printed page) — the transcription destroyed them (`CHAP. au.`, `CHAPTER VE`, `BOOK actrees`) and fitting one from the sequence is how a division is attributed to the wrong book. Each division is then placed in the transcription by matching the opening words of its first page against the text layer the scan itself carries, and a run that does not occur EXACTLY ONCE places nothing. A second transcription of the same print was read against the model as a witness, book by book.",
+  "source": {
+    "version": "1.0.0",
+    "sha256": "748e58cef10981193585a101fcf67951cc3a37577eaf756f08399e343e1dd8bf",
+    "lines": 40344,
+    "linesWithText": 28444,
+    "meta": "748e58cef10981193585a101fcf67951cc3a37577eaf756f08399e343e1dd8bf"
+  },
+  "vision": {
+    "model": "deepseek-v4-flash-vision-exp",
+    "leaves": 724,
+    "readings": 722,
+    "placed": 215
+  },
+  "witness": {
+    "name": "proclus-taylor-elements-theology-and-theology-of-plato-1816",
+    "shelf": "Proclus-Taylor-Elements-Theology-and-Theology-of-Plato-1816.txt",
+    "sha256": "416d1e5bf3a1bb3e498facecdf1cff72a5fed808c3451f94d69e2a82c9ca0aaa",
+    "bytes": 2493500,
+    "lists": [
+      {
+        "book": 1,
+        "raw": "I.",
+        "chapters": 29,
+        "line": 2430
+      },
+      {
+        "book": 2,
+        "raw": "II.",
+        "chapters": 12,
+        "line": 2628
+      },
+      {
+        "book": 3,
+        "raw": "III.",
+        "chapters": 28,
+        "line": 2734
+      },
+      {
+        "book": 4,
+        "raw": "IV.",
+        "chapters": 39,
+        "line": 2939
+      },
+      {
+        "book": 5,
+        "raw": "V.",
+        "chapters": 40,
+        "line": 3197
+      },
+      {
+        "book": 6,
+        "raw": "VL",
+        "chapters": 24,
+        "line": 3476
+      },
+      {
+        "book": 7,
+        "raw": "VII.",
+        "chapters": 51,
+        "line": 3626
+      }
+    ]
+  },
+  "books": [
+    {
+      "n": 1,
+      "label": "Book I",
+      "chapters": 29,
+      "witness": 29,
+      "witnessAgreement": "agree"
+    },
+    {
+      "n": 2,
+      "label": "Book II",
+      "chapters": 12,
+      "witness": 12,
+      "witnessAgreement": "agree"
+    },
+    {
+      "n": 3,
+      "label": "Book III",
+      "chapters": 23,
+      "witness": 28,
+      "witnessAgreement": "FLAGGED",
+      "witnessNote": "the witness's contents list has 28 chapter(s) (line 2734); the print's body numbers 23 (I, II, III, IX-XXVIII). Taylor's own contents footnotes say why (read blind off the leaf images of the contents pages lviii/lix, n53/n54, by both non-echoing readers): on the CHAPTER IV entry (source.txt:2762-2766) — 'These four chapters are comprehended in one in my translation, as they are not marked in the Greek; and I had not divided them, when this work was sent to the press, as I have done the chapters of the other books, in which there is a similar defect in the original'; on CHAPTER VI (source.txt:2820) — 'The fifth and sixth chapters are comprehended in the second chapter in my translation'; on CHAPTER VIII (source.txt:2824) — 'The seventh and eighth chapters form the third in my translation'; on CHAPTER X (source.txt:2828) — 'And the ninth and tenth are the fourth and fifth chapters in my translation'; on CHAPTER XI (source.txt:2830) — 'This is the sixth chapter in my translation'. No heading is printed anywhere between CHAPTER III. (source.txt:12321) and CHAPTER IX. (source.txt:12540) — pages 166, 167 and 168 carry none, read blind — so chapters IV-VIII have no boundary in the print to recover: the print comprehends them in its chapters II and III."
+    },
+    {
+      "n": 4,
+      "label": "Book IV",
+      "chapters": 39,
+      "witness": 39,
+      "witnessAgreement": "agree"
+    },
+    {
+      "n": 5,
+      "label": "Book V",
+      "chapters": 39,
+      "witness": 40,
+      "witnessAgreement": "FLAGGED",
+      "witnessNote": "the witness's contents list has 40 chapter(s) (line 3197); the print's body numbers 39 (I-XXXIX — vol. I ends at Book V ch. XXXIX). Taylor's own contents footnote (source.txt:3462): 'It will be found also that chapter forty is wanting.' Chapter XL is absent from the translation — no heading and no text — so there is no boundary to recover."
+    },
+    {
+      "n": 6,
+      "label": "Book VI",
+      "chapters": 24,
+      "witness": 24,
+      "witnessAgreement": "agree"
+    },
+    {
+      "n": 7,
+      "label": "Book VII",
+      "chapters": 51,
+      "witness": 51,
+      "witnessAgreement": "agree"
+    }
+  ],
+  "divisions": [
+    {
+      "n": 1,
+      "book": 1,
+      "chapter": 1,
+      "label": "Book I, Chapter I",
+      "anchor": "s1",
+      "line": 4092,
+      "flat": 2566,
+      "text": "o PERICLES, to me the dearest of friends, I am of opinion that the",
+      "page": 1,
+      "pageRead": null,
+      "leaf": "v1-n76.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n76.jpg",
+        "head": "PROCLUS,\nTHE PLATONIC SUCCESSOR,\nON\nThe Theology of Plato.",
+        "heading": "BOOK I.\nCHAPTER I.",
+        "raw": "{\"head\":\"PROCLUS,\\nTHE PLATONIC SUCCESSOR,\\nON\\nThe Theology of Plato.\",\"heading\":\"BOOK I.\\nCHAPTER I.\",\"page\":\"\"}",
+        "read_from": "v1-n74.jpg"
+      }
+    },
+    {
+      "n": 2,
+      "book": 1,
+      "chapter": 2,
+      "label": "Book I, Chapter II",
+      "anchor": "s2",
+      "line": 4200,
+      "flat": 2646,
+      "text": "A Hd thus much by way of preface. But it is necessary that I should",
+      "page": 3,
+      "pageRead": 3,
+      "leaf": "v1-n78.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n78.jpg",
+        "head": "CHAP. II. OF PLATO.",
+        "heading": "CHAPTER II.",
+        "raw": "{\"head\":\"CHAP. II. OF PLATO.\",\"heading\":\"CHAPTER II.\",\"page\":\"3\"}",
+        "read_from": "v1-n76.jpg"
+      }
+    },
+    {
+      "n": 3,
+      "book": 1,
+      "chapter": 3,
+      "label": "Book I, Chapter III",
+      "anchor": "s3",
+      "line": 4347,
+      "flat": 2746,
+      "text": "All, therefore, that have ever touched upon theology, have called",
+      "page": 6,
+      "pageRead": 6,
+      "leaf": "v1-n81.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n81.jpg",
+        "head": "ON THE THEOLOGY          BOOK I.",
+        "heading": "CHAPTER III.",
+        "raw": "{\"head\":\"ON THE THEOLOGY          BOOK I.\",\"heading\":\"CHAPTER III.\",\"page\":\"6\"}",
+        "read_from": "v1-n79.jpg"
+      }
+    },
+    {
+      "n": 4,
+      "book": 1,
+      "chapter": 4,
+      "label": "Book I, Chapter IV",
+      "anchor": "s4",
+      "line": 4557,
+      "flat": 2895,
+      "text": "After this all-perfect comprehension of the first theory, we mpst",
+      "page": 10,
+      "pageRead": 10,
+      "leaf": "v1-n85.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n85.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER IV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER IV.\",\"page\":\"10\"}",
+        "read_from": "v1-n83.jpg"
+      }
+    },
+    {
+      "n": 5,
+      "book": 1,
+      "chapter": 5,
+      "label": "Book I, Chapter V",
+      "anchor": "s5",
+      "line": 4768,
+      "flat": 3050,
+      "text": "' As we have therefore enumerated all these modes of the Platonic",
+      "page": 14,
+      "pageRead": 14,
+      "leaf": "v1-n89.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n89.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER V.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER V.\",\"page\":\"14\"}",
+        "read_from": "v1-n87.jpg"
+      }
+    },
+    {
+      "n": 6,
+      "book": 1,
+      "chapter": 6,
+      "label": "Book I, Chapter VI",
+      "anchor": "s6",
+      "line": 4897,
+      "flat": 3140,
+      "text": "tows the traditions of theologists, respecting the ordet of the divine pro^",
+      "page": 17,
+      "pageRead": 17,
+      "leaf": "v1-n92.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n92.jpg",
+        "head": "CHAP. VI. OF PLATO. 17",
+        "heading": "CHAPTER VI.",
+        "raw": "{\"head\":\"CHAP. VI. OF PLATO. 17\",\"heading\":\"CHAPTER VI.\",\"page\":\"17\"}",
+        "read_from": "v1-n90.jpg"
+      }
+    },
+    {
+      "n": 7,
+      "book": 1,
+      "chapter": 7,
+      "label": "Book I, Chapter VII",
+      "anchor": "s7",
+      "line": 5050,
+      "flat": 3248,
+      "text": "I, hoveyeb, to an objection of this kind, shall make a just and per*",
+      "page": 20,
+      "pageRead": 20,
+      "leaf": "v1-n95.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n95.jpg",
+        "head": "ON THE THEOLOGY BOOK I",
+        "heading": "CHAPTER VII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I\",\"heading\":\"CHAPTER VII.\",\"page\":\"20\"}",
+        "read_from": "v1-n93.jpg"
+      }
+    },
+    {
+      "n": 8,
+      "book": 1,
+      "chapter": 8,
+      "label": "Book I, Chapter VIII",
+      "anchor": "s8",
+      "line": 5115,
+      "flat": 3297,
+      "text": "I appear, however, by these means, to have excited for myself a two¬",
+      "page": 21,
+      "pageRead": 21,
+      "leaf": "v1-n96.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n96.jpg",
+        "head": "CHAP. VIII.                OF PLATO.                21",
+        "heading": "CHAPTER VIII.",
+        "raw": "{\"head\":\"CHAP. VIII.                OF PLATO.                21\",\"heading\":\"CHAPTER VIII.\",\"page\":\"21\"}",
+        "read_from": "v1-n94.jpg"
+      }
+    },
+    {
+      "n": 9,
+      "book": 1,
+      "chapter": 9,
+      "label": "Book I, Chapter IX",
+      "anchor": "s9",
+      "line": 5164,
+      "flat": 3333,
+      "text": "In the first place then, let us consider those, who draw down the",
+      "page": 22,
+      "pageRead": 22,
+      "leaf": "v1-n97.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n97.jpg",
+        "head": "22 ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER IX.",
+        "raw": "{\"head\":\"22 ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER IX.\",\"page\":\"22\"}",
+        "read_from": "v1-n95.jpg"
+      }
+    },
+    {
+      "n": 10,
+      "book": 1,
+      "chapter": 10,
+      "label": "Book I, Chapter X",
+      "anchor": "s10",
+      "line": 5393,
+      "flat": 3499,
+      "text": "But a greater and more difficult contest remains for me, against those",
+      "page": 27,
+      "pageRead": 97,
+      "leaf": "v1-n102.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n102.jpg",
+        "head": "CHAP. X.                OF PLATO.",
+        "heading": "CHAPTER X.",
+        "raw": "{\"head\":\"CHAP. X.                OF PLATO.\",\"heading\":\"CHAPTER X.\",\"page\":\"97\"}",
+        "read_from": "v1-n100.jpg"
+      }
+    },
+    {
+      "n": 11,
+      "book": 1,
+      "chapter": 11,
+      "label": "Book I, Chapter XI",
+      "anchor": "s11",
+      "line": 5618,
+      "flat": 3667,
+      "text": "Again, therefore, let us discuss this affair in another way, and view",
+      "page": 31,
+      "pageRead": 31,
+      "leaf": "v1-n106.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n106.jpg.jpg",
+        "head": "CHAP. XI. OF PLATO.",
+        "heading": "CHAPTER XI.",
+        "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [\n    \"CHAPTER XI.\"\n  ],\n  \"page\": \"31\"\n}\n```\n",
+        "read_from": "v1-n106.jpg.jpg",
+        "readers": [
+          {
+            "model": "google/gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n106.jpg",
+                "head": "CHAP. XI. OF PLATO.",
+                "heading": "CHAPTER XI.",
+                "page": "31",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"heading\": \"CHAPTER XI.\",\n  \"page\": \"31\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n106.jpg",
+                "head": "CHAP. XI. OF PLATO.",
+                "heading": "CHAPTER XI.",
+                "page": "31",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [\n    \"CHAPTER XI.\"\n  ],\n  \"page\": \"31\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "model": "anthropic/claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n106.jpg",
+                "head": "CHAP. XI. OF PLATO.",
+                "heading": "CHAPTER XI.",
+                "page": "31",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"heading\": \"CHAPTER XI.\",\n  \"page\": \"31\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n106.jpg",
+                "head": "CHAP. XI. OF PLATO.",
+                "heading": "CHAPTER XI.",
+                "page": "81",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [\"CHAPTER XI.\"],\n  \"page\": \"81\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "recorded_leaf": {
+          "leaf": "v1-n110.jpg",
+          "head": "CHAP. XI. OF PLATO.",
+          "heading": "",
+          "page": "35",
+          "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"35\"\n}\n```\n",
+          "readers": [
+            {
+              "model": "google/gemini-2.5-flash",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n110.jpg",
+                  "head": "CHAP. XI. OF PLATO. 35",
+                  "heading": "",
+                  "page": "35",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO. 35\",\n  \"heading\": \"\",\n  \"page\": \"35\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n110.jpg",
+                  "head": "CHAP. XI. OF PLATO.",
+                  "heading": "",
+                  "page": "35",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"35\"\n}\n```\n"
+                }
+              ]
+            },
+            {
+              "model": "anthropic/claude-haiku-4-5",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n110.jpg",
+                  "head": "CHAP. XI. OF PLATO.",
+                  "heading": "",
+                  "page": "35",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XI. OF PLATO.\",\n  \"heading\": \"CHAP. XI.\",\n  \"page\": \"35\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n110.jpg",
+                  "head": "CHAP. XI.                           OF PLATO.",
+                  "heading": "",
+                  "page": "35",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XI.                           OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"35\"\n}\n```\n"
+                }
+              ]
+            }
+          ],
+          "note": "the leaf the division was recorded on before this correction: no chapter heading is printed in its body — the chapter was already under way there"
+        },
+        "bracket": [
+          {
+            "leaf": "v1-n104.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "29",
+                "raw": "```json\n{\n  \"head\": \"CHAP. X.                          OF PLATO.\",\n  \"heading\": \"\",\n  \"page\": \"29\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "29",
+                "raw": "```json\n{\n  \"head\": \"CHAP. X. OF PLATO. 29\",\n  \"heading\": \"CHAP. X.\",\n  \"page\": \"29\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n105.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "30",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                   BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"30\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "90",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                                BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"90\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n107.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "32",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"32\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "32",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                                BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"32\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "previous": {
+          "leaf": "v1-n110.jpg",
+          "head": "CHAP. XI. OF PLATO. 35",
+          "heading": "",
+          "raw": "{\"head\":\"CHAP. XI. OF PLATO. 35\",\"heading\":\"\",\"page\":\"35\"}",
+          "read_from": "v1-n108.jpg"
+        },
+        "note": "CORRECTED 2026-10-07 (version 1.0.2): the recorded opening stood FOUR pages late. Both non-echoing readers (google/gemini-2.5-flash, anthropic/claude-haiku-4-5) read the CHAPTER XI. heading printed in the body of leaf v1-n106.jpg, whose printed page is 31 — the folio is damaged (the transcription carries it as 'SI'), and the leaves bracketing it read 29, 30 and 32. The leaf the division was recorded on (v1-n110.jpg, printed page 35) carries NO chapter heading: the chapter was already under way there. The division now opens on the chapter's first line of prose, line 5618 (flat 3667), read off the same transcription the model was derived against."
+      }
+    },
+    {
+      "n": 12,
+      "book": 1,
+      "chapter": 12,
+      "label": "Book I, Chapter XII",
+      "anchor": "s12",
+      "line": 5969,
+      "flat": 3919,
+      "text": "As the first hypothesis, however, demonstrates by negations the inef¬",
+      "page": 38,
+      "pageRead": 38,
+      "leaf": "v1-n113.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n113.jpg",
+        "head": "ON THE THEOLOGY    BOOK I.",
+        "heading": "CHAPTER XII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK I.\",\"heading\":\"CHAPTER XII.\",\"page\":\"38\"}",
+        "read_from": "v1-n111.jpg"
+      }
+    },
+    {
+      "n": 13,
+      "book": 1,
+      "chapter": 13,
+      "label": "Book I, Chapter XIII",
+      "anchor": "s13",
+      "line": 6074,
+      "flat": 3994,
+      "text": "In the first place, therefore, we shall assume the things which are de¬",
+      "page": 40,
+      "pageRead": 40,
+      "leaf": "v1-n115.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n115.jpg",
+        "head": "ON THE THEOLOGY    BOOK I.",
+        "heading": "CHAPTER XIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK I.\",\"heading\":\"CHAPTER XIII.\",\"page\":\"40\"}",
+        "read_from": "v1-n113.jpg"
+      }
+    },
+    {
+      "n": 14,
+      "book": 1,
+      "chapter": 14,
+      "label": "Book I, Chapter XIV",
+      "anchor": "s14",
+      "line": 6492,
+      "flat": 4289,
+      "text": "From what has been said, therefore, it is evident to everyone, that the",
+      "page": 48,
+      "pageRead": 48,
+      "leaf": "v1-n123.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n123.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER XIV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER XIV.\",\"page\":\"48\"}",
+        "read_from": "v1-n121.jpg"
+      }
+    },
+    {
+      "n": 15,
+      "book": 1,
+      "chapter": 15,
+      "label": "Book I, Chapter XV",
+      "anchor": "s15",
+      "line": 6803,
+      "flat": 4513,
+      "text": "The third problem after these we shall connect with the former, and",
+      "page": 54,
+      "pageRead": 54,
+      "leaf": "v1-n129.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n129.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER XV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER XV.\",\"page\":\"54\"}",
+        "read_from": "v1-n127.jpg"
+      }
+    },
+    {
+      "n": 16,
+      "book": 1,
+      "chapter": 16,
+      "label": "Book I, Chapter XVI",
+      "anchor": "s16",
+      "line": 6940,
+      "flat": 4614,
+      "text": "Again, from another principle we may be able to apprehend the theo¬",
+      "page": 57,
+      "pageRead": 57,
+      "leaf": "v1-n132.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n132.jpg",
+        "head": "CHAP. XVI    OF PLATO",
+        "heading": "CHAPTER XVI.",
+        "raw": "{\"head\":\"CHAP. XVI    OF PLATO\",\"heading\":\"CHAPTER XVI.\",\"page\":\"57\"}",
+        "read_from": "v1-n130.jpg"
+      }
+    },
+    {
+      "n": 17,
+      "book": 1,
+      "chapter": 17,
+      "label": "Book I, Chapter XVII",
+      "anchor": "s17",
+      "line": 6988,
+      "flat": 4649,
+      "text": "That therefore, which has the hyparxis of itself, and the whole of its",
+      "page": 58,
+      "pageRead": 58,
+      "leaf": "v1-n133.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n133.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER XVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER XVII.\",\"page\":\"58\"}",
+        "read_from": "v1-n131.jpg"
+      }
+    },
+    {
+      "n": 18,
+      "book": 1,
+      "chapter": 18,
+      "label": "Book I, Chapter XVIII",
+      "anchor": "s18",
+      "line": 7218,
+      "flat": 4820,
+      "text": "In the next place, let us survey the immutability and simplicity of the",
+      "page": 62,
+      "pageRead": 62,
+      "leaf": "v1-n137.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n137.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER XVIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER XVIII.\",\"page\":\"62\"}",
+        "read_from": "v1-n135.jpg"
+      }
+    },
+    {
+      "n": 19,
+      "book": 1,
+      "chapter": 19,
+      "label": "Book I, Chapter XIX",
+      "anchor": "s19",
+      "line": 7449,
+      "flat": 4985,
+      "text": "sameness their proper hvparxis established according to the unknown union",
+      "page": 67,
+      "pageRead": 67,
+      "leaf": "v1-n142.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n142.jpg",
+        "head": "CHAP. XIX. OF PLATO.",
+        "heading": "CHAPTER XIX.",
+        "raw": "{\"head\":\"CHAP. XIX. OF PLATO.\",\"heading\":\"CHAPTER XIX.\",\"page\":\"67\"}",
+        "read_from": "v1-n140.jpg"
+      }
+    },
+    {
+      "n": 20,
+      "book": 1,
+      "chapter": 20,
+      "label": "Book I, Chapter XX",
+      "anchor": "s20",
+      "line": 7549,
+      "flat": 5056,
+      "text": "all composition) and produce from themselves the variety of beings, it is",
+      "page": 69,
+      "pageRead": 69,
+      "leaf": "v1-n144.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n144.jpg",
+        "head": "CHAP. XX. OF PLATO.",
+        "heading": "CHAPTER XX.",
+        "raw": "{\"head\":\"CHAP. XX. OF PLATO.\",\"heading\":\"CHAPTER XX.\",\"page\":\"69\"}",
+        "read_from": "v1-n142.jpg"
+      }
+    },
+    {
+      "n": 21,
+      "book": 1,
+      "chapter": 21,
+      "label": "Book I, Chapter XXI",
+      "anchor": "s21",
+      "line": 7695,
+      "flat": 5162,
+      "text": "To us however discussing what pertains to every divine nature, what",
+      "page": 72,
+      "pageRead": 72,
+      "leaf": "v1-n147.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n147.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER XXI.\\nCHAPTER XXII.\",\"page\":\"72\"}",
+        "read_from": "v1-n145.jpg"
+      }
+    },
+    {
+      "n": 22,
+      "book": 1,
+      "chapter": 22,
+      "label": "Book I, Chapter XXII",
+      "anchor": "s22",
+      "line": 7715,
+      "flat": 5179,
+      "text": "But in the PhilebuS, Plato delivers to us the three most principal ele¬",
+      "page": 72,
+      "pageRead": 72,
+      "leaf": "v1-n147.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n147.jpg.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+        "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"headings\": [\n    \"CHAPTER XXI.\",\n    \"CHAPTER XXII.\"\n  ],\n  \"page\": \"72\"\n}\n```\n",
+        "read_from": "v1-n147.jpg.jpg",
+        "readers": [
+          {
+            "model": "google/gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n147.jpg",
+                "head": "72 ON THE THEOLOGY BOOK I.",
+                "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+                "page": "72",
+                "raw": "```json\n{\n  \"head\": \"72 ON THE THEOLOGY BOOK I.\",\n  \"heading\": \"CHAPTER XXI.\",\n  \"page\": \"72\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n147.jpg",
+                "head": "ON THE THEOLOGY BOOK I.",
+                "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+                "page": "72",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"headings\": [\n    \"CHAPTER XXI.\",\n    \"CHAPTER XXII.\"\n  ],\n  \"page\": \"72\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "model": "anthropic/claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n147.jpg",
+                "head": "ON THE THEOLOGY BOOK I.",
+                "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+                "page": "72",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"heading\": \"CHAPTER XXI.\",\n  \"page\": \"72\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n147.jpg",
+                "head": "ON THE THEOLOGY BOOK I.",
+                "heading": "CHAPTER XXI.\nCHAPTER XXII.",
+                "page": "72",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"headings\": [\"CHAPTER XXI.\", \"CHAPTER XXII.\"],\n  \"page\": \"72\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "recorded_leaf": {
+          "leaf": "v1-n148.jpg",
+          "head": "CHAP. XXII. OF PLATO.",
+          "heading": "",
+          "page": "73",
+          "raw": "```json\n{\n  \"head\": \"CHAP. XXII. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"73\"\n}\n```\n",
+          "readers": [
+            {
+              "model": "google/gemini-2.5-flash",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n148.jpg",
+                  "head": "CHAP. XXII. OF PLATO. 73",
+                  "heading": "",
+                  "page": "73",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XXII. OF PLATO. 73\",\n  \"heading\": \"\",\n  \"page\": \"73\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n148.jpg",
+                  "head": "CHAP. XXII. OF PLATO.",
+                  "heading": "",
+                  "page": "73",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XXII. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"73\"\n}\n```\n"
+                }
+              ]
+            },
+            {
+              "model": "anthropic/claude-haiku-4-5",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n148.jpg",
+                  "head": "CHAP. XXII.                OF PLATO.                73",
+                  "heading": "",
+                  "page": "73",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XXII.                OF PLATO.                73\",\n  \"heading\": \"CHAP. XXII.\",\n  \"page\": \"73\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n148.jpg",
+                  "head": "CHAP. XXII. OF PLATO.",
+                  "heading": "",
+                  "page": "73",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. XXII. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"73\"\n}\n```\n"
+                }
+              ]
+            }
+          ],
+          "note": "the leaf the division was recorded on before this correction: no chapter heading is printed in its body — the chapter was already under way there"
+        },
+        "bracket": [
+          {
+            "leaf": "v1-n145.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "70",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I\",\n  \"heading\": \"\",\n  \"page\": \"70\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "70",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK I.\",\n  \"heading\": \"\",\n  \"page\": \"70\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n146.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "71",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XX. OF PLATO. 71\",\n  \"heading\": \"\",\n  \"page\": \"71\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "71",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XX. OF PLATO.\",\n  \"heading\": \"CHAP. XX.\",\n  \"page\": \"71\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "previous": {
+          "leaf": "v1-n148.jpg",
+          "head": "CHAP. XXII. OF PLATO.",
+          "heading": "",
+          "raw": "{\"head\":\"CHAP. XXII. OF PLATO.\",\"heading\":\"\",\"page\":\"73\"}",
+          "read_from": "v1-n146.jpg"
+        },
+        "note": "CORRECTED 2026-10-07 (version 1.0.2): the recorded opening stood ONE page late. Both non-echoing readers read leaf v1-n147.jpg as printed page 72 and read the CHAPTER XXII. heading printed in its body, after the CHAPTER XXI. heading on the same page (two chapters open on page 72); the leaves bracketing it read 71 and 73. The leaf the division was recorded on (v1-n148.jpg, printed page 73) carries NO chapter heading, only the running head 'CHAP. XXII. OF PLATO.' — the chapter was already under way there. The division now opens on the chapter's first line of prose, line 7715 (flat 5179)."
+      }
+    },
+    {
+      "n": 23,
+      "book": 1,
+      "chapter": 23,
+      "label": "Book I, Chapter XXIII",
+      "anchor": "s23",
+      "line": 7857,
+      "flat": 5275,
+      "text": "After this, wisdom v is allotted the second order, being the intelligence",
+      "page": 75,
+      "pageRead": 75,
+      "leaf": "v1-n150.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n150.jpg",
+        "head": "CHAP. XXIII. OF PLATO.",
+        "heading": "CHAPTER XXIII.",
+        "raw": "{\"head\":\"CHAP. XXIII. OF PLATO.\",\"heading\":\"CHAPTER XXIII.\",\"page\":\"75\"}",
+        "read_from": "v1-n148.jpg"
+      }
+    },
+    {
+      "n": 24,
+      "book": 1,
+      "chapter": 24,
+      "label": "Book I, Chapter XXIV",
+      "anchor": "s24",
+      "line": 7912,
+      "flat": 5312,
+      "text": "1st the next place let us consider the beautiful, what it is, and how",
+      "page": 76,
+      "pageRead": 76,
+      "leaf": "v1-n151.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n151.jpg",
+        "head": "ON THE THEOLOGY BOOK I.",
+        "heading": "CHAPTER XXIV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK I.\",\"heading\":\"CHAPTER XXIV.\",\"page\":\"76\"}",
+        "read_from": "v1-n149.jpg"
+      }
+    },
+    {
+      "n": 25,
+      "book": 1,
+      "chapter": 25,
+      "label": "Book I, Chapter XXV",
+      "anchor": "s25",
+      "line": 8047,
+      "flat": 5407,
+      "text": "What therefore is it which unites us to the good? What is it which causes",
+      "page": 79,
+      "pageRead": 79,
+      "leaf": "v1-n154.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n154.jpg",
+        "head": "CHAP. XXV.          OF PLATO.          79",
+        "heading": "CHAPTER XXV.",
+        "raw": "{\"head\":\"CHAP. XXV.          OF PLATO.          79\",\"heading\":\"CHAPTER XXV.\",\"page\":\"79\"}",
+        "read_from": "v1-n152.jpg"
+      }
+    },
+    {
+      "n": 26,
+      "book": 1,
+      "chapter": 26,
+      "label": "Book I, Chapter XXVI",
+      "anchor": "s26",
+      "line": 8142,
+      "flat": 5478,
+      "text": "fidelity which conciliates those that disagree, and subverts the greatest of",
+      "page": 81,
+      "pageRead": 81,
+      "leaf": "v1-n156.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n156.jpg",
+        "head": "CHAP. XXVI OF PLATO. 81",
+        "heading": "CHAPTER XXVI.",
+        "raw": "{\"head\":\"CHAP. XXVI OF PLATO. 81\",\"heading\":\"CHAPTER XXVI.\",\"page\":\"81\"}",
+        "read_from": "v1-n154.jpg"
+      }
+    },
+    {
+      "n": 27,
+      "book": 1,
+      "chapter": 27,
+      "label": "Book I, Chapter XXVII",
+      "anchor": "s27",
+      "line": 8343,
+      "flat": 5625,
+      "text": "union itself, and a divine hyparxis. For this is intelligible as the object",
+      "page": 85,
+      "pageRead": 85,
+      "leaf": "v1-n160.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n160.jpg",
+        "head": "CHAP. XXVII. OF PLATO.",
+        "heading": "CHAPTER XXVII.",
+        "raw": "{\"head\":\"CHAP. XXVII. OF PLATO.\",\"heading\":\"CHAPTER XXVII.\",\"page\":\"85\"}",
+        "read_from": "v1-n158.jpg"
+      }
+    },
+    {
+      "n": 28,
+      "book": 1,
+      "chapter": 28,
+      "label": "Book I, Chapter XXVIII",
+      "anchor": "s28",
+      "line": 8500,
+      "flat": 5737,
+      "text": "Looking to these things, therefore, we may unfold what is said of pa¬",
+      "page": 88,
+      "pageRead": 88,
+      "leaf": "v1-n163.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n163.jpg",
+        "head": "ON THE THEOLOGY    BOOK I",
+        "heading": "CHAPTER XXVIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK I\",\"heading\":\"CHAPTER XXVIII.\",\"page\":\"88\"}",
+        "read_from": "v1-n161.jpg"
+      }
+    },
+    {
+      "n": 29,
+      "book": 1,
+      "chapter": 29,
+      "label": "Book I, Chapter XXIX",
+      "anchor": "s29",
+      "line": 8537,
+      "flat": 5762,
+      "text": "ceed into light, which multiply their energies, and extend even the subor¬",
+      "page": 89,
+      "pageRead": 89,
+      "leaf": "v1-n164.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n164.jpg",
+        "head": "CHAP. XXIX.                OF PLATO.                89",
+        "heading": "CHAPTER XXIX.",
+        "raw": "{\"head\":\"CHAP. XXIX.                OF PLATO.                89\",\"heading\":\"CHAPTER XXIX.\",\"page\":\"89\"}",
+        "read_from": "v1-n162.jpg"
+      }
+    },
+    {
+      "n": 30,
+      "book": 2,
+      "chapter": 1,
+      "label": "Book II, Chapter I",
+      "anchor": "s30",
+      "line": 8626,
+      "flat": 5825,
+      "text": "The most proper beginning however of the theory proposed by us is",
+      "page": 91,
+      "pageRead": null,
+      "leaf": "v1-n166.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n166.jpg",
+        "head": "",
+        "heading": "BOOK II.\nCHAPTER I.",
+        "raw": "{\"head\":\"\",\"heading\":\"BOOK II.\\nCHAPTER I.\",\"page\":\"\"}",
+        "read_from": "v1-n164.jpg"
+      }
+    },
+    {
+      "n": 31,
+      "book": 2,
+      "chapter": 2,
+      "label": "Book II, Chapter II",
+      "anchor": "s31",
+      "line": 9093,
+      "flat": 6159,
+      "text": "It is necessary however, that discussing the same subject after another",
+      "page": 100,
+      "pageRead": 100,
+      "leaf": "v1-n175.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n175.jpg",
+        "head": "ON THEOLOGY BOOK II.",
+        "heading": "CHAPTER II.",
+        "raw": "{\"head\":\"ON THEOLOGY BOOK II.\",\"heading\":\"CHAPTER II.\",\"page\":\"100\"}",
+        "read_from": "v1-n173.jpg"
+      }
+    },
+    {
+      "n": 32,
+      "book": 2,
+      "chapter": 3,
+      "label": "Book II, Chapter III",
+      "anchor": "s32",
+      "line": 9435,
+      "flat": 6414,
+      "text": "proceed from it, are in any respect better than tlreir principle. The cause",
+      "page": 107,
+      "pageRead": 107,
+      "leaf": "v1-n182.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n182.jpg",
+        "head": "CHAP. III. OF PLATO.",
+        "heading": "CHAPTER III.",
+        "raw": "{\"head\":\"CHAP. III. OF PLATO.\",\"heading\":\"CHAPTER III.\",\"page\":\"107\"}",
+        "read_from": "v1-n180.jpg"
+      }
+    },
+    {
+      "n": 33,
+      "book": 2,
+      "chapter": 4,
+      "label": "Book II, Chapter IV",
+      "anchor": "s33",
+      "line": 9836,
+      "flat": 6706,
+      "text": "therefore, following Plato, can we admit that intellect is the best of things,",
+      "page": 115,
+      "pageRead": 115,
+      "leaf": "v1-n190.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n190.jpg",
+        "head": "CHAP. IV. OF PLATO.",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. IV. OF PLATO.\",\"heading\":\"\",\"page\":\"115\"}",
+        "read_from": "v1-n188.jpg"
+      }
+    },
+    {
+      "n": 34,
+      "book": 2,
+      "chapter": 5,
+      "label": "Book II, Chapter V",
+      "anchor": "s34",
+      "line": 9991,
+      "flat": 6821,
+      "text": "In the next place, if the one is neither intelligible nor intellectual, nor",
+      "page": 118,
+      "pageRead": 118,
+      "leaf": "v1-n193.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n193.jpg",
+        "head": "ON THEOLOGY BOOK II.",
+        "heading": "CHAPTER V.",
+        "raw": "{\"head\":\"ON THEOLOGY BOOK II.\",\"heading\":\"CHAPTER V.\",\"page\":\"118\"}",
+        "read_from": "v1-n191.jpg"
+      }
+    },
+    {
+      "n": 35,
+      "book": 2,
+      "chapter": 6,
+      "label": "Book II, Chapter VI",
+      "anchor": "s35",
+      "line": 10092,
+      "flat": 6896,
+      "text": "The mode of demonstration, therefore, pertaining to the one is, as",
+      "page": 120,
+      "pageRead": 130,
+      "leaf": "v1-n195.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n195.jpg",
+        "head": "ON THE THEOLOGY BOOK II.",
+        "heading": "CHAPTER VI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK II.\",\"heading\":\"CHAPTER VI.\",\"page\":\"130\"}",
+        "read_from": "v1-n193.jpg"
+      }
+    },
+    {
+      "n": 36,
+      "book": 2,
+      "chapter": 7,
+      "label": "Book II, Chapter VII",
+      "anchor": "s36",
+      "line": 10229,
+      "flat": 6996,
+      "text": "It, however, it be requisite to survey each of the dogmas about it",
+      "page": 123,
+      "pageRead": 123,
+      "leaf": "v1-n198.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n198.jpg",
+        "head": "CHAP. VII. OF PLATO.",
+        "heading": "CHAPTER VII.",
+        "raw": "{\"head\":\"CHAP. VII. OF PLATO.\",\"heading\":\"CHAPTER VII.\",\"page\":\"123\"}",
+        "read_from": "v1-n196.jpg"
+      }
+    },
+    {
+      "n": 37,
+      "book": 2,
+      "chapter": 8,
+      "label": "Book II, Chapter VIII",
+      "anchor": "s37",
+      "line": 10619,
+      "flat": 7288,
+      "text": "cause] it will be impossible for us to evince that the super-mundane kings",
+      "page": 131,
+      "pageRead": 131,
+      "leaf": "v1-n206.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n206.jpg",
+        "head": "CHAP. VIII. OF PLATO.",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. VIII. OF PLATO.\",\"heading\":\"\",\"page\":\"131\"}",
+        "read_from": "v1-n204.jpg"
+      }
+    },
+    {
+      "n": 38,
+      "book": 2,
+      "chapter": 9,
+      "label": "Book II, Chapter IX",
+      "anchor": "s38",
+      "line": 10820,
+      "flat": 7434,
+      "text": "all things subsist.' This part therefore is posterior to the other, and is",
+      "page": 135,
+      "pageRead": 135,
+      "leaf": "v1-n210.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n210.jpg",
+        "head": "CHAP. IX.                OF PLATO.                135",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. IX.                OF PLATO.                135\",\"heading\":\"\",\"page\":\"135\"}",
+        "read_from": "v1-n208.jpg"
+      }
+    },
+    {
+      "n": 39,
+      "book": 2,
+      "chapter": 10,
+      "label": "Book II, Chapter X",
+      "anchor": "s39",
+      "line": 10886,
+      "flat": 7483,
+      "text": "In the next place, let us finish the discussion concerning the first God,",
+      "page": 136,
+      "pageRead": 136,
+      "leaf": "v1-n211.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n211.jpg",
+        "head": "ON THE THEOLOGY BOOK II.",
+        "heading": "CHAPTER X.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK II.\",\"heading\":\"CHAPTER X.\",\"page\":\"136\"}",
+        "read_from": "v1-n209.jpg"
+      }
+    },
+    {
+      "n": 40,
+      "book": 2,
+      "chapter": 11,
+      "label": "Book II, Chapter XI",
+      "anchor": "s40",
+      "line": 11013,
+      "flat": 7573,
+      "text": "Let us now therefore, if ever, abandon multiform knowledge, exter¬",
+      "page": 139,
+      "pageRead": 139,
+      "leaf": "v1-n214.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n214.jpg",
+        "head": "CHAP. XI. OF PLATO.",
+        "heading": "CHAPTER XI.",
+        "raw": "{\"head\":\"CHAP. XI. OF PLATO.\",\"heading\":\"CHAPTER XI.\",\"page\":\"139\"}",
+        "read_from": "v1-n212.jpg"
+      }
+    },
+    {
+      "n": 41,
+      "book": 2,
+      "chapter": 12,
+      "label": "Book II, Chapter XII",
+      "anchor": "s41",
+      "line": 11068,
+      "flat": 7613,
+      "text": "What therefore will be the first conception of the science proceeding",
+      "page": 140,
+      "pageRead": 140,
+      "leaf": "v1-n215.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n215.jpg",
+        "head": "ON THE THEOLOGY BOOK II.",
+        "heading": "CHAPTER XII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK II.\",\"heading\":\"CHAPTER XII.\",\"page\":\"140\"}",
+        "read_from": "v1-n213.jpg"
+      }
+    },
+    {
+      "n": 42,
+      "book": 3,
+      "chapter": 1,
+      "label": "Book III, Chapter I",
+      "anchor": "s42",
+      "line": 11392,
+      "flat": 7851,
+      "text": "Such therefore is the theology with Plato concerning the first God, as",
+      "page": 147,
+      "pageRead": null,
+      "leaf": "v1-n222.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n222.jpg",
+        "head": "",
+        "heading": "BOOK III.\nCHAPTER I.",
+        "raw": "{\"head\":\"\",\"heading\":\"BOOK III.\\nCHAPTER I.\",\"page\":\"\"}",
+        "read_from": "v1-n220.jpg"
+      }
+    },
+    {
+      "n": 43,
+      "book": 3,
+      "chapter": 2,
+      "label": "Book III, Chapter II",
+      "anchor": "s43",
+      "line": 11816,
+      "flat": 8161,
+      "text": "If however it be requisite, not only by employing the intellectual pro¬",
+      "page": 155,
+      "pageRead": 155,
+      "leaf": "v1-n230.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n230.jpg",
+        "head": "CHAP. II. OF PLATO. 155",
+        "heading": "CHAPTER II.",
+        "raw": "{\"head\":\"CHAP. II. OF PLATO. 155\",\"heading\":\"CHAPTER II.\",\"page\":\"155\"}",
+        "read_from": "v1-n228.jpg"
+      }
+    },
+    {
+      "n": 44,
+      "book": 3,
+      "chapter": 3,
+      "label": "Book III, Chapter III",
+      "anchor": "s44",
+      "line": 12314,
+      "flat": 8522,
+      "text": "following Plato, in the first place demonstrate the several orders from",
+      "page": 165,
+      "pageRead": 165,
+      "leaf": "v1-n240.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n240.jpg",
+        "head": "CHAP. III. OF PLATO. 165",
+        "heading": "CHAPTER III.",
+        "raw": "{\"head\":\"CHAP. III. OF PLATO. 165\",\"heading\":\"CHAPTER III.\",\"page\":\"165\"}",
+        "read_from": "v1-n238.jpg"
+      }
+    },
+    {
+      "n": 45,
+      "book": 3,
+      "chapter": 9,
+      "label": "Book III, Chapter IX",
+      "anchor": "s45",
+      "line": 12519,
+      "flat": 8667,
+      "text": "similar to bound, but according to its matter, resembles infinity. For",
+      "page": 169,
+      "pageRead": 169,
+      "leaf": "v1-n244.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n244.jpg",
+        "head": "CHAP. IX. OF PLATO.",
+        "heading": "CHAPTER IX.",
+        "raw": "{\"head\":\"CHAP. IX. OF PLATO.\",\"heading\":\"CHAPTER IX.\",\"page\":\"169\"}",
+        "read_from": "v1-n242.jpg"
+      }
+    },
+    {
+      "n": 46,
+      "book": 3,
+      "chapter": 10,
+      "label": "Book III, Chapter X",
+      "anchor": "s46",
+      "line": 12767,
+      "flat": 8846,
+      "text": "That therefore which is primarily being is through these things deno¬",
+      "page": 174,
+      "pageRead": 174,
+      "leaf": "v1-n249.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n249.jpg",
+        "head": "ON THE THEOLOGY                 BOOK III",
+        "heading": "CHAPTER X.",
+        "raw": "{\"head\": \"ON THE THEOLOGY                 BOOK III\", \"heading\": \"CHAPTER X.\", \"page\": \"174\"}",
+        "read_from": "v1-n247.jpg"
+      }
+    },
+    {
+      "n": 47,
+      "book": 3,
+      "chapter": 11,
+      "label": "Book III, Chapter XI",
+      "anchor": "s47",
+      "line": 12877,
+      "flat": 8926,
+      "text": "In the next place, we must speak of the triad, which is consubsistent",
+      "page": 176,
+      "pageRead": 176,
+      "leaf": "v1-n251.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n251.jpg",
+        "head": "ON THE THEOLOGY BOOK III.",
+        "heading": "CHAPTER XI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK III.\",\"heading\":\"CHAPTER XI.\",\"page\":\"176\"}",
+        "read_from": "v1-n249.jpg"
+      }
+    },
+    {
+      "n": 48,
+      "book": 3,
+      "chapter": 12,
+      "label": "Book III, Chapter XII",
+      "anchor": "s48",
+      "line": 12910,
+      "flat": 8949,
+      "text": "tellect is conjoined to it, according to its familiarity with the beautiful.",
+      "page": 177,
+      "pageRead": 177,
+      "leaf": "v1-n252.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n252.jpg",
+        "head": "CHAP. XII. OF PLATO. 177",
+        "heading": "CHAPTER XII.",
+        "raw": "{\"head\":\"CHAP. XII. OF PLATO. 177\",\"heading\":\"CHAPTER XII.\",\"page\":\"177\"}",
+        "read_from": "v1-n250.jpg"
+      }
+    },
+    {
+      "n": 49,
+      "book": 3,
+      "chapter": 13,
+      "label": "Book III, Chapter XIII",
+      "anchor": "s49",
+      "line": 12968,
+      "flat": 8990,
+      "text": "After this first triad subsisting from, and conjoined with the one , we",
+      "page": 178,
+      "pageRead": 178,
+      "leaf": "v1-n253.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n253.jpg",
+        "head": "178 ON THE THEOLOGY BOOK III.",
+        "heading": "CHAPTER XIII.",
+        "raw": "{\"head\":\"178 ON THE THEOLOGY BOOK III.\",\"heading\":\"CHAPTER XIII.\",\"page\":\"178\"}",
+        "read_from": "v1-n251.jpg"
+      }
+    },
+    {
+      "n": 50,
+      "book": 3,
+      "chapter": 14,
+      "label": "Book III, Chapter XIV",
+      "anchor": "s50",
+      "line": 13103,
+      "flat": 9089,
+      "text": "monads than in another. Moreover, the third triad presents itself to the",
+      "page": 181,
+      "pageRead": 181,
+      "leaf": "v1-n256.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n256.jpg",
+        "head": "CHAP. XIV. OF PLATO. 181",
+        "heading": "CHAPTER XIV.",
+        "raw": "{\"head\":\"CHAP. XIV. OF PLATO. 181\",\"heading\":\"CHAPTER XIV.\",\"page\":\"181\"}",
+        "read_from": "v1-n254.jpg"
+      }
+    },
+    {
+      "n": 51,
+      "book": 3,
+      "chapter": 15,
+      "label": "Book III, Chapter XV",
+      "anchor": "s51",
+      "line": 13255,
+      "flat": 9193,
+      "text": "Socrates therefore, in the Philebus, affords us such like auxiliaries to",
+      "page": 184,
+      "pageRead": 184,
+      "leaf": "v1-n259.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n259.jpg",
+        "head": "184 ON THE THEOLOGY BOOK III.",
+        "heading": "CHAPTER XV.",
+        "raw": "{\"head\":\"184 ON THE THEOLOGY BOOK III.\",\"heading\":\"CHAPTER XV.\",\"page\":\"184\"}",
+        "read_from": "v1-n257.jpg"
+      }
+    },
+    {
+      "n": 52,
+      "book": 3,
+      "chapter": 16,
+      "label": "Book III, Chapter XVI",
+      "anchor": "s52",
+      "line": 13386,
+      "flat": 9293,
+      "text": "this is eternity. Eternity therefore has its subsistence in life, and will",
+      "page": 187,
+      "pageRead": 186,
+      "leaf": "v1-n262.jpg",
+      "how": "opening-next-page",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n262.jpg",
+        "head": "ON THE THEOLOGY          BOOK III.",
+        "heading": "CHAPTER XVI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY          BOOK III.\",\"heading\":\"CHAPTER XVI.\",\"page\":\"186\"}",
+        "read_from": "v1-n259.jpg"
+      }
+    },
+    {
+      "n": 53,
+      "book": 3,
+      "chapter": 17,
+      "label": "Book III, Chapter XVII",
+      "anchor": "s53",
+      "line": 13438,
+      "flat": 9327,
+      "text": "Since, however, eternity subsists according to the middle centre of in*",
+      "page": 188,
+      "pageRead": 188,
+      "leaf": "v1-n263.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n263.jpg",
+        "head": "ON THE THEOLOGY    BOOK III.",
+        "heading": "CHAPTER XVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK III.\",\"heading\":\"CHAPTER XVII.\",\"page\":\"188\"}",
+        "read_from": "v1-n261.jpg"
+      }
+    },
+    {
+      "n": 54,
+      "book": 3,
+      "chapter": 18,
+      "label": "Book III, Chapter XVIII",
+      "anchor": "s54",
+      "line": 13483,
+      "flat": 9360,
+      "text": "of that triad. For, as we have before observed, the first triad is the cause",
+      "page": 189,
+      "pageRead": 189,
+      "leaf": "v1-n264.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n264.jpg",
+        "head": "CHAP. XVIII. OF PLATO.",
+        "heading": "CHAPTER XVIII.",
+        "raw": "{\n  \"head\": \"CHAP. XVIII. OF PLATO.\",\n  \"heading\": \"CHAPTER XVIII.\",\n  \"page\": \"189\"\n}",
+        "read_from": "v1-n262.jpg"
+      }
+    },
+    {
+      "n": 55,
+      "book": 3,
+      "chapter": 19,
+      "label": "Book III, Chapter XIX",
+      "anchor": "s55",
+      "line": 13688,
+      "flat": 9507,
+      "text": "rng their order. For we have spoken of these things in a treatise <?oftsit¬",
+      "page": 193,
+      "pageRead": 193,
+      "leaf": "v1-n268.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n268.jpg",
+        "head": "CHAP. XIX. OF PLATO",
+        "heading": "CHAPTER XIX.",
+        "raw": "{\"head\":\"CHAP. XIX. OF PLATO\",\"heading\":\"CHAPTER XIX.\",\"page\":\"193\"}",
+        "read_from": "v1-n266.jpg"
+      }
+    },
+    {
+      "n": 56,
+      "book": 3,
+      "chapter": 20,
+      "label": "Book III, Chapter XX",
+      "anchor": "s56",
+      "line": 13853,
+      "flat": 9625,
+      "text": "Stnqn conceptions therefore, as these, may be assumed from what is",
+      "page": 196,
+      "pageRead": 196,
+      "leaf": "v1-n271.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n271.jpg",
+        "head": "ON THE THEOLOGY BOOK III.",
+        "heading": "CHAPTER XX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK III.\",\"heading\":\"CHAPTER XX.\",\"page\":\"196\"}",
+        "read_from": "v1-n269.jpg"
+      }
+    },
+    {
+      "n": 57,
+      "book": 3,
+      "chapter": 21,
+      "label": "Book III, Chapter XXI",
+      "anchor": "s57",
+      "line": 14057,
+      "flat": 9777,
+      "text": "The ns are three triads therefore, as we have frequently observed, and",
+      "page": 200,
+      "pageRead": 300,
+      "leaf": "v1-n275.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n275.jpg",
+        "head": "ON THE THEOLOGY BOOK III.",
+        "heading": "CHAPTER XXI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK III.\",\"heading\":\"CHAPTER XXI.\",\"page\":\"300\"}",
+        "read_from": "v1-n273.jpg"
+      }
+    },
+    {
+      "n": 58,
+      "book": 3,
+      "chapter": 22,
+      "label": "Book III, Chapter XXII",
+      "anchor": "s58",
+      "line": 14288,
+      "flat": 9942,
+      "text": "■where adapted to bound, just as that which cannot be filled is adapted to",
+      "page": 205,
+      "pageRead": 205,
+      "leaf": "v1-n280.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n280.jpg",
+        "head": "CHAP. XXII. OF PLATO.",
+        "heading": "CHAPTER XXII.",
+        "raw": "{\"head\":\"CHAP. XXII. OF PLATO.\",\"heading\":\"CHAPTER XXII.\",\"page\":\"205\"}",
+        "read_from": "v1-n278.jpg"
+      }
+    },
+    {
+      "n": 59,
+      "book": 3,
+      "chapter": 23,
+      "label": "Book III, Chapter XXIII",
+      "anchor": "s59",
+      "line": 14359,
+      "flat": 9993,
+      "text": "Let us now then direct our attention to the theory of the Parmenides.",
+      "page": 206,
+      "pageRead": 206,
+      "leaf": "v1-n281.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n281.jpg",
+        "head": "ON THE THEOLOGY BOOK III",
+        "heading": "CHAPTER XXIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK III\",\"heading\":\"CHAPTER XXIII.\",\"page\":\"206\"}",
+        "read_from": "v1-n279.jpg"
+      }
+    },
+    {
+      "n": 60,
+      "book": 3,
+      "chapter": 24,
+      "label": "Book III, Chapter XXIV",
+      "anchor": "s60",
+      "line": 14480,
+      "flat": 10077,
+      "text": "This triad therefore, Parmenides delivers immediately in the beginning",
+      "page": 209,
+      "pageRead": 209,
+      "leaf": "v1-n284.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n284.jpg",
+        "head": "CHAP. XXIV.        OF PLATO.        209",
+        "heading": "CHAPTER XXIV.",
+        "raw": "{\"head\":\"CHAP. XXIV.        OF PLATO.        209\",\"heading\":\"CHAPTER XXIV.\",\"page\":\"209\"}",
+        "read_from": "v1-n282.jpg"
+      }
+    },
+    {
+      "n": 61,
+      "book": 3,
+      "chapter": 25,
+      "label": "Book III, Chapter XXV",
+      "anchor": "s61",
+      "line": 14552,
+      "flat": 10127,
+      "text": "But immediately after this, the second triad is allotted a progression,",
+      "page": 210,
+      "pageRead": 210,
+      "leaf": "v1-n285.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n285.jpg",
+        "head": "ON THEOLOGY BOOK III",
+        "heading": "CHAPTER XXV.",
+        "raw": "{\"head\":\"ON THEOLOGY BOOK III\",\"heading\":\"CHAPTER XXV.\",\"page\":\"210\"}",
+        "read_from": "v1-n283.jpg"
+      }
+    },
+    {
+      "n": 62,
+      "book": 3,
+      "chapter": 26,
+      "label": "Book III, Chapter XXVI",
+      "anchor": "s62",
+      "line": 14674,
+      "flat": 10211,
+      "text": "power. And thus all the triad indeed is a wholeness; but each of its ex¬",
+      "page": 213,
+      "pageRead": 213,
+      "leaf": "v1-n288.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n288.jpg",
+        "head": "CHAP. XXVI. OF PLATO. 213",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. XXVI. OF PLATO. 213\",\"heading\":\"\",\"page\":\"213\"}",
+        "read_from": "v1-n286.jpg"
+      }
+    },
+    {
+      "n": 63,
+      "book": 3,
+      "chapter": 27,
+      "label": "Book III, Chapter XXVII",
+      "anchor": "s63",
+      "line": 14801,
+      "flat": 10308,
+      "text": "Let us in the next place speak in common about all the intelligible",
+      "page": 215,
+      "pageRead": 215,
+      "leaf": "v1-n290.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n290.jpg",
+        "head": "CHAP. XXVII. OF PLATO. 215",
+        "heading": "CHAPTER XXVII.",
+        "raw": "{\"head\":\"CHAP. XXVII. OF PLATO. 215\",\"heading\":\"CHAPTER XXVII.\",\"page\":\"215\"}",
+        "read_from": "v1-n288.jpg"
+      }
+    },
+    {
+      "n": 64,
+      "book": 3,
+      "chapter": 28,
+      "label": "Book III, Chapter XXVIII",
+      "anchor": "s64",
+      "line": 15051,
+      "flat": 10493,
+      "text": "Again, therefore, let us recur from the divided theory of intelfigibles",
+      "page": 220,
+      "pageRead": 230,
+      "leaf": "v1-n295.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n295.jpg",
+        "head": "ON THE THEOLOGY BOOK III.",
+        "heading": "CHAPTER XXVIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK III.\",\"heading\":\"CHAPTER XXVIII.\",\"page\":\"230\"}",
+        "read_from": "v1-n293.jpg"
+      }
+    },
+    {
+      "n": 65,
+      "book": 4,
+      "chapter": 1,
+      "label": "Book IV, Chapter I",
+      "anchor": "s65",
+      "line": 15155,
+      "flat": 10558,
+      "text": "Let the discussion, therefore, of the intelligible Gods, unfolding the",
+      "page": 223,
+      "pageRead": null,
+      "leaf": "v1-n298.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n298.jpg",
+        "head": "",
+        "heading": "BOOK IV.\nCHAPTER I.",
+        "raw": "{\"head\":\"\",\"heading\":\"BOOK IV.\\nCHAPTER I.\",\"page\":\"\"}",
+        "read_from": "v1-n296.jpg"
+      }
+    },
+    {
+      "n": 66,
+      "book": 4,
+      "chapter": 2,
+      "label": "Book IV, Chapter II",
+      "anchor": "s66",
+      "line": 15317,
+      "flat": 10681,
+      "text": "In the next place, therefore, we shall discuss the manner in which the",
+      "page": 226,
+      "pageRead": 226,
+      "leaf": "v1-n301.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n301.jpg",
+        "head": "ON THE THEOLOGY    BOOK IV.",
+        "heading": "CHAPTER II.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK IV.\",\"heading\":\"CHAPTER II.\",\"page\":\"226\"}",
+        "read_from": "v1-n299.jpg"
+      }
+    },
+    {
+      "n": 67,
+      "book": 4,
+      "chapter": 3,
+      "label": "Book IV, Chapter III",
+      "anchor": "s67",
+      "line": 15434,
+      "flat": 10764,
+      "text": "selves into light from the intelligible Gods, may through these things be",
+      "page": 229,
+      "pageRead": 229,
+      "leaf": "v1-n304.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n304.jpg",
+        "head": "CHAP. III. OF PLATO",
+        "heading": "CHAPTER III.",
+        "raw": "{\"head\":\"CHAP. III. OF PLATO\",\"heading\":\"CHAPTER III.\",\"page\":\"229\"}",
+        "read_from": "v1-n302.jpg"
+      }
+    },
+    {
+      "n": 68,
+      "book": 4,
+      "chapter": 4,
+      "label": "Book IV, Chapter IV",
+      "anchor": "s68",
+      "line": 15588,
+      "flat": 10877,
+      "text": "Again however, returning to Plato, let us accord with him, and exhi¬",
+      "page": 232,
+      "pageRead": 232,
+      "leaf": "v1-n307.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n307.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER IV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER IV.\",\"page\":\"232\"}",
+        "read_from": "v1-n305.jpg"
+      }
+    },
+    {
+      "n": 69,
+      "book": 4,
+      "chapter": 5,
+      "label": "Book IV, Chapter V",
+      "anchor": "s69",
+      "line": 15624,
+      "flat": 10901,
+      "text": "the kingdom of Adrastia, and the divine choir of virtues subsist, and that",
+      "page": 233,
+      "pageRead": 233,
+      "leaf": "v1-n308.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n308.jpg",
+        "head": "CHAP. V. OF PLATO 233",
+        "heading": "CHAPTER V.",
+        "raw": "{\"head\":\"CHAP. V. OF PLATO 233\",\"heading\":\"CHAPTER V.\",\"page\":\"233\"}",
+        "read_from": "v1-n306.jpg"
+      }
+    },
+    {
+      "n": 70,
+      "book": 4,
+      "chapter": 6,
+      "label": "Book IV, Chapter VI",
+      "anchor": "s69a",
+      "line": 15779,
+      "flat": 11005,
+      "text": "Again therefore, if indeed the snpercelestial place is the imparticipa-",
+      "page": 236,
+      "pageRead": 236,
+      "leaf": "v1-n311.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n311.jpg",
+        "head": "236 ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER VI.",
+        "raw": "```json\n{\n  \"head\": \"236 ON THE THEOLOGY BOOK IV..\",\n  \"heading\": \"CHAPTER VI.\",\n  \"page\": \"236\",\n  \"firstLine\": \"AGAIN therefore, if indeed the supercelestial place is the imparticipa-\",\n  \"lastLine\": \"possible that he should not also admit it to be intelligible, and to partici-\"\n}\n```",
+        "read_from": "v1-n311.jpg",
+        "readers": [
+          {
+            "model": "google_gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "blind leaf read: running head, any chapter/book heading printed in the page body, printed page number, first and last line of the main text body — no page or chapter named (/var/tmp/103-reads/read-leaf.mjs)",
+                "leaf": "v1-n311.jpg",
+                "head": "236 ON THE THEOLOGY BOOK IV..",
+                "heading": "CHAPTER VI.",
+                "page": "236",
+                "raw": "```json\n{\n  \"head\": \"236 ON THE THEOLOGY BOOK IV..\",\n  \"heading\": \"CHAPTER VI.\",\n  \"page\": \"236\",\n  \"firstLine\": \"AGAIN therefore, if indeed the supercelestial place is the imparticipa-\",\n  \"lastLine\": \"possible that he should not also admit it to be intelligible, and to partici-\"\n}\n```"
+              }
+            ]
+          },
+          {
+            "model": "anthropic_claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "blind leaf read: running head, any chapter/book heading printed in the page body, printed page number, first and last line of the main text body — no page or chapter named (/var/tmp/103-reads/read-leaf.mjs)",
+                "leaf": "v1-n311.jpg",
+                "head": "236                ON THE THEOLOGY                BOOK IV.",
+                "heading": "CHAPTER VI.",
+                "page": "236",
+                "raw": "```json\n{\n  \"head\": \"236                ON THE THEOLOGY                BOOK IV.\",\n  \"heading\": \"CHAPTER VI.\",\n  \"page\": \"236\",\n  \"firstLine\": \"AGAIN therefore, if indeed the supercelestial place is the imparticipia-\",\n  \"lastLine\": \"pate, he should not also admit it to be intelligible, and to partici-\"\n}\n```"
+              }
+            ]
+          }
+        ],
+        "note": "RECOVERED 2026-10-07 (version 1.0.3): the model had no division for Book IV chapter VI — its printed CHAPTER VI. heading (source.txt:15776) and the whole chapter sat inside the recorded chapter V section. Both non-echoing readers read leaf v1-n311.jpg blind as printed page 236, a VERSO page whose head reads '236 ON THE THEOLOGY BOOK IV.', carrying the CHAPTER VI. heading at the top of its body with the first line of text 'Again therefore, if indeed the supercelestial place is the imparticipa-' — the transcription's own line 15779, fingerprinted. The division opens on that line (the model's convention for a heading at a page top: the first prose line after the heading), so the recovered section carries the chapter's text and the printed heading stays at the end of the chapter V section, exactly where the model already leaves a page-top heading (division 35 opens the same way after CHAPTER VI.). The anchor s69a follows the division it succeeds (s69) plus a letter; no existing anchor moves."
+      }
+    },
+    {
+      "n": 71,
+      "book": 4,
+      "chapter": 7,
+      "label": "Book IV, Chapter VII",
+      "anchor": "s70",
+      "line": 15821,
+      "flat": 11037,
+      "text": "pate of the first intelligible*? For because indeed it is essence it is intel¬",
+      "page": 237,
+      "pageRead": 237,
+      "leaf": "v1-n312.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n312.jpg",
+        "head": "CHAP. VII. OF PLATO.",
+        "heading": "CHAPTER VII.",
+        "raw": "{\"head\":\"CHAP. VII. OF PLATO.\",\"heading\":\"CHAPTER VII.\",\"page\":\"237\"}",
+        "read_from": "v1-n310.jpg"
+      }
+    },
+    {
+      "n": 72,
+      "book": 4,
+      "chapter": 8,
+      "label": "Book IV, Chapter VIII",
+      "anchor": "s71",
+      "line": 15927,
+      "flat": 11107,
+      "text": "Perhaps however, some one may ask us, why we here characterize:",
+      "page": 239,
+      "pageRead": 239,
+      "leaf": "v1-n314.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n314.jpg",
+        "head": "CHAP. IX. OF PLATO.",
+        "heading": "CHAPTER VIII.",
+        "raw": "{\"head\":\"CHAP. IX. OF PLATO.\",\"heading\":\"CHAPTER VIII.\",\"page\":\"239\"}",
+        "read_from": "v1-n312.jpg"
+      }
+    },
+    {
+      "n": 73,
+      "book": 4,
+      "chapter": 9,
+      "label": "Book IV, Chapter IX",
+      "anchor": "s72",
+      "line": 16020,
+      "flat": 11175,
+      "text": "intelligible powers which are the stammitsof all intellectuals) i* through",
+      "page": 241,
+      "pageRead": 241,
+      "leaf": "v1-n316.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n316.jpg",
+        "head": "CHAP. IX. OF PLATO. 241",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. IX. OF PLATO. 241\",\"heading\":\"\",\"page\":\"241\"}",
+        "read_from": "v1-n314.jpg"
+      }
+    },
+    {
+      "n": 74,
+      "book": 4,
+      "chapter": 10,
+      "label": "Book IV, Chapter X",
+      "anchor": "s73",
+      "line": 16122,
+      "flat": 11252,
+      "text": "Gods. These things however, have proceeded to this length from my",
+      "page": 243,
+      "pageRead": 243,
+      "leaf": "v1-n318.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n318.jpg",
+        "head": "CHAP. X.                OF PLATO.                243",
+        "heading": "CHAPTER X.",
+        "raw": "{\"head\":\"CHAP. X.                OF PLATO.                243\",\"heading\":\"CHAPTER X.\",\"page\":\"243\"}",
+        "read_from": "v1-n316.jpg"
+      }
+    },
+    {
+      "n": 75,
+      "book": 4,
+      "chapter": 11,
+      "label": "Book IV, Chapter XI",
+      "anchor": "s74",
+      "line": 16266,
+      "flat": 11356,
+      "text": "What therefore is the cause through which Plato in the first place ce¬",
+      "page": 246,
+      "pageRead": 246,
+      "leaf": "v1-n321.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n321.jpg",
+        "head": "ON THE THEOLOGY          BOOK IV.",
+        "heading": "CHAPTER XI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY          BOOK IV.\",\"heading\":\"CHAPTER XI.\",\"page\":\"246\"}",
+        "read_from": "v1-n319.jpg"
+      }
+    },
+    {
+      "n": 76,
+      "book": 4,
+      "chapter": 12,
+      "label": "Book IV, Chapter XII",
+      "anchor": "s75",
+      "line": 16386,
+      "flat": 11450,
+      "text": "It follows therefore, in the next place, that we should consider what",
+      "page": 248,
+      "pageRead": 248,
+      "leaf": "v1-n323.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n323.jpg",
+        "head": "248 ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XII.",
+        "raw": "{\"head\":\"248 ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XII.\",\"page\":\"248\"}",
+        "read_from": "v1-n321.jpg"
+      }
+    },
+    {
+      "n": 77,
+      "book": 4,
+      "chapter": 13,
+      "label": "Book IV, Chapter XIII",
+      "anchor": "s76",
+      "line": 16506,
+      "flat": 11535,
+      "text": "intellectual perceptions adhesions. We should not therefore be carried",
+      "page": 251,
+      "pageRead": 251,
+      "leaf": "v1-n326.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n326.jpg",
+        "head": "CHAP. XIII. OF PLATO 251",
+        "heading": "CHAPTER XIII.",
+        "raw": "{\"head\":\"CHAP. XIII. OF PLATO 251\",\"heading\":\"CHAPTER XIII.\",\"page\":\"251\"}",
+        "read_from": "v1-n324.jpg"
+      }
+    },
+    {
+      "n": 78,
+      "book": 4,
+      "chapter": 14,
+      "label": "Book IV, Chapter XIV",
+      "anchor": "s77",
+      "line": 16563,
+      "flat": 11573,
+      "text": "In the third place therefore, the genus of true science is said to be",
+      "page": 252,
+      "pageRead": 252,
+      "leaf": "v1-n327.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n327.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XIV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XIV.\",\"page\":\"252\"}",
+        "read_from": "v1-n325.jpg"
+      }
+    },
+    {
+      "n": 79,
+      "book": 4,
+      "chapter": 15,
+      "label": "Book IV, Chapter XV",
+      "anchor": "s78",
+      "line": 16662,
+      "flat": 11636,
+      "text": "After these things therefore, we may survey another triad",
+      "page": 254,
+      "pageRead": 254,
+      "leaf": "v1-n329.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n329.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XV.\",\"page\":\"254\"}",
+        "read_from": "v1-n327.jpg"
+      }
+    },
+    {
+      "n": 80,
+      "book": 4,
+      "chapter": 16,
+      "label": "Book IV, Chapter XVI",
+      "anchor": "s79",
+      "line": 16767,
+      "flat": 11713,
+      "text": "Coif9ERNING these things therefore, &us /nuchinay suffcbe as to the",
+      "page": 256,
+      "pageRead": 256,
+      "leaf": "v1-n331.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n331.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XVI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XVI.\",\"page\":\"256\"}",
+        "read_from": "v1-n329.jpg"
+      }
+    },
+    {
+      "n": 81,
+      "book": 4,
+      "chapter": 17,
+      "label": "Book IV, Chapter XVII",
+      "anchor": "s80",
+      "line": 16881,
+      "flat": 11793,
+      "text": "It remains therefore, that we should pass to the discussion of Adrastia,",
+      "page": 258,
+      "pageRead": 258,
+      "leaf": "v1-n333.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n333.jpg",
+        "head": "ON THE THEOLOGY          BOOK IV",
+        "heading": "CHAPTER XVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY          BOOK IV\",\"heading\":\"CHAPTER XVII.\",\"page\":\"258\"}",
+        "read_from": "v1-n331.jpg"
+      }
+    },
+    {
+      "n": 82,
+      "book": 4,
+      "chapter": 18,
+      "label": "Book IV, Chapter XVIII",
+      "anchor": "s81",
+      "line": 16977,
+      "flat": 11862,
+      "text": "With respect to what remain? therefore, we shall summarily say, that",
+      "page": 260,
+      "pageRead": 260,
+      "leaf": "v1-n335.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n335.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XVIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XVIII.\",\"page\":\"260\"}",
+        "read_from": "v1-n333.jpg"
+      }
+    },
+    {
+      "n": 83,
+      "book": 4,
+      "chapter": 19,
+      "label": "Book IV, Chapter XIX",
+      "anchor": "s82",
+      "line": 16997,
+      "flat": 11870,
+      "text": "light, the collective, and the defensive. It likewise comprehends all these",
+      "page": 261,
+      "pageRead": 261,
+      "leaf": "v1-n336.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n336.jpg",
+        "head": "CHAP. XIX. OF PLATO.",
+        "heading": "CHAPTER XIX.",
+        "raw": "{\"head\":\"CHAP. XIX. OF PLATO.\",\"heading\":\"CHAPTER XIX.\",\"page\":\"261\"}",
+        "read_from": "v1-n334.jpg"
+      }
+    },
+    {
+      "n": 84,
+      "book": 4,
+      "chapter": 20,
+      "label": "Book IV, Chapter XX",
+      "anchor": "s83",
+      "line": 17169,
+      "flat": 11997,
+      "text": "Let us therefore speak at present concerning the connective triad.",
+      "page": 264,
+      "pageRead": 264,
+      "leaf": "v1-n339.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n339.jpg",
+        "head": "ON THE THEOLOGY BOOK IV",
+        "heading": "CHAPTER XX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV\",\"heading\":\"CHAPTER XX.\",\"page\":\"264\"}",
+        "read_from": "v1-n337.jpg"
+      }
+    },
+    {
+      "n": 85,
+      "book": 4,
+      "chapter": 21,
+      "label": "Book IV, Chapter XXI",
+      "anchor": "s84",
+      "line": 17252,
+      "flat": 12047,
+      "text": "If however it be requisite to discover the triadic nature of it from",
+      "page": 266,
+      "pageRead": 266,
+      "leaf": "v1-n341.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n341.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXI.\",\"page\":\"266\"}",
+        "read_from": "v1-n339.jpg"
+      }
+    },
+    {
+      "n": 86,
+      "book": 4,
+      "chapter": 22,
+      "label": "Book IV, Chapter XXII",
+      "anchor": "s85",
+      "line": 17393,
+      "flat": 12153,
+      "text": "the first of the Synoches. For connectedly containing all things in the",
+      "page": 269,
+      "pageRead": 269,
+      "leaf": "v1-n344.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n344.jpg",
+        "head": "CHAP. XXII. OF PLATO.",
+        "heading": "CHAPTER XXII.",
+        "raw": "{\"head\":\"CHAP. XXII. OF PLATO.\",\"heading\":\"CHAPTER XXII.\",\"page\":\"269\"}",
+        "read_from": "v1-n342.jpg"
+      }
+    },
+    {
+      "n": 87,
+      "book": 4,
+      "chapter": 23,
+      "label": "Book IV, Chapter XXIII",
+      "anchor": "s86",
+      "line": 17545,
+      "flat": 12264,
+      "text": "It remains therefore that in conformity to what is written in the",
+      "page": 272,
+      "pageRead": 272,
+      "leaf": "v1-n347.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n347.jpg",
+        "head": "ON THE THEOLOGY          BOOK IV.",
+        "heading": "CHAPTER XXIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY          BOOK IV.\",\"heading\":\"CHAPTER XXIII.\",\"page\":\"272\"}",
+        "read_from": "v1-n345.jpg"
+      }
+    },
+    {
+      "n": 88,
+      "book": 4,
+      "chapter": 24,
+      "label": "Book IV, Chapter XXIV",
+      "anchor": "s87",
+      "line": 17631,
+      "flat": 12326,
+      "text": "This therefore must also be supposed by us, and likewise in addition",
+      "page": 274,
+      "pageRead": 274,
+      "leaf": "v1-n349.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n349.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXIV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXIV.\",\"page\":\"274\"}",
+        "read_from": "v1-n347.jpg"
+      }
+    },
+    {
+      "n": 89,
+      "book": 4,
+      "chapter": 25,
+      "label": "Book IV, Chapter XXV",
+      "anchor": "s88",
+      "line": 17765,
+      "flat": 12423,
+      "text": "This whole order however, which is united to the order prior to if,",
+      "page": 277,
+      "pageRead": 277,
+      "leaf": "v1-n352.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n352.jpg",
+        "head": "CHAP. XXV. OF PLATO 277",
+        "heading": "CHAPTER XXV.",
+        "raw": "{\"head\":\"CHAP. XXV. OF PLATO 277\",\"heading\":\"CHAPTER XXV.\",\"page\":\"277\"}",
+        "read_from": "v1-n350.jpg"
+      }
+    },
+    {
+      "n": 90,
+      "book": 4,
+      "chapter": 26,
+      "label": "Book IV, Chapter XXVI",
+      "anchor": "s89",
+      "line": 17858,
+      "flat": 12490,
+      "text": "themselves all secondary natures to the intelligible, perfect them by",
+      "page": 279,
+      "pageRead": 279,
+      "leaf": "v1-n354.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n354.jpg",
+        "head": "CHAP. XXVI. OF PLATO.",
+        "heading": "CHAPTER XXVI.",
+        "raw": "{\"head\":\"CHAP. XXVI. OF PLATO.\",\"heading\":\"CHAPTER XXVI.\",\"page\":\"279\"}",
+        "read_from": "v1-n352.jpg"
+      }
+    },
+    {
+      "n": 91,
+      "book": 4,
+      "chapter": 27,
+      "label": "Book IV, Chapter XXVII",
+      "anchor": "s90",
+      "line": 17921,
+      "flat": 12531,
+      "text": "• Let os now therefore again follow Parmenides in another way, who",
+      "page": 280,
+      "pageRead": 280,
+      "leaf": "v1-n355.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n355.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXVII.\",\"page\":\"280\"}",
+        "read_from": "v1-n353.jpg"
+      }
+    },
+    {
+      "n": 92,
+      "book": 4,
+      "chapter": 28,
+      "label": "Book IV, Chapter XXVIII",
+      "anchor": "s91",
+      "line": 18002,
+      "flat": 12589,
+      "text": "to this is, the one is many. Tlie multitude of intelligibles, however, does",
+      "page": 282,
+      "pageRead": 282,
+      "leaf": "v1-n357.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n357.jpg",
+        "head": "ON THE THEOLOGY          BOOK IV.",
+        "heading": "CHAPTER XXVIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY          BOOK IV.\",\"heading\":\"CHAPTER XXVIII.\",\"page\":\"282\"}",
+        "read_from": "v1-n355.jpg"
+      }
+    },
+    {
+      "n": 93,
+      "book": 4,
+      "chapter": 29,
+      "label": "Book IV, Chapter XXIX",
+      "anchor": "s92",
+      "line": 18124,
+      "flat": 12679,
+      "text": "^jie intelligible number therefore of the intellectual genera, proceeds",
+      "page": 284,
+      "pageRead": 284,
+      "leaf": "v1-n359.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n359.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXIX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXIX.\",\"page\":\"284\"}",
+        "read_from": "v1-n357.jpg"
+      }
+    },
+    {
+      "n": 94,
+      "book": 4,
+      "chapter": 30,
+      "label": "Book IV, Chapter XXX",
+      "anchor": "s93",
+      "line": 18353,
+      "flat": 12841,
+      "text": "time intellectual number possesses, and of what it is the cause to the",
+      "page": 289,
+      "pageRead": 289,
+      "leaf": "v1-n364.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n364.jpg",
+        "head": "CHAP. XXX.                OF PLATO.                289",
+        "heading": "CHAPTER XXX.",
+        "raw": "{\"head\":\"CHAP. XXX.                OF PLATO.                289\",\"heading\":\"CHAPTER XXX.\",\"page\":\"289\"}",
+        "read_from": "v1-n362.jpg"
+      }
+    },
+    {
+      "n": 95,
+      "book": 4,
+      "chapter": 31,
+      "label": "Book IV, Chapter XXXI",
+      "anchor": "s94",
+      "line": 18549,
+      "flat": 12979,
+      "text": "an unmingled, and in another in a mingled manner. All things there¬",
+      "page": 293,
+      "pageRead": 293,
+      "leaf": "v1-n368.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n368.jpg",
+        "head": "CHAP. XXXI. OF PLATO.",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. XXXI. OF PLATO.\",\"heading\":\"\",\"page\":\"293\"}",
+        "read_from": "v1-n366.jpg"
+      }
+    },
+    {
+      "n": 96,
+      "book": 4,
+      "chapter": 32,
+      "label": "Book IV, Chapter XXXII",
+      "anchor": "s95",
+      "line": 18594,
+      "flat": 13011,
+      "text": "The division therefore into three, having been demonstrated by us, we",
+      "page": 294,
+      "pageRead": 294,
+      "leaf": "v1-n369.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n369.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXXII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXXII.\",\"page\":\"294\"}",
+        "read_from": "v1-n367.jpg"
+      }
+    },
+    {
+      "n": 97,
+      "book": 4,
+      "chapter": 33,
+      "label": "Book IV, Chapter XXXIII",
+      "anchor": "s96",
+      "line": 18734,
+      "flat": 13110,
+      "text": "^all*perfect division, and unical and essential number are here; receiving",
+      "page": 297,
+      "pageRead": 296,
+      "leaf": "v1-n372.jpg",
+      "how": "opening-next-page",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n372.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXXIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXXIII.\",\"page\":\"296\"}",
+        "read_from": "v1-n369.jpg"
+      }
+    },
+    {
+      "n": 98,
+      "book": 4,
+      "chapter": 34,
+      "label": "Book IV, Chapter XXXIV",
+      "anchor": "s97",
+      "line": 18760,
+      "flat": 13131,
+      "text": "If, however, it be requisite to survey the unknown peculiarity of divine",
+      "page": 297,
+      "pageRead": 297,
+      "leaf": "v1-n372.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n372.jpg",
+        "head": "CHAP. XXXIV. OF PLATO",
+        "heading": "CHAPTER XXXIV.",
+        "raw": "{\"head\":\"CHAP. XXXIV. OF PLATO\",\"heading\":\"CHAPTER XXXIV.\",\"page\":\"297\"}",
+        "read_from": "v1-n370.jpg"
+      }
+    },
+    {
+      "n": 99,
+      "book": 4,
+      "chapter": 35,
+      "label": "Book IV, Chapter XXXV",
+      "anchor": "s98",
+      "line": 18898,
+      "flat": 13221,
+      "text": "The first order therefore of intelligibles and intellectuals is thus sur~",
+      "page": 300,
+      "pageRead": 300,
+      "leaf": "v1-n375.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n375.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXXV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXXV.\",\"page\":\"300\"}",
+        "read_from": "v1-n373.jpg"
+      }
+    },
+    {
+      "n": 100,
+      "book": 4,
+      "chapter": 36,
+      "label": "Book IV, Chapter XXXVI",
+      "anchor": "s99",
+      "line": 19034,
+      "flat": 13323,
+      "text": "the nature of intellect; but being gives hyparxis to' intellect, and intellect",
+      "page": 303,
+      "pageRead": 303,
+      "leaf": "v1-n378.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n378.jpg",
+        "head": "CHAP. XXXVI. OF PLATO.",
+        "heading": "CHAPTER XXXVI.",
+        "raw": "{\"head\":\"CHAP. XXXVI. OF PLATO.\",\"heading\":\"CHAPTER XXXVI.\",\"page\":\"303\"}",
+        "read_from": "v1-n376.jpg"
+      }
+    },
+    {
+      "n": 101,
+      "book": 4,
+      "chapter": 37,
+      "label": "Book IV, Chapter XXXVII",
+      "anchor": "s100",
+      "line": 19088,
+      "flat": 13359,
+      "text": "But the third, as they say, to the saviour, and let us also following",
+      "page": 304,
+      "pageRead": 304,
+      "leaf": "v1-n379.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n379.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXXVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXXVII.\",\"page\":\"304\"}",
+        "read_from": "v1-n377.jpg"
+      }
+    },
+    {
+      "n": 102,
+      "book": 4,
+      "chapter": 38,
+      "label": "Book IV, Chapter XXXVIII",
+      "anchor": "s101",
+      "line": 19123,
+      "flat": 13383,
+      "text": "leaders of wholes; one indeed being intelligible; another, intelligible and",
+      "page": 305,
+      "pageRead": 305,
+      "leaf": "v1-n380.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n380.jpg",
+        "head": "CHAP. XXXVIII. OF PLATO.",
+        "heading": "CHAPTER XXXVIII.",
+        "raw": "{\"head\":\"CHAP. XXXVIII. OF PLATO.\",\"heading\":\"CHAPTER XXXVIII.\",\"page\":\"305\"}",
+        "read_from": "v1-n378.jpg"
+      }
+    },
+    {
+      "n": 103,
+      "book": 4,
+      "chapter": 39,
+      "label": "Book IV, Chapter XXXIX",
+      "anchor": "s102",
+      "line": 19200,
+      "flat": 13439,
+      "text": "Looking therefore to this division, we may be able to survey causally",
+      "page": 306,
+      "pageRead": 306,
+      "leaf": "v1-n381.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n381.jpg",
+        "head": "ON THE THEOLOGY BOOK IV.",
+        "heading": "CHAPTER XXXIX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK IV.\",\"heading\":\"CHAPTER XXXIX.\",\"page\":\"306\"}",
+        "read_from": "v1-n379.jpg"
+      }
+    },
+    {
+      "n": 104,
+      "book": 5,
+      "chapter": 1,
+      "label": "Book V, Chapter I",
+      "anchor": "s103",
+      "line": 19345,
+      "flat": 13532,
+      "text": "In the next place, let us survey another order of Gods, which is called",
+      "page": 310,
+      "pageRead": 310,
+      "leaf": "v1-n385.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n385.jpg.jpg",
+        "head": "$10 ON THE THEOLOGY BOOK V.",
+        "heading": "BOOK V.\nCHAPTER I.",
+        "raw": "```json\n{\n  \"head\": \"$10 ON THE THEOLOGY BOOK V.\",\n  \"headings\": [\n    \"BOOK V.\",\n    \"CHAPTER I.\"\n  ],\n  \"page\": \"$10\"\n}\n```\n",
+        "read_from": "v1-n385.jpg.jpg",
+        "readers": [
+          {
+            "model": "google/gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n385.jpg",
+                "head": "ON THE THEOLOGY BOOK V.",
+                "heading": "BOOK V.\nCHAPTER I.",
+                "page": "$10",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK V.\",\n  \"heading\": \"CHAPTER I.\",\n  \"page\": \"$10\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n385.jpg",
+                "head": "$10 ON THE THEOLOGY BOOK V.",
+                "heading": "BOOK V.\nCHAPTER I.",
+                "page": "$10",
+                "raw": "```json\n{\n  \"head\": \"$10 ON THE THEOLOGY BOOK V.\",\n  \"headings\": [\n    \"BOOK V.\",\n    \"CHAPTER I.\"\n  ],\n  \"page\": \"$10\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "model": "anthropic/claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "house (tools/vision-heads.mjs prompt)",
+                "leaf": "v1-n385.jpg",
+                "head": "ON THE THEOLOGY                                    BOOK V.",
+                "heading": "BOOK V.\nCHAPTER I.",
+                "page": "310",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                                    BOOK V.\",\n  \"heading\": \"BOOK V.\\n\\nCHAPTER I.\",\n  \"page\": \"310\"\n}\n```\n"
+              },
+              {
+                "prompt": "all-headings (list every body heading)",
+                "leaf": "v1-n385.jpg",
+                "head": "ON THE THEOLOGY BOOK V.",
+                "heading": "BOOK V.\nCHAPTER I.",
+                "page": "310",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK V.\",\n  \"headings\": [\"BOOK V.\", \"CHAPTER I.\"],\n  \"page\": \"310\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "recorded_leaf": {
+          "leaf": "v1-n386.jpg",
+          "head": "СПАР. Г..             OF PLATO.",
+          "heading": "",
+          "page": "311",
+          "raw": "```json\n{\n  \"head\": \"СПАР. Г..             OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"311\"\n}\n```\n",
+          "readers": [
+            {
+              "model": "google/gemini-2.5-flash",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n386.jpg",
+                  "head": "CHAP. I.               OF PLATO.",
+                  "heading": "",
+                  "page": "311",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. I.               OF PLATO.\",\n  \"heading\": \"\",\n  \"page\": \"311\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n386.jpg",
+                  "head": "СПАР. Г..             OF PLATO.",
+                  "heading": "",
+                  "page": "311",
+                  "raw": "```json\n{\n  \"head\": \"СПАР. Г..             OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"311\"\n}\n```\n"
+                }
+              ]
+            },
+            {
+              "model": "anthropic/claude-haiku-4-5",
+              "readings": [
+                {
+                  "prompt": "house (tools/vision-heads.mjs prompt)",
+                  "leaf": "v1-n386.jpg",
+                  "head": "CHAP. I. OF PLATO.",
+                  "heading": "",
+                  "page": "311",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. I. OF PLATO.\",\n  \"heading\": \"CHAP. I.\",\n  \"page\": \"311\"\n}\n```\n"
+                },
+                {
+                  "prompt": "all-headings (list every body heading)",
+                  "leaf": "v1-n386.jpg",
+                  "head": "CHAP. I. OF PLATO.",
+                  "heading": "",
+                  "page": "311",
+                  "raw": "```json\n{\n  \"head\": \"CHAP. I. OF PLATO.\",\n  \"headings\": [],\n  \"page\": \"311\"\n}\n```\n"
+                }
+              ]
+            }
+          ],
+          "note": "the leaf the division was recorded on before this correction: no chapter heading is printed in its body — the chapter was already under way there"
+        },
+        "bracket": [
+          {
+            "leaf": "v1-n383.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "308",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK IV.\",\n  \"heading\": \"\",\n  \"page\": \"308\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "308",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY BOOK IV.\",\n  \"heading\": \"\",\n  \"page\": \"308\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n384.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "309",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XXXIX. OF PLATO. 309\",\n  \"heading\": \"\",\n  \"page\": \"309\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "309",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XXXIX.                    OF PLATO.\",\n  \"heading\": \"CHAP. XXXIX.\",\n  \"page\": \"309\"\n}\n```\n"
+              }
+            ]
+          },
+          {
+            "leaf": "v1-n387.jpg",
+            "readings": [
+              {
+                "model": "google/gemini-2.5-flash",
+                "page": "312",
+                "raw": "```json\n{\n  \"head\": \"312                  ON THE THEOLOGY                             BOOK V.\",\n  \"heading\": \"\",\n  \"page\": \"312\"\n}\n```\n"
+              },
+              {
+                "model": "anthropic/claude-haiku-4-5",
+                "page": "312",
+                "raw": "```json\n{\n  \"head\": \"ON THE THEOLOGY                                BOOK V.\",\n  \"heading\": \"\",\n  \"page\": \"312\"\n}\n```\n"
+              }
+            ]
+          }
+        ],
+        "previous": {
+          "leaf": "v1-n386.jpg",
+          "head": "CHAP. I. OF PLATO. 311",
+          "heading": "",
+          "raw": "{\"head\":\"CHAP. I. OF PLATO. 311\",\"heading\":\"\",\"page\":\"311\"}",
+          "read_from": "v1-n384.jpg"
+        },
+        "note": "CORRECTED 2026-10-07 (version 1.0.2): the recorded opening stood ONE page late. Both non-echoing readers read leaf v1-n385.jpg as printed page 310 — a VERSO page, its head reading 'ON THE THEOLOGY BOOK V.' — carrying the BOOK V. and CHAPTER I. headings in its body; the folio is damaged (the transcription carries it as 'S10'; one reader returned the same damaged glyphs as '$10', the other read 310, and the leaves bracketing it read 309 and 311). The leaf the division was recorded on (v1-n386.jpg, printed page 311) carries NO chapter heading. The division now opens on the chapter's first line of prose, line 19345 (flat 13532)."
+      }
+    },
+    {
+      "n": 105,
+      "book": 5,
+      "chapter": 2,
+      "label": "Book V, Chapter II",
+      "anchor": "s104",
+      "line": 19477,
+      "flat": 13620,
+      "text": "Since however, we have, in short, surveyed the peculiarity of the",
+      "page": 313,
+      "pageRead": 313,
+      "leaf": "v1-n388.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n388.jpg",
+        "head": "CHAP. II. OF PLATO.",
+        "heading": "CHAPTER II.",
+        "raw": "{\"head\":\"CHAP. II. OF PLATO.\",\"heading\":\"CHAPTER II.\",\"page\":\"313\"}",
+        "read_from": "v1-n386.jpg"
+      }
+    },
+    {
+      "n": 106,
+      "book": 5,
+      "chapter": 3,
+      "label": "Book V, Chapter III",
+      "anchor": "s105",
+      "line": 19675,
+      "flat": 13765,
+      "text": "monad. For hebdomad ic multitude has an abundant affinity with the",
+      "page": 317,
+      "pageRead": 317,
+      "leaf": "v1-n392.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n392.jpg",
+        "head": "CHAP. III. OF PLATO.",
+        "heading": "CHAPTER III.",
+        "raw": "{\"head\":\"CHAP. III. OF PLATO.\",\"heading\":\"CHAPTER III.\",\"page\":\"317\"}",
+        "read_from": "v1-n390.jpg"
+      }
+    },
+    {
+      "n": 107,
+      "book": 5,
+      "chapter": 4,
+      "label": "Book V, Chapter IV",
+      "anchor": "s106",
+      "line": 19846,
+      "flat": 13892,
+      "text": "It is, however, I think, necessary syllogistically to collect the progres¬",
+      "page": 320,
+      "pageRead": 320,
+      "leaf": "v1-n395.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n395.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER IV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER IV.\",\"page\":\"320\"}",
+        "read_from": "v1-n393.jpg"
+      }
+    },
+    {
+      "n": 108,
+      "book": 5,
+      "chapter": 5,
+      "label": "Book V, Chapter V",
+      "anchor": "s107",
+      "line": 19930,
+      "flat": 13946,
+      "text": "Again however, making another beginning, let us speak about each",
+      "page": 322,
+      "pageRead": 322,
+      "leaf": "v1-n397.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n397.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER V.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER V.\",\"page\":\"322\"}",
+        "read_from": "v1-n395.jpg"
+      }
+    },
+    {
+      "n": 109,
+      "book": 5,
+      "chapter": 6,
+      "label": "Book V, Chapter VI",
+      "anchor": "s108",
+      "line": 20067,
+      "flat": 14045,
+      "text": "incorruptible intellect. For he * in the intellectual is intelligible. Since",
+      "page": 325,
+      "pageRead": 325,
+      "leaf": "v1-n400.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n400.jpg",
+        "head": "CHAP. VI. OF PLATO.",
+        "heading": "CHAPTER VI.",
+        "raw": "{\"head\":\"CHAP. VI. OF PLATO.\",\"heading\":\"CHAPTER VI.\",\"page\":\"325\"}",
+        "read_from": "v1-n398.jpg"
+      }
+    },
+    {
+      "n": 110,
+      "book": 5,
+      "chapter": 7,
+      "label": "Book V, Chapter VII",
+      "anchor": "s109",
+      "line": 20115,
+      "flat": 14075,
+      "text": "Very properly therefore, has this universe twofold lives, periods, and",
+      "page": 326,
+      "pageRead": 326,
+      "leaf": "v1-n401.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n401.jpg",
+        "head": "ON THE THEOLOGY    BOOK V.",
+        "heading": "CHAPTER VII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK V.\",\"heading\":\"CHAPTER VII.\",\"page\":\"326\"}",
+        "read_from": "v1-n399.jpg"
+      }
+    },
+    {
+      "n": 111,
+      "book": 5,
+      "chapter": 8,
+      "label": "Book V, Chapter VIII",
+      "anchor": "s110",
+      "line": 20262,
+      "flat": 14182,
+      "text": "Because, therefore, this God is the leader of all intellectual life, and",
+      "page": 329,
+      "pageRead": 329,
+      "leaf": "v1-n404.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n404.jpg",
+        "head": "CHAP. VIII.          OF PLATO.          329",
+        "heading": "CHAPTER VIII.",
+        "raw": "{\"head\":\"CHAP. VIII.          OF PLATO.          329\",\"heading\":\"CHAPTER VIII.\",\"page\":\"329\"}",
+        "read_from": "v1-n402.jpg"
+      }
+    },
+    {
+      "n": 112,
+      "book": 5,
+      "chapter": 9,
+      "label": "Book V, Chapter IX",
+      "anchor": "s111",
+      "line": 20335,
+      "flat": 14232,
+      "text": "If, however, it be requisite from these things, and from all the mystic",
+      "page": 330,
+      "pageRead": 330,
+      "leaf": "v1-n405.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n405.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER IX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER IX.\",\"page\":\"330\"}",
+        "read_from": "v1-n403.jpg"
+      }
+    },
+    {
+      "n": 113,
+      "book": 5,
+      "chapter": 10,
+      "label": "Book V, Chapter X",
+      "anchor": "s112",
+      "line": 20467,
+      "flat": 14323,
+      "text": "Since however, theologists assert that an exemption from old age",
+      "page": 333,
+      "pageRead": 333,
+      "leaf": "v1-n408.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n408.jpg",
+        "head": "CHAP. X. OF PLATO. 333",
+        "heading": "CHAPTER X.",
+        "raw": "{\"head\":\"CHAP. X. OF PLATO. 333\",\"heading\":\"CHAPTER X.\",\"page\":\"333\"}",
+        "read_from": "v1-n406.jpg"
+      }
+    },
+    {
+      "n": 114,
+      "book": 5,
+      "chapter": 11,
+      "label": "Book V, Chapter XI",
+      "anchor": "s113",
+      "line": 20531,
+      "flat": 14368,
+      "text": "Having therefore brought to an end the information concerning the",
+      "page": 334,
+      "pageRead": 334,
+      "leaf": "v1-n409.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n409.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XI.\",\"page\":\"334\"}",
+        "read_from": "v1-n407.jpg"
+      }
+    },
+    {
+      "n": 115,
+      "book": 5,
+      "chapter": 12,
+      "label": "Book V, Chapter XII",
+      "anchor": "s114",
+      "line": 20716,
+      "flat": 14493,
+      "text": "Now however, after this Goddess, the demiurgus of wholes is in the",
+      "page": 338,
+      "pageRead": 338,
+      "leaf": "v1-n413.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n413.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XII.\",\"page\":\"338\"}",
+        "read_from": "v1-n411.jpg"
+      }
+    },
+    {
+      "n": 116,
+      "book": 5,
+      "chapter": 13,
+      "label": "Book V, Chapter XIII",
+      "anchor": "s115",
+      "line": 20819,
+      "flat": 14567,
+      "text": "It remains therefore that the one demiurgus of wholes must be arranged",
+      "page": 340,
+      "pageRead": 340,
+      "leaf": "v1-n415.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n415.jpg",
+        "head": "ON THE THEOLOGY BOOK V",
+        "heading": "CHAPTER XIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V\",\"heading\":\"CHAPTER XIII.\",\"page\":\"340\"}",
+        "read_from": "v1-n413.jpg"
+      }
+    },
+    {
+      "n": 117,
+      "book": 5,
+      "chapter": 14,
+      "label": "Book V, Chapter XIV",
+      "anchor": "s116",
+      "line": 20864,
+      "flat": 14600,
+      "text": "union of intelligibles. Nor again, is it possible to admit that the demi¬",
+      "page": 341,
+      "pageRead": 341,
+      "leaf": "v1-n416.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n416.jpg",
+        "head": "CHAP. XIV. OF PLATO. 341",
+        "heading": "CHAPTER XIV.",
+        "raw": "{\"head\":\"CHAP. XIV. OF PLATO. 341\",\"heading\":\"CHAPTER XIV.\",\"page\":\"341\"}",
+        "read_from": "v1-n414.jpg"
+      }
+    },
+    {
+      "n": 118,
+      "book": 5,
+      "chapter": 15,
+      "label": "Book V, Chapter XV",
+      "anchor": "s117",
+      "line": 21117,
+      "flat": 14781,
+      "text": "Birr Plato appears to me to have indicated the peculiarity of this",
+      "page": 346,
+      "pageRead": 346,
+      "leaf": "v1-n421.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n421.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XV.\",\"page\":\"346\"}",
+        "read_from": "v1-n419.jpg"
+      }
+    },
+    {
+      "n": 119,
+      "book": 5,
+      "chapter": 16,
+      "label": "Book V, Chapter XVI",
+      "anchor": "s118",
+      "line": 21207,
+      "flat": 14846,
+      "text": "Let us however after another manner syllogistically collect the pecu-",
+      "page": 348,
+      "pageRead": 348,
+      "leaf": "v1-n423.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n423.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XVI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XVI.\",\"page\":\"348\"}",
+        "read_from": "v1-n421.jpg"
+      }
+    },
+    {
+      "n": 120,
+      "book": 5,
+      "chapter": 17,
+      "label": "Book V, Chapter XVII",
+      "anchor": "s119",
+      "line": 21504,
+      "flat": 15065,
+      "text": "In the third place therefore, let us purify our conceptions about the de¬",
+      "page": 354,
+      "pageRead": 354,
+      "leaf": "v1-n429.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n429.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XVII.",
+        "raw": "{\n  \"head\": \"ON THE THEOLOGY BOOK V.\",\n  \"heading\": \"CHAPTER XVII.\",\n  \"page\": \"354\"\n}",
+        "read_from": "v1-n427.jpg"
+      }
+    },
+    {
+      "n": 121,
+      "book": 5,
+      "chapter": 18,
+      "label": "Book V, Chapter XVIII",
+      "anchor": "s120",
+      "line": 21647,
+      "flat": 15172,
+      "text": "visible to the demiurgus of the universe. For there the most splendid of",
+      "page": 357,
+      "pageRead": 357,
+      "leaf": "v1-n432.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n432.jpg",
+        "head": "CHAP. XVIII. OF PLATO.",
+        "heading": "CHAPTER XVIII.",
+        "raw": "{\"head\":\"CHAP. XVIII. OF PLATO.\",\"heading\":\"CHAPTER XVIII.\",\"page\":\"357\"}",
+        "read_from": "v1-n430.jpg"
+      }
+    },
+    {
+      "n": 122,
+      "book": 5,
+      "chapter": 19,
+      "label": "Book V, Chapter XIX",
+      "anchor": "s121",
+      "line": 21909,
+      "flat": 15362,
+      "text": "Concerning the words, therefore, in the Timaeus, which the demi¬",
+      "page": 362,
+      "pageRead": 362,
+      "leaf": "v1-n437.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n437.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XIX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XIX.\",\"page\":\"362\"}",
+        "read_from": "v1-n435.jpg"
+      }
+    },
+    {
+      "n": 123,
+      "book": 5,
+      "chapter": 20,
+      "label": "Book V, Chapter XX",
+      "anchor": "s122",
+      "line": 21997,
+      "flat": 15421,
+      "text": "After the demiurgic words therefore, again returning to the demiurgic",
+      "page": 364,
+      "pageRead": 364,
+      "leaf": "v1-n439.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n439.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XX.\",\"page\":\"364\"}",
+        "read_from": "v1-n437.jpg"
+      }
+    },
+    {
+      "n": 124,
+      "book": 5,
+      "chapter": 21,
+      "label": "Book V, Chapter XXI",
+      "anchor": "s123",
+      "line": 22141,
+      "flat": 15523,
+      "text": "is difficult to discover him, and that when discovered, it is impossible to",
+      "page": 367,
+      "pageRead": 367,
+      "leaf": "v1-n442.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n442.jpg",
+        "head": "CHAP. XXI. OF PLATO.",
+        "heading": "CHAPTER XXI",
+        "raw": "{\"head\":\"CHAP. XXI. OF PLATO.\",\"heading\":\"CHAPTER XXI\",\"page\":\"367\"}",
+        "read_from": "v1-n440.jpg"
+      }
+    },
+    {
+      "n": 125,
+      "book": 5,
+      "chapter": 22,
+      "label": "Book V, Chapter XXII",
+      "anchor": "s124",
+      "line": 22236,
+      "flat": 15591,
+      "text": "all the Gods into their most honourable habitation, from which the whole",
+      "page": 369,
+      "pageRead": 369,
+      "leaf": "v1-n444.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n444.jpg",
+        "head": "CHAP. XXII. OF PLATO.",
+        "heading": "CHAPTER XXII.",
+        "raw": "{\"head\":\"CHAP. XXII. OF PLATO.\",\"heading\":\"CHAPTER XXII.\",\"page\":\"369\"}",
+        "read_from": "v1-n442.jpg"
+      }
+    },
+    {
+      "n": 126,
+      "book": 5,
+      "chapter": 23,
+      "label": "Book V, Chapter XXIII",
+      "anchor": "s125",
+      "line": 22441,
+      "flat": 15737,
+      "text": "pertains of itself to the middle order of beings. The demiurgus there¬",
+      "page": 373,
+      "pageRead": 373,
+      "leaf": "v1-n448.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n448.jpg",
+        "head": "CHAP. XXIII. OF PLATO.",
+        "heading": "CHAPTER XXIII.",
+        "raw": "{\"head\":\"CHAP. XXIII. OF PLATO.\",\"heading\":\"CHAPTER XXIII.\",\"page\":\"373\"}",
+        "read_from": "v1-n446.jpg"
+      }
+    },
+    {
+      "n": 127,
+      "book": 5,
+      "chapter": 24,
+      "label": "Book V, Chapter XXIV",
+      "anchor": "s126",
+      "line": 22606,
+      "flat": 15853,
+      "text": "In the next place, we may conjoin with this the mythological concep¬",
+      "page": 376,
+      "pageRead": 376,
+      "leaf": "v1-n451.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n451.jpg",
+        "head": "ON THE THEOLOGY    BOOK V.",
+        "heading": "CHAPTER XXIV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK V.\",\"heading\":\"CHAPTER XXIV.\",\"page\":\"376\"}",
+        "read_from": "v1-n449.jpg"
+      }
+    },
+    {
+      "n": 128,
+      "book": 5,
+      "chapter": 25,
+      "label": "Book V, Chapter XXV",
+      "anchor": "s127",
+      "line": 22786,
+      "flat": 15979,
+      "text": "to the whole of this world, the one intellectual, and which elevates souk •",
+      "page": 380,
+      "pageRead": 379,
+      "leaf": "v1-n455.jpg",
+      "how": "opening-next-page",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n455.jpg",
+        "head": "CHAP. XXV. OF PLATO.",
+        "heading": "CHAPTER XXV.",
+        "raw": "{\"head\":\"CHAP. XXV. OF PLATO.\",\"heading\":\"CHAPTER XXV.\",\"page\":\"379\"}",
+        "read_from": "v1-n452.jpg"
+      }
+    },
+    {
+      "n": 129,
+      "book": 5,
+      "chapter": 26,
+      "label": "Book V, Chapter XXVI",
+      "anchor": "s128",
+      "line": 22989,
+      "flat": 16125,
+      "text": "It will remain, therefore, that we should make mention of what is",
+      "page": 384,
+      "pageRead": 384,
+      "leaf": "v1-n459.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n459.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XXVI.",
+        "raw": "{\n  \"head\": \"ON THE THEOLOGY BOOK V.\",\n  \"heading\": \"CHAPTER XXVI.\",\n  \"page\": \"384\"\n}",
+        "read_from": "v1-n457.jpg"
+      }
+    },
+    {
+      "n": 130,
+      "book": 5,
+      "chapter": 27,
+      "label": "Book V, Chapter XXVII",
+      "anchor": "s129",
+      "line": 23088,
+      "flat": 16191,
+      "text": "From these things, therefore, and from all that has been previously said,",
+      "page": 386,
+      "pageRead": 386,
+      "leaf": "v1-n461.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n461.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XXVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XXVII.\",\"page\":\"386\"}",
+        "read_from": "v1-n459.jpg"
+      }
+    },
+    {
+      "n": 131,
+      "book": 5,
+      "chapter": 28,
+      "label": "Book V, Chapter XXVIII",
+      "anchor": "s130",
+      "line": 23193,
+      "flat": 16269,
+      "text": "Ip however some one recollecting what is said in the beginning of the",
+      "page": 388,
+      "pageRead": 388,
+      "leaf": "v1-n463.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n463.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XXVIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XXVIII.\",\"page\":\"388\"}",
+        "read_from": "v1-n461.jpg"
+      }
+    },
+    {
+      "n": 132,
+      "book": 5,
+      "chapter": 29,
+      "label": "Book V, Chapter XXIX",
+      "anchor": "s131",
+      "line": 23328,
+      "flat": 16364,
+      "text": "If however, this be the case, all-perfect animal is much more ineffable",
+      "page": 391,
+      "pageRead": 391,
+      "leaf": "v1-n466.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n466.jpg",
+        "head": "CHAP. XXIX. OF PLATO.",
+        "heading": "CHAPTER XXIX.",
+        "raw": "{\"head\":\"CHAP. XXIX. OF PLATO.\",\"heading\":\"CHAPTER XXIX.\",\"page\":\"391\"}",
+        "read_from": "v1-n464.jpg"
+      }
+    },
+    {
+      "n": 133,
+      "book": 5,
+      "chapter": 30,
+      "label": "Book V, Chapter XXX",
+      "anchor": "s132",
+      "line": 23487,
+      "flat": 16471,
+      "text": "Of the problems pertaining to total fabrication, it now remains for me",
+      "page": 394,
+      "pageRead": 394,
+      "leaf": "v1-n469.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n469.jpg",
+        "head": "ON THEOLOGY BOOK V.",
+        "heading": "CHAPTER XXX.",
+        "raw": "{\"head\":\"ON THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XXX.\",\"page\":\"394\"}",
+        "read_from": "v1-n467.jpg"
+      }
+    },
+    {
+      "n": 134,
+      "book": 5,
+      "chapter": 31,
+      "label": "Book V, Chapter XXXI",
+      "anchor": "s133",
+      "line": 23728,
+      "flat": 16647,
+      "text": "the Crater is the fountain of souls, but is united to the demiurgic monad.",
+      "page": 399,
+      "pageRead": 399,
+      "leaf": "v1-n474.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v1-n474.jpg",
+        "head": "CHAP. XXXI. OF PLATO.",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. XXXI. OF PLATO.\",\"heading\":\"\",\"page\":\"399\"}",
+        "read_from": "v1-n472.jpg"
+      }
+    },
+    {
+      "n": 135,
+      "book": 5,
+      "chapter": 32,
+      "label": "Book V, Chapter XXXII",
+      "anchor": "s134",
+      "line": 23797,
+      "flat": 16699,
+      "text": "Again therefore, let us return to the things proposed, and teach in a",
+      "page": 400,
+      "pageRead": 400,
+      "leaf": "v1-n475.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n475.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XXXII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XXXII.\",\"page\":\"400\"}",
+        "read_from": "v1-n473.jpg"
+      }
+    },
+    {
+      "n": 136,
+      "book": 5,
+      "chapter": 33,
+      "label": "Book V, Chapter XXXIII",
+      "anchor": "s135",
+      "line": 23925,
+      "flat": 16790,
+      "text": "queen Rhea fluxions. For these divinities are rivers of the intelligible",
+      "page": 403,
+      "pageRead": 403,
+      "leaf": "v1-n478.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n478.jpg",
+        "head": "CHAP. XXXIII. OF PLATO. 403",
+        "heading": "CHAPTER XXXIII.",
+        "raw": "{\"head\":\"CHAP. XXXIII. OF PLATO. 403\",\"heading\":\"CHAPTER XXXIII.\",\"page\":\"403\"}",
+        "read_from": "v1-n476.jpg"
+      }
+    },
+    {
+      "n": 137,
+      "book": 5,
+      "chapter": 34,
+      "label": "Book V, Chapter XXXIV",
+      "anchor": "s136",
+      "line": 24020,
+      "flat": 16857,
+      "text": "[of bis polity] guardians of the laws, or [simply] guardians, because the",
+      "page": 405,
+      "pageRead": 405,
+      "leaf": "v1-n480.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n480.jpg",
+        "head": "CHAP. XXXIV. OF PLATO. 405",
+        "heading": "CHAPTER XXXIV.",
+        "raw": "{\"head\":\"CHAP. XXXIV. OF PLATO. 405\",\"heading\":\"CHAPTER XXXIV.\",\"page\":\"405\"}",
+        "read_from": "v1-n478.jpg"
+      }
+    },
+    {
+      "n": 138,
+      "book": 5,
+      "chapter": 35,
+      "label": "Book V, Chapter XXXV",
+      "anchor": "s137",
+      "line": 24183,
+      "flat": 16972,
+      "text": "Let us now then from this indefinite and common doctrine about",
+      "page": 408,
+      "pageRead": 408,
+      "leaf": "v1-n483.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n483.jpg",
+        "head": "ON THE THEOLOGY    BOOK V",
+        "heading": "CHAPTER XXXV.",
+        "raw": "{\n  \"head\": \"ON THE THEOLOGY    BOOK V\",\n  \"heading\": \"CHAPTER XXXV.\",\n  \"page\": \"408\"\n}",
+        "read_from": "v1-n481.jpg"
+      }
+    },
+    {
+      "n": 139,
+      "book": 5,
+      "chapter": 36,
+      "label": "Book V, Chapter XXXVI",
+      "anchor": "s138",
+      "line": 24311,
+      "flat": 17064,
+      "text": "harmonious motion, being filled with this power supernally from the",
+      "page": 411,
+      "pageRead": 411,
+      "leaf": "v1-n486.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n486.jpg",
+        "head": "CHAP. XXXVI. OF PLATO.",
+        "heading": "CHAPTER XXXVI.",
+        "raw": "{\"head\":\"CHAP. XXXVI. OF PLATO.\",\"heading\":\"CHAPTER XXXVI.\",\"page\":\"411\"}",
+        "read_from": "v1-n484.jpg"
+      }
+    },
+    {
+      "n": 140,
+      "book": 5,
+      "chapter": 37,
+      "label": "Book V, Chapter XXXVII",
+      "anchor": "s139",
+      "line": 24408,
+      "flat": 17131,
+      "text": "He likewise cuts off parts from thence, places them in that which is",
+      "page": 413,
+      "pageRead": 413,
+      "leaf": "v1-n488.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n488.jpg",
+        "head": "CHAP. XXXVII. OF PLATO.",
+        "heading": "CHAPTER XXXVII.",
+        "raw": "{\"head\":\"CHAP. XXXVII. OF PLATO.\",\"heading\":\"CHAPTER XXXVII.\",\"page\":\"413\"}",
+        "read_from": "v1-n486.jpg"
+      }
+    },
+    {
+      "n": 141,
+      "book": 5,
+      "chapter": 38,
+      "label": "Book V, Chapter XXXVIII",
+      "anchor": "s140",
+      "line": 24667,
+      "flat": 17315,
+      "text": "The second order however, after this, is that which comprehends- the'",
+      "page": 418,
+      "pageRead": 418,
+      "leaf": "v1-n493.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n493.jpg",
+        "head": "ON THE THEOLOGY BOOK V.",
+        "heading": "CHAPTER XXXVIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK V.\",\"heading\":\"CHAPTER XXXVIII.\",\"page\":\"418\"}",
+        "read_from": "v1-n491.jpg"
+      }
+    },
+    {
+      "n": 142,
+      "book": 5,
+      "chapter": 39,
+      "label": "Book V, Chapter XXXIX",
+      "anchor": "s141",
+      "line": 24807,
+      "flat": 17415,
+      "text": "is in itself. For the first monad of the paternal triad constitutes the",
+      "page": 421,
+      "pageRead": 421,
+      "leaf": "v1-n496.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v1-n496.jpg",
+        "head": "CHAP. XXXIX. OF PLATO.",
+        "heading": "CHAPTER XXXIX.",
+        "raw": "{\"head\":\"CHAP. XXXIX. OF PLATO.\",\"heading\":\"CHAPTER XXXIX.\",\"page\":\"421\"}",
+        "read_from": "v1-n494.jpg"
+      }
+    },
+    {
+      "n": 143,
+      "book": 6,
+      "chapter": 1,
+      "label": "Book VI, Chapter I",
+      "anchor": "s142",
+      "line": 25186,
+      "flat": 17641,
+      "text": "The hebdomatic aion (eternity) therefore, of the intellectual Gods has",
+      "page": 1,
+      "pageRead": null,
+      "leaf": "v2-n506.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n506.jpg",
+        "head": "PROCLUS,\nTHE PLATONIC SUCCESSOR,\nON\nThe Theology of Plato.",
+        "heading": "BOOK VI.\nCHAPTER I.",
+        "raw": "{\"head\":\"PROCLUS,\\nTHE PLATONIC SUCCESSOR,\\nON\\nThe Theology of Plato.\",\"heading\":\"BOOK VI.\\nCHAPTER I.\",\"page\":\"\"}",
+        "read_from": "v2-n1.jpg"
+      }
+    },
+    {
+      "n": 144,
+      "book": 6,
+      "chapter": 2,
+      "label": "Book VI, Chapter II",
+      "anchor": "s143",
+      "line": 25270,
+      "flat": 17698,
+      "text": "as Plato says, principle is unbegotten. For it is necessary that every",
+      "page": 3,
+      "pageRead": 3,
+      "leaf": "v2-n508.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n508.jpg",
+        "head": "CHAP. II. OF PLATO",
+        "heading": "CHAPTER II.",
+        "raw": "{\"head\":\"CHAP. II. OF PLATO\",\"heading\":\"CHAPTER II.\",\"page\":\"3\"}",
+        "read_from": "v2-n3.jpg"
+      }
+    },
+    {
+      "n": 145,
+      "book": 6,
+      "chapter": 3,
+      "label": "Book VI, Chapter III",
+      "anchor": "s144",
+      "line": 25531,
+      "flat": 17883,
+      "text": "Fob the present, however, let us survey the common peculiarity of",
+      "page": 8,
+      "pageRead": 8,
+      "leaf": "v2-n513.jpg",
+      "how": "opening-next-page",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v2-n513.jpg",
+        "head": "ON THE THEOLOGY BOOK VI.",
+        "heading": "CHAPTER III.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VI.\",\"heading\":\"CHAPTER III.\",\"page\":\"8\"}",
+        "read_from": "v2-n8.jpg"
+      }
+    },
+    {
+      "n": 146,
+      "book": 6,
+      "chapter": 4,
+      "label": "Book VI, Chapter IV",
+      "anchor": "s145",
+      "line": 25777,
+      "flat": 18059,
+      "text": "through the similitude of the causes preexisting in him, but extends and-",
+      "page": 13,
+      "pageRead": 13,
+      "leaf": "v2-n518.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n518.jpg",
+        "head": "CHAP. IV.                OF PLATO.                13",
+        "heading": "CHAPTER IV.",
+        "raw": "{\"head\":\"CHAP. IV.                OF PLATO.                13\",\"heading\":\"CHAPTER IV.\",\"page\":\"13\"}",
+        "read_from": "v2-n13.jpg"
+      }
+    },
+    {
+      "n": 147,
+      "book": 6,
+      "chapter": 5,
+      "label": "Book VI, Chapter V",
+      "anchor": "s146",
+      "line": 26003,
+      "flat": 18224,
+      "text": "In the next place, I wish prior to the theory of Parmenides to",
+      "page": 17,
+      "pageRead": 17,
+      "leaf": "v2-n522.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n522.jpg",
+        "head": "CHAP. V. OF PLATO.",
+        "heading": "CHAPTER V.",
+        "raw": "{\"head\":\"CHAP. V. OF PLATO.\",\"heading\":\"CHAPTER V.\",\"page\":\"17\"}",
+        "read_from": "v2-n17.jpg"
+      }
+    },
+    {
+      "n": 148,
+      "book": 6,
+      "chapter": 6,
+      "label": "Book VI, Chapter VI",
+      "anchor": "s147",
+      "line": 26085,
+      "flat": 18282,
+      "text": "Again, therefore, receiving the beginning of the theory of Plato from",
+      "page": 19,
+      "pageRead": 19,
+      "leaf": "v2-n524.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n524.jpg",
+        "head": "CHAP. VI. OF PLATO. 19",
+        "heading": "CHAPTER VI.",
+        "raw": "{\"head\":\"CHAP. VI. OF PLATO. 19\",\"heading\":\"CHAPTER VI.\",\"page\":\"19\"}",
+        "read_from": "v2-n19.jpg"
+      }
+    },
+    {
+      "n": 149,
+      "book": 6,
+      "chapter": 7,
+      "label": "Book VI, Chapter VII",
+      "anchor": "s148",
+      "line": 26251,
+      "flat": 18402,
+      "text": "this in the same order with one of these three fathers. For those thiqgs",
+      "page": 23,
+      "pageRead": 23,
+      "leaf": "v2-n528.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n528.jpg",
+        "head": "ON THE THEOLOGY BOOK VI.",
+        "heading": "CHAPTER VII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VI.\",\"heading\":\"CHAPTER VII.\",\"page\":\"23\"}",
+        "read_from": "v2-n22.jpg"
+      }
+    },
+    {
+      "n": 150,
+      "book": 6,
+      "chapter": 8,
+      "label": "Book VI, Chapter VIII",
+      "anchor": "s149",
+      "line": 26355,
+      "flat": 18478,
+      "text": "Let it therefore, from these things be manifest/ that the demiurgic",
+      "page": 25,
+      "pageRead": 25,
+      "leaf": "v2-n530.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n530.jpg",
+        "head": "CHAP. VIII. OF PLATO.",
+        "heading": "CHAPTER VIII.",
+        "raw": "{\"head\":\"CHAP. VIII. OF PLATO.\",\"heading\":\"CHAPTER VIII.\",\"page\":\"25\"}",
+        "read_from": "v2-n25.jpg"
+      }
+    },
+    {
+      "n": 151,
+      "book": 6,
+      "chapter": 9,
+      "label": "Book VI, Chapter IX",
+      "anchor": "s150",
+      "line": 26608,
+      "flat": 18657,
+      "text": "The Athenian guest therefore, does all but clearly say, that the",
+      "page": 30,
+      "pageRead": 30,
+      "leaf": "v2-n535.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n535.jpg",
+        "head": "ON THE THEOLOGY BOOK VI",
+        "heading": "CHAPTER IX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VI\",\"heading\":\"CHAPTER IX.\",\"page\":\"30\"}",
+        "read_from": "v2-n30.jpg"
+      }
+    },
+    {
+      "n": 152,
+      "book": 6,
+      "chapter": 10,
+      "label": "Book VI, Chapter X",
+      "anchor": "s151",
+      "line": 26765,
+      "flat": 18767,
+      "text": "total Jupiter receives from Saturn the one law which is to be the co-ad¬",
+      "page": 33,
+      "pageRead": 33,
+      "leaf": "v2-n538.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n538.jpg",
+        "head": "CHAP. X. OF PLATO.",
+        "heading": "CHAPTER X.",
+        "raw": "{\"head\":\"CHAP. X. OF PLATO.\",\"heading\":\"CHAPTER X.\",\"page\":\"33\"}",
+        "read_from": "v2-n33.jpg"
+      }
+    },
+    {
+      "n": 153,
+      "book": 6,
+      "chapter": 11,
+      "label": "Book VI, Chapter XI",
+      "anchor": "s152",
+      "line": 26869,
+      "flat": 18840,
+      "text": "which also are the allotments of happy souls, as Socrates says in the",
+      "page": 35,
+      "pageRead": 35,
+      "leaf": "v2-n540.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n540.jpg",
+        "head": "CHAP. XI. OF PLATO",
+        "heading": "CHAPTER XI.",
+        "raw": "{\"head\":\"CHAP. XI. OF PLATO\",\"heading\":\"CHAPTER XI.\",\"page\":\"35\"}",
+        "read_from": "v2-n35.jpg"
+      }
+    },
+    {
+      "n": 154,
+      "book": 6,
+      "chapter": 12,
+      "label": "Book VI, Chapter XII",
+      "anchor": "s153",
+      "line": 27229,
+      "flat": 19103,
+      "text": "In the third place, let us discuss the elevating, among the ruling Gods,",
+      "page": 42,
+      "pageRead": 42,
+      "leaf": "v2-n547.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n547.jpg",
+        "head": "ON THE THEOLOGY          BOOK VI.",
+        "heading": "CHAPTER XII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY          BOOK VI.\",\"heading\":\"CHAPTER XII.\",\"page\":\"42\"}",
+        "read_from": "v2-n42.jpg"
+      }
+    },
+    {
+      "n": 155,
+      "book": 6,
+      "chapter": 13,
+      "label": "Book VI, Chapter XIII",
+      "anchor": "s154",
+      "line": 27585,
+      "flat": 19361,
+      "text": "And thus much, following Plato, we have collected bj a reasoning",
+      "page": 49,
+      "pageRead": 49,
+      "leaf": "v2-n554.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n554.jpg",
+        "head": "CHAP. XIII. OF PLATO.",
+        "heading": "CHAPTER XIII.",
+        "raw": "{\n  \"head\": \"CHAP. XIII. OF PLATO.\",\n  \"heading\": \"CHAPTER XIII.\",\n  \"page\": \"49\"\n}",
+        "read_from": "v2-n49.jpg"
+      }
+    },
+    {
+      "n": 156,
+      "book": 6,
+      "chapter": 14,
+      "label": "Book VI, Chapter XIV",
+      "anchor": "s155",
+      "line": 27782,
+      "flat": 19499,
+      "text": "that which supplies other things with the participation of the similar' and",
+      "page": 53,
+      "pageRead": 53,
+      "leaf": "v2-n558.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v2-n558.jpg",
+        "head": "CHAP. XIV. OF PLATO.",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. XIV. OF PLATO.\",\"heading\":\"\",\"page\":\"53\"}",
+        "read_from": "v2-n51.jpg"
+      }
+    },
+    {
+      "n": 157,
+      "book": 6,
+      "chapter": 15,
+      "label": "Book VI, Chapter XV",
+      "anchor": "s156",
+      "line": 27866,
+      "flat": 19562,
+      "text": "Making, however, another beginning, let us discuss the orders that",
+      "page": 54,
+      "pageRead": 54,
+      "leaf": "v2-n559.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n559.jpg",
+        "head": "ON THE THEOLOGY        BOOK VI.",
+        "heading": "CHAPTER XV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY        BOOK VI.\",\"heading\":\"CHAPTER XV.\",\"page\":\"54\"}",
+        "read_from": "v2-n52.jpg"
+      }
+    },
+    {
+      "n": 158,
+      "book": 6,
+      "chapter": 16,
+      "label": "Book VI, Chapter XVI",
+      "anchor": "s157",
+      "line": 27983,
+      "flat": 19643,
+      "text": "evince that the theology pertaining to it' is suspended from the doctrine",
+      "page": 57,
+      "pageRead": 57,
+      "leaf": "v2-n562.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n562.jpg",
+        "head": "CHAP. XVI OF PLATO.",
+        "heading": "CHAPTER XVI.",
+        "raw": "{\"head\":\"CHAP. XVI OF PLATO.\",\"heading\":\"CHAPTER XVI.\",\"page\":\"57\"}",
+        "read_from": "v2-n55.jpg"
+      }
+    },
+    {
+      "n": 159,
+      "book": 6,
+      "chapter": 17,
+      "label": "Book VI, Chapter XVII",
+      "anchor": "s158",
+      "line": 28156,
+      "flat": 19763,
+      "text": "From the intellectual 1 Gods, therefore, (j.e. from the assimilative",
+      "page": 60,
+      "pageRead": 60,
+      "leaf": "v2-n565.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n565.jpg",
+        "head": "ON THE THEOLOGY BOOK VI.",
+        "heading": "CHAPTER XVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VI.\",\"heading\":\"CHAPTER XVII.\",\"page\":\"60\"}",
+        "read_from": "v2-n58.jpg"
+      }
+    },
+    {
+      "n": 160,
+      "book": 6,
+      "chapter": 18,
+      "label": "Book VI, Chapter XVIII",
+      "anchor": "s159",
+      "line": 28405,
+      "flat": 19940,
+      "text": "In the next place it follows that we should unfold the theory of Plato,",
+      "page": 65,
+      "pageRead": 65,
+      "leaf": "v2-n570.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n570.jpg",
+        "head": "CHAP. XVIII. OF PLATO.",
+        "heading": "CHAPTER XVIII.",
+        "raw": "{\"head\":\"CHAP. XVIII. OF PLATO.\",\"heading\":\"CHAPTER XVIII.\",\"page\":\"65\"}",
+        "read_from": "v2-n63.jpg"
+      }
+    },
+    {
+      "n": 161,
+      "book": 6,
+      "chapter": 19,
+      "label": "Book VI, Chapter XIX",
+      "anchor": "s160",
+      "line": 28498,
+      "flat": 20005,
+      "text": "and perfect their separate energy. They likewise comprehend - in them¬",
+      "page": 67,
+      "pageRead": 67,
+      "leaf": "v2-n572.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n572.jpg",
+        "head": "CHAP. XIX. OF PLATO.",
+        "heading": "CHAPTER XIX.",
+        "raw": "{\"head\":\"CHAP. XIX. OF PLATO.\",\"heading\":\"CHAPTER XIX.\",\"page\":\"67\"}",
+        "read_from": "v2-n65.jpg"
+      }
+    },
+    {
+      "n": 162,
+      "book": 6,
+      "chapter": 20,
+      "label": "Book VI, Chapter XX",
+      "anchor": "s161",
+      "line": 28761,
+      "flat": 20187,
+      "text": "In, the next place, let us show whence they derive the whole of this",
+      "page": 72,
+      "pageRead": 72,
+      "leaf": "v2-n577.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n577.jpg",
+        "head": "ON THE THEOLOGY    BOOK VI.",
+        "heading": "CHAPTER XX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK VI.\",\"heading\":\"CHAPTER XX.\",\"page\":\"72\"}",
+        "read_from": "v2-n70.jpg"
+      }
+    },
+    {
+      "n": 163,
+      "book": 6,
+      "chapter": 21,
+      "label": "Book VI, Chapter XXI",
+      "anchor": "s162",
+      "line": 28809,
+      "flat": 20220,
+      "text": "derived from the multitude of the assimilative Gods. But the division",
+      "page": 73,
+      "pageRead": 73,
+      "leaf": "v2-n578.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n578.jpg",
+        "head": "CHAP. XXI. OF PLATO.",
+        "heading": "CHAPTER XXI.",
+        "raw": "{\"head\":\"CHAP. XXI. OF PLATO.\",\"heading\":\"CHAPTER XXI.\",\"page\":\"73\"}",
+        "read_from": "v2-n71.jpg"
+      }
+    },
+    {
+      "n": 164,
+      "book": 6,
+      "chapter": 22,
+      "label": "Book VI, Chapter XXII",
+      "anchor": "s163",
+      "line": 28937,
+      "flat": 20315,
+      "text": "Thb&e, therefore, being arranged according to triads, as we have said,",
+      "page": 75,
+      "pageRead": 75,
+      "leaf": "v2-n580.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n580.jpg",
+        "head": "CHAP. XXII. OF PLATO. 75",
+        "heading": "CHAPTER XXII.",
+        "raw": "{\"head\":\"CHAP. XXII. OF PLATO. 75\",\"heading\":\"CHAPTER XXII.\",\"page\":\"75\"}",
+        "read_from": "v2-n73.jpg"
+      }
+    },
+    {
+      "n": 165,
+      "book": 6,
+      "chapter": 23,
+      "label": "Book VI, Chapter XXIII",
+      "anchor": "s164",
+      "line": 29057,
+      "flat": 20393,
+      "text": "I wish, however, to show from other writings of Plato what the^ecu-",
+      "page": 78,
+      "pageRead": 78,
+      "leaf": "v2-n583.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n583.jpg",
+        "head": "ON THE THEOLOGY BOOK VI.",
+        "heading": "CHAPTER XXIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VI.\",\"heading\":\"CHAPTER XXIII.\",\"page\":\"78\"}",
+        "read_from": "v2-n76.jpg"
+      }
+    },
+    {
+      "n": 166,
+      "book": 6,
+      "chapter": 24,
+      "label": "Book VI, Chapter XXIV",
+      "anchor": "s165",
+      "line": 29417,
+      "flat": 20656,
+      "text": "perfect the songs of the Sirens, and the very orderly and elegant motions",
+      "page": 85,
+      "pageRead": 85,
+      "leaf": "v2-n590.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n590.jpg",
+        "head": "CHAP. XXIV.                OF PLATO.                85",
+        "heading": "CHAPTER XXIV.",
+        "raw": "{\"head\":\"CHAP. XXIV.                OF PLATO.                85\",\"heading\":\"CHAPTER XXIV.\",\"page\":\"85\"}",
+        "read_from": "v2-n83.jpg"
+      }
+    },
+    {
+      "n": 167,
+      "book": 7,
+      "chapter": 1,
+      "label": "Book VII, Chapter I",
+      "anchor": "s166",
+      "line": 29658,
+      "flat": 20818,
+      "text": "The mundane Gods, or those divinities who give completion to the",
+      "page": 90,
+      "pageRead": 90,
+      "leaf": "v2-n595.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n595.jpg",
+        "head": "ON THE THEOLOGY    BOOK VII.",
+        "heading": "BOOK VII.\nCHAPTER I.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK VII.\",\"heading\":\"BOOK VII.\\nCHAPTER I.\",\"page\":\"90\"}",
+        "read_from": "v2-n88.jpg"
+      }
+    },
+    {
+      "n": 168,
+      "book": 7,
+      "chapter": 2,
+      "label": "Book VII, Chapter II",
+      "anchor": "s167",
+      "line": 29751,
+      "flat": 20883,
+      "text": "The division, however, of the mundane Gods is into the celestial and",
+      "page": 92,
+      "pageRead": 92,
+      "leaf": "v2-n597.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n597.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER II.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER II.\",\"page\":\"92\"}",
+        "read_from": "v2-n90.jpg"
+      }
+    },
+    {
+      "n": 169,
+      "book": 7,
+      "chapter": 3,
+      "label": "Book VII, Chapter III",
+      "anchor": "s168",
+      "line": 30022,
+      "flat": 21080,
+      "text": "In the next place, it is necessary to observe of the mundane Gods",
+      "page": 97,
+      "pageRead": 97,
+      "leaf": "v2-n602.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n602.jpg",
+        "head": "CHAP. III.                OF PLATO.                97",
+        "heading": "CHAPTER III.",
+        "raw": "{\"head\":\"CHAP. III.                OF PLATO.                97\",\"heading\":\"CHAPTER III.\",\"page\":\"97\"}",
+        "read_from": "v2-n95.jpg"
+      }
+    },
+    {
+      "n": 170,
+      "book": 7,
+      "chapter": 4,
+      "label": "Book VII, Chapter IV",
+      "anchor": "s169",
+      "line": 30220,
+      "flat": 21210,
+      "text": "If, however, the mundane as well as the supermundane Gods are in¬",
+      "page": 101,
+      "pageRead": 191,
+      "leaf": "v2-n606.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n606.jpg",
+        "head": "CHAP. IV. OF PLATO.",
+        "heading": "CHAPTER IV.",
+        "raw": "{\"head\":\"CHAP. IV. OF PLATO.\",\"heading\":\"CHAPTER IV.\",\"page\":\"191\"}",
+        "read_from": "v2-n99.jpg"
+      }
+    },
+    {
+      "n": 171,
+      "book": 7,
+      "chapter": 5,
+      "label": "Book VII, Chapter V",
+      "anchor": "s170",
+      "line": 30373,
+      "flat": 21320,
+      "text": "What has been above delivered concerning the mundane Gods is",
+      "page": 104,
+      "pageRead": 104,
+      "leaf": "v2-n609.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n609.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER V.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER V.\",\"page\":\"104\"}",
+        "read_from": "v2-n102.jpg"
+      }
+    },
+    {
+      "n": 172,
+      "book": 7,
+      "chapter": 6,
+      "label": "Book VII, Chapter VI",
+      "anchor": "s171",
+      "line": 30628,
+      "flat": 21506,
+      "text": "leaders of daemons, at the same time denominates all the attendants of",
+      "page": 109,
+      "pageRead": 109,
+      "leaf": "v2-n614.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n614.jpg",
+        "head": "CHAP. VI. OF PLATO. 109",
+        "heading": "CHAPTER VI.",
+        "raw": "{\"head\":\"CHAP. VI. OF PLATO. 109\",\"heading\":\"CHAPTER VI.\",\"page\":\"109\"}",
+        "read_from": "v2-n107.jpg"
+      }
+    },
+    {
+      "n": 173,
+      "book": 7,
+      "chapter": 7,
+      "label": "Book VII, Chapter VII",
+      "anchor": "s172",
+      "line": 30860,
+      "flat": 21677,
+      "text": "In the next place, the demiurgus says: 44 Every thing, therefore,",
+      "page": 113,
+      "pageRead": 113,
+      "leaf": "v2-n618.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n618.jpg",
+        "head": "CHAP. VII. OF PLATO. 113",
+        "heading": "CHAPTER VII.",
+        "raw": "{\"head\":\"CHAP. VII. OF PLATO. 113\",\"heading\":\"CHAPTER VII.\",\"page\":\"113\"}",
+        "read_from": "v2-n111.jpg"
+      }
+    },
+    {
+      "n": 174,
+      "book": 7,
+      "chapter": 8,
+      "label": "Book VII, Chapter VIII",
+      "anchor": "s173",
+      "line": 31132,
+      "flat": 21868,
+      "text": "Imt the next place let us attend to the meaning of the following part of",
+      "page": 119,
+      "pageRead": 119,
+      "leaf": "v2-n624.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n624.jpg",
+        "head": "CHAP. VIII. OF PLATO.",
+        "heading": "CHAPTER VIII.",
+        "raw": "{\"head\":\"CHAP. VIII. OF PLATO.\",\"heading\":\"CHAPTER VIII.\",\"page\":\"119\"}",
+        "read_from": "v2-n117.jpg"
+      }
+    },
+    {
+      "n": 175,
+      "book": 7,
+      "chapter": 9,
+      "label": "Book VII, Chapter IX",
+      "anchor": "s174",
+      "line": 31315,
+      "flat": 22001,
+      "text": "After this, the demiurgus sublimely addresses the mundane Gods in",
+      "page": 122,
+      "pageRead": 122,
+      "leaf": "v2-n627.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n627.jpg",
+        "head": "ON THE THEOLOGY",
+        "heading": "CHAPTER IX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY\",\"heading\":\"CHAPTER IX.\",\"page\":\"122\"}",
+        "read_from": "v2-n120.jpg"
+      }
+    },
+    {
+      "n": 176,
+      "book": 7,
+      "chapter": 10,
+      "label": "Book VII, Chapter X",
+      "anchor": "s175",
+      "line": 31542,
+      "flat": 22157,
+      "text": "After this, the demiurgus says, “ That mortal natures therefore may",
+      "page": 127,
+      "pageRead": 127,
+      "leaf": "v2-n632.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n632.jpg",
+        "head": "CHAP. X. OF PLATO.",
+        "heading": "CHAPTER X.",
+        "raw": "{\"head\":\"CHAP. X. OF PLATO.\",\"heading\":\"CHAPTER X.\",\"page\":\"127\"}",
+        "read_from": "v2-n125.jpg"
+      }
+    },
+    {
+      "n": 177,
+      "book": 7,
+      "chapter": 11,
+      "label": "Book VII, Chapter XI",
+      "anchor": "s176",
+      "line": 31710,
+      "flat": 22275,
+      "text": "And thus much for the developement of such particulars in the speech",
+      "page": 130,
+      "pageRead": 130,
+      "leaf": "v2-n635.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n635.jpg",
+        "head": "ON THEOLOGY BOOK VII",
+        "heading": "CHAPTER XI.",
+        "raw": "{\"head\":\"ON THEOLOGY BOOK VII\",\"heading\":\"CHAPTER XI.\",\"page\":\"130\"}",
+        "read_from": "v2-n128.jpg"
+      }
+    },
+    {
+      "n": 178,
+      "book": 7,
+      "chapter": 12,
+      "label": "Book VII, Chapter XII",
+      "anchor": "s177",
+      "line": 31949,
+      "flat": 22441,
+      "text": "sources of good, and the suppliers of intellect and life, but are not the",
+      "page": 135,
+      "pageRead": 135,
+      "leaf": "v2-n640.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v2-n640.jpg",
+        "head": "CHAP. XII. OF PLATO. 135",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. XII. OF PLATO. 135\",\"heading\":\"\",\"page\":\"135\"}",
+        "read_from": "v2-n133.jpg"
+      }
+    },
+    {
+      "n": 179,
+      "book": 7,
+      "chapter": 13,
+      "label": "Book VII, Chapter XIII",
+      "anchor": "s178",
+      "line": 32006,
+      "flat": 22481,
+      "text": "“ But in consequence of his abiding, says Plato, as soon as bis chil¬",
+      "page": 136,
+      "pageRead": 136,
+      "leaf": "v2-n641.jpg",
+      "how": "opening-next-page",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v2-n641.jpg",
+        "head": "ON THEOLOGY    BOOK VII.",
+        "heading": "CHAPTER XIII.",
+        "raw": "{\"head\":\"ON THEOLOGY    BOOK VII.\",\"heading\":\"CHAPTER XIII.\",\"page\":\"136\"}",
+        "read_from": "v2-n134.jpg"
+      }
+    },
+    {
+      "n": 180,
+      "book": 7,
+      "chapter": 14,
+      "label": "Book VII, Chapter XIV",
+      "anchor": "s179",
+      "line": 32155,
+      "flat": 22589,
+      "text": "Gods, therefore, are very property said to borrow parts which sure again",
+      "page": 139,
+      "pageRead": 139,
+      "leaf": "v2-n644.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n644.jpg",
+        "head": "CHAP. XIV. OF PLATO.",
+        "heading": "CHAPTER XIV.",
+        "raw": "{\"head\":\"CHAP. XIV. OF PLATO.\",\"heading\":\"CHAPTER XIV.\",\"page\":\"139\"}",
+        "read_from": "v2-n137.jpg"
+      }
+    },
+    {
+      "n": 181,
+      "book": 7,
+      "chapter": 15,
+      "label": "Book VII, Chapter XV",
+      "anchor": "s180",
+      "line": 32364,
+      "flat": 22728,
+      "text": "benevolently leads into light the upapparent productive principles of",
+      "page": 143,
+      "pageRead": 143,
+      "leaf": "v2-n648.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v2-n648.jpg",
+        "head": "CHAP. XV.                OF PLATO.                143",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. XV.                OF PLATO.                143\",\"heading\":\"\",\"page\":\"143\"}",
+        "read_from": "v2-n141.jpg"
+      }
+    },
+    {
+      "n": 182,
+      "book": 7,
+      "chapter": 16,
+      "label": "Book VII, Chapter XVI",
+      "anchor": "s181",
+      "line": 32580,
+      "flat": 22882,
+      "text": "participant. However, is that in which either primarily or especially",
+      "page": 147,
+      "pageRead": 147,
+      "leaf": "v2-n652.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n652.jpg",
+        "head": "CHAP. XVI. OF PLATO. 147",
+        "heading": "CHAPTER XVI.",
+        "raw": "{\"head\":\"CHAP. XVI. OF PLATO. 147\",\"heading\":\"CHAPTER XVI.\",\"page\":\"147\"}",
+        "read_from": "v2-n145.jpg"
+      }
+    },
+    {
+      "n": 183,
+      "book": 7,
+      "chapter": 17,
+      "label": "Book VII, Chapter XVII",
+      "anchor": "s182",
+      "line": 32785,
+      "flat": 23028,
+      "text": "three others, so> that thirty-six are produced in the whole. Hence, as ijt",
+      "page": 151,
+      "pageRead": 151,
+      "leaf": "v2-n656.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n656.jpg",
+        "head": "CHAP. XVII.    OF PLATO.",
+        "heading": "CHAPTER XVII.",
+        "raw": "{\"head\":\"CHAP. XVII.    OF PLATO.\",\"heading\":\"CHAPTER XVII.\",\"page\":\"151\"}",
+        "read_from": "v2-n149.jpg"
+      }
+    },
+    {
+      "n": 184,
+      "book": 7,
+      "chapter": 18,
+      "label": "Book VII, Chapter XVIII",
+      "anchor": "s183",
+      "line": 33104,
+      "flat": 23246,
+      "text": "As the Muses derive their subsistence from Apollo, and are perpetually",
+      "page": 157,
+      "pageRead": 157,
+      "leaf": "v2-n662.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n662.jpg",
+        "head": "CHAP. XVIII. OF PLATO.",
+        "heading": "CHAPTER XVIII.",
+        "raw": "{\"head\":\"CHAP. XVIII. OF PLATO.\",\"heading\":\"CHAPTER XVIII.\",\"page\":\"157\"}",
+        "read_from": "v2-n155.jpg"
+      }
+    },
+    {
+      "n": 185,
+      "book": 7,
+      "chapter": 19,
+      "label": "Book VII, Chapter XIX",
+      "anchor": "s184",
+      "line": 33201,
+      "flat": 23317,
+      "text": "conversant with the heavens, and with both divine and human discourse;",
+      "page": 159,
+      "pageRead": 159,
+      "leaf": "v2-n664.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n664.jpg",
+        "head": "CHAP. XIX. OF PLATO.",
+        "heading": "CHAPTER XIX.",
+        "raw": "{\"head\":\"CHAP. XIX. OF PLATO.\",\"heading\":\"CHAPTER XIX.\",\"page\":\"159\"}",
+        "read_from": "v2-n157.jpg"
+      }
+    },
+    {
+      "n": 186,
+      "book": 7,
+      "chapter": 20,
+      "label": "Book VII, Chapter XX",
+      "anchor": "s185",
+      "line": 33370,
+      "flat": 23442,
+      "text": "The celestial Gods therefore, according to Plato subsisting after this",
+      "page": 162,
+      "pageRead": 162,
+      "leaf": "v2-n667.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n667.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XX.\",\"page\":\"162\"}",
+        "read_from": "v2-n160.jpg"
+      }
+    },
+    {
+      "n": 187,
+      "book": 7,
+      "chapter": 21,
+      "label": "Book VII, Chapter XXI",
+      "anchor": "s186",
+      "line": 33475,
+      "flat": 23517,
+      "text": "And thus much concerning the planetary deities, who were called by",
+      "page": 164,
+      "pageRead": 164,
+      "leaf": "v2-n669.jpg",
+      "how": "opening-next-page",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v2-n669.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXI.\",\"page\":\"164\"}",
+        "read_from": "v2-n162.jpg"
+      }
+    },
+    {
+      "n": 188,
+      "book": 7,
+      "chapter": 22,
+      "label": "Book VII, Chapter XXII",
+      "anchor": "s187",
+      "line": 33773,
+      "flat": 23716,
+      "text": "Let us in the next place direct our attention to that great mundane",
+      "page": 170,
+      "pageRead": 170,
+      "leaf": "v2-n675.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n675.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXII.\",\"page\":\"170\"}",
+        "read_from": "v2-n168.jpg"
+      }
+    },
+    {
+      "n": 189,
+      "book": 7,
+      "chapter": 23,
+      "label": "Book VII, Chapter XXIII",
+      "anchor": "s188",
+      "line": 33994,
+      "flat": 23879,
+      "text": "It remains in the next place, that we should survey how the earth is",
+      "page": 174,
+      "pageRead": 174,
+      "leaf": "v2-n679.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n679.jpg",
+        "head": "ON THE THEOLOGY           BOOK VII.",
+        "heading": "CHAPTER XXIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY           BOOK VII.\",\"heading\":\"CHAPTER XXIII.\",\"page\":\"174\"}",
+        "read_from": "v2-n172.jpg"
+      }
+    },
+    {
+      "n": 190,
+      "book": 7,
+      "chapter": 24,
+      "label": "Book VII, Chapter XXIV",
+      "anchor": "s189",
+      "line": 34193,
+      "flat": 24021,
+      "text": "Having thus amply discussed the theory pertaining to the celestial",
+      "page": 178,
+      "pageRead": 178,
+      "leaf": "v2-n683.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n683.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXIV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXIV.\",\"page\":\"178\"}",
+        "read_from": "v2-n176.jpg"
+      }
+    },
+    {
+      "n": 191,
+      "book": 7,
+      "chapter": 25,
+      "label": "Book VII, Chapter XXV",
+      "anchor": "s190",
+      "line": 34390,
+      "flat": 24162,
+      "text": "Having therefore solved the problem pertaining to the essence, let",
+      "page": 182,
+      "pageRead": 182,
+      "leaf": "v2-n687.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n687.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXV.\",\"page\":\"182\"}",
+        "read_from": "v2-n180.jpg"
+      }
+    },
+    {
+      "n": 192,
+      "book": 7,
+      "chapter": 26,
+      "label": "Book VII, Chapter XXVI",
+      "anchor": "s191",
+      "line": 34581,
+      "flat": 24296,
+      "text": "our conceptions. But it is Pythagoric to follow the Orphic genealogies.",
+      "page": 186,
+      "pageRead": 186,
+      "leaf": "v2-n691.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n691.jpg",
+        "head": "ON THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXVI.",
+        "raw": "{\"head\":\"ON THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXVI.\",\"page\":\"186\"}",
+        "read_from": "v2-n184.jpg"
+      }
+    },
+    {
+      "n": 193,
+      "book": 7,
+      "chapter": 27,
+      "label": "Book VII, Chapter XXVII",
+      "anchor": "s192",
+      "line": 34787,
+      "flat": 24448,
+      "text": "It now remains to show what conceptions we ought to have of the",
+      "page": 190,
+      "pageRead": 190,
+      "leaf": "v2-n695.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n695.jpg",
+        "head": "ON THE THEOLOGY    BOOK VII.",
+        "heading": "CHAPTER XXVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY    BOOK VII.\",\"heading\":\"CHAPTER XXVII.\",\"page\":\"190\"}",
+        "read_from": "v2-n188.jpg"
+      }
+    },
+    {
+      "n": 194,
+      "book": 7,
+      "chapter": 28,
+      "label": "Book VII, Chapter XXVIII",
+      "anchor": "s193",
+      "line": 34937,
+      "flat": 24553,
+      "text": "Let us, therefore, now return to the words of Plato. In the first place",
+      "page": 193,
+      "pageRead": 193,
+      "leaf": "v2-n698.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n698.jpg",
+        "head": "CHAP. XXVIII. OF PLATO",
+        "heading": "CHAPTER XXVIII.",
+        "raw": "{\"head\":\"CHAP. XXVIII. OF PLATO\",\"heading\":\"CHAPTER XXVIII.\",\"page\":\"193\"}",
+        "read_from": "v2-n191.jpg"
+      }
+    },
+    {
+      "n": 195,
+      "book": 7,
+      "chapter": 29,
+      "label": "Book VII, Chapter XXIX",
+      "anchor": "s194",
+      "line": 35139,
+      "flat": 24698,
+      "text": "In the next place, directing our attention to Earth, we shall derive the",
+      "page": 197,
+      "pageRead": 197,
+      "leaf": "v2-n702.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n702.jpg",
+        "head": "CHAP. XXIX. OF PLATO",
+        "heading": "CHAPTER XXIX.",
+        "raw": "{\"head\":\"CHAP. XXIX. OF PLATO\",\"heading\":\"CHAPTER XXIX.\",\"page\":\"197\"}",
+        "read_from": "v2-n195.jpg"
+      }
+    },
+    {
+      "n": 196,
+      "book": 7,
+      "chapter": 30,
+      "label": "Book VII, Chapter XXX",
+      "anchor": "s195",
+      "line": 35422,
+      "flat": 24897,
+      "text": "Iw the next place Plato says, “ that from Ocean and Tethys, Phorcys,",
+      "page": 202,
+      "pageRead": 202,
+      "leaf": "v2-n707.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n707.jpg",
+        "head": "202 ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXX.",
+        "raw": "{\"head\":\"202 ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXX.\",\"page\":\"202\"}",
+        "read_from": "v2-n200.jpg"
+      }
+    },
+    {
+      "n": 197,
+      "book": 7,
+      "chapter": 31,
+      "label": "Book VII, Chapter XXXI",
+      "anchor": "s196",
+      "line": 35721,
+      "flat": 25108,
+      "text": "It now remains that we direct our attention to the other kings, who",
+      "page": 208,
+      "pageRead": 208,
+      "leaf": "v2-n713.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n713.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXXI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXXI.\",\"page\":\"208\"}",
+        "read_from": "v2-n206.jpg"
+      }
+    },
+    {
+      "n": 198,
+      "book": 7,
+      "chapter": 32,
+      "label": "Book VII, Chapter XXXII",
+      "anchor": "s196a",
+      "line": 35980,
+      "flat": 25296,
+      "text": "Jupiter indeed, adorns sensibles totally, according to an imitation of",
+      "page": 213,
+      "pageRead": 213,
+      "leaf": "v2-n718.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n718.jpg",
+        "head": "CHAP. XXXII. OF PLATO. 213",
+        "heading": "CHAPTER XXXII.",
+        "raw": "```json\n{\n  \"head\": \"CHAP. XXXII. OF PLATO. 213\",\n  \"heading\": \"CHAPTER XXXII.\",\n  \"page\": \"213\",\n  \"firstLine\": \"Jupiter indeed, adorns sensibles totally, according to an imitation of\",\n  \"lastLine\": \"proper, therefore, to divide the sublunary oppositely to the visible Gods,\"\n}\n```",
+        "read_from": "v2-n718.jpg",
+        "readers": [
+          {
+            "model": "google_gemini-2.5-flash",
+            "readings": [
+              {
+                "prompt": "blind leaf read: running head, any chapter/book heading printed in the page body, printed page number, first and last line of the main text body — no page or chapter named (/var/tmp/103-reads/read-leaf.mjs)",
+                "leaf": "v2-n718.jpg",
+                "head": "CHAP. XXXII. OF PLATO. 213",
+                "heading": "CHAPTER XXXII.",
+                "page": "213",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XXXII. OF PLATO. 213\",\n  \"heading\": \"CHAPTER XXXII.\",\n  \"page\": \"213\",\n  \"firstLine\": \"Jupiter indeed, adorns sensibles totally, according to an imitation of\",\n  \"lastLine\": \"proper, therefore, to divide the sublunary oppositely to the visible Gods,\"\n}\n```"
+              }
+            ]
+          },
+          {
+            "model": "anthropic_claude-haiku-4-5",
+            "readings": [
+              {
+                "prompt": "blind leaf read: running head, any chapter/book heading printed in the page body, printed page number, first and last line of the main text body — no page or chapter named (/var/tmp/103-reads/read-leaf.mjs)",
+                "leaf": "v2-n718.jpg",
+                "head": "CHAP. XXXII. OF PLATO. 213",
+                "heading": "CHAPTER XXXII.",
+                "page": "213",
+                "raw": "```json\n{\n  \"head\": \"CHAP. XXXII. OF PLATO. 213\",\n  \"heading\": \"CHAPTER XXXII.\",\n  \"page\": \"213\",\n  \"firstLine\": \"In the last place, let us consider why Plato denominates the sublunary deities, \\\"such as become apparent when they please.\\\" Shall we\",\n  \"lastLine\": \"proper, therefore, to divide the sublunary oppositely to the visible Gods,\"\n}\n```"
+              }
+            ]
+          }
+        ],
+        "note": "RECOVERED 2026-10-07 (version 1.0.3): the model had no division for Book VII chapter XXXII — its printed CHAPTER XXXII. heading (source.txt:35992) and the whole chapter sat inside the recorded chapter XXXI section. Both non-echoing readers read leaf v2-n718.jpg blind as printed page 213, a RECTO page whose head reads 'CHAP. XXXII. OF PLATO. 213', carrying the CHAPTER XXXII. heading in its body after the page's opening prose ('Jupiter indeed, adorns sensibles totally...' — the tail of chapter XXXI, transcription line 35980). The division opens on that line (the model's convention for a mid-page heading: the first prose line of the page the heading is printed on, so the heading falls inside the new section — division 45 opens the same way before CHAPTER IX.), so the recovered section carries the page's opening prose, the printed heading and the chapter's text. The anchor s196a follows the division it succeeds (s196) plus a letter; no existing anchor moves."
+      }
+    },
+    {
+      "n": 199,
+      "book": 7,
+      "chapter": 33,
+      "label": "Book VII, Chapter XXXIII",
+      "anchor": "s197",
+      "line": 36127,
+      "flat": 25399,
+      "text": "Having therefore discussed the theory pertaining to the celestial and",
+      "page": 216,
+      "pageRead": 216,
+      "leaf": "v2-n721.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n721.jpg",
+        "head": "ON THE THEOLOGY          BOOK VII.",
+        "heading": "CHAPTER XXXIII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY          BOOK VII.\",\"heading\":\"CHAPTER XXXIII.\",\"page\":\"216\"}",
+        "read_from": "v2-n214.jpg"
+      }
+    },
+    {
+      "n": 200,
+      "book": 7,
+      "chapter": 34,
+      "label": "Book VII, Chapter XXXIV",
+      "anchor": "s198",
+      "line": 36385,
+      "flat": 25583,
+      "text": "Ik the next place let us direct our attention to the Parmenides of Plato,",
+      "page": 221,
+      "pageRead": 221,
+      "leaf": "v2-n726.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n726.jpg",
+        "head": "CHAP. XXXIV. OF PLATO.",
+        "heading": "CHAPTER XXXIV.",
+        "raw": "{\"head\":\"CHAP. XXXIV. OF PLATO.\",\"heading\":\"CHAPTER XXXIV.\",\"page\":\"221\"}",
+        "read_from": "v2-n219.jpg"
+      }
+    },
+    {
+      "n": 201,
+      "book": 7,
+      "chapter": 35,
+      "label": "Book VII, Chapter XXXV",
+      "anchor": "s199",
+      "line": 36553,
+      "flat": 25708,
+      "text": "After the mundane Gods, the scientific order of discussion requires",
+      "page": 224,
+      "pageRead": 234,
+      "leaf": "v2-n729.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n729.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXXV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXXV.\",\"page\":\"234\"}",
+        "read_from": "v2-n222.jpg"
+      }
+    },
+    {
+      "n": 202,
+      "book": 7,
+      "chapter": 36,
+      "label": "Book VII, Chapter XXXVI",
+      "anchor": "s200",
+      "line": 36780,
+      "flat": 25873,
+      "text": "ordered, and manifold manner. For it is usual with fables to refer the",
+      "page": 229,
+      "pageRead": 229,
+      "leaf": "v2-n734.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n734.jpg",
+        "head": "CHAP. XXXVI.                OF PLATO.                229",
+        "heading": "CHAPTER XXXVI.",
+        "raw": "{\"head\":\"CHAP. XXXVI.                OF PLATO.                229\",\"heading\":\"CHAPTER XXXVI.\",\"page\":\"229\"}",
+        "read_from": "v2-n227.jpg"
+      }
+    },
+    {
+      "n": 203,
+      "book": 7,
+      "chapter": 37,
+      "label": "Book VII, Chapter XXXVII",
+      "anchor": "s201",
+      "line": 36954,
+      "flat": 25997,
+      "text": "In the next place, let us direct our attention to Plato’s theological",
+      "page": 232,
+      "pageRead": 232,
+      "leaf": "v2-n737.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n737.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XXXVII.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XXXVII.\",\"page\":\"232\"}",
+        "read_from": "v2-n230.jpg"
+      }
+    },
+    {
+      "n": 204,
+      "book": 7,
+      "chapter": 38,
+      "label": "Book VII, Chapter XXXVIII",
+      "anchor": "s202",
+      "line": 37279,
+      "flat": 26230,
+      "text": "It remains that we should consider in the next place, what Time, Day",
+      "page": 239,
+      "pageRead": 239,
+      "leaf": "v2-n744.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n744.jpg",
+        "head": "CHAP. XXXVIII. OF PLATO.",
+        "heading": "CHAPTER XXXVIII.",
+        "raw": "{\"head\":\"CHAP. XXXVIII. OF PLATO.\",\"heading\":\"CHAPTER XXXVIII.\",\"page\":\"239\"}",
+        "read_from": "v2-n237.jpg"
+      }
+    },
+    {
+      "n": 205,
+      "book": 7,
+      "chapter": 39,
+      "label": "Book VII, Chapter XXXIX",
+      "anchor": "s203",
+      "line": 37584,
+      "flat": 26454,
+      "text": "we do not introduce any thing new by thinking it proper to direct our",
+      "page": 245,
+      "pageRead": 245,
+      "leaf": "v2-n750.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n750.jpg",
+        "head": "CHAP. XXXIX.                 OF PLATO.",
+        "heading": "CHAPTER XXXIX.",
+        "raw": "{\"head\":\"CHAP. XXXIX.                 OF PLATO.\",\"heading\":\"CHAPTER XXXIX.\",\"page\":\"245\"}",
+        "read_from": "v2-n243.jpg"
+      }
+    },
+    {
+      "n": 206,
+      "book": 7,
+      "chapter": 40,
+      "label": "Book VII, Chapter XL",
+      "anchor": "s204",
+      "line": 37890,
+      "flat": 26677,
+      "text": "Having in the preceding chapters presented the reader from the most",
+      "page": 251,
+      "pageRead": 251,
+      "leaf": "v2-n756.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n756.jpg",
+        "head": "CHAP. XL. OF PLATO",
+        "heading": "CHAPTER XL.",
+        "raw": "{\"head\":\"CHAP. XL. OF PLATO\",\"heading\":\"CHAPTER XL.\",\"page\":\"251\"}",
+        "read_from": "v2-n249.jpg"
+      }
+    },
+    {
+      "n": 207,
+      "book": 7,
+      "chapter": 41,
+      "label": "Book VII, Chapter XLI",
+      "anchor": "s205",
+      "line": 38034,
+      "flat": 26783,
+      "text": "In another part, likewise, of the same admirable Commentary, Proclus",
+      "page": 254,
+      "pageRead": 254,
+      "leaf": "v2-n759.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n759.jpg",
+        "head": "ON THE THEOLOGY                    BOOK VII.",
+        "heading": "CHAPTER XLI.",
+        "raw": "{\"head\":\"ON THE THEOLOGY                    BOOK VII.\",\"heading\":\"CHAPTER XLI.\",\"page\":\"254\"}",
+        "read_from": "v2-n252.jpg"
+      }
+    },
+    {
+      "n": 208,
+      "book": 7,
+      "chapter": 42,
+      "label": "Book VII, Chapter XLII",
+      "anchor": "s206",
+      "line": 38183,
+      "flat": 26891,
+      "text": "nature is conjoined with that concerning Love, and is allied to it. For",
+      "page": 257,
+      "pageRead": 257,
+      "leaf": "v2-n762.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n762.jpg",
+        "head": "CHAP. XLII.          OF PLATO.          257",
+        "heading": "CHAPTER XLII.",
+        "raw": "{\"head\":\"CHAP. XLII.          OF PLATO.          257\",\"heading\":\"CHAPTER XLII.\",\"page\":\"257\"}",
+        "read_from": "v2-n255.jpg"
+      }
+    },
+    {
+      "n": 209,
+      "book": 7,
+      "chapter": 43,
+      "label": "Book VII, Chapter XLIII",
+      "anchor": "s207",
+      "line": 38360,
+      "flat": 27020,
+      "text": "In the next place, let us speak concerning the daemons, who are",
+      "page": 260,
+      "pageRead": 260,
+      "leaf": "v2-n765.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n765.jpg",
+        "head": "ON THE THEOLOGY          BOOK VII.",
+        "heading": "CHAPTER XLIII.",
+        "raw": "{\n  \"head\": \"ON THE THEOLOGY          BOOK VII.\",\n  \"heading\": \"CHAPTER XLIII.\",\n  \"page\": \"260\"\n}",
+        "read_from": "v2-n258.jpg"
+      }
+    },
+    {
+      "n": 210,
+      "book": 7,
+      "chapter": 44,
+      "label": "Book VII, Chapter XLIV",
+      "anchor": "s208",
+      "line": 38497,
+      "flat": 27110,
+      "text": "of the animal ; but we investigate the daemon of man, and not of the",
+      "page": 263,
+      "pageRead": 263,
+      "leaf": "v2-n768.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n768.jpg",
+        "head": "CHAP. XLIV. OF PLATO.",
+        "heading": "CHAPTER XLIV.",
+        "raw": "{\"head\":\"CHAP. XLIV. OF PLATO.\",\"heading\":\"CHAPTER XLIV.\",\"page\":\"263\"}",
+        "read_from": "v2-n263.jpg"
+      }
+    },
+    {
+      "n": 211,
+      "book": 7,
+      "chapter": 45,
+      "label": "Book VII, Chapter XLV",
+      "anchor": "s209",
+      "line": 38746,
+      "flat": 27294,
+      "text": "From the MS. Scholia also of Prod us on the Cratylus, we derive the",
+      "page": 268,
+      "pageRead": 268,
+      "leaf": "v2-n773.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n773.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XLV.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XLV.\",\"page\":\"268\"}",
+        "read_from": "v2-n266.jpg"
+      }
+    },
+    {
+      "n": 212,
+      "book": 7,
+      "chapter": 46,
+      "label": "Book VII, Chapter XLVI",
+      "anchor": "s210",
+      "line": 38989,
+      "flat": 27470,
+      "text": "times depart from, may again be recalled to them. The third genus is",
+      "page": 273,
+      "pageRead": 273,
+      "leaf": "v2-n778.jpg",
+      "how": "opening",
+      "confidence": "medium",
+      "evidence": {
+        "leaf": "v2-n778.jpg",
+        "head": "CHAP. XLVI.        OF PLATO.",
+        "heading": "",
+        "raw": "{\"head\":\"CHAP. XLVI.        OF PLATO.\",\"heading\":\"\",\"page\":\"273\"}",
+        "read_from": "v2-n271.jpg"
+      }
+    },
+    {
+      "n": 213,
+      "book": 7,
+      "chapter": 47,
+      "label": "Book VII, Chapter XLVII",
+      "anchor": "s211",
+      "line": 39297,
+      "flat": 27698,
+      "text": "Apolloniacal spectre had connection with Perictione the mother of Plato,",
+      "page": 279,
+      "pageRead": 279,
+      "leaf": "v2-n784.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n784.jpg",
+        "head": "CHAP. XLVII. OF PLATO. 279",
+        "heading": "CHAPTER XLVII.",
+        "raw": "{\"head\":\"CHAP. XLVII. OF PLATO. 279\",\"heading\":\"CHAPTER XLVII.\",\"page\":\"279\"}",
+        "read_from": "v2-n277.jpg"
+      }
+    },
+    {
+      "n": 214,
+      "book": 7,
+      "chapter": 48,
+      "label": "Book VII, Chapter XLVIII",
+      "anchor": "s212",
+      "line": 39450,
+      "flat": 27807,
+      "text": "fatting into a rare partial subsistence, are by no means comprehensive of",
+      "page": 282,
+      "pageRead": 282,
+      "leaf": "v2-n787.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n787.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XLVIII.",
+        "raw": "{\"head\": \"ON THE THEOLOGY BOOK VII.\", \"heading\": \"CHAPTER XLVIII.\", \"page\": \"282\"}",
+        "read_from": "v2-n280.jpg"
+      }
+    },
+    {
+      "n": 215,
+      "book": 7,
+      "chapter": 49,
+      "label": "Book VII, Chapter XLIX",
+      "anchor": "s213",
+      "line": 39686,
+      "flat": 27978,
+      "text": "In the next place, let us direct our attention to the words, “ But",
+      "page": 286,
+      "pageRead": 286,
+      "leaf": "v2-n791.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n791.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER XLIX.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER XLIX.\",\"page\":\"286\"}",
+        "read_from": "v2-n284.jpg"
+      }
+    },
+    {
+      "n": 216,
+      "book": 7,
+      "chapter": 50,
+      "label": "Book VII, Chapter L",
+      "anchor": "s214",
+      "line": 39985,
+      "flat": 28195,
+      "text": "In the next place Timseus, or rather Plato adds, “ And causing circle",
+      "page": 292,
+      "pageRead": 292,
+      "leaf": "v2-n797.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n797.jpg",
+        "head": "ON THE THEOLOGY BOOK VII.",
+        "heading": "CHAPTER L.",
+        "raw": "{\"head\":\"ON THE THEOLOGY BOOK VII.\",\"heading\":\"CHAPTER L.\",\"page\":\"292\"}",
+        "read_from": "v2-n290.jpg"
+      }
+    },
+    {
+      "n": 217,
+      "book": 7,
+      "chapter": 51,
+      "label": "Book VII, Chapter LI",
+      "anchor": "s215",
+      "line": 40210,
+      "flat": 28354,
+      "text": "The one however is no longer a God through any thing else, but is",
+      "page": 297,
+      "pageRead": 297,
+      "leaf": "v2-n802.jpg",
+      "how": "opening",
+      "confidence": "high",
+      "evidence": {
+        "leaf": "v2-n802.jpg",
+        "head": "CHAP. LI.                OF PLATO.                297",
+        "heading": "CHAPTER LI.",
+        "raw": "{\"head\":\"CHAP. LI.                OF PLATO.                297\",\"heading\":\"CHAPTER LI.\",\"page\":\"297\"}",
+        "read_from": "v2-n295.jpg"
+      }
+    }
+  ],
+  "notes": [
+    "book 1: a running head reads BOOK 1 on leaf 1, before the book's own heading at leaf 74 (\"BOOK I.\\nCHAPTER I.\") — the head is a mis-read or the heading is late; the heading stands.",
+    "book 2: a running head reads BOOK 2 on leaf 91, before the book's own heading at leaf 164 (\"BOOK II.\\nCHAPTER I.\") — the head is a mis-read or the heading is late; the heading stands.",
+    "book 3: a running head reads BOOK 3 on leaf 147, before the book's own heading at leaf 220 (\"BOOK III.\\nCHAPTER I.\") — the head is a mis-read or the heading is late; the heading stands.",
+    "book 4: a running head reads BOOK 4 on leaf 223, before the book's own heading at leaf 296 (\"BOOK IV.\\nCHAPTER I.\") — the head is a mis-read or the heading is late; the heading stands.",
+    "book 5: the span opens at leaf ordinal 310 (v1-n384.jpg) rather than 311, because that leaf is the first the readings give CHAPTER I of book 5 — the book's own head appears a page later (\"CHAP. I. OF PLATO. 311\"); the reset is the boundary",
+    "leaf v1-n82.jpg: the running head reads CHAP. II. (2) where chapter 3 is open in Book 1 — a head that goes backwards within a book is a mis-read numeral; it is NOT used to move the chapter. head \"CHAP. II. OF PLATO.\"",
+    "leaf v1-n106.jpg: the running head reads CHAP. I. (1) where chapter 10 is open in Book 1 — a head that goes backwards within a book is a mis-read numeral; it is NOT used to move the chapter. head \"CHAP. I. OF PLATO.\"",
+    "leaf v1-n242.jpg: the running head reads CHAP. IX. (9) where chapter 4 is due in Book 3 — 5 chapter(s) would be missing; the readings between them are reported, not filled in. head \"CHAP. IX. OF PLATO.\"",
+    "leaf v1-n242.jpg: the chapter heading reads CHAPTER IX. (9) where chapter 4 is due in Book 3; the chapters between are not read and are NOT filled in.",
+    "leaf v1-n310.jpg: the running head reads CHAP. VII. (7) where chapter 6 is due in Book 4 — 1 chapter(s) would be missing; the readings between them are reported, not filled in. head \"CHAP. VII. OF PLATO.\"",
+    "leaf v1-n310.jpg: the chapter heading reads CHAPTER VII. (7) where chapter 6 is due in Book 4; the chapters between are not read and are NOT filled in.",
+    "leaf v1-n312.jpg: the running head reads CHAP. IX. (9) where chapter 8 is due in Book 4 — 1 chapter(s) would be missing; the readings between them are reported, not filled in. head \"CHAP. IX. OF PLATO.\"",
+    "leaf v1-n492.jpg: the running head reads CHAP. XXXVII. (37) where chapter 38 is open in Book 5 — a head that goes backwards within a book is a mis-read numeral; it is NOT used to move the chapter. head \"CHAP. XXXVII. OF PLATO.\"",
+    "leaf v2-n87.jpg: the running head reads CHAP. XIV. (14) where chapter 24 is open in Book 6 — a head that goes backwards within a book is a mis-read numeral; it is NOT used to move the chapter. head \"CHAP. XIV. OF PLATO 89\"",
+    "leaf v2-n214.jpg: the chapter heading reads CHAPTER XXXIII. (33) where chapter 32 is due in Book 7; the chapters between are not read and are NOT filled in.",
+    "leaf v2-n291.jpg: the running head reads CHAP. I. (1) where chapter 50 is open in Book 7 — a head that goes backwards within a book is a mis-read numeral; it is NOT used to move the chapter. head \"CHAP. I. OF PLATO.\"",
+    "leaf v2-n293.jpg: the running head reads CHAP. I. (1) where chapter 50 is open in Book 7 — a head that goes backwards within a book is a mis-read numeral; it is NOT used to move the chapter. head \"CHAP. I. OF PLATO.\"",
+    "division 11 (Book 1 ch 10): the model read the printed page as 97 on v1-n100.jpg, where the item's measured offset (leaf 100 - 73) gives 27 — the offset stands, the reading is recorded.",
+    "division 36 (Book 2 ch 6): the model read the printed page as 130 on v1-n193.jpg, where the item's measured offset (leaf 193 - 73) gives 120 — the offset stands, the reading is recorded.",
+    "division 53 (Book 3 ch 16): the model read the printed page as 186 on v1-n260.jpg, where the item's measured offset (leaf 260 - 73) gives 187 — the offset stands, the reading is recorded.",
+    "division 58 (Book 3 ch 21): the model read the printed page as 300 on v1-n273.jpg, where the item's measured offset (leaf 273 - 73) gives 200 — the offset stands, the reading is recorded.",
+    "division 65 (Book 3 ch 28): the model read the printed page as 230 on v1-n293.jpg, where the item's measured offset (leaf 293 - 73) gives 220 — the offset stands, the reading is recorded.",
+    "division 97 (Book 4 ch 33): the model read the printed page as 296 on v1-n370.jpg, where the item's measured offset (leaf 370 - 73) gives 297 — the offset stands, the reading is recorded.",
+    "division 128 (Book 5 ch 25): the model read the printed page as 379 on v1-n453.jpg, where the item's measured offset (leaf 453 - 73) gives 380 — the offset stands, the reading is recorded.",
+    "RE-ANCHORED 2026-10-05 onto the transcription the edition now serves (sha256 748e58cef109…, 40344 lines): the book and chapter numerals, the labels and the printed page each division opens on are the recorded ones, read off the scans and cross-checked against the witness; only the line positions were re-derived, by fingerprinting the chapter's own opening line from the NEW copy's text layer (the item's _djvu.xml leaf lines) into the new transcript, each run required to occur exactly once. Leaf names move to the new copy's own numbering (printed page + that volume's measured offset, from the edition's scan.json): vol. I n76-n500, vol. II n506-n804. Each division's evidence keeps the vision reading (head, heading, raw) recorded for that printed page and names the leaf the reading was taken FROM under 'read_from' (the superseded copy's leaf of the SAME printed page, whose images are no longer stored); 'leaf' is the stored page image a reader can check it on.",
+    "PAGE CORRECTIONS (3): the recorded printed page was not used where it contradicted the division's own recorded leaf by more than that copy's two-page-leaf slack — division 142 (Book VI, Chapter I): recorded none, used 1 — its own recorded leaf v2-n1.jpg minus that copy's local leaf→page offset 0; division 169 (Book VII, Chapter IV): recorded 191, used 101 — its own recorded leaf v2-n99.jpg minus that copy's local leaf→page offset -2; division 199 (Book VII, Chapter XXXV): recorded 234, used 224 — its own recorded leaf v2-n222.jpg minus that copy's local leaf→page offset -2. Each division keeps the misread folio in 'pageRead': the model now records what was read and what the division's own leaf makes the page, separately.",
+    "book 3, 1.0.3: chapters IV-VIII are NOT missing from the print's text but carry no printed heading — the print runs CHAPTER III. (source.txt:12321) straight to CHAPTER IX. (source.txt:12540), verified blind on the leaf images of pages 165-169 by both non-echoing readers (pages 166-168 carry no chapter heading). Taylor's own contents footnotes (source.txt:2762-2766, 2820-2830) explain the numbering: 'These four chapters are comprehended in one in my translation, as they are not marked in the Greek; and I had not divided them, when this work was sent to the press, as I have done the chapters of the other books, in which there is a similar defect in the original' (on the CHAPTER IV entry), 'The fifth and sixth chapters are comprehended in the second chapter in my translation', 'The seventh and eighth chapters form the third in my translation', 'And the ninth and tenth are the fourth and fifth chapters in my translation', 'This is the sixth chapter in my translation'. The witness's 28 against the print's 23 closes: the five numbers the print skips (IV-VIII) are the five Greek chapters comprehended into the printed chapters II (III, IV, V, VI — 'these four chapters comprehended in one', the body carrying the contents entries III-VI under the printed CHAPTER II. heading) and III (VII, VIII), and the print reuses the number III for its third chapter: 28 - 6 + 1 = 23. The witnessAgreement FLAG stands — it records a real difference between the print and the Greek numbering — and is explained here rather than cleared.",
+    "book 4, 1.0.3: chapter VI recovered — a printed CHAPTER VI. heading at source.txt:15776 on page 236 (leaf v1-n311.jpg), read blind by both non-echoing readers, who agreed on the page, the heading and the chapter's first line. Inserted as division s69a (anchor of the division it follows plus a letter) opening at source.txt:15779; the printed heading stays at the end of the chapter V section, where the model already leaves page-top headings. The book's count is now the print's own 39 and agrees with the witness.",
+    "book 5, 1.0.3: chapter XL is wanting — Taylor's own contents footnote at source.txt:3462 reads 'It will be found also that chapter forty is wanting.' The chapter is absent from the translation (vol. I ends at Book V ch. XXXIX); there is no boundary and no text to recover. The book's count stays the print's own 39; the witnessAgreement FLAG stands and is explained in the witnessNote rather than cleared.",
+    "book 7, 1.0.3: chapter XXXII recovered — a printed CHAPTER XXXII. heading at source.txt:35992 on page 213 (leaf v2-n718.jpg), read blind by both non-echoing readers, who agreed on the page and the heading; the page opens with chapter XXXI's tail before the mid-page heading. Inserted as division s196a (anchor of the division it follows plus a letter) opening at source.txt:35980, the model's convention for a mid-page heading (the first prose line of the page the heading is printed on, as division 45 opens before CHAPTER IX.). The book's count is now the print's own 51 and agrees with the witness."
+  ]
+}

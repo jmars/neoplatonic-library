@@ -137,6 +137,7 @@ const PRE_FIX = new Map([
     {
       unscoped: 135,
       mustInclude: ['r11094', 'r10934'],
+      sentinel: 31,
       note: 'the served reading view reads supermundaneessential, supermundanemundane and about unsure God in this state',
     },
   ],
@@ -345,10 +346,20 @@ for (const row of rows()) {
 
   /* 4. THE SENTINEL ------------------------------------------------------ */
   const sent = raw.rules.filter((r) => SENTINELS.includes(r.after));
-  check(
-    sent.length === 0,
-    `no rule serves a sentinel word as a reading (${SENTINELS.join(', ')})${sent.length ? ` — ${sent.length} rule(s): ${sent.slice(0, 4).map((r, i) => `${r.id.replace(`${entry.slug}:`, '')} → ${JSON.stringify(r.after)}`).join(', ')}` : ''}`,
-  );
+  if (preFix) {
+    /* The pre-fix record carries the defect as a COUNT, and the assertion is that
+     * the instrument still sees it — the same asymmetry proof as the scope row. */
+    check(
+      sent.length === preFix.sentinel,
+      `THE INSTRUMENT SEES THE PRE-FIX SENTINEL: ${sent.length} rule(s) serve a bare sentinel word in this frozen state (pinned ${preFix.sentinel})` +
+        (sent.length !== preFix.sentinel ? ' — the count has moved' : ` — ${sent.slice(0, 3).map((r) => r.id.replace(`${entry.slug}:`, '')).join(', ')}, …`),
+    );
+  } else {
+    check(
+      sent.length === 0,
+      `no rule serves a sentinel word as a reading (${SENTINELS.join(', ')})${sent.length ? ` — ${sent.length} rule(s): ${sent.slice(0, 4).map((r) => `${r.id.replace(`${entry.slug}:`, '')} → ${JSON.stringify(r.after)}`).join(', ')}` : ''}`,
+    );
+  }
 
   /* 6. WHAT IS INERT IN THE READING VIEW -------------------------------- */
   const inert = [];

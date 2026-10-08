@@ -127,6 +127,63 @@ const WITHDRAWN = new Map([
    * misprint. Both were licensed by the old at-fault signals — a dictionary miss
    * and a rare form — which no longer reach that verdict at all. */
   ['proclus-theology-of-plato-taylor-1816@1.0.6', [8574, 8599, 8600, 8611, 8617, 8619, 8672, 8683, 8906, 8923, 8944, 8961, 8991, 8995, 8996, 9015, 9069, 9734, 10120, 10277, 10291, 10442, 11100, 11680, 11681, 11682, 11683, 11684, 11686]],
+  /* 1.0.7's LIST IS LONG BECAUSE TWO MECHANISMS SPENT IDS AT ONCE. (a) FIVE RULES
+   * ARE WITHDRAWN WITH NO REPLACEMENT. FOUR are the SAME shape: the human-proofread
+   * witness of the same print (Project Gutenberg 77393/78800, Distributed
+   * Proofreaders) reads OUR FIND VERBATIM at every site the rule fires at, i.e. the
+   * print carries the very form the rule changes away from. MEASURED 2026-10-08 (the
+   * reading-view-fold unit), located in the witness by the surrounding words:
+   *   r9550  `one or being` -> `one and being`: the witness reads "the one or being"
+   *          at BOTH sites ("...the same either with the one or being", "plato calls
+   *          the one or being infinite multitude") and `one and being` elsewhere;
+   *   r8942  `beings themselves` -> `being itself`: the witness reads `beings
+   *          themselves` at ALL THREE sites verbatim, and the rule's own rationale
+   *          says "print likely reads" — a guess with no witness at all;
+   *   r10812 `honored` -> `honoured`: the witness reads `honored` at both sites
+   *          ("much-honored intellect", "let it be honored by us in silence") —
+   *          the print's own period spelling, which the rule normalised;
+   *   r9707  `uncoarranged` -> `unco-arranged`: the witness reads `uncoarranged` at
+   *          both sites and `unco-arranged` NEVER (0 times), so the rule added a
+   *          hyphen the print does not set.
+   * They are withdrawn rather than scoped because there is no site to scope them to:
+   * the rule's target is wrong at every occurrence. THIS IS A CROSS-CLASS FINDING
+   * for the unit that owns the wrong-reading class (the 791 bare-rationale rules):
+   * the same witness test, run over that class, is what it needs. No replacement
+   * rule is added: the version serves the print's own text at those points.
+   * The FIFTH is r11094 (`super-` -> `supermundane`). The print sets `super-` at the
+   * foot of page 153 and `mundane` at the head of page 154 — its OWN page-break
+   * hyphenation, with a footnote and a Greek quotation standing between them — and no
+   * find/replace can join them (the parts are not adjacent in the reading view's fold
+   * domain). Scoping the find to that one site — this unit's first attempt, and the
+   * reviewer's recommendation — made the reading view read `the ruling supermundane`
+   * at the foot and `mundane order` at the next page's head: the word TWICE. Withdrawn
+   * instead, so all nine occurrences serve the print's own text.
+   * (b) THIRTY-SIX RULES HAVE A DIFFERENT READING AND ARE RE-ISSUED UNDER A NEW
+   * ID with the old one SPENT — never an edit under a spent id (RULE_FIELDS below
+   * includes `after`, so this is the only shape the model allows). FIVE of them are
+   * scoped to the one site they were written for by extending the find (r10934
+   * `exempts`, r9794 `replenishes`, r11472 `son!`, r11426 `the*`,
+   * r9926 `from, their`), and THIRTY-ONE are the rules that recorded "no reading
+   * recorded here" by replacing the text with the English word `unsure`, which the
+   * reader has no case for and served as prose (`about unsure God` destroyed the
+   * print's own `the … first`): they now carry this edition's DAMAGE CHARACTER, or
+   * their own correct reading (`the 1 first` -> `the first`, `attri-Proc. Vol. I,
+   * 2 E` -> `attri-`). TWO of those 31 (r8729, r8915) are withdrawn with no
+   * replacement instead: at the position a fresh id must sit (the end of the list)
+   * an earlier rule has already consumed their find, and both stand in RUNNING-HEAD
+   * blocks the reading view suppresses, so their effect is invisible in both views.
+   * (c) THE RELOCATIONS CASCADE, and this is the model's own consequence, MEASURED
+   * by iterating to a fixed point: moving a rule to the end of the list frees the
+   * text it used to consume, so the rules that consumed it instead now fire a
+   * different number of times — and a changed `fires` is a changed record. TWO rules
+   * were re-issued for that reason (r11022 `Proc .` 4 -> 5, r11059 `^ooQie` 3 -> 6,
+   * re-issued as r11892/r11895), and of the 37 fresh ids TWO are spent with no rule
+   * (at the end of the list an earlier rule consumes their find first, and both
+   * stand in running-head blocks the reading view suppresses, so their effect is
+   * invisible in both views). The fixed point was reached on the second pass with 0
+   * rewritten carried records and 0 dead rules. The 36 fresh ids are r11857-r11894,
+   * two of them spent. */
+  ['proclus-theology-of-plato-taylor-1816@1.0.7', [8566, 8567, 8570, 8574, 8575, 8593, 8599, 8600, 8611, 8617, 8619, 8654, 8672, 8683, 8685, 8687, 8720, 8729, 8730, 8736, 8741, 8756, 8785, 8837, 8852, 8906, 8915, 8923, 8942, 8944, 8961, 8967, 8991, 8995, 8996, 9002, 9015, 9069, 9550, 9707, 9734, 9794, 9908, 9926, 10003, 10004, 10067, 10120, 10198, 10277, 10291, 10442, 10571, 10738, 10812, 10838, 10934, 11022, 11059, 11094, 11100, 11387, 11426, 11472, 11507, 11563, 11680, 11681, 11682, 11683, 11684, 11686, 11866, 11874]],
 ]);
 
 let failures = 0;

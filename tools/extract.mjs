@@ -1305,6 +1305,26 @@ export function loadEdits(slug, version = null) {
       );
     }
     seen.set(find, id);
+    /* THE SCOPE LICENCE, and why the FILE has to carry it (tools/fold-probe.mjs).
+     * The reader applies every rule to every inline run it renders, so a find that
+     * occurs more than once fires more than once — MEASURED on 1.0.6: 135 rules did,
+     * and r11094 (`super-` → `supermundane`, written for one page-break join) rewrote
+     * seven other compounds into `supermundaneessential`-style text in the SERVED
+     * reading view while every gate stayed green. A rule may fire more than once only
+     * if its own record says so, with the reason: `scope: "all"` (the find is a form
+     * the print cannot set at ANY occurrence, so the same defect is at every one) or
+     * `scope: "flagged"` (the multiplicity is real and NOT resolved in this version —
+     * a finding, not a licence). `scope_why` carries the measurement either way. A
+     * typo here would silently drop the licence and is refused rather than ignored. */
+    if (r.scope != null && r.scope !== 'all' && r.scope !== 'flagged') {
+      throw new Error(
+        `library: ${slug}: ${id}: scope ${JSON.stringify(r.scope)} is not one of "all" (the find is not a form the print sets at any occurrence) ` +
+          `or "flagged" (the multiplicity is recorded and not resolved)`,
+      );
+    }
+    if (r.scope != null && (typeof r.scope_why !== 'string' || r.scope_why === '')) {
+      throw new Error(`library: ${slug}: ${id}: scope "${r.scope}" with no scope_why — a licence without its measurement is a licence nobody can review`);
+    }
     // A leave spends no bytes: it counts its occurrences and replaces nothing.
     // `join` (if present) names the block a rule's find starts in — the extractor
     // merges that block with the next before the rules run, so a find that spans
@@ -1363,8 +1383,25 @@ export function checkReadingPolicy(edits, slug, base, damageList) {
   // there, and a rule that removes it is not a silent deletion. The default is the
   // base set, so every existing text is unchanged.
   const dmg = damageList ? [...damageList] : [...base.damage];
+  /* A MARK IS NOT A READING, and the premise of this test does not hold for one.
+   * MEASURED 2026-10-08 (the 1.0.7 unit): 31 rules recorded "no reading is
+   * recorded here" by replacing the text with the English word `unsure`, which the
+   * reader has no case for and therefore served as prose (`about unsure God`
+   * destroyed the print's own `the … first`). The replacement for such a point is
+   * the edition's own DAMAGE CHARACTER, which the reading view marks and titles
+   * "damage in the transcription here — no reading is recorded for this word"
+   * (`Reader.elm` `damageSpans`) — and `unsure` is not a state a rule may be in.
+   * Two of those 31 finds carry that same character inside a word
+   * (`Digitized by t^OOQLe`), so a replacement that IS that character is
+   * "obtainable by deletion" and this test fires on it. The test's question is
+   * whether the rule asserts a WORD the edition does not have; a rule whose whole
+   * replacement is ONE damage character asserts a MARK, and there is no word in
+   * it to assert. The exemption is stated narrowly for that reason: one character,
+   * a member of the edition's own damage set. A rule that resolves a damaged word
+   * to an actual word (or to anything longer) is still caught. */
+  const isMark = (repl) => repl.length === 1 && dmg.includes(repl);
   for (const e of edits) {
-    if (e.action === 'leave') continue;
+    if (e.action === 'leave' || isMark(e.repl)) continue;
     for (let i = 1; i < e.find.length - 1; i++) {
       if (!dmg.includes(e.find[i])) continue;
       if (/[A-Za-z]/.test(e.find[i - 1]) && /[A-Za-z]/.test(e.find[i + 1])) {
