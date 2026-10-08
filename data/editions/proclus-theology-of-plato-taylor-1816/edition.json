@@ -60,8 +60,8 @@
     "editorial": "CC-BY-4.0",
     "statement": "The transcriptions are public-domain works. The editorial work — repairs, page models, apparatus, notes — is released under CC BY 4.0."
   },
-  "citation": "Proclus, On the Theology of Plato, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.12. https://neoplatonic-library.org/texts/proclus-theology-of-plato-taylor-1816/",
-  "doi": "",
+  "citation": "Proclus, On the Theology of Plato, trans. Thomas Taylor (London, 1816). The Neoplatonic Library, version 1.0.12. DOI: 10.5281/zenodo.23247808. https://neoplatonic-library.org/texts/proclus-theology-of-plato-taylor-1816/",
+  "doi": "10.5281/zenodo.23247808",
   "cat": [
     "proclus-theology-of-plato"
   ],

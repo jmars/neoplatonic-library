@@ -227,6 +227,28 @@ const MINTED = new Map([
    * FREEZES, deliberately: a missing row stays invisible only while the version is
    * current, and that has bitten this chain once (1.0.4). */
   ['proclus-theology-of-plato-taylor-1816@1.0.11', '10.5281/zenodo.23244971'],
+  /* MINTED 2026-10-08 as a NEW VERSION of the same record (23247808 under the concept
+   * record 23175743, versions.index 13). 1.0.12 serves the SAME TRANSCRIPTION, the SAME
+   * SECTION MODEL and the SAME ANCHORS as 1.0.11 (the pinned anchor manifest is
+   * byte-identical, so NOT ONE CITATION ANCHOR MOVES), and it carries TWO changes.
+   * (1) r11904 IS WITHDRAWN and its corrected reading appended as r11912: it served
+   * "οἱ παρὰ κλεινούς" with an ACUTE on the ultima, a mark NO INSTRUMENT of the record
+   * ever returned - read blind at the item's own 4x resolution the plate gives the
+   * GRAVE (gemini 3/4 independent draws, Qwen 2/2, the 955 review's two stored-leaf
+   * draws both; no draw anywhere returned the acute), the print's own convention graves
+   * a final acute before a following word, and Synesius Hymn 3's received text prints
+   * the grave. (2) r11831's EVIDENCE LEAF is re-cited n32 -> n31, the one rule the
+   * 1.0.11 leaf pass could not place, placed by SUBSTRING on the item's own per-leaf
+   * text layer; its reading does not change. THE FOUR VERSE LINES of printed page xvii
+   * remain UNBACKED and unserved: their four finds (source lines 500/501/503/505 =
+   * non-empty 323/324/326/328) have ZERO classed findings behind them - the pass read
+   * the line BELOW each line it was asked about - so a rule serving them could not
+   * carry the footing the front-matter gate requires; the readings are recorded in the
+   * version's meta note for the unit that extends the pass, and none is invented.
+   * THE ROW IS ADDED HERE AS THE VERSION FREEZES, deliberately: a missing row stays
+   * invisible only while the version is current, and that has bitten this chain once
+   * (1.0.4). */
+  ['proclus-theology-of-plato-taylor-1816@1.0.12', '10.5281/zenodo.23247808'],
   /* MINTED 2026-10-08: the OTHER TWO EDITIONS' FIRST VERSION BUMP, each as a NEW
    * VERSION of its own record — the fold gate's unscoped multi-fire rules
    * adjudicated on measurement and licensed `scope: "all"` at 1.0.1. NOT ONE BYTE
